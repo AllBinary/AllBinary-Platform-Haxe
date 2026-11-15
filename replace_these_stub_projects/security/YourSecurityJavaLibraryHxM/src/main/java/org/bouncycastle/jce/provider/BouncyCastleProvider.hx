@@ -1,7 +1,7 @@
 // Generated Code Do Not Modify
 package org.bouncycastle.jce.provider;
 
-//import java.security.Provider;
+import jre.security.Provider;
 
 class BouncyCastleProvider extends Provider {
     private static var info : String = "BouncyCastle Security Provider v1.41";

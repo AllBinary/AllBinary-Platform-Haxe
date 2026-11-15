@@ -57,7 +57,7 @@ class DownloadableItemValidation extends Validation {
             if (this.downloadableItem.getSize() == null) {
                 return false;
             } else {
-                var size : String = this.downloadableItem.getSize().toString();
+                var size : String = Std.string(this.downloadableItem.getSize());
                 if (size.length < 1 || size.length > AbSqlData.MAXNUM) {
                     return false;
                 }
@@ -65,7 +65,7 @@ class DownloadableItemValidation extends Validation {
             if (this.downloadableItem.getValidTime() == null) {
                 return false;
             } else {
-                var size : String = this.downloadableItem.getValidTime().toString();
+                var size : String = Std.string(this.downloadableItem.getValidTime());
                 if (size.length < 1 || size.length > AbSqlData.MAXNUM) {
                     return false;
                 }
@@ -73,7 +73,7 @@ class DownloadableItemValidation extends Validation {
             if (this.downloadableItem.getRetries() == null) {
                 return false;
             } else {
-                var size : String = this.downloadableItem.getRetries().toString();
+                var size : String = Std.string(this.downloadableItem.getRetries());
                 if (size.length < 1 || size.length > AbSqlData.MAXNUM) {
                     return false;
                 }
@@ -126,7 +126,7 @@ class DownloadableItemValidation extends Validation {
             if (this.downloadableItem.getSize() == null) {
                 stringBuffer.append("File Size is null");
             } else {
-                var size : String = this.downloadableItem.getSize().toString();
+                var size : String = Std.string(this.downloadableItem.getSize());
                 if (size.length < 1 || size.length > AbSqlData.MAXNUM) {
                     stringBuffer.append("File Size is invalid. Must be number < ");
                     stringBuffer.appendint(Std.int(AbSqlData.MAXNUM));
@@ -136,7 +136,7 @@ class DownloadableItemValidation extends Validation {
             if (this.downloadableItem.getValidTime() == null) {
                 stringBuffer.append("Valid Time is null");
             } else {
-                var size : String = this.downloadableItem.getValidTime().toString();
+                var size : String = Std.string(this.downloadableItem.getValidTime());
                 if (size.length < 1 || size.length > AbSqlData.MAXNUM) {
                     stringBuffer.append("Valid Time is invalid. Must be number < ");
                     stringBuffer.appendint(Std.int(AbSqlData.MAXNUM));
@@ -146,14 +146,14 @@ class DownloadableItemValidation extends Validation {
             if (this.downloadableItem.getRetries() == null) {
                 stringBuffer.append("Retries is null");
             } else {
-                var size : String = this.downloadableItem.getRetries().toString();
+                var size : String = Std.string(this.downloadableItem.getRetries());
                 if (size.length < 1 || size.length > AbSqlData.MAXNUM) {
                     stringBuffer.append("Retries is invalid. Must be number < ");
                     stringBuffer.appendint(Std.int(AbSqlData.MAXNUM));
                     stringBuffer.append(" and > 0 digits.<br/>");
                 }
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);

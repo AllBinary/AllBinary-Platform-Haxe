@@ -54,7 +54,7 @@ class Money {
     }
 
     public function add(moreMoney : Money) : Void {
-        this.add(moreMoney.toString());
+        this.add(Std.string(moreMoney));
     }
 
     public function add(usDollarStr : String) : Void {
@@ -78,14 +78,14 @@ class Money {
         if (Reflect.compare(currency, this.DEFAULT_CURRENCY) == 0) {
             var dollar : haxe.Int64 = haxe.Int64.ofInt(this.units) / 100;
             var cents : haxe.Int64 = haxe.Int64.ofInt(this.units) - (dollar * 100);
-            stringBuffer.append(dollar.toString());
+            stringBuffer.append(Std.string(dollar));
             stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);
             if (cents < 10) {
                 stringBuffer.append(CommonPhoneStrings.getInstance().ZERO);
             }
-            stringBuffer.append(cents.toString());
+            stringBuffer.append(Std.string(cents));
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     private function convertUsdToUnits(usDollarStr : String) : haxe.Int64 {

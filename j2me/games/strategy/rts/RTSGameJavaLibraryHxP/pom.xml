@@ -12,22 +12,22 @@
 
     <modules>
 
-        <module>../../../../../j2me/games/PreGameSelectionJavaLibraryHaxeM</module>
-        <module>../../../../../j2me/games/MapSelectionGameJavaLibraryHaxeM</module>
+        <module>../../../../../j2me/games/PreGameSelectionJavaLibraryHxM</module>
+        <module>../../../../../j2me/games/MapSelectionGameJavaLibraryHxM</module>
 
 <!--
-        <module>../../../../../j2me/input/TrackingEventJavaLibraryHaxeM</module>
+        <module>../../../../../j2me/input/TrackingEventJavaLibraryHxM</module>
 -->
 
-        <module>../RTSGameSoundsJavaLibraryHaxeM</module>
+        <module>../RTSGameSoundsJavaLibraryHxM</module>
 
-        <module>../RTSTouchJavaLibraryHaxeM</module>
+        <module>../RTSTouchJavaLibraryHxM</module>
 
-        <module>../RTSGameJavaLibraryHaxeM</module>
+        <module>../RTSGameJavaLibraryHxM</module>
         
-        <module>../AdvancedRTSGameSoundsJavaLibraryHaxeM</module>
+        <module>../AdvancedRTSGameSoundsJavaLibraryHxM</module>
         
-        <module>../AdvancedRTSGameJavaLibraryHaxeM</module>
+        <module>../AdvancedRTSGameJavaLibraryHxM</module>
 
     </modules>
 
@@ -38,6 +38,6 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
-
+    </dependencies>
 </project>
 

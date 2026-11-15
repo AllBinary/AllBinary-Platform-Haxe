@@ -15,8 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.image;
 
-//import java.io.InputStream;
-//import javax.microedition.lcdui.Image;
+import jre.io.InputStream;
+import javax.microedition.lcdui.Image;
+import org.allbinary.MIDPUtil;
 
 //ImageCacheBaseJavaLibrary - J2ME
 class ImageFactory {
@@ -32,18 +33,28 @@ class ImageFactory {
 
     // throws Exception
     public function createImage(caller : String, width : Int, height : Int) : Image {
-        return Image.createImage(width, height);
+        return MIDPUtil.getInstance().createImageWH(width, height);
+    }
+
+    public function createImageFromInputStream(...args : Dynamic) : Dynamic {
+        if (args.length == 2) {
+            return this.createImageFromInputStream_Any_InputStream(args[0], args[1]);
+        }
+        if (args.length == 1) {
+            return this.createImageFromInputStream_InputStream(args[0]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: createImageFromInputStream");
     }
 
     // throws Exception
-    public function createImageFromInputStream(key : Any, inputStream : InputStream) : Image {
-        final image : Image = Image.createImage(inputStream);
+    public function createImageFromInputStream_Any_InputStream(key : Any, inputStream : InputStream) : Image {
+        final image : Image = MIDPUtil.getInstance().createImageFromInputStream(inputStream);
         return image;
     }
 
     // throws Exception
-    public function createImageFromInputStream(inputStream : InputStream) : Image {
-        return Image.createImage(inputStream);
+    public function createImageFromInputStream_InputStream(inputStream : InputStream) : Image {
+        return MIDPUtil.getInstance().createImageFromInputStream(inputStream);
     }
 
     public function new() {

@@ -30,24 +30,32 @@
 
     <modules>
 
-        <!--
-        -->
-        <module>./j2me/AllBinaryBaseLibraryPOHaxeM</module>
-        <module>./j2me/AllBinaryJ2MELibraryP</module>
-        <module>./AllBinaryPersistenceLibraryP</module>
-
-        <module>./automation/InputAutomationToolsP</module>
-        <module>./graphics/GraphicsToolsP</module>
-        <module>./allbinary_src/FreeblisketJavaLibraryP</module>
-        <module>./j2me/games/platform/AllBinaryOnAllPlatformsJavaLibraryP</module>
+        <module>../working_thirdpartyhaxe/embedded/j2me/microemulator/2_0_4/microemu-cldcHx</module>
+        <module>../working_thirdpartyhaxe/embedded/j2me/microemulator/2_0_4/microemu-midpHx</module>
+        <module>../working_thirdpartyhaxe/embedded/j2me/microemulator/2_0_4/microemu-extensions/microemu-jsr-135Hx</module>
 
         <!--
-        <module>./j2me/media/graphics/animation/image/AllBinaryHTMLImageAnimationRotationJavaLibraryHaxeM</module>
-        <module>./j2me/media/graphics/animation/image/AllBinaryHTML2ImageAnimationRotationJavaLibraryHaxeM</module>
         -->
-        <module>./j2me/media/graphics/animation/image/AllBinaryJ2SEImageAnimationRotationJavaLibraryHaxeM</module>
-        <module>./j2me/games/Resources/sounds/release/GameSoundsJ2SEOggResourcesJavaLibraryHaxeM</module>
-        <module>./graphics/opengl/AllBinaryJOGLResourcesJavaLibraryHaxeM</module>
+        <module>./j2me/AllBinaryBaseLibraryPOHxM</module>
+        <module>./j2me/AllBinaryJ2MELibraryHxP</module>
+        <module>./AllBinaryPersistenceLibraryHxP</module>
+
+<!--
+        <module>./automation/InputAutomationToolsHxP</module>
+-->
+        <module>./graphics/GraphicsToolsHxP</module>
+        <module>./allbinary_src/FreeblisketJavaLibraryHxP</module>
+
+
+        <module>./j2me/games/platform/AllBinaryOnAllPlatformsJavaLibraryHxP</module>
+
+        <!--
+        <module>./j2me/media/graphics/animation/image/AllBinaryHTMLImageAnimationRotationJavaLibraryHxM</module>
+        <module>./j2me/media/graphics/animation/image/AllBinaryHTML2ImageAnimationRotationJavaLibraryHxM</module>
+        -->
+        <module>./j2me/media/graphics/animation/image/AllBinaryJ2SEImageAnimationRotationJavaLibraryHxM</module>
+        <module>./j2me/games/Resources/sounds/release/GameSoundsJ2SEOggResourcesJavaLibraryHxM</module>
+        <module>./graphics/opengl/AllBinaryJOGLResourcesJavaLibraryHxM</module>
 
     </modules>
 
@@ -58,7 +66,7 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
-
+    </dependencies>
 
 </project>
 

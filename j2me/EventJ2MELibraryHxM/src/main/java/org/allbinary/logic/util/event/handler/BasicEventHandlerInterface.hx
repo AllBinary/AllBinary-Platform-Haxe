@@ -15,11 +15,11 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.util.event.handler;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.util.BasicArrayList;
-import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsMethod;
 
 interface BasicEventHandlerInterface {
     function addListenerInterface(eventListenerInterface : EventListenerInterface) : Void;

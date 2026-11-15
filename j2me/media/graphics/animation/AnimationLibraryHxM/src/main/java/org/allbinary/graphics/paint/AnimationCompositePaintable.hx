@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.paint;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.Animation;
 
 class AnimationCompositePaintable extends InitUpdatePaintable {

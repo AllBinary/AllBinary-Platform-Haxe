@@ -169,7 +169,7 @@ class InventoryEntity extends AbSqlBean implements InventoryEntityInterface {
         stringBuffer.append(this.sqlStrings.PRIMARY_KEY);
         stringBuffer.append(basicItemData.ID);
         stringBuffer.append(this.sqlStrings.END);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function createTable() : String {
@@ -182,6 +182,10 @@ class InventoryEntity extends AbSqlBean implements InventoryEntityInterface {
 
     public function dropTable() : String {
         return super.dropTable();
+    }
+
+    public override function deleteWhere(key : String, value : String) : Void {
+        super.deleteWhere(key, value);
     }
 
 }

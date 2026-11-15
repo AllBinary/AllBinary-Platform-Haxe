@@ -29,58 +29,58 @@
     </properties>
 
     <modules>
-        <module>../CommonJavaLibraryHaxeM</module>
-        <module>../TempBaseJavaLibraryHaxeM</module>
+        <module>../CommonJavaLibraryHxM</module>
+        <module>../TempBaseJavaLibraryHxM</module>
         
-        <module>../../allbinary_src/LogHaxeM</module>
-        <module>../../allbinary_src/allbinary_src_designpatterns_srcHaxeM</module>
-        <module>../../allbinary_src/data/BaseDataJavaLibraryHaxeM</module>
-        <module>../../allbinary_src/cache/BaseCacheJavaLibraryHaxeM</module>
-        <module>../../allbinary_src/logic/BasePreloaderJavaLibraryHaxeM</module>
-        <module>../../allbinary_src/logic/BasePreloaderJ2MEJavaLibraryHaxeM</module>
+        <module>../../allbinary_src/LogHxM</module>
+        <module>../../allbinary_src/allbinary_src_designpatterns_srcHxM</module>
+        <module>../../allbinary_src/data/BaseDataJavaLibraryHxM</module>
+        <module>../../allbinary_src/cache/BaseCacheJavaLibraryHxM</module>
+        <module>../../allbinary_src/logic/BasePreloaderJavaLibraryHxM</module>
+        <module>../../allbinary_src/logic/BasePreloaderJ2MEJavaLibraryHxM</module>
 
-        <module>../ExceptionHTMLJavaLibraryHaxeM</module>
-        <module>../J2MEExceptionLibraryHaxeM</module>
-        <module>../../allbinary_src/J2SEExceptionLibraryHaxeM</module>
-        <module>../J2MEUtilJavaLibraryHaxeM</module>
-        <module>../J2MEColorJavaLibraryHaxeM</module>
-        <module>../EventJ2MELibraryHaxeM</module>
+        <module>../ExceptionHTMLJavaLibraryHxM</module>
+        <module>../J2MEExceptionLibraryHxM</module>
+        <module>../../allbinary_src/J2SEExceptionLibraryHxM</module>
+        <module>../J2MEUtilJavaLibraryHxM</module>
+        <module>../J2MEColorJavaLibraryHxM</module>
+        <module>../EventJ2MELibraryHxM</module>
 
-        <module>../../allbinary_src/LogNoPlatformJavaLibraryHaxeM</module>
-        <module>../../allbinary_src/LogJ2MEJavaLibraryHaxeM</module>
-        <module>../../allbinary_src/LogJ2SEJavaLibraryHaxeM</module>
-        <module>../../allbinary_src/LogAndroidJavaLibraryHaxeM</module>
-        <module>../logging/LoggingNoneHaxeM</module>
-        <module>../logging/LoggingJ2MEAllHaxeM</module>
-        <module>../logging/LoggingJ2MEExceptionHaxeM</module>
-        <module>../logging/LoggingAndroidAllHaxeM</module>
+        <module>../../allbinary_src/LogNoPlatformJavaLibraryHxM</module>
+        <module>../../allbinary_src/LogJ2MEJavaLibraryHxM</module>
+        <module>../../allbinary_src/LogJ2SEJavaLibraryHxM</module>
+        <module>../../allbinary_src/LogAndroidJavaLibraryHxM</module>
+        <module>../logging/LoggingNoneHxM</module>
+        <module>../logging/LoggingJ2MEAllHxM</module>
+        <module>../logging/LoggingJ2MEExceptionHxM</module>
+        <module>../logging/LoggingAndroidAllHxM</module>
         <!--
         //While it is a possible dependency option it really does not fit here
         //as such it is actually build in the final POM builds instead
-        <module>../logging/LoggingRemoteExceptionHaxeM</module>  
+        <module>../logging/LoggingRemoteExceptionHxM</module>  
         -->
         
-        <module>../J2MEWindowingJavaLibraryHaxeM</module>
+        <module>../J2MEWindowingJavaLibraryHxM</module>
         
-        <module>../lib/BaseMathLibraryHaxeM</module>
-        <module>../lib/BasicMathLibraryHaxeM</module>
+        <module>../lib/BaseMathLibraryHxM</module>
+        <module>../lib/BasicMathLibraryHxM</module>
         
-        <module>../../allbinary_src/ThreadLibraryHaxeM</module>
-        <module>../../allbinary_src/ThreadHTMLLibraryHaxeM</module>
-        <module>../../replace_these_stub_projects/allbinary_src/NoneOnlyJavaLibraryHaxeM</module>
-        <module>../../allbinary_src/ThreadJ2MELibraryHaxeM</module>
-        <module>../time/TimeJavaLibraryHaxeM</module>
+        <module>../../allbinary_src/ThreadLibraryHxM</module>
+        <module>../../allbinary_src/ThreadHTMLLibraryHxM</module>
+        <module>../../replace_these_stub_projects/allbinary_src/NoneOnlyJavaLibraryHxM</module>
+        <module>../../allbinary_src/ThreadJ2MELibraryHxM</module>
+        <module>../time/TimeJavaLibraryHxM</module>
 
-        <module>../statistics/ApplicationStatisticsJ2SELibraryHaxeM</module>
-        <module>../statistics/ApplicationStatisticsJ2MELibraryHaxeM</module>
-        <module>../statistics/ApplicationStatisticsJavaLibraryHaxeM</module>
+        <module>../statistics/ApplicationStatisticsJ2SELibraryHxM</module>
+        <module>../statistics/ApplicationStatisticsJ2MELibraryHxM</module>
+        <module>../statistics/ApplicationStatisticsJavaLibraryHxM</module>
 
-        <module>../../allbinary_src/logging/BasicLogConfigTypeJavaLibraryHaxeM</module>
-        <module>../../allbinary_src/logging/LogConfigTypeGameClientJavaLibraryHaxeM</module>
+        <module>../../allbinary_src/logging/BasicLogConfigTypeJavaLibraryHxM</module>
+        <module>../../allbinary_src/logging/LogConfigTypeGameClientJavaLibraryHxM</module>
 
-        <module>../../allbinary_src/hardware/HardwareLibraryPOHaxeM</module>
+        <module>../../allbinary_src/hardware/HardwareLibraryPOHxM</module>
 
-        <module>../lib/TrigBaseLibraryHaxeM</module>
+        <module>../lib/TrigBaseLibraryHxM</module>
 
     </modules>
 

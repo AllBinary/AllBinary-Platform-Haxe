@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.score;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
@@ -32,13 +32,14 @@ import org.allbinary.util.BasicArrayList;
 
 class HighScoresPaintable extends Paintable implements ColorChangeListener implements UpdateMyFontInterface {
     private final displayInfoSingleton : DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
-    private var myFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
+    private var myFontProcessor : MyFontProcessor;
     private var basicColor : BasicColor = BasicColorFactory.getInstance().WHITE;
     private var highScores : HighScores = NullHighScoresSingletonFactory.getInstance();
     private var anchor : Int = Anchor.TOP_LEFT;
     private var charHeight : Int = 0;
     public function new() {
         super();
+        this.myFontProcessor = new UpdateMyFontProcessor(this);
     }
 
     public override function updateMeasurement(graphics : Graphics) : Void {

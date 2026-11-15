@@ -53,7 +53,7 @@ class TitleView implements DomNodeInterface {
     // Java overloaded constructor: Haxe allows one constructor
     public function new(hashMap : HashMap) {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-            this.logUtil.putF("HashMap: " + hashMap.toString(), this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.putF("HashMap: " + Std.string(hashMap), this, this.commonStrings.CONSTRUCTOR);
         }
         this.getFormData(hashMap);
     }
@@ -79,7 +79,7 @@ class TitleView implements DomNodeInterface {
     public function toXmlNode(document : Document) : Node {
         var hashMap : HashMap = this.toHashMap();
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-            this.logUtil.putF("TitleView HashMap: " + hashMap.toString(), this, "toXmlNode()");
+            this.logUtil.putF("TitleView HashMap: " + Std.string(hashMap), this, "toXmlNode()");
         }
         return ModDomHelper.createNameValueNodes(document, TitleData.getInstance().NAME, hashMap);
     }

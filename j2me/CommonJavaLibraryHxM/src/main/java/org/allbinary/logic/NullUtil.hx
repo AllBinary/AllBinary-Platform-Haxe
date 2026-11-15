@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 
 //ActualPlatform
 class NullUtil {
@@ -24,8 +24,8 @@ class NullUtil {
         return NullUtil.instance;
     }
 
-    public final NULL_OBJECT : Any = new Any();
-    public final NULL_CLASS : Class<Dynamic> = Type.getClass(this.NULL_OBJECT);
+    public final NULL_OBJECT : Any = {};
+    public final NULL_CLASS : Class<Dynamic>;
     public final NULL_OBJECT_ARRAY : haxe.ds.Vector<Any> = haxe.ds.Vector.fromArrayCopy([for (index in 0...0) null]);
     public final NULL_CHAR_ARRAY : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy([for (index in 0...0) 0]);
     public final NULL_BYTE_ARRAY : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy([for (index in 0...0) 0]);
@@ -35,6 +35,7 @@ class NullUtil {
     public final NULL_INT_ARRAY_ARRAY_ARRAY : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>> = haxe.ds.Vector.fromArrayCopy([for (index in 0...0) haxe.ds.Vector.fromArrayCopy([for (index2 in 0...0) haxe.ds.Vector.fromArrayCopy([for (index3 in 0...0) 0])])]);
     public final NULL_FLOAT_ARRAY : haxe.ds.Vector<Float> = haxe.ds.Vector.fromArrayCopy([for (index in 0...0) 0.0]);
     public function new() {
+        this.NULL_CLASS = Type.getClass(this.NULL_OBJECT);
     }
 }
 

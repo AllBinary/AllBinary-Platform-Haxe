@@ -63,7 +63,7 @@ class Rectangle {
 
     public function toString() : String {
         final stringBuffer : StringMaker = new StringMaker();
-        stringBuffer.append(this.getPoint().toString());
+        stringBuffer.append(Std.string(this.getPoint()));
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(CommonLabels.getInstance().WIDTH_LABEL);
         stringBuffer.appendint(this.getWidth());
@@ -74,7 +74,7 @@ class Rectangle {
         stringBuffer.appendint(this.getMaxX());
         stringBuffer.append(" MaxY: ");
         stringBuffer.appendint(this.getMaxY());
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

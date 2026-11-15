@@ -25,7 +25,7 @@ class Memory {
         stringBuffer.appendlong(haxe.Int64.ofInt(Runtime.getRuntime().freeMemory()));
         stringBuffer.append(" Total: ");
         stringBuffer.appendlong(haxe.Int64.ofInt(Runtime.getRuntime().totalMemory()));
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function new() {

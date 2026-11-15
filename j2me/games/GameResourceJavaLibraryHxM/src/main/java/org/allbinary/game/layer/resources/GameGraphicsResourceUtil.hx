@@ -80,14 +80,14 @@ class GameGraphicsResourceUtil {
                 stringBuffer.append(this.QUARTER);
                 stringBuffer.append(this.SPRITE);
             } else {
-                throw new haxe.Exception("None/Unknown Sub Image Resource Type Specified");
+                throw new jre.lang.JavaException("None/Unknown Sub Image Resource Type Specified");
             }
         } else if (OpenGLFeatureUtil.getInstance().isAnyThreed()) {
             stringBuffer.append(CanvasStrings.getInstance().OBJ_MODEL);
         } else {
-            throw new haxe.Exception("None/Unknown Main Image Resource Type Specified");
+            throw new jre.lang.JavaException("None/Unknown Main Image Resource Type Specified");
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function getName() : String {

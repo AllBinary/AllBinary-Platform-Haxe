@@ -20,6 +20,7 @@ import org.allbinary.business.advertisement.AdConfiguration;
 import org.allbinary.input.event.VirtualKeyboardEvent;
 import org.allbinary.input.event.VirtualKeyboardEventHandler;
 import org.allbinary.input.event.VirtualKeyboardEventListenerInterface;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 class GameAdState extends GameAdStateBase implements VirtualKeyboardEventListenerInterface {
     public function new(adConfiguration : AdConfiguration) {
@@ -29,6 +30,10 @@ class GameAdState extends GameAdStateBase implements VirtualKeyboardEventListene
 
     // throws Exception
     public override function onVirtualKeyboardEvent(virtualKeyboardEvent : VirtualKeyboardEvent) : Void {
+    }
+
+    public override function onEvent(eventObject : AllBinaryEventObject) : Void {
+        super.onEvent(eventObject);
     }
 
 }

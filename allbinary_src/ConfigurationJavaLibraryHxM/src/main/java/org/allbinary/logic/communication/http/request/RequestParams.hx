@@ -74,7 +74,7 @@ class RequestParams {
                 stringBuffer.append(key);
                 stringBuffer.append(this.VALUE);
                 stringBuffer.append(values[0]);
-                this.logUtil.putF(stringBuffer.toString(), this, "toXmlNode(document)");
+                this.logUtil.putF(Std.string(stringBuffer), this, "toXmlNode(document)");
                 node.appendChild(ModDomHelper.createNameValueNodes(document, RequestData.PARAMETER, key, values[0]));
             }
             return node;
@@ -98,10 +98,10 @@ class RequestParams {
         }
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append("RequestParams: ");
-        stringBuffer.append(this.map.toString());
+        stringBuffer.append(Std.string(this.map));
         stringBuffer.append("\ntoHashMap: ");
-        stringBuffer.append(hashMap.toString());
-        this.logUtil.putF(stringBuffer.toString(), this, "toHashMap()");
+        stringBuffer.append(Std.string(hashMap));
+        this.logUtil.putF(Std.string(stringBuffer), this, "toHashMap()");
         return hashMap;
     }
 

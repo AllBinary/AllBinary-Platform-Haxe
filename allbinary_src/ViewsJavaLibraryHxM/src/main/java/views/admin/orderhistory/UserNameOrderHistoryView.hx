@@ -130,5 +130,10 @@ class UserNameOrderHistoryView extends HttpStoreComponentView implements Validat
         return "Unknown Error<br />";
     }
 
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
+    }
+
 }
 

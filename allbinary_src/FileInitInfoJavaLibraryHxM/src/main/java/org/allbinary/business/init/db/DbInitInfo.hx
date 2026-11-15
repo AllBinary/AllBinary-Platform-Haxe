@@ -92,7 +92,7 @@ class DbInitInfo extends DbConnectionInfo {
             }
         } catch (e : haxe.Exception) {
             if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
-                PreLogUtil.putOE("Failed Write: " + FILEABPATH.toString(), this, "write", e);
+                PreLogUtil.putOE("Failed Write: " + Std.string(FILEABPATH), this, "write", e);
             }
         }
     }
@@ -103,7 +103,7 @@ class DbInitInfo extends DbConnectionInfo {
         try {
             final file : AbFile = AbFile.createAbFileFromAbPath(FILEABPATH);
             if (file.isFile()) {
-                final iFile : AbFileInputStream = new AbFileInputStream(file);
+                final iFile : AbFileInputStream = AbFileInputStream.createFromAbFile(file);
                 final iData : AbDataInputStream = new AbDataInputStream(iFile);
                 try {
                     final decryptedJdbcDriver : String = DatabaseEncoder.decode(iData.readUTF());
@@ -129,12 +129,12 @@ class DbInitInfo extends DbConnectionInfo {
             } else {
                 this.hasRead = false;
                 if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER)) {
-                    PreLogUtil.put("Not a File - Failed Loading: " + FILEABPATH.toString(), this, this.commonStrings.LOAD);
+                    PreLogUtil.put("Not a File - Failed Loading: " + Std.string(FILEABPATH), this, this.commonStrings.LOAD);
                 }
             }
         } catch (e : haxe.Exception) {
             if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
-                PreLogUtil.putOE("Failed Loading: " + FILEABPATH.toString(), this, this.commonStrings.LOAD, e);
+                PreLogUtil.putOE("Failed Loading: " + Std.string(FILEABPATH), this, this.commonStrings.LOAD, e);
             }
         }
     }

@@ -104,14 +104,14 @@ class RawKeyEventHandler {
             try {
                 eventListenerInterface = (cast this.eventListenerInterfaceList.get(index) : RawKeyEventListener);
                 stringBuffer.append(RawKeyEventHandler.LISTENER_LABEL);
-                stringBuffer.append(eventListenerInterface.toString());
+                stringBuffer.append(Std.string(eventListenerInterface));
             } catch (e : haxe.Exception) {
                 final commonStrings : CommonStrings = CommonStrings.getInstance();
                 this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
             }
             index++;
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

@@ -29,12 +29,12 @@ class AbstractArrayListPool implements PoolInterface {
 
     // throws Exception
     public function clear() : Void {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception
     public function remove(key : Any) : CacheableInterface {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception

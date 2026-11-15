@@ -23,14 +23,26 @@ class TsUtil {
         return TsUtil.instance;
     }
 
+    public function longBitsToDouble(bits : haxe.Int64) : Float {
+        return jre.lang.Double.longBitsToDouble(bits);
+    }
+
+    public function intBitsToFloat(bits : Int) : Float {
+        return jre.lang.Float.intBitsToFloat(bits);
+    }
+
     public function hashCode(anyType : Any) : Int {
-        return anyType.hashCode();
+        return jre.lang.JavaObject.hashCode(anyType);
     }
 
     // throws InterruptedException
     public function waitFor(any : Any, timeoutMillis : haxe.Int64) : Void {
         final anyType : Any = (cast any : Any);
         anyType.wait(timeoutMillis);
+    }
+
+    public function compareTo(a : String, b : String) : Int {
+        return Reflect.compare(a, b);
     }
 
     public function new() {

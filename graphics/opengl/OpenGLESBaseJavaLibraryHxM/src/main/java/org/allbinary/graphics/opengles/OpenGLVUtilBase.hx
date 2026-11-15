@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.opengles;
 
-//import javax.microedition.khronos.opengles.GL10;
+import javax.microedition.khronos.opengles.GL10;
 
 class OpenGLVUtilBase {
     public function glTexEnvix(gl : GL10, target : Int, pname : Int, param : Int) : Void {

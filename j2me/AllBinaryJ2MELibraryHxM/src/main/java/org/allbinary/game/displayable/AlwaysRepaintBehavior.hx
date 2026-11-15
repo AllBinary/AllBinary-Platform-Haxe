@@ -15,8 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable;
 
-import org.allbinary.thread.ARunnable;
-//import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Canvas;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
@@ -37,19 +36,7 @@ class AlwaysRepaintBehavior extends RepaintBehavior {
         if (features.isFeature(openGLFeatureFactory.OPENGL)) {
             DisplayInfoSingleton.getInstance().process();
         } else {
-            final thread : Thread = new Thread(/* anonymous class body:
-                public function run() : Void {
-                    try {
-                        canvas.repaint();
-                        DisplayInfoSingleton.getInstance().process();
-                    } catch (e : haxe.Exception) {
-                        final commonStrings : CommonStrings = CommonStrings.getInstance();
-                        final logUtil : LogUtil = LogUtil.getInstance();
-                        logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-                    }
-                }
-
-*/ new ARunnable(), this.NAME);
+            final thread : Thread = new Thread(new RepaintRunnable(canvas), this.NAME);
             thread.start();
         }
     }

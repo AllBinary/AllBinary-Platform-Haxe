@@ -26,7 +26,7 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 
 class GameInitializationUtil {
     private static final instance : GameInitializationUtil = new GameInitializationUtil();
-    public final EVENT : GameInitializedEvent = new GameInitializedEvent(this);
+    public final EVENT : GameInitializedEvent;
     // throws Exception
     public function initDemo(abeClientInformation : AbeClientInformationInterface, canvas : MyCanvas, gameInitializationInterfaceFactoryInterface : BasicBuildGameInitializerFactory) : Void {
         final mainFeatureFactory : MainFeatureFactory = MainFeatureFactory.getInstance();
@@ -40,7 +40,7 @@ class GameInitializationUtil {
                 gameInitializationInterface.init(abeClientInformation, canvas.getCustomCommandListener(), resourceLoadingLevelFactory.LOAD_EARLY.getLevel());
                 this.EVENT.setResourceLoadingLevel(resourceLoadingLevelFactory.LOAD_EARLY);
             } else {
-                throw new haxe.Exception("No Loading Feature Available");
+                throw new jre.lang.JavaException("No Loading Feature Available");
             }
             GameInitializedEventHandler.getInstance().fireEvent(this.EVENT);
         }
@@ -63,6 +63,7 @@ class GameInitializationUtil {
     }
 
     public function new() {
+        this.EVENT = new GameInitializedEvent(this);
     }
 }
 

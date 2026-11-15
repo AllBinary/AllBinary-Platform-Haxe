@@ -27,9 +27,9 @@ class StdUtil {
         return StdUtil.instance;
     }
 
-    public final EMPTY_VECTOR : ABVector<Any> = this.createVector();
-    public final NULL_TABLE : ABHashtable<Any, Any> = this.createHashtable();
-    public final NULL_MAP : ABHashMap<Any, Any> = this.createHashMap();
+    public final EMPTY_VECTOR : ABVector<Any>;
+    public final NULL_TABLE : ABHashtable<Any, Any>;
+    public final NULL_MAP : ABHashMap<Any, Any>;
     public function createStack() : ABStack<Any> {
         return new ABStack<Any>();
     }
@@ -47,6 +47,9 @@ class StdUtil {
     }
 
     public function new() {
+        this.EMPTY_VECTOR = this.createVector();
+        this.NULL_TABLE = this.createHashtable();
+        this.NULL_MAP = this.createHashMap();
     }
 }
 

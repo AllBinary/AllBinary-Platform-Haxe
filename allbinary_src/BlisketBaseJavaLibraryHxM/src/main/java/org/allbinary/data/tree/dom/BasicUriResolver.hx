@@ -47,7 +47,7 @@ class BasicUriResolver implements URIResolver {
             stringBuffer.append(URLGLOBALS.getMainPath());
             stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
             stringBuffer.append(href);
-            final abPath : AbPath = (cast new AbFilePath(stringBuffer.toString()) : AbPath);
+            final abPath : AbPath = (cast new AbFilePath(Std.string(stringBuffer)) : AbPath);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XMLLOGGING)) {
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append(this.uriResolverStrings.ATTEMPT);
@@ -55,13 +55,13 @@ class BasicUriResolver implements URIResolver {
                 stringBuffer.append(this.uriResolverStrings.BASE);
                 stringBuffer.append(base);
                 stringBuffer.append(this.uriResolverStrings.NEW_PATH);
-                stringBuffer.append(abPath.toString());
+                stringBuffer.append(Std.string(abPath));
                 stringBuffer.append(this.uriResolverStrings.NOTE);
                 stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
                 stringBuffer.append(this.uriResolverStrings.URL_GLOBAL);
                 stringBuffer.append(this.uriResolverStrings.REQUIRED_EXTENSION);
                 stringBuffer.append(this.extension);
-                this.logUtil.putF(stringBuffer.toString(), this, this.uriResolverStrings.RESOLVE);
+                this.logUtil.putF(Std.string(stringBuffer), this, this.uriResolverStrings.RESOLVE);
             }
             return new StreamSource(new CryptFileReader(TransformInfoTemplateData.getInstance().UNCRYPTED_EXTENSION, TransformInfoTemplateData.getInstance().ENCRYPTED_EXTENSION).getInputStream(abPath));
         } catch (e : TransformerException) {
@@ -77,7 +77,7 @@ class BasicUriResolver implements URIResolver {
             stringBuffer.append(URLGLOBALS.getMainPath());
             stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
             stringBuffer.append(this.uriResolverStrings.IMPORT_URL);
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             return "BasicUriResolver - Does not work without webapp path should be changed";
         }

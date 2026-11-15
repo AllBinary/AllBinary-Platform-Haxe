@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.layer.hud.basic;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.graphics.hud.BasicHud;
 import org.allbinary.game.graphics.hud.BasicHudFactory;
 import org.allbinary.graphics.color.BasicColor;
@@ -43,7 +43,7 @@ class NumberStringHud extends BasicHud implements PaintableInterface {
         this.max = max;
         this.value = 0;
         if (direction == 0) {
-            throw new haxe.Exception(BasicHudFactory.getInstance().DIRECTION_EXCEPTION);
+            throw new jre.lang.JavaException(BasicHudFactory.getInstance().DIRECTION_EXCEPTION);
         }
     }
 

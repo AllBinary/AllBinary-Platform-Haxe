@@ -92,7 +92,7 @@ class GroupLayerManagerListener extends LayerManagerEventListener {
             if (id != index) {
                 var groupSize : Int = this.getGroupSizeById(index);
                 if (groupSize != 0) {
-                    this.logUtil.putF(new StringMaker().append("Group Size: ").appendint(groupSize).toString(), this, "areAllOtherGroupsEmpty");
+                    this.logUtil.putF(Std.string(new StringMaker().append("Group Size: ").appendint(groupSize)), this, "areAllOtherGroupsEmpty");
                     return false;
                 }
             }
@@ -163,7 +163,7 @@ class GroupLayerManagerListener extends LayerManagerEventListener {
             id = Std.int(groupInterfaceArray[index].getGroupId());
             groupList = (cast this.list.objectArray[id] : BasicArrayList);
             if (groupList == null) {
-                this.logUtil.putF(new StringMaker().append("id: ").appendint(id).toString(), this, "onCreateLayerManagerEvent");
+                this.logUtil.putF(Std.string(new StringMaker().append("id: ").appendint(id)), this, "onCreateLayerManagerEvent");
             }
             if (!groupList.contains(layerInterface)) {
                 groupList.add(layerInterface);
@@ -205,7 +205,7 @@ class GroupLayerManagerListener extends LayerManagerEventListener {
                 index--;
             }
         }
-        this.logUtil.putF(stringBuffer.toString(), this, "log");
+        this.logUtil.putF(Std.string(stringBuffer), this, "log");
     }
 
 }

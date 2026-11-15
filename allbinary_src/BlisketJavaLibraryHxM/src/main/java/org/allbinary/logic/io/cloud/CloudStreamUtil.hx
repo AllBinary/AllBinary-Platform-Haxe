@@ -28,7 +28,7 @@ class CloudStreamUtil {
 
     // throws Exception
     public function getFile(file : AbFile) : InputStream {
-        var inputStream : InputStream = new AbFileInputStream(file);
+        var inputStream : InputStream = AbFileInputStream.createFromAbFile(file);
         var available : Int = inputStream.available();
         if (available > 0) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
@@ -47,7 +47,7 @@ class CloudStreamUtil {
                 this.logUtil.putF("Local File Bytes: " + available, this, "processRequest()");
             }
         } else {
-            inputStream = new AbFileInputStream(file);
+            inputStream = AbFileInputStream.createFromAbFile(file);
             available = inputStream.available();
             if (available > 0) {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {

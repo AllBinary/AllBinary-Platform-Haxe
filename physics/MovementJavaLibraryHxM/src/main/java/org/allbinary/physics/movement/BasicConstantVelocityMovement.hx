@@ -53,7 +53,7 @@ class BasicConstantVelocityMovement extends Movement implements VelocityInterfac
     }
 
     public function toString() : String {
-        return this.velocityProperties.toString();
+        return Std.string(this.velocityProperties);
     }
 
     public override function stop() : Void {

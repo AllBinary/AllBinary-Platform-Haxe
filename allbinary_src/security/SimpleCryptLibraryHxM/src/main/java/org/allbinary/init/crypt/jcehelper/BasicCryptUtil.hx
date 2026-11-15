@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.init.crypt.jcehelper;
 
-//import java.io.ByteArrayInputStream;
-//import java.io.ByteArrayOutputStream;
-//import java.io.InputStream;
+import jre.io.ByteArrayInputStream;
+import jre.io.ByteArrayOutputStream;
+import jre.io.InputStream;
 import org.allbinary.TsUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 

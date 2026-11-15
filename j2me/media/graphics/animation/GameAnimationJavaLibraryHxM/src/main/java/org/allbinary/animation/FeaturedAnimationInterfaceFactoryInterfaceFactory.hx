@@ -57,7 +57,7 @@ class FeaturedAnimationInterfaceFactoryInterfaceFactory extends FeaturedResource
                 }
             }
         }
-        throw new haxe.Exception(new StringMaker().append("No rectangle available for current feature selection or Resource: ").append(resource).toString());
+        throw new jre.lang.JavaException(Std.string(new StringMaker().append("No rectangle available for current feature selection or Resource: ").append(resource)));
     }
 
     // throws Exception
@@ -101,7 +101,7 @@ class FeaturedAnimationInterfaceFactoryInterfaceFactory extends FeaturedResource
             stringBuffer.append(FOR_FACTORIES);
             final size2 : Int = resourceTypeAvailableList.size();
             for (index in 0...size2) {
-                stringBuffer.append(resourceTypeAvailableList.get(index).toString());
+                stringBuffer.append(Std.string(resourceTypeAvailableList.get(index)));
                 stringBuffer.append(CommonSeps.getInstance().COMMA_SEP);
             }
             stringBuffer.append(FOR_RESOURCE);
@@ -116,17 +116,17 @@ class FeaturedAnimationInterfaceFactoryInterfaceFactory extends FeaturedResource
                     stringBuffer.append(RESOURCES_LABEL);
                 }
             }
-            throw new haxe.Exception(stringBuffer.toString());
+            throw new jre.lang.JavaException(Std.string(stringBuffer));
         } else {
             final stringBuffer : StringMaker = new StringMaker();
             for (index in 0...size) {
                 featureInterface = (cast list.objectArray[index] : FeatureResourceAnimationInterfaceFactoryInterface);
-                stringBuffer.append(featureInterface.toString());
+                stringBuffer.append(Std.string(featureInterface));
                 stringBuffer.append(CommonSeps.getInstance().SPACE);
             }
-            final result : String = stringBuffer.toString();
+            final result : String = Std.string(stringBuffer);
             stringBuffer.delete(0, stringBuffer.length());
-            throw new haxe.Exception(stringBuffer.append("No feature resource type available for Resource: ").append(resource).append(" Resource Factories Available: ").append(result).toString());
+            throw new jre.lang.JavaException(Std.string(stringBuffer.append("No feature resource type available for Resource: ").append(resource).append(" Resource Factories Available: ").append(result)));
         }
     }
 

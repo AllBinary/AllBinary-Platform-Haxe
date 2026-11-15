@@ -84,7 +84,7 @@ class ValidationTransformTag extends TransformTag {
                 stringBuffer.append(this.getObjectFile());
                 stringBuffer.append("\nRequest URI: ");
                 stringBuffer.append(request.getRequestURI());
-                this.logUtil.putF(stringBuffer.toString(), this, tagStrings.DO_START_TAG);
+                this.logUtil.putF(Std.string(stringBuffer), this, tagStrings.DO_START_TAG);
             }
             this.setHelper();
             if (this.isValid()) {
@@ -95,7 +95,7 @@ class ValidationTransformTag extends TransformTag {
                     stringBuffer.append(this.getObjectFile());
                     stringBuffer.append("\nLogic includes body if true=");
                     stringBuffer.appendboolean(this.logic);
-                    this.logUtil.putF(stringBuffer.toString(), this, tagStrings.DO_START_TAG);
+                    this.logUtil.putF(Std.string(stringBuffer), this, tagStrings.DO_START_TAG);
                 }
                 if (this.logic) {
                     return EVAL_BODY_INCLUDE;
@@ -111,7 +111,7 @@ class ValidationTransformTag extends TransformTag {
                     stringBuffer.append("\nisValid()=false");
                     stringBuffer.append("\nLogic skips body if true=");
                     stringBuffer.appendboolean(this.logic);
-                    this.logUtil.putF(stringBuffer.toString(), this, tagStrings.DO_START_TAG);
+                    this.logUtil.putF(Std.string(stringBuffer), this, tagStrings.DO_START_TAG);
                 }
                 if (this.logic) {
                     return SKIP_BODY;

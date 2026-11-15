@@ -80,7 +80,12 @@ class EditValidationView extends InventoryItemView implements ValidationComponen
         if (InventoryEntityFactory.getInstance().getInventoryEntityInstance().getItem(this.id) == null) {
             stringBuffer.append("Item does not exist.<br />");
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
+    }
+
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
     }
 
 }

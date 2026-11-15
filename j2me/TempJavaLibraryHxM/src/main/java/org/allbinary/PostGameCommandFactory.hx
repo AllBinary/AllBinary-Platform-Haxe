@@ -15,12 +15,12 @@
 // Generated Code Do Not Modify
 package org.allbinary;
 
-//import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Canvas;
 
 class PostGameCommandFactory {
     private static final instance : PostGameCommandFactory = new PostGameCommandFactory();
     public static function getInstance() : PostGameCommandFactory {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function addCommands(canvas : Canvas) : Void {

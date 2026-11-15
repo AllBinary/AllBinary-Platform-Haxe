@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.java.exception;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 
 //ActualPlatform
 class ExceptionUtil {
@@ -27,7 +27,7 @@ class ExceptionUtil {
     public function new() {
     }
 
-    public static final PRETEND_EXCEPTION : haxe.Exception = new haxe.Exception("Not Really An Exception");
+    public static final PRETEND_EXCEPTION : haxe.Exception = new jre.lang.JavaException("Not Really An Exception");
     private final NONE : String = "No Stack Trace";
     public function getStackTrace(e : haxe.Exception) : String {
         trace(e.details());

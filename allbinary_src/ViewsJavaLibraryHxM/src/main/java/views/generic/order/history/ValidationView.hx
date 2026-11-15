@@ -40,5 +40,10 @@ class ValidationView extends OrderHistoryView implements ValidationComponentInte
         return MESSAGES.CONTACTADMIN;
     }
 
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
+    }
+
 }
 

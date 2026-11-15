@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.midlet;
 
-//import javax.microedition.midlet.MIDlet;
+import javax.microedition.midlet.MIDlet;
 import org.allbinary.AppletUtil;
 import org.allbinary.J2MEUtil;
 import org.allbinary.canvas.Processor;

@@ -46,7 +46,7 @@ class EmailEventHandlerUtil {
             stringBuffer.append("Returning UserEmailEventHandler for ");
             stringBuffer.appendint(userVector.size());
             stringBuffer.append(" users.");
-            this.logUtil.putF(stringBuffer.toString(), this, "getEventHandler");
+            this.logUtil.putF(Std.string(stringBuffer), this, "getEventHandler");
         }
         final userEmailEventHandler : UserEmailEventHandler = new UserEmailEventHandler();
         userEmailEventHandler.addListener(new LogUserEmailEventListenerModule());

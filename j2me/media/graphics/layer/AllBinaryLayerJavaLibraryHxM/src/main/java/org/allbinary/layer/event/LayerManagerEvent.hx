@@ -40,10 +40,10 @@ class LayerManagerEvent extends AllBinaryEventObject {
         var stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append("LayerManagerEvent: \n");
         stringBuffer.append("LayerInterface: ");
-        stringBuffer.append(this.getLayerInterface().toString());
+        stringBuffer.append(Std.string(this.getLayerInterface()));
         stringBuffer.append("\nCRUD: ");
         stringBuffer.append(this.crud);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

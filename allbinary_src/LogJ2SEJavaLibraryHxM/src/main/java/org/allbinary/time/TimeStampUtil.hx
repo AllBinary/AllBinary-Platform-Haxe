@@ -16,8 +16,8 @@
 package org.allbinary.time;
 
 //import java.text.SimpleDateFormat;
-//import java.util.Calendar;
-//import java.util.Date;
+import jre.util.Calendar;
+import jre.util.Date;
 
 //ActualPlatform
 class TimeStampUtil {

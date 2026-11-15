@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.media.audio;
 
-//import javax.microedition.media.Player;
+import javax.microedition.media.Player;
 
 interface SoundInterface {
     function getResource() : String;

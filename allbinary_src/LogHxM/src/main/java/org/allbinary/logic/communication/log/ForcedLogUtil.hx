@@ -21,7 +21,7 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 class ForcedLogUtil {
     public static function log(message : String, anyType : Any) : Void {
         try {
-            throw new haxe.Exception(message);
+            throw new jre.lang.JavaException(message);
         } catch (e : haxe.Exception) {
             PreLogUtil.putOE(CommonStrings.getInstance().EXCEPTION, anyType, "log", e);
         }

@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.combat.damage;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.layer.AllBinaryLayer;

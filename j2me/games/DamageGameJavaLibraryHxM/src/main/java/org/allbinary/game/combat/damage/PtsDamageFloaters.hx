@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.combat.damage;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.rand.MyRandomFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorArrayIndexer;

@@ -15,13 +15,13 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration.feature;
 
-//import javax.microedition.lcdui.ChoiceGroup;
-//import javax.microedition.lcdui.Item;
-//import javax.microedition.lcdui.NullImage;
+import javax.microedition.lcdui.ChoiceGroup;
+import javax.microedition.lcdui.Item;
+import javax.microedition.lcdui.NullImage;
+import org.allbinary.MIDPUtil;
 import org.allbinary.game.configuration.GameConfigurationGauge;
 import org.allbinary.game.configuration.GameConfigurationUtil;
 import org.allbinary.graphics.displayable.screen.CommandForm;
-import org.allbinary.logic.MEUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -36,7 +36,7 @@ class GameFeatureFormUtil {
     }
 
     public final logUtil : LogUtil = LogUtil.getInstance();
-    private final meUtil : MEUtil = MEUtil.getInstance();
+    private final meUtil : MIDPUtil = MIDPUtil.getInstance();
     public function getChoiceGroup(hashtable : ABHashtable<Any, Any>, name : String, option : Int) : ChoiceGroup {
         final stringMaker : StringMaker = new StringMaker();
         final choiceGroup : ChoiceGroup = new ChoiceGroup(name, option, StringUtil.getInstance().getArrayInstance(), NullImage.NULL_IMAGE_ARRAY);
@@ -48,8 +48,8 @@ class GameFeatureFormUtil {
         for (index in 0...size) {
             final gameFeature : Feature = (cast list.objectArray[index] : Feature);
             stringMaker.delete(0, stringMaker.length());
-            this.logUtil.putF(stringMaker.append(name).append(ADD_CHOICE).append(gameFeature.toString()).toString(), this, GET_CHOICE_GROUP);
-            choiceGroup.append(gameFeature.toString(), NullImage.NULL_IMAGE);
+            this.logUtil.putF(Std.string(stringMaker.append(name).append(ADD_CHOICE).append(Std.string(gameFeature))), this, GET_CHOICE_GROUP);
+            choiceGroup.append(Std.string(gameFeature), NullImage.NULL_IMAGE);
             if (features.isFeature(gameFeature)) {
                 choiceGroup.setSelectedIndex(index, true);
             }
@@ -67,7 +67,7 @@ class GameFeatureFormUtil {
         for (index in 0...size) {
             name = (cast objectArray[index] : String);
             stringMaker.delete(0, stringMaker.length());
-            this.logUtil.putF(stringMaker.append(ADDING_CHOICE_GROUP).append(name).toString(), this, ADD_CHOICE_GROUP);
+            this.logUtil.putF(Std.string(stringMaker.append(ADDING_CHOICE_GROUP).append(name)), this, ADD_CHOICE_GROUP);
             this.meUtil.appendItem(form, this.getChoiceGroup(hashtable, name, option));
         }
     }

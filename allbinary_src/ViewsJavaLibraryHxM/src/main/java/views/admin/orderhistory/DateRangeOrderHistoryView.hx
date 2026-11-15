@@ -114,7 +114,7 @@ class DateRangeOrderHistoryView extends HttpStoreComponentView implements Valida
                 stringBuffer.append(",toDate=");
                 stringBuffer.append(this.toDate);
                 stringBuffer.append(") and status");
-                this.logUtil.putF(stringBuffer.toString(), this, "view");
+                this.logUtil.putF(Std.string(stringBuffer), this, "view");
             }
             var node : Node = document.createElement(OrderData.ORDERS);
             if (this.preprocessing != null && Reflect.compare(this.preprocessing, this.ON) == 0) {
@@ -200,29 +200,29 @@ class DateRangeOrderHistoryView extends HttpStoreComponentView implements Valida
                     var rangeDate : String = StringUtil.getInstance().EMPTY_STRING;
                     if (Reflect.compare(this.command, this.VIEWORDERSINLASTHOUR) == 0) {
                         var oneHour : haxe.Int64 = 60 * 60 * 1000;
-                        rangeDate = oneHour.toString();
+                        rangeDate = Std.string(oneHour);
                     } else if (Reflect.compare(this.command, this.VIEWORDERSINLASTDAY) == 0) {
                         var oneDay : haxe.Int64 = 24 * 60 * 60 * 1000;
-                        rangeDate = oneDay.toString();
+                        rangeDate = Std.string(oneDay);
                     } else if (Reflect.compare(this.command, this.VIEWORDERSINLASTWEEK) == 0) {
                         var oneWeek : haxe.Int64 = 7 * 24 * 60 * 60 * 1000;
-                        rangeDate = oneWeek.toString();
+                        rangeDate = Std.string(oneWeek);
                     } else if (Reflect.compare(this.command, this.VIEWORDERSINLAST30DAYS) == 0) {
                         var thirtyDays : haxe.Int64 = 30 * 24 * 60 * 60 * 1000;
-                        rangeDate = thirtyDays.toString();
+                        rangeDate = Std.string(thirtyDays);
                     } else if (Reflect.compare(this.command, this.VIEWALLORDERS) == 0) {
-                        rangeDate = currentTime.toString();
+                        rangeDate = Std.string(currentTime);
                     }
                     var rangeDateLong : haxe.Int64 = haxe.Int64.ofInt(rangeDate);
-                    this.fromDate = currentTime - rangeDateLong.toString();
-                    var time : String = currentTime.toString();
+                    this.fromDate = Std.string(currentTime - rangeDateLong);
+                    var time : String = Std.string(currentTime);
                     this.toDate = time;
                 } else if (Reflect.compare(this.dateType, OrderHistoryData.TYPECAESAR) == 0) {
                     var calendar : Calendar = Calendar.getInstance();
                     TimeUtil.getInstance().setCalendar(calendar, this.fromYear, this.fromMonth, this.fromDay, this.fromHour);
-                    this.fromDate = calendar.getTimeInMillis().toString();
+                    this.fromDate = Std.string(calendar.getTimeInMillis());
                     TimeUtil.getInstance().setCalendar(calendar, this.toYear, this.toMonth, this.toDay, this.toHour);
-                    this.toDate = calendar.getTimeInMillis().toString();
+                    this.toDate = Std.string(calendar.getTimeInMillis());
                 }
                 if (StringValidationUtil.getInstance().isEmpty(this.toDate) || this.toDate.length > this.MAXLEN) {
                     isValid = false;
@@ -238,7 +238,7 @@ class DateRangeOrderHistoryView extends HttpStoreComponentView implements Valida
                 stringBuffer.append(",toDate=");
                 stringBuffer.append(this.toDate);
                 stringBuffer.append(")");
-                this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.IS_VALID);
+                this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.IS_VALID);
             }
             return isValid;
         } catch (e : haxe.Exception) {
@@ -270,13 +270,18 @@ class DateRangeOrderHistoryView extends HttpStoreComponentView implements Valida
             if (StringValidationUtil.getInstance().isEmpty(this.fromDate) || this.fromDate.length > this.MAXLEN) {
                 result.append("Invalid From Date");
             }
-            return result.toString();
+            return Std.string(result);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
             }
             return "Error Getting Validation Info";
         }
+    }
+
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
     }
 
 }

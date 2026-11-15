@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.commands;
 
-//import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.Command;
 import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringUtil;

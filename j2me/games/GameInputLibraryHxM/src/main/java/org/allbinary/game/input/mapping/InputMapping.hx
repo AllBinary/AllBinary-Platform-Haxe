@@ -58,7 +58,7 @@ class InputMapping {
         stringBuffer.append(stringUtil.toString(input));
         stringBuffer.append(" == ");
         stringBuffer.append(stringUtil.toString(mappedToInput));
-        this.logUtil.putF(stringBuffer.toString(), this, "InputMapping::remove");
+        this.logUtil.putF(Std.string(stringBuffer), this, "InputMapping::remove");
         final list : BasicArrayList = this.getMappedInput(input);
         if (list.contains(mappedToInput)) {
             list.remove(mappedToInput);
@@ -68,20 +68,20 @@ class InputMapping {
             stringBuffer.append(stringUtil.toString(input));
             stringBuffer.append(" == ");
             stringBuffer.append(stringUtil.toString(mappedToInput));
-            this.logUtil.putF(stringBuffer.toString(), this, "InputMapping::remove");
+            this.logUtil.putF(Std.string(stringBuffer), this, "InputMapping::remove");
         } else {
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append("Not Deleted: ");
             stringBuffer.append(stringUtil.toString(input));
             stringBuffer.append(" == ");
             stringBuffer.append(stringUtil.toString(mappedToInput));
-            this.logUtil.putF(stringBuffer.toString(), this, "InputMapping::remove");
+            this.logUtil.putF(Std.string(stringBuffer), this, "InputMapping::remove");
         }
     }
 
     // throws Exception
     public function addMapping(inputToGameKeyMapping : InputToGameKeyMapping) : Void {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     public function add(input : Input, mappedToInput : Input) : Void {

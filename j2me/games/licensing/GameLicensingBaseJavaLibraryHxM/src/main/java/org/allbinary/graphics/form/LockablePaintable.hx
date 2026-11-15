@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.logic.system.security.licensing.LockedResources;

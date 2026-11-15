@@ -23,7 +23,7 @@ class TransactionType {
     }
 
     public function isEqual(transactionType : TransactionType) : Bool {
-        if (Reflect.compare(this.toString(), transactionType.toString()) == 0) {
+        if (Reflect.compare(Std.string(this), Std.string(transactionType)) == 0) {
             return true;
         } else {
             return false;

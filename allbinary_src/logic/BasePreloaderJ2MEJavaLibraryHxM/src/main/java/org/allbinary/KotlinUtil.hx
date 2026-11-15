@@ -4,12 +4,13 @@ package org.allbinary;
 import org.allbinary.logic.string.StringUtil;
 
 class KotlinUtil {
+    private static final KT : String = "kt";
     public static function isKotlin() : Bool {
         return false;
     }
 
     public static function getShortName() : String {
-        return StringUtil.getInstance().EMPTY_STRING;
+        return this.KT;
     }
 
     public function new() {

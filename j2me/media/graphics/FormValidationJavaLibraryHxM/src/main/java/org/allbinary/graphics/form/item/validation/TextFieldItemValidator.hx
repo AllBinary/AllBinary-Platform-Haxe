@@ -60,9 +60,9 @@ class TextFieldItemValidator extends ValidatorBase {
             final label : String = this.textFieldItem.getLabel();
             final name : String = label.substring(0, label.length - 2);
             if (textLength < this.min) {
-                list.add(new StringMaker().append(name).append(" is to short").toString());
+                list.add(Std.string(new StringMaker().append(name).append(" is to short")));
             } else if (textLength > this.max) {
-                list.add(new StringMaker().append(name).append(" is to long").toString());
+                list.add(Std.string(new StringMaker().append(name).append(" is to long")));
             }
         }
         return list;

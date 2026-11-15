@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation.text;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.game.input.event.RawKeyEventListener;
@@ -79,6 +79,10 @@ class CustomTextBoxIndexedAnimation extends IndexedAnimation implements RawKeyEv
     }
 
     public override function paintThreedXYZ(graphics : Graphics, x : Int, y : Int, z : Int) : Void {
+    }
+
+    public override function getWidth() : Int {
+        return super.getWidth();
     }
 
 }

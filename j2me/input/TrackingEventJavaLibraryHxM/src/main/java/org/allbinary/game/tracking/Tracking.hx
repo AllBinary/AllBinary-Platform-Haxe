@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.tracking;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 
 class Tracking {
     public function new() {

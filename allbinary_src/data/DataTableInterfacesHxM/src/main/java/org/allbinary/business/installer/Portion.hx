@@ -15,12 +15,12 @@
 // Generated Code Do Not Modify
 package org.allbinary.business.installer;
 
-//import java.util.HashMap;
+import jre.util.HashMap;
 
 class Portion {
     private final current : Null<Int>;
     private final total : Null<Int>;
-    public function new(hashMap : HashMap) {
+    public function new(hashMap : HashMap<Dynamic, Dynamic>) {
         this.current = (cast hashMap.get("current") : Null<Int>);
         this.total = (cast hashMap.get("total") : Null<Int>);
     }

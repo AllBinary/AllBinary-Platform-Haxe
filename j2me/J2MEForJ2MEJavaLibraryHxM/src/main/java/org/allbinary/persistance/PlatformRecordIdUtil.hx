@@ -27,7 +27,7 @@ class PlatformRecordIdUtil {
 
     private final PLATFORM_SHORT_NAME : String = "JME";
     public function getRecordId(abeClientInformation : AbeClientInformationInterface, baseRecordId : String) : String {
-        return new StringMaker().append(abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(this.PLATFORM_SHORT_NAME).append(baseRecordId).toString();
+        return Std.string(new StringMaker().append(abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(this.PLATFORM_SHORT_NAME).append(baseRecordId));
     }
 
     public function new() {

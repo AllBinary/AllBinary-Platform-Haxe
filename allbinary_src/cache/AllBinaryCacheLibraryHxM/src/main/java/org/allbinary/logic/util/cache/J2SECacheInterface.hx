@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.util.cache;
 
-//import java.util.Set;
+import jre.util.Set;
 
 interface J2SECacheInterface extends AutomaticCacheInterface {
     function keySet() : Set<Any>;

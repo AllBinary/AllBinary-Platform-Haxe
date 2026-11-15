@@ -15,10 +15,11 @@
 // Generated Code Do Not Modify
 package org.allbinary.data.tree.dom.document;
 
-//import java.io.InputStream;
-//import java.io.StringBufferInputStream;
+import jre.io.InputStream;
+import jre.io.StringBufferInputStream;
 //import javax.xml.parsers.DocumentBuilder;
 //import javax.xml.parsers.DocumentBuilderFactory;
+import org.allbinary.string.CommonPhoneStrings;
 import org.w3c.dom.Document;
 
 class DomDocumentHelper {
@@ -26,12 +27,26 @@ class DomDocumentHelper {
     }
 
     public static function init() : Void {
-        System.setProperty("jdk.xml.maxElementDepth", "0");
-        System.setProperty("jdk.xml.xpathExprOpLimit", "0");
-        System.setProperty("jdk.xml.xpathTotalOpLimit", "0");
+        final commonPhoneStrings : CommonPhoneStrings = CommonPhoneStrings.getInstance();
+        System.setProperty("jdk.xml.maxElementDepth", commonPhoneStrings.ZERO);
+        System.setProperty("jdk.xml.xpathExprOpLimit", commonPhoneStrings.ZERO);
+        System.setProperty("jdk.xml.xpathTotalOpLimit", commonPhoneStrings.ZERO);
         final LIMIT : String = "500000";
         System.setProperty("jdk.xml.maxGeneralEntitySizeLimit", LIMIT);
         System.setProperty("jdk.xml.totalEntitySizeLimit", LIMIT);
+    }
+
+    public static function create(...args : Dynamic) : Dynamic {
+        if (args.length == 0) {
+            return DomDocumentHelper.create();
+        }
+        if (args.length == 1 && Std.isOfType(args[0], InputStream)) {
+            return DomDocumentHelper.create_InputStream(args[0]);
+        }
+        if (args.length == 1) {
+            return DomDocumentHelper.create_String(args[0]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: create");
     }
 
     public static function create() : Document {
@@ -46,7 +61,7 @@ class DomDocumentHelper {
     }
 
     // throws Exception
-    public static function create(inputStream : InputStream) : Document {
+    public static function create_InputStream(inputStream : InputStream) : Document {
         try {
             var factory : DocumentBuilderFactory = DocumentBuilderFactory.newInstance();
             var builder : DocumentBuilder = factory.newDocumentBuilder();
@@ -58,7 +73,7 @@ class DomDocumentHelper {
     }
 
     // throws Exception
-    public static function create(xmlString : String) : Document {
+    public static function create_String(xmlString : String) : Document {
         try {
             var factory : DocumentBuilderFactory = DocumentBuilderFactory.newInstance();
             var builder : DocumentBuilder = factory.newDocumentBuilder();

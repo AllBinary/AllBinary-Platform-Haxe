@@ -51,7 +51,7 @@ class MakeCountedPartsSingletonArrayFactory {
         stringBuffer.append(" Counted: ");
         stringBuffer.appendint(countedBasicArrayList.size());
         final commonStrings : CommonStrings = CommonStrings.getInstance();
-        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);
+        this.logUtil.putF(Std.string(stringBuffer), this, commonStrings.GET_INSTANCE);
         final newPartInterfaceArray : haxe.ds.Vector<PartInterface> = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.list.size()) null]);
         final newSize : Int = newPartInterfaceArray.length;
         for (index in 0...newSize) {

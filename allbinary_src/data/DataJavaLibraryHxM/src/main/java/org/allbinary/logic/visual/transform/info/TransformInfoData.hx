@@ -23,6 +23,8 @@ class TransformInfoData {
     }
 
     public function new() {
+        this.OWNER = "OWNER_" + this.NAME;
+        this.PARTIAL = "PARTIAL_" + this.NAME;
     }
 
     public final PARENT : String = "TRANSFORM_INFO_PARENT";
@@ -39,7 +41,7 @@ class TransformInfoData {
     public final DATAFILENAME : String = "TRANSFORM_INFO_DATAFILENAME";
     public final DATA : String = "TRANSFORM_INFO_DATA";
     public final LABEL : String = "TRANSFORM_INFO_LABEL";
-    public final OWNER : String = "OWNER_" + this.NAME;
-    public final PARTIAL : String = "PARTIAL_" + this.NAME;
+    public final OWNER : String;
+    public final PARTIAL : String;
 }
 

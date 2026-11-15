@@ -63,5 +63,10 @@ class UsersValidationView extends UsersView implements ValidationComponentInterf
         return null;
     }
 
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
+    }
+
 }
 

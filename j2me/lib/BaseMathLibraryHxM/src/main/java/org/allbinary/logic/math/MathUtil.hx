@@ -1,7 +1,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.math;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 
 class MathUtil {
     private static final instance : MathUtil = new MathUtil();

@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration.persistance;
 
-//import javax.microedition.rms.RecordFilter;
+import javax.microedition.rms.RecordFilter;
 
 class NullRecordFilter implements RecordFilter {
     public static var NULL_RECORD_FILTER : NullRecordFilter = new NullRecordFilter();

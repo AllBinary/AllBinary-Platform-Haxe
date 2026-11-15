@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration.persistance;
 
-//import javax.microedition.rms.RecordStore;
+import javax.microedition.rms.RecordStore;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -56,7 +56,7 @@ class BasicPersitance {
     public function delete(abeClientInformation : AbeClientInformationInterface, deleteId : Int) : Void {
         var recordStore : RecordStore = NullRecordStore.NULL_RECORD_STORE;
         try {
-            this.logUtil.putF(new StringMaker().append(this.persistanceStrings.DELETING_WITH_ID).appendint(deleteId).toString(), this, this.commonStrings.delete);
+            this.logUtil.putF(Std.string(new StringMaker().append(this.persistanceStrings.DELETING_WITH_ID).appendint(deleteId)), this, this.commonStrings.delete);
             recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
             recordStore.deleteRecord(deleteId);
         } catch (e : haxe.Exception) {

@@ -42,7 +42,7 @@ class HardwareFactory {
             } else if (this.tsUtil.compareTo(os.getName(), operatingSystems.HARMONY) == 0) {
                 return new AndroidHardware();
             }
-            throw new haxe.Exception("No Hardware Imp for: " + os.getName());
+            throw new jre.lang.JavaException("No Hardware Imp for: " + os.getName());
         } catch (e : haxe.Exception) {
             final commonStrings : CommonStrings = CommonStrings.getInstance();
             this.logUtil.put("Ignoring Exception Returning NoHardware", this, commonStrings.GET_INSTANCE, e);

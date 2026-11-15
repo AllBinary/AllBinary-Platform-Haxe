@@ -103,7 +103,7 @@ class QuoteRequestEntity extends AbSqlBean implements QuoteRequestEntityInterfac
         stringBuffer.append(this.sqlStrings.PRIMARY_KEY);
         stringBuffer.append(quoteRequestData.ID);
         stringBuffer.append(this.sqlStrings.END);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function createTable() : String {

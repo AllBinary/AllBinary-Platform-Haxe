@@ -43,13 +43,13 @@ class OperatingSystemFactory {
                 if (osName.indexOf(OperatingSystems.getInstance().ANDROID) >= 0) {
                     this.logUtil.putF("Found a Android OS", this, commonStrings.GET_INSTANCE);
                     this.genericOperatingSystem = AndroidOperatingSystemFactory.getInstance().getOperatingSystemInstance();
-                    this.logUtil.putF(new StringMaker().append("Operating System Info: ").append(this.genericOperatingSystem.toString()).toString(), this, commonStrings.GET_INSTANCE);
+                    this.logUtil.putF(Std.string(new StringMaker().append("Operating System Info: ").append(Std.string(this.genericOperatingSystem))), this, commonStrings.GET_INSTANCE);
                 } else if (osName.indexOf(OperatingSystems.getInstance().HARMONY) >= 0) {
                     this.logUtil.putF("Found a Harmony OS", this, commonStrings.GET_INSTANCE);
                     this.genericOperatingSystem = AndroidOperatingSystemFactory.getInstance().getOperatingSystemInstance();
-                    this.logUtil.putF(new StringMaker().append("Operating System Info: ").append(this.genericOperatingSystem.toString()).toString(), this, commonStrings.GET_INSTANCE);
+                    this.logUtil.putF(Std.string(new StringMaker().append("Operating System Info: ").append(Std.string(this.genericOperatingSystem))), this, commonStrings.GET_INSTANCE);
                 } else {
-                    throw new haxe.Exception(new StringMaker().append("OS Not Supported: ").append(osName).toString());
+                    throw new jre.lang.JavaException(Std.string(new StringMaker().append("OS Not Supported: ").append(osName)));
                 }
             }
         } catch (e : haxe.Exception) {

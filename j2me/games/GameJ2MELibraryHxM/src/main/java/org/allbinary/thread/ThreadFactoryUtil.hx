@@ -47,17 +47,17 @@ class ThreadFactoryUtil {
         if (J2MEUtil.isHTML()) {
             if (type == DemoCanvas.TYPE || type == AllBinaryGameCanvas.TYPE) {
                 final demoGameSingleThreadStartRunnable : RunnableCanvasSingleThreadStartRunnable = new RunnableCanvasSingleThreadStartRunnable((cast runnable : RunnableCanvas));
-                PreLogUtil.put(new StringMaker().append("Using Pseudo Thread for DemoCanvas/AllBinaryGameCanvas under PlayN/HTML5: ").append(StringUtil.getInstance().toString(runnable)).toString(), this, commonStrings.CONSTRUCTOR);
+                PreLogUtil.put(Std.string(new StringMaker().append("Using Pseudo Thread for DemoCanvas/AllBinaryGameCanvas under PlayN/HTML5: ").append(StringUtil.getInstance().toString(runnable))), this, commonStrings.CONSTRUCTOR);
                 final primaryThreadPool : ThreadPool = PrimaryThreadPool.getInstance();
                 primaryThreadPool.runTask(demoGameSingleThreadStartRunnable);
             } else {
-                PreLogUtil.put(new StringMaker().append("Using Pseudo Thread for Runnable under PlayN/HTML5: ").append(StringUtil.getInstance().toString(runnable)).toString(), this, commonStrings.CONSTRUCTOR);
+                PreLogUtil.put(Std.string(new StringMaker().append("Using Pseudo Thread for Runnable under PlayN/HTML5: ").append(StringUtil.getInstance().toString(runnable))), this, commonStrings.CONSTRUCTOR);
                 var primaryThreadPool : ThreadPool = PrimaryThreadPool.getInstance();
                 primaryThreadPool.runTask(runnable);
             }
         }
-        final thread : Thread = new Thread(runnable, runnable.toString());
-        this.logUtil.putF(thread.toString(), this, commonStrings.CONSTRUCTOR);
+        final thread : Thread = new Thread(runnable, Std.string(runnable));
+        this.logUtil.putF(Std.string(thread), this, commonStrings.CONSTRUCTOR);
         return thread;
     }
 

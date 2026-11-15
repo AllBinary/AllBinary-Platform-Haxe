@@ -93,10 +93,10 @@ class PCKeyFactory {
     public final DPAD_DOWN : PCGameKey = new PCGameKey(40, CommonPhoneStrings.getInstance().DOWN);
     public final DPAD_LEFT : PCGameKey = new PCGameKey(37, CommonPhoneStrings.getInstance().LEFT);
     public final DPAD_RIGHT : PCGameKey = new PCGameKey(39, CommonPhoneStrings.getInstance().RIGHT);
-    public final DPAD_UP2 : PCGameKey = this.DPAD_UP;
-    public final DPAD_DOWN2 : PCGameKey = this.DPAD_DOWN;
-    public final DPAD_LEFT2 : PCGameKey = this.DPAD_LEFT;
-    public final DPAD_RIGHT2 : PCGameKey = this.DPAD_RIGHT;
+    public final DPAD_UP2 : PCGameKey;
+    public final DPAD_DOWN2 : PCGameKey;
+    public final DPAD_LEFT2 : PCGameKey;
+    public final DPAD_RIGHT2 : PCGameKey;
     public final COMMA : PCGameKey = new PCGameKey(44, "COMMA");
     public final SPACE : PCGameKey = new PCGameKey(32, "SPACE");
     public final DEL : PCGameKey = new PCGameKey(46, "DEL");
@@ -162,6 +162,10 @@ class PCKeyFactory {
     }
 
     public function new() {
+        this.DPAD_UP2 = this.DPAD_UP;
+        this.DPAD_DOWN2 = this.DPAD_DOWN;
+        this.DPAD_LEFT2 = this.DPAD_LEFT;
+        this.DPAD_RIGHT2 = this.DPAD_RIGHT;
     }
 }
 

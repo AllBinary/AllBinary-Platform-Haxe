@@ -31,6 +31,7 @@ class BaseGameStatistics {
     private var totalFrames : haxe.Int64 = haxe.Int64.ofInt(0);
     public final gameTickTimeDelayHelper : GameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
     public function new() {
+        this.STRING_ARRAY = haxe.ds.Vector.fromArrayCopy([" Total Time: ", this.EMPTY_STRING, " Total Frames: ", this.EMPTY_STRING, " Frames/10 Sec: ", this.EMPTY_STRING, " Total Paints: ", this.EMPTY_STRING, " Paints/10 Sec: ", this.EMPTY_STRING]);
     }
 
     public function init() : Void {
@@ -70,7 +71,7 @@ class BaseGameStatistics {
 
     public final NOT : String = "Not enough Time to Calculate";
     private final EMPTY_STRING : String = StringUtil.getInstance().EMPTY_STRING;
-    private final STRING_ARRAY : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy([" Total Time: ", this.EMPTY_STRING, " Total Frames: ", this.EMPTY_STRING, " Frames/10 Sec: ", this.EMPTY_STRING, " Total Paints: ", this.EMPTY_STRING, " Paints/10 Sec: ", this.EMPTY_STRING]);
+    private final STRING_ARRAY : haxe.ds.Vector<String>;
     private final SPACE_CHAR : Int = " ".code;
     private final PLUS_CHAR : Int = "+".code;
     private final X_CHAR : Int = "X".code;
@@ -145,7 +146,7 @@ class BaseGameStatistics {
             stringBuffer.appendlong(this.totalRefreshes / totalTime);
             stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function toString() : String {

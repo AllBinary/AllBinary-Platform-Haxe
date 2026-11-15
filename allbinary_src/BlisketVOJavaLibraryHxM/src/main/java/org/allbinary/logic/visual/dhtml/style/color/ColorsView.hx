@@ -45,7 +45,7 @@ class ColorsView implements DomNodeInterface {
             hexColorStringBuffer.append(this.commonPhoneStrings.ZERO);
         }
         hexColorStringBuffer.append(Integer.toString(blueIndex, HEXRADIX));
-        var colorNode : Node = ModDomHelper.createNameValueNodes(document, ColorData.getInstance().NAME, hexColorStringBuffer.toString());
+        var colorNode : Node = ModDomHelper.createNameValueNodes(document, ColorData.getInstance().NAME, Std.string(hexColorStringBuffer));
         return colorNode;
     }
 
@@ -70,7 +70,7 @@ class ColorsView implements DomNodeInterface {
                 hexColorStringBuffer.append(this.commonPhoneStrings.ZERO);
             }
             hexColorStringBuffer.append(Integer.toString(index, HEXRADIX));
-            var colorNode : Node = ModDomHelper.createNameValueNodes(document, ColorData.getInstance().NAME, hexColorStringBuffer.toString());
+            var colorNode : Node = ModDomHelper.createNameValueNodes(document, ColorData.getInstance().NAME, Std.string(hexColorStringBuffer));
             node.appendChild(colorNode);
                 index += this.delta;
             }

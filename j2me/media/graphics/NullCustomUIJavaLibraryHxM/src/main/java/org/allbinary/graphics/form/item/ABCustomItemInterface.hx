@@ -1,7 +1,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form.item;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 
 interface ABCustomItemInterface {
     function getMinimumWidth() : Int;

@@ -71,7 +71,7 @@ class InventoryRequestHelper extends ModifyTable {
             stringBuffer.append("=");
             stringBuffer.append(id);
             stringBuffer.append(" from to the Inventory table");
-            var success : String = stringBuffer.toString();
+            var success : String = Std.string(stringBuffer);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS)) {
                 this.logUtil.putF(success, this, tagStrings.DO_START_TAG);
             }

@@ -146,7 +146,7 @@ class InitDbCrypted extends AbDatabaseManagement {
             var file : AbFile = FileFactory.getInstance().getInstance(this.SQL_FILE);
             file.createNewFile();
             var idOutData : AbDataOutputStream = DataOutputStreamFactory.getInstance().getInstanceForAbFile(file);
-            idOutData.writeBytes(this.sqlCommandLog.toString());
+            idOutData.writeBytes(Std.string(this.sqlCommandLog));
             return true;
         } catch (e : haxe.Exception) {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.METHOD_ADD_DATABASES, e);
@@ -174,7 +174,7 @@ class InitDbCrypted extends AbDatabaseManagement {
             stringBuffer.append(LogTableEntityFactory.getInstance().getLogTableEntityInstance().createTable());
             stringBuffer.append(StaticPagesEntityFactory.getInstance().getStaticPagesEntityInstance().createTable());
             stringBuffer.append(TransformInfoEntityBuilder.getInstance().createTable());
-            this.logUtil.putF(ADD_TABLES_RESULTS_LABEL + stringBuffer.toString(), this, this.METHOD_ADD_TABLES);
+            this.logUtil.putF(ADD_TABLES_RESULTS_LABEL + Std.string(stringBuffer), this, this.METHOD_ADD_TABLES);
             return true;
         } catch (e : haxe.Exception) {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.METHOD_ADD_TABLES, e);

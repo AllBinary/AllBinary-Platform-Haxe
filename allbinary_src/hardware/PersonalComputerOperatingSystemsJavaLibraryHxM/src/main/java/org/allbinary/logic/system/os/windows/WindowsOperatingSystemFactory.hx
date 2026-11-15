@@ -55,7 +55,7 @@ class WindowsOperatingSystemFactory {
                 if (operatingSystems.isUnknownSpecificOSAllowed()) {
                     operatingSystemInterface = new WindowsOS();
                 } else {
-                    throw new haxe.Exception("Specific Windows OS Not Supported: " + osName);
+                    throw new jre.lang.JavaException("Specific Windows OS Not Supported: " + osName);
                 }
             }
             return operatingSystemInterface;

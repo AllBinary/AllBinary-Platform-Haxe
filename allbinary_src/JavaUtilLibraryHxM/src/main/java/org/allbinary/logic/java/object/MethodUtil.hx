@@ -36,7 +36,7 @@ class MethodUtil {
             stringBuffer.append(")");
             stringBuffer.append(lineBreak);
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

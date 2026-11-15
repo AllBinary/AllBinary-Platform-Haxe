@@ -413,9 +413,9 @@ class BasicItem implements ItemInterface {
         hashMap.put(basicItemData.MEDIUMIMAGE, this.mediumImage);
         hashMap.put(basicItemData.LARGEIMAGE, this.largeImage);
         var calendar : Calendar = Calendar.getInstance();
-        var time : String = calendar.getTimeInMillis().toString();
+        var time : String = Std.string(calendar.getTimeInMillis());
         hashMap.put(EntryData.getInstance().LASTMODIFIED, time);
-        hashMap.put(basicItemData.PRICE, this.price.toString());
+        hashMap.put(basicItemData.PRICE, Std.string(this.price));
         hashMap.put(basicItemData.COMMENT, this.comment);
         hashMap.put(basicItemData.CUSTOMS, this.customs);
         hashMap.put(basicItemData.DOWNLOADS, this.getDownloads());
@@ -451,10 +451,10 @@ class BasicItem implements ItemInterface {
         values.add(this.getMediumImage());
         values.add(this.getLargeImage());
         var calendar : Calendar = Calendar.getInstance();
-        var time : String = calendar.getTimeInMillis().toString();
+        var time : String = Std.string(calendar.getTimeInMillis());
         values.add(time);
         values.add(time);
-        values.add(this.price.toString());
+        values.add(Std.string(this.price));
         values.add(this.comment);
         values.add(this.customs);
         values.add(this.getDownloads());

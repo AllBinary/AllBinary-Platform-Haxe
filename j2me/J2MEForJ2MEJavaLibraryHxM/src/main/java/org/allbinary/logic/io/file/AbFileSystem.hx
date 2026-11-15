@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.io.file;
 
-//import java.io.InputStream;
+import jre.io.InputStream;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
@@ -42,12 +42,22 @@ class AbFileSystem {
         return StringUtil.getInstance().getArrayInstance();
     }
 
-    public function readAsString(fileName : String) : String {
+    public function readAsString(...args : Dynamic) : Dynamic {
+        if (args.length == 1) {
+            return this.readAsString_String(args[0]);
+        }
+        if (args.length == 2) {
+            return this.readAsString_String_byteArray(args[0], args[1]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: readAsString");
+    }
+
+    public function readAsString_String(fileName : String) : String {
         final bytes : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy([for (index in 0...1000000) 0]);
         return this.readAsString(fileName, bytes);
     }
 
-    public function readAsString(fileName : String, bytes : haxe.ds.Vector<Int>) : String {
+    public function readAsString_String_byteArray(fileName : String, bytes : haxe.ds.Vector<Int>) : String {
         return StringUtil.getInstance().EMPTY_STRING;
     }
 

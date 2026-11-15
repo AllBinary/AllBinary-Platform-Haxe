@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation.image.sprite;
 
-//import javax.microedition.lcdui.Graphics;
-//import javax.microedition.lcdui.Image;
-//import javax.microedition.lcdui.game.Sprite;
+import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.game.Sprite;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorUtil;

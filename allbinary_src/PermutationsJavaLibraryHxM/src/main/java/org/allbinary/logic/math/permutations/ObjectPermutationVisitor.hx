@@ -21,19 +21,31 @@ class ObjectPermutationVisitor extends Visitor {
         return NullUtil.getInstance().NULL_OBJECT;
     }
 
-    public function print(data : haxe.ds.Vector<Any>) : Void {
+    public function print(...args : Dynamic) : Dynamic {
+        if (args.length == 1) {
+            this.print_AnyArray(args[0]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.print_AnyArray_StringMaker(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: print");
+    }
+
+    public function print_AnyArray(data : haxe.ds.Vector<Any>) : Void {
         final stringBuilder : StringMaker = new StringMaker();
         this.print(data, stringBuilder);
     }
 
-    public function print(data : haxe.ds.Vector<Any>, stringBuilder : StringMaker) : Void {
+    public function print_AnyArray_StringMaker(data : haxe.ds.Vector<Any>, stringBuilder : StringMaker) : Void {
         final tsUtil : TsUtil = TsUtil.getInstance();
         final size : Int = data.length;
         for (i in 0...size) {
             stringBuilder.appendint(Std.int(tsUtil.hashCode(data[i])));
             stringBuilder.append(CommonSeps.getInstance().SPACE);
         }
-        trace(stringBuilder.toString());
+        trace(Std.string(stringBuilder));
     }
 
 }

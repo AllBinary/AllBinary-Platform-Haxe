@@ -22,6 +22,16 @@ import org.allbinary.logic.system.hardware.windows.WindowsHardware;
 
 class HardwareFactory {
     private static final instance : HardwareFactory = new HardwareFactory();
+    public static function getInstance(...args : Dynamic) : Dynamic {
+        if (args.length == 0) {
+            return HardwareFactory.getInstance();
+        }
+        if (args.length == 1) {
+            return HardwareFactory.getInstance_GenericOperatingSystem(args[0]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: getInstance");
+    }
+
     public static function getInstance() : HardwareFactory {
         return HardwareFactory.instance;
     }
@@ -30,7 +40,7 @@ class HardwareFactory {
     }
 
     // throws Exception
-    public static function getInstance(os : GenericOperatingSystem) : HardwareInterface {
+    public static function getInstance_GenericOperatingSystem(os : GenericOperatingSystem) : HardwareInterface {
         try {
             final operatingSystems : OperatingSystems = OperatingSystems.getInstance();
             if (os.getName().compareTo(operatingSystems.LINUX) == 0) {
@@ -38,7 +48,7 @@ class HardwareFactory {
             } else if (os.getName().indexOf(operatingSystems.WINDOWS) >= 0) {
                 return (cast new WindowsHardware() : HardwareInterface);
             }
-            throw new haxe.Exception("No Hardware Imp for: " + os.getName());
+            throw new jre.lang.JavaException("No Hardware Imp for: " + os.getName());
         } catch (e : haxe.Exception) {
             throw e;
         }

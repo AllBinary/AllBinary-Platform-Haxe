@@ -55,7 +55,7 @@ class TagWorkFlowFactory {
                 stringBuffer.append("->");
                 stringBuffer.append(Type.getClassName(Type.getClass(TagWorkFlowFactory.instance)));
                 final commonStrings : CommonStrings = CommonStrings.getInstance();
-                this.logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE, e);
+                this.logUtil.put(Std.string(stringBuffer), this, commonStrings.GET_INSTANCE, e);
             }
             throw e;
         } catch (e : haxe.Exception) {
@@ -67,7 +67,7 @@ class TagWorkFlowFactory {
                 stringBuffer.append("->");
                 stringBuffer.append(Type.getClassName(Type.getClass(TagWorkFlowFactory.instance)));
                 final commonStrings : CommonStrings = CommonStrings.getInstance();
-                this.logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE, e);
+                this.logUtil.put(Std.string(stringBuffer), this, commonStrings.GET_INSTANCE, e);
             }
             throw e;
         }

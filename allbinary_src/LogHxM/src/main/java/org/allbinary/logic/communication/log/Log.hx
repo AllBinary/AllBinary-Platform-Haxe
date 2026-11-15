@@ -50,8 +50,8 @@ class Log {
     public function toString() : String {
         var className : String = CommonStrings.getInstance().EMPTY;
         var clazz : Class<Dynamic> = Type.getClass(this.anyType);
-        if (clazz.getName() != null) {
-            className = clazz.getName();
+        if (Type.getClassName(clazz) != null) {
+            className = Type.getClassName(clazz);
         }
         return this.logFormatUtil.get(className, this.functionName, this.specialMessage, this.exception);
     }

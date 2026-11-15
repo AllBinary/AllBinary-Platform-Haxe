@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.paint.help;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.input.GameKey;
 import org.allbinary.game.input.GameKeyFactory;
 import org.allbinary.game.input.Input;
@@ -25,6 +25,7 @@ import org.allbinary.game.input.mapping.GameInputMapping;
 import org.allbinary.game.input.mapping.PersistentInputMapping;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.graphics.color.BasicColorUtil;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -47,21 +48,9 @@ class InputMappingHelpPaintable extends HelpPaintable {
     private final EMPTY_STRING : String = StringUtil.getInstance().EMPTY_STRING;
     private var gameInputMappingArray : haxe.ds.Vector<GameInputMapping>;
     private var keyMappingArray : haxe.ds.Vector<BasicArrayList> = haxe.ds.Vector.fromArrayCopy([for (index in 0...0) null]);
-    private var actionBasicColor : haxe.ds.Vector<BasicColor> = haxe.ds.Vector.fromArrayCopy([for (index in 0...0) null]);
+    private var actionBasicColor : haxe.ds.Vector<BasicColor> = BasicColorUtil.getInstance().ZERO_ARRAY;
     private var inputBasicColorArray : haxe.ds.Vector<haxe.ds.Vector<BasicColor>> = haxe.ds.Vector.fromArrayCopy([for (index in 0...0) haxe.ds.Vector.fromArrayCopy([for (index2 in 0...0) null])]);
     private var selectedBasicColor : BasicColor = null;
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class UpdateMyFontProperties {
-        public var actionStringArray : haxe.ds.Vector<String> = StringUtil.getInstance().getArrayInstance();
-        public var keymappingBeginWidthArray : haxe.ds.Vector<Int> = NullUtil.getInstance().NULL_INT_ARRAY;
-        public var actionStringDeltaXArray : haxe.ds.Vector<Int> = NullUtil.getInstance().NULL_INT_ARRAY;
-        public var inputDeltaXArray : haxe.ds.Vector<haxe.ds.Vector<Int>> = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
-        public var sepArray : haxe.ds.Vector<haxe.ds.Vector<String>> = haxe.ds.Vector.fromArrayCopy([for (index in 0...0) haxe.ds.Vector.fromArrayCopy([for (index2 in 0...0) null])]);
-        public var sepWidthArray : haxe.ds.Vector<haxe.ds.Vector<Int>> = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
-        public var charHeight : Int = 0;
-        public function new() {
-        }
-    }
     private var updateMyFontProperties : UpdateMyFontProperties = new UpdateMyFontProperties();
     public function new(gameInputMappingArray : haxe.ds.Vector<GameInputMapping>, backgroundBasicColor : BasicColor, basicColor : BasicColor) {
         super("Input Mapping", backgroundBasicColor, basicColor);
@@ -96,10 +85,10 @@ class InputMappingHelpPaintable extends HelpPaintable {
             list = this.keyMappingArray[index];
             keyMappings = this.get(list);
             stringMaker.delete(0, stringMaker.length());
-            actionString = stringMaker.append(inputInfo[index]).append(commonSeps.COLON).append(commonSeps.SPACE).append(commonSeps.SPACE).toString();
+            actionString = Std.string(stringMaker.append(inputInfo[index]).append(commonSeps.COLON).append(commonSeps.SPACE).append(commonSeps.SPACE));
             updateMyFontProperties.actionStringArray[index] = actionString;
             stringMaker.delete(0, stringMaker.length());
-            updateMyFontProperties.keymappingBeginWidthArray[index] = (font.stringWidth(stringMaker.append(updateMyFontProperties.actionStringArray[index]).append(keyMappings).toString()) >> 1);
+            updateMyFontProperties.keymappingBeginWidthArray[index] = (font.stringWidth(Std.string(stringMaker.append(updateMyFontProperties.actionStringArray[index]).append(keyMappings))) >> 1);
             updateMyFontProperties.actionStringDeltaXArray[index] = font.stringWidth(actionString);
             size2 = list.size();
             updateMyFontProperties.inputDeltaXArray[index] = haxe.ds.Vector.fromArrayCopy([for (index in 0...size2) 0]);
@@ -131,7 +120,7 @@ class InputMappingHelpPaintable extends HelpPaintable {
 
     public function update(selectedGameKey : GameKey, selectedInput : Input) : Void {
         final stringMaker : StringMaker = new StringMaker();
-        this.logUtil.putF(stringMaker.append(CommonLabels.getInstance().START_LABEL).append("selected GameKey: ").append(this.stringUtil.toString(selectedGameKey)).append(" Input: ").append(this.stringUtil.toString(selectedInput)).toString(), this, this.commonStrings.UPDATE);
+        this.logUtil.putF(Std.string(stringMaker.append(CommonLabels.getInstance().START_LABEL).append("selected GameKey: ").append(this.stringUtil.toString(selectedGameKey)).append(" Input: ").append(this.stringUtil.toString(selectedInput))), this, this.commonStrings.UPDATE);
         final gameKeyMapping : PersistentInputMapping = PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance();
         final size : Int = this.gameInputMappingArray.length;
         final keyInfo : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy([for (index in 0...size) null]);
@@ -152,12 +141,12 @@ class InputMappingHelpPaintable extends HelpPaintable {
             }
             if (gameKey == selectedGameKey) {
                 stringMaker.delete(0, stringMaker.length());
-                this.logUtil.putF(stringMaker.append("Found: selected GameKey: ").append(this.stringUtil.toString(selectedGameKey)).toString(), this, this.commonStrings.UPDATE);
+                this.logUtil.putF(Std.string(stringMaker.append("Found: selected GameKey: ").append(this.stringUtil.toString(selectedGameKey))), this, this.commonStrings.UPDATE);
                 actionBasicColor[index] = this.selectedBasicColor;
                 var indexOfSelectedInput : Int = list.indexOf(selectedInput);
                 if (indexOfSelectedInput >= 0) {
                     stringMaker.delete(0, stringMaker.length());
-                    this.logUtil.putF(stringMaker.append("Found: selected Input: ").append(this.stringUtil.toString(selectedInput)).toString(), this, this.commonStrings.UPDATE);
+                    this.logUtil.putF(Std.string(stringMaker.append("Found: selected Input: ").append(this.stringUtil.toString(selectedInput))), this, this.commonStrings.UPDATE);
                     inputBasicColorArray[index][indexOfSelectedInput] = this.selectedBasicColor;
                 }
             } else {
@@ -192,7 +181,7 @@ class InputMappingHelpPaintable extends HelpPaintable {
                 }
             }
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public override function paint(graphics : Graphics) : Void {

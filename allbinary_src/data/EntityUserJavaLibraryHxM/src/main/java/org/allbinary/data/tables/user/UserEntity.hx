@@ -74,7 +74,7 @@ class UserEntity extends AbSqlBean implements UserEntityInterface {
     public function getStoreManagers(storeFrontInterface : StoreFrontInterface) : BasicArrayList {
         var keysAndValues : HashMap = StdUtil.getInstance().createHashMap();
         var usersVector : BasicArrayList = new BasicArrayListD();
-        keysAndValues.put(UserRoleData.NAME.toString(), UserRoleFactory.getInstance().STOREMANAGER.toString());
+        keysAndValues.put(Std.string(UserRoleData.NAME), Std.string(UserRoleFactory.getInstance().STOREMANAGER));
         keysAndValues.put(UserData.PERMISSIONS, storeFrontInterface.getName());
         var usersHashMapVector : BasicArrayList = super.getRows(keysAndValues);
         var size : Int = usersHashMapVector.size();
@@ -96,7 +96,7 @@ class UserEntity extends AbSqlBean implements UserEntityInterface {
     public function getUsersWithRole(userRole : UserRole) : BasicArrayList {
         var keysAndValues : HashMap = StdUtil.getInstance().createHashMap();
         var usersVector : BasicArrayList = new BasicArrayListD();
-        keysAndValues.put(UserRoleData.NAME.toString(), userRole.toString());
+        keysAndValues.put(Std.string(UserRoleData.NAME), Std.string(userRole));
         var usersHashMapVector : BasicArrayList = super.getRows(keysAndValues);
         final size : Int = usersHashMapVector.size();
         for (index in 0...size) {
@@ -171,7 +171,7 @@ class UserEntity extends AbSqlBean implements UserEntityInterface {
                     stringBuffer.append(password);
                     stringBuffer.append(this.EQUALS);
                     stringBuffer.append(result);
-                    this.logUtil.putF(stringBuffer.toString(), this, "login");
+                    this.logUtil.putF(Std.string(stringBuffer), this, "login");
                 }
                 return GLOBALS2.LOGINSUCCESS;
             } else {
@@ -184,7 +184,7 @@ class UserEntity extends AbSqlBean implements UserEntityInterface {
                     stringBuffer.append(this.NOT_EQUAL);
                     stringBuffer.append(result);
                     stringBuffer.append(this.END_QUOTES);
-                    this.logUtil.putF(stringBuffer.toString(), this, "login");
+                    this.logUtil.putF(Std.string(stringBuffer), this, "login");
                 }
                 return GLOBALS2.LOGINFAILED;
             }
@@ -207,12 +207,16 @@ class UserEntity extends AbSqlBean implements UserEntityInterface {
     public function createTableStatement() : String {
         final entryData : EntryData = EntryData.getInstance();
         final stringBuffer : StringMaker = new StringMaker();
-        stringBuffer.append(this.sqlStrings.CREATE_TABLE).append(tableName).append(this.sqlStrings.START).append(UserData.USERNAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(UserData.PREFIXNAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.FIRSTNAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.LASTNAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.MIDDLENAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.SUFFIXNAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.COMPANY).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.POSITIONATCOMPANY).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.MAINEMAIL).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(UserData.SECONDARYEMAIL).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.HOMEPHONE).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.CELLPHONE).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.WORKPHONE).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.OTHERCONTACT).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.ELECTRONICDEVICE).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.FAX).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserRoleData.NAME.toString()).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(UserData.CONFIGURATION).append(this.sqlTypeStrings.BLOB_NOT_NULL).append(UserData.PERMISSIONS).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(entryData.ENCRYPTION).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(UserData.SECRET).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.PASSWORD).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(entryData.ENABLE).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(entryData.TIMECREATED).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(entryData.LASTMODIFIED).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(this.sqlStrings.PRIMARY_KEY).append(UserData.USERNAME).append(this.sqlStrings.END);
-        return stringBuffer.toString();
+        stringBuffer.append(this.sqlStrings.CREATE_TABLE).append(tableName).append(this.sqlStrings.START).append(UserData.USERNAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(UserData.PREFIXNAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.FIRSTNAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.LASTNAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.MIDDLENAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.SUFFIXNAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.COMPANY).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.POSITIONATCOMPANY).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.MAINEMAIL).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(UserData.SECONDARYEMAIL).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.HOMEPHONE).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.CELLPHONE).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.WORKPHONE).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.OTHERCONTACT).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.ELECTRONICDEVICE).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.FAX).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(Std.string(UserRoleData.NAME)).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(UserData.CONFIGURATION).append(this.sqlTypeStrings.BLOB_NOT_NULL).append(UserData.PERMISSIONS).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(entryData.ENCRYPTION).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(UserData.SECRET).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(UserData.PASSWORD).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(entryData.ENABLE).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(entryData.TIMECREATED).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(entryData.LASTMODIFIED).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(this.sqlStrings.PRIMARY_KEY).append(UserData.USERNAME).append(this.sqlStrings.END);
+        return Std.string(stringBuffer);
     }
 
     public function createTable() : String {
         return super.createTable(this.createTableStatement());
+    }
+
+    public override function dropTable() : String {
+        return super.dropTable();
     }
 
 }

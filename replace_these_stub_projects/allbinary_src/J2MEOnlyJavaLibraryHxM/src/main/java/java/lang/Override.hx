@@ -2,5 +2,7 @@
 package java.lang;
 
 
-/* Otherwise - classOrInterfaceDeclaration - type - AnnotationDeclaration */
+// Java annotation: Haxe metadata such as @Override does not need a declaration
+interface Override {
+}
 

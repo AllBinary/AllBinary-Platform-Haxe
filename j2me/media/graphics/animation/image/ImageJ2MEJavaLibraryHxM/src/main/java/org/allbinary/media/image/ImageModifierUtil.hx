@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.media.image;
 
-//import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.Image;
 import org.allbinary.graphics.color.BasicColor;
 
 class ImageModifierUtil {

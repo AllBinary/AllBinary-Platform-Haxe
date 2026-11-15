@@ -18,7 +18,7 @@ package org.allbinary.media.image;
 //import java.awt.Graphics2D;
 //import java.awt.geom.AffineTransform;
 //import java.awt.image.BufferedImage;
-//import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.Image;
 import org.allbinary.image.ImageCache;
 
 class ImageScaleUtil {

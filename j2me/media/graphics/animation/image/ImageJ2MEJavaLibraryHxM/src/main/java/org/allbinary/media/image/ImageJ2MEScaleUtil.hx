@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.media.image;
 
-//import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.Image;
 
 class ImageJ2MEScaleUtil {
     private static final instance : ImageJ2MEScaleUtil = new ImageJ2MEScaleUtil();

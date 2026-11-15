@@ -74,5 +74,10 @@ class DeleteValidationStoreFrontView extends StoreFrontComponent implements Vali
         return null;
     }
 
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
+    }
+
 }
 

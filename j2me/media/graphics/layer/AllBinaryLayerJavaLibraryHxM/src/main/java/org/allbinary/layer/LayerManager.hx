@@ -1,7 +1,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.layer;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.TsUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;

@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.input;
 
-//import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Canvas;
 
 class InputProcessor {
     public final gameInputStrings : GameInputStrings = GameInputStrings.getInstance();

@@ -48,8 +48,8 @@ class TrackingEvent extends AllBinaryEventObject {
         var stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append("TrackingEvent: \n");
         stringBuffer.append("LayerInterface: ");
-        stringBuffer.append(this.layerInterface.toString());
-        return stringBuffer.toString();
+        stringBuffer.append(Std.string(this.layerInterface));
+        return Std.string(stringBuffer);
     }
 
 }

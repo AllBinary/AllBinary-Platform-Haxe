@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.layer.pickup;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.graphics.PointFactory;

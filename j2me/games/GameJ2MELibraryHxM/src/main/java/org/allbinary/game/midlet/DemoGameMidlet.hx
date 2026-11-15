@@ -52,7 +52,7 @@ class DemoGameMidlet extends GameMidlet {
 
     // throws Exception
     public function createGameCanvasRunnable(allBinaryGameLayerManager : AllBinaryGameLayerManager) : GameCanvasRunnableInterface {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception

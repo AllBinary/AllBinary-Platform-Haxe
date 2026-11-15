@@ -60,7 +60,7 @@ class VectorCenterGenerator {
         }
         var middle : Int = Std.int(max / 2);
         final commonLabels : CommonLabels = CommonLabels.getInstance();
-        final s : String = new StringMaker().append(commonLabels.WIDTH_LABEL).appendint(getWidth()).append(commonLabels.HEIGHT_LABEL).appendint(getHeight()).append(" max: ").appendint(max).append(" middle: ").appendint(middle).toString();
+        final s : String = Std.string(new StringMaker().append(commonLabels.WIDTH_LABEL).appendint(getWidth()).append(commonLabels.HEIGHT_LABEL).appendint(getHeight()).append(" max: ").appendint(max).append(" middle: ").appendint(middle));
         this.logUtil.putF(s, this, this.commonStrings.GET_INSTANCE);
         var currentMiddleX : Int = this.minX + Std.int(this.getWidth() / 2);
         var currentMiddleY : Int = this.minY + Std.int(this.getHeight() / 2);
@@ -71,7 +71,7 @@ class VectorCenterGenerator {
     // throws Exception
     public function transform(hashMap : HashMap) : Void {
         this.calculate(hashMap);
-        this.logUtil.putF(new StringMaker().append(" dx: ").appendint(this.dx).append(" dy: ").appendint(this.dy).toString(), this, this.commonStrings.GET_INSTANCE);
+        this.logUtil.putF(Std.string(new StringMaker().append(" dx: ").appendint(this.dx).append(" dy: ").appendint(this.dy)), this, this.commonStrings.GET_INSTANCE);
         final graphicItemArray : haxe.ds.Vector<Any> = hashMap.keySet().toArray();
         final size : Int = graphicItemArray.length;
         for (index in 0...size) {

@@ -15,10 +15,10 @@
 // Generated Code Do Not Modify
 package org.allbinary.image.opengles;
 
-//import javax.microedition.khronos.opengles.GL;
-//import javax.microedition.khronos.opengles.GL10;
-//import javax.microedition.lcdui.Image;
-//import javax.microedition.lcdui.NullImage;
+import javax.microedition.khronos.opengles.GL;
+import javax.microedition.khronos.opengles.GL10;
+import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullImage;
 import org.allbinary.platform.graphics.PlatformBitmapBase;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
@@ -44,7 +44,7 @@ class OpenGLESImage extends Image implements OpenGLSurfaceChangedInterface {
 
     // throws Exception
     public override function set(gl : GL) : Void {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     public function initTexture(gl : GL10) : Bool {

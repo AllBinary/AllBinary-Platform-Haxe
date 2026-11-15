@@ -37,7 +37,7 @@ class BaseChangedGameFeatureListener implements GameFeatureListenerInterface {
     }
 
     public function onGameFeatureChange(gameFeatureEvent : GameFeatureEvent) : Void {
-        this.logUtil.putF(new StringMaker().append(this.gameFeatureUtil.GAME_FEATURE_CHANGED).append(gameFeatureEvent.getWhatChanged()).toString(), this, this.gameFeatureUtil.ON_GAME_FEATURE_CHANGE);
+        this.logUtil.putF(Std.string(new StringMaker().append(this.gameFeatureUtil.GAME_FEATURE_CHANGED).append(gameFeatureEvent.getWhatChanged())), this, this.gameFeatureUtil.ON_GAME_FEATURE_CHANGE);
         this.list.add(gameFeatureEvent.getGameOption());
         this.setChanged(true);
     }
@@ -66,7 +66,7 @@ class BaseChangedGameFeatureListener implements GameFeatureListenerInterface {
         stringBuffer.appendboolean(Features.getInstance().isFeature(gameFeature));
         stringBuffer.append(" isChanged: ");
         stringBuffer.appendboolean(isChanged);
-        this.logUtil.putF(stringBuffer.toString(), this, "isChanged");
+        this.logUtil.putF(Std.string(stringBuffer), this, "isChanged");
         return isChanged;
     }
 

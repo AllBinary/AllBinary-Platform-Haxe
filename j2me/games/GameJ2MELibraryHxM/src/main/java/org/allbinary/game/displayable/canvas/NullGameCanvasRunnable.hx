@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.CommandListener;
-//import javax.microedition.lcdui.Graphics;
-//import javax.microedition.lcdui.Item;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Item;
 import org.allbinary.game.state.GameState;
 import org.allbinary.game.state.GameStateFactory;
 import org.allbinary.logic.StdUtil;

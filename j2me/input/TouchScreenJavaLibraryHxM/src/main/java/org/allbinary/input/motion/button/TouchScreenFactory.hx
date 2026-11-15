@@ -83,7 +83,7 @@ class TouchScreenFactory {
         stringBuffer.appendboolean(this.isMultiTouchDistinct());
         stringBuffer.append(" TouchScreenType: ");
         stringBuffer.append(StringUtil.getInstance().toString(this.getTouchScreenType()));
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

@@ -25,11 +25,11 @@ class StupidTimer {
     public function visit(visitorInterface : Visitor, timeDelayHelper : TimeDelayHelper) : Void {
         var tookTooLong : Bool = false;
         final WAITING_FOR : String = "Waiting for: ";
-        PreLogUtil.put(new StringMaker().append(WAITING_FOR).append(StringUtil.getInstance().toString(visitorInterface)).toString(), this, this.commonStrings.VISIT);
+        PreLogUtil.put(Std.string(new StringMaker().append(WAITING_FOR).append(StringUtil.getInstance().toString(visitorInterface))), this, this.commonStrings.VISIT);
         var index : Int = 0;
         while (this.visitBool(visitorInterface)) {
             if (index % 10 == 0) {
-                PreLogUtil.put(new StringMaker().append(WAITING_FOR).appendint(index).toString(), this, this.commonStrings.VISIT);
+                PreLogUtil.put(Std.string(new StringMaker().append(WAITING_FOR).appendint(index)), this, this.commonStrings.VISIT);
             }
             index++;
             // synchronized (this)
@@ -42,9 +42,9 @@ class StupidTimer {
             }
         }
         if (tookTooLong) {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.VISIT, new haxe.Exception(new StringMaker().append("Took Too Long: ").append(StringUtil.getInstance().toString(visitorInterface)).toString()));
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.VISIT, new jre.lang.JavaException(Std.string(new StringMaker().append("Took Too Long: ").append(StringUtil.getInstance().toString(visitorInterface)))));
         } else {
-            PreLogUtil.put(timeDelayHelper.toString(), this, this.commonStrings.VISIT);
+            PreLogUtil.put(Std.string(timeDelayHelper), this, this.commonStrings.VISIT);
         }
     }
 

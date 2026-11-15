@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.font;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 
 class MyFontProcessor {
     public static function defaultCharWidth(font : Font) : Int {

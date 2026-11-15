@@ -21,7 +21,20 @@ class IntArrayUtil {
     public function new() {
     }
 
-    public static function toString(array : haxe.ds.Vector<Int>) : String {
+    public static function toString(...args : Dynamic) : Dynamic {
+        if (args.length == 1) {
+            return IntArrayUtil.toString_intArray(args[0]);
+        }
+        if (args.length == 1) {
+            return IntArrayUtil.toString_intArrayArray(args[0]);
+        }
+        if (args.length == 1) {
+            return IntArrayUtil.toString_intArrayArrayArray(args[0]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: toString");
+    }
+
+    public static function toString_intArray(array : haxe.ds.Vector<Int>) : String {
         var stringBuffer : StringMaker = new StringMaker();
         for (index in 0...array.length) {
             stringBuffer.appendint(array[index]);
@@ -29,10 +42,10 @@ class IntArrayUtil {
                 stringBuffer.append(", ");
             }
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
-    public static function toString(array : haxe.ds.Vector<haxe.ds.Vector<Int>>) : String {
+    public static function toString_intArrayArray(array : haxe.ds.Vector<haxe.ds.Vector<Int>>) : String {
         var stringBuffer : StringMaker = new StringMaker();
         for (index in 0...array.length) {
             stringBuffer.append("{");
@@ -47,10 +60,10 @@ class IntArrayUtil {
                 stringBuffer.append(", \n");
             }
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
-    public static function toString(array : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>>) : String {
+    public static function toString_intArrayArrayArray(array : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>>) : String {
         var stringBuffer : StringMaker = new StringMaker();
         for (index in 0...array.length) {
             stringBuffer.append("{");
@@ -72,7 +85,7 @@ class IntArrayUtil {
                 stringBuffer.append(", \n");
             }
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

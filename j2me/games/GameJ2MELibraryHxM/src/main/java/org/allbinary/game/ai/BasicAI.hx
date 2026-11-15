@@ -45,7 +45,7 @@ class BasicAI extends ArtificialIntelligence implements GameKeyEventSourceInterf
 
     // throws Exception
     public override function processAI(allBinaryLayerManager : AllBinaryLayerManager) : Void {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception
@@ -81,7 +81,7 @@ class BasicAI extends ArtificialIntelligence implements GameKeyEventSourceInterf
         stringBuffer.append(this.getName());
         stringBuffer.append(" LastKey: ");
         stringBuffer.append(CanvasUtil.getKeyName(this.getLastKey()));
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public override function getSourceId() : Int {

@@ -45,12 +45,12 @@ class NumberOnOwnGroupSequenceAIFactory {
         stringBuffer.appendint(artificialIntelligenceInterface.length);
         stringBuffer.append(" + 1");
         final commonStrings : CommonStrings = CommonStrings.getInstance();
-        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);
+        this.logUtil.putF(Std.string(stringBuffer), this, commonStrings.GET_INSTANCE);
         if (artificialIntelligenceInterface.length - 1 > list.size()) {
-            throw new haxe.Exception("Not enough AI properties.");
+            throw new jre.lang.JavaException("Not enough AI properties.");
         }
         if (artificialIntelligenceInterface.length - 1 < list.size()) {
-            throw new haxe.Exception("Too Many AI properties.");
+            throw new jre.lang.JavaException("Too Many AI properties.");
         }
         var numberOnSameTeam : haxe.ds.Vector<Null<Int>> = haxe.ds.Vector.fromArrayCopy([for (index in 0...list.size()) null]);
         for (index in 0...numberOnSameTeam.length) {

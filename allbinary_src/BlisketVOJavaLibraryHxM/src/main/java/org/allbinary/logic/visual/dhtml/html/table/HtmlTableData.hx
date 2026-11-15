@@ -34,8 +34,9 @@ class HtmlTableData {
     public final BORDERED : String = "border";
     public final BASIC : String = "basic";
     public final ROWS : String = "rows";
-    public final FRAMES : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy([this.NONE, this.TOP, this.BOTTOM, this.TOPBOT, this.SIDES, this.ALL, this.BORDERED]);
+    public final FRAMES : haxe.ds.Vector<String>;
     public function new() {
+        this.FRAMES = haxe.ds.Vector.fromArrayCopy([this.NONE, this.TOP, this.BOTTOM, this.TOPBOT, this.SIDES, this.ALL, this.BORDERED]);
     }
 }
 

@@ -28,7 +28,7 @@ class ResourceLoadingLevelFactory {
     public final LEVEL : ResourceLoadingLevel = new ResourceLoadingLevel("Level", Integer.MAX_VALUE - 99);
     public final MAX_LEVEL : ResourceLoadingLevel = new ResourceLoadingLevel("Max Level", Integer.MAX_VALUE - 100);
     public final LOAD_ALL : ResourceLoadingLevel = new ResourceLoadingLevel("Load All", -1);
-    private final RESOURCE_LOADING_LEVEL_ARRAY : haxe.ds.Vector<ResourceLoadingLevel> = haxe.ds.Vector.fromArrayCopy([this.LOAD_ALL, this.MAX_LEVEL, this.LEVEL, this.LOAD_GAME, this.LOAD_TOUCH, this.LOAD_EARLY]);
+    private final RESOURCE_LOADING_LEVEL_ARRAY : haxe.ds.Vector<ResourceLoadingLevel>;
     public function getLevelString(level : Int) : String {
         for (index in 0...this.RESOURCE_LOADING_LEVEL_ARRAY.length) {
             if (level == this.RESOURCE_LOADING_LEVEL_ARRAY[index].getLevel()) {
@@ -39,6 +39,7 @@ class ResourceLoadingLevelFactory {
     }
 
     public function new() {
+        this.RESOURCE_LOADING_LEVEL_ARRAY = haxe.ds.Vector.fromArrayCopy([this.LOAD_ALL, this.MAX_LEVEL, this.LEVEL, this.LOAD_GAME, this.LOAD_TOUCH, this.LOAD_EARLY]);
     }
 }
 

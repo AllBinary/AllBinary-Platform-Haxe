@@ -145,7 +145,7 @@ class StoreFrontsEntity extends AbSqlBean implements StoreFrontsEntityInterface 
         stringBuffer.append(this.sqlStrings.PRIMARY_KEY);
         stringBuffer.append(storeFrontData.NAME);
         stringBuffer.append(this.sqlStrings.END);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function createTable() : String {

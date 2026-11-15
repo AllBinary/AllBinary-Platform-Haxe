@@ -29,12 +29,13 @@ class HtmlForm {
     private final ACTION : String = "ACTION=\"";
     private final GET : String = "GET\"";
     private final POST : String = "POST\"";
-    private final METHODS : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy([this.GET, this.POST]);
+    private final METHODS : haxe.ds.Vector<String>;
     private final METHOD : String = "METHOD=\"";
     private var method : String = null;
     private var action : String;
     public var inputs : BasicArrayList;
     public function new(action : String) {
+        this.METHODS = haxe.ds.Vector.fromArrayCopy([this.GET, this.POST]);
         this.action = action;
         this.inputs = new BasicArrayListD();
     }
@@ -69,7 +70,7 @@ class HtmlForm {
         result += "\" ";
         result += this.END;
         for (i in 0...inputSize) {
-            result += inputArray[i].toString();
+            result += Std.string(inputArray[i]);
             result += " ";
         }
         result += this.FORMEND;

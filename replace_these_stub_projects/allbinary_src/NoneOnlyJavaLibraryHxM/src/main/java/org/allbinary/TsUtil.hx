@@ -24,7 +24,7 @@ class TsUtil {
     }
 
     public function hashCode(anyType : Any) : Int {
-        return anyType.hashCode();
+        return jre.lang.JavaObject.hashCode(anyType);
     }
 
     // throws InterruptedException
@@ -46,7 +46,7 @@ class TsUtil {
     }
 
     public function equalsNotstring(anyType : Any, object2 : Any) : Bool {
-        return anyType.equals(object2);
+        return jre.lang.JavaObject.equals(anyType, object2);
     }
 
     public function toNumberFromChar(value : Int) : Int {

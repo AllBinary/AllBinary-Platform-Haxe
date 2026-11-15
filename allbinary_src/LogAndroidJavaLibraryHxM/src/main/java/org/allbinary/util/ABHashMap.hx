@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.util;
 
-//import java.util.HashMap;
+import jre.util.HashMap;
 
 class ABHashMap<K, V> extends HashMap<K, V> {
     public function new() {

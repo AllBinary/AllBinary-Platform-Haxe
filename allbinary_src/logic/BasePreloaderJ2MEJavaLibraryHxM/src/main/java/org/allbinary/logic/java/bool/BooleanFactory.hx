@@ -24,8 +24,8 @@ class BooleanFactory {
 
     public final TRUE : Null<Bool> = true;
     public final FALSE : Null<Bool> = false;
-    public final TRUE_STRING : String = this.TRUE.toString();
-    public final FALSE_STRING : String = this.FALSE.toString();
+    public final TRUE_STRING : String;
+    public final FALSE_STRING : String;
     public final YES : String = "yes";
     public final NO : String = "no";
     public function toStringb(bool : Bool) : String {
@@ -37,6 +37,8 @@ class BooleanFactory {
     }
 
     public function new() {
+        this.TRUE_STRING = Std.string(this.TRUE);
+        this.FALSE_STRING = Std.string(this.FALSE);
     }
 }
 

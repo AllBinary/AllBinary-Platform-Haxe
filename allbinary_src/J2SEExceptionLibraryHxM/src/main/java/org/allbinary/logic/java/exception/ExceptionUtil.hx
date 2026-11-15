@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.java.exception;
 
-//import java.io.ByteArrayOutputStream;
-//import java.io.PrintStream;
+import jre.io.ByteArrayOutputStream;
+import jre.io.PrintStream;
 
 //ActualPlatform
 class ExceptionUtil {
@@ -28,17 +28,15 @@ class ExceptionUtil {
     public function new() {
     }
 
-    public static final PRETEND_EXCEPTION : haxe.Exception = new haxe.Exception("Not Really An Exception");
+    public static final PRETEND_EXCEPTION : haxe.Exception = new jre.lang.JavaException("Not Really An Exception");
     private final NONE : String = "No Stack Trace";
     public function getStackTrace(e : haxe.Exception) : String {
         if (e != null) {
             final byteArrayOutputStream : ByteArrayOutputStream = new ByteArrayOutputStream();
             final printStream : PrintStream = new PrintStream(byteArrayOutputStream);
-            e.printStackTrace(printStream);
-            final output : String = byteArrayOutputStream.toString();
-            if (output != null) {
-                return output;
-            }
+            printStream.println(e.details());
+            final output : String = Std.string(byteArrayOutputStream);
+            return output;
         }
         return this.NONE;
     }

@@ -34,7 +34,7 @@ class GameKeyCompleteMotionGestureInputEventFactory {
     }
 
     public function updateAll() : Void {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).appendint(this.eventList.size()).toString(), this, "updateAll");
+        this.logUtil.putF(Std.string(new StringMaker().append(CommonLabels.getInstance().START_LABEL).appendint(this.eventList.size())), this, "updateAll");
         {
             var index : Int = this.eventList.size() - 1;
             while (index >= 0) {

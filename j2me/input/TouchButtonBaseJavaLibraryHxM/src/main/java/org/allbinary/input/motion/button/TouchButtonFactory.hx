@@ -25,9 +25,11 @@ class TouchButtonFactory {
     }
 
     private var LIST : BasicArrayList = BasicArrayListUtil.getInstance().getImmutableInstance();
-    private var list : BasicArrayList = this.LIST;
-    private var savedList : BasicArrayList = this.LIST;
+    private var list : BasicArrayList;
+    private var savedList : BasicArrayList;
     public function new() {
+        this.list = this.LIST;
+        this.savedList = this.LIST;
     }
 
     public function defaultList() : Void {
@@ -61,7 +63,7 @@ class TouchButtonFactory {
     // throws Exception
     public function setList(list : BasicArrayList) : Void {
         if (list == null) {
-            throw new haxe.Exception("Null List");
+            throw new jre.lang.JavaException("Null List");
         }
         this.list = list;
     }

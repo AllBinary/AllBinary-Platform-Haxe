@@ -77,7 +77,7 @@ class AdvertisementsEntity extends AbSqlBean implements AdvertisementsEntityInte
         stringBuffer.append(this.sqlStrings.CREATE_TABLE);
         stringBuffer.append(this.getTableName()).append(this.sqlStrings.START).append(advertisementData.NAME).append(_INDEX).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(advertisementData.NAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(StoreFrontData.getInstance().NAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(advertisementData.DESCRIPTION).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         stringBuffer.append(DynamicObjectData.NAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(EntryData.getInstance().TIMECREATED).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(EntryData.getInstance().LASTMODIFIED).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(this.sqlStrings.PRIMARY_KEY).append(advertisementData.NAME).append(this.sqlStrings.END);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function createTable() : String {
@@ -91,6 +91,10 @@ class AdvertisementsEntity extends AbSqlBean implements AdvertisementsEntityInte
 
     public function dropTable() : String {
         return super.dropTable();
+    }
+
+    public override function insert(values : BasicArrayList) : Void {
+        super.insert(values);
     }
 
 }

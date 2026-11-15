@@ -59,7 +59,7 @@ class EmailInfo {
     }
 
     public function toString() : String {
-        return "Email Info: \n " + this.getBasicEmailInfo().toString();
+        return "Email Info: \n " + Std.string(this.getBasicEmailInfo());
     }
 
 }

@@ -35,39 +35,39 @@
         -->
         <module>../../AllBinary-Platform-Integration</module>
         
-<!--        <module>../j2me/games/platform/j2se/AllBinaryOnJ2SEBasePlatformJavaLibraryHaxeM</module>-->
-        <module>../j2me/games/platform/j2se/AllBinaryOnJ2SEPlatformJavaLibraryHaxeM</module>
+<!--        <module>../j2me/games/platform/j2se/AllBinaryOnJ2SEBasePlatformJavaLibraryHxM</module>-->
+        <module>../j2me/games/platform/j2se/AllBinaryOnJ2SEPlatformJavaLibraryHxM</module>
         
-        <module>../j2me/FullScreenJavaLibraryHaxeM</module>
+        <!--<module>../j2me/FullScreenJavaLibraryHxM</module>-->
 
-        <module>../j2me/SWTToJ2MELibraryHaxeM</module>
+        <!--<module>../j2me/SWTToJ2MELibraryHxM</module>-->
         
-        <module>../j2me/media/graphics/ImageCacheOpenGLESJavaLibraryHaxeM</module>
-        <module>../graphics/opengl/Min3dForNullJavaLibraryHaxeM</module>
-        <module>../graphics/opengl/OpenGLESFileConfigurationJavaLibraryHaxeM</module>
-        <module>../graphics/opengl/OpenGLESJavaLibraryHaxeM</module>
-        <module>../j2me/media/graphics/animation/vector/SVGToAllBinaryJavaLibraryHaxeM</module>
-        <module>../j2me/media/graphics/animation/image/ImageSwtJ2SEJavaLibraryHaxeM</module>
+        <module>../j2me/media/graphics/ImageCacheOpenGLESJavaLibraryHxM</module>
+        <module>../graphics/opengl/Min3dForNullJavaLibraryHxM</module>
+        <module>../graphics/opengl/OpenGLESFileConfigurationJavaLibraryHxM</module>
+        <module>../graphics/opengl/OpenGLESJavaLibraryHxM</module>
+        <module>../j2me/media/graphics/animation/vector/SVGToAllBinaryJavaLibraryHxM</module>
+        <!--<module>../j2me/media/graphics/animation/image/ImageSwtJ2SEJavaLibraryHxM</module>-->
 
-        <module>../j2me/media/graphics/layer/AllBinaryTiledLayerJavaLibraryHaxeM</module>        
-        <module>../j2me/media/graphics/geography/map/GeographicMapLibraryHaxeM</module>
-        <module>../j2me/media/graphics/geography/GeographicPathFindingLibraryHaxeM</module>
-        <module>../j2me/media/graphics/geography/map/RaceTrackGeographicMapLibraryHaxeM</module>
-        <module>../j2me/media/graphics/geography/map/BasicTopViewGeographicMapJavaLibraryHaxeM</module>
-        <module>../j2me/games/arcade/platformer/TopViewGameBehaviorJavaLibraryHaxeM</module>
+        <module>../j2me/media/graphics/layer/AllBinaryTiledLayerJavaLibraryHxM</module>        
+        <module>../j2me/media/graphics/geography/map/GeographicMapLibraryHxM</module>
+        <module>../j2me/media/graphics/geography/GeographicPathFindingLibraryHxM</module>
+        <module>../j2me/media/graphics/geography/map/RaceTrackGeographicMapLibraryHxM</module>
+        <module>../j2me/media/graphics/geography/map/BasicTopViewGeographicMapJavaLibraryHxM</module>
+        <module>../j2me/games/arcade/platformer/TopViewGameBehaviorJavaLibraryHxM</module>
 
-        <module>../j2me/games/GameJ2MEOptionalLibraryPOHaxeM</module>
+        <module>../j2me/games/GameJ2MEOptionalLibraryPOHxM</module>
 
-        <module>../j2me/media/graphics/geography/map/GraphP</module>
-        <module>../j2me/games/strategy/rts/RTSGameJavaLibraryP</module>
+        <module>../j2me/media/graphics/geography/map/GraphHxP</module>
+        <module>../j2me/games/strategy/rts/RTSGameJavaLibraryHxP</module>
         
-        <module>../j2me/android/AllBinaryPlatformAndroidLibraryPOHaxeM</module>
+        <module>../j2me/android/AllBinaryPlatformAndroidLibraryPOHxM</module>
 
     </modules>
 
     <dependencies>
         
-
+    </dependencies>
 
 </project>
 

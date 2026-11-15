@@ -1,7 +1,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.media.audio;
 
-//import javax.microedition.media.PlayerListener;
+import javax.microedition.media.PlayerListener;
 import android.media.MediaPlayer;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -13,6 +13,10 @@ class AndroidMediaPlayerWrapperListener {
     private final commonStrings : CommonStrings = CommonStrings.getInstance();
     private var androidMediaPlayerWrapper : AndroidMediaPlayerWrapper = AndroidMediaPlayerWrapper.NULL_ANDROID_MEDIA_PLAYER_WRAPPER;
     public function new(androidMediaPlayerWrapper : AndroidMediaPlayerWrapper) {
+        this.mOnBufferingUpdateListener = new AndroidMediaPlayerOnBufferingUpdateListener(this);
+        this.mOnPreparedListener = new AndroidMediaPlayerOnPreparedListener(this);
+        this.mOnErrorListener = new AndroidMediaPlayerOnErrorListener(this);
+        this.mOnCompletionListener = new AndroidMediaPlayerOnCompletionListener(this);
         try {
             this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
             this.androidMediaPlayerWrapper = androidMediaPlayerWrapper;
@@ -70,12 +74,12 @@ class AndroidMediaPlayerWrapperListener {
 
         public override function onBufferingUpdate(mediaPlayer : MediaPlayer, i : Int) : Void {
             final logUtil : LogUtil = LogUtil.getInstance();
-            logUtil.putF(new StringMaker().append("Update buffer: ").appendint(i).append("%").toString(), this, this.ON_BUFFERING_UPDATE);
+            logUtil.putF(Std.string(new StringMaker().append("Update buffer: ").appendint(i).append("%")), this, this.ON_BUFFERING_UPDATE);
             this.androidMediaPlayerWrapperListener.androidMediaPlayerWrapper.update(PlayerListener.DEVICE_UNAVAILABLE);
         }
 
     }
-    private var mOnBufferingUpdateListener : MediaPlayer.OnBufferingUpdateListener = new AndroidMediaPlayerOnBufferingUpdateListener(this);
+    private var mOnBufferingUpdateListener : MediaPlayer.OnBufferingUpdateListener;
     // Java inner class: Haxe does not nest classes so move this to its own module
     class AndroidMediaPlayerOnPreparedListener extends MediaPlayerOnPreparedListener {
         private final ON_PREPARE : String = "onPrepare()";
@@ -93,7 +97,7 @@ class AndroidMediaPlayerWrapperListener {
         }
 
     }
-    private var mOnPreparedListener : MediaPlayer.OnPreparedListener = new AndroidMediaPlayerOnPreparedListener(this);
+    private var mOnPreparedListener : MediaPlayer.OnPreparedListener;
     // Java inner class: Haxe does not nest classes so move this to its own module
     class AndroidMediaPlayerOnErrorListener extends MediaPlayerOnErrorListener {
         private final ON_ERROR : String = "onError()";
@@ -105,13 +109,13 @@ class AndroidMediaPlayerWrapperListener {
 
         public override function onError(mp : MediaPlayer, what : Int, extra : Int) : Bool {
             final logUtil : LogUtil = LogUtil.getInstance();
-            logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("What: ").appendint(what).append(" Extra: ").appendint(extra).toString(), this, this.ON_ERROR);
+            logUtil.putF(Std.string(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("What: ").appendint(what).append(" Extra: ").appendint(extra)), this, this.ON_ERROR);
             this.androidMediaPlayerWrapperListener.androidMediaPlayerWrapper.update(PlayerListener.ERROR);
             return true;
         }
 
     }
-    private var mOnErrorListener : MediaPlayer.OnErrorListener = new AndroidMediaPlayerOnErrorListener(this);
+    private var mOnErrorListener : MediaPlayer.OnErrorListener;
     // Java inner class: Haxe does not nest classes so move this to its own module
     class AndroidMediaPlayerOnCompletionListener extends MediaPlayerOnCompletionListener {
         private final ON_COMPLETE : String = "onComplete()";
@@ -129,6 +133,6 @@ class AndroidMediaPlayerWrapperListener {
         }
 
     }
-    private var mOnCompletionListener : MediaPlayer.OnCompletionListener = new AndroidMediaPlayerOnCompletionListener(this);
+    private var mOnCompletionListener : MediaPlayer.OnCompletionListener;
 }
 

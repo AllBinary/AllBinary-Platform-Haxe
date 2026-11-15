@@ -113,7 +113,7 @@ class CanvasJPanel extends javax.swing.JPanel implements java.awt.event.MouseLis
 
     // throws Exception
     private function initMyComponents() : Void {
-        this.frameLabel = new CanvasTreeLabel("FrameLabel" + CanvasJPanel.frame.toString());
+        this.frameLabel = new CanvasTreeLabel("FrameLabel" + Std.string(CanvasJPanel.frame));
         this.canvasTreeNode = new DefaultMutableTreeNode(this.frameLabel);
         CanvasJPanel.frame++;
         this.workAreaJTreeJPanel.add(this.getTreeNode());
@@ -364,7 +364,7 @@ class CanvasJPanel extends javax.swing.JPanel implements java.awt.event.MouseLis
                     this.drawGrid(graphics);
                 }
                 this.drawItems(graphics);
-                graphics.drawString(this.getAngle().toString(), this.getWidth() - 75, this.getHeight() - 15);
+                graphics.drawString(Std.string(this.getAngle()), this.getWidth() - 75, this.getHeight() - 15);
                 this.grid.isChanged = false;
             }
         } catch (e : haxe.Exception) {
@@ -465,7 +465,7 @@ class CanvasJPanel extends javax.swing.JPanel implements java.awt.event.MouseLis
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(PositionStrings.getInstance().Y_LABEL);
         stringBuffer.appendint(Std.int(mouseEvent.getY() / this.getYPixelsPerWorkAreaPixel()));
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function keyPressed(keyEvent : java.awt.event.KeyEvent) : Void {

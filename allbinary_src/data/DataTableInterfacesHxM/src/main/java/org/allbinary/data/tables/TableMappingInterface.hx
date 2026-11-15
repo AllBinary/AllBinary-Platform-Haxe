@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.data.tables;
 
-//import java.util.HashMap;
+import jre.util.HashMap;
 import org.allbinary.util.BasicArrayList;
 
 interface TableMappingInterface {
@@ -26,7 +26,7 @@ interface TableMappingInterface {
     function toVector() : BasicArrayList;
 
     // throws Exception
-    function toHashMap() : HashMap;
+    function toHashMap() : HashMap<Dynamic, Dynamic>;
 
 }
 

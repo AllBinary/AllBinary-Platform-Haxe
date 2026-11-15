@@ -117,8 +117,8 @@ class AndroidOS extends GenericOperatingSystem {
         osBuffer.append(super.toString());
         osBuffer.append(CommonSeps.getInstance().SPACE);
         osBuffer.append("Other System Info: \n");
-        osBuffer.append(this.stringBuffer.toString());
-        return osBuffer.toString();
+        osBuffer.append(Std.string(this.stringBuffer));
+        return Std.string(osBuffer);
     }
 
 }

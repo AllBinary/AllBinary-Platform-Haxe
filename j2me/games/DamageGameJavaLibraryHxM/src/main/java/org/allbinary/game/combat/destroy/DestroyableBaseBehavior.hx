@@ -29,7 +29,7 @@ class DestroyableBaseBehavior implements DestroyableInterface {
 
     // throws Exception
     public function isDestroyed() : Bool {
-        throw new haxe.Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     public function setDestroyed(destroyed : Bool) : Void {

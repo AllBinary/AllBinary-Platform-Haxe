@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.layer;
 
-//import javax.microedition.khronos.opengles.GL;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.khronos.opengles.GL;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
@@ -40,22 +40,23 @@ class AllBinaryGameLayer extends AllBinaryLayer implements ViewPositionEventList
     public final commonStrings : CommonStrings = CommonStrings.getInstance();
     public final basicSetColorUtil : BasicColorSetUtil = BasicColorSetUtil.getInstance();
     public final RED : BasicColor = BasicColorFactory.getInstance().RED;
-    private final paintable : Paintable = (SWTUtil.isSWT ? /* anonymous class body:
-        private final basicSetColorUtil : BasicColorSetUtil = BasicColorSetUtil.getInstance();
-        private final BLACK : BasicColor = BasicColorFactory.getInstance().BLACK;
-        public function paint(graphics : Graphics) : Void {
-            this.basicSetColorUtil.setBasicColorP(graphics, this.BLACK);
+    private static function createPaintable() : Paintable {
+        if (SWTUtil.isSWT) {
+            return new SWTBlackPaintable();
         }
+        return NullPaintable.getInstance();
+    }
 
-*/ new Paintable() : NullPaintable.getInstance());
+    private final paintable : Paintable;
     private final gameKeyEventList : BasicArrayList = new BasicArrayListD();
     public function new(name : String, layerInfo : Rectangle, viewPosition : ViewPositionBase) {
         super(name, layerInfo, viewPosition);
+        this.paintable = createPaintable();
     }
 
     // throws Exception
     public override function set(gl : GL) : Void {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     public function move() : Void {
@@ -67,12 +68,12 @@ class AllBinaryGameLayer extends AllBinaryLayer implements ViewPositionEventList
 
     // throws Exception
     public function processInput(allBinaryLayerManager : AllBinaryLayerManager) : Void {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception
     public function processTick(allBinaryLayerManager : AllBinaryLayerManager) : Void {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     public override function onEvent(eventObject : AllBinaryEventObject) : Void {

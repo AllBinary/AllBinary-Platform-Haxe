@@ -15,11 +15,11 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.util.cache;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 import org.allbinary.string.CommonStrings;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsConstructor;
+//import jsinterop.annotations.JsProperty;
 
 class IndexedBasicArrayListCache extends BaseBasicArrayListCache implements CacheInterface {
     // throws Exception
@@ -71,7 +71,7 @@ class IndexedBasicArrayListCache extends BaseBasicArrayListCache implements Cach
 
     // throws Exception
     public override function addArray(cacheableInterfaces : haxe.ds.Vector<CacheableInterface>) : Void {
-        throw new haxe.Exception("No Imple");
+        throw new jre.lang.JavaException("No Imple");
     }
 
     public override function clear() : Void {

@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form.item;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.color.BasicColor;
 
 class SelectableTextItem extends ABTextItem {

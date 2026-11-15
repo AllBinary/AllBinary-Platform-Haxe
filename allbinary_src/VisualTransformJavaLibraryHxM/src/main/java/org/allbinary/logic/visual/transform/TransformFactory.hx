@@ -91,7 +91,7 @@ class TransformFactory {
                 stringBuffer.append("Failed To Get Instance: ");
                 stringBuffer.append((cast propertiesHashMap.get(TransformInfoData.getInstance().NAME) : String));
                 stringBuffer.append("->TransformFactory");
-                this.logUtil.put(stringBuffer.toString(), this, this.commonStrings.GET_INSTANCE, e);
+                this.logUtil.put(Std.string(stringBuffer), this, this.commonStrings.GET_INSTANCE, e);
             }
             throw e;
         }

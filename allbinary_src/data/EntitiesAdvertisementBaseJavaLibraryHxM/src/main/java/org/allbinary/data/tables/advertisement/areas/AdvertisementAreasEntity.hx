@@ -87,7 +87,7 @@ class AdvertisementAreasEntity extends AbSqlBean implements AdvertisementAreasEn
         stringBuffer.append(this.getTableName());
         stringBuffer.append(this.sqlStrings.START);
         stringBuffer.append(advertisementAreaData.NAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(StoreFrontData.getInstance().NAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(advertisementAreaData.DESCRIPTION).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(advertisementAreaData.CONSTRAINTS).append(this.sqlTypeStrings.BLOB_NOT_NULL).append(AdvertisementCampaignData.getInstance().NAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(EntryData.getInstance().TIMECREATED).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(EntryData.getInstance().LASTMODIFIED).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(this.sqlStrings.PRIMARY_KEY).append(advertisementAreaData.NAME).append(this.sqlStrings.END);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function createTable() : String {
@@ -101,6 +101,10 @@ class AdvertisementAreasEntity extends AbSqlBean implements AdvertisementAreasEn
 
     public function dropTable() : String {
         return super.dropTable();
+    }
+
+    public override function insert(values : BasicArrayList) : Void {
+        super.insert(values);
     }
 
 }

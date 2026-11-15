@@ -68,7 +68,7 @@ class KeylessBasicArrayListCache extends IndexedBasicArrayListCache {
                 index--;
             }
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

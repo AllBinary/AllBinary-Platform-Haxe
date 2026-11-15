@@ -41,7 +41,7 @@ class AbSqlBean extends AbSqlRow {
         stringBuffer.append(this.sqlStrings.EQUAL_QUOTE);
         stringBuffer.append(value);
         stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
-        final sqlStatement : String = stringBuffer.toString();
+        final sqlStatement : String = Std.string(stringBuffer);
         try {
             var field : String = this.stringUtil.EMPTY_STRING;
             final rset : ResultSet = executeSQLStatement(sqlStatement);
@@ -53,7 +53,7 @@ class AbSqlBean extends AbSqlRow {
                     stringBuffer.append(sqlStatement);
                     stringBuffer.append(this.sqlStrings.FIELD_VALUE);
                     stringBuffer.append(field);
-                    this.logUtil.putF(stringBuffer.toString(), this, this.METHOD_GET_FIELD);
+                    this.logUtil.putF(Std.string(stringBuffer), this, this.METHOD_GET_FIELD);
                 }
                 return field;
             }
@@ -91,7 +91,7 @@ class AbSqlBean extends AbSqlRow {
                     stringBuffer.append(this.sqlStrings.AND);
                 }
             }
-            final sqlStatement : String = stringBuffer.toString();
+            final sqlStatement : String = Std.string(stringBuffer);
             final rset : ResultSet = executeSQLStatement(sqlStatement);
             while (rset.next()) {
                 field = rset.getString(requestedField);
@@ -101,13 +101,13 @@ class AbSqlBean extends AbSqlRow {
                     stringBuffer.append(sqlStatement);
                     stringBuffer.append(this.sqlStrings.FIELD_VALUE);
                     stringBuffer.append(field);
-                    this.logUtil.putF(stringBuffer.toString(), this, this.METHOD_GET_FIELD);
+                    this.logUtil.putF(Std.string(stringBuffer), this, this.METHOD_GET_FIELD);
                 }
                 return field;
             }
             return null;
         } catch (e : haxe.Exception) {
-            final sqlStatement : String = stringBuffer.toString();
+            final sqlStatement : String = Std.string(stringBuffer);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR)) {
                 this.logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_GET_FIELD, e);
             }
@@ -125,7 +125,7 @@ class AbSqlBean extends AbSqlRow {
             stringBuffer.append(key);
             for (i in 0...size) {
                 stringBuffer.append(this.commonSeps.SPACE);
-                stringBuffer.append(keyArray[i].toString());
+                stringBuffer.append(Std.string(keyArray[i]));
             }
             stringBuffer.append(this.sqlStrings.FROM);
             stringBuffer.append(this.getTableName());
@@ -134,7 +134,7 @@ class AbSqlBean extends AbSqlRow {
             stringBuffer.append(this.sqlStrings.EQUAL_QUOTE);
             stringBuffer.append(value);
             stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
-            final sqlStatement : String = stringBuffer.toString();
+            final sqlStatement : String = Std.string(stringBuffer);
             final rset : ResultSet = executeSQLStatement(sqlStatement);
             var columnName : String = null;
             var field : String = null;
@@ -142,8 +142,8 @@ class AbSqlBean extends AbSqlRow {
                 var keyArray2 : haxe.ds.Vector<Any> = columnsAndValues.keySet().toArray();
                 var size2 : Int = keyArray2.length;
                 for (i in 0...size2) {
-                    columnName = keyArray2[i].toString();
-                    field = rset.getObject(columnName).toString();
+                    columnName = Std.string(keyArray2[i]);
+                    field = Std.string(rset.getObject(columnName));
                     if (Reflect.compare(field, (cast columnsAndValues.get(columnName) : String)) != 0) {
                         return org.allbinary.globals.GLOBALS2.NOTASUBSET;
                     }
@@ -155,7 +155,7 @@ class AbSqlBean extends AbSqlRow {
                 return org.allbinary.globals.GLOBALS2.ISASUBSET;
             }
         } catch (e : haxe.Exception) {
-            final sqlStatement : String = stringBuffer.toString();
+            final sqlStatement : String = Std.string(stringBuffer);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR)) {
                 this.logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_IS_SUBSET_OF_ENTRY, e);
             }

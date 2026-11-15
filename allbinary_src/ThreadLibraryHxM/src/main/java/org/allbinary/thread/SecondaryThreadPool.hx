@@ -31,16 +31,16 @@ class SecondaryThreadPool extends ThreadPool {
     }
 
     public override function runTask(task : Runnable) : Void {
-        this.logUtil.putF(new StringMaker().append(StringUtil.getInstance().toString(task)).appendlong(haxe.Int64.ofInt(haxe.Int64.fromFloat(Date.now().getTime()))).toString(), this, this.threadPoolStrings.ADD_TASK);
+        this.logUtil.putF(Std.string(new StringMaker().append(StringUtil.getInstance().toString(task)).appendlong(haxe.Int64.ofInt(haxe.Int64.fromFloat(Date.now().getTime())))), this, this.threadPoolStrings.ADD_TASK);
         super.runTask(task);
     }
 
     public override function startTask(task : Runnable) : Void {
-        this.logUtil.putF(new StringMaker().append(this.threadPoolStrings.START_TASK).append(StringUtil.getInstance().toString(task)).appendlong(haxe.Int64.ofInt(haxe.Int64.fromFloat(Date.now().getTime()))).toString(), this, this.commonStrings.RUN);
+        this.logUtil.putF(Std.string(new StringMaker().append(this.threadPoolStrings.START_TASK).append(StringUtil.getInstance().toString(task)).appendlong(haxe.Int64.ofInt(haxe.Int64.fromFloat(Date.now().getTime())))), this, this.commonStrings.RUN);
     }
 
     public override function completedTask(task : Runnable) : Void {
-        this.logUtil.putF(new StringMaker().append(this.threadPoolStrings.COMPLETE_TASK).append(StringUtil.getInstance().toString(task)).appendlong(haxe.Int64.ofInt(haxe.Int64.fromFloat(Date.now().getTime()))).toString(), this, this.commonStrings.RUN);
+        this.logUtil.putF(Std.string(new StringMaker().append(this.threadPoolStrings.COMPLETE_TASK).append(StringUtil.getInstance().toString(task)).appendlong(haxe.Int64.ofInt(haxe.Int64.fromFloat(Date.now().getTime())))), this, this.commonStrings.RUN);
     }
 
 }

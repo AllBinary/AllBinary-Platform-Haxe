@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.io;
 
-//import java.io.DataInputStream;
+import jre.io.DataInputStream;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
@@ -62,7 +62,7 @@ class LineReader {
         try {
             final nextIndex : Int = this.string.indexOf(CommonSeps.getInstance().NEW_LINE, index);
             if (nextIndex == -1) {
-                throw new haxe.Exception("next() should have been called first");
+                throw new jre.lang.JavaException("next() should have been called first");
             }
             final temp : String = this.string.substring(index, nextIndex);
             index = nextIndex + 1;

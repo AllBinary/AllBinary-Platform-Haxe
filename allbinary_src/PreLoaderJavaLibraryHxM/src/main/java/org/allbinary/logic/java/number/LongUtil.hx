@@ -32,7 +32,7 @@ class LongUtil {
             }
         }
         frameStringBuffer.append(end);
-        return frameStringBuffer.toString();
+        return Std.string(frameStringBuffer);
     }
 
 }

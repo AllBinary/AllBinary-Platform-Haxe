@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.data.resource;
 
-//import java.io.InputStream;
+import jre.io.InputStream;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -39,7 +39,7 @@ class ResourceUtil {
     }
 
     public function setClassLoader(classLoader : ClassLoader) : Void {
-        this.logUtil.putF(new StringMaker().append("Resource Loader: ").append(Type.getClassName(Type.getClass(classLoader))).toString(), this, "setClassLoader");
+        this.logUtil.putF(Std.string(new StringMaker().append("Resource Loader: ").append(Type.getClassName(Type.getClass(classLoader)))), this, "setClassLoader");
         ResourceUtil.classLoader = classLoader;
     }
 
@@ -49,7 +49,7 @@ class ResourceUtil {
         if (inputStream == null) {
             inputStream = this.getResourceAsStreamAtStart(resource, 1);
             if (inputStream == null) {
-                throw new haxe.Exception(new StringMaker().append("Unable to obtain: ").append(resource).toString());
+                throw new jre.lang.JavaException(Std.string(new StringMaker().append("Unable to obtain: ").append(resource)));
             }
         }
         return inputStream;

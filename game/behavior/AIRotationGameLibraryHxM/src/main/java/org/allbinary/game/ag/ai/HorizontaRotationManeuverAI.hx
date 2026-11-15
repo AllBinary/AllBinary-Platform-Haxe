@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.ai;
 
-//import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Canvas;
 import org.allbinary.ai.ArtificialIntelligence;
 import org.allbinary.ai.ArtificialIntelligenceTransitionInterface;
 import org.allbinary.animation.IndexedAnimation;

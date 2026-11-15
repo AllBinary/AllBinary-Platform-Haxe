@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.layer;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 
 class NullLayer extends Layer {
     private static final instance : NullLayer = new NullLayer();

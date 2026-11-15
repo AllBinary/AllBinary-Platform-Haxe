@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.business.init;
 
-//import java.util.HashMap;
+import jre.util.HashMap;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
@@ -38,6 +38,18 @@ class InitInfo {
     private var testHtmlPath : AbPath = null;
     private var hasRead : Bool = false;
     public function new() {
+    }
+
+    public function set(...args : Dynamic) : Dynamic {
+        if (args.length == 0) {
+            this.set();
+            return null;
+        }
+        if (args.length == 1) {
+            this.set_HashMap(args[0]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: set");
     }
 
     // throws InitException
@@ -68,7 +80,7 @@ class InitInfo {
     }
 
     // synchronized
-    public function set(hashMap : HashMap) : Void {
+    public function set_HashMap(hashMap : HashMap<Dynamic, Dynamic>) : Void {
         try {
             this.testing = (cast hashMap.get(this.TESTING) : String);
             this.mainPath = new AbPath((cast hashMap.get(this.MAINPATH) : String), StringUtil.getInstance().EMPTY_STRING);
@@ -136,7 +148,7 @@ class InitInfo {
     public function getTestHtmlPath() : String {
         this.updateIfNeeded();
         if (this.testHtmlPath != null) {
-            return this.testHtmlPath.toString();
+            return Std.string(this.testHtmlPath);
         } else {
             return null;
         }
@@ -145,7 +157,7 @@ class InitInfo {
     public function getMainPath() : String {
         this.updateIfNeeded();
         if (this.mainPath != null) {
-            return this.mainPath.toString();
+            return Std.string(this.mainPath);
         } else {
             return null;
         }
@@ -176,8 +188,8 @@ class InitInfo {
         return BooleanUtil.getInstance().isStringBoolean(testing);
     }
 
-    public function toHashMap() : HashMap {
-        var hashMap : HashMap = StdUtil.getInstance().createHashMap();
+    public function toHashMap() : HashMap<Dynamic, Dynamic> {
+        var hashMap : HashMap<Dynamic, Dynamic> = StdUtil.getInstance().createHashMap();
         hashMap.put(this.TESTING, this.getTesting());
         hashMap.put(this.MAINPATH, this.getMainPath());
         hashMap.put(this.TESTHTMLPATH, this.getTestHtmlPath());

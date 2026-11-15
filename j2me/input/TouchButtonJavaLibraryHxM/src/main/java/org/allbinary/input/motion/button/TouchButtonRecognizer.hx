@@ -27,63 +27,10 @@ import org.allbinary.util.BasicArrayList;
 class TouchButtonRecognizer {
     public final logUtil : LogUtil = LogUtil.getInstance();
     private final rectangleCollisionUtil : RectangleCollisionUtil = RectangleCollisionUtil.getInstance();
-    private final upGameKeyEventHandler : UpGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
+    public final upGameKeyEventHandler : UpGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
     private final downGameKeyEventHandler : DownGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
     private var lastPressedTouchButtonInput : TouchButtonInput = BasicTouchInputFactory.getInstance().NONE;
-    private final currentlyPressedTouchButtonSingleton : CurrentlyPressedTouchButtonSingleton = CurrentlyPressedTouchButtonSingleton.getInstance();
-    //CurrentlyPressedTouchButtonSingletonDebug.getInstance();
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class ReleaseHelper {
-        public final touchButtonRecognizer : TouchButtonRecognizer;
-        public function new(touchButtonRecognizer : TouchButtonRecognizer) {
-            this.touchButtonRecognizer = touchButtonRecognizer;
-        }
-
-        // throws Exception
-        public function release(touchButtonInput : TouchButtonInput, deviceId : Int) : Void {
-            var nextTouchButtonInput : TouchButtonInput = null;
-            var gameKeyEvent : GameKeyEvent = null;
-            {
-                var index : Int = this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.size() - 1;
-                while (index >= 0) {
-                nextTouchButtonInput = this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.get(index);
-                gameKeyEvent = nextTouchButtonInput.getGameKeyEvent();
-                this.touchButtonRecognizer.upGameKeyEventHandler.fireEvent(gameKeyEvent);
-                this.touchButtonRecognizer.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
-                this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.removeAt(index);
-                    index--;
-                }
-            }
-        }
-
-    }
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class MultitouchReleaseHelper extends ReleaseHelper {
-        public function new(touchButtonRecognizer : TouchButtonRecognizer) {
-            super(touchButtonRecognizer);
-        }
-
-        // throws Exception
-        public override function release(touchButtonInput : TouchButtonInput, deviceId : Int) : Void {
-            final cancelTouchButtonInput : TouchButtonInput = CancelTouchButtonInputFactory.getInstance().getCancel(touchButtonInput);
-            var nextTouchButtonInput : TouchButtonInput = null;
-            var gameKeyEvent : GameKeyEvent = null;
-            {
-                var index : Int = this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.size() - 1;
-                while (index >= 0) {
-                nextTouchButtonInput = this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.get(index);
-                if (cancelTouchButtonInput == nextTouchButtonInput) {
-                    gameKeyEvent = nextTouchButtonInput.getGameKeyEvent();
-                    this.touchButtonRecognizer.upGameKeyEventHandler.fireEvent(gameKeyEvent);
-                    this.touchButtonRecognizer.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
-                    this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.removeAt(index);
-                }
-                    index--;
-                }
-            }
-        }
-
-    }
+    public final currentlyPressedTouchButtonSingleton : CurrentlyPressedTouchButtonSingleton = CurrentlyPressedTouchButtonSingleton.getInstance();
     private final releaseHelper : ReleaseHelper = null;
     public function new() {
         if (TouchScreenFactory.getInstance().isMultiTouch()) {

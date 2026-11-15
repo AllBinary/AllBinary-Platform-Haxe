@@ -157,8 +157,8 @@ class LinesGraphicItem implements GraphicItemInterface {
     // synchronized
     public function addPoint(point : GPoint) : Void {
         this.points.getPoints().add(point);
-        this.logUtil.putF(point.toString(), this, "addPoint");
-        this.pointTreeNodeVector.add(new DefaultMutableTreeNode(point.toString()));
+        this.logUtil.putF(Std.string(point), this, "addPoint");
+        this.pointTreeNodeVector.add(new DefaultMutableTreeNode(Std.string(point)));
         this.treeNode.add((cast this.pointTreeNodeVector.get(this.pointTreeNodeVector.size() - 1) : DefaultMutableTreeNode));
     }
 
@@ -196,7 +196,7 @@ class LinesGraphicItem implements GraphicItemInterface {
             var point : GPoint = (cast list.get(index) : GPoint);
             if (point != null) {
                 this.points.getPoints().add(PointFactory.getInstance().createXY(point.getX(), point.getY()));
-                this.pointTreeNodeVector.add(new DefaultMutableTreeNode(point.toString()));
+                this.pointTreeNodeVector.add(new DefaultMutableTreeNode(Std.string(point)));
                 this.treeNode.add((cast this.pointTreeNodeVector.get(this.pointTreeNodeVector.size() - 1) : DefaultMutableTreeNode));
             }
         }
@@ -275,7 +275,7 @@ class LinesGraphicItem implements GraphicItemInterface {
             var mousePoint : GPoint = PointFactory.getInstance().createXY(mouseEvent.getPoint().x, mouseEvent.getPoint().y);
             if ((mouseEvent.getModifiers() & mouseEvent.BUTTON1_MASK) == mouseEvent.BUTTON1_MASK) {
                 var point : GPoint = PointFactory.getInstance().createXY(mousePoint.getX() / x, mousePoint.getY() / y);
-                StatusFactory.getInstance().setStatus("Line Point Added: " + point.toString());
+                StatusFactory.getInstance().setStatus("Line Point Added: " + Std.string(point));
                 this.addPoint(point);
             } else if ((mouseEvent.getModifiers() & mouseEvent.BUTTON3_MASK) == mouseEvent.BUTTON3_MASK) {
                 StatusFactory.getInstance().setStatus("Line Point Removed");

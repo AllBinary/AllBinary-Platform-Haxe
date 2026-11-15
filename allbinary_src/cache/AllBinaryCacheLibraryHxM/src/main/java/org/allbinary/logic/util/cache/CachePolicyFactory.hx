@@ -23,13 +23,19 @@ class CachePolicyFactory {
     }
 
     public final NAME : String = "lru";
-    public var MAX_TIME_THOUSAND_MAX : CachePolicy = new CachePolicy(this.NAME, Long.MAX_VALUE, 1000);
-    public var THIRTY_MINUTES_TEN_THOUSAND_MAX : CachePolicy = new CachePolicy(this.NAME, 1000 * 60 * 30, 10000);
-    public var THIRTY_MINUTES_FIFTY_THOUSAND_MAX : CachePolicy = new CachePolicy(this.NAME, 1000 * 60 * 30, 100000);
-    public var ONE_MINUTE_FIVE_MAX : CachePolicy = new CachePolicy(this.NAME, 1000 * 60 * 1, 5);
-    public var ONE_MINUTE_TEN_MAX : CachePolicy = new CachePolicy(this.NAME, 1000 * 60 * 1, 10);
-    public var ONE_MINUTE_ONE_HUNDRED_MAX : CachePolicy = new CachePolicy(this.NAME, 1000 * 60 * 1, 100);
+    public var MAX_TIME_THOUSAND_MAX : CachePolicy;
+    public var THIRTY_MINUTES_TEN_THOUSAND_MAX : CachePolicy;
+    public var THIRTY_MINUTES_FIFTY_THOUSAND_MAX : CachePolicy;
+    public var ONE_MINUTE_FIVE_MAX : CachePolicy;
+    public var ONE_MINUTE_TEN_MAX : CachePolicy;
+    public var ONE_MINUTE_ONE_HUNDRED_MAX : CachePolicy;
     public function new() {
+        this.MAX_TIME_THOUSAND_MAX = new CachePolicy(this.NAME, Long.MAX_VALUE, 1000);
+        this.THIRTY_MINUTES_TEN_THOUSAND_MAX = new CachePolicy(this.NAME, 1000 * 60 * 30, 10000);
+        this.THIRTY_MINUTES_FIFTY_THOUSAND_MAX = new CachePolicy(this.NAME, 1000 * 60 * 30, 100000);
+        this.ONE_MINUTE_FIVE_MAX = new CachePolicy(this.NAME, 1000 * 60 * 1, 5);
+        this.ONE_MINUTE_TEN_MAX = new CachePolicy(this.NAME, 1000 * 60 * 1, 10);
+        this.ONE_MINUTE_ONE_HUNDRED_MAX = new CachePolicy(this.NAME, 1000 * 60 * 1, 100);
     }
 }
 

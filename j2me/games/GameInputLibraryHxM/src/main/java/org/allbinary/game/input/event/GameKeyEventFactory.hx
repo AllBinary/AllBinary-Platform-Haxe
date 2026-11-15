@@ -34,8 +34,9 @@ class GameKeyEventFactory {
     public final TOUCH_BUTTON_SOURCE_ID : Int = 2;
     public final MOTION_GESTURE_SOURCE_ID : Int = 3;
     private final MAX_SOURCES : Int = 4;
-    private var ARRAY : haxe.ds.Vector<haxe.ds.Vector<GameKeyEvent>> = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.MAX_SOURCES) haxe.ds.Vector.fromArrayCopy([for (index2 in 0...InputFactory.getInstance().MAX) null])]);
+    private var ARRAY : haxe.ds.Vector<haxe.ds.Vector<GameKeyEvent>>;
     public function new() {
+        this.ARRAY = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.MAX_SOURCES) haxe.ds.Vector.fromArrayCopy([for (index2 in 0...InputFactory.getInstance().MAX) null])]);
     }
 
     public function init() : Void {

@@ -24,6 +24,7 @@ import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
 import org.w3c.dom.Document;
+import org.allbinary.logic.communication.http.request.session.WeblisketSessionInterface;
 
 //Hack class should not exist
 class TransformInfoBasic extends AbContext implements TransformInfoHttpInterface {
@@ -142,6 +143,18 @@ class TransformInfoBasic extends AbContext implements TransformInfoHttpInterface
     // throws Exception
     public function toHashMap() : HashMap {
         return null;
+    }
+
+    public override function getWeblisketSession() : WeblisketSessionInterface {
+        return super.getWeblisketSession();
+    }
+
+    public override function getPageContext() : PageContext {
+        return super.getPageContext();
+    }
+
+    public override function getPropertiesHashMap() : HashMap {
+        return super.getPropertiesHashMap();
     }
 
 }

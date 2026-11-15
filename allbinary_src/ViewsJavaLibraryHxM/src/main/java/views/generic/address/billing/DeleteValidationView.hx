@@ -55,5 +55,10 @@ class DeleteValidationView extends BillingAddressView implements ValidationCompo
         return null;
     }
 
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
+    }
+
 }
 

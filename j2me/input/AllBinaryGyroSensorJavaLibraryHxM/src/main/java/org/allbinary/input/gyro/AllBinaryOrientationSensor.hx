@@ -22,6 +22,7 @@ import org.allbinary.logic.math.Orientation;
 import org.allbinary.logic.math.PrimitiveFloatUtil;
 
 class AllBinaryOrientationSensor extends AllBinarySensor {
+    public static final NULL_ALLBINARY_ORIENTATION_SENSOR : AllBinaryOrientationSensor = new AllBinaryOrientationSensor();
     public var sensorDataFloatArray : haxe.ds.Vector<Float> = PrimitiveFloatUtil.getArrayInstance();
     public var listener : CompleteMotionGestureInputEventListenerInterface = NoCompleteMotionGestureInputEventListener.getInstance();
     public function setCompleteMotionGestureInputEventListener(completeMotionGestureInputEventListenerInterface : CompleteMotionGestureInputEventListenerInterface) : Void {
@@ -34,7 +35,7 @@ class AllBinaryOrientationSensor extends AllBinarySensor {
 
     // throws Exception
     public function getOrientation() : Orientation {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
 }

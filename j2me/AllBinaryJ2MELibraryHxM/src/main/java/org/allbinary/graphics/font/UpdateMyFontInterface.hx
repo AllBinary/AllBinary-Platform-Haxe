@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.font;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 
 interface UpdateMyFontInterface {
     function updateMeasurement(graphics : Graphics) : Void;

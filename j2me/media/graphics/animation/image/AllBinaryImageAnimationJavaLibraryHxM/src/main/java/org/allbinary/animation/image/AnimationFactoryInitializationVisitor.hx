@@ -41,7 +41,7 @@ class AnimationFactoryInitializationVisitor {
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(commonLabels.HEIGHT_LABEL);
         stringBuffer.appendint(this.height);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function new() {

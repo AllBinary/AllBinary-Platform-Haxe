@@ -53,5 +53,10 @@ class EditValidationView extends BillingAddressView implements ValidationCompone
         return null;
     }
 
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
+    }
+
 }
 

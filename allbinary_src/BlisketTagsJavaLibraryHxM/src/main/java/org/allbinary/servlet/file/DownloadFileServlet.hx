@@ -81,7 +81,7 @@ class DownloadFileServlet extends HttpServlet {
                     stringBuffer.append("attachment; filename=\"");
                     stringBuffer.append(file.getName());
                     stringBuffer.append(CommonSeps.getInstance().QUOTE);
-                    response.setHeader("Content-Disposition", stringBuffer.toString());
+                    response.setHeader("Content-Disposition", Std.string(stringBuffer));
                     StreamUtil.getInstance().get(inputStream, response.getOutputStream(), haxe.ds.Vector.fromArrayCopy([for (index in 0...16348) 0]));
                 } else {
                     response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "You are not Authorized");

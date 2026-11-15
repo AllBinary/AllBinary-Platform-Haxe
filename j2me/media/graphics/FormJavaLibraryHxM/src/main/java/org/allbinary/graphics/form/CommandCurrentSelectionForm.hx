@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form;
 
-//import javax.microedition.lcdui.Command;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.J2MEUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.NullAnimationFactory;

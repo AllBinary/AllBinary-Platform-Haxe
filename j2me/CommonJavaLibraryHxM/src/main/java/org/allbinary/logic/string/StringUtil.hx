@@ -15,10 +15,10 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.string;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
+//import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsConstructor;
+//import jsinterop.annotations.JsProperty;
 
 class StringUtil {
     private static final instance : StringUtil = new StringUtil();
@@ -29,17 +29,15 @@ class StringUtil {
     public final INIT_STRING : String = "";
     public final NULL_STRING : String = "null";
     public final EMPTY_STRING : String = "";
-    public var ONE_EMPTY_STRING_ARRAY : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy([this.EMPTY_STRING]);
+    public var ONE_EMPTY_STRING_ARRAY : haxe.ds.Vector<String>;
+    public var ONE_EMPTY_STRING_ARRAY_OF_ARRAYS : haxe.ds.Vector<haxe.ds.Vector<String>> = haxe.ds.Vector.fromArrayCopy([for (index in 0...0) haxe.ds.Vector.fromArrayCopy([for (index2 in 0...0) null])]);
     private final stringArray : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy([for (index in 0...0) null]);
     public function new() {
+        this.ONE_EMPTY_STRING_ARRAY = haxe.ds.Vector.fromArrayCopy([this.EMPTY_STRING]);
     }
 
     public function getNonNull(string : String) : String {
-        if (string == null) {
-            return this.EMPTY_STRING;
-        } else {
-            return string;
-        }
+        return string;
     }
 
     public function getArrayInstance() : haxe.ds.Vector<String> {
@@ -59,7 +57,7 @@ class StringUtil {
 
     public function toString(anyType : Any) : String {
         if (anyType != null) {
-            return anyType.toString();
+            return Std.string(anyType);
         } else {
             return this.NULL_STRING;
         }

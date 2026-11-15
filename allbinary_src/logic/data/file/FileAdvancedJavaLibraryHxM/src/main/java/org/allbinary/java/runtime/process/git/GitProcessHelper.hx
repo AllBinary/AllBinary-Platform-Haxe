@@ -15,11 +15,11 @@
 // Generated Code Do Not Modify
 package org.allbinary.java.runtime.process.git;
 
-//import java.io.File;
-//import java.io.IOException;
+import jre.io.File;
+import jre.io.IOException;
 //import java.nio.charset.StandardCharsets;
-//import java.util.ArrayList;
-//import java.util.List;
+import jre.util.ArrayList;
+import jre.util.List;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.AbFileNativeUtil;
@@ -42,20 +42,30 @@ class GitProcessHelper {
         logUtil.putF(THIS_IS_SLOW, this, commonStrings.CONSTRUCTOR);
     }
 
+    public function trackedFiles(...args : Dynamic) : Dynamic {
+        if (args.length == 2) {
+            return this.trackedFiles_String_String(args[0], args[1]);
+        }
+        if (args.length == 3) {
+            return this.trackedFiles_String_String_String(args[0], args[1], args[2]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: trackedFiles");
+    }
+
     // throws IOException, InterruptedException
-    public function trackedFiles(rootAsString : String, pathspec : String) : List<String> {
+    public function trackedFiles_String_String(rootAsString : String, pathspec : String) : List<String> {
         return this.trackedFiles(rootAsString, pathspec, ".java");
     }
 
     // throws IOException, InterruptedException
-    public function trackedFiles(rootAsString : String, pathspec : String, suffix : String) : List<String> {
+    public function trackedFiles_String_String_String(rootAsString : String, pathspec : String, suffix : String) : List<String> {
         final process : Process = new ProcessBuilder(this.trackedStrings.GIT_COMMAND, this.trackedStrings.CHANGE_DIRECTORY_OPTION, rootAsString, this.trackedStrings.LIST_FILES_COMMAND, this.trackedStrings.SEP_BY_NULL_CHAR_INSTEAD_OF_NEW_LINE, this.trackedStrings.PATHSPEC_SEPARATOR, pathspec).redirectError(ProcessBuilder.Redirect.INHERIT).start();
         final output : haxe.ds.Vector<Int> = process.getInputStream().readAllBytes();
         final exitCode : Int = process.waitFor();
         if (exitCode != 0) {
-            throw new IllegalStateException(new StringMaker().append("git ls-files failed for ").append(rootAsString).append(" with exit code ").appendint(exitCode).toString());
+            throw new IllegalStateException(Std.string(new StringMaker().append("git ls-files failed for ").append(rootAsString).append(" with exit code ").appendint(exitCode)));
         }
-        final files : List<String> = new ArrayList();
+        final files : List<String> = new ArrayList<Dynamic>();
         var start : Int = 0;
         var relativePath : String = null;
         for (index in 0...output.length) {

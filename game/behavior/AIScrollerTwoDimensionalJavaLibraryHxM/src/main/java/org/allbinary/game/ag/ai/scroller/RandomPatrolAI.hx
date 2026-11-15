@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.ai.scroller;
 
-//import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Canvas;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.game.rand.MyRandomFactory;
 import org.allbinary.layer.AllBinaryLayer;

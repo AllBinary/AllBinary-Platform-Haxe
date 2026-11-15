@@ -28,7 +28,7 @@ class LOGGING {
     }
 
     public static function contains(logType : LOGGING) : Bool {
-        return LOGGING.logging.contains(logType.toString());
+        return LOGGING.logging.contains(Std.string(logType));
     }
 
     public function toString() : String {

@@ -15,10 +15,10 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.score.displayable;
 
-//import javax.microedition.lcdui.CommandListener;
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
-//import javax.microedition.lcdui.TextField;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.TextField;
 import org.allbinary.PostGameCommandFactory;
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.score.HighScore;
@@ -39,20 +39,17 @@ import org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactor
 class HighScoreTextBox extends CustomTextBox {
     private final virtualKeyboardEventHandler : VirtualKeyboardEventHandler = VirtualKeyboardEventHandler.getInstance();
     private final highScoreUtil : HighScoreUtil;
-    private final pleaseWait : Paintable = new SimpleTextPaintable(this.commonStrings.PLEASE_WAIT, BasicColorFactory.getInstance().WHITE);
+    private final pleaseWait : Paintable;
     private var paintable : Paintable = NullPaintable.getInstance();
     public var submitted : Bool = false;
     public function new(highScoresFactoryInterface : HighScoresFactoryInterface, highScoresHelper : HighScoresHelperBaseInterface, abeClientInformation : AbeClientInformationInterface, gameInfo : GameInfo, cmdListener : CommandListener, name : String, highScore : HighScore, backgrounBasicColor : BasicColor, foregroundBasicColor : BasicColor) {
         super(cmdListener, "New High Score Enter Name:", name, 12, TextField.ANY, Font.getDefaultFont(), backgrounBasicColor, foregroundBasicColor);
+        this.pleaseWait = new SimpleTextPaintable(this.commonStrings.PLEASE_WAIT, BasicColorFactory.getInstance().WHITE);
         this.highScoreUtil = new HighScoreUtil(highScoresFactoryInterface, highScoresHelper, abeClientInformation, gameInfo, cmdListener, name, highScore);
         final operatingSystemInterface : GenericOperatingSystem = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
         if (operatingSystemInterface.isOverScan()) {
             var username : String = InApplicationPurchaseFactory.getInstance().getUserName();
-            if (username != null) {
-                this.getTextFieldItem().setString(username);
-            } else {
-                this.getTextFieldItem().setString("NoGamerInfo");
-            }
+            this.getTextFieldItem().setString(username);
         }
     }
 

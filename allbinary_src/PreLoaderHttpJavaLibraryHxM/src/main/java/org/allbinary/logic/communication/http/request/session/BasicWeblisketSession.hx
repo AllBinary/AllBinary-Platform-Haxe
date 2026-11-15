@@ -35,11 +35,11 @@ class BasicWeblisketSession {
     }
 
     public function setRole(aRole : BasicUserRole) : Void {
-        this.session.setAttribute(BasicUserRoleData.NAME.toString(), aRole);
+        this.session.setAttribute(Std.string(BasicUserRoleData.NAME), aRole);
     }
 
     public function getRole() : BasicUserRole {
-        return (cast this.session.getAttribute(BasicUserRoleData.NAME.toString()) : BasicUserRole);
+        return (cast this.session.getAttribute(Std.string(BasicUserRoleData.NAME)) : BasicUserRole);
     }
 
     public function setPassword(password : String) : Void {
@@ -51,7 +51,7 @@ class BasicWeblisketSession {
     }
 
     public function setPaymentMethod(value : String) : Void {
-        this.session.setAttribute(PaymentGatewayData.NAME.toString(), value);
+        this.session.setAttribute(Std.string(PaymentGatewayData.NAME), value);
     }
 
     public function setAuthenticated() : Void {
@@ -83,7 +83,7 @@ class BasicWeblisketSession {
     }
 
     public function getPaymentMethod() : String {
-        return (cast this.session.getAttribute(PaymentGatewayData.NAME.toString()) : String);
+        return (cast this.session.getAttribute(Std.string(PaymentGatewayData.NAME)) : String);
     }
 
     public function getAuthentication() : String {
@@ -109,7 +109,7 @@ class BasicWeblisketSession {
     public function clear() : Void {
         this.session.removeAttribute(WeblisketSessionData.AUTHENTICATED);
         this.session.removeAttribute(WeblisketSessionData.TIMEOUT);
-        this.session.removeAttribute(BasicUserRoleData.NAME.toString());
+        this.session.removeAttribute(Std.string(BasicUserRoleData.NAME));
         this.session.removeAttribute(UserData.USERNAME);
     }
 

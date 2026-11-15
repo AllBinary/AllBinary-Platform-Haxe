@@ -19,7 +19,7 @@ package org.allbinary.ai;
 class ArtificialIntelligenceFactory implements ArtificialIntelligenceFactoryInterface {
     // throws Exception
     public function getInstance(anyType : Any) : ArtificialIntelligence {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function new() {

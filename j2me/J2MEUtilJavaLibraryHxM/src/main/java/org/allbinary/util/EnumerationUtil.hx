@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.util;
 
-import jsinterop.annotations.JsType;
-//import java.util.Enumeration;
-import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsType;
+import jre.util.Enumeration;
+//import jsinterop.annotations.JsMethod;
 
 //ArkTs does not have this.  So this is for the ArkTs build.
 class EnumerationUtil {
@@ -26,15 +26,15 @@ class EnumerationUtil {
         return EnumerationUtil.instance;
     }
 
-    public function hasMoreElements(enumeration : Enumeration) : Bool {
+    public function hasMoreElements(enumeration : Enumeration<Dynamic>) : Bool {
         return enumeration.hasMoreElements();
     }
 
-    public function nextElement(enumeration : Enumeration) : Any {
+    public function nextElement(enumeration : Enumeration<Dynamic>) : Any {
         return enumeration.nextElement();
     }
 
-    public function getAsArray(enumeration : Enumeration) : haxe.ds.Vector<Any> {
+    public function getAsArray(enumeration : Enumeration<Dynamic>) : haxe.ds.Vector<Any> {
         final basicArrayList : BasicArrayList = new BasicArrayListD();
         while (this.hasMoreElements(enumeration)) {
             basicArrayList.add(this.nextElement(enumeration));

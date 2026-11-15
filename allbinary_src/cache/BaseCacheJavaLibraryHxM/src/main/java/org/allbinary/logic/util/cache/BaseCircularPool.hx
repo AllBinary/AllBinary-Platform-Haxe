@@ -15,11 +15,11 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.util.cache;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.util.CircularIndexUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsProperty;
 
 class BaseCircularPool {
     public var circularIndexUtil : CircularIndexUtil = CircularIndexUtil.NULL_CIRCULAR_INDEX_UTIL;

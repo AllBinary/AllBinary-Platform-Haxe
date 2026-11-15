@@ -73,7 +73,7 @@ class MotionGestureEvent extends AllBinaryEventObject {
         stringBuffer.append(stringUtil.toString(this.previousPoint));
         stringBuffer.append(MotionGestureEvent.HASHCODE);
         stringBuffer.appendint(Std.int(TsUtil.getInstance().hashCode(this)));
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function getId() : Int {

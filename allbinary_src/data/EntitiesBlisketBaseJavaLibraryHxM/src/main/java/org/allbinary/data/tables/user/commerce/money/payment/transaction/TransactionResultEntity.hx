@@ -62,7 +62,7 @@ class TransactionResultEntity extends AbSqlBean implements TransactionResultEnti
             values.add(userName);
             values.addAllList(transactionResultInterface.getValues());
             var calendar : Calendar = Calendar.getInstance();
-            var time : String = calendar.getTimeInMillis().toString();
+            var time : String = Std.string(calendar.getTimeInMillis());
             values.add(time);
             values.add(time);
             super.insert(values);
@@ -103,16 +103,16 @@ class TransactionResultEntity extends AbSqlBean implements TransactionResultEnti
         final paymentTransactionKeysFactory : PaymentTransactionKeysFactory = PaymentTransactionKeysFactory.getInstance();
         final stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append(this.sqlStrings.CREATE_TABLE).append(tableName).append(this.sqlStrings.START).append(OrderData.ID).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(UserData.USERNAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(paymentTransactionKeysFactory.RESULT.toString()).append(this.sqlTypeStrings.MAX_INT_NOT_NULL).append(paymentTransactionKeysFactory.PNREF.toString()).append(this.sqlTypeStrings.TWELVE_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(paymentTransactionKeysFactory.RESPMSG.toString()).append(this.sqlTypeStrings.BLOB_NOT_NULL).append(paymentTransactionKeysFactory.AUTHCODE.toString()).append(this.sqlTypeStrings.SIX_CHAR_COLUMN_NOT_NULL).append(paymentTransactionKeysFactory.AVSADDR.toString()).append(this.sqlTypeStrings.ONE_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(paymentTransactionKeysFactory.AVSZIP.toString()).append(this.sqlTypeStrings.ONE_CHAR_COLUMN_NOT_NULL).append(paymentTransactionKeysFactory.ORIGRESULT.toString()).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(paymentTransactionKeysFactory.STATUS.toString()).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(paymentTransactionKeysFactory.FRAUDCODE.toString()).append(this.sqlTypeStrings.TWO_INT_NOT_NULL);
-        stringBuffer.append(paymentTransactionKeysFactory.FRAUDMSG.toString()).append(this.sqlTypeStrings.MAX_INT_NOT_NULL);
-        stringBuffer.append(paymentTransactionKeysFactory.ERRCODE.toString()).append(this.sqlTypeStrings.MAX_INT_NOT_NULL);
-        stringBuffer.append(paymentTransactionKeysFactory.SCORE.toString()).append(this.sqlTypeStrings.THREE_INT_NOT_NULL);
-        stringBuffer.append(paymentTransactionKeysFactory.REASON1.toString()).append(this.sqlTypeStrings.FOUR_INT_NOT_NULL).append(paymentTransactionKeysFactory.REASON2.toString()).append(this.sqlTypeStrings.FOUR_INT_NOT_NULL).append(paymentTransactionKeysFactory.REASON3.toString());
-        stringBuffer.append(this.sqlTypeStrings.FOUR_INT_NOT_NULL).append(paymentTransactionKeysFactory.EXCEPTION1.toString()).append(this.sqlTypeStrings.FOUR_INT_NOT_NULL).append(paymentTransactionKeysFactory.EXCEPTION2.toString()).append(this.sqlTypeStrings.FOUR_INT_NOT_NULL).append(paymentTransactionKeysFactory.EXCEPTION3.toString()).append(this.sqlTypeStrings.FOUR_INT_NOT_NULL).append(paymentTransactionKeysFactory.EXCEPTION4.toString()).append(this.sqlTypeStrings.FOUR_INT_NOT_NULL).append(paymentTransactionKeysFactory.EXCEPTION5.toString()).append(this.sqlTypeStrings.FOUR_INT_NOT_NULL).append(paymentTransactionKeysFactory.EXCEPTION6.toString()).append(this.sqlTypeStrings.FOUR_INT_NOT_NULL).append(paymentTransactionKeysFactory.EXCEPTION7.toString()).append(this.sqlTypeStrings.FOUR_INT_NOT_NULL).append(EntryData.getInstance().LASTMODIFIED).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(EntryData.getInstance().TIMECREATED).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(this.sqlStrings.PRIMARY_KEY).append(OrderData.ID).append(this.sqlStrings.END);
-        return stringBuffer.toString();
+        stringBuffer.append(Std.string(paymentTransactionKeysFactory.RESULT)).append(this.sqlTypeStrings.MAX_INT_NOT_NULL).append(Std.string(paymentTransactionKeysFactory.PNREF)).append(this.sqlTypeStrings.TWELVE_CHAR_COLUMN_NOT_NULL);
+        stringBuffer.append(Std.string(paymentTransactionKeysFactory.RESPMSG)).append(this.sqlTypeStrings.BLOB_NOT_NULL).append(Std.string(paymentTransactionKeysFactory.AUTHCODE)).append(this.sqlTypeStrings.SIX_CHAR_COLUMN_NOT_NULL).append(Std.string(paymentTransactionKeysFactory.AVSADDR)).append(this.sqlTypeStrings.ONE_CHAR_COLUMN_NOT_NULL);
+        stringBuffer.append(Std.string(paymentTransactionKeysFactory.AVSZIP)).append(this.sqlTypeStrings.ONE_CHAR_COLUMN_NOT_NULL).append(Std.string(paymentTransactionKeysFactory.ORIGRESULT)).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(Std.string(paymentTransactionKeysFactory.STATUS)).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
+        stringBuffer.append(Std.string(paymentTransactionKeysFactory.FRAUDCODE)).append(this.sqlTypeStrings.TWO_INT_NOT_NULL);
+        stringBuffer.append(Std.string(paymentTransactionKeysFactory.FRAUDMSG)).append(this.sqlTypeStrings.MAX_INT_NOT_NULL);
+        stringBuffer.append(Std.string(paymentTransactionKeysFactory.ERRCODE)).append(this.sqlTypeStrings.MAX_INT_NOT_NULL);
+        stringBuffer.append(Std.string(paymentTransactionKeysFactory.SCORE)).append(this.sqlTypeStrings.THREE_INT_NOT_NULL);
+        stringBuffer.append(Std.string(paymentTransactionKeysFactory.REASON1)).append(this.sqlTypeStrings.FOUR_INT_NOT_NULL).append(Std.string(paymentTransactionKeysFactory.REASON2)).append(this.sqlTypeStrings.FOUR_INT_NOT_NULL).append(Std.string(paymentTransactionKeysFactory.REASON3));
+        stringBuffer.append(this.sqlTypeStrings.FOUR_INT_NOT_NULL).append(Std.string(paymentTransactionKeysFactory.EXCEPTION1)).append(this.sqlTypeStrings.FOUR_INT_NOT_NULL).append(Std.string(paymentTransactionKeysFactory.EXCEPTION2)).append(this.sqlTypeStrings.FOUR_INT_NOT_NULL).append(Std.string(paymentTransactionKeysFactory.EXCEPTION3)).append(this.sqlTypeStrings.FOUR_INT_NOT_NULL).append(Std.string(paymentTransactionKeysFactory.EXCEPTION4)).append(this.sqlTypeStrings.FOUR_INT_NOT_NULL).append(Std.string(paymentTransactionKeysFactory.EXCEPTION5)).append(this.sqlTypeStrings.FOUR_INT_NOT_NULL).append(Std.string(paymentTransactionKeysFactory.EXCEPTION6)).append(this.sqlTypeStrings.FOUR_INT_NOT_NULL).append(Std.string(paymentTransactionKeysFactory.EXCEPTION7)).append(this.sqlTypeStrings.FOUR_INT_NOT_NULL).append(EntryData.getInstance().LASTMODIFIED).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(EntryData.getInstance().TIMECREATED).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(this.sqlStrings.PRIMARY_KEY).append(OrderData.ID).append(this.sqlStrings.END);
+        return Std.string(stringBuffer);
     }
 
     public function createTable() : String {

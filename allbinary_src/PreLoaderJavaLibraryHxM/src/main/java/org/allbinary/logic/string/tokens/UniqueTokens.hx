@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.string.tokens;
 
-//import java.util.HashSet;
+import jre.util.HashSet;
 import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.string.CommonPhoneStrings;
@@ -53,9 +53,9 @@ class UniqueTokens {
     }
 
     // throws Exception
-    public function getWhithoutDashesAndSkipNumberOnlyTokens(stringVector : BasicArrayList) : HashSet {
+    public function getWhithoutDashesAndSkipNumberOnlyTokens(stringVector : BasicArrayList) : HashSet<Dynamic> {
         try {
-            var hashSet : HashSet = new HashSet();
+            var hashSet : HashSet<Dynamic> = new HashSet<Dynamic>();
             var index : Int = 0;
             var commonSeps : CommonSeps = CommonSeps.getInstance();
             while (index < stringVector.size()) {
@@ -65,11 +65,11 @@ class UniqueTokens {
                 for (forIndex in 0...keywordVector.size()) {
                     var cleanString : String = (cast keywordVector.get(forIndex) : String);
                     cleanString = StringTools.trim(cleanString);
-                    if (cleanString.indexOf("-".code) != -1) {
+                    if (cleanString.indexOf(String.fromCharCode("-".code)) != -1) {
                         cleanString = new Replace("-", commonSeps.SPACE).all(cleanString);
                     }
                     hashSet.add(cleanString);
-                    if (cleanString.indexOf(" ".code) != -1) {
+                    if (cleanString.indexOf(String.fromCharCode(" ".code)) != -1) {
                         var spaceTokenizer : Tokenizer = new Tokenizer(commonSeps.SPACE);
                         var subKeywordVector : BasicArrayList = spaceTokenizer.getTokensFromString(cleanString, new BasicArrayListD());
                         for (spaceIndex in 0...subKeywordVector.size()) {

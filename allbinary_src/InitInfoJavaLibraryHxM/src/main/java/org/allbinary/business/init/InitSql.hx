@@ -21,8 +21,8 @@ package org.allbinary.business.init;
 //import java.sql.ResultSetMetaData;
 //import java.sql.SQLException;
 //import java.sql.Statement;
-//import java.util.HashMap;
-//import java.util.Set;
+import jre.util.HashMap;
+import jre.util.Set;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.business.init.db.DatabaseConnectionInfoInterface;
@@ -80,7 +80,7 @@ class InitSql {
             final stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append("Creating Table: ");
             stringBuffer.append(tableData);
-            PreLogUtil.put(stringBuffer.toString(), INIT_SQL, "createTable()");
+            PreLogUtil.put(Std.string(stringBuffer), INIT_SQL, "createTable()");
             this.executeSQLStatement(tableData);
             return true;
         } catch (e : haxe.Exception) {
@@ -104,14 +104,14 @@ class InitSql {
         }
     }
 
-    public function getRow(keysAndValues : HashMap) : HashMap {
+    public function getRow(keysAndValues : HashMap<Dynamic, Dynamic>) : HashMap<Dynamic, Dynamic> {
         var stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.tableName);
         stringBuffer.append(this.sqlStrings.WHERE);
         try {
-            var result : HashMap = null;
-            var set : Set = keysAndValues.keySet();
+            var result : HashMap<Dynamic, Dynamic> = null;
+            var set : Set<Dynamic> = keysAndValues.keySet();
             var keyArray : haxe.ds.Vector<Any> = set.toArray();
             var size : Int = keyArray.length;
             for (i in 0...size) {
@@ -125,7 +125,7 @@ class InitSql {
                     stringBuffer.append(this.sqlStrings.AND);
                 }
             }
-            var sqlStatement : String = stringBuffer.toString();
+            var sqlStatement : String = Std.string(stringBuffer);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                 PreLogUtil.put(this.sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this.INIT_SQL, this.METHOD_GET_ROW);
             }
@@ -140,7 +140,7 @@ class InitSql {
                     result.put(columnName, field);
                 }
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
-                    PreLogUtil.put(this.ROW_VALUE_LABEL + result.toString(), this.INIT_SQL, this.METHOD_GET_ROW);
+                    PreLogUtil.put(this.ROW_VALUE_LABEL + Std.string(result), this.INIT_SQL, this.METHOD_GET_ROW);
                 }
                 return result;
             }
@@ -157,7 +157,7 @@ class InitSql {
     }
 
     // synchronized
-    public function updateWhere(key : String, value : String, updatedKeyValuePairs : HashMap) : Void {
+    public function updateWhere(key : String, value : String, updatedKeyValuePairs : HashMap<Dynamic, Dynamic>) : Void {
         var stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append(this.sqlStrings.UPDATE);
         stringBuffer.append(this.tableName);
@@ -166,7 +166,7 @@ class InitSql {
             var columnArray : haxe.ds.Vector<Any> = updatedKeyValuePairs.keySet().toArray();
             var size : Int = columnArray.length;
             for (i in 0...size) {
-                var columnName : String = columnArray[i].toString();
+                var columnName : String = Std.string(columnArray[i]);
                 stringBuffer.append(this.commonSeps.SPACE);
                 stringBuffer.append(columnName);
                 stringBuffer.append(this.EQUAL_QUOTE);
@@ -186,7 +186,7 @@ class InitSql {
             stringBuffer.append(this.sqlStrings.EQUAL_QUOTE);
             stringBuffer.append(this.getValue(value));
             stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
-            var sqlStatement : String = stringBuffer.toString();
+            var sqlStatement : String = Std.string(stringBuffer);
             this.executeSQLStatement(sqlStatement);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                 PreLogUtil.put(this.SUCCESS_SQL_STATEMENT + sqlStatement, this.INIT_SQL, METHOD_UPDATE_WHERE);
@@ -213,14 +213,14 @@ class InitSql {
             final value : String = this.getValue((cast values.get(values.size() - 1) : String));
             stringBuffer.append(value);
             stringBuffer.append(this.INSERT_END);
-            final sqlStatement : String = stringBuffer.toString();
+            final sqlStatement : String = Std.string(stringBuffer);
             this.executeSQLStatement(sqlStatement);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                 PreLogUtil.put(this.SUCCESS_SQL_STATEMENT + sqlStatement, this.INIT_SQL, INSERT);
             }
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR)) {
-                PreLogUtil.putOE(this.FAILED_SQL_STATEMENT + stringBuffer.toString(), this.INIT_SQL, INSERT, e);
+                PreLogUtil.putOE(this.FAILED_SQL_STATEMENT + Std.string(stringBuffer), this.INIT_SQL, INSERT, e);
             }
         }
     }
@@ -277,7 +277,7 @@ class InitSql {
         try {
             try {
                 final jdbcDriver : String = this.databaseConnectionInfoInterface.getJdbcDriver();
-                PreLogUtil.put(new StringMaker().append("Loading DbConnnectionInfo: ").append(Type.getClassName(Type.getClass(this.databaseConnectionInfoInterface))).append(" Driver: ").append(jdbcDriver).toString(), this.INIT_SQL, "initialize()");
+                PreLogUtil.put(Std.string(new StringMaker().append("Loading DbConnnectionInfo: ").append(Type.getClassName(Type.getClass(this.databaseConnectionInfoInterface))).append(" Driver: ").append(jdbcDriver)), this.INIT_SQL, "initialize()");
                 Class.forName(jdbcDriver).newInstance();
             } catch (e : haxe.Exception) {
                 if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGINGERROR)) {

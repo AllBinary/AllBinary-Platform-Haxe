@@ -18,7 +18,7 @@ package org.allbinary.game.collision;
 
 class CollidableBaseBehaviorFactory implements CollidableBaseBehaviorFactoryInterface {
     public function createBehavior() : CollidableBaseBehavior {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function new() {

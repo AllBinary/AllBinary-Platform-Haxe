@@ -157,7 +157,7 @@ class TransformInfoEntity extends AbSqlBean implements TransformInfoEntityInterf
         stringBuffer.append(this.sqlStrings.PRIMARY_KEY);
         stringBuffer.append(transformInfoData.NAME);
         stringBuffer.append(this.sqlStrings.END);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function createTable() : String {

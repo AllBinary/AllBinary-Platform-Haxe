@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.part;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFontProcessor;
@@ -33,9 +33,10 @@ class CountedLayersHudPaintable implements PaintableInterface implements UpdateM
     private final countedPartsBorder : Int;
     private final startIndex : Int;
     private final dropSize : Int;
-    private var myFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
+    private var myFontProcessor : MyFontProcessor;
     private var height : Int = 0;
     public function new(partInterfaceArray : haxe.ds.Vector<PartInterface>, dropSize : Int, startIndex : Int, countedTotalStringColor : Int, countedPartsBorder : Int) {
+        this.myFontProcessor = new UpdateMyFontProcessor(this);
         this.partInterfaceArray = partInterfaceArray;
         this.startIndex = startIndex;
         this.countedTotalStringColor = countedTotalStringColor;

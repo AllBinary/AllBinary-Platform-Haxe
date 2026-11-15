@@ -50,11 +50,11 @@ class SystemHardwareFactory {
         final osBuffer : StringMaker = new StringMaker();
         osBuffer.append("Hardware Info: \n");
         if (systemHardwareFactory.hardwareInterface != null) {
-            osBuffer.append(systemHardwareFactory.hardwareInterface.toString());
+            osBuffer.append(Std.string(systemHardwareFactory.hardwareInterface));
         } else {
             osBuffer.append(StringUtil.getInstance().NULL_STRING);
         }
-        return osBuffer.toString();
+        return Std.string(osBuffer);
     }
 
 }

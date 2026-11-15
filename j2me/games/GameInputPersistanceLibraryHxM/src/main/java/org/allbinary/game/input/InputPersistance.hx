@@ -15,12 +15,12 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.input;
 
-//import java.io.ByteArrayInputStream;
-//import java.io.ByteArrayOutputStream;
-//import java.io.DataInputStream;
-//import java.io.DataOutputStream;
-//import javax.microedition.rms.RecordEnumeration;
-//import javax.microedition.rms.RecordStore;
+import jre.io.ByteArrayInputStream;
+import jre.io.ByteArrayOutputStream;
+import jre.io.DataInputStream;
+import jre.io.DataOutputStream;
+import javax.microedition.rms.RecordEnumeration;
+import javax.microedition.rms.RecordStore;
 import org.allbinary.TsUtil;
 import org.allbinary.game.configuration.persistance.BasicPersitance;
 import org.allbinary.game.configuration.persistance.NullRecordComparator;
@@ -67,7 +67,7 @@ class InputPersistance extends BasicPersitance {
             while (recordEnum.hasNextElement()) {
                 final id : Int = recordEnum.nextRecordId();
                 stringBuffer.delete(0, stringBuffer.length());
-                this.logUtil.putF(stringBuffer.append(this.persistanceStrings.LOADING_ID).appendint(id).toString(), this, this.persistanceStrings.LOAD_ALL);
+                this.logUtil.putF(Std.string(stringBuffer.append(this.persistanceStrings.LOADING_ID).appendint(id)), this, this.persistanceStrings.LOAD_ALL);
                 recordAsBytes = this.tsUtil.getRecord(recordStore, id);
                 if (recordAsBytes != null) {
                     byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
@@ -90,7 +90,7 @@ class InputPersistance extends BasicPersitance {
                                 stringBuffer.appendlong(inputId);
                                 stringBuffer.append(this.persistanceStrings.GAME_ACTION_INPUT);
                                 stringBuffer.appendlong(gameActionInputId);
-                                PreLogUtil.put(stringBuffer.toString(), this, this.persistanceStrings.LOAD_ALL);
+                                PreLogUtil.put(Std.string(stringBuffer), this, this.persistanceStrings.LOAD_ALL);
                             }
                             if (gameActionInput == null) {
                                 stringBuffer.delete(0, stringBuffer.length());
@@ -98,7 +98,7 @@ class InputPersistance extends BasicPersitance {
                                 stringBuffer.appendlong(gameActionInputId);
                                 stringBuffer.append(this.persistanceStrings.ID);
                                 stringBuffer.appendlong(inputId);
-                                PreLogUtil.put(stringBuffer.toString(), this, this.persistanceStrings.LOAD_ALL);
+                                PreLogUtil.put(Std.string(stringBuffer), this, this.persistanceStrings.LOAD_ALL);
                             }
                         } else {
                         }
@@ -126,7 +126,7 @@ class InputPersistance extends BasicPersitance {
         var recordStore : RecordStore = NullRecordStore.NULL_RECORD_STORE;
         try {
             final stringBuffer : StringMaker = new StringMaker();
-            PreLogUtil.put(stringBuffer.append(this.persistanceStrings.SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.commonStrings.SAVE);
+            PreLogUtil.put(Std.string(stringBuffer.append(this.persistanceStrings.SAVING).append(StringUtil.getInstance().toString(hashtable))), this, this.commonStrings.SAVE);
             recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
             var byteArrayOutputStream : ByteArrayOutputStream = new ByteArrayOutputStream();
             var outputStream : DataOutputStream = new DataOutputStream(byteArrayOutputStream);
@@ -142,11 +142,11 @@ class InputPersistance extends BasicPersitance {
                 gameActionInput = (cast inputObjectArray[index] : Input);
                 list = (cast hashtable.get((cast inputObjectArray[index] : Any)) : BasicArrayList);
                 for (index2 in 0...list.size()) {
-                    final gameActionInputIdAsString : String = smallIntegerSingletonFactory.getAt(gameActionInput.getId()).toString();
+                    final gameActionInputIdAsString : String = Std.string(smallIntegerSingletonFactory.getAt(gameActionInput.getId()));
                     outputStream.writeUTF(gameActionInputIdAsString);
                     outputStream.writeUTF(commonSeps.EQUALS);
                     input = (cast list.objectArray[index2] : Input);
-                    final inputIdAsString : String = smallIntegerSingletonFactory.getAt(input.getId()).toString();
+                    final inputIdAsString : String = Std.string(smallIntegerSingletonFactory.getAt(input.getId()));
                     outputStream.writeUTF(inputIdAsString);
                 }
             }

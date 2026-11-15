@@ -30,7 +30,7 @@ class BasicErrorNodeUtil {
             node.appendChild(ModDomHelper.createNameValueNodes(document, ErrorData.getInstance().TEXT, errorText));
             return node;
         } catch (e : haxe.Exception) {
-            throw new haxe.Exception("Error Node Creation Failure");
+            throw new jre.lang.JavaException("Error Node Creation Failure");
         }
     }
 

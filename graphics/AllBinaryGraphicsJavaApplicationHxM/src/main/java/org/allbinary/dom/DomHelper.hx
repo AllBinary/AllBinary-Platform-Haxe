@@ -72,7 +72,7 @@ class DomHelper {
             var copyTransformerFactory : TransformerFactory = TransformerFactory.newInstance();
             var copyTransformer : Transformer = copyTransformerFactory.newTransformer();
             copyTransformer.transform(domSource, streamResult);
-            return byteArrayOutputStream.toString();
+            return Std.string(byteArrayOutputStream);
         } catch (e : haxe.Exception) {
             throw e;
         }

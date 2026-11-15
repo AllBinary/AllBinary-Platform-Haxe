@@ -15,11 +15,11 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.Canvas;
-//import javax.microedition.lcdui.Graphics;
-//import javax.microedition.lcdui.Image;
-//import javax.microedition.lcdui.NullCanvas;
-//import javax.microedition.lcdui.NullImage;
+import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullImage;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.graphics.paint.ProcessPaintable;
@@ -34,7 +34,7 @@ class BufferedGameCanvasPaintHelper extends ProcessPaintable {
     private final drawCircularIndexUtil : CircularIndexUtil = CircularIndexUtil.createInstanceAt(BufferedGameCanvasPaintHelper.MAX_IMAGES - 1, BufferedGameCanvasPaintHelper.MAX_IMAGES);
     public function new(gameCanvas : AllBinaryGameCanvas) {
         super();
-        throw new haxe.Exception("No Longer Used");
+        throw new jre.lang.JavaException("No Longer Used");
     }
 
     public override function process() : Void {

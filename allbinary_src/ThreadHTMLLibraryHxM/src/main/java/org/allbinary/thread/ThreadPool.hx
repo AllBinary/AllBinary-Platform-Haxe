@@ -32,9 +32,10 @@ class ThreadPool {
     private var numThreads : Int = 0;
     private var runningTask : Bool = false;
     public function new(poolName : String, numThreads : Int, priority : Int) {
+        this.currentPriorityRunnable = this.threadObjectUtil.NULL_PRIORITY_RUNNABLE;
     }
 
-    private var currentPriorityRunnable : PriorityRunnable = this.threadObjectUtil.NULL_PRIORITY_RUNNABLE;
+    private var currentPriorityRunnable : PriorityRunnable;
     // throws Exception
     public function runAPriorityTask() : Void {
         if (!this.currentPriorityRunnable.isDone()) {

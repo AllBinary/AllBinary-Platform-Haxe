@@ -1,8 +1,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.Canvas;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Graphics;
 
 //Temp should not be in any build
 class NullDisplayable extends Canvas {

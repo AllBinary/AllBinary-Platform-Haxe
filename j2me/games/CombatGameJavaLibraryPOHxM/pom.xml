@@ -34,72 +34,72 @@
 
         -->
 
-        <module>../../games/TickableJavaLibraryHaxeM</module>
+        <module>../../games/TickableJavaLibraryHxM</module>
 
-        <module>../../games/CommonHeadsUpDisplayLibraryHaxeM</module>
+        <module>../../games/CommonHeadsUpDisplayLibraryHxM</module>
 
-        <module>../../../physics/MovementJavaLibraryHaxeM</module>
+        <module>../../../physics/MovementJavaLibraryHxM</module>
         <!--        -->
-        <module>../../games/PartsJavaLibraryHaxeM</module>
-        <module>../../games/PickupGameJavaLibraryHaxeM</module>
+        <module>../../games/PartsJavaLibraryHxM</module>
+        <module>../../games/PickupGameJavaLibraryHxM</module>
 
-        <module>../../../allbinary_src/licensing/HardCodedLicenseInitInfoJavaLibraryHaxeM</module>
-        <module>../../../allbinary_src/licensing/FileLicenseInitInfoJavaLibraryHaxeM</module>
-        <module>../../../allbinary_src/licensing/ClientInfoLicensingJavaLibraryHaxeM</module>
+        <module>../../../allbinary_src/licensing/HardCodedLicenseInitInfoJavaLibraryHxM</module>
+        <module>../../../allbinary_src/licensing/FileLicenseInitInfoJavaLibraryHxM</module>
+        <module>../../../allbinary_src/licensing/ClientInfoLicensingJavaLibraryHxM</module>
 
-        <module>../../games/licensing/PartnerJ2MEJavaLibraryHaxeM</module>
-        <module>../../games/licensing/PartnerHTMLJavaLibraryHaxeM</module>
-        <module>../../games/licensing/PartnerAndroidJavaLibraryHaxeM</module>
-        <module>../../games/licensing/NoGameLicensingJavaLibraryHaxeM</module>
-        <module>../../games/licensing/GameLicensingOnlyDemoJavaLibraryHaxeM</module>
-        <module>../../games/licensing/GameLicensingOnlyNormalJavaLibraryHaxeM</module>
-        <module>../../games/licensing/GameLicensingBaseJavaLibraryHaxeM</module>
-
-        <!--
-        <module>../../games/GameScoresBaseLibraryHaxeM</module>
-        <module>../../games/GameScoresBaseHTMLLibraryHaxeM</module>
-        <module>../../games/GameScoresBaseJ2MELibraryHaxeM</module>
-        -->
-        <module>../../games/GameScoresLocalJavaLibraryHaxeM</module>
-        <module>../../games/GameScoresRemoteAndLocalJavaLibraryHaxeM</module>
-
-        <module>../../../store/ThirdPartyStoreJavaLibraryHaxeM</module>
-        <module>../../../store/NoThirdPartyStoreJavaLibraryHaxeM</module>
-
-        <module>../../media/graphics/layer/CollisionLayerJavaLibraryHaxeM</module>
-        <module>../../games/CollisionLibraryHaxeM</module>
-
-        <module>../../games/multiplayer/AllBinaryGameClientBaseNullJavaLibraryHaxeM</module>
-
-        <module>../../games/PickupLayerJavaLibraryHaxeM</module>
-
-        <module>../../games/DamageGameJavaLibraryHaxeM</module>
-        <module>../../games/DropJavaLibraryHaxeM</module>
-        <module>../../games/WeaponLayerJavaLibraryHaxeM</module>
-
-        <module>../../games/CombatGameJavaLibraryHaxeM</module>
-        <module>../../games/LifeJavaLibraryHaxeM</module>
-
-        <module>../../games/CommonHeadsUpDisplayCombatGameLibraryHaxeM</module>
-        <module>../../games/LifeOrDeathDataJavaLibraryHaxeM</module>
-
-        <module>../../games/BasicWeaponPartsJavaLibraryHaxeM</module>
-        <module>../../games/weapon/WeaponPropertiesJavaLibraryHaxeM</module>
-
-        <module>../../games/weapon/WeaponMineJavaLibraryHaxeM</module>
+        <module>../../games/licensing/PartnerJ2MEJavaLibraryHxM</module>
+        <module>../../games/licensing/PartnerHTMLJavaLibraryHxM</module>
+        <module>../../games/licensing/PartnerAndroidJavaLibraryHxM</module>
+        <module>../../games/licensing/NoGameLicensingJavaLibraryHxM</module>
+        <module>../../games/licensing/GameLicensingOnlyDemoJavaLibraryHxM</module>
+        <module>../../games/licensing/GameLicensingOnlyNormalJavaLibraryHxM</module>
+        <module>../../games/licensing/GameLicensingBaseJavaLibraryHxM</module>
 
         <!--
-        <module>../../media/graphics/effects/fireworks/FireworksJavaLibraryHaxeM</module>
+        <module>../../games/GameScoresBaseLibraryHxM</module>
+        <module>../../games/GameScoresBaseHTMLLibraryHxM</module>
+        <module>../../games/GameScoresBaseJ2MELibraryHxM</module>
+        -->
+        <module>../../games/GameScoresLocalJavaLibraryHxM</module>
+        <module>../../games/GameScoresRemoteAndLocalJavaLibraryHxM</module>
+
+        <module>../../../store/ThirdPartyStoreJavaLibraryHxM</module>
+        <module>../../../store/NoThirdPartyStoreJavaLibraryHxM</module>
+
+        <module>../../media/graphics/layer/CollisionLayerJavaLibraryHxM</module>
+        <module>../../games/CollisionLibraryHxM</module>
+
+        <module>../../games/multiplayer/AllBinaryGameClientBaseNullJavaLibraryHxM</module>
+
+        <module>../../games/PickupLayerJavaLibraryHxM</module>
+
+        <module>../../games/DamageGameJavaLibraryHxM</module>
+        <module>../../games/DropJavaLibraryHxM</module>
+        <module>../../games/WeaponLayerJavaLibraryHxM</module>
+
+        <module>../../games/CombatGameJavaLibraryHxM</module>
+        <module>../../games/LifeJavaLibraryHxM</module>
+
+        <module>../../games/CommonHeadsUpDisplayCombatGameLibraryHxM</module>
+        <module>../../games/LifeOrDeathDataJavaLibraryHxM</module>
+
+        <module>../../games/BasicWeaponPartsJavaLibraryHxM</module>
+        <module>../../games/weapon/WeaponPropertiesJavaLibraryHxM</module>
+
+        <module>../../games/weapon/WeaponMineJavaLibraryHxM</module>
+
+        <!--
+        <module>../../media/graphics/effects/fireworks/FireworksJavaLibraryHxM</module>
         -->
 
-        <module>../../media/graphics/geography/map/TerrainEventJavaLibraryHaxeM</module>
+        <module>../../media/graphics/geography/map/TerrainEventJavaLibraryHxM</module>
 
 <!--
-        <module>../../media/graphics/geography/map/BasicPlatformGeographicMapJavaLibraryHaxeM</module>
+        <module>../../media/graphics/geography/map/BasicPlatformGeographicMapJavaLibraryHxM</module>
         -->
 
         <!--
-        <module>../../media/graphics/geography/map/RaceTrackP</module>
+        <module>../../media/graphics/geography/map/RaceTrackHxP</module>
         -->
 
         <!--
@@ -108,24 +108,24 @@
 
         Since POMs are built before the other libs is it best to handle this differently
         ../../
-        <module>../../../../work/j2me/games/strategy/rts/RTSGameJavaLibraryP</module>
+        <module>../../../../work/j2me/games/strategy/rts/RTSGameJavaLibraryHxP</module>
         -->
 
-        <module>../../media/graphics/OtherGraphicsMediaLibraryP</module>
+        <module>../../media/graphics/OtherGraphicsMediaLibraryHxP</module>
 
-        <module>../../input/NoTouchButtonResourceAnimationJavaLibraryHaxeM</module>
-        <module>../../input/TouchButtonResourceAnimationJavaLibraryHaxeM</module>
-        <module>../../input/TouchButtonResourceOpenGLESAnimationJavaLibraryHaxeM</module>
+        <module>../../input/NoTouchButtonResourceAnimationJavaLibraryHxM</module>
+        <module>../../input/TouchButtonResourceAnimationJavaLibraryHxM</module>
+        <module>../../input/TouchButtonResourceOpenGLESAnimationJavaLibraryHxM</module>
 
-        <module>../../input/TrackingEventJavaLibraryHaxeM</module>
-        <module>../../../game/behavior/BehaviorLibraryP</module>
+        <module>../../input/TrackingEventJavaLibraryHxM</module>
+        <module>../../../game/behavior/BehaviorLibraryHxP</module>
 
-        <module>../../media/sound/OtherSoundMediaLibraryP</module>
+        <module>../../media/sound/OtherSoundMediaLibraryHxP</module>
 
-        <module>../../../allbinary_src/licensing/ApplicationConfigurationJavaLibraryHaxeM</module>
-        <module>../../../allbinary_src/licensing/ApplicationConfigurationNoFSJavaLibraryHaxeM</module>
-        <module>../../input/AllBinaryMagneticFieldSensorJavaLibraryHaxeM</module>
-        <module>../../android/VirtualKeyboardJavaLibraryHaxeM</module>
+        <module>../../../allbinary_src/licensing/ApplicationConfigurationJavaLibraryHxM</module>
+        <module>../../../allbinary_src/licensing/ApplicationConfigurationNoFSJavaLibraryHxM</module>
+        <module>../../input/AllBinaryMagneticFieldSensorJavaLibraryHxM</module>
+        <module>../../android/VirtualKeyboardJavaLibraryHxM</module>
 
     </modules>
 
@@ -136,7 +136,7 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
-
+    </dependencies>
 
 </project>
 

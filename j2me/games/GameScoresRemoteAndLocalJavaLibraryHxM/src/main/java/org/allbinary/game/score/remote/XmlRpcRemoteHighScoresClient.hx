@@ -15,7 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.score.remote;
 
-//import java.io.IOException;
+import org.allbinary.logic.string.StringUtil;
+import jre.io.IOException;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.init.crypt.jcehelper.CryptInterface;
@@ -42,22 +43,22 @@ class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient {
         try {
             var param : BasicArrayList = new BasicArrayListD();
             var serverUrl : String = getClientInfo().getLicenseServer(this.getServer());
-            var index : Int = serverUrl.lastIndexOf("/".code);
+            var index : Int = serverUrl.lastIndexOf(String.fromCharCode("/".code));
             serverUrl = serverUrl.substring(0, index + 1) + this.page;
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append(TRYING);
             stringBuffer.appendint(Std.int(this.getServer()));
             stringBuffer.append(SEP);
             stringBuffer.append(serverUrl);
-            this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.GET);
+            this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.GET);
             final xmlRpcClient : XmlRpcClient = new XmlRpcClient(serverUrl);
             this.setClient(xmlRpcClient);
-            xmlRpcClient.setBasicAuthentication(null, null);
+            xmlRpcClient.setBasicAuthentication(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING);
             var hashtable : ABHashtable<Any, Any> = (cast anyType : ABHashtable<Any, Any>);
-            this.logUtil.putF(CLIENT_INFO + hashtable.toString(), this, this.commonStrings.GET);
+            this.logUtil.putF(CLIENT_INFO + Std.string(hashtable), this, this.commonStrings.GET);
             param.add(hashtable);
-            var result : Any = xmlRpcClient.execute(this.getRemoteMethod(), param, cryptInterface);
-            this.logUtil.putF(RESULT + result.toString(), this, this.commonStrings.GET);
+            var result : Any = xmlRpcClient.executeWithCrypt(this.getRemoteMethod(), param, cryptInterface);
+            this.logUtil.putF(RESULT + Std.string(result), this, this.commonStrings.GET);
             isOnline = true;
             return result;
         } catch (e : IOException) {
@@ -65,7 +66,7 @@ class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient {
             if (!e.message.startsWith(HOST_NOT_RESOLVED)) {
                 return this.tryAnother(anyType);
             } else {
-                throw new haxe.Exception(HOST_NOT_RESOLVED_MSG);
+                throw new jre.lang.JavaException(HOST_NOT_RESOLVED_MSG);
             }
         } catch (e : XmlRpcException) {
             this.logUtil.put(SERVER_REPORTED_ERROR, this, this.commonStrings.GET, e);

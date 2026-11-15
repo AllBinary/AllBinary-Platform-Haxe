@@ -21,13 +21,29 @@ import com.jogamp.opengl.GL2;
 //JOGLEToKhronosGL11
 class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengles.GL11 {
     private final gl11 : GL2;
-    public function new(gl : GL) {
-        // this(gl, (cast gl : com.jogamp.opengl.GL2)) - Haxe has one constructor
+    public function new(...args : Dynamic) {
+        if (args.length == 1) {
+            final gl : GL = args[0];
+            {
+                final gl : GL = gl;
+                final gl2 : com.jogamp.opengl.GL2 = (cast gl : com.jogamp.opengl.GL2);
+                super(gl, gl2);
+            }
+            this._new0(gl);
+        }
+        else if (args.length == 2) {
+            final gl : GL = args[0];
+            final gl2 : com.jogamp.opengl.GL2 = args[1];
+            super(gl, gl2);
+            this._new1(gl, gl2);
+        }
     }
 
-    // Java overloaded constructor: Haxe allows one constructor
-    public function new(gl : GL, gl2 : com.jogamp.opengl.GL2) {
-        super(gl, gl2);
+    private function _new0(gl : GL) : Void {
+        this._new1(gl, (cast gl : com.jogamp.opengl.GL2));
+    }
+
+    private function _new1(gl : GL, gl2 : com.jogamp.opengl.GL2) : Void {
         this.gl11 = getJOGLGL();
     }
 
@@ -35,19 +51,31 @@ class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengles.GL11 
         this.gl11.glBindBuffer(target, buffer);
     }
 
-    public function glBufferData(target : Int, size : Int, data : java.nio.Buffer, usage : Int) : Void {
+    public function glBufferData(target : Int, size : Int, data : jre.nio.Buffer, usage : Int) : Void {
         this.gl11.glBufferData(target, size, data, usage);
     }
 
-    public function glBufferSubData(target : Int, offset : Int, size : Int, data : java.nio.Buffer) : Void {
+    public function glBufferSubData(target : Int, offset : Int, size : Int, data : jre.nio.Buffer) : Void {
         this.gl11.glBufferSubData(target, offset, size, data);
     }
 
-    public function glClipPlanef(plane : Int, equation : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glClipPlanef(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            this.glClipPlanef_int_floatArray_int(args[0], args[1], args[2]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.glClipPlanef_int_FloatBuffer(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glClipPlanef");
+    }
+
+    public function glClipPlanef_int_floatArray_int(plane : Int, equation : haxe.ds.Vector<Float>, offset : Int) : Void {
         this.gl11.glClipPlanef(plane, equation, offset);
     }
 
-    public function glClipPlanef(plane : Int, equation : java.nio.FloatBuffer) : Void {
+    public function glClipPlanef_int_FloatBuffer(plane : Int, equation : jre.nio.FloatBuffer) : Void {
         this.gl11.glClipPlanef(plane, equation);
     }
 
@@ -59,11 +87,23 @@ class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengles.GL11 
         this.gl11.glColorPointer(size, type, stride, offset);
     }
 
-    public function glDeleteBuffers(n : Int, buffers : haxe.ds.Vector<Int>, offset : Int) : Void {
+    public function glDeleteBuffers(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            this.glDeleteBuffers_int_intArray_int(args[0], args[1], args[2]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.glDeleteBuffers_int_IntBuffer(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glDeleteBuffers");
+    }
+
+    public function glDeleteBuffers_int_intArray_int(n : Int, buffers : haxe.ds.Vector<Int>, offset : Int) : Void {
         this.gl11.glDeleteBuffers(n, buffers, offset);
     }
 
-    public function glDeleteBuffers(n : Int, buffers : java.nio.IntBuffer) : Void {
+    public function glDeleteBuffers_int_IntBuffer(n : Int, buffers : jre.nio.IntBuffer) : Void {
         this.gl11.glDeleteBuffers(n, buffers);
     }
 
@@ -71,75 +111,183 @@ class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengles.GL11 
         this.gl11.glDrawElements(mode, count, type, offset);
     }
 
-    public function glGenBuffers(n : Int, buffers : haxe.ds.Vector<Int>, offset : Int) : Void {
+    public function glGenBuffers(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            this.glGenBuffers_int_intArray_int(args[0], args[1], args[2]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.glGenBuffers_int_IntBuffer(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glGenBuffers");
+    }
+
+    public function glGenBuffers_int_intArray_int(n : Int, buffers : haxe.ds.Vector<Int>, offset : Int) : Void {
         this.gl11.glGenBuffers(n, buffers, offset);
     }
 
-    public function glGenBuffers(n : Int, buffers : java.nio.IntBuffer) : Void {
+    public function glGenBuffers_int_IntBuffer(n : Int, buffers : jre.nio.IntBuffer) : Void {
         this.gl11.glGenBuffers(n, buffers);
     }
 
-    public function glGetBufferParameteriv(target : Int, pname : Int, params : haxe.ds.Vector<Int>, offset : Int) : Void {
+    public function glGetBufferParameteriv(...args : Dynamic) : Dynamic {
+        if (args.length == 4) {
+            this.glGetBufferParameteriv_int_int_intArray_int(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        if (args.length == 3) {
+            this.glGetBufferParameteriv_int_int_IntBuffer(args[0], args[1], args[2]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glGetBufferParameteriv");
+    }
+
+    public function glGetBufferParameteriv_int_int_intArray_int(target : Int, pname : Int, params : haxe.ds.Vector<Int>, offset : Int) : Void {
         this.gl11.glGetBufferParameteriv(target, pname, params, offset);
     }
 
-    public function glGetBufferParameteriv(target : Int, pname : Int, params : java.nio.IntBuffer) : Void {
+    public function glGetBufferParameteriv_int_int_IntBuffer(target : Int, pname : Int, params : jre.nio.IntBuffer) : Void {
         this.gl11.glGetBufferParameteriv(target, pname, params);
     }
 
-    public function glGetClipPlanef(pname : Int, eqn : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glGetClipPlanef(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            this.glGetClipPlanef_int_floatArray_int(args[0], args[1], args[2]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.glGetClipPlanef_int_FloatBuffer(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glGetClipPlanef");
+    }
+
+    public function glGetClipPlanef_int_floatArray_int(pname : Int, eqn : haxe.ds.Vector<Float>, offset : Int) : Void {
         this.gl11.glGetClipPlanef(pname, eqn, offset);
     }
 
-    public function glGetClipPlanef(pname : Int, eqn : java.nio.FloatBuffer) : Void {
+    public function glGetClipPlanef_int_FloatBuffer(pname : Int, eqn : jre.nio.FloatBuffer) : Void {
         this.gl11.glGetClipPlanef(pname, eqn);
     }
 
-    public function glGetFloatv(pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glGetFloatv(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            this.glGetFloatv_int_floatArray_int(args[0], args[1], args[2]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.glGetFloatv_int_FloatBuffer(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glGetFloatv");
+    }
+
+    public function glGetFloatv_int_floatArray_int(pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
         this.gl11.glGetFloatv(pname, params, offset);
     }
 
-    public function glGetFloatv(pname : Int, params : java.nio.FloatBuffer) : Void {
+    public function glGetFloatv_int_FloatBuffer(pname : Int, params : jre.nio.FloatBuffer) : Void {
         this.gl11.glGetFloatv(pname, params);
     }
 
-    public function glGetLightfv(light : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glGetLightfv(...args : Dynamic) : Dynamic {
+        if (args.length == 4) {
+            this.glGetLightfv_int_int_floatArray_int(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        if (args.length == 3) {
+            this.glGetLightfv_int_int_FloatBuffer(args[0], args[1], args[2]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glGetLightfv");
+    }
+
+    public function glGetLightfv_int_int_floatArray_int(light : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
         this.gl11.glGetLightfv(light, pname, params, offset);
     }
 
-    public function glGetLightfv(light : Int, pname : Int, params : java.nio.FloatBuffer) : Void {
+    public function glGetLightfv_int_int_FloatBuffer(light : Int, pname : Int, params : jre.nio.FloatBuffer) : Void {
         this.gl11.glGetLightfv(light, pname, params);
     }
 
-    public function glGetMaterialfv(face : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glGetMaterialfv(...args : Dynamic) : Dynamic {
+        if (args.length == 4) {
+            this.glGetMaterialfv_int_int_floatArray_int(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        if (args.length == 3) {
+            this.glGetMaterialfv_int_int_FloatBuffer(args[0], args[1], args[2]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glGetMaterialfv");
+    }
+
+    public function glGetMaterialfv_int_int_floatArray_int(face : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
         this.gl11.glGetMaterialfv(face, pname, params, offset);
     }
 
-    public function glGetMaterialfv(face : Int, pname : Int, params : java.nio.FloatBuffer) : Void {
+    public function glGetMaterialfv_int_int_FloatBuffer(face : Int, pname : Int, params : jre.nio.FloatBuffer) : Void {
         this.gl11.glGetMaterialfv(face, pname, params);
     }
 
-    public function glGetTexEnviv(env : Int, pname : Int, params : haxe.ds.Vector<Int>, offset : Int) : Void {
+    public function glGetTexEnviv(...args : Dynamic) : Dynamic {
+        if (args.length == 4) {
+            this.glGetTexEnviv_int_int_intArray_int(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        if (args.length == 3) {
+            this.glGetTexEnviv_int_int_IntBuffer(args[0], args[1], args[2]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glGetTexEnviv");
+    }
+
+    public function glGetTexEnviv_int_int_intArray_int(env : Int, pname : Int, params : haxe.ds.Vector<Int>, offset : Int) : Void {
         this.gl11.glGetTexEnviv(env, pname, params, offset);
     }
 
-    public function glGetTexEnviv(env : Int, pname : Int, params : java.nio.IntBuffer) : Void {
+    public function glGetTexEnviv_int_int_IntBuffer(env : Int, pname : Int, params : jre.nio.IntBuffer) : Void {
         this.gl11.glGetTexEnviv(env, pname, params);
     }
 
-    public function glGetTexParameterfv(target : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glGetTexParameterfv(...args : Dynamic) : Dynamic {
+        if (args.length == 4) {
+            this.glGetTexParameterfv_int_int_floatArray_int(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        if (args.length == 3) {
+            this.glGetTexParameterfv_int_int_FloatBuffer(args[0], args[1], args[2]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glGetTexParameterfv");
+    }
+
+    public function glGetTexParameterfv_int_int_floatArray_int(target : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
         this.gl11.glGetTexParameterfv(target, pname, params, offset);
     }
 
-    public function glGetTexParameterfv(target : Int, pname : Int, params : java.nio.FloatBuffer) : Void {
+    public function glGetTexParameterfv_int_int_FloatBuffer(target : Int, pname : Int, params : jre.nio.FloatBuffer) : Void {
         this.gl11.glGetTexParameterfv(target, pname, params);
     }
 
-    public function glGetTexParameteriv(target : Int, pname : Int, params : haxe.ds.Vector<Int>, offset : Int) : Void {
+    public function glGetTexParameteriv(...args : Dynamic) : Dynamic {
+        if (args.length == 4) {
+            this.glGetTexParameteriv_int_int_intArray_int(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        if (args.length == 3) {
+            this.glGetTexParameteriv_int_int_IntBuffer(args[0], args[1], args[2]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glGetTexParameteriv");
+    }
+
+    public function glGetTexParameteriv_int_int_intArray_int(target : Int, pname : Int, params : haxe.ds.Vector<Int>, offset : Int) : Void {
         this.gl11.glGetTexParameteriv(target, pname, params, offset);
     }
 
-    public function glGetTexParameteriv(target : Int, pname : Int, params : java.nio.IntBuffer) : Void {
+    public function glGetTexParameteriv_int_int_IntBuffer(target : Int, pname : Int, params : jre.nio.IntBuffer) : Void {
         this.gl11.glGetTexParameteriv(target, pname, params);
     }
 
@@ -163,11 +311,23 @@ class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengles.GL11 
         this.gl11.glPointParameterf(pname, param);
     }
 
-    public function glPointParameterfv(pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glPointParameterfv(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            this.glPointParameterfv_int_floatArray_int(args[0], args[1], args[2]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.glPointParameterfv_int_FloatBuffer(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glPointParameterfv");
+    }
+
+    public function glPointParameterfv_int_floatArray_int(pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
         this.gl11.glPointParameterfv(pname, params, offset);
     }
 
-    public function glPointParameterfv(pname : Int, params : java.nio.FloatBuffer) : Void {
+    public function glPointParameterfv_int_FloatBuffer(pname : Int, params : jre.nio.FloatBuffer) : Void {
         this.gl11.glPointParameterfv(pname, params);
     }
 
@@ -179,19 +339,43 @@ class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengles.GL11 
         this.gl11.glTexEnvi(target, pname, param);
     }
 
-    public function glTexEnviv(target : Int, pname : Int, params : haxe.ds.Vector<Int>, offset : Int) : Void {
+    public function glTexEnviv(...args : Dynamic) : Dynamic {
+        if (args.length == 4) {
+            this.glTexEnviv_int_int_intArray_int(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        if (args.length == 3) {
+            this.glTexEnviv_int_int_IntBuffer(args[0], args[1], args[2]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glTexEnviv");
+    }
+
+    public function glTexEnviv_int_int_intArray_int(target : Int, pname : Int, params : haxe.ds.Vector<Int>, offset : Int) : Void {
         this.gl11.glTexEnviv(target, pname, params, offset);
     }
 
-    public function glTexEnviv(target : Int, pname : Int, params : java.nio.IntBuffer) : Void {
+    public function glTexEnviv_int_int_IntBuffer(target : Int, pname : Int, params : jre.nio.IntBuffer) : Void {
         this.gl11.glTexEnviv(target, pname, params);
     }
 
-    public function glTexParameterfv(target : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glTexParameterfv(...args : Dynamic) : Dynamic {
+        if (args.length == 4) {
+            this.glTexParameterfv_int_int_floatArray_int(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        if (args.length == 3) {
+            this.glTexParameterfv_int_int_FloatBuffer(args[0], args[1], args[2]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glTexParameterfv");
+    }
+
+    public function glTexParameterfv_int_int_floatArray_int(target : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
         this.gl11.glTexParameterfv(target, pname, params, offset);
     }
 
-    public function glTexParameterfv(target : Int, pname : Int, params : java.nio.FloatBuffer) : Void {
+    public function glTexParameterfv_int_int_FloatBuffer(target : Int, pname : Int, params : jre.nio.FloatBuffer) : Void {
         this.gl11.glTexParameterfv(target, pname, params);
     }
 
@@ -199,11 +383,23 @@ class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengles.GL11 
         this.gl11.glTexParameteri(target, pname, param);
     }
 
-    public function glTexParameteriv(target : Int, pname : Int, params : haxe.ds.Vector<Int>, offset : Int) : Void {
+    public function glTexParameteriv(...args : Dynamic) : Dynamic {
+        if (args.length == 4) {
+            this.glTexParameteriv_int_int_intArray_int(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        if (args.length == 3) {
+            this.glTexParameteriv_int_int_IntBuffer(args[0], args[1], args[2]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glTexParameteriv");
+    }
+
+    public function glTexParameteriv_int_int_intArray_int(target : Int, pname : Int, params : haxe.ds.Vector<Int>, offset : Int) : Void {
         this.gl11.glTexParameteriv(target, pname, params, offset);
     }
 
-    public function glTexParameteriv(target : Int, pname : Int, params : java.nio.IntBuffer) : Void {
+    public function glTexParameteriv_int_int_IntBuffer(target : Int, pname : Int, params : jre.nio.IntBuffer) : Void {
         this.gl11.glTexParameteriv(target, pname, params);
     }
 

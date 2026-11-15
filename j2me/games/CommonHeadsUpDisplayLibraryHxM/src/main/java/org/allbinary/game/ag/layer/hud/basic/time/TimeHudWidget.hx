@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.layer.hud.basic.time;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.graphics.hud.BasicHud;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.font.MyFontProcessor;
@@ -24,7 +24,7 @@ import org.allbinary.logic.math.PrimitiveLongSingleton;
 
 class TimeHudWidget extends BasicHud {
     // throws Exception
-    public static function getInstance(location : Int, direction : Int, basicColor : BasicColor, timer : Timer) : TimeHudWidget {
+    public static function getInstance(location : Int, direction : Int, basicColor : BasicColor, timer : HudTimer) : TimeHudWidget {
         return new TimeHudWidget(location, direction, 2, basicColor, timer);
     }
 
@@ -33,8 +33,8 @@ class TimeHudWidget extends BasicHud {
     private var offset : Int = 0;
     private var string : haxe.ds.Vector<Int> = PrimitiveLongSingleton.getInstance().ZERO;
     private var totalDigits : Int = 1;
-    private final timer : Timer;
-    public function new(location : Int, direction : Int, bufferZone : Int, basicColor : BasicColor, timer : Timer) {
+    private final timer : HudTimer;
+    public function new(location : Int, direction : Int, bufferZone : Int, basicColor : BasicColor, timer : HudTimer) {
         super(location, direction, bufferZone, basicColor);
         this.timer = timer;
         this.set();
@@ -58,7 +58,7 @@ class TimeHudWidget extends BasicHud {
         this.totalDigits = this.timer.getCurrentTotalDigits();
     }
 
-    public function getTimer() : Timer {
+    public function getTimer() : HudTimer {
         return this.timer;
     }
 

@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.device;
 
-//import javax.microedition.khronos.opengles.GL10;
+import javax.microedition.khronos.opengles.GL10;
 
 class LoadTextures {
     // throws Exception

@@ -43,7 +43,7 @@ class AbeClientInformation extends ClientInformation {
                 this.setLicenseId(NONE);
             }
             final commonStrings : CommonStrings = CommonStrings.getInstance();
-            PreLogUtil.put(new StringMaker().append("Special Name: ").append(this.getSpecialName()).toString(), this, commonStrings.CONSTRUCTOR);
+            PreLogUtil.put(Std.string(new StringMaker().append("Special Name: ").append(this.getSpecialName())), this, commonStrings.CONSTRUCTOR);
         } catch (e : haxe.Exception) {
             final logUtil : LogUtil = LogUtil.getInstance();
             final commonStrings : CommonStrings = CommonStrings.getInstance();

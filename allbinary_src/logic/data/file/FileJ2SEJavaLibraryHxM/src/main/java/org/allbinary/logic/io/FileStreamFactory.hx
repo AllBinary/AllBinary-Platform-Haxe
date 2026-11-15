@@ -35,7 +35,7 @@ class FileStreamFactory {
     public function getFileInputStreamInstance(path : String, fileName : String) : AbFileInputStream {
         final FILEABPATH : AbPath = new AbPath(path, fileName);
         final file : AbFile = AbFile.createAbFileFromAbPath(FILEABPATH);
-        return new AbFileInputStream(file);
+        return AbFileInputStream.createFromAbFile(file);
     }
 
     // throws Exception

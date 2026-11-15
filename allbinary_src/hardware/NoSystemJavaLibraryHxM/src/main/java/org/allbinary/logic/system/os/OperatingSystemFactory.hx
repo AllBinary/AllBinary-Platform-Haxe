@@ -34,7 +34,7 @@ class OperatingSystemFactory {
     public function getOperatingSystemInstance() : GenericOperatingSystem {
         final commonStrings : CommonStrings = CommonStrings.getInstance();
         try {
-            final osString : String = new StringMaker().append("OperatingSystem Info: ").append(this.genericOperatingSystem.toString()).toString();
+            final osString : String = Std.string(new StringMaker().append("OperatingSystem Info: ").append(Std.string(this.genericOperatingSystem)));
             trace(osString);
             this.logUtil.putF(osString, this, commonStrings.GET_INSTANCE);
         } catch (e : haxe.Exception) {

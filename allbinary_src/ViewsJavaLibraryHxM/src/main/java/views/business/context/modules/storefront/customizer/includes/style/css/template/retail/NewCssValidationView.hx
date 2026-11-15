@@ -56,7 +56,7 @@ class NewCssValidationView extends CssCustomizerView implements ValidationCompon
         try {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append(this.styleValidationInterface.validationInfo());
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
@@ -76,6 +76,11 @@ class NewCssValidationView extends CssCustomizerView implements ValidationCompon
     // throws Exception
     public function view() : String {
         return views.ValidationOnlyTempUtil.getInstance().view(this);
+    }
+
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
     }
 
 }

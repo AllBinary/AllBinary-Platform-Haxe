@@ -68,8 +68,21 @@ class FileLockUtil {
         }
     }
 
+    public function getLock(...args : Dynamic) : Dynamic {
+        if (args.length == 1 && Std.isOfType(args[0], AbFile)) {
+            return this.getLock_AbFile(args[0]);
+        }
+        if (args.length == 1 && Std.isOfType(args[0], AbFileOutputStream)) {
+            return this.getLock_AbFileOutputStream(args[0]);
+        }
+        if (args.length == 1) {
+            return this.getLock_FileChannel(args[0]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: getLock");
+    }
+
     // throws Exception
-    public function getLock(file : AbFile) : FileLock {
+    public function getLock_AbFile(file : AbFile) : FileLock {
         try {
             return this.getLock(AbFileOutputStream.createFromAbFileAppend(file, true));
         } catch (e : haxe.Exception) {
@@ -82,7 +95,7 @@ class FileLockUtil {
     }
 
     // throws Exception
-    public function getLock(fileOutputStream : AbFileOutputStream) : FileLock {
+    public function getLock_AbFileOutputStream(fileOutputStream : AbFileOutputStream) : FileLock {
         try {
             var fileLock : FileLock = this.getLock(fileOutputStream.getChannel());
             return fileLock;
@@ -98,7 +111,7 @@ class FileLockUtil {
     }
 
     // throws Exception
-    public function getLock(fileChannel : FileChannel) : FileLock {
+    public function getLock_FileChannel(fileChannel : FileChannel) : FileLock {
         try {
             var fileLock : FileLock = fileChannel.tryLock();
             return fileLock;

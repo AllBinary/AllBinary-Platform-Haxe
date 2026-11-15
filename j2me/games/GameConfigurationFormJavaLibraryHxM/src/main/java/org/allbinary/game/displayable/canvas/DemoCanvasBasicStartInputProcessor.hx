@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullCanvas;
 import org.allbinary.canvas.RunnableCanvas;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.input.GameInputStrings;
@@ -36,7 +36,7 @@ class DemoCanvasBasicStartInputProcessor extends BasicMenuInputProcessor {
         var gameKeyEvent : GameKeyEvent = null;
         for (index in 0...size) {
             gameKeyEvent = (cast list.objectArray[index] : GameKeyEvent);
-            this.logUtil.putF(new StringMaker().append("Start GameKey: ").append(StringUtil.getInstance().toString(gameKeyEvent)).toString(), this, GameInputStrings.getInstance().PROCESS_INPUT);
+            this.logUtil.putF(Std.string(new StringMaker().append("Start GameKey: ").append(StringUtil.getInstance().toString(gameKeyEvent))), this, GameInputStrings.getInstance().PROCESS_INPUT);
         }
         this.getCanvas().getCustomCommandListener().commandAction(GameCommandsFactory.getInstance().START_COMMAND, NullCanvas.NULL_CANVAS);
         return size;

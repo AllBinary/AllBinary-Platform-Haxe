@@ -15,10 +15,10 @@
 // Generated Code Do Not Modify
 package org.allbinary.string;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 import org.allbinary.logic.string.StringMaker;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsProperty;
 
 class CommonSeps {
     private static final instance : CommonSeps = new CommonSeps();
@@ -34,8 +34,8 @@ class CommonSeps {
     public final COLON : String = ":";
     public final PERIOD : String = ".";
     public final UNDERSCORE : String = "_";
-    public final COLON_SEP : String = new StringMaker().append(this.COLON).append(this.SPACE).toString();
-    public final COMMA_SEP : String = new StringMaker().append(this.COMMA).append(this.SPACE).toString();
+    public final COLON_SEP : String;
+    public final COMMA_SEP : String;
     public final PARENTHESIS_OPEN : String = "(";
     public final PARENTHESIS_CLOSE : String = ")";
     public final BRACE_OPEN : String = "{";
@@ -53,6 +53,8 @@ class CommonSeps {
     public final COMMENT : String = "//";
     public final INDENT : String = "    ";
     public function new() {
+        this.COLON_SEP = Std.string(new StringMaker().append(this.COLON).append(this.SPACE));
+        this.COMMA_SEP = Std.string(new StringMaker().append(this.COMMA).append(this.SPACE));
     }
 }
 

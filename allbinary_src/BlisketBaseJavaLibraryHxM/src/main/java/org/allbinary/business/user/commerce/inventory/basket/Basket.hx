@@ -36,7 +36,7 @@ class Basket implements BasketInterface implements Serializable {
             var oldNumInt : Null<Int> = Std.string(oldNumStr);
             var numInt : Null<Int> = Std.string(num);
             var newNumInt : Null<Int> = Std.int(oldNumInt) + Std.int(numInt);
-            this.items.put(id, newNumInt.toString());
+            this.items.put(id, Std.string(newNumInt));
         } else {
             this.items.put(id, num);
         }
@@ -67,10 +67,10 @@ class Basket implements BasketInterface implements Serializable {
                 product = (cast itemArray[index] : String);
                 weightFloat = new InventoryEntity().getWeight(product);
                 weightFloat = getNumberOf(product) * weightFloat;
-                totalWeight.add(weightFloat.toString());
+                totalWeight.add(Std.string(weightFloat));
             }
         }
-        return totalWeight.toString();
+        return Std.string(totalWeight);
     }
 
     public function getNumberOfItems() : Null<Int> {
@@ -106,7 +106,7 @@ class Basket implements BasketInterface implements Serializable {
                 var itemInterface : ItemInterface = inventoryEntity.getItem(product);
                 var productTotal : Money = itemInterface.getPrice();
                 productTotal.multiply(Std.int(getNumberOf(product)));
-                subTotal.add(productTotal.toString());
+                subTotal.add(Std.string(productTotal));
             }
         }
         return subTotal;

@@ -35,7 +35,7 @@ class BasicLayerProcessor {
 
     // throws Exception
     public function process(allBinaryLayerManager : AllBinaryLayerManager) : Void {
-        throw new haxe.Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     public function getList() : BasicArrayList {

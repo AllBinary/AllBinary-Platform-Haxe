@@ -23,8 +23,9 @@ class EndGameInfo {
     private final NORMAL_GAME_OVER : String = "Game Over";
     public final NORMAL_GAME_OVER_WIN : String = "You Won";
     private var gameOverStr : String = StringUtil.getInstance().EMPTY_STRING;
-    private var winStr : String = this.gameOverStr;
+    private var winStr : String;
     public function new() {
+        this.winStr = this.gameOverStr;
     }
 
     public function update(gameInfo : GameInfo, myCanvas : MyCanvas) : Void {

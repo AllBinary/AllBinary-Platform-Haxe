@@ -45,7 +45,7 @@ class LinuxOperatingSystemFactory {
                 if (operatingSystems.isUnknownSpecificOSAllowed()) {
                     operatingSystemInterface = new LinuxOS();
                 } else {
-                    throw new haxe.Exception("Specific Linux OS Not Supported: " + osName);
+                    throw new jre.lang.JavaException("Specific Linux OS Not Supported: " + osName);
                 }
             }
             return operatingSystemInterface;

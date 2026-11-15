@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Canvas;
 import org.allbinary.game.input.GameKey;
 import org.allbinary.game.input.GameKeyEventSourceInterface;
 import org.allbinary.game.input.GameKeyFactory;
@@ -55,7 +55,7 @@ class GameCanvasInputProcessor extends InputProcessor {
                 this.downGameKeyEventHandler.fireEvent(gameKeyEvent);
                 this.downGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
             } else {
-                this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+                this.logUtil.putF(Std.string(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode)), this, this.gameInputStrings.ADD_KEY_EVENT);
             }
             final keyCodeAsInteger : Null<Int> = this.smallIntegerSingletonFactory.getAtNoThrow(keyCode);
             this.downKeyEventHandler.fireEventI(keyCodeAsInteger);
@@ -78,7 +78,7 @@ class GameCanvasInputProcessor extends InputProcessor {
                 this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
                 this.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
             } else {
-                this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
+                this.logUtil.putF(Std.string(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode)), this, this.gameInputStrings.REMOVE_KEY_EVENT);
             }
         } catch (e : haxe.Exception) {
             this.logUtil.put("Key Event Error", this, this.gameInputStrings.REMOVE_KEY_EVENT, e);

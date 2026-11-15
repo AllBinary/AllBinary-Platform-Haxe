@@ -42,12 +42,12 @@ class KeySpecFactory {
             } else if (tsUtil.compareTo(algorithm, this.DESEDE) == 0) {
                 return new DESedeKeySpec(keyData);
             } else {
-                throw new haxe.Exception();
+                throw new jre.lang.JavaException();
             }
         } catch (e : haxe.Exception) {
             final commonStrings : CommonStrings = CommonStrings.getInstance();
             PreLogUtil.putOE(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
-            throw new haxe.Exception();
+            throw new jre.lang.JavaException();
         }
     }
 

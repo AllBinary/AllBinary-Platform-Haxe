@@ -51,5 +51,10 @@ class NewValidationView extends DownloadableInventoryItemView implements Validat
         return "Error Creating New Downloadable Item";
     }
 
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
+    }
+
 }
 

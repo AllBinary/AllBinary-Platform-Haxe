@@ -70,7 +70,7 @@ class BasicTouchInputFactory {
     }
 
     public function updateAllList(list : BasicArrayList, inputToGameKeyMapping : InputToGameKeyMapping) : Void {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START).appendint(list.size()).toString(), this, "updateAll");
+        this.logUtil.putF(Std.string(new StringMaker().append(CommonLabels.getInstance().START).appendint(list.size())), this, "updateAll");
         {
             var index : Int = list.size() - 1;
             while (index >= 0) {

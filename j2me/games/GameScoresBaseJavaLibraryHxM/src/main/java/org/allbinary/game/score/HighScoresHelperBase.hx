@@ -25,7 +25,7 @@ class HighScoresHelperBase implements HighScoresHelperBaseInterface {
     public function setHighScoresArray(highScoresArrayP : haxe.ds.Vector<HighScores>) : Void {
         if (highScoresArrayP != null) {
             final commonStrings : CommonStrings = CommonStrings.getInstance();
-            this.logUtil.putF(new StringMaker().append(commonStrings.START).appendint(highScoresArrayP.length).toString(), this, "setHighScoresArray");
+            this.logUtil.putF(Std.string(new StringMaker().append(commonStrings.START).appendint(highScoresArrayP.length)), this, "setHighScoresArray");
         } else {
             final commonStrings : CommonStrings = CommonStrings.getInstance();
             this.logUtil.putF(commonStrings.START, this, "setHighScoresArray");
@@ -38,7 +38,7 @@ class HighScoresHelperBase implements HighScoresHelperBaseInterface {
     }
 
     public function isAnyHighScores() : Bool {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function setSelectedHighScores(selectedHighScores : HighScores) : Void {

@@ -15,10 +15,10 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.io;
 
-//import java.io.BufferedReader;
-//import java.io.BufferedWriter;
-//import java.io.FileReader;
-//import java.io.FileWriter;
+import jre.io.BufferedReader;
+import jre.io.BufferedWriter;
+import jre.io.FileReader;
+import jre.io.FileWriter;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.AbFileNativeUtil;
 import org.allbinary.logic.string.StringUtil;
@@ -29,11 +29,8 @@ class BufferedIOUtil {
         var line : String = StringUtil.getInstance().EMPTY_STRING;
         final tmpOut : BufferedWriter = new BufferedWriter(new FileWriter(AbFileNativeUtil.get(backupFileBak)));
         final tmpIn : BufferedReader = new BufferedReader(new FileReader(AbFileNativeUtil.get(backupFile)));
-        while (true) {
+        while (tmpIn.ready()) {
             line = tmpIn.readLine();
-            if (line == null) {
-                break;
-            }
             tmpOut.write(line, 0, line.length);
             tmpOut.newLine();
         }

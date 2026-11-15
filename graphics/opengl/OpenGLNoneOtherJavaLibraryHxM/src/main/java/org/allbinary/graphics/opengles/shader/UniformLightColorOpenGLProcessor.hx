@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.opengles.shader;
 
-//import javax.microedition.khronos.opengles.GL10;
+import javax.microedition.khronos.opengles.GL10;
 
 class UniformLightColorOpenGLProcessor extends OpenGLObject3dProcessor {
     public function new(shaderComposite : ShaderComposite, handleIndex : Int) {

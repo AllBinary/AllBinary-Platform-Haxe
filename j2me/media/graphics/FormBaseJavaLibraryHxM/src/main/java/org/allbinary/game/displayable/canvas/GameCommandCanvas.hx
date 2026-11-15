@@ -15,10 +15,10 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.CommandListener;
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
-//import javax.microedition.lcdui.NullCommandListener;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.NullCommandListener;
 import org.allbinary.canvas.Processor;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.feature.Features;
@@ -68,7 +68,7 @@ import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayListD;
 
 class GameCommandCanvas extends MyCanvas implements MenuListener implements DisplayChangeEventListener implements UpdateMyFontInterface {
-    private final repaintProcessor : Processor = ScreenRepaintProcessorFactory.getInstance().create(this);
+    private final repaintProcessor : Processor;
     public final gameInputStrings : GameInputStrings = GameInputStrings.getInstance();
     private static final id : Int = 0;
     public final foregroundBasicColor : BasicColor;
@@ -79,8 +79,8 @@ class GameCommandCanvas extends MyCanvas implements MenuListener implements Disp
     private final downGameKeyEventHandler : DownGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
     private final upGameKeyEventHandler : UpGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
     public final repaintBehavior : RepaintBehavior;
-    public final updateMyFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
-    public var myFontProcessor : MyFontProcessor = this.updateMyFontProcessor;
+    public final updateMyFontProcessor : MyFontProcessor;
+    public var myFontProcessor : MyFontProcessor;
     public var foregroundColor : Int;
     public var backgroundColor : Int;
     private var menuInputProcessor : BasicMenuInputProcessor = NoMenuInputProcessor.getInstance();
@@ -90,6 +90,9 @@ class GameCommandCanvas extends MyCanvas implements MenuListener implements Disp
     public var fontHeight : Int = 0;
     public function new(cmdListener : CommandListener, name : String, backgroundBasicColor : BasicColor, foregroundBasicColor : BasicColor) {
         super(name, CanvasStrings.getInstance().EMPTY_CHILD_NAME_LIST);
+        this.repaintProcessor = ScreenRepaintProcessorFactory.getInstance().create(this);
+        this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
+        this.myFontProcessor = this.updateMyFontProcessor;
         this.repaintBehavior = RepaintBehavior.getInstance();
         this.foregroundBasicColor = foregroundBasicColor;
         this.backgroundBasicColor = backgroundBasicColor;
@@ -101,7 +104,7 @@ class GameCommandCanvas extends MyCanvas implements MenuListener implements Disp
                 this.initMenu();
                 this.repaintProcessor.process();
             } catch (e : haxe.Exception) {
-                throw new haxe.Exception();
+                throw new jre.lang.JavaException();
             }
         }
     }
@@ -109,7 +112,7 @@ class GameCommandCanvas extends MyCanvas implements MenuListener implements Disp
     public override function updateMeasurement(graphics : Graphics) : Void {
         try {
             final font : Font = graphics.getFont();
-            this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(this.canvasStrings.FD_WIDTH).appendint(Std.int(MyFontProcessor.defaultCharWidth(font))).append(this.canvasStrings.FD_HEIGHT).appendint(Std.int(font.getHeight())).toString(), this, this.canvasStrings.UPDATE_MEASUREMENT);
+            this.logUtil.putF(Std.string(new StringMaker().append(this.commonStrings.START).append(this.canvasStrings.FD_WIDTH).appendint(Std.int(MyFontProcessor.defaultCharWidth(font))).append(this.canvasStrings.FD_HEIGHT).appendint(Std.int(font.getHeight()))), this, this.canvasStrings.UPDATE_MEASUREMENT);
             this.fontHeight = font.getHeight();
             final rectangle : Rectangle = this.createRectangle(this.menuForm.size());
             this.menuForm.init(rectangle, FormTypeFactory.getInstance().VERTICAL_CENTER_FORM);
@@ -125,7 +128,7 @@ class GameCommandCanvas extends MyCanvas implements MenuListener implements Disp
     }
 
     public override function onDisplayChangeEvent(displayChangeEvent : DisplayChangeEvent) : Void {
-        this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(DisplayInfoSingleton.getInstance().toString()).toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+        this.logUtil.putF(Std.string(new StringMaker().append(this.commonStrings.START).append(Std.string(DisplayInfoSingleton.getInstance()))), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
         this.myFontProcessor = this.updateMyFontProcessor;
     }
 
@@ -198,7 +201,7 @@ class GameCommandCanvas extends MyCanvas implements MenuListener implements Disp
     }
 
     public override function keyPressedByDevice(keyCode : Int, deviceId : Int) : Void {
-        this.logUtil.putF(new StringMaker().append(CommonSeps.getInstance().SPACE).appendint(keyCode).toString(), this, this.gameInputStrings.KEY_PRESSED);
+        this.logUtil.putF(Std.string(new StringMaker().append(CommonSeps.getInstance().SPACE).appendint(keyCode)), this, this.gameInputStrings.KEY_PRESSED);
         this.addGameKeyEvent(keyCode, 0, false);
     }
 
@@ -220,7 +223,7 @@ class GameCommandCanvas extends MyCanvas implements MenuListener implements Disp
                 this.downGameKeyEventHandler.fireEvent(gameKeyEvent);
                 this.downGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
             } else {
-                this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+                this.logUtil.putF(Std.string(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode)), this, this.gameInputStrings.ADD_KEY_EVENT);
             }
         } catch (e : haxe.Exception) {
             this.logUtil.put("Key Event Error", this, this.gameInputStrings.ADD_KEY_EVENT, e);
@@ -235,7 +238,7 @@ class GameCommandCanvas extends MyCanvas implements MenuListener implements Disp
                 this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
                 this.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
             } else {
-                this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
+                this.logUtil.putF(Std.string(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode)), this, this.gameInputStrings.REMOVE_KEY_EVENT);
             }
         } catch (e : haxe.Exception) {
             this.logUtil.put("Key Event Error", this, this.gameInputStrings.REMOVE_KEY_EVENT, e);

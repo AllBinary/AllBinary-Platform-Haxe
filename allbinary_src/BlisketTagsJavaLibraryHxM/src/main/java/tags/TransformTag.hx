@@ -58,7 +58,7 @@ class TransformTag extends TransformInfoTag {
     public function doStartTag() : Int {
         try {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG)) {
-                this.logUtil.putF("Creating with: \n" + this.getPropertiesHashMap().toString(), this, tagStrings.DO_START_TAG);
+                this.logUtil.putF("Creating with: \n" + Std.string(this.getPropertiesHashMap()), this, tagStrings.DO_START_TAG);
             }
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG)) {
                 var stringBuffer : StringMaker = new StringMaker();
@@ -66,7 +66,7 @@ class TransformTag extends TransformInfoTag {
                 stringBuffer.append(this.getName());
                 stringBuffer.append("\nViewFile: ");
                 stringBuffer.append(this.getObjectFile());
-                this.logUtil.putF(stringBuffer.toString(), this, tagStrings.DO_START_TAG);
+                this.logUtil.putF(Std.string(stringBuffer), this, tagStrings.DO_START_TAG);
             }
             this.setHelper();
             pageContext.getOut().print(this.view());

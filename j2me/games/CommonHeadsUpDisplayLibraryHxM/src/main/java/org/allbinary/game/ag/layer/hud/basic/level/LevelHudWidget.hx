@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.layer.hud.basic.level;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.graphics.hud.BasicHud;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.paint.PaintableInterface;

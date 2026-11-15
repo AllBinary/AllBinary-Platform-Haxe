@@ -52,7 +52,7 @@ class BillingAddressesView extends HttpStoreComponentView implements DomNodeInte
                 var streetAddress : StreetAddress = (cast this.streetAddresses.get(index) : StreetAddress);
                 billingAddressesNode.appendChild(streetAddress.toXmlNode(document));
             }
-            billingAddressesNode.appendChild(ModDomHelper.createNameValueNodes(document, StreetAddressData.NUMBEROFADDRESSES, streetAddresses.size().toString()));
+            billingAddressesNode.appendChild(ModDomHelper.createNameValueNodes(document, StreetAddressData.NUMBEROFADDRESSES, Std.string(streetAddresses.size())));
             return billingAddressesNode;
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGINGERROR)) {

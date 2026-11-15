@@ -47,7 +47,7 @@ class InventoryView extends HttpStoreComponentView implements DomNodeInterface {
             var inventoryEntityInterface : InventoryEntity = InventoryEntityFactory.getInstance().getInventoryEntityInstance();
             var inventoryNode : Node = document.createElement(InventoryData.INVENTORY);
             var itemVector : BasicArrayList = inventoryEntityInterface.getItems(StoreFrontFactory.getInstance(this.getTransformInfoInterface().getStoreName()));
-            inventoryNode.appendChild(ModDomHelper.createNameValueNodes(document, SearchData.TOTAL_NUMBER_ITEMS_ON_THIS_PAGE, itemVector.size().toString()));
+            inventoryNode.appendChild(ModDomHelper.createNameValueNodes(document, SearchData.TOTAL_NUMBER_ITEMS_ON_THIS_PAGE, Std.string(itemVector.size())));
             final size : Int = itemVector.size();
             for (index in 0...size) {
                 var itemInterface : ItemInterface = (cast itemVector.get(index) : ItemInterface);

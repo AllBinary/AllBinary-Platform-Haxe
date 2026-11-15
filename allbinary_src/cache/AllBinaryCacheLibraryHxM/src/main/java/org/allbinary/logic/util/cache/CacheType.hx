@@ -39,7 +39,7 @@ class CacheType {
         stringBuffer.append(this.getVendor());
         stringBuffer.append(" Type: ");
         stringBuffer.append(this.getType());
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.displayable.screen;
 
-//import javax.microedition.lcdui.Displayable;
+import javax.microedition.lcdui.Displayable;
 
 class ScreenRepaintUtil {
     public static function repaint(displayable : Displayable) : Void {

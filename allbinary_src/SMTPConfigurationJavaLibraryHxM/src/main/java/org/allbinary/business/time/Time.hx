@@ -36,7 +36,7 @@ class Time {
     }
 
     public function toString() : String {
-        return this.getLong().toString();
+        return Std.string(this.getLong());
     }
 
 }

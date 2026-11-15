@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
+//import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsConstructor;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.math.PositionStrings;
 import org.allbinary.string.CommonSeps;
@@ -77,7 +77,7 @@ class GPoint {
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(positionStrings.Z_LABEL);
         stringBuffer.appendint(z);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

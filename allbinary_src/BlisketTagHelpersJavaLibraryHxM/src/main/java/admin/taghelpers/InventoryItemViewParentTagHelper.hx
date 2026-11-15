@@ -40,7 +40,7 @@ class InventoryItemViewParentTagHelper {
                 stringBuffer.append("Must have ");
                 stringBuffer.append("InventoryItemView and not: ");
                 stringBuffer.append(Type.getClassName(Type.getClass(inventoryTag.getHelper())));
-                throw new haxe.Exception(stringBuffer.toString());
+                throw new haxe.Exception(Std.string(stringBuffer));
             }
             return (cast viewObject : InventoryItemView);
         } else {
@@ -59,7 +59,7 @@ class InventoryItemViewParentTagHelper {
                 stringBuffer.append("Must have ");
                 stringBuffer.append("DownloadableInventoryItemView and not: ");
                 stringBuffer.append(Type.getClassName(Type.getClass(inventoryTag.getHelper())));
-                throw new haxe.Exception(stringBuffer.toString());
+                throw new haxe.Exception(Std.string(stringBuffer));
             }
             return (cast viewObject : DownloadableInventoryItemView);
         } else {
@@ -78,7 +78,7 @@ class InventoryItemViewParentTagHelper {
                 stringBuffer.append("Must have ");
                 stringBuffer.append("specific TYPE_ID and not: ");
                 stringBuffer.append(Type.getClassName(Type.getClass(inventoryTag.getHelper())));
-                throw new haxe.Exception(stringBuffer.toString());
+                throw new haxe.Exception(Std.string(stringBuffer));
             }
             return (cast viewObject : RequestMapInterface);
         } else {
@@ -94,7 +94,7 @@ class InventoryItemViewParentTagHelper {
             stringBuffer.append("ValidationViewHelper");
             stringBuffer.append("and not: ");
             stringBuffer.append(Type.getClassName(Type.getClass(helperObject)));
-            throw new haxe.Exception(stringBuffer.toString());
+            throw new haxe.Exception(Std.string(stringBuffer));
         }
     }
 

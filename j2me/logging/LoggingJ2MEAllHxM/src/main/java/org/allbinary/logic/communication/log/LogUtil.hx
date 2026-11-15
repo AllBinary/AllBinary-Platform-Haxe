@@ -42,7 +42,7 @@ class LogUtil {
     public function putF(specialMessage : String, anyType : Any, functionName : String) : Void {
         var className : String = CommonStrings.getInstance().EMPTY;
         if (Type.getClassName(Type.getClass(anyType)) != null) {
-            className = new StringMaker().append(Type.getClassName(Type.getClass(anyType))).append(CommonSeps.getInstance().COLON).append(StringTools.hex(TsUtil.getInstance().hashCode(anyType))).toString();
+            className = Std.string(new StringMaker().append(Type.getClassName(Type.getClass(anyType))).append(CommonSeps.getInstance().COLON).append(StringTools.hex(TsUtil.getInstance().hashCode(anyType))));
         }
         final message : String = this.logFormatUtil.getS(className, functionName, specialMessage);
         trace(this.LOG_SUCCESS);
@@ -61,7 +61,7 @@ class LogUtil {
         if (Type.getClassName(Type.getClass(anyType)) != null) {
             final hashCodeValue : Int = TsUtil.getInstance().hashCode(anyType);
             final hexString : String = StringTools.hex(hashCodeValue);
-            className = new StringMaker().append(Type.getClassName(Type.getClass(anyType))).append(CommonSeps.getInstance().COLON).append(hexString).toString();
+            className = Std.string(new StringMaker().append(Type.getClassName(Type.getClass(anyType))).append(CommonSeps.getInstance().COLON).append(hexString));
         }
         final message : String = this.logFormatUtil.get(className, functionName, specialMessage, exception);
         trace(this.LOG_SUCCESS);

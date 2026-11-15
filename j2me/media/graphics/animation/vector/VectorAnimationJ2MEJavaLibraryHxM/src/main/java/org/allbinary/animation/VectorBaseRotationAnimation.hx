@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
@@ -95,6 +95,14 @@ class VectorBaseRotationAnimation extends RotationAnimation implements VectorAni
     public function setPoints(currentPoints : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>>) : Void {
         this.currentPoints = currentPoints;
         this.circularIndexUtil = CircularIndexUtil.createInstance(this.currentPoints.length);
+    }
+
+    public override function getBasicColorP() : BasicColor {
+        return super.getBasicColorP();
+    }
+
+    public override function setBasicColorP(basicColor : BasicColor) : Void {
+        super.setBasicColorP(basicColor);
     }
 
 }

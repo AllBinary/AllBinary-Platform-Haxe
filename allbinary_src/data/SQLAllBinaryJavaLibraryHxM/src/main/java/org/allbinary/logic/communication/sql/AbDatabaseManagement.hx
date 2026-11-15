@@ -66,7 +66,7 @@ class AbDatabaseManagement extends AbSqlBean {
         stringBuffer.append(this.IDENTIFIED_BY);
         stringBuffer.append(password);
         stringBuffer.append(this.WITH_GRANT_OPTION);
-        var sqlStatement : String = stringBuffer.toString();
+        var sqlStatement : String = Std.string(stringBuffer);
         this.sqlCommandLog.append(sqlStatement);
         this.sqlCommandLog.append(this.commonSeps.NEW_LINE);
         super.executeSQLStatement(sqlStatement);

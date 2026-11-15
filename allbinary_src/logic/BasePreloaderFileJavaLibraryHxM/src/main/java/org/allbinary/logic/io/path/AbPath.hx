@@ -28,7 +28,7 @@ class AbPath {
             final EMPTY_STRING : String = StringUtil.getInstance().EMPTY_STRING;
             return new AbPath(EMPTY_STRING, EMPTY_STRING);
         } catch (ex : haxe.Exception) {
-            throw new haxe.Exception();
+            throw new jre.lang.JavaException();
         }
     }
 
@@ -36,12 +36,15 @@ class AbPath {
     private final abPathData : AbPathData = AbPathData.getInstance();
     private final abPathUtil : PathUtil = PathUtil.getInstance();
     private final EMPTY_STRING : String = StringUtil.getInstance().EMPTY_STRING;
-    public var schema : String = this.EMPTY_STRING;
-    private var path : String = this.EMPTY_STRING;
-    public var nameP : String = this.EMPTY_STRING;
+    public var schema : String;
+    private var path : String;
+    public var nameP : String;
     private var hasSchemaP : Bool = false;
     private var numberOfSeps : Int = 0;
     public function new(aPath : String, name : String) {
+        this.schema = this.EMPTY_STRING;
+        this.path = this.EMPTY_STRING;
+        this.nameP = this.EMPTY_STRING;
         final stringValidationUtil : StringValidationUtil = StringValidationUtil.getInstance();
         if (!stringValidationUtil.isEmpty(aPath)) {
             this.schema = this.getSchema(aPath);
@@ -89,7 +92,7 @@ class AbPath {
                     beginIndex++;
                     this.numberOfSeps++;
                     if (this.numberOfSeps > 2) {
-                        throw new haxe.Exception("Should Not Have More Than Two Seps");
+                        throw new jre.lang.JavaException("Should Not Have More Than Two Seps");
                     }
                 }
                 tempPath = tempPath.substring(beginIndex, tempPath.length);
@@ -115,7 +118,7 @@ class AbPath {
         }
         stringBuffer.append(this.getPath());
         stringBuffer.append(this.nameP);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function toFileSystemString() : String {
@@ -127,7 +130,7 @@ class AbPath {
             stringBuffer.append(filePathData.PATH_START);
             stringBuffer.append(FilePathUtil.adjust(this.getPath()));
             stringBuffer.append(this.nameP);
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } else {
             return FilePathUtil.adjust(this.getPath()) + this.nameP;
         }

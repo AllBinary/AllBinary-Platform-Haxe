@@ -44,11 +44,11 @@ class RemoteHighScoresSubmissionProcessor implements RemoteHighScoresSubmissionP
             HashtableUtil.getInstance().putAll(highScore.getGameInfo().toHashtable(), hashtable);
             hashtable.put(RemoteHighScoresData.getInstance().CUSTOMER_USER_NAME, "None");
             hashtable.put(RemoteHighScoresData.getInstance().DISPLAY_NAME, highScore.getName());
-            hashtable.put(gameInfoData.SOFTWARE_INFORMATION, remoteHighScores.getSoftwareInformation().toString());
-            hashtable.put(remoteHighScores.ASCENDING, remoteHighScores.getAscending().toString());
+            hashtable.put(gameInfoData.SOFTWARE_INFORMATION, Std.string(remoteHighScores.getSoftwareInformation()));
+            hashtable.put(remoteHighScores.ASCENDING, Std.string(remoteHighScores.getAscending()));
             final displayInfoSingleton : DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
             hashtable.put(displayInfoSingleton.ORIENTATION, BooleanFactory.getInstance().toStringb(displayInfoSingleton.isPortrait()));
-            hashtable.put(RemoteHighScoresData.getInstance().GAME_CONFIGURATION, GameConfigurationCentral.getInstance().toString());
+            hashtable.put(RemoteHighScoresData.getInstance().GAME_CONFIGURATION, Std.string(GameConfigurationCentral.getInstance()));
             hashtable.put(RemoteHighScoresData.getInstance().SCORE, Std.string(highScore.getScore()));
             if (XmlRpcAbeClient.isOnline) {
                 final resultHashtable : ABHashtable<Any, Any> = (cast new XmlRpcRemoteHighScoresClient(abeClientInformation, "highscoresubmissionservicessl.php", "HighScoreSubmissionService.process").get(hashtable, this.noCrypt) : ABHashtable<Any, Any>);

@@ -15,12 +15,12 @@
 // Generated Code Do Not Modify
 package org.allbinary;
 
-//import javax.microedition.lcdui.Displayable;
-//import javax.microedition.lcdui.Form;
-//import javax.microedition.rms.InvalidRecordIDException;
-//import javax.microedition.rms.RecordStore;
-//import javax.microedition.rms.RecordStoreException;
-//import javax.microedition.rms.RecordStoreNotOpenException;
+import javax.microedition.lcdui.Displayable;
+import javax.microedition.lcdui.Form;
+import javax.microedition.rms.InvalidRecordIDException;
+import javax.microedition.rms.RecordStore;
+import javax.microedition.rms.RecordStoreException;
+import javax.microedition.rms.RecordStoreNotOpenException;
 import org.allbinary.logic.NullUtil;
 
 //J2ME
@@ -31,7 +31,7 @@ class TsUtil {
     }
 
     public function hashCode(anyType : Any) : Int {
-        return anyType.hashCode();
+        return jre.lang.JavaObject.hashCode(anyType);
     }
 
     // throws InterruptedException
@@ -61,7 +61,7 @@ class TsUtil {
     }
 
     public function equalsNotstring(anyType : Any, object2 : Any) : Bool {
-        return anyType.equals(object2);
+        return jre.lang.JavaObject.equals(anyType, object2);
     }
 
     public function toNumberFromChar(value : Int) : Int {

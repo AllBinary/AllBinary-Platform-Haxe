@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.paint.Paintable;
 
 class GameCanvasNonBotPaintable extends Paintable {

@@ -68,7 +68,7 @@ class InsertCustomizerValidationView extends HttpStoreComponentView implements V
                     stringBuffer.append("Pointing ");
                     stringBuffer.appendint(componentVector.size());
                     stringBuffer.append(" Components");
-                    this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.IS_VALID);
+                    this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.IS_VALID);
                 }
                 for (index in 0...size) {
                     var transformInfo : TransformInfo = (cast componentVector.get(index) : TransformInfo);
@@ -99,14 +99,14 @@ class InsertCustomizerValidationView extends HttpStoreComponentView implements V
                         newViewNameStringBuffer.append(commonSeps.SPACE);
                         newViewNameStringBuffer.append(GeneratorTransformInfoData.NAME);
                     }
-                    final newViewName : String = newViewNameStringBuffer.toString();
+                    final newViewName : String = Std.string(newViewNameStringBuffer);
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
                         var stringBuffer : StringMaker = new StringMaker();
                         stringBuffer.append("Template Component: ");
                         stringBuffer.append(transformInfoName);
                         stringBuffer.append("\n Now Pointing To View Name: ");
                         stringBuffer.append(newViewName);
-                        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.IS_VALID);
+                        this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.IS_VALID);
                     }
                     templateViewObjectConfig.set(newViewName);
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
@@ -114,8 +114,8 @@ class InsertCustomizerValidationView extends HttpStoreComponentView implements V
                         stringBuffer.append("Template Component: ");
                         stringBuffer.append(transformInfoName);
                         stringBuffer.append("\n with ObjectConfig: ");
-                        stringBuffer.append(templateViewObjectConfig.toString());
-                        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.IS_VALID);
+                        stringBuffer.append(Std.string(templateViewObjectConfig));
+                        this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.IS_VALID);
                     }
                     componentInterface.getTransformInfoInterface().setObjectConfigInterface(templateViewObjectConfig);
                     var updatedTransformInfoHashMap : HashMap = componentInterface.getTransformInfoInterface().toHashMap();
@@ -135,7 +135,7 @@ class InsertCustomizerValidationView extends HttpStoreComponentView implements V
         try {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append("Error: Template Name Is Empty.");
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
@@ -155,6 +155,11 @@ class InsertCustomizerValidationView extends HttpStoreComponentView implements V
     // throws Exception
     public function view() : String {
         return views.ValidationOnlyTempUtil.getInstance().view(this);
+    }
+
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
     }
 
 }

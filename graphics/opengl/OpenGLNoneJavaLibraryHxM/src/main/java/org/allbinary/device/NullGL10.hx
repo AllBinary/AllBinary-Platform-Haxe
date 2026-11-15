@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.device;
 
-//import javax.microedition.khronos.opengles.GL10;
+import javax.microedition.khronos.opengles.GL10;
 //import java.nio.Buffer;
 //import java.nio.FloatBuffer;
 //import java.nio.IntBuffer;
@@ -91,11 +91,23 @@ class NullGL10 implements GL10 {
         return;
     }
 
-    public function glDeleteTextures(n : Int, textures : haxe.ds.Vector<Int>, offset : Int) : Void {
+    public function glDeleteTextures(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            this.glDeleteTextures_int_intArray_int(args[0], args[1], args[2]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.glDeleteTextures_int_IntBuffer(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glDeleteTextures");
+    }
+
+    public function glDeleteTextures_int_intArray_int(n : Int, textures : haxe.ds.Vector<Int>, offset : Int) : Void {
         return;
     }
 
-    public function glDeleteTextures(n : Int, textures : IntBuffer) : Void {
+    public function glDeleteTextures_int_IntBuffer(n : Int, textures : IntBuffer) : Void {
         return;
     }
 
@@ -147,11 +159,23 @@ class NullGL10 implements GL10 {
         return;
     }
 
-    public function glFogfv(pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glFogfv(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            this.glFogfv_int_floatArray_int(args[0], args[1], args[2]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.glFogfv_int_FloatBuffer(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glFogfv");
+    }
+
+    public function glFogfv_int_floatArray_int(pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
         return;
     }
 
-    public function glFogfv(pname : Int, params : FloatBuffer) : Void {
+    public function glFogfv_int_FloatBuffer(pname : Int, params : FloatBuffer) : Void {
         return;
     }
 
@@ -163,11 +187,23 @@ class NullGL10 implements GL10 {
         return;
     }
 
-    public function glGenTextures(n : Int, textures : haxe.ds.Vector<Int>, offset : Int) : Void {
+    public function glGenTextures(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            this.glGenTextures_int_intArray_int(args[0], args[1], args[2]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.glGenTextures_int_IntBuffer(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glGenTextures");
+    }
+
+    public function glGenTextures_int_intArray_int(n : Int, textures : haxe.ds.Vector<Int>, offset : Int) : Void {
         return;
     }
 
-    public function glGenTextures(n : Int, textures : IntBuffer) : Void {
+    public function glGenTextures_int_IntBuffer(n : Int, textures : IntBuffer) : Void {
         return;
     }
 
@@ -175,11 +211,23 @@ class NullGL10 implements GL10 {
         return 0;
     }
 
-    public function glGetIntegerv(pname : Int, params : haxe.ds.Vector<Int>, offset : Int) : Void {
+    public function glGetIntegerv(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            this.glGetIntegerv_int_intArray_int(args[0], args[1], args[2]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.glGetIntegerv_int_IntBuffer(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glGetIntegerv");
+    }
+
+    public function glGetIntegerv_int_intArray_int(pname : Int, params : haxe.ds.Vector<Int>, offset : Int) : Void {
         return;
     }
 
-    public function glGetIntegerv(pname : Int, params : IntBuffer) : Void {
+    public function glGetIntegerv_int_IntBuffer(pname : Int, params : IntBuffer) : Void {
         return;
     }
 
@@ -195,11 +243,23 @@ class NullGL10 implements GL10 {
         return;
     }
 
-    public function glLightModelfv(pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glLightModelfv(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            this.glLightModelfv_int_floatArray_int(args[0], args[1], args[2]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.glLightModelfv_int_FloatBuffer(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glLightModelfv");
+    }
+
+    public function glLightModelfv_int_floatArray_int(pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
         return;
     }
 
-    public function glLightModelfv(pname : Int, params : FloatBuffer) : Void {
+    public function glLightModelfv_int_FloatBuffer(pname : Int, params : FloatBuffer) : Void {
         return;
     }
 
@@ -207,11 +267,23 @@ class NullGL10 implements GL10 {
         return;
     }
 
-    public function glLightfv(light : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glLightfv(...args : Dynamic) : Dynamic {
+        if (args.length == 4) {
+            this.glLightfv_int_int_floatArray_int(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        if (args.length == 3) {
+            this.glLightfv_int_int_FloatBuffer(args[0], args[1], args[2]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glLightfv");
+    }
+
+    public function glLightfv_int_int_floatArray_int(light : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
         return;
     }
 
-    public function glLightfv(light : Int, pname : Int, params : FloatBuffer) : Void {
+    public function glLightfv_int_int_FloatBuffer(light : Int, pname : Int, params : FloatBuffer) : Void {
         return;
     }
 
@@ -223,11 +295,23 @@ class NullGL10 implements GL10 {
         return;
     }
 
-    public function glLoadMatrixf(m : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glLoadMatrixf(...args : Dynamic) : Dynamic {
+        if (args.length == 2) {
+            this.glLoadMatrixf_floatArray_int(args[0], args[1]);
+            return null;
+        }
+        if (args.length == 1) {
+            this.glLoadMatrixf_FloatBuffer(args[0]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glLoadMatrixf");
+    }
+
+    public function glLoadMatrixf_floatArray_int(m : haxe.ds.Vector<Float>, offset : Int) : Void {
         return;
     }
 
-    public function glLoadMatrixf(m : FloatBuffer) : Void {
+    public function glLoadMatrixf_FloatBuffer(m : FloatBuffer) : Void {
         return;
     }
 
@@ -239,11 +323,23 @@ class NullGL10 implements GL10 {
         return;
     }
 
-    public function glMaterialfv(face : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glMaterialfv(...args : Dynamic) : Dynamic {
+        if (args.length == 4) {
+            this.glMaterialfv_int_int_floatArray_int(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        if (args.length == 3) {
+            this.glMaterialfv_int_int_FloatBuffer(args[0], args[1], args[2]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glMaterialfv");
+    }
+
+    public function glMaterialfv_int_int_floatArray_int(face : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
         return;
     }
 
-    public function glMaterialfv(face : Int, pname : Int, params : FloatBuffer) : Void {
+    public function glMaterialfv_int_int_FloatBuffer(face : Int, pname : Int, params : FloatBuffer) : Void {
         return;
     }
 
@@ -251,11 +347,23 @@ class NullGL10 implements GL10 {
         return;
     }
 
-    public function glMultMatrixf(m : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glMultMatrixf(...args : Dynamic) : Dynamic {
+        if (args.length == 2) {
+            this.glMultMatrixf_floatArray_int(args[0], args[1]);
+            return null;
+        }
+        if (args.length == 1) {
+            this.glMultMatrixf_FloatBuffer(args[0]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glMultMatrixf");
+    }
+
+    public function glMultMatrixf_floatArray_int(m : haxe.ds.Vector<Float>, offset : Int) : Void {
         return;
     }
 
-    public function glMultMatrixf(m : FloatBuffer) : Void {
+    public function glMultMatrixf_FloatBuffer(m : FloatBuffer) : Void {
         return;
     }
 
@@ -347,11 +455,23 @@ class NullGL10 implements GL10 {
         return;
     }
 
-    public function glTexEnvfv(target : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glTexEnvfv(...args : Dynamic) : Dynamic {
+        if (args.length == 4) {
+            this.glTexEnvfv_int_int_floatArray_int(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        if (args.length == 3) {
+            this.glTexEnvfv_int_int_FloatBuffer(args[0], args[1], args[2]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glTexEnvfv");
+    }
+
+    public function glTexEnvfv_int_int_floatArray_int(target : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
         return;
     }
 
-    public function glTexEnvfv(target : Int, pname : Int, params : FloatBuffer) : Void {
+    public function glTexEnvfv_int_int_FloatBuffer(target : Int, pname : Int, params : FloatBuffer) : Void {
         return;
     }
 

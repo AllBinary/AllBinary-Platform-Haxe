@@ -24,15 +24,15 @@ class HighScoresBase implements HighScoresFactoryInterface {
     }
 
     public function fetchHighScores(gameInfo : GameInfo, highScoresResultsListener : HighScoresResultsListener) : Void {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function fetchHighScoresPreload(gameInfo : GameInfo, highScoresResultsListener : HighScoresResultsListener, preload : Bool) : Void {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function createHighScoresHelper() : HighScoresHelperBaseInterface {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
 }

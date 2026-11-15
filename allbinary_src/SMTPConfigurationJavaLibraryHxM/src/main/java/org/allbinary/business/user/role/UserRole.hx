@@ -27,7 +27,7 @@ class UserRole implements Serializable {
     }
 
     public function toString() : String {
-        return this.basicUserRole.toString();
+        return Std.string(this.basicUserRole);
     }
 
     public function getBasicUserRole() : BasicUserRole {

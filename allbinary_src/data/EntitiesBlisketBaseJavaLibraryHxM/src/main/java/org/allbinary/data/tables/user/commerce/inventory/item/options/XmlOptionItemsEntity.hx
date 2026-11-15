@@ -65,7 +65,7 @@ class XmlOptionItemsEntity extends AbSqlBean implements XmlOptionItemsEntityInte
         var stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append(this.sqlStrings.CREATE_TABLE).append(tableName).append(this.sqlStrings.START).append(basicItemData.ID).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
         stringBuffer.append(XmlOptionItemData.XML_FILE_STATUS).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(XmlOptionItemData.OPTION_XML_FILE).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(EntryData.getInstance().TIMECREATED).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(EntryData.getInstance().LASTMODIFIED).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(this.sqlStrings.PRIMARY_KEY).append(basicItemData.ID).append(this.sqlStrings.END);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function createTable() : String {

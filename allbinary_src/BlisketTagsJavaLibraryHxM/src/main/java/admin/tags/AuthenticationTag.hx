@@ -265,7 +265,7 @@ class AuthenticationTag extends CustomTagSupport {
                 var stringBuffer : StringMaker = new StringMaker();
                 stringBuffer.append(" Request URI: ");
                 stringBuffer.append(request.getRequestURI());
-                this.logUtil.putF(stringBuffer.toString(), this, tagStrings.DO_START_TAG);
+                this.logUtil.putF(Std.string(stringBuffer), this, tagStrings.DO_START_TAG);
             }
             if (this.command != null) {
                 this.propertiesHashMap = StdUtil.getInstance().createHashMap();
@@ -363,7 +363,7 @@ class AuthenticationTag extends CustomTagSupport {
                         }
                     }
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG)) {
-                        this.logUtil.putF(new StringMaker().append("Major authentication error - userName: ").append(this.userName).append(" Password: ").append(this.password).append(" Command: ").append(this.command).toString(), this, tagStrings.DO_START_TAG);
+                        this.logUtil.putF(Std.string(new StringMaker().append("Major authentication error - userName: ").append(this.userName).append(" Password: ").append(this.password).append(" Command: ").append(this.command)), this, tagStrings.DO_START_TAG);
                     }
                     if (Reflect.compare(this.command, org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0) {
                         return TagSupport.SKIP_BODY;

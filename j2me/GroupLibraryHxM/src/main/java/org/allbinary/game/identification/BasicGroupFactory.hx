@@ -32,11 +32,15 @@ class BasicGroupFactory {
     public final ENEMY : Group = new Group("Bad Guys", 1);
     public final ENEMY_ON_LEVEL : Group = new Group("Bad Guys on Level", 2);
     public final NONE : Group = new Group("Not On A Team", 3);
-    public final GOOD_ARRAY : haxe.ds.Vector<Group> = haxe.ds.Vector.fromArrayCopy([this.GOOD]);
-    public final ENEMY_ARRAY : haxe.ds.Vector<Group> = haxe.ds.Vector.fromArrayCopy([this.ENEMY]);
-    public final ENEMY_ON_LEVEL_ARRAY : haxe.ds.Vector<Group> = haxe.ds.Vector.fromArrayCopy([this.ENEMY, this.ENEMY_ON_LEVEL]);
-    public final NONE_ARRAY : haxe.ds.Vector<Group> = haxe.ds.Vector.fromArrayCopy([this.NONE]);
+    public final GOOD_ARRAY : haxe.ds.Vector<Group>;
+    public final ENEMY_ARRAY : haxe.ds.Vector<Group>;
+    public final ENEMY_ON_LEVEL_ARRAY : haxe.ds.Vector<Group>;
+    public final NONE_ARRAY : haxe.ds.Vector<Group>;
     public function new() {
+        this.GOOD_ARRAY = haxe.ds.Vector.fromArrayCopy([this.GOOD]);
+        this.ENEMY_ARRAY = haxe.ds.Vector.fromArrayCopy([this.ENEMY]);
+        this.ENEMY_ON_LEVEL_ARRAY = haxe.ds.Vector.fromArrayCopy([this.ENEMY, this.ENEMY_ON_LEVEL]);
+        this.NONE_ARRAY = haxe.ds.Vector.fromArrayCopy([this.NONE]);
     }
 }
 

@@ -32,7 +32,7 @@ class HealthBarAnimation extends Animation {
         this.location = location;
         final basicHudFactory : BasicHudFactory = BasicHudFactory.getInstance();
         if (this.location != basicHudFactory.TOPLEFT && this.location != basicHudFactory.BOTTOMLEFT) {
-            throw new haxe.Exception("Location Not Valid");
+            throw new jre.lang.JavaException("Location Not Valid");
         }
         if (layerInterface.getWidth() > 40) {
             this.thickness = 3;

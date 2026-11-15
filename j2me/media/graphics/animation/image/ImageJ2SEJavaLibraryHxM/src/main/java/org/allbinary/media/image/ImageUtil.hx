@@ -22,7 +22,7 @@ package org.allbinary.media.image;
 //import java.awt.Transparency;
 //import java.awt.geom.AffineTransform;
 //import java.awt.image.BufferedImage;
-//import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.Image;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
@@ -148,7 +148,7 @@ class ImageUtil {
         return newBufferedImage;
     }
 
-    public function convertToBufferedImage(toolkitImage : java.awt.Image) : BufferedImage {
+    public function convertToBufferedImage(toolkitImage : jre.awt.Image) : BufferedImage {
         if (toolkitImage == null) {
             return null;
         }
@@ -181,7 +181,7 @@ class ImageUtil {
         stringBuffer.appendint(Std.int(bufferedImage.getHeight()));
         stringBuffer.append(" Type: ");
         stringBuffer.appendint(Std.int(bufferedImage.getType()));
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

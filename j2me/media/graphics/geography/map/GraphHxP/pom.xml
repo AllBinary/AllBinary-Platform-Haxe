@@ -30,45 +30,45 @@
 
     <modules>
         
-<!--        <module>../GeographicMapLibraryHaxeM</module>-->
+<!--        <module>../GeographicMapLibraryHxM</module>-->
 
         <!--
         ../../
         -->
 
-<!--        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderJGraphTJavaLibraryHaxeM</module>
-        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderJGraphTJavaLibrary_1_4_2HaxeM</module>-->
+<!--        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderJGraphTJavaLibraryHxM</module>
+        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderJGraphTJavaLibrary_1_4_2HxM</module>-->
         
-        <module>../../PathFindingNodeCostJavaLibraryHaxeM</module>
+        <module>../../PathFindingNodeCostJavaLibraryHxM</module>
         
-<!--        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderHack1JavaLibraryHaxeM</module>
-        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderHack2JavaLibraryHaxeM</module>
-        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderHack3JavaLibraryHaxeM</module>-->
-        <module>../../GeographicPathFinderPriorityQueueJavaLibraryHaxeM</module>
+<!--        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderHack1JavaLibraryHxM</module>
+        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderHack2JavaLibraryHxM</module>
+        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderHack3JavaLibraryHxM</module>-->
+        <module>../../GeographicPathFinderPriorityQueueJavaLibraryHxM</module>
 
-<!--        <module>../../GeographicPathFindingLibraryHaxeM</module>-->
+<!--        <module>../../GeographicPathFindingLibraryHxM</module>-->
 
         <!--
         ../../
         -->
 
-        <module>../../PathFindingNodeCostPerformantJavaLibraryHaxeM</module><!--
-        <module>../../../../../../../work/j2me/media/graphics/geography/PathFindingNodeCostComplexJavaLibraryHaxeM</module>-->
+        <module>../../PathFindingNodeCostPerformantJavaLibraryHxM</module><!--
+        <module>../../../../../../../work/j2me/media/graphics/geography/PathFindingNodeCostComplexJavaLibraryHxM</module>-->
         
-<!--        <module>../../../../../../physics/FrictionJavaLibraryHaxeM</module>-->
+<!--        <module>../../../../../../physics/FrictionJavaLibraryHxM</module>-->
 <!--    
-        <module>../StaticPathFindingRaceTrackJavaLibraryHaxeM</module>
-        <module>../DynamicPathFindingRaceTrackJavaLibraryHaxeM</module>
+        <module>../StaticPathFindingRaceTrackJavaLibraryHxM</module>
+        <module>../DynamicPathFindingRaceTrackJavaLibraryHxM</module>
 -->
 
-<!--        <module>../RaceTrackGeographicMapLibraryHaxeM</module>-->
+<!--        <module>../RaceTrackGeographicMapLibraryHxM</module>-->
         
 
-<!--        <module>../../../../../../../work/j2me/media/graphics/geography/map/DynamicPathFindingRaceTrackJavaLibrary_1_4_2HaxeM</module>-->
+<!--        <module>../../../../../../../work/j2me/media/graphics/geography/map/DynamicPathFindingRaceTrackJavaLibrary_1_4_2HxM</module>-->
         <!--
         -->        
         
-        <module>../BasicPlatformGeographicMapJavaLibraryHaxeM</module>
+        <module>../BasicPlatformGeographicMapJavaLibraryHxM</module>
     </modules>
 
     <dependencies>
@@ -79,7 +79,7 @@
             <scope>test</scope>
         </dependency>
 
-
+    </dependencies>
 
 </project>
 

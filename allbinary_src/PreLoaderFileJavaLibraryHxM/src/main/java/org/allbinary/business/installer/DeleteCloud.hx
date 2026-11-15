@@ -37,7 +37,7 @@ class DeleteCloud {
                 final stringBuffer : StringMaker = new StringMaker();
                 stringBuffer.append(URLGLOBALS.getWebappPath());
                 stringBuffer.append(prePath);
-                final path : AbPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
+                final path : AbPath = new AbPath(Std.string(stringBuffer), StringUtil.getInstance().EMPTY_STRING);
                 final file : AbFile = AbFile.createAbFileFromAbPath(path);
                 final fileBasicArrayList : BasicArrayList = Directory.getInstance().search(file, true);
                 var size : Int = fileBasicArrayList.size();
@@ -56,7 +56,7 @@ class DeleteCloud {
                 stringBuffer.appendint(start);
                 stringBuffer.append(" - ");
                 stringBuffer.appendint(end);
-                this.logUtil.putF(stringBuffer.toString(), this, "initialize()");
+                this.logUtil.putF(Std.string(stringBuffer), this, "initialize()");
                 var nextFile : AbFile = null;
                 for (index in start...end) {
                     nextFile = (cast fileBasicArrayList.get(index) : AbFile);

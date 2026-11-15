@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration.persistance;
 
-//import javax.microedition.rms.RecordComparator;
+import javax.microedition.rms.RecordComparator;
 
 class NullRecordComparator implements RecordComparator {
     public static final NULL_RECORD_COMPARATOR : NullRecordComparator = new NullRecordComparator();

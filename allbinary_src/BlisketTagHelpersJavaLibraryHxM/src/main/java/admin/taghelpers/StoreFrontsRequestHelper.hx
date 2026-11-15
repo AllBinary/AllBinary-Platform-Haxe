@@ -98,7 +98,7 @@ class StoreFrontsRequestHelper extends ModifyTable {
         stringBuffer.append("\n\n");
         stringBuffer.append("UserName: ");
         stringBuffer.append(this.weblisketSession.getUserName());
-        var adminEmailTextBody : String = stringBuffer.toString();
+        var adminEmailTextBody : String = Std.string(stringBuffer);
         var adminBasicEmailInfo : BasicEmailInfo = (cast new AdminEmailInfo(adminEmailSubject, adminEmailTextBody) : BasicEmailInfo);
         var storeAdminBasicEmailInfo : BasicEmailInfo = (cast new StoreEmailInfo(this.modifyingStoreFrontInterface, storeManagerEmailSubject, adminEmailTextBody) : BasicEmailInfo);
         var storeAdminEmailInfo : EmailInfo = new EmailInfo(storeAdminBasicEmailInfo);
@@ -117,7 +117,7 @@ class StoreFrontsRequestHelper extends ModifyTable {
             stringBuffer.appendint(Std.int(Std.int(this.portion.getCurrent())));
             stringBuffer.append(" of ");
             stringBuffer.appendint(Std.int(Std.int(this.portion.getTotal())));
-            var success : String = stringBuffer.toString();
+            var success : String = Std.string(stringBuffer);
             this.modifyingStoreFrontInterface.install(Std.int(this.portion.getCurrent()), Std.int(this.portion.getTotal()));
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS)) {
                 this.logUtil.putF(success, this, "install()");

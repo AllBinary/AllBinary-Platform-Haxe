@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation.image;
 
-//import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.Image;
 import org.allbinary.animation.AnimationBehaviorFactory;
 
 class AllBinaryPlatformImageRotationAnimationFactory extends AllBinaryJ2SEImageRotationAnimationFactory {

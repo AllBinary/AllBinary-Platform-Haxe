@@ -28,7 +28,7 @@ class CreateUserFactory {
     // throws Exception
     public static function getInstance(hashMap : HashMap) : UserInterface {
         if (hashMap != null) {
-            var roleString : String = (cast hashMap.get(UserRoleData.NAME.toString()) : String);
+            var roleString : String = (cast hashMap.get(Std.string(UserRoleData.NAME)) : String);
             if (!StringValidationUtil.getInstance().isEmpty(roleString)) {
                 var role : UserRole = UserRoleB.getRole(roleString);
                 return role.getUserFactory().getInstance(hashMap);

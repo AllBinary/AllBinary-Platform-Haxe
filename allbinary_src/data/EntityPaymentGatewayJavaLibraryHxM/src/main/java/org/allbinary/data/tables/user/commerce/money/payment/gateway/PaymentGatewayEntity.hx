@@ -57,7 +57,7 @@ class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEntityInte
             vector.add(new PaymentGatewayIdGenerator().getNext());
             vector.addAllList(new PaymentGatewayEncryptedMapping(paymentGatewayInterface).toVector());
             var calendar : Calendar = Calendar.getInstance();
-            var time : String = calendar.getTimeInMillis().toString();
+            var time : String = Std.string(calendar.getTimeInMillis());
             vector.add(time);
             vector.add(time);
             super.insert(vector);
@@ -74,11 +74,11 @@ class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEntityInte
     public function update(paymentGatewayInterface : PaymentGatewayInterface) : Void {
         try {
             var calendar : Calendar = Calendar.getInstance();
-            var time : String = calendar.getTimeInMillis().toString();
+            var time : String = Std.string(calendar.getTimeInMillis());
             paymentGatewayInterface.setLastModified(time);
             var whereKeyValuePairs : HashMap = StdUtil.getInstance().createHashMap();
-            whereKeyValuePairs.put(StoreFrontData.getInstance().NAME.toString(), paymentGatewayInterface.getStoreName());
-            whereKeyValuePairs.put(PaymentGatewayData.NAME.toString(), paymentGatewayInterface.getName());
+            whereKeyValuePairs.put(Std.string(StoreFrontData.getInstance().NAME), paymentGatewayInterface.getStoreName());
+            whereKeyValuePairs.put(Std.string(PaymentGatewayData.NAME), paymentGatewayInterface.getName());
             if (whereKeyValuePairs.get(EntryData.getInstance().TIMECREATED) != null) {
                 throw new haxe.Exception("Don't update TimeCreated for update");
             }
@@ -98,33 +98,33 @@ class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEntityInte
         try {
             var paymentGatewayHashMap : HashMap = StdUtil.getInstance().createHashMap();
             var whereKeyAndValue : HashMap = StdUtil.getInstance().createHashMap();
-            whereKeyAndValue.put(StoreFrontData.getInstance().NAME.toString(), storeName);
-            whereKeyAndValue.put(PaymentGatewayData.NAME.toString(), paymentType.getName());
+            whereKeyAndValue.put(Std.string(StoreFrontData.getInstance().NAME), storeName);
+            whereKeyAndValue.put(Std.string(PaymentGatewayData.NAME), paymentType.getName());
             paymentGatewayHashMap = super.getRow(whereKeyAndValue);
             if (paymentGatewayHashMap != null) {
-                var userName : String = (cast paymentGatewayHashMap.get(UserData.USERNAME.toString()) : String);
-                var password : String = (cast paymentGatewayHashMap.get(UserData.PASSWORD.toString()) : String);
-                var special1 : String = (cast paymentGatewayHashMap.get(PaymentGatewayData.SPECIAL1.toString()) : String);
-                var special2 : String = (cast paymentGatewayHashMap.get(PaymentGatewayData.SPECIAL2.toString()) : String);
-                var special3 : String = (cast paymentGatewayHashMap.get(PaymentGatewayData.SPECIAL3.toString()) : String);
-                var special4 : String = (cast paymentGatewayHashMap.get(PaymentGatewayData.SPECIAL4.toString()) : String);
-                var special5 : String = (cast paymentGatewayHashMap.get(PaymentGatewayData.SPECIAL5.toString()) : String);
-                var special6 : String = (cast paymentGatewayHashMap.get(PaymentGatewayData.SPECIAL6.toString()) : String);
-                var special7 : String = (cast paymentGatewayHashMap.get(PaymentGatewayData.SPECIAL7.toString()) : String);
-                var special8 : String = (cast paymentGatewayHashMap.get(PaymentGatewayData.SPECIAL8.toString()) : String);
-                var special9 : String = (cast paymentGatewayHashMap.get(PaymentGatewayData.SPECIAL9.toString()) : String);
+                var userName : String = (cast paymentGatewayHashMap.get(Std.string(UserData.USERNAME)) : String);
+                var password : String = (cast paymentGatewayHashMap.get(Std.string(UserData.PASSWORD)) : String);
+                var special1 : String = (cast paymentGatewayHashMap.get(Std.string(PaymentGatewayData.SPECIAL1)) : String);
+                var special2 : String = (cast paymentGatewayHashMap.get(Std.string(PaymentGatewayData.SPECIAL2)) : String);
+                var special3 : String = (cast paymentGatewayHashMap.get(Std.string(PaymentGatewayData.SPECIAL3)) : String);
+                var special4 : String = (cast paymentGatewayHashMap.get(Std.string(PaymentGatewayData.SPECIAL4)) : String);
+                var special5 : String = (cast paymentGatewayHashMap.get(Std.string(PaymentGatewayData.SPECIAL5)) : String);
+                var special6 : String = (cast paymentGatewayHashMap.get(Std.string(PaymentGatewayData.SPECIAL6)) : String);
+                var special7 : String = (cast paymentGatewayHashMap.get(Std.string(PaymentGatewayData.SPECIAL7)) : String);
+                var special8 : String = (cast paymentGatewayHashMap.get(Std.string(PaymentGatewayData.SPECIAL8)) : String);
+                var special9 : String = (cast paymentGatewayHashMap.get(Std.string(PaymentGatewayData.SPECIAL9)) : String);
                 var superCrypt : SuperCrypt = new SuperCrypt(PaymentGatewayData.CRYPTNUM);
-                paymentGatewayHashMap.put(UserData.USERNAME.toString(), superCrypt.decrypt(userName));
-                paymentGatewayHashMap.put(UserData.PASSWORD.toString(), superCrypt.decrypt(password));
-                paymentGatewayHashMap.put(PaymentGatewayData.SPECIAL1.toString(), superCrypt.decrypt(special1));
-                paymentGatewayHashMap.put(PaymentGatewayData.SPECIAL2.toString(), superCrypt.decrypt(special2));
-                paymentGatewayHashMap.put(PaymentGatewayData.SPECIAL3.toString(), superCrypt.decrypt(special3));
-                paymentGatewayHashMap.put(PaymentGatewayData.SPECIAL4.toString(), superCrypt.decrypt(special4));
-                paymentGatewayHashMap.put(PaymentGatewayData.SPECIAL5.toString(), superCrypt.decrypt(special5));
-                paymentGatewayHashMap.put(PaymentGatewayData.SPECIAL6.toString(), superCrypt.decrypt(special6));
-                paymentGatewayHashMap.put(PaymentGatewayData.SPECIAL7.toString(), superCrypt.decrypt(special7));
-                paymentGatewayHashMap.put(PaymentGatewayData.SPECIAL8.toString(), superCrypt.decrypt(special8));
-                paymentGatewayHashMap.put(PaymentGatewayData.SPECIAL9.toString(), superCrypt.decrypt(special9));
+                paymentGatewayHashMap.put(Std.string(UserData.USERNAME), superCrypt.decrypt(userName));
+                paymentGatewayHashMap.put(Std.string(UserData.PASSWORD), superCrypt.decrypt(password));
+                paymentGatewayHashMap.put(Std.string(PaymentGatewayData.SPECIAL1), superCrypt.decrypt(special1));
+                paymentGatewayHashMap.put(Std.string(PaymentGatewayData.SPECIAL2), superCrypt.decrypt(special2));
+                paymentGatewayHashMap.put(Std.string(PaymentGatewayData.SPECIAL3), superCrypt.decrypt(special3));
+                paymentGatewayHashMap.put(Std.string(PaymentGatewayData.SPECIAL4), superCrypt.decrypt(special4));
+                paymentGatewayHashMap.put(Std.string(PaymentGatewayData.SPECIAL5), superCrypt.decrypt(special5));
+                paymentGatewayHashMap.put(Std.string(PaymentGatewayData.SPECIAL6), superCrypt.decrypt(special6));
+                paymentGatewayHashMap.put(Std.string(PaymentGatewayData.SPECIAL7), superCrypt.decrypt(special7));
+                paymentGatewayHashMap.put(Std.string(PaymentGatewayData.SPECIAL8), superCrypt.decrypt(special8));
+                paymentGatewayHashMap.put(Std.string(PaymentGatewayData.SPECIAL9), superCrypt.decrypt(special9));
                 var paymentGatewayInterface : PaymentGatewayInterface = new PaymentGatewayInterfaceFactory().getInstance(paymentGatewayHashMap);
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                     this.logUtil.putF(this.commonStrings.SUCCESS, this, "getPaymentGatewayInterface()");
@@ -144,7 +144,7 @@ class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEntityInte
     public function findPaymentTypeVectorByStore(storeName : String) : BasicArrayList {
         try {
             var paymentGatewayNameVector : BasicArrayList = new BasicArrayListD();
-            paymentGatewayNameVector = super.getColumnWhere(PaymentGatewayData.NAME.toString(), StoreFrontData.getInstance().NAME.toString(), storeName);
+            paymentGatewayNameVector = super.getColumnWhere(Std.string(PaymentGatewayData.NAME), Std.string(StoreFrontData.getInstance().NAME), storeName);
             if (paymentGatewayNameVector != null) {
                 var paymentGatewayVector : BasicArrayList = new BasicArrayListD();
                 var size : Int = paymentGatewayNameVector.size();
@@ -171,8 +171,8 @@ class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEntityInte
     public function remove(storeName : String, paymentType : BasicPaymentType) : Void {
         try {
             var whereHashMap : HashMap = StdUtil.getInstance().createHashMap();
-            whereHashMap.put(StoreFrontData.getInstance().NAME.toString(), storeName);
-            whereHashMap.put(PaymentGatewayData.NAME.toString(), paymentType.getName());
+            whereHashMap.put(Std.string(StoreFrontData.getInstance().NAME), storeName);
+            whereHashMap.put(Std.string(PaymentGatewayData.NAME), paymentType.getName());
             super.deleteWhere(whereHashMap);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                 this.logUtil.putF(this.commonStrings.SUCCESS, this, "remove");
@@ -189,80 +189,80 @@ class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEntityInte
         stringBuffer.append(this.sqlStrings.CREATE_TABLE);
         stringBuffer.append(this.tableName);
         stringBuffer.append(this.sqlStrings.START);
-        stringBuffer.append(PaymentGatewayData.ID.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.ID));
         stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_AUTO_INCREMENT_NOT_NULL);
         stringBuffer.append(EntryData.getInstance().ENABLE);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         stringBuffer.append(StoreFrontData.getInstance().NAME);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.NAME.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.NAME));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         stringBuffer.append(PaymentData.METHOD);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.MODE.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.MODE));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.TESTPROTOCOL.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.TESTPROTOCOL));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.TESTSERVER.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.TESTSERVER));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.TESTPORT.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.TESTPORT));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.TESTPATH.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.TESTPATH));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.SERVERPROTOCOL.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.SERVERPROTOCOL));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.SERVER.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.SERVER));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.SERVERPORT.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.SERVERPORT));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.SERVERPATH.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.SERVERPATH));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         stringBuffer.append(UserData.USERNAME);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         stringBuffer.append(UserData.PASSWORD);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.TIMEOUT.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.TIMEOUT));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.PROXYPROTOCOL.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.PROXYPROTOCOL));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.PROXYSERVER.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.PROXYSERVER));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.PROXYPORT.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.PROXYPORT));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.PROXYPATH.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.PROXYPATH));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.PROXYUSERNAME.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.PROXYUSERNAME));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.PROXYPASSWORD.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.PROXYPASSWORD));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.PROXYTIMEOUT.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.PROXYTIMEOUT));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.SPECIAL1.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.SPECIAL1));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.SPECIAL2.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.SPECIAL2));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.SPECIAL3.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.SPECIAL3));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.SPECIAL4.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.SPECIAL4));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.SPECIAL5.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.SPECIAL5));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.SPECIAL6.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.SPECIAL6));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.SPECIAL7.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.SPECIAL7));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.SPECIAL8.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.SPECIAL8));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(PaymentGatewayData.SPECIAL9.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.SPECIAL9));
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         stringBuffer.append(EntryData.getInstance().LASTMODIFIED);
         stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
         stringBuffer.append(EntryData.getInstance().TIMECREATED);
         stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
         stringBuffer.append(this.sqlStrings.PRIMARY_KEY);
-        stringBuffer.append(PaymentGatewayData.ID.toString());
+        stringBuffer.append(Std.string(PaymentGatewayData.ID));
         stringBuffer.append(this.sqlStrings.END);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function createTable() : String {

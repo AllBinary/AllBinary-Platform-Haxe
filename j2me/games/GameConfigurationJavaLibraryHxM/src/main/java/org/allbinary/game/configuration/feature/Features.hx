@@ -58,15 +58,15 @@ class Features {
     // throws Exception
     public function add(gameFeature : Feature) : Void {
         if (!this.list.contains(gameFeature)) {
-            this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, this.commonStrings.ADD);
+            this.logUtil.putF(Std.string(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(Std.string(gameFeature))), this, this.commonStrings.ADD);
             this.list.add(gameFeature);
-            GameFeatureEventHandler.getInstance().fireEvent(new GameFeatureEvent(gameFeature, gameFeature.toString()));
+            GameFeatureEventHandler.getInstance().fireEvent(new GameFeatureEvent(gameFeature, Std.string(gameFeature)));
         }
     }
 
     // throws Exception
     public function removeDefault(gameFeature : Feature) : Void {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, "removeDefault");
+        this.logUtil.putF(Std.string(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(Std.string(gameFeature))), this, "removeDefault");
         this.remove(gameFeature);
         this.defaultList.remove(gameFeature);
     }
@@ -76,7 +76,7 @@ class Features {
         if (this.list.contains(gameFeature)) {
             this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.REMOVE);
             this.list.remove(gameFeature);
-            GameFeatureEventHandler.getInstance().fireEvent(new GameFeatureEvent(gameFeature, gameFeature.toString()));
+            GameFeatureEventHandler.getInstance().fireEvent(new GameFeatureEvent(gameFeature, Std.string(gameFeature)));
         }
     }
 

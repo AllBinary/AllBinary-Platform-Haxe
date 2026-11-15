@@ -15,22 +15,11 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation;
 
-//import javax.microedition.lcdui.Graphics;
 import org.allbinary.media.ScaleProperties;
 
 class NullIndexedAnimationFactory implements AnimationInterfaceFactoryInterface implements ProceduralAnimationInterfaceFactoryInterface {
     public static final NULL_INDEXED_ANIMATION_ARRAY : haxe.ds.Vector<IndexedAnimation> = haxe.ds.Vector.fromArrayCopy([for (index in 0...0) null]);
     private static var NULL_INDEXED_ANIMATION_FACTORY : NullIndexedAnimationFactory = new NullIndexedAnimationFactory();
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class NullIndexedAnimationInner extends NullIndexedAnimation {
-        public function new() {
-            super(new IndexedAnimationBehavior(1, 250));
-        }
-
-        public override function paintXY(graphics : Graphics, x : Int, y : Int) : Void {
-        }
-
-    }
     private final NULL_ANIMATION : Animation = new NullIndexedAnimationInner();
     public function new() {
     }

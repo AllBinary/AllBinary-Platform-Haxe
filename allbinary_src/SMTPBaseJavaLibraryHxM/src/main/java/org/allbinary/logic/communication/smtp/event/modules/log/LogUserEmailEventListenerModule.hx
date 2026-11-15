@@ -27,7 +27,7 @@ class LogUserEmailEventListenerModule implements UserEmailEventListenerInterface
     // throws Exception
     public function onEmailSendRequest(userEmailInfoEvent : EmailEvent) : Void {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
-            var message : String = "Logging EmailEvent - Temporary Listener for debugging.\n\n" + userEmailInfoEvent.toString();
+            var message : String = "Logging EmailEvent - Temporary Listener for debugging.\n\n" + Std.string(userEmailInfoEvent);
             this.logUtil.putF(message, this, "onEmailSendRequest");
         }
     }

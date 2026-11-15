@@ -83,7 +83,7 @@ class EmailServerConfiguration implements EmailServerConfigurationInterface {
 
     public function log() : Void {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
-            this.logUtil.putF(this.toString(), this, "EmailServerConfiguration");
+            this.logUtil.putF(Std.string(this), this, "EmailServerConfiguration");
         }
     }
 

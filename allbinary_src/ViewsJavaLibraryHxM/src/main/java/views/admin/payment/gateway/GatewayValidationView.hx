@@ -56,5 +56,10 @@ class GatewayValidationView extends HttpStoreComponentView implements Validation
         return new GatewayView(this.getTransformInfoInterface()).view();
     }
 
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
+    }
+
 }
 

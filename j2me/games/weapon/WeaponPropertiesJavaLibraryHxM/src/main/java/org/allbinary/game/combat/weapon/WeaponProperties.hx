@@ -34,7 +34,7 @@ class WeaponProperties extends SimpleWeaponProperties {
         if (speed < this.MAX && speed != haxe.Int64.ofInt(0) && !WeaponProperties.messageSent) {
             final MESSAGE : String = "Danger Danger Danger: Speed probably to slow if using 1 degree calculations as velocity for a single axis could be below 1024: ";
             final commonStrings : CommonStrings = CommonStrings.getInstance();
-            PreLogUtil.put(new StringMaker().append(MESSAGE).appendlong(speed).toString(), this, commonStrings.CONSTRUCTOR);
+            PreLogUtil.put(Std.string(new StringMaker().append(MESSAGE).appendlong(speed)), this, commonStrings.CONSTRUCTOR);
             WeaponProperties.messageSent = true;
         }
         this.setReloadTime(reloadTime);
@@ -85,11 +85,11 @@ class WeaponProperties extends SimpleWeaponProperties {
         var index : Int = 0;
         final stringArray : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy([for (index in 0...3) null]);
         final stringBuffer : StringMaker = new StringMaker();
-        stringArray[index++] = stringBuffer.append(WeaponProperties.DAMAGE).appendint(Std.int(this.getDamage())).toString();
+        stringArray[index++] = Std.string(stringBuffer.append(WeaponProperties.DAMAGE).appendint(Std.int(this.getDamage())));
         stringBuffer.delete(0, stringBuffer.length());
-        stringArray[index++] = stringBuffer.append(WeaponProperties.RANGE).appendint(Std.int(this.getRange())).toString();
+        stringArray[index++] = Std.string(stringBuffer.append(WeaponProperties.RANGE).appendint(Std.int(this.getRange())));
         stringBuffer.delete(0, stringBuffer.length());
-        stringArray[index++] = stringBuffer.append(WeaponProperties.RELOAD).appendlong(this.getReloadTime()).toString();
+        stringArray[index++] = Std.string(stringBuffer.append(WeaponProperties.RELOAD).appendlong(this.getReloadTime()));
         return stringArray;
     }
 
@@ -100,7 +100,7 @@ class WeaponProperties extends SimpleWeaponProperties {
         stringBuffer.append(WeaponProperties.RANGE).appendint(Std.int(this.getRange()));
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(WeaponProperties.RELOAD).appendlong(this.getReloadTime());
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

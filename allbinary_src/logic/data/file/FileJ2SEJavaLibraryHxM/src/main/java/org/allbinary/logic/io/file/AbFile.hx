@@ -15,11 +15,11 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.io.file;
 
-//import java.io.File;
-//import java.io.FileFilter;
-//import java.io.FilenameFilter;
-//import java.io.IOException;
-//import java.net.URI;
+import jre.io.File;
+import jre.io.FileFilter;
+import jre.io.FilenameFilter;
+import jre.io.IOException;
+import jre.net.URI;
 import org.allbinary.TsUtil;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.string.StringUtil;
@@ -186,27 +186,57 @@ class AbFile implements AbFileInterface {
         return this.file.setReadOnly();
     }
 
-    public function setWritable(writable : Bool, ownerOnly : Bool) : Bool {
+    public function setWritable(...args : Dynamic) : Dynamic {
+        if (args.length == 2) {
+            return this.setWritable_boolean_boolean(args[0], args[1]);
+        }
+        if (args.length == 1) {
+            return this.setWritable_boolean(args[0]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: setWritable");
+    }
+
+    public function setWritable_boolean_boolean(writable : Bool, ownerOnly : Bool) : Bool {
         return this.file.setExecutable(writable, ownerOnly);
     }
 
-    public function setWritable(writable : Bool) : Bool {
+    public function setWritable_boolean(writable : Bool) : Bool {
         return this.file.setWritable(writable);
     }
 
-    public function setReadable(readable : Bool, ownerOnly : Bool) : Bool {
+    public function setReadable(...args : Dynamic) : Dynamic {
+        if (args.length == 2) {
+            return this.setReadable_boolean_boolean(args[0], args[1]);
+        }
+        if (args.length == 1) {
+            return this.setReadable_boolean(args[0]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: setReadable");
+    }
+
+    public function setReadable_boolean_boolean(readable : Bool, ownerOnly : Bool) : Bool {
         return this.file.setReadable(readable, ownerOnly);
     }
 
-    public function setReadable(readable : Bool) : Bool {
+    public function setReadable_boolean(readable : Bool) : Bool {
         return this.file.setReadable(readable);
     }
 
-    public function setExecutable(executable : Bool, ownerOnly : Bool) : Bool {
+    public function setExecutable(...args : Dynamic) : Dynamic {
+        if (args.length == 2) {
+            return this.setExecutable_boolean_boolean(args[0], args[1]);
+        }
+        if (args.length == 1) {
+            return this.setExecutable_boolean(args[0]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: setExecutable");
+    }
+
+    public function setExecutable_boolean_boolean(executable : Bool, ownerOnly : Bool) : Bool {
         return this.file.setExecutable(executable, ownerOnly);
     }
 
-    public function setExecutable(executable : Bool) : Bool {
+    public function setExecutable_boolean(executable : Bool) : Bool {
         return this.file.setExecutable(executable);
     }
 
@@ -235,11 +265,11 @@ class AbFile implements AbFileInterface {
     }
 
     public function hashCode() : Int {
-        return this.file.hashCode();
+        return jre.lang.JavaObject.hashCode(this.file);
     }
 
     public function toString() : String {
-        return this.file.toString();
+        return Std.string(this.file);
     }
 
 }

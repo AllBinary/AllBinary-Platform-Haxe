@@ -26,11 +26,10 @@ class KeyValueFactory {
 
     public final MAP : ABHashtable<Any, Any> = StdUtil.getInstance().createHashtable();
     public function get(key : String) : String {
-        final value : String = (cast this.MAP.get((cast key : Any)) : String);
-        if (value == null) {
+        if (!this.MAP.containsKey((cast key : Any))) {
             return key;
         }
-        return value;
+        return (cast this.MAP.get((cast key : Any)) : String);
     }
 
     public function new() {

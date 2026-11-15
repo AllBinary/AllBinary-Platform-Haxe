@@ -32,26 +32,26 @@
         
         <!--
         -->
-        <module>../allbinary_src/cache/AllBinaryCacheLibraryHaxeM</module>
-        <module>../allbinary_src/PermutationsJavaLibraryHaxeM</module>
-        <module>../allbinary_src/logic/BasePreloaderFileJavaLibraryHaxeM</module>
-        <module>../allbinary_src/logic/data/file/FileJavaLibraryHaxeM</module>
-        <module>../allbinary_src/logic/data/file/FileJ2SEJavaLibraryHaxeM</module>
-        <module>../allbinary_src/data/DataJavaLibraryHaxeM</module>
-        <module>../allbinary_src/logic/data/file/FileUnamedJavaLibraryHaxeM</module>
-        <module>../allbinary_src/logic/data/file/FileAdvancedJavaLibraryHaxeM</module>
-        <module>../allbinary_src/PreLoaderJavaLibraryHaxeM</module>
-        <module>../allbinary_src/FileInitInfoJavaLibraryHaxeM</module>
-        <module>../allbinary_src/PreLoaderFileJavaLibraryHaxeM</module>
-        <module>../allbinary_src/PreLoaderLicenseJavaLibraryHaxeM</module>
-        <module>../j2me/PCResourceLibraryHaxeM</module>
-        <module>../j2me/ProgressJ2MEJavaLibraryHaxeM</module>
-        <module>../allbinary_src/licensing/ClientInfoBaseJavaLibraryHaxeM</module>
-        <module>../allbinary_src/licensing/RemoteXmlRpcJavaLibraryHaxeM</module>
-        <module>../allbinary_src/licensing/LicenseClientJavaLibraryHaxeM</module>
+        <module>../allbinary_src/cache/AllBinaryCacheLibraryHxM</module>
+        <module>../allbinary_src/PermutationsJavaLibraryHxM</module>
+        <module>../allbinary_src/logic/BasePreloaderFileJavaLibraryHxM</module>
+        <module>../allbinary_src/logic/data/file/FileJavaLibraryHxM</module>
+        <module>../allbinary_src/logic/data/file/FileJ2SEJavaLibraryHxM</module>
+        <module>../allbinary_src/data/DataJavaLibraryHxM</module>
+        <module>../allbinary_src/logic/data/file/FileUnamedJavaLibraryHxM</module>
+        <module>../allbinary_src/logic/data/file/FileAdvancedJavaLibraryHxM</module>
+        <module>../allbinary_src/PreLoaderJavaLibraryHxM</module>
+        <module>../allbinary_src/FileInitInfoJavaLibraryHxM</module>
+        <module>../allbinary_src/PreLoaderFileJavaLibraryHxM</module>
+        <module>../allbinary_src/PreLoaderLicenseJavaLibraryHxM</module>
+        <module>../j2me/PCResourceLibraryHxM</module>
+        <module>../j2me/ProgressJ2MEJavaLibraryHxM</module>
+        <module>../allbinary_src/licensing/ClientInfoBaseJavaLibraryHxM</module>
+        <module>../allbinary_src/licensing/RemoteXmlRpcJavaLibraryHxM</module>
+        <module>../allbinary_src/licensing/LicenseClientJavaLibraryHxM</module>
 
         <!--
-        <module>../allbinary_src/PreLoaderLicenseJavaLibraryHaxeM</module>
+        <module>../allbinary_src/PreLoaderLicenseJavaLibraryHxM</module>
         -->
     </modules>
 

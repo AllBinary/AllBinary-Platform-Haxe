@@ -42,5 +42,10 @@ class ValidationView extends BasketView implements ValidationComponentInterface 
         return MESSAGES.CONTACTADMIN;
     }
 
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
+    }
+
 }
 

@@ -33,14 +33,14 @@
         -->
         
         
-        <module>../AllBinaryGraphicsUserInterfaceJavaLibraryHaxeM</module>
+        <!--<module>../AllBinaryGraphicsUserInterfaceJavaLibraryHxM</module>-->
         
-        <module>../../allbinary_src/logging/LogConfigTypeThickClientJavaLibraryHaxeM</module>
-        <module>../../allbinary_src/logging/GUILoggingHaxeM</module>
+        <module>../../allbinary_src/logging/LogConfigTypeThickClientJavaLibraryHxM</module>
+        <!--<module>../../allbinary_src/logging/GUILoggingHxM</module>-->
                 
-        <module>../AllBinaryGraphicsJavaApplicationHaxeM</module>
+        <!--<module>../AllBinaryGraphicsJavaApplicationHxM</module>-->
         
-        <module>../ImageToolJavaApplicationHaxeM</module>
+        <!--<module>../ImageToolJavaApplicationHxM</module>-->
     </modules>
 
 </project>

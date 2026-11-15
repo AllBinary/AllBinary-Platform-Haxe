@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.combat.canvas;
 
-//import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.CommandListener;
 import org.allbinary.game.combat.destroy.DestroyedLayerProcessor;
 import org.allbinary.game.combat.destroy.event.DestroyEventCircularStaticPool;
 import org.allbinary.game.combat.destroy.event.DestroyedEventHandler;

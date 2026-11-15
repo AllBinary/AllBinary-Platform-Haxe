@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.media.audio;
 
-//import java.io.InputStream;
-//import javax.microedition.media.Player;
+import jre.io.InputStream;
+import javax.microedition.media.Player;
 import org.allbinary.TsUtil;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.logic.communication.log.LogUtil;

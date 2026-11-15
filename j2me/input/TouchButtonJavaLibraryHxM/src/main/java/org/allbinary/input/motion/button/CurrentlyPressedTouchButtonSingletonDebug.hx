@@ -28,7 +28,7 @@ class CurrentlyPressedTouchButtonSingletonDebug extends CurrentlyPressedTouchBut
 
     private var string : String = StringUtil.getInstance().EMPTY_STRING;
     private var listString : String = StringUtil.getInstance().EMPTY_STRING;
-    private var append : String = StringUtil.getInstance().EMPTY_STRING;
+    private var appendText : String = StringUtil.getInstance().EMPTY_STRING;
     private final PRESSED_AND_FIRED : String = "pressed & fired";
     private final PRESSED_AND_NOT_FIRED : String = "pressed in button but not fired";
     private final ASSOCIATED_RELEASED_AND_FIRED : String = "assoc. rel & fired";
@@ -37,21 +37,21 @@ class CurrentlyPressedTouchButtonSingletonDebug extends CurrentlyPressedTouchBut
     private final RELEASED_AND_NOT_FIRED : String = "rel & not fired";
     private function appendTouchButtonInput(append : String, touchButtonInput : TouchButtonInput) : Void {
         var stringBuffer : StringMaker = new StringMaker();
-        stringBuffer.append(touchButtonInput.toString());
+        stringBuffer.append(Std.string(touchButtonInput));
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(append);
-        this.append = stringBuffer.toString();
-        this.string = new StringMaker().append(this.listString).append(this.append).toString();
+        this.appendText = Std.string(stringBuffer);
+        this.string = Std.string(new StringMaker().append(this.listString).append(this.appendText));
     }
 
     private function append(append : String) : Void {
-        this.append = new StringMaker().append(this.append).append(append).toString();
-        this.string = new StringMaker().append(this.listString).append(this.append).toString();
+        this.appendText = Std.string(new StringMaker().append(this.appendText).append(append));
+        this.string = Std.string(new StringMaker().append(this.listString).append(this.appendText));
     }
 
     public function clearLog(x : Int, y : Int) : Void {
-        this.append = new StringMaker().append(GPoint.toStringStatic(x, y, 0)).append(CommonSeps.getInstance().SPACE).toString();
-        this.string = new StringMaker().append(this.listString).append(this.append).toString();
+        this.appendText = Std.string(new StringMaker().append(GPoint.toStringStatic(x, y, 0)).append(CommonSeps.getInstance().SPACE));
+        this.string = Std.string(new StringMaker().append(this.listString).append(this.appendText));
     }
 
     public function releaseAndNotFired() : Void {
@@ -80,22 +80,22 @@ class CurrentlyPressedTouchButtonSingletonDebug extends CurrentlyPressedTouchBut
 
     public override function removeAt(index : Int) : TouchButtonInput {
         var touchButtonInput : TouchButtonInput = super.removeAt(index);
-        this.listString = this.list.toString();
-        this.string = new StringMaker().append(this.listString).append(this.append).toString();
+        this.listString = Std.string(this.list);
+        this.string = Std.string(new StringMaker().append(this.listString).append(this.appendText));
         return touchButtonInput;
     }
 
     public override function remove(touchButtonInput : TouchButtonInput) : Bool {
         var isRemoved : Bool = super.remove(touchButtonInput);
-        this.listString = this.list.toString();
-        this.string = new StringMaker().append(this.listString).append(this.append).toString();
+        this.listString = Std.string(this.list);
+        this.string = Std.string(new StringMaker().append(this.listString).append(this.appendText));
         return isRemoved;
     }
 
     public override function add(touchButtonInput : TouchButtonInput) : Void {
         super.add(touchButtonInput);
-        this.listString = this.list.toString();
-        this.string = new StringMaker().append(this.listString).append(this.append).toString();
+        this.listString = Std.string(this.list);
+        this.string = Std.string(new StringMaker().append(this.listString).append(this.appendText));
     }
 
     public function toString() : String {

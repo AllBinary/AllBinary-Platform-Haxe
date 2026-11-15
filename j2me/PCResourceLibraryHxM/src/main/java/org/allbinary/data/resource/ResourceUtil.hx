@@ -15,10 +15,10 @@
 // Generated Code Do Not Modify
 package org.allbinary.data.resource;
 
-//import java.io.ByteArrayInputStream;
-//import java.io.ByteArrayOutputStream;
-//import java.io.FileInputStream;
-//import java.io.InputStream;
+import jre.io.ByteArrayInputStream;
+import jre.io.ByteArrayOutputStream;
+import jre.io.FileInputStream;
+import jre.io.InputStream;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -51,7 +51,7 @@ class ResourceUtil {
         if (inputStream == null) {
             inputStream = this.getResourceAsStreamAtStart(resource, 1);
             if (inputStream == null) {
-                throw new haxe.Exception(new StringMaker().append("Unable to obtain: ").append(resource).toString());
+                throw new jre.lang.JavaException(Std.string(new StringMaker().append("Unable to obtain: ").append(resource)));
             }
         }
         return inputStream;
@@ -59,7 +59,7 @@ class ResourceUtil {
 
     // throws Exception
     private function getResourceAsStreamAtStart(resource : String, startIndex : Int) : InputStream {
-        var inputStream : InputStream = new FileInputStream(new StringMaker().append(this.path).append(resource).append(this.ext).toString());
+        var inputStream : InputStream = new FileInputStream(Std.string(new StringMaker().append(this.path).append(resource).append(this.ext)));
         if (inputStream != null) {
             final byteArray : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy([for (index in 0...inputStream.available()) 0]);
             StreamUtil.getInstance().getByteArray(inputStream, new ByteArrayOutputStream(), byteArray);

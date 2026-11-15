@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation.image;
 
-//import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.Image;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.image.ImageScaleUtil;
 import org.allbinary.string.CommonStrings;

@@ -31,7 +31,7 @@ class CategoryUtil {
 
     // synchronized
     public static function getPathLevel(categoryPath : AbPath) : Int {
-        var count : Int = StringUtils.countMatches(categoryPath.toString(), AbPathData.getInstance().SEPARATOR);
+        var count : Int = StringUtils.countMatches(Std.string(categoryPath), AbPathData.getInstance().SEPARATOR);
         return count;
     }
 

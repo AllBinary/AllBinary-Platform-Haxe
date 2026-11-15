@@ -33,7 +33,7 @@ class AllBinaryOrientationSensor extends AllBinarySensor {
 
     // throws Exception
     public function getOrientation() : Orientation {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
 }

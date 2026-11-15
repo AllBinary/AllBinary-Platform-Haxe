@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.threed;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.midlet.MIDlet;
+import javax.microedition.lcdui.Font;
+import javax.microedition.midlet.MIDlet;
 
 //SWTWithoutJOGL
 class SWTJOGLProcessor implements Runnable {
@@ -78,19 +78,19 @@ class SWTJOGLProcessor implements Runnable {
     }
 
     public function charWidth(font : Font, ch : Int) : Int {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function charsWidth(font : Font, ch : haxe.ds.Vector<Int>, offset : Int, length : Int) : Int {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function stringWidth(font : Font, str : String) : Int {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function substringWidth(font : Font, str : String, offset : Int, len : Int) : Int {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function new() {

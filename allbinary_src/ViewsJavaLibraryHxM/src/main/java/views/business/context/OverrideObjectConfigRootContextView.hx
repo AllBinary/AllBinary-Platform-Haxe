@@ -50,7 +50,7 @@ class OverrideObjectConfigRootContextView extends HttpStoreComponentView {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append(this.getTransformInfoInterface().getStoreName());
             stringBuffer.append(CommonSeps.getInstance().SPACE);
-            var nameStart : String = stringBuffer.toString();
+            var nameStart : String = Std.string(stringBuffer);
             if (this.getTransformInfoInterface().getName().indexOf(GeneratorTransformInfoData.NAME) > 0) {
                 rootTransformInfoInterface.setName(nameStart + GeneratorTransformInfoData.NAME);
             } else if (this.getTransformInfoInterface().getName().indexOf(RootTransformInfoData.NAME) > 0) {
@@ -69,7 +69,7 @@ class OverrideObjectConfigRootContextView extends HttpStoreComponentView {
             var transformInfoObjectConfigInterface : TransformInfoObjectConfigInterface = TransformInfoObjectConfigAndManipulatorFactory.getInstance().getInstance(this.abeClientInformation, componentInterface.getTransformInfoInterface(), overrideObjectConfigDocument);
             componentInterface.getTransformInfoInterface().setObjectConfigInterface(transformInfoObjectConfigInterface);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-                this.logUtil.putF("Set OverrideObjectConfig: " + componentInterface.getTransformInfoInterface().getObjectConfigInterface().toString(), this, "view()");
+                this.logUtil.putF("Set OverrideObjectConfig: " + Std.string(componentInterface.getTransformInfoInterface().getObjectConfigInterface()), this, "view()");
             }
             return componentInterface.view();
         } catch (e : haxe.Exception) {

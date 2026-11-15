@@ -62,7 +62,7 @@ class UserHelper extends Table {
             stringBuffer.append("=");
             stringBuffer.append(userName.get());
             stringBuffer.append(" from to the user table");
-            var success : String = stringBuffer.toString();
+            var success : String = Std.string(stringBuffer);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS)) {
                 this.logUtil.putF(success, this, "delete()");
             }

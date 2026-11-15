@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.canvas.Processor;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
@@ -26,102 +26,17 @@ import org.allbinary.graphics.form.item.ABCustomItem;
 
 class ScrollCurrentSelectionForm extends ScrollSelectionForm implements UpdateMyFontInterface {
     private final moveForSmallScreen : Bool;
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class TempHorizontalFormProcessor extends Processor {
-        private final scrollCurrentSelectionForm : ScrollCurrentSelectionForm;
-        public function new(scrollCurrentSelectionForm : ScrollCurrentSelectionForm) {
-            super();
-            this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
-        }
-
-        // throws Exception
-        public override function process() : Void {
-            this.scrollCurrentSelectionForm.processTempHorizontalForm();
-            this.scrollCurrentSelectionForm.processor = Processor.getInstance();
-        }
-
-    }
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class HorizontalFormProcessor extends Processor {
-        private final scrollCurrentSelectionForm : ScrollCurrentSelectionForm;
-        public function new(scrollCurrentSelectionForm : ScrollCurrentSelectionForm) {
-            super();
-            this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
-        }
-
-        // throws Exception
-        public override function process() : Void {
-            this.scrollCurrentSelectionForm.processHorizontalForm();
-            this.scrollCurrentSelectionForm.processor = Processor.getInstance();
-        }
-
-    }
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class VerticalFormProcessor extends Processor {
-        private final scrollCurrentSelectionForm : ScrollCurrentSelectionForm;
-        public function new(scrollCurrentSelectionForm : ScrollCurrentSelectionForm) {
-            super();
-            this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
-        }
-
-        // throws Exception
-        public override function process() : Void {
-            this.scrollCurrentSelectionForm.processVerticalForm();
-            this.scrollCurrentSelectionForm.processor = Processor.getInstance();
-        }
-
-    }
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class TempHorizontalItemIndexDx extends ItemIndexDx {
-        private final scrollCurrentSelectionForm : ScrollCurrentSelectionForm;
-        public function new(scrollCurrentSelectionForm : ScrollCurrentSelectionForm) {
-            super();
-            this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
-        }
-
-        // throws Exception
-        public override function getDx(index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
-            return this.scrollCurrentSelectionForm.getXTempHorizontalForm(index, item, dx, dy);
-        }
-
-    }
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class HorizontalItemIndexDx extends ItemIndexDx {
-        private final scrollCurrentSelectionForm : ScrollCurrentSelectionForm;
-        public function new(scrollCurrentSelectionForm : ScrollCurrentSelectionForm) {
-            super();
-            this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
-        }
-
-        // throws Exception
-        public override function getDx(index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
-            return this.scrollCurrentSelectionForm.getXHorizontalForm(index, item, dx, dy);
-        }
-
-    }
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class VerticalItemIndexDx extends ItemIndexDx {
-        private final scrollCurrentSelectionForm : ScrollCurrentSelectionForm;
-        public function new(scrollCurrentSelectionForm : ScrollCurrentSelectionForm) {
-            super();
-            this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
-        }
-
-        // throws Exception
-        public override function getDx(index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
-            return this.scrollCurrentSelectionForm.getXVerticalForm(index, item, dx, dy);
-        }
-
-    }
-    public final updateMyFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
-    public var myFontProcessor : MyFontProcessor = this.updateMyFontProcessor;
-    private var processor : Processor = Processor.getInstance();
+    public final updateMyFontProcessor : MyFontProcessor;
+    public var myFontProcessor : MyFontProcessor;
+    public var processor : Processor = Processor.getInstance();
     private var preItemIndexDx : ItemIndexDx = ItemIndexDx.getInstance();
     private var dx : Int = 0;
     private var dy : Int = 0;
     private var maxWidth : Int = 0;
     public function new(title : String, items : haxe.ds.Vector<ABCustomItem>, formPaintableFactory : ItemPaintableFactory, border : Int, adjustedExtraBorder : Int, moveForSmallScreen : Bool, backgroundBasicColor : BasicColor, foregroundBasicColor : BasicColor) {
         super(title, items, formPaintableFactory, border, adjustedExtraBorder, backgroundBasicColor, foregroundBasicColor);
+        this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
+        this.myFontProcessor = this.updateMyFontProcessor;
         this.moveForSmallScreen = moveForSmallScreen;
     }
 
@@ -149,12 +64,12 @@ class ScrollCurrentSelectionForm extends ScrollSelectionForm implements UpdateMy
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
 
-    private function processTempHorizontalForm() : Void {
+    public function processTempHorizontalForm() : Void {
         this.dx = this.x - 30 + (this.rectangle.getWidth() >> 1);
         this.dy = this.y;
     }
 
-    private function processHorizontalForm() : Void {
+    public function processHorizontalForm() : Void {
         final size : Int = this.size();
         var totalWidth : Int = 0;
         var item : ABCustomItem = null;
@@ -172,7 +87,7 @@ class ScrollCurrentSelectionForm extends ScrollSelectionForm implements UpdateMy
         }
     }
 
-    private function processVerticalForm() : Void {
+    public function processVerticalForm() : Void {
         var totalHeight : Int = 0;
         final size : Int = this.size();
         var item2 : ABCustomItem = null;
@@ -197,15 +112,15 @@ class ScrollCurrentSelectionForm extends ScrollSelectionForm implements UpdateMy
         }
     }
 
-    private function getXTempHorizontalForm(index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
+    public function getXTempHorizontalForm(index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
         return this.getDiffX(item);
     }
 
-    private function getXHorizontalForm(index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
+    public function getXHorizontalForm(index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
         return 0;
     }
 
-    private function getXVerticalForm(index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
+    public function getXVerticalForm(index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
         return this.getDiffX(item) + this.halfBorder;
     }
 
@@ -246,7 +161,7 @@ class ScrollCurrentSelectionForm extends ScrollSelectionForm implements UpdateMy
                 } else if (this.formType == formTypeFactory.VERTICAL_CENTER_FORM) {
                     deltaY = delta;
                 } else {
-                    throw new haxe.Exception(formTypeFactory.UNK);
+                    throw new jre.lang.JavaException(formTypeFactory.UNK);
                 }
             }
         } catch (e : haxe.Exception) {

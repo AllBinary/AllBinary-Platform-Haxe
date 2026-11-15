@@ -21,7 +21,7 @@ class Life implements LifeInterface {
         try {
             return new Life(0, 0);
         } catch (e : haxe.Exception) {
-            throw new haxe.Exception();
+            throw new jre.lang.JavaException();
         }
     }
 
@@ -32,7 +32,7 @@ class Life implements LifeInterface {
     public function new(lives : Int, maxlives : Int) {
         this.maxlives = maxlives;
         if (lives > this.maxlives) {
-            throw new haxe.Exception("To Many Lives");
+            throw new jre.lang.JavaException("To Many Lives");
         }
         this.lives = lives;
         this.startLives = lives;

@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.math;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
+//import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsProperty;
 
 class PositionStrings {
     private static final instance : PositionStrings = new PositionStrings();

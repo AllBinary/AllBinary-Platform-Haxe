@@ -89,15 +89,15 @@ class JOGL10 implements javax.microedition.khronos.opengles.GL10 {
         this.gl10.glColorMask(red, green, blue, alpha);
     }
 
-    public function glColorPointer(size : Int, type : Int, stride : Int, pointer : java.nio.Buffer) : Void {
+    public function glColorPointer(size : Int, type : Int, stride : Int, pointer : jre.nio.Buffer) : Void {
         this.gl10.glColorPointer(size, type, stride, pointer);
     }
 
-    public function glCompressedTexImage2D(target : Int, level : Int, internalformat : Int, width : Int, height : Int, border : Int, imageSize : Int, data : java.nio.Buffer) : Void {
+    public function glCompressedTexImage2D(target : Int, level : Int, internalformat : Int, width : Int, height : Int, border : Int, imageSize : Int, data : jre.nio.Buffer) : Void {
         this.gl10.glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data);
     }
 
-    public function glCompressedTexSubImage2D(target : Int, level : Int, xoffset : Int, yoffset : Int, width : Int, height : Int, format : Int, imageSize : Int, data : java.nio.Buffer) : Void {
+    public function glCompressedTexSubImage2D(target : Int, level : Int, xoffset : Int, yoffset : Int, width : Int, height : Int, format : Int, imageSize : Int, data : jre.nio.Buffer) : Void {
         this.gl10.glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data);
     }
 
@@ -113,11 +113,23 @@ class JOGL10 implements javax.microedition.khronos.opengles.GL10 {
         this.gl10.glCullFace(mode);
     }
 
-    public function glDeleteTextures(n : Int, textures : haxe.ds.Vector<Int>, offset : Int) : Void {
+    public function glDeleteTextures(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            this.glDeleteTextures_int_intArray_int(args[0], args[1], args[2]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.glDeleteTextures_int_IntBuffer(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glDeleteTextures");
+    }
+
+    public function glDeleteTextures_int_intArray_int(n : Int, textures : haxe.ds.Vector<Int>, offset : Int) : Void {
         this.gl10.glDeleteTextures(n, textures, offset);
     }
 
-    public function glDeleteTextures(n : Int, textures : java.nio.IntBuffer) : Void {
+    public function glDeleteTextures_int_IntBuffer(n : Int, textures : jre.nio.IntBuffer) : Void {
         this.gl10.glDeleteTextures(n, textures);
     }
 
@@ -145,7 +157,7 @@ class JOGL10 implements javax.microedition.khronos.opengles.GL10 {
         this.gl10.glDrawArrays(mode, first, count);
     }
 
-    public function glDrawElements(mode : Int, count : Int, type : Int, indices : java.nio.Buffer) : Void {
+    public function glDrawElements(mode : Int, count : Int, type : Int, indices : jre.nio.Buffer) : Void {
         this.gl10.glDrawElements(mode, count, type, indices);
     }
 
@@ -169,11 +181,23 @@ class JOGL10 implements javax.microedition.khronos.opengles.GL10 {
         this.gl10.glFogf(pname, param);
     }
 
-    public function glFogfv(pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glFogfv(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            this.glFogfv_int_floatArray_int(args[0], args[1], args[2]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.glFogfv_int_FloatBuffer(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glFogfv");
+    }
+
+    public function glFogfv_int_floatArray_int(pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
         this.gl10.glFogfv(pname, params, offset);
     }
 
-    public function glFogfv(pname : Int, params : java.nio.FloatBuffer) : Void {
+    public function glFogfv_int_FloatBuffer(pname : Int, params : jre.nio.FloatBuffer) : Void {
         this.gl10.glFogfv(pname, params);
     }
 
@@ -185,11 +209,23 @@ class JOGL10 implements javax.microedition.khronos.opengles.GL10 {
         this.gl10.glFrustumf(left, right, bottom, top, zNear, zFar);
     }
 
-    public function glGenTextures(n : Int, textures : haxe.ds.Vector<Int>, offset : Int) : Void {
+    public function glGenTextures(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            this.glGenTextures_int_intArray_int(args[0], args[1], args[2]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.glGenTextures_int_IntBuffer(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glGenTextures");
+    }
+
+    public function glGenTextures_int_intArray_int(n : Int, textures : haxe.ds.Vector<Int>, offset : Int) : Void {
         this.gl10.glGenTextures(n, textures, offset);
     }
 
-    public function glGenTextures(n : Int, textures : java.nio.IntBuffer) : Void {
+    public function glGenTextures_int_IntBuffer(n : Int, textures : jre.nio.IntBuffer) : Void {
         this.gl10.glGenTextures(n, textures);
     }
 
@@ -197,11 +233,23 @@ class JOGL10 implements javax.microedition.khronos.opengles.GL10 {
         return this.gl10.glGetError();
     }
 
-    public function glGetIntegerv(pname : Int, params : haxe.ds.Vector<Int>, offset : Int) : Void {
+    public function glGetIntegerv(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            this.glGetIntegerv_int_intArray_int(args[0], args[1], args[2]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.glGetIntegerv_int_IntBuffer(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glGetIntegerv");
+    }
+
+    public function glGetIntegerv_int_intArray_int(pname : Int, params : haxe.ds.Vector<Int>, offset : Int) : Void {
         this.gl10.glGetIntegerv(pname, params, offset);
     }
 
-    public function glGetIntegerv(pname : Int, params : java.nio.IntBuffer) : Void {
+    public function glGetIntegerv_int_IntBuffer(pname : Int, params : jre.nio.IntBuffer) : Void {
         this.gl10.glGetIntegerv(pname, params);
     }
 
@@ -217,11 +265,23 @@ class JOGL10 implements javax.microedition.khronos.opengles.GL10 {
         this.gl10.glLightModelf(pname, param);
     }
 
-    public function glLightModelfv(pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glLightModelfv(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            this.glLightModelfv_int_floatArray_int(args[0], args[1], args[2]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.glLightModelfv_int_FloatBuffer(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glLightModelfv");
+    }
+
+    public function glLightModelfv_int_floatArray_int(pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
         this.gl10.glLightModelfv(pname, params, offset);
     }
 
-    public function glLightModelfv(pname : Int, params : java.nio.FloatBuffer) : Void {
+    public function glLightModelfv_int_FloatBuffer(pname : Int, params : jre.nio.FloatBuffer) : Void {
         this.gl10.glLightModelfv(pname, params);
     }
 
@@ -229,11 +289,23 @@ class JOGL10 implements javax.microedition.khronos.opengles.GL10 {
         this.gl10.glLightf(light, pname, param);
     }
 
-    public function glLightfv(light : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glLightfv(...args : Dynamic) : Dynamic {
+        if (args.length == 4) {
+            this.glLightfv_int_int_floatArray_int(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        if (args.length == 3) {
+            this.glLightfv_int_int_FloatBuffer(args[0], args[1], args[2]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glLightfv");
+    }
+
+    public function glLightfv_int_int_floatArray_int(light : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
         this.gl10.glLightfv(light, pname, params, offset);
     }
 
-    public function glLightfv(light : Int, pname : Int, params : java.nio.FloatBuffer) : Void {
+    public function glLightfv_int_int_FloatBuffer(light : Int, pname : Int, params : jre.nio.FloatBuffer) : Void {
         this.gl10.glLightfv(light, pname, params);
     }
 
@@ -245,11 +317,23 @@ class JOGL10 implements javax.microedition.khronos.opengles.GL10 {
         this.gl10.glLoadIdentity();
     }
 
-    public function glLoadMatrixf(m : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glLoadMatrixf(...args : Dynamic) : Dynamic {
+        if (args.length == 2) {
+            this.glLoadMatrixf_floatArray_int(args[0], args[1]);
+            return null;
+        }
+        if (args.length == 1) {
+            this.glLoadMatrixf_FloatBuffer(args[0]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glLoadMatrixf");
+    }
+
+    public function glLoadMatrixf_floatArray_int(m : haxe.ds.Vector<Float>, offset : Int) : Void {
         this.gl10.glLoadMatrixf(m, offset);
     }
 
-    public function glLoadMatrixf(m : java.nio.FloatBuffer) : Void {
+    public function glLoadMatrixf_FloatBuffer(m : jre.nio.FloatBuffer) : Void {
         this.gl10.glLoadMatrixf(m);
     }
 
@@ -261,11 +345,23 @@ class JOGL10 implements javax.microedition.khronos.opengles.GL10 {
         this.gl10.glMaterialf(face, pname, param);
     }
 
-    public function glMaterialfv(face : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glMaterialfv(...args : Dynamic) : Dynamic {
+        if (args.length == 4) {
+            this.glMaterialfv_int_int_floatArray_int(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        if (args.length == 3) {
+            this.glMaterialfv_int_int_FloatBuffer(args[0], args[1], args[2]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glMaterialfv");
+    }
+
+    public function glMaterialfv_int_int_floatArray_int(face : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
         this.gl10.glMaterialfv(face, pname, params, offset);
     }
 
-    public function glMaterialfv(face : Int, pname : Int, params : java.nio.FloatBuffer) : Void {
+    public function glMaterialfv_int_int_FloatBuffer(face : Int, pname : Int, params : jre.nio.FloatBuffer) : Void {
         this.gl10.glMaterialfv(face, pname, params);
     }
 
@@ -273,11 +369,23 @@ class JOGL10 implements javax.microedition.khronos.opengles.GL10 {
         this.gl10.glMatrixMode(mode);
     }
 
-    public function glMultMatrixf(m : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glMultMatrixf(...args : Dynamic) : Dynamic {
+        if (args.length == 2) {
+            this.glMultMatrixf_floatArray_int(args[0], args[1]);
+            return null;
+        }
+        if (args.length == 1) {
+            this.glMultMatrixf_FloatBuffer(args[0]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glMultMatrixf");
+    }
+
+    public function glMultMatrixf_floatArray_int(m : haxe.ds.Vector<Float>, offset : Int) : Void {
         this.gl10.glMultMatrixf(m, offset);
     }
 
-    public function glMultMatrixf(m : java.nio.FloatBuffer) : Void {
+    public function glMultMatrixf_FloatBuffer(m : jre.nio.FloatBuffer) : Void {
         this.gl10.glMultMatrixf(m);
     }
 
@@ -289,7 +397,7 @@ class JOGL10 implements javax.microedition.khronos.opengles.GL10 {
         this.gl10.glNormal3f(nx, ny, nz);
     }
 
-    public function glNormalPointer(type : Int, stride : Int, pointer : java.nio.Buffer) : Void {
+    public function glNormalPointer(type : Int, stride : Int, pointer : jre.nio.Buffer) : Void {
         this.gl10.glNormalPointer(type, stride, pointer);
     }
 
@@ -317,7 +425,7 @@ class JOGL10 implements javax.microedition.khronos.opengles.GL10 {
         this.gl10.glPushMatrix();
     }
 
-    public function glReadPixels(x : Int, y : Int, width : Int, height : Int, format : Int, type : Int, pixels : java.nio.Buffer) : Void {
+    public function glReadPixels(x : Int, y : Int, width : Int, height : Int, format : Int, type : Int, pixels : jre.nio.Buffer) : Void {
         this.gl10.glReadPixels(x, y, width, height, format, type, pixels);
     }
 
@@ -361,7 +469,7 @@ class JOGL10 implements javax.microedition.khronos.opengles.GL10 {
         this.gl10.glStencilOp(fail, zfail, zpass);
     }
 
-    public function glTexCoordPointer(size : Int, type : Int, stride : Int, pointer : java.nio.Buffer) : Void {
+    public function glTexCoordPointer(size : Int, type : Int, stride : Int, pointer : jre.nio.Buffer) : Void {
         this.gl10.glTexCoordPointer(size, type, stride, pointer);
     }
 
@@ -369,15 +477,27 @@ class JOGL10 implements javax.microedition.khronos.opengles.GL10 {
         this.gl10.glTexEnvf(target, pname, param);
     }
 
-    public function glTexEnvfv(target : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
+    public function glTexEnvfv(...args : Dynamic) : Dynamic {
+        if (args.length == 4) {
+            this.glTexEnvfv_int_int_floatArray_int(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        if (args.length == 3) {
+            this.glTexEnvfv_int_int_FloatBuffer(args[0], args[1], args[2]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glTexEnvfv");
+    }
+
+    public function glTexEnvfv_int_int_floatArray_int(target : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void {
         this.gl10.glTexEnvfv(target, pname, params, offset);
     }
 
-    public function glTexEnvfv(target : Int, pname : Int, params : java.nio.FloatBuffer) : Void {
+    public function glTexEnvfv_int_int_FloatBuffer(target : Int, pname : Int, params : jre.nio.FloatBuffer) : Void {
         this.gl10.glTexEnvfv(target, pname, params);
     }
 
-    public function glTexImage2D(target : Int, level : Int, internalformat : Int, width : Int, height : Int, border : Int, format : Int, type : Int, pixels : java.nio.Buffer) : Void {
+    public function glTexImage2D(target : Int, level : Int, internalformat : Int, width : Int, height : Int, border : Int, format : Int, type : Int, pixels : jre.nio.Buffer) : Void {
         this.gl10.glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
     }
 
@@ -389,7 +509,7 @@ class JOGL10 implements javax.microedition.khronos.opengles.GL10 {
         this.gl10.glTexParameteri(target, pname, param);
     }
 
-    public function glTexSubImage2D(target : Int, level : Int, xoffset : Int, yoffset : Int, width : Int, height : Int, format : Int, type : Int, pixels : java.nio.Buffer) : Void {
+    public function glTexSubImage2D(target : Int, level : Int, xoffset : Int, yoffset : Int, width : Int, height : Int, format : Int, type : Int, pixels : jre.nio.Buffer) : Void {
         this.gl10.glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels);
     }
 
@@ -397,7 +517,7 @@ class JOGL10 implements javax.microedition.khronos.opengles.GL10 {
         this.gl10.glTranslatef(x, y, z);
     }
 
-    public function glVertexPointer(size : Int, type : Int, stride : Int, pointer : java.nio.Buffer) : Void {
+    public function glVertexPointer(size : Int, type : Int, stride : Int, pointer : jre.nio.Buffer) : Void {
         this.gl10.glVertexPointer(size, type, stride, pointer);
     }
 

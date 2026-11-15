@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.paint;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.AppletUtil;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
@@ -33,12 +33,13 @@ class PressStartMenuPaintable extends Paintable implements UpdateMyFontInterface
     private final PRESS_START : String = "Press Screen To Start";
     private final KEY_START : String = "Press or Click F2 To Begin";
     private final MENU_START : String = "Press Start From The Menu To Begin";
-    private var myFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
+    private var myFontProcessor : MyFontProcessor;
     private var startString : String = StringUtil.getInstance().EMPTY_STRING;
     private var timeDelayHelper : TimeDelayHelper = new TimeDelayHelper(1100);
     private var flash : Bool = false;
     public function new() {
         super();
+        this.myFontProcessor = new UpdateMyFontProcessor(this);
         if (TouchScreenFactory.getInstance().isTouch()) {
             this.startString = this.PRESS_START;
         } else if (AppletUtil.isAppletLoader(this)) {

@@ -99,7 +99,7 @@ class BasicOptionItemsRequestHelper extends ModifyTable {
         values.put(BasicOptionItemData.OPTION_ONE_NINE_ITEM, this.optionItem.get(8));
         values.put(BasicOptionItemData.OPTION_ONE_NINE_VALUE, this.optionValue.get(8));
         final calendar : Calendar = Calendar.getInstance();
-        final time : String = calendar.getTimeInMillis().toString();
+        final time : String = Std.string(calendar.getTimeInMillis());
         values.put(EntryData.getInstance().LASTMODIFIED, time);
         return values;
     }
@@ -107,7 +107,7 @@ class BasicOptionItemsRequestHelper extends ModifyTable {
     public function insert() : String {
         try {
             final calendar : Calendar = Calendar.getInstance();
-            final time : String = calendar.getTimeInMillis().toString();
+            final time : String = Std.string(calendar.getTimeInMillis());
             final values : BasicArrayList = new BasicArrayListD();
             values.add(this.id);
             final size : Int = this.optionValue.size();
@@ -155,7 +155,7 @@ class BasicOptionItemsRequestHelper extends ModifyTable {
             var values : HashMap = this.getHashMap();
             BasicOptionItemsEntityFactory.getInstance().getBasicOptionItemsEntityInstance().update(values);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS)) {
-                this.logUtil.putF(new StringMaker().append(this.id).append(CommonSeps.getInstance().SPACE).append(success).toString(), this, "update()");
+                this.logUtil.putF(Std.string(new StringMaker().append(this.id).append(CommonSeps.getInstance().SPACE).append(success)), this, "update()");
             }
             return success;
         } catch (e : haxe.Exception) {

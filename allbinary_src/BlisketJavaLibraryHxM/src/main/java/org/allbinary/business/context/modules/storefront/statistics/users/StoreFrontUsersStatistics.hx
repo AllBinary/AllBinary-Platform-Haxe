@@ -62,7 +62,7 @@ class StoreFrontUsersStatistics implements StoreFrontUsersStatisticsInterface {
 
     public function toHashMap() : HashMap {
         var hashMap : HashMap = StdUtil.getInstance().createHashMap();
-        hashMap.put(StoreFrontUsersStatisticsData.getInstance().NUMBEROFUSERS, this.getNumberOfUsers().toString());
+        hashMap.put(StoreFrontUsersStatisticsData.getInstance().NUMBEROFUSERS, Std.string(this.getNumberOfUsers()));
         var setOfUserRoles : Set = this.totalUsersByRoleHashMap.keySet();
         var nextUserRole : UserRole = null;
         final userRoleArray : haxe.ds.Vector<Any> = setOfUserRoles.toArray();
@@ -70,7 +70,7 @@ class StoreFrontUsersStatistics implements StoreFrontUsersStatisticsInterface {
         for (index in 0...size) {
             nextUserRole = (cast userRoleArray[index] : UserRole);
             var totalForRole : Null<haxe.Int64> = (cast this.totalUsersByRoleHashMap.get(nextUserRole) : Null<haxe.Int64>);
-            hashMap.put(nextUserRole.toString(), totalForRole.toString());
+            hashMap.put(Std.string(nextUserRole), Std.string(totalForRole));
         }
         return hashMap;
     }

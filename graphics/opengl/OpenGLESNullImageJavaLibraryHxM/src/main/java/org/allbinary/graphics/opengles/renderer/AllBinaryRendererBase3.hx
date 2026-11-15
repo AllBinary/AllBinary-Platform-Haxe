@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.opengles.renderer;
 
-//import javax.microedition.khronos.opengles.GL10;
-//import javax.microedition.lcdui.Image;
+import javax.microedition.khronos.opengles.GL10;
+import javax.microedition.lcdui.Image;
 import org.allbinary.image.opengles.OpenGLESImage;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;

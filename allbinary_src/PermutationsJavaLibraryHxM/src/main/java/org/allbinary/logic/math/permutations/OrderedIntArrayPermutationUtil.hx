@@ -16,6 +16,7 @@
 package org.allbinary.logic.math.permutations;
 
 import org.allbinary.logic.util.visitor.Visitor;
+import org.allbinary.logic.string.StringMaker;
 
 class OrderedIntArrayPermutationUtil {
     private static final instance : OrderedIntArrayPermutationUtil = new OrderedIntArrayPermutationUtil();
@@ -84,7 +85,7 @@ class OrderedIntArrayPermutationUtil {
         final permutationVisitor : IntPermutationVisitor = new IntPermutationVisitor(data);
         final ORIGINAL_DATA_LABEL : String = "Original Data: ";
         trace(ORIGINAL_DATA_LABEL);
-        permutationVisitor.print(data);
+        permutationVisitor.print(data, new StringMaker());
         OrderedIntArrayPermutationUtil.getInstance().generate(data, permutationVisitor);
     }
 

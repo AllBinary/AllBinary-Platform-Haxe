@@ -69,7 +69,7 @@ class GameInfo {
     private final SET_CURRENT_LEVEL : String = "setCurrentLevel";
     public function setCurrentLevel(currentLevel : Int) : Void {
         this.currentLevel = currentLevel;
-        this.logUtil.putF(new StringMaker().append(this.NEW_LEVEL).appendint(this.getCurrentLevel()).toString(), this, this.SET_CURRENT_LEVEL);
+        this.logUtil.putF(Std.string(new StringMaker().append(this.NEW_LEVEL).appendint(this.getCurrentLevel())), this, this.SET_CURRENT_LEVEL);
     }
 
     private final NEXT_GAME_LEVEL : String = "nextGameLevel";
@@ -77,7 +77,7 @@ class GameInfo {
         if (this.getCurrentLevel() < this.getHighestLevel()) {
             this.currentLevel++;
         }
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().NEXT).append(CommonSeps.getInstance().SPACE).append(this.NEW_LEVEL).appendint(this.getCurrentLevel()).toString(), this, this.NEXT_GAME_LEVEL);
+        this.logUtil.putF(Std.string(new StringMaker().append(CommonLabels.getInstance().NEXT).append(CommonSeps.getInstance().SPACE).append(this.NEW_LEVEL).appendint(this.getCurrentLevel())), this, this.NEXT_GAME_LEVEL);
     }
 
     public function previousGameLevel() : Void {
@@ -96,9 +96,9 @@ class GameInfo {
 
     public function toHashtable() : ABHashtable<Any, Any> {
         final hashtable : ABHashtable<Any, Any> = StdUtil.getInstance().createHashtable();
-        hashtable.put(this.gameInfoData.GAME_TYPE, this.getGameType().toString());
-        hashtable.put(this.gameInfoData.GAME_MODE, this.gameMode.toString());
-        hashtable.put(this.gameInfoData.PLAYER_TYPE, this.playerType.toString());
+        hashtable.put(this.gameInfoData.GAME_TYPE, Std.string(this.getGameType()));
+        hashtable.put(this.gameInfoData.GAME_MODE, Std.string(this.gameMode));
+        hashtable.put(this.gameInfoData.PLAYER_TYPE, Std.string(this.playerType));
         hashtable.put(this.gameInfoData.HIGHEST_LEVEL, Std.string(this.getHighestLevel()));
         hashtable.put(this.gameInfoData.CURRENT_LEVEL, Std.string(this.currentLevel));
         return hashtable;
@@ -109,11 +109,11 @@ class GameInfo {
         final commonSeps : CommonSeps = CommonSeps.getInstance();
         stringBuffer.append(this.gameInfoData.GAME_TYPE);
         stringBuffer.append(commonSeps.EQUALS);
-        stringBuffer.append(this.getGameType().toString());
+        stringBuffer.append(Std.string(this.getGameType()));
         stringBuffer.append(commonSeps.COMMA_SEP);
         stringBuffer.append(this.gameInfoData.GAME_MODE);
         stringBuffer.append(commonSeps.EQUALS);
-        stringBuffer.append(this.gameMode.toString());
+        stringBuffer.append(Std.string(this.gameMode));
         stringBuffer.append(commonSeps.COMMA_SEP);
         stringBuffer.append(this.gameInfoData.PLAYER_TYPE);
         stringBuffer.append(commonSeps.EQUALS);
@@ -126,7 +126,7 @@ class GameInfo {
         stringBuffer.append(this.gameInfoData.CURRENT_LEVEL);
         stringBuffer.append(commonSeps.EQUALS);
         stringBuffer.appendint(this.currentLevel);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

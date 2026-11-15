@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.time;
 
-//import java.util.Calendar;
-//import java.util.Date;
+import jre.util.Calendar;
+import jre.util.Date;
 
 //NoPlatform
 class TimeStampUtil {
@@ -29,7 +29,7 @@ class TimeStampUtil {
     }
 
     public function getAsString() : String {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
 }

@@ -74,10 +74,10 @@ class PaymentType {
         var hashMap : HashMap = StdUtil.getInstance().createHashMap();
         hashMap.putAll(this.getBasicPaymentType().toHashMap());
         if (this.paymentTransactionInterfaceFactoryInterface != null) {
-            hashMap.put(PaymentGatewayData.PAYMENTTRANSACTIONINTERFACEFACTORYINTERFACE.toString(), Type.getClassName(Type.getClass(this.paymentTransactionInterfaceFactoryInterface)));
+            hashMap.put(Std.string(PaymentGatewayData.PAYMENTTRANSACTIONINTERFACEFACTORYINTERFACE), Type.getClassName(Type.getClass(this.paymentTransactionInterfaceFactoryInterface)));
         }
         if (this.paymentProcessorInterfaceFactoryInterface != null) {
-            hashMap.put(PaymentGatewayData.PAYMENTPROCESSORINTERFACEFACTORYINTERFACE.toString(), Type.getClassName(Type.getClass(this.paymentProcessorInterfaceFactoryInterface)));
+            hashMap.put(Std.string(PaymentGatewayData.PAYMENTPROCESSORINTERFACEFACTORYINTERFACE), Type.getClassName(Type.getClass(this.paymentProcessorInterfaceFactoryInterface)));
         }
         return hashMap;
     }

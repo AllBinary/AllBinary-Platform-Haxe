@@ -83,7 +83,7 @@ class Category implements CategoryInterface {
 
     // throws Exception
     public function getFilePath() : AbPath {
-        return new AbPath(this.getRootFilePath().toString() + this.getProperties().getPath(this.getHierarchy()).toString(), this.getProperties().getFileName());
+        return new AbPath(Std.string(this.getRootFilePath()) + Std.string(this.getProperties().getPath(this.getHierarchy())), this.getProperties().getFileName());
     }
 
     // throws Exception
@@ -265,10 +265,10 @@ class Category implements CategoryInterface {
             stringBuffer.append("Category Name: ");
             stringBuffer.append(this.categoryPropertiesInterface.getValue());
             stringBuffer.append("\nPath = ");
-            stringBuffer.append(this.getPath().toString());
+            stringBuffer.append(Std.string(this.getPath()));
             stringBuffer.append("\nFile Path: ");
-            stringBuffer.append(this.getFilePath().toString());
-            this.logUtil.putF(stringBuffer.toString(), this, "log()");
+            stringBuffer.append(Std.string(this.getFilePath()));
+            this.logUtil.putF(Std.string(stringBuffer), this, "log()");
         }
     }
 

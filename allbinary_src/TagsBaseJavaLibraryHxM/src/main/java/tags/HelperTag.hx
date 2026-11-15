@@ -34,7 +34,7 @@ class HelperTag extends PropertiesTag {
     public function setHelper() : Void {
         if (this.anyType == null) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG)) {
-                this.logUtil.putF("Creating TagHelper with: \n" + this.getPropertiesHashMap().toString(), this, "doStartTag");
+                this.logUtil.putF("Creating TagHelper with: \n" + Std.string(this.getPropertiesHashMap()), this, "doStartTag");
             }
             this.anyType = this.tagHelperFactoryInterface.getInstance(this.getPropertiesHashMap(), this.pageContext);
         }

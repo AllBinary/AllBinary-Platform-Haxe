@@ -67,7 +67,7 @@ class MetaValidation extends Validation implements DomNodeInterface {
     public function validationInfo() : String {
         try {
             var stringBuffer : StringMaker = new StringMaker();
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
@@ -87,16 +87,16 @@ class MetaValidation extends Validation implements DomNodeInterface {
     public function toHashMap() : HashMap {
         var hashMap : HashMap = StdUtil.getInstance().createHashMap();
         var htmlMetaAttributeDataFactory : HtmlMetaAttributeDataFactory = HtmlMetaAttributeDataFactory.getInstance();
-        hashMap.put(HtmlMetaData.getInstance().LABEL.toString(), this.label);
-        hashMap.put(htmlMetaAttributeDataFactory.NAME.toString(), this.name);
-        hashMap.put(htmlMetaAttributeDataFactory.HTTP_EQUIV.toString(), this.httpEquiv);
-        hashMap.put(htmlMetaAttributeDataFactory.CONTENT.toString(), this.content);
+        hashMap.put(Std.string(HtmlMetaData.getInstance().LABEL), this.label);
+        hashMap.put(Std.string(htmlMetaAttributeDataFactory.NAME), this.name);
+        hashMap.put(Std.string(htmlMetaAttributeDataFactory.HTTP_EQUIV), this.httpEquiv);
+        hashMap.put(Std.string(htmlMetaAttributeDataFactory.CONTENT), this.content);
         return hashMap;
     }
 
     // throws Exception
     public function toXmlNode(document : Document) : Node {
-        var node : Node = ModDomHelper.createNameValueNodes(document, HtmlMetaData.getInstance().NAME.toString(), this.toHashMap());
+        var node : Node = ModDomHelper.createNameValueNodes(document, Std.string(HtmlMetaData.getInstance().NAME), this.toHashMap());
         return node;
     }
 

@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation.image;
 
-//import javax.microedition.lcdui.Graphics;
-//import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Image;
 import org.allbinary.DisposalUtil;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;

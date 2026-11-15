@@ -49,5 +49,10 @@ class NewValidationView extends InventoryItemView implements ValidationComponent
         return "Error Creating New Item";
     }
 
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
+    }
+
 }
 

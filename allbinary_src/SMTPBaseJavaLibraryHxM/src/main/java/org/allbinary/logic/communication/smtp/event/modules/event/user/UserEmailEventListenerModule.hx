@@ -40,7 +40,7 @@ class UserEmailEventListenerModule implements UserEmailEventListenerInterface {
     // throws Exception
     public function onEmailSendRequest(emailEvent : EmailEvent) : Void {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
-            this.logUtil.putF("Add Email To Que For Sending: " + emailEvent.toString(), this, "onEmailSendRequest");
+            this.logUtil.putF("Add Email To Que For Sending: " + Std.string(emailEvent), this, "onEmailSendRequest");
         }
         var to : String = this.userInterface.getMainEmail();
         var email : BasicEmail = new BasicEmail(emailEvent.getEmailInfo(), to);

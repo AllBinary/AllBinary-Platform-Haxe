@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.system;
 
-//import java.io.InputStream;
+import jre.io.InputStream;
 import org.allbinary.data.resource.ResourceUtil;
 
 class PlatformAssetManager {

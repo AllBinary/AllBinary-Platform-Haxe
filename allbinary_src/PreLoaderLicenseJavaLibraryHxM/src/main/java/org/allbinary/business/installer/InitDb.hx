@@ -28,11 +28,20 @@ class InitDb {
     private final METHOD_CALL_ADD_TABLES : String = "addTables";
     private final METHOD_CALL_TEMP_MAIN_PATH : String = "useTemporaryMainPath";
     private final METHOD_CALL_MAIN_PATH : String = "useNormalMainPath";
-    public function new() {
+    public function new(...args : Dynamic) {
+        if (args.length == 0) {
+            this._new0();
+        }
+        else if (args.length == 1) {
+            final dbConnectionInfo : DbConnectionInfo = args[0];
+            this._new1(dbConnectionInfo);
+        }
     }
 
-    // Java overloaded constructor: Haxe allows one constructor
-    public function new(dbConnectionInfo : DbConnectionInfo) {
+    private function _new0() : Void {
+    }
+
+    private function _new1(dbConnectionInfo : DbConnectionInfo) : Void {
     }
 
     public function setHelper(anyType : Any) : Void {

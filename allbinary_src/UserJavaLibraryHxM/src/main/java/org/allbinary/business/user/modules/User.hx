@@ -114,7 +114,7 @@ class User implements UserInterface {
         this.otherContact = stringUtil.getNonNull((cast userHashMap.get(UserData.OTHERCONTACT) : String));
         this.electronicDevice = stringUtil.getNonNull((cast userHashMap.get(UserData.ELECTRONICDEVICE) : String));
         this.fax = stringUtil.getNonNull((cast userHashMap.get(UserData.FAX) : String));
-        this.role = UserRoleB.getRole((cast userHashMap.get(UserRoleData.NAME.toString()) : String));
+        this.role = UserRoleB.getRole((cast userHashMap.get(Std.string(UserRoleData.NAME)) : String));
         this.permissions = stringUtil.getNonNull((cast userHashMap.get(UserData.PERMISSIONS) : String));
         if (!stringValidationUtil.isEmpty(this.permissions) && Reflect.compare(this.permissions, StoreFrontData.getInstance().NAME) == 0) {
             this.permissions = stringUtil.getNonNull((cast userHashMap.get(StoreFrontData.getInstance().NAME) : String));
@@ -168,7 +168,7 @@ class User implements UserInterface {
             if (!stringValidationUtil.isValidRequired(this.mainEmail, 1, UserData.MAXLEN) || this.mainEmail.indexOf("@") == -1) {
                 stringBuffer.append("Please enter a valid email address.<br />");
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
@@ -376,14 +376,14 @@ class User implements UserInterface {
         values.add(this.otherContact);
         values.add(this.electronicDevice);
         values.add(this.fax);
-        values.add(this.getRole().toString());
+        values.add(Std.string(this.getRole()));
         var userConfigurationDomDocumentMapping : UserConfigurationDomDocumentMapping = new UserConfigurationDomDocumentMapping(this.getUserConfigurationInterface());
         values.add(userConfigurationDomDocumentMapping.toDomDocumentString());
         values.add(this.permissions);
         values.addAllList(this.password.toVector(this.secret));
         values.add(this.enable);
         var calendar : Calendar = Calendar.getInstance();
-        var time : String = calendar.getTimeInMillis().toString();
+        var time : String = Std.string(calendar.getTimeInMillis());
         values.add(time);
         values.add(time);
         return values;
@@ -409,7 +409,7 @@ class User implements UserInterface {
         values.put(UserData.ELECTRONICDEVICE, electronicDevice);
         values.put(UserData.FAX, fax);
         if (this.getRole() != null) {
-            values.put(UserRoleData.NAME.toString(), this.getRole().toString());
+            values.put(Std.string(UserRoleData.NAME), Std.string(this.getRole()));
         }
         var userConfigurationDomDocumentMapping : UserConfigurationDomDocumentMapping = new UserConfigurationDomDocumentMapping(this.getUserConfigurationInterface());
         values.put(UserData.CONFIGURATION, userConfigurationDomDocumentMapping.toDomDocumentString());
@@ -417,7 +417,7 @@ class User implements UserInterface {
         values.putAll(this.password.toHashMap(this.secret));
         values.put(EntryData.getInstance().ENABLE, this.enable);
         var calendar : Calendar = Calendar.getInstance();
-        var time : String = calendar.getTimeInMillis().toString();
+        var time : String = Std.string(calendar.getTimeInMillis());
         values.put(EntryData.getInstance().LASTMODIFIED, time);
         return values;
     }

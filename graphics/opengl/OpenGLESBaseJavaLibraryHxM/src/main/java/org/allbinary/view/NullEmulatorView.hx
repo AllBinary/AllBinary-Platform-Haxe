@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.view;
 
-//import javax.microedition.lcdui.Displayable;
-//import javax.microedition.midlet.MIDlet;
+import javax.microedition.lcdui.Displayable;
+import javax.microedition.midlet.MIDlet;
 
 class NullEmulatorView implements EmulatorViewInterface {
     public static final NULL_EMULATOR_VIEW : NullEmulatorView = new NullEmulatorView();

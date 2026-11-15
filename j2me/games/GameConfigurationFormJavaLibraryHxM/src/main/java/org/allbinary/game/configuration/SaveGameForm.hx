@@ -15,13 +15,13 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration;
 
-//import javax.microedition.lcdui.CommandListener;
-//import javax.microedition.lcdui.TextField;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.TextField;
+import org.allbinary.MIDPUtil;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
 import org.allbinary.logic.ABSystemWrapper;
-import org.allbinary.logic.MEUtil;
 
 class SaveGameForm extends CommandForm {
     private static var FORM : CommandForm = CommandForm.getNullCommandForm();
@@ -35,7 +35,7 @@ class SaveGameForm extends CommandForm {
         return SaveGameForm.FORM;
     }
 
-    private final meUtil : MEUtil = MEUtil.getInstance();
+    private final meUtil : MIDPUtil = MIDPUtil.getInstance();
     public function new(commandListener : CommandListener, title : String, backgrounBasicColor : BasicColor, foregroundBasicColor : BasicColor) {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);

@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.Canvas;
-//import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Command;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.InputFeatureFactory;
@@ -42,14 +42,16 @@ import org.allbinary.util.BasicArrayList;
 class CommandFormInputProcessor extends BasicMenuInputProcessor {
     private final MOTION_GESTURE_SOURCE_ID : Int = GameKeyEventFactory.getInstance().MOTION_GESTURE_SOURCE_ID;
     private final CLICK_DELAY : Int = 150;
-    private final clickTimeHelper : TimeDelayHelper = new TimeDelayHelper(this.CLICK_DELAY);
+    private final clickTimeHelper : TimeDelayHelper;
     private final DOUBLE_CLICK_DELAY : Int = 1200;
-    private final doubleClickTimeHelper : TimeDelayHelper = new TimeDelayHelper(this.DOUBLE_CLICK_DELAY);
+    private final doubleClickTimeHelper : TimeDelayHelper;
     public final isSingleKeyProcessing : Bool = InputFeatureFactory.getInstance().isSingleKeyProcessing();
     private var form : ScrollSelectionForm;
     private var hasPressed : Bool = false;
     public function new(gameKeyEventList : BasicArrayList, playerInputId : Int, gameCanvas : MyCanvas, form : ScrollSelectionForm) {
         super(gameKeyEventList, playerInputId, gameCanvas);
+        this.clickTimeHelper = new TimeDelayHelper(this.CLICK_DELAY);
+        this.doubleClickTimeHelper = new TimeDelayHelper(this.DOUBLE_CLICK_DELAY);
         this.form = form;
     }
 
@@ -70,7 +72,7 @@ class CommandFormInputProcessor extends BasicMenuInputProcessor {
     private function processCommand() : Int {
         final commandCurrentSelectionForm : CommandCurrentSelectionForm = (cast this.form : CommandCurrentSelectionForm);
         final command : Command = commandCurrentSelectionForm.getSelectedCommand();
-        this.logUtil.putF(command.toString(), this, this.PROCESS_COMMAND);
+        this.logUtil.putF(Std.string(command), this, this.PROCESS_COMMAND);
         final features : Features = Features.getInstance();
         final openGLFeatureFactory : OpenGLFeatureFactory = OpenGLFeatureFactory.getInstance();
         if (SWTUtil.isSWT && features.isFeature(openGLFeatureFactory.OPENGL) && command != GameCommandsFactory.getInstance().EXIT_COMMAND) {
@@ -162,7 +164,7 @@ class CommandFormInputProcessor extends BasicMenuInputProcessor {
 
     private final NAME_LABEL : String = " ScrollSelectionForm: ";
     public function toString() : String {
-        return new StringMaker().append(super.toString()).append(this.NAME_LABEL).append(this.form.toString()).toString();
+        return Std.string(new StringMaker().append(super.toString()).append(this.NAME_LABEL).append(Std.string(this.form)));
     }
 
 }

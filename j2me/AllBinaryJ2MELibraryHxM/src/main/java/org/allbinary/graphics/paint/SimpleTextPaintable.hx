@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.paint;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
@@ -26,8 +26,8 @@ import org.allbinary.graphics.font.UpdateMyFontProcessor;
 
 class SimpleTextPaintable extends Paintable implements UpdateMyFontInterface {
     private final displayInfoSingleton : DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
-    private final updateMyFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
-    private var myFontProcessor : MyFontProcessor = this.updateMyFontProcessor;
+    private final updateMyFontProcessor : MyFontProcessor;
+    private var myFontProcessor : MyFontProcessor;
     private var text : String;
     private var basicColor : BasicColor;
     private var topScoresWidth : Int = 0;
@@ -35,6 +35,8 @@ class SimpleTextPaintable extends Paintable implements UpdateMyFontInterface {
     private var anchor : Int = Anchor.TOP_LEFT;
     public function new(text : String, basicColor : BasicColor) {
         super();
+        this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
+        this.myFontProcessor = this.updateMyFontProcessor;
         this.text = text;
         this.basicColor = basicColor;
     }

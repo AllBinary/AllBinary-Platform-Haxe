@@ -37,51 +37,51 @@ class LinuxHardware implements HardwareInterface {
     }
 
     public function getMultimedia(index : Int) : MediaInterface {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getBridge(index : Int) : BridgeInterface {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getCpu(index : Int) : CpuInterface {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getEthernet(index : Int) : EthernetInterface {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getFireWire(index : Int) : FireWireInterface {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getHardDriveController(index : Int) : HardDriveControllerInterface {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getHardDrive(index : Int) : HardDriveInterface {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getMachineAccessControlAddress(index : Int) : MachineAccessControlAddressInterface {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getMonitor(index : Int) : MonitorInterface {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getUsb(index : Int) : UsbInterface {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getVideo(index : Int) : VideoInterface {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getComponent(index : Int) : HardwareComponentInterface {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function toString() : String {

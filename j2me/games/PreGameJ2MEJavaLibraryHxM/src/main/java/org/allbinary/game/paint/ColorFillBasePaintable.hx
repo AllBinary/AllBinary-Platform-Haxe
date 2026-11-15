@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.paint;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.ColorCompositeInterface;

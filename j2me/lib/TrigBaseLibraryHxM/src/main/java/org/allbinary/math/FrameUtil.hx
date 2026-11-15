@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.math;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
+//import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsConstructor;
 
 class FrameUtil {
     private static final instance : FrameUtil = new FrameUtil();

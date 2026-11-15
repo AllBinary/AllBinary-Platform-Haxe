@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.util.event;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsMethod;
 
 interface EventListenerInterface {
     function onEvent(eventObject : AllBinaryEventObject) : Void;

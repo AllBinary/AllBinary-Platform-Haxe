@@ -32,9 +32,6 @@ class CamelCaseUtil {
     private final commonSeps : CommonSeps = CommonSeps.getInstance();
     // throws Exception
     public function getAsCamelCase(string : String, stringBuilder : StringMaker) : String {
-        if (string == null) {
-            return StringUtil.getInstance().EMPTY_STRING;
-        }
         final stringValidationUtil : StringValidationUtil = StringValidationUtil.getInstance();
         stringBuilder.delete(0, stringBuilder.length());
         final list : BasicArrayList = new BasicArrayListD();
@@ -44,10 +41,10 @@ class CamelCaseUtil {
         var word : String = null;
         for (i in 0...size) {
             word = (cast list.get(i) : String);
-            word = (stringValidationUtil.isEmpty(word) ? word : new StringMaker().appendchar(String.fromCharCode(word.charCodeAt(0)).toUpperCase().charCodeAt(0)).append(word.substring(1).toLowerCase()).toString());
+            word = (stringValidationUtil.isEmpty(word) ? word : Std.string(new StringMaker().appendchar(String.fromCharCode(word.charCodeAt(0)).toUpperCase().charCodeAt(0)).append(word.substring(1).toLowerCase())));
             stringBuilder.append(word);
         }
-        return stringBuilder.toString();
+        return Std.string(stringBuilder);
     }
 
     public function new() {

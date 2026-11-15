@@ -55,7 +55,7 @@ class BlisketBackupFactory {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append(URLGLOBALS.getWebappPath());
             stringBuffer.append(PATH_GLOBALS.getInstance().BACKUP_PATH);
-            var backupPath : String = stringBuffer.toString();
+            var backupPath : String = Std.string(stringBuffer);
             var path : AbPath = new AbPath(backupPath, this.stringUtil.EMPTY_STRING);
             var fileBasicArrayList : BasicArrayList = this.getFileBasicArrayList(backupPath);
             this.backup(fileBasicArrayList, path.toFileSystemString() + "backup.zip");
@@ -70,7 +70,7 @@ class BlisketBackupFactory {
             final stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append(URLGLOBALS.getWebappPath());
             stringBuffer.append(PATH_GLOBALS.getInstance().BACKUP_PATH);
-            final backupPath : String = stringBuffer.toString();
+            final backupPath : String = Std.string(stringBuffer);
             final path : AbPath = new AbPath(backupPath, this.stringUtil.EMPTY_STRING);
             final fileBasicArrayList : BasicArrayList = new BasicArrayListD();
             final storeFrontsEntity : StoreFrontsEntity = StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance();
@@ -84,13 +84,13 @@ class BlisketBackupFactory {
                 stringBuffer.append(URLGLOBALS.getWebappPath());
                 stringBuffer.append(PATH_GLOBALS.getInstance().VIEWS_PATH);
                 stringBuffer.append(nextStore);
-                viewsPath = stringBuffer.toString();
+                viewsPath = Std.string(stringBuffer);
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append("Backup Store Views: ");
                 stringBuffer.append(nextStore);
                 stringBuffer.append(" from: ");
                 stringBuffer.append(viewsPath);
-                PreLogUtil.put(stringBuffer.toString(), this, "backupViews()");
+                PreLogUtil.put(Std.string(stringBuffer), this, "backupViews()");
                 fileBasicArrayList.addAllList(this.getFileBasicArrayList(viewsPath));
             }
             this.backup(fileBasicArrayList, path.toFileSystemString() + "backupViews.zip");
@@ -105,7 +105,7 @@ class BlisketBackupFactory {
             final stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append(URLGLOBALS.getWebappPath());
             stringBuffer.append(PATH_GLOBALS.getInstance().BACKUP_PATH);
-            final backupPath : String = stringBuffer.toString();
+            final backupPath : String = Std.string(stringBuffer);
             final path : AbPath = new AbPath(backupPath, this.stringUtil.EMPTY_STRING);
             final fileBasicArrayList : BasicArrayList = new BasicArrayListD();
             final storeFrontsEntity : StoreFrontsEntity = StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance();
@@ -121,13 +121,13 @@ class BlisketBackupFactory {
                 stringBuffer.append(URLGLOBALS.getWebappPath());
                 stringBuffer.append(storeFrontInterface.getCurrentHostNamePath());
                 stringBuffer.append(storeFrontInterface.getCategoryPath());
-                resourcesPath = stringBuffer.toString();
+                resourcesPath = Std.string(stringBuffer);
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append("Backup Store Resrouces: ");
                 stringBuffer.append(nextStore);
                 stringBuffer.append(" from: ");
                 stringBuffer.append(resourcesPath);
-                PreLogUtil.put(stringBuffer.toString(), this, "backupResources()");
+                PreLogUtil.put(Std.string(stringBuffer), this, "backupResources()");
                 fileBasicArrayList.addAllList(this.getFileBasicArrayList(resourcesPath));
             }
             this.backup(fileBasicArrayList, path.toFileSystemString() + "backupResources.zip");
@@ -142,7 +142,7 @@ class BlisketBackupFactory {
             final stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append(URLGLOBALS.getWebappPath());
             stringBuffer.append(PATH_GLOBALS.getInstance().BACKUP_PATH);
-            final backupPath : String = stringBuffer.toString();
+            final backupPath : String = Std.string(stringBuffer);
             final path : AbPath = new AbPath(backupPath, this.stringUtil.EMPTY_STRING);
             final fileBasicArrayList : BasicArrayList = new BasicArrayListD();
             final storeFrontsEntity : StoreFrontsEntity = StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance();
@@ -155,7 +155,7 @@ class BlisketBackupFactory {
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append(URLGLOBALS.getWebappPath());
                 stringBuffer.append(nextStore);
-                fileBasicArrayList.addAllList(this.getFileBasicArrayList(stringBuffer.toString()));
+                fileBasicArrayList.addAllList(this.getFileBasicArrayList(Std.string(stringBuffer)));
             }
             this.backup(fileBasicArrayList, path.toFileSystemString() + "backupJsps.zip");
         } catch (e : haxe.Exception) {
@@ -171,7 +171,7 @@ class BlisketBackupFactory {
             stringBuffer.append(zipFile);
             stringBuffer.append(" BasicArrayList: ");
             stringBuffer.appendint(fileBasicArrayList.size());
-            PreLogUtil.put("Creating Backup Zip File: " + stringBuffer.toString(), this, "backup()");
+            PreLogUtil.put("Creating Backup Zip File: " + Std.string(stringBuffer), this, "backup()");
             ZipFileUtil.getInstance().create(zipFile, fileBasicArrayList);
             this.logUtil.putF("Created Backup Zip File", this, "backup()");
         } catch (e : haxe.Exception) {

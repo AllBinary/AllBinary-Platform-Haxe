@@ -66,11 +66,11 @@ class EditValidationUserView extends UserView implements ValidationComponentInte
                 this.user = UserEntityFactory.getInstance().getUser(this.userName);
                 if (this.user == null) {
                     stringBuffer.append("User does not exist.<br />");
-                    return stringBuffer.toString();
+                    return Std.string(stringBuffer);
                 }
             } else {
                 stringBuffer.append("User Name is not valid.<br />");
-                return stringBuffer.toString();
+                return Std.string(stringBuffer);
             }
             if (this.user.isValid() == false) {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
@@ -79,7 +79,7 @@ class EditValidationUserView extends UserView implements ValidationComponentInte
                 stringBuffer.append("User data is not valid - Please call administrator.<br />");
                 stringBuffer.append(this.user.validationInfo());
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
@@ -94,6 +94,11 @@ class EditValidationUserView extends UserView implements ValidationComponentInte
 
     public function toValidationInfoNode(document : Document) : Node {
         return null;
+    }
+
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
     }
 
 }

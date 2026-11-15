@@ -26,12 +26,13 @@ import org.allbinary.string.CommonStrings;
 
 class GameKeyCompleteMotionGestureInputEvent extends CompleteMotionGestureInputEvent implements GameKeyEventSourceInterface {
     private final gameKeyEventFactory : GameKeyEventFactory = GameKeyEventFactory.getInstance();
-    private final SOURCE_ID : Int = this.gameKeyEventFactory.MOTION_GESTURE_SOURCE_ID;
+    private final SOURCE_ID : Int;
     private var gameKey : GameKey = GameKey.NULL_GAME_KEY;
     private var gameKeyEvent : GameKeyEvent = GameKeyEvent.NONE;
     private var inputToGameKeyMapping : InputToGameKeyMapping;
     public function new(name : String, motionGestureInput : MotionGestureInput, inputToGameKeyMapping : InputToGameKeyMapping) {
         super(name, motionGestureInput);
+        this.SOURCE_ID = this.gameKeyEventFactory.MOTION_GESTURE_SOURCE_ID;
         this.inputToGameKeyMapping = inputToGameKeyMapping;
         GameKeyCompleteMotionGestureInputEventFactory.getInstance().add(this);
         this.update();

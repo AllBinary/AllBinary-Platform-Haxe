@@ -64,7 +64,7 @@ class MultipartRequestParams extends RequestParams {
                     }
                 }
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST)) {
-                    this.logUtil.putF("Special Request Data: " + specialRequest.toString(), this, "processMultipartRequest()");
+                    this.logUtil.putF("Special Request Data: " + Std.string(specialRequest), this, "processMultipartRequest()");
                 }
                 this.setSpecial();
                 this.setMap(specialRequest);

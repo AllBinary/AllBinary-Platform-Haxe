@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.input;
 
-//import javax.microedition.rms.RecordEnumeration;
-//import javax.microedition.rms.RecordStore;
+import javax.microedition.rms.RecordEnumeration;
+import javax.microedition.rms.RecordStore;
 import org.allbinary.game.configuration.persistance.BasicPersitance;
 import org.allbinary.game.configuration.persistance.NullRecordComparator;
 import org.allbinary.game.configuration.persistance.NullRecordFilter;
@@ -48,7 +48,7 @@ class InputPersistance extends BasicPersitance {
         while (recordEnum.hasNextElement()) {
             id = recordEnum.nextRecordId();
             stringBuffer.delete(0, stringBuffer.length());
-            this.logUtil.putF(stringBuffer.append(this.persistanceStrings.LOADING_ID).appendint(id).toString(), this, this.persistanceStrings.LOAD_ALL);
+            this.logUtil.putF(Std.string(stringBuffer.append(this.persistanceStrings.LOADING_ID).appendint(id)), this, this.persistanceStrings.LOAD_ALL);
             hashtable = StdUtil.getInstance().createHashtable();
             this.valueList.add(hashtable);
             this.idList.add(smallIntegerSingletonFactory.getAt(id));
@@ -58,7 +58,7 @@ class InputPersistance extends BasicPersitance {
 
     // throws Exception
     public function save(abeClientInformation : AbeClientInformationInterface, hashtable : ABHashtable<Any, Any>) : Void {
-        PreLogUtil.put(new StringMaker().append(this.persistanceStrings.NOT_SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.commonStrings.SAVE);
+        PreLogUtil.put(Std.string(new StringMaker().append(this.persistanceStrings.NOT_SAVING).append(StringUtil.getInstance().toString(hashtable))), this, this.commonStrings.SAVE);
         final recordStore : RecordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
         var gameActionInput : Input = null;
         var list : BasicArrayList = null;

@@ -46,7 +46,7 @@ class ContextUriResolver implements URIResolver {
             stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().INSTALLPATH);
             stringBuffer.append(AbPathData.getInstance().SEPARATOR);
             stringBuffer.append(href);
-            final fileAbPath : AbPath = new AbFilePath(stringBuffer.toString());
+            final fileAbPath : AbPath = new AbFilePath(Std.string(stringBuffer));
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XMLLOGGING)) {
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append(this.uriResolverStrings.ATTEMPT);
@@ -54,13 +54,13 @@ class ContextUriResolver implements URIResolver {
                 stringBuffer.append(this.uriResolverStrings.BASE);
                 stringBuffer.append(base);
                 stringBuffer.append(this.uriResolverStrings.NEW_PATH);
-                stringBuffer.append(fileAbPath.toString());
+                stringBuffer.append(Std.string(fileAbPath));
                 stringBuffer.append(this.uriResolverStrings.NOTE);
                 stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
                 stringBuffer.append(this.uriResolverStrings.URL_GLOBAL);
                 stringBuffer.append(this.uriResolverStrings.REQUIRED_EXTENSION);
                 stringBuffer.append(this.basicURIResolver.getExtension());
-                this.logUtil.putF(stringBuffer.toString(), this, this.uriResolverStrings.RESOLVE);
+                this.logUtil.putF(Std.string(stringBuffer), this, this.uriResolverStrings.RESOLVE);
             }
             return new StreamSource(new CryptFileReader(TransformInfoTemplateData.getInstance().UNCRYPTED_EXTENSION, TransformInfoTemplateData.getInstance().ENCRYPTED_EXTENSION).getInputStream(fileAbPath));
         } catch (e : TransformerException) {

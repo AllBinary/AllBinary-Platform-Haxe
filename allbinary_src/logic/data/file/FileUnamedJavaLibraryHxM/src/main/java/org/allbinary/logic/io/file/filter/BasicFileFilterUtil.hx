@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.io.file.filter;
 
-//import java.io.FileFilter;
+import jre.io.FileFilter;
 import org.allbinary.logic.io.file.visitor.IncludeFileExtensionsBooleanFileVisitor;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;

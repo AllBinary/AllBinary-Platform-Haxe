@@ -15,12 +15,12 @@
 // Generated Code Do Not Modify
 package org.allbinary.platform.graphics;
 
-//import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.Image;
 
 class PlatformBitmapBaseFactory {
     public static final NULL_PLATFORM_BITMAP_BASE_FACTORY : PlatformBitmapBaseFactory = new PlatformBitmapBaseFactory();
     public function createBitmap(image : Image) : PlatformBitmapBase {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function new() {

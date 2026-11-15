@@ -25,27 +25,35 @@ interface GL11Ext extends javax.microedition.khronos.opengles.GL {
 
     function glDrawTexfOES(x : Float, y : Float, z : Float, width : Float, height : Float) : Void;
 
-    function glDrawTexfvOES(coords : haxe.ds.Vector<Float>, offset : Int) : Void;
+    function glDrawTexfvOES(...args : Dynamic) : Dynamic;
 
-    function glDrawTexfvOES(coords : java.nio.FloatBuffer) : Void;
+    function glDrawTexfvOES_floatArray_int(coords : haxe.ds.Vector<Float>, offset : Int) : Void;
+
+    function glDrawTexfvOES_FloatBuffer(coords : jre.nio.FloatBuffer) : Void;
 
     function glDrawTexiOES(x : Int, y : Int, z : Int, width : Int, height : Int) : Void;
 
-    function glDrawTexivOES(coords : haxe.ds.Vector<Int>, offset : Int) : Void;
+    function glDrawTexivOES(...args : Dynamic) : Dynamic;
 
-    function glDrawTexivOES(coords : java.nio.IntBuffer) : Void;
+    function glDrawTexivOES_intArray_int(coords : haxe.ds.Vector<Int>, offset : Int) : Void;
+
+    function glDrawTexivOES_IntBuffer(coords : jre.nio.IntBuffer) : Void;
 
     function glDrawTexsOES(x : Int, y : Int, z : Int, width : Int, height : Int) : Void;
 
-    function glDrawTexsvOES(coords : haxe.ds.Vector<Int>, offset : Int) : Void;
+    function glDrawTexsvOES(...args : Dynamic) : Dynamic;
 
-    function glDrawTexsvOES(coords : java.nio.ShortBuffer) : Void;
+    function glDrawTexsvOES_shortArray_int(coords : haxe.ds.Vector<Int>, offset : Int) : Void;
+
+    function glDrawTexsvOES_ShortBuffer(coords : jre.nio.ShortBuffer) : Void;
 
     function glDrawTexxOES(x : Int, y : Int, z : Int, width : Int, height : Int) : Void;
 
-    function glDrawTexxvOES(coords : haxe.ds.Vector<Int>, offset : Int) : Void;
+    function glDrawTexxvOES(...args : Dynamic) : Dynamic;
 
-    function glDrawTexxvOES(coords : java.nio.IntBuffer) : Void;
+    function glDrawTexxvOES_intArray_int(coords : haxe.ds.Vector<Int>, offset : Int) : Void;
+
+    function glDrawTexxvOES_IntBuffer(coords : jre.nio.IntBuffer) : Void;
 
     function glEnable(cap : Int) : Void;
 
@@ -53,13 +61,17 @@ interface GL11Ext extends javax.microedition.khronos.opengles.GL {
 
     function glLoadPaletteFromModelViewMatrixOES() : Void;
 
-    function glMatrixIndexPointerOES(size : Int, type : Int, stride : Int, pointer : java.nio.Buffer) : Void;
+    function glMatrixIndexPointerOES(...args : Dynamic) : Dynamic;
 
-    function glMatrixIndexPointerOES(size : Int, type : Int, stride : Int, offset : Int) : Void;
+    function glMatrixIndexPointerOES_int_int_int_Buffer(size : Int, type : Int, stride : Int, pointer : jre.nio.Buffer) : Void;
 
-    function glWeightPointerOES(size : Int, type : Int, stride : Int, pointer : java.nio.Buffer) : Void;
+    function glMatrixIndexPointerOES_int_int_int_int(size : Int, type : Int, stride : Int, offset : Int) : Void;
 
-    function glWeightPointerOES(size : Int, type : Int, stride : Int, offset : Int) : Void;
+    function glWeightPointerOES(...args : Dynamic) : Dynamic;
+
+    function glWeightPointerOES_int_int_int_Buffer(size : Int, type : Int, stride : Int, pointer : jre.nio.Buffer) : Void;
+
+    function glWeightPointerOES_int_int_int_int(size : Int, type : Int, stride : Int, offset : Int) : Void;
 
 }
 

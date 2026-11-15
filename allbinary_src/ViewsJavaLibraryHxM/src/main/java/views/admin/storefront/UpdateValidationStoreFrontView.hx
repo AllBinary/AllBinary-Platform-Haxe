@@ -56,7 +56,7 @@ class UpdateValidationStoreFrontView extends StoreFrontComponent implements Vali
             if (StoreFrontFactory.getInstance(this.newStoreFrontInterface.getName()) == null) {
                 stringBuffer.append("Store does not exist<br>");
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
@@ -71,6 +71,11 @@ class UpdateValidationStoreFrontView extends StoreFrontComponent implements Vali
 
     public function toValidationInfoNode(document : Document) : Node {
         return null;
+    }
+
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
     }
 
 }

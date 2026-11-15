@@ -35,6 +35,7 @@ class SelectionTool implements GraphicItemInterface {
     private final canvasJPanel : CanvasJPanel;
     private var active : Bool = true;
     public function new(canvasJPanel : CanvasJPanel) {
+        this.endPoint = this.startPoint;
         this.canvasJPanel = canvasJPanel;
     }
 
@@ -162,7 +163,7 @@ class SelectionTool implements GraphicItemInterface {
     }
 
     private var startPoint : GPoint = PointFactory.getInstance().ZERO_ZERO;
-    private var endPoint : GPoint = this.startPoint;
+    private var endPoint : GPoint;
     public function mouseClicked(mouseEvent : java.awt.event.MouseEvent, xPixelsPerCell : Int, yPixelsPerCell : Int) : Void {
     }
 

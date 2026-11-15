@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.layer;
 
-//import java.util.Enumeration;
+import jre.util.Enumeration;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.layer.AllBinaryLayer;
@@ -49,7 +49,7 @@ class LayerPlacer {
         final relativePoint : GPoint = this.getPoint(layerPlacementInterface);
         final layerInterfaceFactory : LayerInterfaceFactory = LayerInterfaceFactory.getInstance();
         final hashtable : ABHashtable<Any, Any> = layerPlacementInterface.getInstance();
-        final enumeration : Enumeration = hashtable.keys();
+        final enumeration : Enumeration<Dynamic> = hashtable.keys();
         var point : GPoint = null;
         var layerHashtable : ABHashtable<Any, Any> = null;
         var x : Int = 0;
@@ -84,7 +84,7 @@ class LayerPlacer {
             final y : Int = -height;
             return pointFactory.createXY(x, y);
         } else {
-            throw new haxe.Exception("PlacementType Not Recognized");
+            throw new jre.lang.JavaException("PlacementType Not Recognized");
         }
     }
 

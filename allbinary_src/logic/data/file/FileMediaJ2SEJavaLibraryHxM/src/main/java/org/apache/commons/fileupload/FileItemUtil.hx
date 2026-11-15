@@ -43,7 +43,7 @@ class FileItemUtil {
                 stringBuffer.append(fileItem.getFieldName());
                 stringBuffer.append(" name = ");
                 stringBuffer.append(fileItem.getName());
-                this.logUtil.putF(stringBuffer.toString(), this, "write()");
+                this.logUtil.putF(Std.string(stringBuffer), this, "write()");
             }
             outputStream = (cast streamUtil.get(inputStream, outputStream, haxe.ds.Vector.fromArrayCopy([for (index in 0...16384) 0])) : ByteArrayOutputStream);
             return outputStream.toByteArray();

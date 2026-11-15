@@ -26,7 +26,7 @@ class SoftwareInformation {
     public function new(name : String, version : String, shortName : String) {
         this.name = name;
         this.version = version;
-        this.shortName = new StringMaker().append(shortName).append(KotlinUtil.getShortName()).toString();
+        this.shortName = Std.string(new StringMaker().append(shortName).append(KotlinUtil.getShortName()));
     }
 
     public function getName() : String {
@@ -50,7 +50,7 @@ class SoftwareInformation {
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(VERSION);
         stringBuffer.append(this.getVersion());
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

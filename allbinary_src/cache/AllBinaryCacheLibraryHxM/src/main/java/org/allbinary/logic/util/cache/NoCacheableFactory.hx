@@ -22,7 +22,7 @@ class NoCacheableFactory implements CacheableInterfaceFactoryInterface {
 
     // throws Exception
     public function getInstance(key : Any) : CacheableInterface {
-        throw new haxe.Exception("This Factory Does Not");
+        throw new jre.lang.JavaException("This Factory Does Not");
     }
 
 }

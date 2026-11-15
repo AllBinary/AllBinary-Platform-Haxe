@@ -57,8 +57,8 @@ class Health implements HealthInterface {
             stringBuffer.append("******* Trying to heal when damaging. Damage: ");
             stringBuffer.appendint(ahealth);
             stringBuffer.append(CommonSeps.getInstance().SPACE);
-            stringBuffer.append(this.toString());
-            ForcedLogUtil.log(stringBuffer.toString(), this);
+            stringBuffer.append(Std.string(this));
+            ForcedLogUtil.log(Std.string(stringBuffer), this);
             return;
         }
         var health : Int = this.getHealth() - ahealth;
@@ -110,7 +110,7 @@ class Health implements HealthInterface {
         stringBuffer.appendint(this.health);
         stringBuffer.append(Health.MAX_HEALTH_LABEL);
         stringBuffer.appendint(this.maxHealth);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

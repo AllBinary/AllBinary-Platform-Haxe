@@ -103,7 +103,7 @@ class DownloadableInventoryItemView extends HttpStoreComponentView implements Re
         stringBuffer.append(fullPath);
         stringBuffer.append(fileName);
         this.logUtil.putF("FileName: " + fileName, this, "processFile()");
-        final file : AbFile = AbFile.createAbFile(stringBuffer.toString());
+        final file : AbFile = AbFile.createAbFile(Std.string(stringBuffer));
         this.logUtil.putF(file.getPath(), this, "processFiles()");
         file.createNewFile();
         var byteArray : haxe.ds.Vector<Int> = fileItem.get();
@@ -118,7 +118,7 @@ class DownloadableInventoryItemView extends HttpStoreComponentView implements Re
         stringBuffer.append(fullPath);
         stringBuffer.append(fileName);
         this.logUtil.putF("FileName: " + fileName, this, "unzip()");
-        final file : AbFile = AbFile.createAbFile(stringBuffer.toString());
+        final file : AbFile = AbFile.createAbFile(Std.string(stringBuffer));
         this.logUtil.putF(file.getPath(), this, "unzip()");
         ZipFileUtil.getInstance().unzip(fullPath, file, fileName);
     }
@@ -135,7 +135,7 @@ class DownloadableInventoryItemView extends HttpStoreComponentView implements Re
         stringBuffer.appendchar(filePathData.SEPARATORCHAR);
         stringBuffer.append(this.downloadableItem.getId());
         stringBuffer.appendchar(filePathData.SEPARATORCHAR);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     private function setRequestHashMap(requestHashMap : HashMap) : Void {

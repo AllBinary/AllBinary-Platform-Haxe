@@ -92,7 +92,7 @@ class ReleaseControlledMotionGestureListener implements MotionGestureEventListen
             this.signed.onMotionGestureCompleted(this.motionGestureCollection);
             this.motionGestureCollection.clear();
         } catch (e : haxe.Exception) {
-            this.logUtil.put(new StringMaker().append(this.commonStrings.EXCEPTION_LABEL).append(StringUtil.getInstance().toString(ev.getMotionGesture())).toString(), this, "release", e);
+            this.logUtil.put(Std.string(new StringMaker().append(this.commonStrings.EXCEPTION_LABEL).append(StringUtil.getInstance().toString(ev.getMotionGesture()))), this, "release", e);
         }
     }
 

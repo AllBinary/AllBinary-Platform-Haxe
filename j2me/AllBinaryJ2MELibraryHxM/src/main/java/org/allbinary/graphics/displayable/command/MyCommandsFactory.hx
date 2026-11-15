@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.displayable.command;
 
-//import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.Command;
 import org.allbinary.logic.string.StringUtil;
 
 class MyCommandsFactory {

@@ -39,14 +39,14 @@ class PlatformImage {
         return height;
     }
 
-    public function getGraphics(graphicsSurface : Any, width : Int, height : Int, image : Image) : javax.microedition.lcdui.Graphics {
-        throw new haxe.Exception();
+    public function getGraphics(graphicsSurface : Any, width : Int, height : Int, image : Image) : Graphics {
+        throw new jre.lang.JavaException();
     }
 
-    public function drawImage(image : Image, x : Int, y : Int, anchor : Int, g2 : javax.microedition.lcdui.Graphics, g : Any) : Void {
+    public function drawImage(image : Image, x : Int, y : Int, anchor : Int, g2 : Graphics, g : Any) : Void {
     }
 
-    public function drawRegion(image : Image, x_src : Int, y_src : Int, width : Int, height : Int, transform : Int, x_dst : Int, y_dst : Int, anchor : Int, g : javax.microedition.lcdui.Graphics) : Void {
+    public function drawRegion(image : Image, x_src : Int, y_src : Int, width : Int, height : Int, transform : Int, x_dst : Int, y_dst : Int, anchor : Int, g : Graphics) : Void {
     }
 
     public function getRGB(argb : haxe.ds.Vector<Int>, offset : Int, scanlength : Int, x : Int, y : Int, width : Int, height : Int, image : Image) : Void {

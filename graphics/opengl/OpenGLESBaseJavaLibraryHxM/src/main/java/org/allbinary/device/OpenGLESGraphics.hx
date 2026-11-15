@@ -1,10 +1,10 @@
 // Generated Code Do Not Modify
 package org.allbinary.device;
 
-//import javax.microedition.khronos.opengles.GL;
-//import javax.microedition.khronos.opengles.GL10;
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.khronos.opengles.GL;
+import javax.microedition.khronos.opengles.GL10;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.font.FontDebugBase;
 import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 import org.allbinary.string.CommonStrings;
@@ -41,7 +41,7 @@ class OpenGLESGraphics extends Graphics implements OpenGLSurfaceChangedInterface
     }
 
     public override function setFontDebug(font : Font, fontDebug : FontDebugBase) : Void {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
 }

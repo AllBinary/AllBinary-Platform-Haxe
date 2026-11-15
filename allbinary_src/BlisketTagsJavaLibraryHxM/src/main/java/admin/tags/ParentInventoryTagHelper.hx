@@ -35,7 +35,7 @@ class ParentInventoryTagHelper {
             stringBuffer.append(" as parent");
             stringBuffer.append("and not: ");
             stringBuffer.append(Type.getClassName(Type.getClass(parentTag)));
-            throw new haxe.Exception(stringBuffer.toString());
+            throw new haxe.Exception(Std.string(stringBuffer));
         }
     }
 

@@ -30,7 +30,7 @@ class LockedFeatureNotificationUtil {
         return LockedFeatureNotificationUtil.instance;
     }
 
-    private final gameNotificationEvent : GameNotificationEvent = new GameNotificationEvent(this, LicenseStrings.getInstance().LOCKED, SmallIntegerSingletonFactory.getInstance().getAt(3), BasicColorFactory.getInstance().RED, BooleanFactory.getInstance().FALSE);
+    private final gameNotificationEvent : GameNotificationEvent;
     // throws Exception
     public function fire() : Void {
         PrimaryPlayerQueueFactory.getInstance().add(ErrorSound.getInstance());
@@ -45,6 +45,7 @@ class LockedFeatureNotificationUtil {
     }
 
     public function new() {
+        this.gameNotificationEvent = new GameNotificationEvent(this, LicenseStrings.getInstance().LOCKED, SmallIntegerSingletonFactory.getInstance().getAt(3), BasicColorFactory.getInstance().RED, BooleanFactory.getInstance().FALSE);
     }
 }
 

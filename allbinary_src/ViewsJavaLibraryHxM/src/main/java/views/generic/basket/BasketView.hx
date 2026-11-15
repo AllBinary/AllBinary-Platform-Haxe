@@ -61,12 +61,12 @@ class BasketView extends HttpStoreComponentView implements DomNodeInterface {
                 if (itemInterface != null) {
                     var basicItemView : BasicItemView = new BasicItemView(itemInterface, new BasicArrayListD());
                     var node : Node = basicItemView.toXmlNode(document);
-                    var numberInBasket : String = basketInterface.getNumberOf(product).toString();
+                    var numberInBasket : String = Std.string(basketInterface.getNumberOf(product));
                     node.appendChild(ModDomHelper.createNameValueNodes(document, BasketData.ITEMTOTALINBASKET, numberInBasket));
                     var itemPrice : Money = itemInterface.getPrice();
                     var itemTotal : Money = new Money(itemPrice);
                     itemTotal.multiply(Std.int(basketInterface.getNumberOf(product)));
-                    node.appendChild(ModDomHelper.createNameValueNodes(document, BasketData.ITEMTOTAL, itemTotal.toString()));
+                    node.appendChild(ModDomHelper.createNameValueNodes(document, BasketData.ITEMTOTAL, Std.string(itemTotal)));
                     basketNode.appendChild(node);
                 } else {
                     this.logUtil.putF("Product Failed: " + product, this, "toXmlNode");
@@ -74,13 +74,13 @@ class BasketView extends HttpStoreComponentView implements DomNodeInterface {
                 numberOfResults++;
             }
             var totalNumberNode : Node = document.createElement(SearchData.TOTAL_NUMBER_ITEMS);
-            var totalNumberTextNode : Node = document.createTextNode(basketInterface.getNumberOfItems().toString());
+            var totalNumberTextNode : Node = document.createTextNode(Std.string(basketInterface.getNumberOfItems()));
             totalNumberNode.appendChild(totalNumberTextNode);
             var totalWeightNode : Node = document.createElement(BasketData.TOTALWEIGHT);
-            var totalWeightTextNode : Node = document.createTextNode(basketInterface.getTotalWeight().toString());
+            var totalWeightTextNode : Node = document.createTextNode(Std.string(basketInterface.getTotalWeight()));
             totalWeightNode.appendChild(totalWeightTextNode);
             var subTotalNode : Node = document.createElement(BasketData.SUBTOTAL);
-            var subTotalTextNode : Node = document.createTextNode(basketInterface.getSubTotal().toString());
+            var subTotalTextNode : Node = document.createTextNode(Std.string(basketInterface.getSubTotal()));
             subTotalNode.appendChild(subTotalTextNode);
             basketNode.appendChild(totalNumberNode);
             basketNode.appendChild(totalWeightNode);

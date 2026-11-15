@@ -31,15 +31,6 @@ class NoGameNotificationHudSingleton {
     public function new() {
         try {
             final basicHudFactory : BasicHudFactory = BasicHudFactory.getInstance();
-            // Java inner class: Haxe does not nest classes so move this to its own module
-            class NoGameGameNotificationHud extends GameNotificationHud {
-                public function new() {
-                    super(basicHudFactory.TOPCENTER, basicHudFactory.HORIZONTAL, 2, BasicColorFactory.getInstance().RED);
-                    this.updateMaxWidth = 40;
-                    this.updateMaxHeight = 14;
-                }
-
-            }
             this.gameNotificationHud = new NoGameGameNotificationHud();
         } catch (e : haxe.Exception) {
             final commonStrings : CommonStrings = CommonStrings.getInstance();

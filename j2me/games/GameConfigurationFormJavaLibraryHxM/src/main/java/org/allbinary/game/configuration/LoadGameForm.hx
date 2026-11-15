@@ -15,23 +15,23 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration;
 
-//import javax.microedition.lcdui.Choice;
-//import javax.microedition.lcdui.ChoiceGroup;
-//import javax.microedition.lcdui.CommandListener;
-//import javax.microedition.lcdui.Item;
-//import javax.microedition.lcdui.NullImage;
-//import javax.microedition.lcdui.StringItem;
+import javax.microedition.lcdui.Choice;
+import javax.microedition.lcdui.ChoiceGroup;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Item;
+import javax.microedition.lcdui.NullImage;
+import javax.microedition.lcdui.StringItem;
+import org.allbinary.MIDPUtil;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.persistance.GamePersistanceSingleton;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
-import org.allbinary.logic.MEUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 
 class LoadGameForm extends CommandForm {
-    private final meUtil : MEUtil = MEUtil.getInstance();
+    private final meUtil : MIDPUtil = MIDPUtil.getInstance();
     private var areChoices : Bool = false;
     public function new(commandListener : CommandListener, title : String, backgrounBasicColor : BasicColor, foregroundBasicColor : BasicColor) {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
@@ -78,8 +78,8 @@ class LoadGameForm extends CommandForm {
         final size : Int = list.size();
         for (index in 0...size) {
             var anyType : Any = list.objectArray[index];
-            this.logUtil.putF(new StringMaker().append(ADDING_CHOICE).append(anyType.toString()).toString(), this, METHOD_NAME);
-            choiceGroup.append(anyType.toString(), NullImage.NULL_IMAGE);
+            this.logUtil.putF(Std.string(new StringMaker().append(ADDING_CHOICE).append(Std.string(anyType))), this, METHOD_NAME);
+            choiceGroup.append(Std.string(anyType), NullImage.NULL_IMAGE);
         }
         return choiceGroup;
     }

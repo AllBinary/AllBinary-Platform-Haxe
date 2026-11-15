@@ -99,7 +99,12 @@ class EditValidationView extends DownloadableInventoryItemView implements Valida
         } else {
             stringBuffer.append("Item should not have DownloadableItem.<br />");
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
+    }
+
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
     }
 
 }

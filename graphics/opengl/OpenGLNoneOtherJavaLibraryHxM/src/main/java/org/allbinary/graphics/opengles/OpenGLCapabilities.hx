@@ -23,6 +23,7 @@ class OpenGLCapabilities {
         return OpenGLCapabilities.instance;
     }
 
+    public final CUSTOM_GL_SURFACE_VIEW : Bool = true;
     public final VERSION_1_0 : String = "1.0";
     public final VERSION_1_1 : String = "1.1";
     public final VERSION_2_0 : String = "2.0";
@@ -35,6 +36,10 @@ class OpenGLCapabilities {
     public var glInstanceVersion : String = StringUtil.getInstance().EMPTY_STRING;
     public var maxTextureSize : Int = 64;
     public function new() {
+    }
+
+    public function isInitialized() : Bool {
+        return true;
     }
 
     public function initCapabilities(gl : Any) : Void {

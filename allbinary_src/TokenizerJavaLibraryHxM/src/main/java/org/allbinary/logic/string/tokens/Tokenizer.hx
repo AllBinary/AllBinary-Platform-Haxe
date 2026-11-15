@@ -26,8 +26,8 @@ class Tokenizer {
     private var sep : String;
     private var endSep : String = StringUtil.getInstance().EMPTY_STRING;
     public function new(sep : String) {
-        if (sep == null || TsUtil.getInstance().compareTo(sep, StringUtil.getInstance().EMPTY_STRING) == 0) {
-            throw new haxe.Exception("Sep provided is not valid");
+        if (TsUtil.getInstance().compareTo(sep, StringUtil.getInstance().EMPTY_STRING) == 0) {
+            throw new jre.lang.JavaException("Sep provided is not valid");
         }
         this.sep = sep;
     }

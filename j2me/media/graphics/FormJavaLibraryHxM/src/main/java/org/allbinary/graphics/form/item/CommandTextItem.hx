@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form.item;
 
-//import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.Command;
 import org.allbinary.graphics.color.BasicColor;
 
 class CommandTextItem extends ABTextItem {

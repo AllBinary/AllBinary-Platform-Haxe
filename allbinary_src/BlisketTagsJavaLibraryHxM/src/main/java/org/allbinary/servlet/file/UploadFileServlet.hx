@@ -107,7 +107,7 @@ class UploadFileServlet extends HttpServlet {
                     stringBuffer.append(this.fileName);
                     stringBuffer.append(" New File: ");
                     stringBuffer.append(file.getPath());
-                    this.logUtil.putF(stringBuffer.toString(), this, "saveFile()");
+                    this.logUtil.putF(Std.string(stringBuffer), this, "saveFile()");
                 }
                 HttpFileUploadUtil.log(fileItem);
                 final byteArray : haxe.ds.Vector<Int> = fileItem.get();

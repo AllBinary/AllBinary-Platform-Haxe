@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.business.installer;
 
-//import java.util.HashMap;
-//import java.util.Map;
-//import java.util.Set;
+import jre.util.HashMap;
+import jre.util.Map;
+import jre.util.Set;
 import org.allbinary.business.init.db.HistoryDbInitInfo;
 import org.allbinary.business.init.db.InventoryDbInitInfo;
 import org.allbinary.business.init.db.LogDbInitInfo;
@@ -70,10 +70,21 @@ class Initializer {
     private static final MAX : Int = 16;
     private static final MIN : Int = 4;
     private static final MINPASSWORD : Int = 0;
-    public function new(map : Map) {
+    public function new(...args : Dynamic) {
+        if (args.length == 1 && Std.isOfType(args[0], Map)) {
+            final map : Map<Dynamic, Dynamic> = args[0];
+            this._new0(map);
+        }
+        else if (args.length == 1) {
+            final initHashMap : HashMap<Dynamic, Dynamic> = args[0];
+            this._new1(initHashMap);
+        }
+    }
+
+    private function _new0(map : Map<Dynamic, Dynamic>) : Void {
         final stringBuffer : StringMaker = new StringMaker();
-        var hashMap : HashMap = StdUtil.getInstance().createHashMap();
-        var keys : Set = map.keySet();
+        var hashMap : HashMap<Dynamic, Dynamic> = StdUtil.getInstance().createHashMap();
+        var keys : Set<Dynamic> = map.keySet();
         final keyArray : haxe.ds.Vector<Any> = keys.toArray();
         final size : Int = keyArray.length;
         for (index in 0...size) {
@@ -85,17 +96,16 @@ class Initializer {
             stringBuffer.append(key);
             stringBuffer.append(" Value: ");
             stringBuffer.append(values[0]);
-            this.logUtil.putF(stringBuffer.toString(), this, "getFormData()");
+            this.logUtil.putF(Std.string(stringBuffer), this, "getFormData()");
         }
         this.getFormData(hashMap);
     }
 
-    // Java overloaded constructor: Haxe allows one constructor
-    public function new(initHashMap : HashMap) {
+    private function _new1(initHashMap : HashMap<Dynamic, Dynamic>) : Void {
         this.getFormData(initHashMap);
     }
 
-    public function getFormData(hashMap : HashMap) : Void {
+    public function getFormData(hashMap : HashMap<Dynamic, Dynamic>) : Void {
         try {
             var initializerData : InitializerData = InitializerData.getInstance();
             this.userJdbcDriver = (cast hashMap.get(initializerData.CUSTOMERJDBCDRIVER) : String);
@@ -222,7 +232,7 @@ class Initializer {
         stringBuffer.append("The JDBC driver (");
         stringBuffer.append(jdbcDriver);
         stringBuffer.append(") you have provided is not valid.<br/>");
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     private function getJdbcDriverSolutionInfo() : String {
@@ -236,7 +246,7 @@ class Initializer {
         stringBuffer.append("Solution: Get a JDBC driver. <br/>");
         stringBuffer.append("3. The JDBC driver you specified is not valid.<br/>");
         stringBuffer.append("Solution: Use a valid JDBC driver.<p/>");
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function getInvalidInfo() : String {
@@ -311,7 +321,7 @@ class Initializer {
         if (!isJdbcDriversValid) {
             stringBuffer.append(getJdbcDriverSolutionInfo());
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     // throws Exception

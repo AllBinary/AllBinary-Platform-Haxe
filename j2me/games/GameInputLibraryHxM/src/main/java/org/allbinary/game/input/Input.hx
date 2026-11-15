@@ -48,7 +48,7 @@ class Input {
         stringBuffer.append(this.getName());
         stringBuffer.append(" Id: ");
         stringBuffer.appendint(this.getId());
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

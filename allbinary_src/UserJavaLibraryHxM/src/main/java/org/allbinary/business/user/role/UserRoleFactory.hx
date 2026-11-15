@@ -39,24 +39,41 @@ class UserRoleFactory {
     }
 
     private final basicUserRoleFactory : BasicUserRoleFactory = BasicUserRoleFactory.getInstance();
-    public final INSTALLER : UserRole = new UserRoleB(this.basicUserRoleFactory.INSTALLER, null);
-    public final ADMINISTRATOR : UserRole = new UserRoleB(this.basicUserRoleFactory.ADMINISTRATOR, new AdminUserFactory());
-    public final CUSTOMER : UserRole = new UserRoleB(this.basicUserRoleFactory.CUSTOMER, new UserFactory());
-    public final SUBSCRIBERCUSTOMER : UserRole = new UserRoleB(this.basicUserRoleFactory.SUBSCRIBERCUSTOMER, new SubscriberUserFactory());
-    public final WHOLESALECUSTOMER : UserRole = new UserRoleB(this.basicUserRoleFactory.WHOLESALECUSTOMER, new WholesaleUserFactory());
-    public final STOREMANAGER : UserRole = new UserRoleB(this.basicUserRoleFactory.STOREMANAGER, new StoreAdminUserFactory());
-    public final PRODUCTMANAGER : UserRole = new UserRoleB(this.basicUserRoleFactory.PRODUCTMANAGER, new ProductStoreAdminUserFactory());
-    public final CUSTOMERMANAGER : UserRole = new UserRoleB(this.basicUserRoleFactory.CUSTOMERMANAGER, new CustomerStoreAdminUserFactory());
-    public final PAYMENTMANAGER : UserRole = new UserRoleB(this.basicUserRoleFactory.PAYMENTMANAGER, new PaymentStoreAdminUserFactory());
-    public final ORDERMANAGER : UserRole = new UserRoleB(this.basicUserRoleFactory.ORDERMANAGER, new OrderStoreAdminUserFactory());
-    public final WEBMANAGER : UserRole = new UserRoleB(this.basicUserRoleFactory.WEBMANAGER, new WebStoreAdminUserFactory());
-    public final REVIEWER : UserRole = new UserRoleB(this.basicUserRoleFactory.REVIEWER, new ReviewOrderStoreAdminUserFactory());
-    public final SHIPPING : UserRole = new UserRoleB(this.basicUserRoleFactory.SHIPPING, new ShipOrderStoreAdminUserFactory());
-    public final ADJUSTER : UserRole = new UserRoleB(this.basicUserRoleFactory.ADJUSTER, new AdjustOrderStoreAdminUserFactory());
-    public final WORKFLOWEDITOR : UserRole = new UserRoleB(this.basicUserRoleFactory.WORKFLOWEDITOR, new WorkflowEditorWebStoreAdminUserFactory());
-    public final WIZARD : UserRole = new UserRoleB(this.basicUserRoleFactory.WIZARD, new WizardWebStoreAdminUserFactory());
-    public final VIEWEDITOR : UserRole = new UserRoleB(this.basicUserRoleFactory.VIEWEDITOR, new ViewEditorWebStoreAdminUserFactory());
+    public final INSTALLER : UserRole;
+    public final ADMINISTRATOR : UserRole;
+    public final CUSTOMER : UserRole;
+    public final SUBSCRIBERCUSTOMER : UserRole;
+    public final WHOLESALECUSTOMER : UserRole;
+    public final STOREMANAGER : UserRole;
+    public final PRODUCTMANAGER : UserRole;
+    public final CUSTOMERMANAGER : UserRole;
+    public final PAYMENTMANAGER : UserRole;
+    public final ORDERMANAGER : UserRole;
+    public final WEBMANAGER : UserRole;
+    public final REVIEWER : UserRole;
+    public final SHIPPING : UserRole;
+    public final ADJUSTER : UserRole;
+    public final WORKFLOWEDITOR : UserRole;
+    public final WIZARD : UserRole;
+    public final VIEWEDITOR : UserRole;
     public function new() {
+        this.INSTALLER = new UserRoleB(this.basicUserRoleFactory.INSTALLER, null);
+        this.ADMINISTRATOR = new UserRoleB(this.basicUserRoleFactory.ADMINISTRATOR, new AdminUserFactory());
+        this.CUSTOMER = new UserRoleB(this.basicUserRoleFactory.CUSTOMER, new UserFactory());
+        this.SUBSCRIBERCUSTOMER = new UserRoleB(this.basicUserRoleFactory.SUBSCRIBERCUSTOMER, new SubscriberUserFactory());
+        this.WHOLESALECUSTOMER = new UserRoleB(this.basicUserRoleFactory.WHOLESALECUSTOMER, new WholesaleUserFactory());
+        this.STOREMANAGER = new UserRoleB(this.basicUserRoleFactory.STOREMANAGER, new StoreAdminUserFactory());
+        this.PRODUCTMANAGER = new UserRoleB(this.basicUserRoleFactory.PRODUCTMANAGER, new ProductStoreAdminUserFactory());
+        this.CUSTOMERMANAGER = new UserRoleB(this.basicUserRoleFactory.CUSTOMERMANAGER, new CustomerStoreAdminUserFactory());
+        this.PAYMENTMANAGER = new UserRoleB(this.basicUserRoleFactory.PAYMENTMANAGER, new PaymentStoreAdminUserFactory());
+        this.ORDERMANAGER = new UserRoleB(this.basicUserRoleFactory.ORDERMANAGER, new OrderStoreAdminUserFactory());
+        this.WEBMANAGER = new UserRoleB(this.basicUserRoleFactory.WEBMANAGER, new WebStoreAdminUserFactory());
+        this.REVIEWER = new UserRoleB(this.basicUserRoleFactory.REVIEWER, new ReviewOrderStoreAdminUserFactory());
+        this.SHIPPING = new UserRoleB(this.basicUserRoleFactory.SHIPPING, new ShipOrderStoreAdminUserFactory());
+        this.ADJUSTER = new UserRoleB(this.basicUserRoleFactory.ADJUSTER, new AdjustOrderStoreAdminUserFactory());
+        this.WORKFLOWEDITOR = new UserRoleB(this.basicUserRoleFactory.WORKFLOWEDITOR, new WorkflowEditorWebStoreAdminUserFactory());
+        this.WIZARD = new UserRoleB(this.basicUserRoleFactory.WIZARD, new WizardWebStoreAdminUserFactory());
+        this.VIEWEDITOR = new UserRoleB(this.basicUserRoleFactory.VIEWEDITOR, new ViewEditorWebStoreAdminUserFactory());
     }
 }
 

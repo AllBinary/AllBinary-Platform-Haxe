@@ -43,7 +43,7 @@ class ClientInformation implements AbeClientInformationInterface {
         this.name = name;
         this.version = version;
         this.specialName = specialName;
-        this.shortName = new StringMaker().append(shortName).append(CommonSeps.getInstance().UNDERSCORE).append(version).toString();
+        this.shortName = Std.string(new StringMaker().append(shortName).append(CommonSeps.getInstance().UNDERSCORE).append(version));
         this.init();
     }
 
@@ -93,9 +93,9 @@ class ClientInformation implements AbeClientInformationInterface {
         clientInfoHashtable.put(abeClientInformationData.OSNAME, genericOperatingSystem.getName());
         clientInfoHashtable.put(abeClientInformationData.OSARCH, genericOperatingSystem.getArch());
         clientInfoHashtable.put(abeClientInformationData.OSVERSION, genericOperatingSystem.getVersion());
-        clientInfoHashtable.put(abeClientInformationData.OS, genericOperatingSystem.toString());
+        clientInfoHashtable.put(abeClientInformationData.OS, Std.string(genericOperatingSystem));
         final hardwareInterface : HardwareInterface = SystemHardwareFactory.getInstance().getInstance(genericOperatingSystem);
-        var hardwareString : String = hardwareInterface.toString();
+        var hardwareString : String = Std.string(hardwareInterface);
         clientInfoHashtable.put(abeClientInformationData.HARDWARE, hardwareString);
         return clientInfoHashtable;
     }

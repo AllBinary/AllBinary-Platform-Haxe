@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.color;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsMethod;
 
 interface BasicColorCompositeSetterInterface {
     function setBasicColorP(basicColor : BasicColor) : Void;

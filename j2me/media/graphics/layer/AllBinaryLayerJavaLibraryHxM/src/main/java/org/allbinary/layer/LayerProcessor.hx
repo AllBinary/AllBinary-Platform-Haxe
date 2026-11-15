@@ -26,12 +26,12 @@ class LayerProcessor implements LayerProcessorInterface {
 
     // throws Exception
     public function processAt(allBinaryLayerManager : AllBinaryLayerManager, layerInterface : AllBinaryLayer, index : Int) : Void {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception
     public function isProcessorLayer(layerInterface : AllBinaryLayer) : Bool {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     public function getLayerManager() : LayerManager {

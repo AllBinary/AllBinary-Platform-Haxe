@@ -60,9 +60,9 @@ class ZipFileUtil {
                     stringBuffer.appendint(current);
                     stringBuffer.append(" Creating Zip File Entry: ");
                     stringBuffer.append(file.getPath());
-                    this.logUtil.putF(stringBuffer.toString(), this, "create()");
+                    this.logUtil.putF(Std.string(stringBuffer), this, "create()");
                     try {
-                        fileInputStream = new AbFileInputStream(file);
+                        fileInputStream = AbFileInputStream.createFromAbFile(file);
                         outputStream.putNextEntry(new ZipEntry(file.getPath()));
                         streamUtil.get(fileInputStream, outputStream, byteArray);
                         outputStream.closeEntry();
@@ -84,7 +84,7 @@ class ZipFileUtil {
         var buffer : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy([for (index in 0...16384) 0]);
         var inputStream : ZipInputStream = null;
         try {
-            inputStream = new ZipInputStream(new AbFileInputStream(zipFile));
+            inputStream = new ZipInputStream(AbFileInputStream.createFromAbFile(zipFile));
             var zipEntry : ZipEntry = null;
             final stringBuffer : StringMaker = new StringMaker();
             final fileUtil : FileUtil = FileUtil.getInstance();
@@ -102,7 +102,7 @@ class ZipFileUtil {
                     stringBuffer.appendboolean(entryFile.isDirectory());
                     stringBuffer.append(" getParent: ");
                     stringBuffer.append(entryFile.getParent());
-                    this.logUtil.putF(stringBuffer.toString(), this, "unzip");
+                    this.logUtil.putF(Std.string(stringBuffer), this, "unzip");
                     var dataOutputStream : AbDataOutputStream = DataOutputStreamFactory.getInstance().getInstanceForAbFile(entryFile);
                     fileUtil.write(inputStream, dataOutputStream, buffer);
                 }

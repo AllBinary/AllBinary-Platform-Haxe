@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.input.motion.button;
 
-//import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.Image;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.animation.image.sprite.OneRowSpriteIndexedAnimationFactory;
@@ -52,7 +52,7 @@ class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory extends BaseR
             return;
         }
         final portion : Int = 140;
-        final loadingString : String = new StringMaker().append(this.toString()).append(" Loading: ").toString();
+        final loadingString : String = Std.string(new StringMaker().append(Std.string(this)).append(" Loading: "));
         var index : Int = 0;
         final progressCanvas : ProgressCanvas = ProgressCanvasFactory.getInstance();
         progressCanvas.addPortion(portion, loadingString, index++);

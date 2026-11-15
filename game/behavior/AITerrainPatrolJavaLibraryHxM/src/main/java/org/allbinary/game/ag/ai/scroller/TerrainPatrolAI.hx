@@ -30,9 +30,10 @@ import org.allbinary.util.BasicArrayList;
 class TerrainPatrolAI extends PacePatrolAI {
     private final terrainEventListener : TerrainEventListener = new TerrainEventListener();
     private final DOWN : Angle = AngleFactory.getInstance().DOWN;
-    private final CLIFF : BasicTerrainInfo = new BasicTerrainInfo(this.DOWN);
+    private final CLIFF : BasicTerrainInfo;
     public function new(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) {
         super(hashtable, ownerLayerInterface, gameInput);
+        this.CLIFF = new BasicTerrainInfo(this.DOWN);
         TerrainEventHandler.getInstance(ownerLayerInterface).addListener(this.terrainEventListener);
         this.terrainEventListener.onTerrainEvent(TerrainEventCircularStaticPool.getInstance().getNext(this.CLIFF));
     }

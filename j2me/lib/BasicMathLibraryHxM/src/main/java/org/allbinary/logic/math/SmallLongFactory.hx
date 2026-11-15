@@ -24,8 +24,8 @@ class SmallLongFactory {
 
     public final NEGATIVE_MAX : Int = 500;
     public final POSITIVE_MAX : Int = 0x2D1;
-    private final INTEGER_ARRAY : haxe.ds.Vector<Null<haxe.Int64>> = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.NEGATIVE_MAX + this.POSITIVE_MAX) null]);
-    private final STRING_ARRAY : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.NEGATIVE_MAX + this.POSITIVE_MAX) null]);
+    private final INTEGER_ARRAY : haxe.ds.Vector<Null<haxe.Int64>>;
+    private final STRING_ARRAY : haxe.ds.Vector<String>;
     public var MIN : Int = 0;
     public var lastMin : Int = 0;
     public var lastNegativeMin : Int = 0;
@@ -77,6 +77,8 @@ class SmallLongFactory {
     }
 
     public function new() {
+        this.INTEGER_ARRAY = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.NEGATIVE_MAX + this.POSITIVE_MAX) null]);
+        this.STRING_ARRAY = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.NEGATIVE_MAX + this.POSITIVE_MAX) null]);
     }
 
     public function getInstanceNoThrow(index : haxe.Int64) : Null<haxe.Int64> {
@@ -89,7 +91,7 @@ class SmallLongFactory {
     public function getString(index : Int) : String {
         final i : Int = index + this.NEGATIVE_MAX;
         if (this.STRING_ARRAY[i] == null) {
-            this.STRING_ARRAY[i] = this.INTEGER_ARRAY[i].toString();
+            this.STRING_ARRAY[i] = Std.string(this.INTEGER_ARRAY[i]);
         }
         return this.STRING_ARRAY[i];
     }

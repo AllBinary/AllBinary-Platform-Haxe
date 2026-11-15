@@ -31,7 +31,7 @@ class ConstructorUtil {
         for (index in 0...constructor.length) {
             stringBuffer.append(ConstructorUtil.view(constructor[index], lineBreak));
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public static function view(constructor : Constructor, lineBreak : String) : String {
@@ -47,7 +47,7 @@ class ConstructorUtil {
                 stringBuffer.appendint(index);
             }
             stringBuffer.append(lineBreak);
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } else {
             return "Constructor Null";
         }

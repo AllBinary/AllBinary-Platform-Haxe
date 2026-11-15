@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.data.resource;
 
-//import java.io.InputStream;
+import jre.io.InputStream;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
@@ -45,7 +45,7 @@ class ResourceUtil {
                 inputStream = this.getResourceAsStreamAtStart(resource, 1);
                 if (inputStream == null) {
                     final stringMaker : StringMaker = new StringMaker();
-                    final index : Int = resource.lastIndexOf("/".code);
+                    final index : Int = resource.lastIndexOf(String.fromCharCode("/".code));
                     var resourcePath : String = resource.substring(index + 1);
                     inputStream = Type.getClass(resource).getResourceAsStream(resourcePath);
                     if (inputStream == null) {
@@ -53,33 +53,33 @@ class ResourceUtil {
                         inputStream = Type.getClass(resource).getResourceAsStream(resourcePath);
                         if (inputStream == null) {
                             final RES : String = "res";
-                            resourcePath = stringMaker.append(RES).append(resource.substring(index)).toString();
+                            resourcePath = Std.string(stringMaker.append(RES).append(resource.substring(index)));
                             inputStream = Type.getClass(resource).getResourceAsStream(resourcePath);
                             if (inputStream == null) {
                                 stringMaker.delete(0, stringMaker.length());
-                                resourcePath = stringMaker.append("/").append(RES).append(resource.substring(index)).toString();
+                                resourcePath = Std.string(stringMaker.append("/").append(RES).append(resource.substring(index)));
                                 inputStream = Type.getClass(resource).getResourceAsStream(resourcePath);
                                 final COLON : String = CommonSeps.getInstance().COLON;
                                 if (inputStream == null) {
                                     stringMaker.delete(0, stringMaker.length());
-                                    resourcePath = stringMaker.append(RES).append(COLON).append(resource.substring(index)).toString();
+                                    resourcePath = Std.string(stringMaker.append(RES).append(COLON).append(resource.substring(index)));
                                     inputStream = Type.getClass(resource).getResourceAsStream(resourcePath);
                                     if (inputStream == null) {
                                         stringMaker.delete(0, stringMaker.length());
-                                        resourcePath = stringMaker.append(RES).append(COLON).append(resource.substring(index + 1)).toString();
+                                        resourcePath = Std.string(stringMaker.append(RES).append(COLON).append(resource.substring(index + 1)));
                                         inputStream = Type.getClass(resource).getResourceAsStream(resourcePath);
                                         if (inputStream == null) {
                                             final RESOURCE_STRING : String = "resource";
                                             stringMaker.delete(0, stringMaker.length());
-                                            resourcePath = stringMaker.append(RESOURCE_STRING).append(COLON).append(resource.substring(index)).toString();
+                                            resourcePath = Std.string(stringMaker.append(RESOURCE_STRING).append(COLON).append(resource.substring(index)));
                                             inputStream = Type.getClass(resource).getResourceAsStream(resourcePath);
                                             if (inputStream == null) {
                                                 stringMaker.delete(0, stringMaker.length());
-                                                resourcePath = stringMaker.append(RESOURCE_STRING).append(COLON).append(resource.substring(index + 1)).toString();
+                                                resourcePath = Std.string(stringMaker.append(RESOURCE_STRING).append(COLON).append(resource.substring(index + 1)));
                                                 inputStream = Type.getClass(resource).getResourceAsStream(resourcePath);
                                                 if (inputStream == null) {
                                                     stringMaker.delete(0, stringMaker.length());
-                                                    throw new haxe.Exception(stringMaker.append("Unable to obtain: ").append(resource).toString());
+                                                    throw new jre.lang.JavaException(Std.string(stringMaker.append("Unable to obtain: ").append(resource)));
                                                 }
                                             }
                                         }

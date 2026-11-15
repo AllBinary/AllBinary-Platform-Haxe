@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.layer;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;

@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.system.hardware.android;
 
-//import java.io.Closeable;
-//import java.io.FileReader;
-//import java.io.LineNumberReader;
+import jre.io.Closeable;
+import jre.io.FileReader;
+import jre.io.LineNumberReader;
 import org.allbinary.logic.io.NullCloseable;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -36,13 +36,14 @@ class AndroidHardware implements HardwareInterface {
     private final commonStrings : CommonStrings = CommonStrings.getInstance();
     private var componentInterfaceVector : BasicArrayList = new BasicArrayListD();
     private final PROC_BUS_INPUT_DIRECTORY : String = "/proc/bus/input/";
-    private final DEVICES : String = this.PROC_BUS_INPUT_DIRECTORY + "devices/";
+    private final DEVICES : String;
     private final MINHARDWARE : Int = 3;
     public function new() {
+        this.DEVICES = this.PROC_BUS_INPUT_DIRECTORY + "devices/";
         this.init(this.DEVICES);
         final size : Int = this.componentInterfaceVector.size();
         if (size < this.MINHARDWARE) {
-            throw new haxe.Exception("Not Enough Data For A Valid License On Linux");
+            throw new jre.lang.JavaException("Not Enough Data For A Valid License On Linux");
         }
     }
 
@@ -52,7 +53,7 @@ class AndroidHardware implements HardwareInterface {
         try {
             lineNumberReader = this.get(filePath);
         } catch (e : haxe.Exception) {
-            this.logUtil.put("Hardware Data: " + this.toString(), this, this.commonStrings.INIT, e);
+            this.logUtil.put("Hardware Data: " + Std.string(this), this, this.commonStrings.INIT, e);
             throw e;
         }
         // Java finally: Haxe has no finally so this always runs after the try
@@ -86,10 +87,10 @@ class AndroidHardware implements HardwareInterface {
         final size : Int = this.componentInterfaceVector.size();
         for (index in 0...size) {
             var componentInterface : HardwareComponentInterface = (cast this.componentInterfaceVector.get(index) : HardwareComponentInterface);
-            stringBuilder.append(componentInterface.toString());
+            stringBuilder.append(Std.string(componentInterface));
             stringBuilder.append(CommonSeps.getInstance().NEW_LINE);
         }
-        return stringBuilder.toString();
+        return Std.string(stringBuilder);
     }
 
     public function compareTo(hardwareInterface : HardwareInterface) : Bool {

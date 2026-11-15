@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.string;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
+//import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsProperty;
 
 class CommonStrings {
     private static final instance : CommonStrings = new CommonStrings();
@@ -43,7 +43,7 @@ class CommonStrings {
     public final DOWN : String = "down";
     public final LEFT : String = "left";
     public final RIGHT : String = "right";
-    public final DIRECTION_NAME : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy([this.DOWN, this.LEFT, this.RIGHT, this.UP]);
+    public final DIRECTION_NAME : haxe.ds.Vector<String>;
     public final CREATE : String = "Create";
     public final REMOVE : String = "Remove";
     public final UPDATE : String = "Update";
@@ -55,7 +55,7 @@ class CommonStrings {
     public final DROP : String = "Drop";
     public final INSERT : String = "Insert";
     public final VISIT : String = "visit";
-    public final START_METHOD_NAME : String = this.START;
+    public final START_METHOD_NAME : String;
     public final END_METHOD_NAME : String = "end";
     public final GET : String = "get";
     public final PROCESS : String = "process";
@@ -78,6 +78,8 @@ class CommonStrings {
     public final REMOVE_LISTENER : String = "removeListener";
     public final SIZE : String = "size";
     public function new() {
+        this.DIRECTION_NAME = haxe.ds.Vector.fromArrayCopy([this.DOWN, this.LEFT, this.RIGHT, this.UP]);
+        this.START_METHOD_NAME = this.START;
     }
 }
 

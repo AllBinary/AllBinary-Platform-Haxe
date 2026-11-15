@@ -15,10 +15,10 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.color;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 import org.allbinary.util.CircularIndexUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsConstructor;
 
 class BasicColorArrayIndexer {
     private var basicColorArray : haxe.ds.Vector<BasicColor>;

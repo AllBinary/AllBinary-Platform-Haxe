@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.util;
 
-//import java.util.Enumeration;
-import jsinterop.annotations.JsType;
+import jre.util.Enumeration;
+//import jsinterop.annotations.JsType;
 
 class HashtableUtil {
     private static final instance : HashtableUtil = new HashtableUtil();
@@ -26,7 +26,7 @@ class HashtableUtil {
 
     private final enumerationUtil : EnumerationUtil = EnumerationUtil.getInstance();
     public function putAll(fromHashtable : ABHashtable<Any, Any>, hashtable : ABHashtable<Any, Any>) : Void {
-        final enumeration : Enumeration = fromHashtable.keys();
+        final enumeration : Enumeration<Dynamic> = fromHashtable.keys();
         var keyCanBeNull : Any = null;
         var valueCanBeNull : Any = null;
         while (this.enumerationUtil.hasMoreElements(enumeration)) {
@@ -42,7 +42,7 @@ class HashtableUtil {
     public function getKeysAsArray(hashtable : ABHashtable<Any, Any>) : haxe.ds.Vector<Any> {
         final objectArray : haxe.ds.Vector<Any> = haxe.ds.Vector.fromArrayCopy([for (index in 0...hashtable.size()) null]);
         var index : Int = 0;
-        final enumeration : Enumeration = hashtable.keys();
+        final enumeration : Enumeration<Dynamic> = hashtable.keys();
         while (this.enumerationUtil.hasMoreElements(enumeration)) {
             objectArray[index++] = this.enumerationUtil.nextElement(enumeration);
         }
@@ -51,7 +51,7 @@ class HashtableUtil {
 
     public function getKeysAsList(hashtable : ABHashtable<Any, Any>) : BasicArrayList {
         final list : BasicArrayList = new BasicArrayListS(hashtable.size());
-        final enumeration : Enumeration = hashtable.keys();
+        final enumeration : Enumeration<Dynamic> = hashtable.keys();
         while (this.enumerationUtil.hasMoreElements(enumeration)) {
             list.add(this.enumerationUtil.nextElement(enumeration));
         }

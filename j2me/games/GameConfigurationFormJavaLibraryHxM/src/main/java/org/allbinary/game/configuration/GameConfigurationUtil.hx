@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration;
 
-//import javax.microedition.lcdui.Item;
+import javax.microedition.lcdui.Item;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
@@ -53,7 +53,7 @@ class GameConfigurationUtil {
         stringBuffer.appendint(Std.int(Std.int(gameConfiguration.getValue())));
         stringBuffer.append(this.TO);
         stringBuffer.appendint(Std.int(Std.int(value)));
-        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.UPDATE);
+        this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.UPDATE);
         gameConfiguration.setValue(value);
     }
 
@@ -66,7 +66,7 @@ class GameConfigurationUtil {
         stringBuffer.append(gameConfiguration.getName());
         stringBuffer.append(this.TO);
         stringBuffer.appendint(Std.int(Std.int(gameConfiguration.getDefaultValue())));
-        this.logUtil.putF(stringBuffer.toString(), this, "setDefault");
+        this.logUtil.putF(Std.string(stringBuffer), this, "setDefault");
         gauge.setValue(Std.int(gameConfiguration.getDefaultValue()) - Std.int(gameConfiguration.getMinValue()));
         gameConfiguration.setValue(gameConfiguration.getDefaultValue());
     }

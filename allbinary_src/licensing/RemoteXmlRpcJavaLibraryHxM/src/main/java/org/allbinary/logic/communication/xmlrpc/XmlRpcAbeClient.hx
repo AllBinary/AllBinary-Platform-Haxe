@@ -69,7 +69,7 @@ class XmlRpcAbeClient {
         stringBuffer.appendint(this.getServer());
         stringBuffer.append(this.SEP);
         stringBuffer.append(clientInfo.getLicenseServer(this.getServer()));
-        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.CONSTRUCTOR);
     }
 
     // throws Exception
@@ -90,7 +90,7 @@ class XmlRpcAbeClient {
         } else {
             this.setIsDone(true);
         }
-        throw new haxe.Exception("Tried All Servers But Still Failed");
+        throw new jre.lang.JavaException("Tried All Servers But Still Failed");
     }
 
     public function getClientInfo() : AbeClientInformationInterface {

@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.paint.help;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
@@ -29,8 +29,8 @@ import org.allbinary.logic.string.StringUtil;
 
 class HelpPaintable extends Paintable implements UpdateMyFontInterface {
     public final displayInfo : DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
-    public final updateMyFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
-    public var myFontProcessor : MyFontProcessor = this.updateMyFontProcessor;
+    public final updateMyFontProcessor : MyFontProcessor;
+    public var myFontProcessor : MyFontProcessor;
     public var anchor : Int = Anchor.TOP_LEFT;
     public final title : String;
     public var inputInfo : haxe.ds.Vector<String> = StringUtil.getInstance().getArrayInstance();
@@ -40,6 +40,8 @@ class HelpPaintable extends Paintable implements UpdateMyFontInterface {
     private var charHeight : Int = 0;
     public function new(title : String, backgroundBasicColor : BasicColor, basicColor : BasicColor) {
         super();
+        this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
+        this.myFontProcessor = this.updateMyFontProcessor;
         this.title = title;
         this.basicColor = basicColor;
     }

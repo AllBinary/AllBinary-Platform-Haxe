@@ -27,28 +27,28 @@
 
     <modules>
         
-        <module>../../ProgressLazyJ2MEJavaLibraryHaxeM</module>
+        <module>../../ProgressLazyJ2MEJavaLibraryHxM</module>
         <!--
-                <module>../../games/GameScoresBaseHTMLLibraryHaxeM</module>
-                <module>../../games/GameScoresJ2MEJavaLibraryHaxeM</module>
-                <module>../../../allbinary_src/licensing/RemoteXmlRpcJavaLibraryHaxeM</module>
-                <module>../../games/GameScoresLocalLibraryHaxeM</module>
-                <module>../../games/GameScoresRemoteAndLocalLibraryHaxeM</module>
+                <module>../../games/GameScoresBaseHTMLLibraryHxM</module>
+                <module>../../games/GameScoresJ2MEJavaLibraryHxM</module>
+                <module>../../../allbinary_src/licensing/RemoteXmlRpcJavaLibraryHxM</module>
+                <module>../../games/GameScoresLocalLibraryHxM</module>
+                <module>../../games/GameScoresRemoteAndLocalLibraryHxM</module>
         -->
-<!-- in GameJ2MELibraryPOM <module>../../media/graphics/ImageCacheJ2MEJavaLibraryHaxeM</module>-->
-        <module>../../media/graphics/ImageCacheLazyJ2MEJavaLibraryHaxeM</module>
-        <!--        <module>../../media/graphics/ImageCacheOpenGLESJavaLibraryHaxeM</module>-->
-        <module>../../media/graphics/LazyGameResourceNoneJavaLibraryHaxeM</module>
+<!-- in GameJ2MELibraryPOM <module>../../media/graphics/ImageCacheJ2MEJavaLibraryHxM</module>-->
+        <module>../../media/graphics/ImageCacheLazyJ2MEJavaLibraryHxM</module>
+        <!--        <module>../../media/graphics/ImageCacheOpenGLESJavaLibraryHxM</module>-->
+        <module>../../media/graphics/LazyGameResourceNoneJavaLibraryHxM</module>
 
-<!-- in GameJ2MELibraryPOM <module>../../../graphics/opengl/OpenGLNoneJavaLibraryHaxeM</module>-->
+<!-- in GameJ2MELibraryPOM <module>../../../graphics/opengl/OpenGLNoneJavaLibraryHxM</module>-->
 
         <!--
-                <module>../../../graphics/opengl/OpenGLESJavaLibraryHaxeM</module>
+                <module>../../../graphics/opengl/OpenGLESJavaLibraryHxM</module>
         -->
 
-<!-- in GameJ2MELibraryPOM <module>../../input/JSEGyroSensorJavaLibraryHaxeM</module>-->
+<!-- in GameJ2MELibraryPOM <module>../../input/JSEGyroSensorJavaLibraryHxM</module>-->
         <!--        
-                <module>../../ProgressJ2MEJavaLibraryHaxeM</module>
+                <module>../../ProgressJ2MEJavaLibraryHxM</module>
         -->
         <!--        
                 //At some point the GameInput libraries were here
@@ -56,19 +56,19 @@
         
         <!--
         ../../
-        <module>../../../../work/j2me/media/graphics/FormJMEJavaLibraryHaxeM</module>
+        <module>../../../../work/j2me/media/graphics/FormJMEJavaLibraryHxM</module>
         -->
         <!--
         ../../
-        <module>../../../../work/j2me/media/graphics/FormJSEJavaLibraryHaxeM</module>
+        <module>../../../../work/j2me/media/graphics/FormJSEJavaLibraryHxM</module>
         -->
 
-        <module>../../media/sound/J2SEMediaMIDPMinimalJavaLibraryHaxeM</module>
-<!--        <module>../../media/sound/NotDeviceSpecificMIDP2JavaLibraryHaxeM</module>-->
-        <module>../../media/sound/MediaMIDP2ForHTMLJavaLibraryHaxeM</module>
+        <!--<module>../../media/sound/J2SEMediaMIDPMinimalJavaLibraryHxM</module>-->
+<!--        <module>../../media/sound/NotDeviceSpecificMIDP2JavaLibraryHxM</module>-->
+        <!--<module>../../media/sound/MediaMIDP2ForHTMLJavaLibraryHxM</module>-->
 
         <!--
-                <module>../../../../work/j2me/ScreenCaptureAndroidJavaLibraryHaxeM</module>
+                <module>../../../../work/j2me/ScreenCaptureAndroidJavaLibraryHxM</module>
         -->
     </modules>
 

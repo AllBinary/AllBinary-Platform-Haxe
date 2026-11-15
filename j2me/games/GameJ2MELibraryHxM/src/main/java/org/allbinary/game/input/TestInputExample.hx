@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.input;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 
 class TestInputExample implements TestInputInterface {
     private var testValue : Int = 0;

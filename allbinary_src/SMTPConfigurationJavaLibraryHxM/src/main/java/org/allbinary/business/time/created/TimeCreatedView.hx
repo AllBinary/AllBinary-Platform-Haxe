@@ -35,7 +35,7 @@ class TimeCreatedView implements DomNodeInterface {
 
     // throws Exception
     public function toXmlNode(document : Document) : Node {
-        return ModDomHelper.createTextNode(document, EntryData.getInstance().TIMECREATED, this.getTimeCreated().toString());
+        return ModDomHelper.createTextNode(document, EntryData.getInstance().TIMECREATED, Std.string(this.getTimeCreated()));
     }
 
     public function getTimeCreated() : TimeCreated {

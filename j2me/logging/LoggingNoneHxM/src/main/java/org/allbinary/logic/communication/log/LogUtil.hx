@@ -32,7 +32,7 @@ class LogUtil {
     public function putF(specialMessage : String, anyType : Any, functionName : String) : Void {
     }
 
-    public function putF(specialMessage : String, className : String, functionName : String) : Void {
+    public function putFS(specialMessage : String, className : String, functionName : String) : Void {
     }
 
     public function put(specialMessage : String, anyType : Any, functionName : String, exception : Any) : Void {

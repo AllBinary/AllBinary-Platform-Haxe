@@ -110,7 +110,7 @@ class HeadingValidation extends Validation implements DomNodeInterface {
             if (!valid) {
                 stringBuffer.append("Include a title and/or logo for the header.");
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);

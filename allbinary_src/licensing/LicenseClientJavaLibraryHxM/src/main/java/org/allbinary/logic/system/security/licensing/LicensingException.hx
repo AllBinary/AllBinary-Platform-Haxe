@@ -16,15 +16,24 @@
 package org.allbinary.logic.system.security.licensing;
 
 
-class LicensingException extends haxe.Exception {
+class LicensingException extends jre.lang.JavaException {
     public static final serialVersionUID : haxe.Int64 = haxe.Int64.ofInt(1);
-    public function new() {
-        super();
+    public function new(...args : Dynamic) {
+        if (args.length == 0) {
+            super();
+            this._new0();
+        }
+        else if (args.length == 1) {
+            final msg : String = args[0];
+            super(msg);
+            this._new1(msg);
+        }
     }
 
-    // Java overloaded constructor: Haxe allows one constructor
-    public function new(msg : String) {
-        super(msg);
+    private function _new0() : Void {
+    }
+
+    private function _new1(msg : String) : Void {
     }
 
 }

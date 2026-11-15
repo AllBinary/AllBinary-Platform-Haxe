@@ -35,7 +35,7 @@ class BasicGameResources {
             if (scale > 1 && scale - 1 < SIZE.length) {
                 this.append(ROOT, SIZE[scale - 1]);
             } else {
-                throw new haxe.Exception(new StringMaker().append("Invalid Value: ").appendint(scale).toString());
+                throw new jre.lang.JavaException(Std.string(new StringMaker().append("Invalid Value: ").appendint(scale)));
             }
         } catch (e : haxe.Exception) {
             final commonStrings : CommonStrings = CommonStrings.getInstance();
@@ -51,13 +51,13 @@ class BasicGameResources {
         BasicGameResources.stringBuffer.append(ROOT);
         BasicGameResources.stringBuffer.append(string);
         BasicGameResources.stringBuffer.append(sizeString);
-        this.RESOURCE = BasicGameResources.stringBuffer.toString();
+        this.RESOURCE = Std.string(BasicGameResources.stringBuffer);
         BasicGameResources.stringBuffer.delete(0, BasicGameResources.stringBuffer.length());
         BasicGameResources.stringBuffer.append(ROOT);
         BasicGameResources.stringBuffer.append(DESTROY);
         BasicGameResources.stringBuffer.append(string);
         BasicGameResources.stringBuffer.append(sizeString);
-        this.RESOURCE_DESTROY = BasicGameResources.stringBuffer.toString();
+        this.RESOURCE_DESTROY = Std.string(BasicGameResources.stringBuffer);
     }
 
     // throws Exception

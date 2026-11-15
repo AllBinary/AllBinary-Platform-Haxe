@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Canvas;
 import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.graphics.GPoint;
@@ -34,10 +34,11 @@ import org.allbinary.util.BasicArrayList;
 class PopupMenuInputProcessor extends BasicMenuInputProcessor {
     private final rectangleCollisionUtil : RectangleCollisionUtil = RectangleCollisionUtil.getInstance();
     private final CLICK_DELAY : Int = 120;
-    private final clickTimeHelper : TimeDelayHelper = new TimeDelayHelper(this.CLICK_DELAY);
+    private final clickTimeHelper : TimeDelayHelper;
     private var rectangle : Rectangle;
     public function new(gameKeyEventList : BasicArrayList, playerInputId : Int, gameCanvas : MyCanvas, rectangle : Rectangle) {
         super(gameKeyEventList, playerInputId, gameCanvas);
+        this.clickTimeHelper = new TimeDelayHelper(this.CLICK_DELAY);
         this.rectangle = rectangle;
     }
 

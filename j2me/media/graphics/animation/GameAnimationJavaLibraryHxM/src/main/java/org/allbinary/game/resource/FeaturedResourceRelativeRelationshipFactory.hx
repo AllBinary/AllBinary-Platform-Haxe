@@ -48,7 +48,7 @@ class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourceFactor
                 }
             }
         }
-        throw new haxe.Exception(new StringMaker().append("Not available for current feature selection or Resource: ").append(resource).toString());
+        throw new jre.lang.JavaException(Std.string(new StringMaker().append("Not available for current feature selection or Resource: ").append(resource)));
     }
 
     // throws Exception

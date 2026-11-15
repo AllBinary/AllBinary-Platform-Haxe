@@ -1,8 +1,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form.item;
 
-//import javax.microedition.lcdui.Graphics;
-//import javax.microedition.lcdui.Screen;
+import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Screen;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.logic.NullUtil;

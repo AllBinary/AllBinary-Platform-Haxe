@@ -106,7 +106,7 @@ class SimpleStateTaxModule implements TaxModuleInterface {
                     stringBuffer.append(streetAddressNode.getNodeValue());
                     stringBuffer.append(" Number Of Children: ");
                     stringBuffer.appendint(Std.int(streetAddressNode.getChildNodes().getLength()));
-                    this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.IS_VALID);
+                    this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.IS_VALID);
                 }
                 var taxableStreetAddress : StreetAddress = new StreetAddress(streetAddressNode);
                 var stringValidationUtil : StringValidationUtil = StringValidationUtil.getInstance();

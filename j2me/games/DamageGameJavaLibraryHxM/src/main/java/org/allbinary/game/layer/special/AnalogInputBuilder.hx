@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.layer.special;
 
-//import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Canvas;
 import org.allbinary.game.input.GameInputProcessor;
 
 class AnalogInputBuilder {

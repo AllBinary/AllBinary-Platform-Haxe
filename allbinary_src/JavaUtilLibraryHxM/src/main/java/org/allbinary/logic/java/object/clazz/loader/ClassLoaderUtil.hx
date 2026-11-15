@@ -26,7 +26,7 @@ class ClassLoaderUtil {
         if (classLoader != null) {
             return "ClassLoader: " + Type.getClassName(Type.getClass(classLoader));
         }
-        throw new haxe.Exception("Unable to get ClassLoader");
+        throw new jre.lang.JavaException("Unable to get ClassLoader");
     }
 
 }

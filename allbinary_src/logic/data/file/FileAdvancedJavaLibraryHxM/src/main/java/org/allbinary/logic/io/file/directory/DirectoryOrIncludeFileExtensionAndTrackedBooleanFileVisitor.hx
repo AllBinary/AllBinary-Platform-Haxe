@@ -26,18 +26,39 @@ class DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor extends Includ
     private final trackedStrings : TrackedStrings = TrackedStrings.getInstance();
     private final gitProcessHelper : GitProcessHelper = GitProcessHelper.getInstance();
     private final includesString : String;
-    public function new(filterStringBasicArrayList : BasicArrayList) {
-        super(filterStringBasicArrayList);
+    public function new(...args : Dynamic) {
+        if (args.length == 1) {
+            final filterStringBasicArrayList : BasicArrayList = args[0];
+            super(filterStringBasicArrayList);
+            this._new0(filterStringBasicArrayList);
+        }
+        else if (args.length == 2) {
+            final filterStringBasicArrayList : BasicArrayList = args[0];
+            final includesString : String = args[1];
+            super(filterStringBasicArrayList);
+            this._new1(filterStringBasicArrayList, includesString);
+        }
+    }
+
+    private function _new0(filterStringBasicArrayList : BasicArrayList) : Void {
         this.includesString = null;
     }
 
-    // Java overloaded constructor: Haxe allows one constructor
-    public function new(filterStringBasicArrayList : BasicArrayList, includesString : String) {
-        super(filterStringBasicArrayList);
+    private function _new1(filterStringBasicArrayList : BasicArrayList, includesString : String) : Void {
         this.includesString = includesString;
     }
 
-    public override function visit(file : AbFile) : Null<Bool> {
+    public override function visit(...args : Dynamic) : Dynamic {
+        if (args.length == 1) {
+            return this.visit_AbFile(args[0]);
+        }
+        if (args.length == 2) {
+            return this.visit_AbFile_String(args[0], args[1]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: visit");
+    }
+
+    public override function visit_AbFile(file : AbFile) : Null<Bool> {
         if (file.isDirectory()) {
             return true;
         }
@@ -48,7 +69,7 @@ class DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor extends Includ
         }
     }
 
-    public override function visit(file : AbFile, fileNameString : String) : Null<Bool> {
+    public override function visit_AbFile_String(file : AbFile, fileNameString : String) : Null<Bool> {
         final filePath : String = file.getPath();
         if (super.visit(file, fileNameString)) {
             if (!(StringTools.contains(filePath, this.trackedStrings.APPLICATION) || StringTools.contains(filePath, this.trackedStrings.APP) || StringTools.contains(filePath, this.trackedStrings.HTML_TEMP))) {

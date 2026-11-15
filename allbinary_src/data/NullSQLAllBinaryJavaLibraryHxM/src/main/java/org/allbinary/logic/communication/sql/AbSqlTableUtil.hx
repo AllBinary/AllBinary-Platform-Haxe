@@ -45,7 +45,7 @@ class AbSqlTableUtil {
         stringBuffer.append(this.TABLE_LABEL);
         stringBuffer.append(tableName);
         stringBuffer.append(" Restoration Failed");
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function new() {

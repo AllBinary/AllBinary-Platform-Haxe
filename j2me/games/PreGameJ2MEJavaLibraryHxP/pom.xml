@@ -28,14 +28,14 @@
     <modules>
 
         <!--
-        <module>../../AllBinaryJ2MELibraryP</module>
+        <module>../../AllBinaryJ2MELibraryHxP</module>
         -->
 
-        <module>../../media/graphics/NullCustomUIPreJavaLibraryHaxeM</module>
+        <module>../../media/graphics/NullCustomUIPreJavaLibraryHxM</module>
 
-        <module>../../games/ScreenCaptureJavaLibraryHaxeM</module>
+        <module>../../games/ScreenCaptureJavaLibraryHxM</module>
 
-        <module>../../games/PreGameJ2MEJavaLibraryHaxeM</module>
+        <module>../../games/PreGameJ2MEJavaLibraryHxM</module>
 
     </modules>
 

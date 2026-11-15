@@ -63,7 +63,7 @@ class InventoryUploadMediaUtil {
         stringBuffer.append(URLGLOBALS.getWebappPath());
         stringBuffer.append(this.storeFrontInterface.getCurrentHostNamePath());
         stringBuffer.append(this.itemInterface.getCategory());
-        var fullPath : String = stringBuffer.toString();
+        var fullPath : String = Std.string(stringBuffer);
         var imageDirectoryFile : AbFile = AbFile.createAbFile(fullPath);
         if (!imageDirectoryFile.isDirectory()) {
             throw new haxe.Exception("Unable to save file to non existant directory");
@@ -73,7 +73,7 @@ class InventoryUploadMediaUtil {
         stringBuffer.append(fileName);
         stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);
         stringBuffer.append(mediaData.getName());
-        var originalImageFile : AbFile = AbFile.createAbFile(stringBuffer.toString());
+        var originalImageFile : AbFile = AbFile.createAbFile(Std.string(stringBuffer));
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY)) {
             this.logUtil.putF("Saving Original Image: " + originalImageFile, this, "saveFiles()");
         }
@@ -87,7 +87,7 @@ class InventoryUploadMediaUtil {
             stringBuffer.append(mediaData.getName());
             stringBuffer.append(" supported: ");
             stringBuffer.appendboolean(isMediaSupported);
-            this.logUtil.putF(stringBuffer.toString(), this, "saveFiles()");
+            this.logUtil.putF(Std.string(stringBuffer), this, "saveFiles()");
         }
         var defaultMediaData : MediaData = MediaData.getDefault();
         this.setFileNames(fileName);
@@ -96,12 +96,12 @@ class InventoryUploadMediaUtil {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY)) {
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append("Is ");
-                stringBuffer.append(mediaData.toString());
+                stringBuffer.append(Std.string(mediaData));
                 stringBuffer.append(" Image Resize Supported:");
                 stringBuffer.appendboolean(uploadMedia.isSupported(mediaData.getName()));
                 stringBuffer.append(" WriterMedia: ");
                 stringBuffer.appendboolean(isMediaResizable);
-                this.logUtil.putF(stringBuffer.toString(), this, "saveFiles()");
+                this.logUtil.putF(Std.string(stringBuffer), this, "saveFiles()");
             }
             if (isMediaResizable) {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY)) {
@@ -120,7 +120,7 @@ class InventoryUploadMediaUtil {
                     stringBuffer.append(mediaData.getName());
                     stringBuffer.append(" if Convertable is it: ");
                     stringBuffer.appendboolean(isConvertable);
-                    this.logUtil.putF(stringBuffer.toString(), this, "saveFiles()");
+                    this.logUtil.putF(Std.string(stringBuffer), this, "saveFiles()");
                 }
                 if (isConvertable) {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY)) {
@@ -154,24 +154,24 @@ class InventoryUploadMediaUtil {
         stringBuffer.append(this.itemInterface.getId());
         stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);
         stringBuffer.append(MediaData.getDefault().getName());
-        var END : String = stringBuffer.toString();
+        var END : String = Std.string(stringBuffer);
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append(fileName);
         stringBuffer.append(this.SMALL);
         stringBuffer.append(END);
-        var newImageFileName : String = stringBuffer.toString();
+        var newImageFileName : String = Std.string(stringBuffer);
         this.itemInterface.setSmallImage(newImageFileName);
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append(fileName);
         stringBuffer.append(this.MEDIUM);
         stringBuffer.append(END);
-        newImageFileName = stringBuffer.toString();
+        newImageFileName = Std.string(stringBuffer);
         this.itemInterface.setMediumImage(newImageFileName);
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append(fileName);
         stringBuffer.append(this.LARGE);
         stringBuffer.append(END);
-        newImageFileName = stringBuffer.toString();
+        newImageFileName = Std.string(stringBuffer);
         this.itemInterface.setLargeImage(newImageFileName);
     }
 

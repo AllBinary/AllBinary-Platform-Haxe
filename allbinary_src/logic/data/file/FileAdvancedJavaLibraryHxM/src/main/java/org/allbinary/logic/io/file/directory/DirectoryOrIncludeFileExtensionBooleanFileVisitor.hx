@@ -21,14 +21,25 @@ import org.allbinary.util.BasicArrayList;
 
 class DirectoryOrIncludeFileExtensionBooleanFileVisitor extends IncludeFileExtensionsBooleanFileVisitor {
     private final includesString : String;
-    public function new(filterStringBasicArrayList : BasicArrayList) {
-        super(filterStringBasicArrayList);
+    public function new(...args : Dynamic) {
+        if (args.length == 1) {
+            final filterStringBasicArrayList : BasicArrayList = args[0];
+            super(filterStringBasicArrayList);
+            this._new0(filterStringBasicArrayList);
+        }
+        else if (args.length == 2) {
+            final filterStringBasicArrayList : BasicArrayList = args[0];
+            final includesString : String = args[1];
+            super(filterStringBasicArrayList);
+            this._new1(filterStringBasicArrayList, includesString);
+        }
+    }
+
+    private function _new0(filterStringBasicArrayList : BasicArrayList) : Void {
         this.includesString = null;
     }
 
-    // Java overloaded constructor: Haxe allows one constructor
-    public function new(filterStringBasicArrayList : BasicArrayList, includesString : String) {
-        super(filterStringBasicArrayList);
+    private function _new1(filterStringBasicArrayList : BasicArrayList, includesString : String) : Void {
         this.includesString = includesString;
     }
 

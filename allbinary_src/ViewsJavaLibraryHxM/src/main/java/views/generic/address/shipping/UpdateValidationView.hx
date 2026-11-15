@@ -47,5 +47,10 @@ class UpdateValidationView extends ShippingAddressView implements ValidationComp
         return null;
     }
 
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
+    }
+
 }
 

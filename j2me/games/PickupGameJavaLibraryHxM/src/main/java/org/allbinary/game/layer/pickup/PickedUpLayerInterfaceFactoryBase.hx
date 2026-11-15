@@ -21,15 +21,15 @@ import org.allbinary.layer.AllBinaryLayer;
 class PickedUpLayerInterfaceFactoryBase implements PickedUpLayerInterfaceFactoryInterface {
     public static final NULL_PICKED_UP_LAYER_FACTORY_BASE : PickedUpLayerInterfaceFactoryBase = new PickedUpLayerInterfaceFactoryBase();
     public function getIconLayer() : AllBinaryLayer {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getAnimationInterface() : Animation {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getPickedUpLayerType() : PickedUpLayerType {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function new() {

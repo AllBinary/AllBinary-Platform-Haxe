@@ -27,9 +27,10 @@ class OperatingSystems {
     public final WINDOWS_11 : String = "Windows 11";
     public final WINDOWS_VISTA : String = "Windows Vista";
     public final WINDOWS_XP : String = "Windows XP";
-    public final ANDROID : String = this.LINUX;
+    public final ANDROID : String;
     public final HARMONY : String = "HarmonyOS";
     public function new() {
+        this.ANDROID = this.LINUX;
     }
 
     private var unknownSpecificOSAllowed : Bool = true;

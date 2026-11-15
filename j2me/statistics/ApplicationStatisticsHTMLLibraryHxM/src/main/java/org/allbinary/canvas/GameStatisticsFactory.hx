@@ -34,7 +34,7 @@ class GameStatisticsFactory extends BaseGameStatistics {
     }
 
     public function toString() : String {
-        return new StringMaker().append(super.toString()).append(this.stringBuffer.toString()).toString();
+        return Std.string(new StringMaker().append(super.toString()).append(Std.string(this.stringBuffer)));
     }
 
     public function new() {

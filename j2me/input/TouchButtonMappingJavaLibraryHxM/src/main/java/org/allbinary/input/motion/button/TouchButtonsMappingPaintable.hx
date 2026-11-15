@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.input.motion.button;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.CellPositionFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.paint.Paintable;

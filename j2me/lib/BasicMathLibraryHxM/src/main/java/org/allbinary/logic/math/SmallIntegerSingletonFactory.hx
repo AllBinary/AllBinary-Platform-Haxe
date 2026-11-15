@@ -28,8 +28,8 @@ class SmallIntegerSingletonFactory {
 
     public final NEGATIVE_MAX : Int = 500;
     public final POSITIVE_MAX : Int = 0x2D1;
-    private final INTEGER_ARRAY : haxe.ds.Vector<Null<Int>> = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.NEGATIVE_MAX + this.POSITIVE_MAX) null]);
-    private final STRING_ARRAY : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.NEGATIVE_MAX + this.POSITIVE_MAX) null]);
+    private final INTEGER_ARRAY : haxe.ds.Vector<Null<Int>>;
+    private final STRING_ARRAY : haxe.ds.Vector<String>;
     private var MIN : Int = 0;
     private var lastMin : Int = 0;
     private var lastNegativeMin : Int = 0;
@@ -39,17 +39,17 @@ class SmallIntegerSingletonFactory {
             if (J2MEUtil.isJ2ME()) {
             } else if (AndroidUtil.isAndroid()) {
                 final logUtil : LogUtil = LogUtil.getInstance();
-                logUtil.putF(new StringMaker().append("Android InputFactory was initialized before GameMidlet: ").appendint(this.MIN).toString(), this, "getMin");
+                logUtil.putF(Std.string(new StringMaker().append("Android InputFactory was initialized before GameMidlet: ").appendint(this.MIN)), this, "getMin");
                 this.initWithRange(0x291, 6);
             } else {
                 final logUtil : LogUtil = LogUtil.getInstance();
-                logUtil.putF(new StringMaker().append("InputFactory was initialized before GameMidlet or KeyFactoryInitializer - Currently this is occurs on JS build by TouchMotionGestureFactory constructor: ").appendint(this.MIN).toString(), this, "getMin");
+                logUtil.putF(Std.string(new StringMaker().append("InputFactory was initialized before GameMidlet or KeyFactoryInitializer - Currently this is occurs on JS build by TouchMotionGestureFactory constructor: ").appendint(this.MIN)), this, "getMin");
                 this.initWithRange(0x2D0, 6);
             }
         }
         if (this.MIN <= minAllowed) {
             final logUtil : LogUtil = LogUtil.getInstance();
-            logUtil.put("This means you loaded the InputFactory before determining the platform input size requirements.", this, "getMin", new haxe.Exception());
+            logUtil.put("This means you loaded the InputFactory before determining the platform input size requirements.", this, "getMin", new jre.lang.JavaException());
         }
         return this.MIN;
     }
@@ -113,6 +113,8 @@ class SmallIntegerSingletonFactory {
     }
 
     public function new() {
+        this.INTEGER_ARRAY = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.NEGATIVE_MAX + this.POSITIVE_MAX) null]);
+        this.STRING_ARRAY = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.NEGATIVE_MAX + this.POSITIVE_MAX) null]);
         this.initWithRange(23, 0);
     }
 
@@ -138,7 +140,7 @@ class SmallIntegerSingletonFactory {
     public function getString(index : Int) : String {
         final i : Int = index + this.NEGATIVE_MAX;
         if (this.STRING_ARRAY[i] == null) {
-            this.STRING_ARRAY[i] = this.INTEGER_ARRAY[i].toString();
+            this.STRING_ARRAY[i] = Std.string(this.INTEGER_ARRAY[i]);
         }
         return this.STRING_ARRAY[i];
     }

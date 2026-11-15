@@ -42,11 +42,11 @@ class RemoteHighScoresProcessor implements RemoteHighScoresProcessorInterface {
         final gameInfoData : GameInfoData = GameInfoData.getInstance();
         final hashtable : ABHashtable<Any, Any> = abeClientInformation.toHashtable();
         HashtableUtil.getInstance().putAll(gameInfo.toHashtable(), hashtable);
-        hashtable.put(gameInfoData.SOFTWARE_INFORMATION, remoteHighScores.getSoftwareInformation().toString());
-        hashtable.put(remoteHighScores.ASCENDING, remoteHighScores.getAscending().toString());
+        hashtable.put(gameInfoData.SOFTWARE_INFORMATION, Std.string(remoteHighScores.getSoftwareInformation()));
+        hashtable.put(remoteHighScores.ASCENDING, Std.string(remoteHighScores.getAscending()));
         final displayInfoSingleton : DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
         hashtable.put(displayInfoSingleton.ORIENTATION, BooleanFactory.getInstance().toStringb(displayInfoSingleton.isPortrait()));
-        hashtable.put(RemoteHighScoresData.getInstance().GAME_CONFIGURATION, GameConfigurationCentral.getInstance().toString());
+        hashtable.put(RemoteHighScoresData.getInstance().GAME_CONFIGURATION, Std.string(GameConfigurationCentral.getInstance()));
         if (XmlRpcAbeClient.isOnline) {
             var resultHashtable : ABHashtable<Any, Any> = (cast new XmlRpcRemoteHighScoresClient(abeClientInformation, "highscoresservicessl.php", "HighScoresService.process").get(hashtable, this.noCrypt) : ABHashtable<Any, Any>);
             remoteHighScores.update(resultHashtable);

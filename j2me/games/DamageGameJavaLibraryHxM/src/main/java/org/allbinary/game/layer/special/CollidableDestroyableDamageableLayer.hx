@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.layer.special;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.collision.CollidableNeverCollideBehaviorFactory;
 import org.allbinary.game.combat.damage.DamageableInterface;
 import org.allbinary.game.combat.destroy.DestroyableInterface;
@@ -88,17 +88,17 @@ class CollidableDestroyableDamageableLayer extends CollidableCompositeLayer impl
 
     // throws Exception
     public override function damage(damage : Int, damageType : Int) : Void {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception
     public override function getDamage(damageType : Int) : Int {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception
     public override function isDestroyed() : Bool {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     public override function getGroupInterface() : haxe.ds.Vector<Group> {
@@ -113,7 +113,7 @@ class CollidableDestroyableDamageableLayer extends CollidableCompositeLayer impl
     public function setAllBinaryGameLayerManager(allBinaryGameLayerManager : AllBinaryGameLayerManager) : Void {
         this.allBinaryGameLayerManagerP = allBinaryGameLayerManager;
         if (this.allBinaryGameLayerManagerP == null) {
-            throw new haxe.Exception();
+            throw new jre.lang.JavaException();
         }
     }
 
@@ -245,13 +245,13 @@ class CollidableDestroyableDamageableLayer extends CollidableCompositeLayer impl
         final groupInterfaceArray : haxe.ds.Vector<Group> = this.getGroupInterface();
         final size : Int = groupInterfaceArray.length;
         for (index in 0...size) {
-            stringBuffer.append(groupInterfaceArray[index].toString());
+            stringBuffer.append(Std.string(groupInterfaceArray[index]));
             stringBuffer.append(commonSeps.COMMA);
         }
         final pickupBehavior : PickupBehavior = this.getPickupBehavior();
         if (pickupBehavior != null) {
             stringBuffer.append(commonSeps.NEW_LINE);
-            stringBuffer.append(pickupBehavior.toString());
+            stringBuffer.append(Std.string(pickupBehavior));
         }
         stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append(CollidableDestroyableDamageableLayer.READYFOREXPLOSION);
@@ -270,7 +270,7 @@ class CollidableDestroyableDamageableLayer extends CollidableCompositeLayer impl
     public function toString() : String {
         final stringBuffer : StringMaker = new StringMaker();
         this.toStringAppend(stringBuffer);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

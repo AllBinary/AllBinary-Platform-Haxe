@@ -37,20 +37,33 @@ class AbPathUtilOld {
     public function new() {
     }
 
-    // throws Exception
-    public function getExtension(abFilePath : AbFilePath) : String {
-        return this.getExtension(abFilePath.toString());
+    public function getExtension(...args : Dynamic) : Dynamic {
+        if (args.length == 1 && Std.isOfType(args[0], AbFilePath)) {
+            return this.getExtension_AbFilePath(args[0]);
+        }
+        if (args.length == 1 && Std.isOfType(args[0], AbPath)) {
+            return this.getExtension_AbPath(args[0]);
+        }
+        if (args.length == 1) {
+            return this.getExtension_String(args[0]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: getExtension");
     }
 
     // throws Exception
-    public function getExtension(abPath : AbPath) : String {
-        return this.getExtension(abPath.toString());
+    public function getExtension_AbFilePath(abFilePath : AbFilePath) : String {
+        return this.getExtension(Std.string(abFilePath));
     }
 
     // throws Exception
-    public function getExtension(filePath : String) : String {
+    public function getExtension_AbPath(abPath : AbPath) : String {
+        return this.getExtension(Std.string(abPath));
+    }
+
+    // throws Exception
+    public function getExtension_String(filePath : String) : String {
         if (filePath.length < AbPathUtilOld.MIN) {
-            throw new haxe.Exception("Could not be a file path since its less that 4 characters");
+            throw new jre.lang.JavaException("Could not be a file path since its less that 4 characters");
         }
         var beginIndex : Int = filePath.length - AbPathUtilOld.MIN;
         var extension : String = filePath.substring(beginIndex + 1);
@@ -60,20 +73,33 @@ class AbPathUtilOld {
         return extension;
     }
 
-    // throws Exception
-    public function getWithoutExtension(abFilePath : AbFilePath) : String {
-        return this.getWithoutExtension(abFilePath.toString());
+    public function getWithoutExtension(...args : Dynamic) : Dynamic {
+        if (args.length == 1 && Std.isOfType(args[0], AbFilePath)) {
+            return this.getWithoutExtension_AbFilePath(args[0]);
+        }
+        if (args.length == 1 && Std.isOfType(args[0], AbPath)) {
+            return this.getWithoutExtension_AbPath(args[0]);
+        }
+        if (args.length == 1) {
+            return this.getWithoutExtension_String(args[0]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: getWithoutExtension");
     }
 
     // throws Exception
-    public function getWithoutExtension(abPath : AbPath) : String {
-        return this.getWithoutExtension(abPath.toString());
+    public function getWithoutExtension_AbFilePath(abFilePath : AbFilePath) : String {
+        return this.getWithoutExtension(Std.string(abFilePath));
     }
 
     // throws Exception
-    public function getWithoutExtension(filePath : String) : String {
+    public function getWithoutExtension_AbPath(abPath : AbPath) : String {
+        return this.getWithoutExtension(Std.string(abPath));
+    }
+
+    // throws Exception
+    public function getWithoutExtension_String(filePath : String) : String {
         if (filePath.length < AbPathUtilOld.MIN) {
-            throw new haxe.Exception("Could not be a file path since its less that 4 characters");
+            throw new jre.lang.JavaException("Could not be a file path since its less that 4 characters");
         }
         var endIndex : Int = filePath.length - AbPathUtilOld.MIN;
         var pathWithoutExtension : String = filePath.substring(0, endIndex);

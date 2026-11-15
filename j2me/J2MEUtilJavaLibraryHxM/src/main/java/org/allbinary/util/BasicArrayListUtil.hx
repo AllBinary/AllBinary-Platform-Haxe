@@ -15,13 +15,13 @@
 // Generated Code Do Not Modify
 package org.allbinary.util;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 import org.allbinary.game.rand.MyRandomFactory;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonPhoneStrings;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsProperty;
 
 class BasicArrayListUtil {
     private static final instance : BasicArrayListUtil = new BasicArrayListUtil();
@@ -69,7 +69,7 @@ class BasicArrayListUtil {
                 index--;
             }
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function getImmutableInstance() : BasicArrayList {
@@ -89,7 +89,7 @@ class BasicArrayListUtil {
         list.add(commonPhoneStrings.EIGHT);
         list.add(commonPhoneStrings.NINE);
         BasicArrayListUtil.getInstance().reverse(list);
-        trace(list.toString());
+        trace(Std.string(list));
     }
 
     public function new() {

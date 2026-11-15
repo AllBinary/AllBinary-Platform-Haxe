@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.image;
 
-//import java.io.InputStream;
-//import javax.microedition.lcdui.Image;
-//import javax.microedition.lcdui.NullImage;
+import jre.io.InputStream;
+import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullImage;
 import org.allbinary.J2MEUtil;
 import org.allbinary.TsUtil;
 import org.allbinary.data.resource.ResourceUtil;
@@ -48,8 +48,8 @@ class ImageCache extends ImageCacheBase {
                 return index;
             }
         }
-        this.logUtil.putF(new StringMaker().append("unable to find key: ").append(StringUtil.getInstance().toString(key)).toString(), this, this.commonStrings.RUN);
-        throw new haxe.Exception();
+        this.logUtil.putF(Std.string(new StringMaker().append("unable to find key: ").append(StringUtil.getInstance().toString(key))), this, this.commonStrings.RUN);
+        throw new jre.lang.JavaException();
     }
 
     // throws Exception
@@ -84,13 +84,13 @@ class ImageCache extends ImageCacheBase {
             final resourceUtil : ResourceUtil = ResourceUtil.getInstance();
             final resourceInputStream : InputStream = resourceUtil.getResourceAsStream((cast key : String));
             if (resourceInputStream == null) {
-                throw new haxe.Exception(new StringMaker().append("Image resource is not available for key: ").append(StringUtil.getInstance().toString(key)).toString());
+                throw new jre.lang.JavaException(Std.string(new StringMaker().append("Image resource is not available for key: ").append(StringUtil.getInstance().toString(key))));
             }
             try {
                 image = this.createImageFromInputStream(key, resourceInputStream);
             } catch (e : haxe.Exception) {
                 this.logUtil.put("Exception: Trying Again After GC", this, this.commonStrings.GET, e);
-                this.logUtil.putF(new StringMaker().append("InputStream: ").append(StringUtil.getInstance().toString(resourceInputStream)).toString(), this, this.commonStrings.GET);
+                this.logUtil.putF(Std.string(new StringMaker().append("InputStream: ").append(StringUtil.getInstance().toString(resourceInputStream))), this, this.commonStrings.GET);
                 this.tsUtil.gc();
                 this.tsUtil.gc();
                 this.logUtil.putF(Memory.getInfo(), this, this.commonStrings.GET);

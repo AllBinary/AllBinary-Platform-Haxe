@@ -52,7 +52,7 @@ class PlayerGameInput extends GameInput implements GameKeyEventListenerInterface
 
     // synchronized
     public function onDownKey(gameKeyEvent : Null<Int>) : Void {
-        PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, this.gameInputStrings.ON_DOWN_GAME_KEY);
+        PreLogUtil.put(Std.string(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(Std.string(gameKeyEvent))), this, this.gameInputStrings.ON_DOWN_GAME_KEY);
     }
 
     // synchronized

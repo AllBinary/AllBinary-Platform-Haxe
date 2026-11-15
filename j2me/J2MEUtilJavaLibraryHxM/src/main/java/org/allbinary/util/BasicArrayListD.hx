@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.util;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsConstructor;
+//import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsConstructor;
 
 class BasicArrayListD extends BasicArrayListS {
     public function new() {

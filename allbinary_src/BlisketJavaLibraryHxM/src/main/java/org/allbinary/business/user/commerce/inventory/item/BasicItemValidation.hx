@@ -181,7 +181,7 @@ class BasicItemValidation extends Validation {
             if (this.itemInterface.getSpecials() == null || this.itemInterface.getSpecials().length() < 1 || this.itemInterface.getSpecials().length() > AbSqlData.MAXNUM) {
                 stringBuffer.append("Special item value is invalid. Must be number < " + AbSqlData.MAXNUM + " and > 0 digits.<br />");
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);

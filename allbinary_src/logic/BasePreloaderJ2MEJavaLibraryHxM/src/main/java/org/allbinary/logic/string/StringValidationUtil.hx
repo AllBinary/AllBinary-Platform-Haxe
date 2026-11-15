@@ -29,7 +29,7 @@ class StringValidationUtil {
     }
 
     public function containsSpaces(value : String) : Bool {
-        if (value.indexOf(" ".code) >= 0) {
+        if (value.indexOf(String.fromCharCode(" ".code)) >= 0) {
             return true;
         }
         return false;
@@ -60,7 +60,7 @@ class StringValidationUtil {
     }
 
     public function isValidRequired(value : String, min : Int, max : Int) : Bool {
-        if (value == null || value.length < min || value.length > max) {
+        if (value.length < min || value.length > max) {
             return false;
         }
         return true;
@@ -77,7 +77,7 @@ class StringValidationUtil {
     }
 
     public function isValidNotRequired(value : String, min : Int, max : Int) : Bool {
-        if (value != null) {
+        if (value.length > 0) {
             if (value.length < min || value.length > max) {
                 return false;
             }
@@ -86,7 +86,7 @@ class StringValidationUtil {
     }
 
     public function isValidNotRequiredNumber(value : String, min : Int, max : Int) : Bool {
-        if (value != null) {
+        if (value.length > 0) {
             if (this.tsUtil.compareTo(value, this.stringUtil.NULL_STRING) == 0 || value.length < min || value.length > max) {
                 return false;
             }
@@ -98,7 +98,7 @@ class StringValidationUtil {
     }
 
     public function isEmpty(string : String) : Bool {
-        if (string != null && this.tsUtil.compareTo(string, this.stringUtil.NULL_STRING) != 0 && this.tsUtil.compareTo(string, this.stringUtil.EMPTY_STRING) != 0) {
+        if (this.tsUtil.compareTo(string, this.stringUtil.NULL_STRING) != 0 && this.tsUtil.compareTo(string, this.stringUtil.EMPTY_STRING) != 0) {
             return false;
         } else {
             return true;

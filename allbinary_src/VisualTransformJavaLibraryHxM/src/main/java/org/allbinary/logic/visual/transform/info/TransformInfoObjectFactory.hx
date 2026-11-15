@@ -52,7 +52,7 @@ class TransformInfoObjectFactory {
                     stringBuffer.append(transformInfoInterface.getName());
                     stringBuffer.append("\nNo Such View Object: ");
                     stringBuffer.append(transformInfoInterface.getObjectFile());
-                    throw new haxe.Exception(stringBuffer.toString());
+                    throw new haxe.Exception(Std.string(stringBuffer));
                 } else {
                     throw new haxe.Exception("No Such View Object since transformInfo is null");
                 }

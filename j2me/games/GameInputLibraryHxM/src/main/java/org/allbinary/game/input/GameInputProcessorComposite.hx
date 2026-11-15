@@ -41,7 +41,7 @@ class GameInputProcessorComposite extends PlayerGameInput {
 
     private final NAME_LABEL : String = " GameInputProcessorInterface: ";
     public function toString() : String {
-        return new StringMaker().append(super.toString()).append(this.NAME_LABEL).append(this.name).toString();
+        return Std.string(new StringMaker().append(super.toString()).append(this.NAME_LABEL).append(this.name));
     }
 
 }

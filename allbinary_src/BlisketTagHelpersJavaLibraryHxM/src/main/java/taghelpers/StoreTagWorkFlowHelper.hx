@@ -31,7 +31,7 @@ class StoreTagWorkFlowHelper extends TagHelper {
     public function new(hashMap : HashMap, pageContext : PageContext) {
         super();
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER)) {
-            this.logUtil.putF("Properties: " + hashMap.toString(), this, "StoreTagWorkFlowHelper()");
+            this.logUtil.putF("Properties: " + Std.string(hashMap), this, "StoreTagWorkFlowHelper()");
         }
         this.storeWorkFlowInterface = StoreTagWorkFlowFactory.getInstance().getInstance(this.abeClientInformation, hashMap, pageContext);
     }

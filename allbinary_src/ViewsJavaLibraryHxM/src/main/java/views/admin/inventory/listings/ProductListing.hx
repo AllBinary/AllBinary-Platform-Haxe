@@ -130,16 +130,16 @@ class ProductListing implements ProductListingInterface {
             }
             var indexStr : String = StringUtil.getInstance().EMPTY_STRING;
             if (index > 0) {
-                indexStr = index.toString();
+                indexStr = Std.string(index);
             }
             keywordFilenameHashMap.put(keywordData, pageName + indexStr);
             stringBuffer.delete(0, stringBuffer.length());
-            stringBuffer.append(staticPath.toString());
+            stringBuffer.append(Std.string(staticPath));
             stringBuffer.append(pageName);
             stringBuffer.append(indexStr);
             stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);
             stringBuffer.append(InputOutputTypeData.getInstance().DEFAULT);
-            var file : String = stringBuffer.toString();
+            var file : String = Std.string(stringBuffer);
             if (!this.directory.create(staticPath)) {
                 throw new haxe.Exception("Could Not Create Directory: " + staticPath);
             }
@@ -171,7 +171,7 @@ class ProductListing implements ProductListingInterface {
             stringBuffer.append(storeFront.getName());
             stringBuffer.append(AbPathData.getInstance().SEPARATOR);
             stringBuffer.append(storeFront.getStaticPath());
-            final staticPath : AbPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
+            final staticPath : AbPath = new AbPath(Std.string(stringBuffer), StringUtil.getInstance().EMPTY_STRING);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STATICPAGEGENERATIONLOGGING)) {
                 this.logUtil.putF("Store Static Pages Path: " + staticPath, this, "generateAll()");
             }
@@ -184,7 +184,7 @@ class ProductListing implements ProductListingInterface {
                 stringBuffer.append("Products For ");
                 stringBuffer.append(storeFront.getName());
                 stringBuffer.append(" Store Not Found");
-                return stringBuffer.toString();
+                return Std.string(stringBuffer);
             }
             final inventorySearchUtil : InventorySearchUtil = InventorySearchUtil.getInstance();
             final vector : BasicArrayList = inventorySearchUtil.getBasicItemIdColumn(this.searchRequest);
@@ -201,7 +201,7 @@ class ProductListing implements ProductListingInterface {
             stringBuffer.append(" it used packages ");
             stringBuffer.append(storeFront.getPackageLocation());
             stringBuffer.append(this.INVENTORY);
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             throw e;
         }
@@ -230,7 +230,7 @@ class ProductListing implements ProductListingInterface {
                 return "Generation Failed No Store Specified<br/>";
             }
             stringBuffer.append("All Static Pages Generated<br/>");
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             throw e;
         }

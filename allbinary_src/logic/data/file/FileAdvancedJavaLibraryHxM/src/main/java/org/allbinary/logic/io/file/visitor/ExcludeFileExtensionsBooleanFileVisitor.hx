@@ -23,14 +23,24 @@ class ExcludeFileExtensionsBooleanFileVisitor extends BooleanFileVisitor {
         super(filterStringBasicArrayList);
     }
 
-    public override function visit(file : AbFile) : Null<Bool> {
+    public override function visit(...args : Dynamic) : Dynamic {
+        if (args.length == 1) {
+            return this.visit_AbFile(args[0]);
+        }
+        if (args.length == 2) {
+            return this.visit_AbFile_String(args[0], args[1]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: visit");
+    }
+
+    public override function visit_AbFile(file : AbFile) : Null<Bool> {
         if (this.getFilterStringBasicArrayList().size() == 0) {
             return true;
         }
         return super.visit(file);
     }
 
-    public override function visit(file : AbFile, fileNameString : String) : Null<Bool> {
+    public override function visit_AbFile_String(file : AbFile, fileNameString : String) : Null<Bool> {
         var fileNameAndExtension : String = file.getPath();
         if (fileNameAndExtension.length > fileNameString.length) {
             var startIndex : Int = fileNameAndExtension.length - fileNameString.length;

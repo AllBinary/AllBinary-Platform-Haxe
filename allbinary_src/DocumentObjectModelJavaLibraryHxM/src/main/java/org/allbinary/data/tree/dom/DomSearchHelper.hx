@@ -41,7 +41,7 @@ class DomSearchHelper {
         if (node != null) {
             return node;
         } else {
-            throw new haxe.Exception(nodeName + " Node Not Found in search");
+            throw new jre.lang.JavaException(nodeName + " Node Not Found in search");
         }
     }
 
@@ -55,7 +55,7 @@ class DomSearchHelper {
     public static function getAllNodes(nodeName : String, nodeList : NodeList) : BasicArrayList {
         var vector : BasicArrayList = DomSearchHelper.getAllNodesNoThrow(nodeName, nodeList);
         if (vector == null) {
-            throw new haxe.Exception(nodeName + " Node Not Found in search");
+            throw new jre.lang.JavaException(nodeName + " Node Not Found in search");
         } else {
             return vector;
         }

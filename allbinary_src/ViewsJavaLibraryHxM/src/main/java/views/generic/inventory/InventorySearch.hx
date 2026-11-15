@@ -63,7 +63,7 @@ class InventorySearch implements InventoryViewSearchInterface {
                 stringBuffer.append(this.searchRequest.getParams().getEndPage());
                 stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);
                 stringBuffer.append(InputOutputTypeData.getInstance().DEFAULT);
-                var filePath : String = new Replace(CommonSeps.getInstance().SPACE, "%20").all(stringBuffer.toString());
+                var filePath : String = new Replace(CommonSeps.getInstance().SPACE, "%20").all(Std.string(stringBuffer));
                 return filePath;
             }
         } catch (e : haxe.Exception) {

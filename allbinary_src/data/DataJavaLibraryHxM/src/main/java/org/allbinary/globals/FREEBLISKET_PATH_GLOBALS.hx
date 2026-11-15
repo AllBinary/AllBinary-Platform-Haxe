@@ -27,8 +27,8 @@ class FREEBLISKET_PATH_GLOBALS {
     public final INSTALLPATH : String;
     public final XSLPATH : String;
     public final TEMPLATEPATH : String = "template" + AbPathData.getInstance().SEPARATOR;
-    public final STYLEPATH : String = this.TEMPLATEPATH + "style" + AbPathData.getInstance().SEPARATOR;
-    public final THEMEPATH : String = this.STYLEPATH + "theme" + AbPathData.getInstance().SEPARATOR;
+    public final STYLEPATH : String;
+    public final THEMEPATH : String;
     public final DBINITPATH : String = PATH_GLOBALS.getInstance().INIT_PATH + "db" + AbPathData.getInstance().SEPARATOR;
     public final LINEDATAPATH : String = PATH_GLOBALS.getInstance().INIT_PATH + "lineData" + AbPathData.getInstance().SEPARATOR;
     public final CONFIGURATIONPATH : String;
@@ -37,30 +37,32 @@ class FREEBLISKET_PATH_GLOBALS {
     public final LICENSEERRORPAGE : String = "LicensingError.jsp";
     public final ERRORPAGE : String = "Error.jsp";
     public function new() {
+        this.STYLEPATH = this.TEMPLATEPATH + "style" + AbPathData.getInstance().SEPARATOR;
+        this.THEMEPATH = this.STYLEPATH + "theme" + AbPathData.getInstance().SEPARATOR;
         var stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append("install");
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
-        this.INSTALLPATH = stringBuffer.toString();
+        this.INSTALLPATH = Std.string(stringBuffer);
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append(PATH_GLOBALS.getInstance().INIT_PATH);
         stringBuffer.append("views");
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
-        this.XSLPATH = stringBuffer.toString();
+        this.XSLPATH = Std.string(stringBuffer);
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append(this.XSLPATH);
         stringBuffer.append("configuration");
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
-        this.CONFIGURATIONPATH = stringBuffer.toString();
+        this.CONFIGURATIONPATH = Std.string(stringBuffer);
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append(this.CONFIGURATIONPATH);
         stringBuffer.append("user");
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
-        this.USERCONFIGURATIONPATH = stringBuffer.toString();
+        this.USERCONFIGURATIONPATH = Std.string(stringBuffer);
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append(this.CONFIGURATIONPATH);
         stringBuffer.append("context");
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
-        this.CONTEXTCONFIGURATIONPATH = stringBuffer.toString();
+        this.CONTEXTCONFIGURATIONPATH = Std.string(stringBuffer);
         stringBuffer.delete(0, stringBuffer.length());
     }
 

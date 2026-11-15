@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.time;
 
-//import java.util.Calendar;
-//import java.util.Date;
+import jre.util.Calendar;
+import jre.util.Date;
 
 //ActualPlatform
 class TimeStampUtil {
@@ -31,7 +31,7 @@ class TimeStampUtil {
     public function getAsString() : String {
         final calendar : Calendar = Calendar.getInstance();
         final date : Date = calendar.getTime();
-        return date.toString();
+        return Std.string(date);
     }
 
 }

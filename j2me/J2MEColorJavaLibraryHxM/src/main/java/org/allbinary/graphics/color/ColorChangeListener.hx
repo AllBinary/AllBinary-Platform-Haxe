@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.color;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 import org.allbinary.logic.util.event.EventListenerInterface;
 
 interface ColorChangeListener extends EventListenerInterface {

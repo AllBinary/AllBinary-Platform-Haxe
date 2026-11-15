@@ -47,7 +47,7 @@ class StoreUriResolver implements URIResolver {
             final stringBuffer : StringMaker = new StringMaker();
             final transformInfoHttpStoreInterface : TransformInfoHttpStoreInterface = (cast this.parentTransformInfoInterface : TransformInfoHttpStoreInterface);
             stringBuffer.append(URLGLOBALS.getMainPath()).append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH).append(transformInfoHttpStoreInterface.getStoreName()).append(AbPathData.getInstance().SEPARATOR).append(href);
-            final fileAbPath : AbPath = (cast new AbFilePath(stringBuffer.toString()) : AbPath);
+            final fileAbPath : AbPath = (cast new AbFilePath(Std.string(stringBuffer)) : AbPath);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XMLLOGGING)) {
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append(this.uriResolverStrings.ATTEMPT);
@@ -55,13 +55,13 @@ class StoreUriResolver implements URIResolver {
                 stringBuffer.append(this.uriResolverStrings.BASE);
                 stringBuffer.append(base);
                 stringBuffer.append(this.uriResolverStrings.NEW_PATH);
-                stringBuffer.append(fileAbPath.toString());
+                stringBuffer.append(Std.string(fileAbPath));
                 stringBuffer.append(this.uriResolverStrings.NOTE);
                 stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
                 stringBuffer.append(this.uriResolverStrings.URL_GLOBAL);
                 stringBuffer.append(this.uriResolverStrings.REQUIRED_EXTENSION);
                 stringBuffer.append(this.basicURIResolver.getExtension());
-                this.logUtil.putF(stringBuffer.toString(), this, this.uriResolverStrings.RESOLVE);
+                this.logUtil.putF(Std.string(stringBuffer), this, this.uriResolverStrings.RESOLVE);
             }
             return new StreamSource(new CryptFileReader(TransformInfoTemplateData.getInstance().UNCRYPTED_EXTENSION, TransformInfoTemplateData.getInstance().ENCRYPTED_EXTENSION).getInputStream(fileAbPath));
         } catch (e : TransformerException) {

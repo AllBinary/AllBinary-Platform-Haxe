@@ -65,7 +65,7 @@ class DemoGameBehavior {
     // throws Exception
     public function run(allBinaryGameCanvas : AllBinaryGameCanvas) : Void {
         final commonStrings : CommonStrings = CommonStrings.getInstance();
-        this.logUtil.putF(GameTypeFactory.getInstance().BOT.toString(), this, commonStrings.RUN);
+        this.logUtil.putF(Std.string(GameTypeFactory.getInstance().BOT), this, commonStrings.RUN);
     }
 
     // throws Exception

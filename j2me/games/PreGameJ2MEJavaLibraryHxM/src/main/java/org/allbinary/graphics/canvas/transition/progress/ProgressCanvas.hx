@@ -15,11 +15,11 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.canvas.transition.progress;
 
-//import javax.microedition.lcdui.CommandListener;
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
-//import javax.microedition.lcdui.NullCanvas;
-//import javax.microedition.lcdui.NullCommandListener;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullCommandListener;
 import org.allbinary.canvas.Processor;
 import org.allbinary.canvas.RunnableCanvas;
 import org.allbinary.game.commands.GameCommandsFactory;
@@ -43,32 +43,30 @@ import org.allbinary.thread.ThreadPool;
 class ProgressCanvas extends RunnableCanvas implements PaintableInterface implements UpdateMyFontInterface {
     public var hasPainted : Bool = false;
     private final backgroundBasicColor : BasicColor;
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class ProgressPaintable extends Paintable {
-        public final progressCanvas : ProgressCanvas;
-        public function new(progressCanvas : ProgressCanvas) {
-            super();
-            this.progressCanvas = progressCanvas;
-        }
-
-        public override function paint(graphics : Graphics) : Void {
-            this.progressCanvas.paint2(graphics);
-        }
-
-    }
-    public final GAUGE_PAINTABLE : Paintable = new ProgressPaintable(this);
+    public final GAUGE_PAINTABLE : Paintable;
     private final maxValue : Float = 100.0;
     public final gauge : ABCustomGaugeItem;
-    private final TEXT : String = this.commonStrings.LOADING;
-    private final updateMyFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
-    private var myFontProcessor : MyFontProcessor = this.updateMyFontProcessor;
+    private final TEXT : String;
+    private final updateMyFontProcessor : MyFontProcessor;
+    private var myFontProcessor : MyFontProcessor;
     public var allbinaryMidlet : AllBinaryMidlet = AllBinaryMidlet.getNullInstance();
     private var value : Float = 0.0;
-    private var text : String = this.TEXT;
+    private var text : String;
     private var background : Bool = true;
-    public var paintable : PaintableInterface = this.GAUGE_PAINTABLE;
+    public var paintable : PaintableInterface;
     public var inProgress : Bool = false;
-    private final IN_GAME_PROCESSOR : Processor = /* anonymous class body:
+    private final IN_GAME_PROCESSOR : Processor;
+    public var inGameProcessor : Processor = Processor.getInstance();
+    public var progressEndListener : ProgressEndListener = ProgressEndListener.instance;
+    public function new(title : String, backgroundBasicColor : BasicColor, foregroundBasicColor : BasicColor) {
+        super(NullCommandListener.NULL_COMMAND_LISTENER, CanvasStrings.getInstance().EMPTY_CHILD_NAME_LIST, false);
+        this.GAUGE_PAINTABLE = new ProgressPaintable(this);
+        this.TEXT = this.commonStrings.LOADING;
+        this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
+        this.myFontProcessor = this.updateMyFontProcessor;
+        this.text = this.TEXT;
+        this.paintable = this.GAUGE_PAINTABLE;
+        this.IN_GAME_PROCESSOR = /* anonymous class body:
         private final pathFindingThreadPool : ThreadPool = PathFindingThreadPool.getInstance();
         // throws Exception
         public function process() : Void {
@@ -76,10 +74,6 @@ class ProgressCanvas extends RunnableCanvas implements PaintableInterface implem
         }
 
 */ new Processor();
-    public var inGameProcessor : Processor = Processor.getInstance();
-    public var progressEndListener : ProgressEndListener = ProgressEndListener.instance;
-    public function new(title : String, backgroundBasicColor : BasicColor, foregroundBasicColor : BasicColor) {
-        super(NullCommandListener.NULL_COMMAND_LISTENER, CanvasStrings.getInstance().EMPTY_CHILD_NAME_LIST, false);
         this.backgroundBasicColor = backgroundBasicColor;
         this.gauge = new ABCustomGaugeItem(StringUtil.getInstance().EMPTY_STRING, Std.int(this.maxValue), 0, backgroundBasicColor, foregroundBasicColor);
     }
@@ -167,12 +161,12 @@ class ProgressCanvas extends RunnableCanvas implements PaintableInterface implem
     public final ADD_PORTION : String = "addPortion";
     public final ADD_EARLY_PORTION : String = "addEarlyPortion";
     public function addEarlyPortion(value : Int, text : String, index : Int) : Void {
-        this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getAt(index).toString()).toString());
+        this.setText(Std.string(new StringMaker().append(text).append(Std.string(SmallIntegerSingletonFactory.getInstance().getAt(index)))));
         this.gauge.setValue(this.gauge.getValue() + this.getMaxValue() / value);
     }
 
     public function addPortion(value : Int, text : String, index : Int) : Void {
-        this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getAt(index).toString()).toString());
+        this.setText(Std.string(new StringMaker().append(text).append(Std.string(SmallIntegerSingletonFactory.getInstance().getAt(index)))));
         PreLogUtil.put(this.text, this, this.ADD_PORTION);
         this.gauge.setValue(this.gauge.getValue() + this.getMaxValue() / value);
     }

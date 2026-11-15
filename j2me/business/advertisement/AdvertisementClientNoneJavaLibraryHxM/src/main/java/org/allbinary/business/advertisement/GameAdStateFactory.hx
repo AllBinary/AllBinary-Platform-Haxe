@@ -11,7 +11,7 @@ class GameAdStateFactory implements GameAdStateFactoryInterface {
     }
 
     private final gameAdStateArray : haxe.ds.Vector<GameAdState> = haxe.ds.Vector.fromArrayCopy([new GameAdState(new AppNameLicensingAdConfiguration())]);
-    private var gameAdState : GameAdState = this.gameAdStateArray[0];
+    private var gameAdState : GameAdState;
     public function getCurrentInstance() : GameAdState {
         return this.gameAdState;
     }
@@ -27,6 +27,7 @@ class GameAdStateFactory implements GameAdStateFactoryInterface {
     }
 
     public function new() {
+        this.gameAdState = this.gameAdStateArray[0];
     }
 }
 

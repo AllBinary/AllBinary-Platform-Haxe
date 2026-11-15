@@ -20,11 +20,13 @@ import org.allbinary.layer.event.LayerManagerEventHandler;
 
 class AllBinaryLayerManager extends LayerManager {
     private final layerManagerEventHandler : LayerManagerEventHandler = LayerManagerEventHandler.getInstance();
-    private final createLayerManagerEvent : LayerManagerEvent = new LayerManagerEvent(this, this.layerManagerEventHandler.CREATE);
-    private final deleteLayerManagerEvent : LayerManagerEvent = new LayerManagerEvent(this, this.layerManagerEventHandler.DELETE);
+    private final createLayerManagerEvent : LayerManagerEvent;
+    private final deleteLayerManagerEvent : LayerManagerEvent;
     private var basicLayerProcessorArray : haxe.ds.Vector<LayerProcessor> = haxe.ds.Vector.fromArrayCopy([for (index in 0...0) null]);
     public function new() {
         super(LayerManagerNoDebug.getInstance());
+        this.createLayerManagerEvent = new LayerManagerEvent(this, this.layerManagerEventHandler.CREATE);
+        this.deleteLayerManagerEvent = new LayerManagerEvent(this, this.layerManagerEventHandler.DELETE);
     }
 
     public function getLayerProcessorArray() : haxe.ds.Vector<LayerProcessor> {

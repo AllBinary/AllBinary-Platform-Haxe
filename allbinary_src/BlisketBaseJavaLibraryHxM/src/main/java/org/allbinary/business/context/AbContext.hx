@@ -29,7 +29,7 @@ class AbContext {
     private var pageContext : PageContext;
     public function new(propertiesHashMap : HashMap, pageContext : PageContext) {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-            this.logUtil.putF("Properties HashMap: " + propertiesHashMap.toString(), this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.putF("Properties HashMap: " + Std.string(propertiesHashMap), this, this.commonStrings.CONSTRUCTOR);
         }
         this.propertiesHashMap = propertiesHashMap;
         this.pageContext = pageContext;

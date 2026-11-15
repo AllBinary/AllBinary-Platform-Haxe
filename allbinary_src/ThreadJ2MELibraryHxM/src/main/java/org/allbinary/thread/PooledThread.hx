@@ -54,7 +54,7 @@ class PooledThread extends Thread {
                 this.threadPool.runningTask = false;
             } catch (e : haxe.Exception) {
                 final logUtil : LogUtil = LogUtil.getInstance();
-                logUtil.put(new StringMaker().append(this.commonStrings.EXCEPTION_LABEL).append(StringUtil.getInstance().toString(task2)).toString(), this, this.commonStrings.RUN, e);
+                logUtil.put(Std.string(new StringMaker().append(this.commonStrings.EXCEPTION_LABEL).append(StringUtil.getInstance().toString(task2))), this, this.commonStrings.RUN, e);
             }
         }
         this.threadPool.threadStopped();

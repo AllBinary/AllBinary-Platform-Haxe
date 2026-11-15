@@ -36,7 +36,7 @@ class FileUtil2 {
     public function loadFileAsList(file : AbFile, max : Int, byteArray1 : haxe.ds.Vector<Int>) : BasicArrayList {
         var inputStream : AbFileInputStream = null;
         try {
-            inputStream = new AbFileInputStream(file);
+            inputStream = AbFileInputStream.createFromAbFile(file);
         } catch (e : haxe.Exception) {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.ADD, e);
         }

@@ -38,7 +38,17 @@ class DomNodeHelper {
         return node;
     }
 
-    public static function getTextNodeValue(node : Node) : String {
+    public static function getTextNodeValue(...args : Dynamic) : Dynamic {
+        if (args.length == 1) {
+            return DomNodeHelper.getTextNodeValue_Node(args[0]);
+        }
+        if (args.length == 2) {
+            return DomNodeHelper.getTextNodeValue_String_NodeList(args[0], args[1]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: getTextNodeValue");
+    }
+
+    public static function getTextNodeValue_Node(node : Node) : String {
         var nodeTextNode : Node = node.getFirstChild();
         if (nodeTextNode != null) {
             return nodeTextNode.getNodeValue();
@@ -48,7 +58,7 @@ class DomNodeHelper {
     }
 
     // throws Exception
-    public static function getTextNodeValue(nodeName : String, nodeList : NodeList) : String {
+    public static function getTextNodeValue_String_NodeList(nodeName : String, nodeList : NodeList) : String {
         var node : Node = DomSearchHelper.getNode(nodeName, nodeList);
         return DomNodeHelper.getTextNodeValue(node);
     }
@@ -64,7 +74,7 @@ class DomNodeHelper {
                 }
             }
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

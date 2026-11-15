@@ -20,7 +20,7 @@ class SqlStrings {
     public final AND : String = " AND ";
     public final UPDATE : String = "UPDATE ";
     public final SET : String = " SET ";
-    public final SELECT_ALL_FROM : String = this.SELECT_ALL + this.FROM;
+    public final SELECT_ALL_FROM : String;
     public final DELETE : String = "DELETE";
     public final LIKE_QUOTE : String = " LIKE \"";
     public final INSERT_INTO : String = "INSERT INTO ";
@@ -45,6 +45,7 @@ class SqlStrings {
     public final CREATE_RETURN : String = " Created Successfully";
     public final FIELD_VALUE : String = "\nField Value: ";
     public function new() {
+        this.SELECT_ALL_FROM = this.SELECT_ALL + this.FROM;
     }
 }
 

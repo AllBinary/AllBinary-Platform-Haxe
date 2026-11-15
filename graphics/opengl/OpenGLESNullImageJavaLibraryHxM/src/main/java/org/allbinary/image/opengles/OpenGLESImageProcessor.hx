@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.image.opengles;
 
-//import javax.microedition.khronos.opengles.GL10;
+import javax.microedition.khronos.opengles.GL10;
 
 class OpenGLESImageProcessor {
     private static final instance : OpenGLESImageProcessor = new OpenGLESImageProcessor();

@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation.vector;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.Animation;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.ColorCompositeInterface;
@@ -36,6 +36,14 @@ class CircleFilledAnimation extends Animation implements ColorCompositeInterface
     public override function paintXY(graphics : Graphics, x : Int, y : Int) : Void {
         this.basicSetColorUtil.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
         graphics.fillRect(x, y, this.width, this.height);
+    }
+
+    public override function getBasicColorP() : BasicColor {
+        return super.getBasicColorP();
+    }
+
+    public override function setBasicColorP(basicColor : BasicColor) : Void {
+        super.setBasicColorP(basicColor);
     }
 
 }

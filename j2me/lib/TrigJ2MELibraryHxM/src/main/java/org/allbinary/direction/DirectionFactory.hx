@@ -42,13 +42,13 @@ class DirectionFactory {
     public function new() {
         var stringBuffer : StringMaker = new StringMaker();
         var commonSeps : CommonSeps = CommonSeps.getInstance();
-        this.UP_LEFT = new Direction("UP LEFT", stringBuffer.append(this.UP.getOtherName()).append(commonSeps.SPACE).append(this.LEFT.getOtherName()).toString(), 4, 0);
+        this.UP_LEFT = new Direction("UP LEFT", Std.string(stringBuffer.append(this.UP.getOtherName()).append(commonSeps.SPACE).append(this.LEFT.getOtherName())), 4, 0);
         stringBuffer.delete(0, stringBuffer.length());
-        this.UP_RIGHT = new Direction("UP RIGHT", stringBuffer.append(this.UP.getOtherName()).append(commonSeps.SPACE).append(this.RIGHT.getOtherName()).toString(), 5, 0);
+        this.UP_RIGHT = new Direction("UP RIGHT", Std.string(stringBuffer.append(this.UP.getOtherName()).append(commonSeps.SPACE).append(this.RIGHT.getOtherName())), 5, 0);
         stringBuffer.delete(0, stringBuffer.length());
-        this.DOWN_LEFT = new Direction("DOWN LEFT", stringBuffer.append(this.DOWN.getOtherName()).append(commonSeps.SPACE).append(this.LEFT.getOtherName()).toString(), 6, 0);
+        this.DOWN_LEFT = new Direction("DOWN LEFT", Std.string(stringBuffer.append(this.DOWN.getOtherName()).append(commonSeps.SPACE).append(this.LEFT.getOtherName())), 6, 0);
         stringBuffer.delete(0, stringBuffer.length());
-        this.DOWN_RIGHT = new Direction("DOWN RIGHT", stringBuffer.append(this.DOWN.getOtherName()).append(commonSeps.SPACE).append(this.RIGHT.getOtherName()).toString(), 7, 0);
+        this.DOWN_RIGHT = new Direction("DOWN RIGHT", Std.string(stringBuffer.append(this.DOWN.getOtherName()).append(commonSeps.SPACE).append(this.RIGHT.getOtherName())), 7, 0);
     }
 
 }

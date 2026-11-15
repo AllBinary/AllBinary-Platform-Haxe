@@ -28,32 +28,32 @@
     <modules>
 
         <!--
-        <module>../../OpenGLAndroidJavaLibraryHaxeM</module>
-        <module>../../android/AndroidThroughAPI2JavaLibraryHaxeM</module>
+        <module>../../OpenGLAndroidJavaLibraryHxM</module>
+        <module>../../android/AndroidThroughAPI2JavaLibraryHxM</module>
         -->
         
         <!--
-        <module>../../input/android/MotionInputAndroidResourcesJavaLibraryHaxeM</module>
+        <module>../../input/android/MotionInputAndroidResourcesJavaLibraryHxM</module>
         -->
 
         <!--
-        <module>../../android/VirtualKeyboardDynamicJavaLibraryHaxeM</module>
+        <module>../../android/VirtualKeyboardDynamicJavaLibraryHxM</module>
         -->
         
         <!-- Several Move to PostPlatforms -->
         
-        <module>../../media/sound/MusicJ2MEJavaLibraryHaxeM</module>
-        <module>../../media/sound/NullMusicAndroidJavaLibraryHaxeM</module>
-        <module>../../media/sound/MusicAndroidJavaLibraryHaxeM</module>
+        <!--<module>../../media/sound/MusicJ2MEJavaLibraryHxM</module>-->
+        <module>../../media/sound/NullMusicAndroidJavaLibraryHxM</module>
+        <module>../../media/sound/MusicAndroidJavaLibraryHxM</module>
 
         <!--
-        <module>../../media/graphics/ImageCacheAndroidJavaLibraryHaxeM</module>
+        <module>../../media/graphics/ImageCacheAndroidJavaLibraryHxM</module>
         -->
                 
         <!-- ../../../../working/allbinary_src/logic/data/file/FileAndroidJavaLibraryM -->
-        <module>../../../allbinary_src/logic/data/file/FileAndroidJavaLibraryHaxeM</module>
+        <module>../../../allbinary_src/logic/data/file/FileAndroidJavaLibraryHxM</module>
         
-        <module>../../input/platform/android/MotionInputAndroidResourcesJavaLibraryHaxeM</module>
+        <module>../../input/platform/android/MotionInputAndroidResourcesJavaLibraryHxM</module>
                 
     </modules>
 

@@ -74,7 +74,7 @@ class StaticPagesEntity extends AbSqlBean implements StaticPagesEntityInterface 
     public function createTableStatement() : String {
         var stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append(this.sqlStrings.CREATE_TABLE).append(TABLENAME).append(this.sqlStrings.START).append(StoreFrontData.getInstance().NAME).append(this.sqlTypeStrings.SIXTY_CHAR_COLUMN_NOT_NULL).append(basicItemData.KEYWORDS).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(SearchData.PAGE).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(this.sqlStrings.PRIMARY_KEY).append(StoreFrontData.getInstance().NAME).append(CommonSeps.getInstance().COMMA_SEP).append(basicItemData.KEYWORDS).append(this.sqlStrings.END);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function createTable() : String {

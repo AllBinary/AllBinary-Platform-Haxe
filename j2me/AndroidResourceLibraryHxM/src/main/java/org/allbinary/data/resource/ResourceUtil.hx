@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.data.resource;
 
-//import java.io.InputStream;
+import jre.io.InputStream;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
@@ -65,16 +65,16 @@ class ResourceUtil {
     public function getResourceId(resource : String) : Null<Int> {
         final value : Null<Int> = (cast this.hashMap.get(resource) : Null<Int>);
         if (DebugFactory.getInstance() != NoDebug.getInstance()) {
-            PreLogUtil.put(new StringMaker().append(resource).append(CommonSeps.getInstance().COLON).append(value.toString()).toString(), this, "getResourceId");
+            PreLogUtil.put(Std.string(new StringMaker().append(resource).append(CommonSeps.getInstance().COLON).append(Std.string(value))), this, "getResourceId");
         }
         return value;
     }
 
     public function addResource(resource : String, value : Null<Int>) : Void {
         if (DebugFactory.getInstance() != NoDebug.getInstance()) {
-            PreLogUtil.put(new StringMaker().append(resource).append(CommonSeps.getInstance().COLON).append(value.toString()).toString(), this, "addResource");
+            PreLogUtil.put(Std.string(new StringMaker().append(resource).append(CommonSeps.getInstance().COLON).append(Std.string(value))), this, "addResource");
             if (this.containsDuplicate(resource, value)) {
-                ForcedLogUtil.log(new StringMaker().append("Found Duplicate Resource: ").append(resource).toString(), this);
+                ForcedLogUtil.log(Std.string(new StringMaker().append("Found Duplicate Resource: ").append(resource)), this);
             }
         }
         this.hashMap.put(resource, value);
@@ -99,7 +99,7 @@ class ResourceUtil {
     }
 
     public function setResources(resources : Resources) : Void {
-        this.logUtil.putF(new StringMaker().append("Resource Loader: ").append(Type.getClassName(Type.getClass(resources))).toString(), this, "setResources");
+        this.logUtil.putF(Std.string(new StringMaker().append("Resource Loader: ").append(Type.getClassName(Type.getClass(resources)))), this, "setResources");
         this.resources = resources;
     }
 

@@ -28,8 +28,9 @@ import org.w3c.dom.Node;
 
 class RootCategoryPropertiesAbstract implements RootCategoryPropertiesInterface {
     private final category : String = CategoryData.getInstance().ROOTCATEGORY;
-    private final fileName : String = this.category + AbPathData.getInstance().EXTENSION_SEP + CategoryData.getInstance().UNCRYPTED_EXTENSION;
+    private final fileName : String;
     public function new() {
+        this.fileName = this.category + AbPathData.getInstance().EXTENSION_SEP + CategoryData.getInstance().UNCRYPTED_EXTENSION;
     }
 
     public function getKey() : Any {

@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation.vector;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.ColorCompositeInterface;
 
@@ -43,6 +43,14 @@ class RectangleFilledAdjustedAnimation extends RectangleFilledAnimation implemen
 
     public function setOffsetY(offsetY : Int) : Void {
         this.offsetY = offsetY;
+    }
+
+    public override function getBasicColorP() : BasicColor {
+        return super.getBasicColorP();
+    }
+
+    public override function setBasicColorP(basicColor : BasicColor) : Void {
+        super.setBasicColorP(basicColor);
     }
 
 }

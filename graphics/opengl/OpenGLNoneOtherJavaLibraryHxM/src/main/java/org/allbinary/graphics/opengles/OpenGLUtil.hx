@@ -1,7 +1,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.opengles;
 
-//import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.Image;
 
 class OpenGLUtil {
     private static final instance : OpenGLUtil = new OpenGLUtil();

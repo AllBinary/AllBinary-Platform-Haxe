@@ -56,5 +56,10 @@ class SelectNewValidationView extends HttpStoreComponentView implements Validati
         return new SelectNewView(this.getTransformInfoInterface()).view();
     }
 
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
+    }
+
 }
 

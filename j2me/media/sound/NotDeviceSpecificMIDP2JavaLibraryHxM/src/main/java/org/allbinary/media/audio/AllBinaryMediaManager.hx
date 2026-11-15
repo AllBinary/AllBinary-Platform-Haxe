@@ -15,10 +15,11 @@
 // Generated Code Do Not Modify
 package org.allbinary.media.audio;
 
-//import java.io.InputStream;
-//import javax.microedition.media.Manager;
-//import javax.microedition.media.MediaException;
-//import javax.microedition.media.Player;
+import jre.io.InputStream;
+import javax.microedition.media.Manager;
+import javax.microedition.media.MediaException;
+import javax.microedition.media.Player;
+import org.allbinary.MIDPUtil;
 import org.allbinary.TsUtil;
 import org.allbinary.audio.AudioContentTypeDataFactory;
 import org.allbinary.data.resource.ResourceUtil;
@@ -68,7 +69,7 @@ class AllBinaryMediaManager {
                 return Manager.createPlayer(resource);
             } else {
                 var inputStream : InputStream = ResourceUtil.getInstance().getResourceAsStream(resource);
-                return Manager.createPlayer(inputStream, AudioContentTypeDataFactory.getInstance().MIME_AUDIO_WAV.getName());
+                return MIDPUtil.getInstance().createPlayerFromInputStream(inputStream, AudioContentTypeDataFactory.getInstance().MIME_AUDIO_WAV.getName());
             }
         } else {
             return NoPlayer.NO_PLAYER;

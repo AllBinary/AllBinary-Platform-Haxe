@@ -46,7 +46,7 @@ class AndroidOperatingSystemFactory {
                 if (OperatingSystems.getInstance().isUnknownSpecificOSAllowed()) {
                     GenericOperatingSystem = new AndroidOS();
                 } else {
-                    throw new haxe.Exception("Specific Android OS Not Supported: " + osName);
+                    throw new jre.lang.JavaException("Specific Android OS Not Supported: " + osName);
                 }
             }
             return GenericOperatingSystem;

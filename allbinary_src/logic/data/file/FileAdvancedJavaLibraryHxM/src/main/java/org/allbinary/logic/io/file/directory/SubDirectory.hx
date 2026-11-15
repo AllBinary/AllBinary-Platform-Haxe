@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.io.file.directory;
 
-//import java.io.FileFilter;
+import jre.io.FileFilter;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
@@ -31,19 +31,35 @@ class SubDirectory {
     public function new() {
     }
 
-    public function search(fileFilter : FileFilter, file : AbFile) : BasicArrayList {
+    public function search(...args : Dynamic) : Dynamic {
+        if (args.length == 2 && Std.isOfType(args[0], FileFilter) && Std.isOfType(args[0], AbFile)) {
+            return this.search_FileFilter_AbFile(args[0], args[1]);
+        }
+        if (args.length == 1) {
+            return this.search_AbFile(args[0]);
+        }
+        if (args.length == 2 && Std.isOfType(args[0], String) && Std.isOfType(args[0], AbFile)) {
+            return this.search_String_AbFile(args[0], args[1]);
+        }
+        if (args.length == 2) {
+            return this.search_int_AbFile(args[0], args[1]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: search");
+    }
+
+    public function search_FileFilter_AbFile(fileFilter : FileFilter, file : AbFile) : BasicArrayList {
         return this.directory.search(fileFilter, file, true);
     }
 
-    public function search(file : AbFile) : BasicArrayList {
+    public function search_AbFile(file : AbFile) : BasicArrayList {
         return this.directory.search(file, true);
     }
 
-    public function search(searchValue : String, file : AbFile) : BasicArrayList {
+    public function search_String_AbFile(searchValue : String, file : AbFile) : BasicArrayList {
         return this.directory.search(searchValue, file, true);
     }
 
-    public function search(level : Int, file : AbFile) : BasicArrayList {
+    public function search_int_AbFile(level : Int, file : AbFile) : BasicArrayList {
         return this.directory.search(level, file, true);
     }
 
@@ -56,7 +72,7 @@ class SubDirectory {
             stringBuffer.append(file.getPath());
             stringBuffer.append(NEW_LINE);
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

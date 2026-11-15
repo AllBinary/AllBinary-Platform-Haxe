@@ -131,7 +131,7 @@ class BasicVelocityProperties implements BasicVelocityInterface {
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.Z_LABEL);
         stringBuffer.append(stringUtil.toString(this.velocityZBasicDecimal));
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

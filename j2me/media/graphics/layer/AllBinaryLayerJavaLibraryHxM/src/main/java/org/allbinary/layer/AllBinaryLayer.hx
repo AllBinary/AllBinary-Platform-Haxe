@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.layer;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.identification.BasicGroupFactory;
 import org.allbinary.game.identification.Group;
 import org.allbinary.graphics.GPoint;
@@ -33,19 +33,16 @@ import org.allbinary.view.event.ViewPositionEvent;
 
 class AllBinaryLayer extends Layer implements LayerInterface {
     public static final NULL_ALLBINARY_LAYER : AllBinaryLayer = new AllBinaryLayer(StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPositionBase.NULL_VIEW_POSITION);
-    public final viewPositionEvent : ViewPositionEvent = new ViewPositionEvent(this);
+    public final viewPositionEvent : ViewPositionEvent;
     private var halfWidth : Int = 0;
     private var halfHeight : Int = 0;
     private final name : String;
     private var viewPosition : ViewPositionBase = ViewPositionBase.NULL_VIEW_POSITION;
     public function new(name : String, rectangle : Rectangle, viewPosition : ViewPositionBase) {
         super(rectangle.getWidth(), rectangle.getHeight());
+        this.viewPositionEvent = new ViewPositionEvent(this);
         final localName : String = null;
-        if (name == null) {
-            localName = Type.getClassName(Type.getClass(this));
-        } else {
-            localName = new StringMaker().append(name).append(CommonSeps.getInstance().COLON).append(StringTools.hex(TsUtil.getInstance().hashCode(this))).toString();
-        }
+        localName = Std.string(new StringMaker().append(name).append(CommonSeps.getInstance().COLON).append(StringTools.hex(TsUtil.getInstance().hashCode(this))));
         this.name = localName;
         final point : GPoint = rectangle.getPoint();
         this.setPosition(point.getX(), point.getY(), point.getZ());
@@ -53,6 +50,46 @@ class AllBinaryLayer extends Layer implements LayerInterface {
         this.setHalfHeight((this.getHeight() >> 1));
         this.viewPosition = viewPosition;
         this.viewPosition.setAllbinaryLayer(this);
+    }
+
+    public override function setPosition(x : Int, y : Int, z : Int) : Void {
+        super.setPosition(x, y, z);
+    }
+
+    public override function moveDXYZ(dx : Int, dy : Int, dz : Int) : Void {
+        super.moveDXYZ(dx, dy, dz);
+    }
+
+    public override function getXP() : Int {
+        return super.getXP();
+    }
+
+    public override function getYP() : Int {
+        return super.getYP();
+    }
+
+    public override function getZP() : Int {
+        return super.getZP();
+    }
+
+    public override function getWidth() : Int {
+        return super.getWidth();
+    }
+
+    public override function getHeight() : Int {
+        return super.getHeight();
+    }
+
+    public override function setVisible(visible : Bool) : Void {
+        super.setVisible(visible);
+    }
+
+    public override function isVisible() : Bool {
+        return super.isVisible();
+    }
+
+    public override function paint(graphics : Graphics) : Void {
+        super.paint(graphics);
     }
 
     // throws Exception
@@ -149,25 +186,25 @@ class AllBinaryLayer extends Layer implements LayerInterface {
         stringBuffer.appendint(this.getType());
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.X_LABEL);
-        stringBuffer.appendint(Std.int(this.getXP()));
+        stringBuffer.appendint(this.getXP());
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.Y_LABEL);
-        stringBuffer.appendint(Std.int(this.getYP()));
+        stringBuffer.appendint(this.getYP());
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.Z_LABEL);
-        stringBuffer.appendint(Std.int(this.getZP()));
+        stringBuffer.appendint(this.getZP());
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(commonLabels.WIDTH_LABEL);
-        stringBuffer.appendint(Std.int(this.getWidth()));
+        stringBuffer.appendint(this.getWidth());
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(commonLabels.HEIGHT_LABEL);
-        stringBuffer.appendint(Std.int(this.getHeight()));
+        stringBuffer.appendint(this.getHeight());
     }
 
     public function toString() : String {
         final stringBuffer : StringMaker = new StringMaker();
         this.toStringAppend(stringBuffer);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

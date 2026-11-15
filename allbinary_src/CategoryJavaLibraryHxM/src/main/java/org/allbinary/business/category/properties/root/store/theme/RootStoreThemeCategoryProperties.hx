@@ -60,10 +60,10 @@ class RootStoreThemeCategoryProperties extends RootStoreCategoryProperties {
         stringBuffer.append(storeFrontInterface.getName());
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
         stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().THEMEPATH);
-        var abPath : AbPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
+        var abPath : AbPath = new AbPath(Std.string(stringBuffer), StringUtil.getInstance().EMPTY_STRING);
         var httpServletRequest : HttpServletRequest = (cast transformInfoHttpStoreInterface.getPageContext().getRequest() : HttpServletRequest);
-        this.webAppAbPath = new AbPath(httpServletRequest.getContextPath() + abPath.toString(), StringUtil.getInstance().EMPTY_STRING);
-        this.setRootFilePath(new AbPath(URLGLOBALS.getMainPath() + abPath.toString(), StringUtil.getInstance().EMPTY_STRING));
+        this.webAppAbPath = new AbPath(httpServletRequest.getContextPath() + Std.string(abPath), StringUtil.getInstance().EMPTY_STRING);
+        this.setRootFilePath(new AbPath(URLGLOBALS.getMainPath() + Std.string(abPath), StringUtil.getInstance().EMPTY_STRING));
     }
 
 }

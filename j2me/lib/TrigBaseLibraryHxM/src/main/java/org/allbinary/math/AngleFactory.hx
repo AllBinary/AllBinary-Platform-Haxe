@@ -15,15 +15,15 @@
 // Generated Code Do Not Modify
 package org.allbinary.math;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsConstructor;
+//import jsinterop.annotations.JsProperty;
 
 class AngleFactory {
     public final logUtil : LogUtil = LogUtil.getInstance();
@@ -34,14 +34,16 @@ class AngleFactory {
 
     public final TOTAL_ANGLE : Int = 360;
     public final QUARTER_TOTAL_ANGLE : Int = 90;
-    private final angleArray : haxe.ds.Vector<Angle> = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.TOTAL_ANGLE) null]);
+    private final angleArray : haxe.ds.Vector<Angle>;
     private final NEGATIVE_ONE : Int = -1;
-    public final NOT_ANGLE : NamedAngle = new NamedAngle(this.NEGATIVE_ONE, CommonStrings.getInstance().EMPTY);
+    public final NOT_ANGLE : NamedAngle;
     public final DOWN : NamedAngle;
     public final UP : NamedAngle;
     public final LEFT : NamedAngle;
     public final RIGHT : NamedAngle;
     public function new() {
+        this.angleArray = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.TOTAL_ANGLE) null]);
+        this.NOT_ANGLE = new NamedAngle(this.NEGATIVE_ONE, CommonStrings.getInstance().EMPTY);
         final commonPhoneStrings : CommonPhoneStrings = CommonPhoneStrings.getInstance();
         final total : Int = this.angleArray.length;
         this.UP = new NamedAngle(0, commonPhoneStrings.UP);
@@ -82,7 +84,7 @@ class AngleFactory {
         } else if (angle >= 225 && angle < 315) {
             return this.LEFT;
         }
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getGeneralDirection() : Angle {
@@ -95,7 +97,7 @@ class AngleFactory {
         for (index in 0...360) {
             stringMaker.appendint(index).append(CommonSeps.getInstance().FORWARD_SLASH).appendshort(Std.int(angleFactory.getClosestDirection(index).getValue())).append(CommonSeps.getInstance().NEW_LINE);
         }
-        LogUtil.getInstance().putF(stringMaker.toString(), "main", "main");
+        LogUtil.getInstance().putF(Std.string(stringMaker), "main", "main");
     }
 
 }

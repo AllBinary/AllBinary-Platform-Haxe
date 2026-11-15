@@ -74,17 +74,17 @@ class ThemeValidation implements ThemeInterface implements ValidationInterface i
         var categoryThemeAbPath : AbPath = new AbPath((cast hashMap.get(ThemeData.getInstance().PATH) : String), StringUtil.getInstance().EMPTY_STRING);
         final pathData : AbPathData = AbPathData.getInstance();
         final pathUtil : PathUtil = PathUtil.getInstance();
-        this.categoryAbPath = pathUtil.removeNameFromPath(categoryThemeAbPath.toString());
-        this.themeName = pathData.getNameFromPath(categoryThemeAbPath.toString());
+        this.categoryAbPath = pathUtil.removeNameFromPath(Std.string(categoryThemeAbPath));
+        this.themeName = pathData.getNameFromPath(Std.string(categoryThemeAbPath));
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append("CategoryThemePath: ");
-            stringBuffer.append(categoryThemeAbPath.toString());
+            stringBuffer.append(Std.string(categoryThemeAbPath));
             stringBuffer.append(" & CategoryPath: ");
-            stringBuffer.append(this.categoryAbPath.toString());
+            stringBuffer.append(Std.string(this.categoryAbPath));
             stringBuffer.append(" & ThemeName: ");
             stringBuffer.append(this.themeName);
-            this.logUtil.putF("Http Request Constructor", this, stringBuffer.toString());
+            this.logUtil.putF("Http Request Constructor", this, Std.string(stringBuffer));
         }
         this.init();
     }
@@ -113,7 +113,7 @@ class ThemeValidation implements ThemeInterface implements ValidationInterface i
 
     // throws Exception
     private function init(storeThemeCategoryInterface : StoreThemeCategoryInterface) : Void {
-        this.fileAbPath = new AbPath(storeThemeCategoryInterface.getRootFilePath().toString() + this.categoryAbPath.toString(), StringUtil.getInstance().EMPTY_STRING);
+        this.fileAbPath = new AbPath(Std.string(storeThemeCategoryInterface.getRootFilePath()) + Std.string(this.categoryAbPath), StringUtil.getInstance().EMPTY_STRING);
         this.webAppAbPath = storeThemeCategoryInterface.getWebAppPath();
     }
 
@@ -131,17 +131,17 @@ class ThemeValidation implements ThemeInterface implements ValidationInterface i
     }
 
     public function getPreviewImagePath() : String {
-        return this.webAppAbPath.toString() + this.categoryAbPath.toString();
+        return Std.string(this.webAppAbPath) + Std.string(this.categoryAbPath);
     }
 
     public function getPath() : String {
-        return this.categoryAbPath.toString();
+        return Std.string(this.categoryAbPath);
     }
 
     // throws Exception
     public function getCssStyleValidation() : CssStyleValidation {
         if (this.styleValidationInterface == null) {
-            var cssStyleFileAbPath : AbPath = new AbPath(this.fileAbPath.toString(), this.themeName + AbPathData.getInstance().EXTENSION_SEP + CategoryData.getInstance().UNCRYPTED_EXTENSION);
+            var cssStyleFileAbPath : AbPath = new AbPath(Std.string(this.fileAbPath), this.themeName + AbPathData.getInstance().EXTENSION_SEP + CategoryData.getInstance().UNCRYPTED_EXTENSION);
             var cryptFileReader : CryptFileReader = new CryptFileReader(CategoryData.getInstance().UNCRYPTED_EXTENSION, CategoryData.getInstance().ENCRYPTED_EXTENSION);
             var document : Document = DomDocumentHelper.create(cryptFileReader.get(cssStyleFileAbPath));
             this.styleValidationInterface = new CssStyleValidation(document);
@@ -155,7 +155,7 @@ class ThemeValidation implements ThemeInterface implements ValidationInterface i
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
                 this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.IS_VALID);
             }
-            if (!StringValidationUtil.getInstance().isValidRequired(this.categoryAbPath.toString(), AbSqlData.MINSTRING, AbSqlData.MAXSTRING)) {
+            if (!StringValidationUtil.getInstance().isValidRequired(Std.string(this.categoryAbPath), AbSqlData.MINSTRING, AbSqlData.MAXSTRING)) {
                 isValid = false;
             }
             if (!StringValidationUtil.getInstance().isValidRequired(this.themeName, AbSqlData.MINSTRING, AbSqlData.MAXSTRING)) {
@@ -180,7 +180,7 @@ class ThemeValidation implements ThemeInterface implements ValidationInterface i
         try {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append("Theme Validation Error");
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);

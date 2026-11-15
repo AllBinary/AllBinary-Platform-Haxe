@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.image.opengles;
 
-//import javax.microedition.khronos.opengles.GL10;
+import javax.microedition.khronos.opengles.GL10;
 
 class OpenGLESDeviceImageTranslate extends OpenGLESImageTranslate {
     public var translateX : Float = 0.0;

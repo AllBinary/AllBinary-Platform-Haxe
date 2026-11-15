@@ -68,16 +68,16 @@ class ShippingMethodsView extends HttpStoreComponentView implements DomNodeInter
                 var taxRate : Null<Float> = TaxFactory.getInstance().getInstance(this.abeClientInformation, storeFrontInterface).getTaxRate(streetAddress, storeFrontInterface);
                 var tax : Money = new Money();
                 var total : Money = new Money();
-                total.add(shippingCost.toString());
-                total.add(subTotal.toString());
-                tax.add(total.toString());
+                total.add(Std.string(shippingCost));
+                total.add(Std.string(subTotal));
+                tax.add(Std.string(total));
                 tax.multiply(taxRate);
-                total.add(tax.toString());
-                shippingMethodNode.appendChild(ModDomHelper.createNameValueNodes(document, ShippingMethodsData.SHIPPINGCOST, shippingCost.toString()));
-                shippingMethodNode.appendChild(ModDomHelper.createNameValueNodes(document, ShippingMethodsData.TAXRATE, taxRate.toString()));
-                shippingMethodNode.appendChild(ModDomHelper.createNameValueNodes(document, ShippingMethodsData.SUBTOTAL, subTotal.toString()));
-                shippingMethodNode.appendChild(ModDomHelper.createNameValueNodes(document, ShippingMethodsData.TAX, tax.toString()));
-                shippingMethodNode.appendChild(ModDomHelper.createNameValueNodes(document, ShippingMethodsData.TOTAL, total.toString()));
+                total.add(Std.string(tax));
+                shippingMethodNode.appendChild(ModDomHelper.createNameValueNodes(document, ShippingMethodsData.SHIPPINGCOST, Std.string(shippingCost)));
+                shippingMethodNode.appendChild(ModDomHelper.createNameValueNodes(document, ShippingMethodsData.TAXRATE, Std.string(taxRate)));
+                shippingMethodNode.appendChild(ModDomHelper.createNameValueNodes(document, ShippingMethodsData.SUBTOTAL, Std.string(subTotal)));
+                shippingMethodNode.appendChild(ModDomHelper.createNameValueNodes(document, ShippingMethodsData.TAX, Std.string(tax)));
+                shippingMethodNode.appendChild(ModDomHelper.createNameValueNodes(document, ShippingMethodsData.TOTAL, Std.string(total)));
                 shippingMethodNode.appendChild(ModDomHelper.createNameValueNodes(document, EntryData.getInstance().DEFAULT, this.shippingMethods.getDefault().getName()));
                 shippingMethodsNode.appendChild(shippingMethodNode);
             }

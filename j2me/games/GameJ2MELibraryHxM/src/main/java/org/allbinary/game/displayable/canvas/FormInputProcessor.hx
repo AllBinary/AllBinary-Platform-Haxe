@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Canvas;
 import org.allbinary.game.input.GameKey;
 import org.allbinary.game.input.GameKeyEventSourceInterface;
 import org.allbinary.game.input.GameKeyFactory;
@@ -49,7 +49,7 @@ class FormInputProcessor extends InputProcessor {
 
     public override function keyPressedByDevice(keyCode : Int, deviceId : Int) : Void {
         try {
-            PreLogUtil.put(new StringMaker().append(this.inputFactory.KEY_CODE_LABEL).appendint(keyCode).append(CommonSeps.getInstance().SPACE).append(this.inputFactory.DEVICE_ID_LABEL).appendint(deviceId).toString(), this, this.gameInputStrings.KEY_PRESSED);
+            PreLogUtil.put(Std.string(new StringMaker().append(this.inputFactory.KEY_CODE_LABEL).appendint(keyCode).append(CommonSeps.getInstance().SPACE).append(this.inputFactory.DEVICE_ID_LABEL).appendint(deviceId)), this, this.gameInputStrings.KEY_PRESSED);
             final input : Input = this.inputFactory.getInstanceById(keyCode);
             final gameKeyEvent : GameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(this.allBinaryGameCanvas, input);
             this.downKeyEventHandler.fireEventForGameKeyEvent(gameKeyEvent);
@@ -62,7 +62,7 @@ class FormInputProcessor extends InputProcessor {
         try {
             final input : Input = this.inputFactory.getInstanceById(keyCode);
             if (this.platformKeyFactory.isEnter(input)) {
-                PreLogUtil.put(new StringMaker().append(this.inputFactory.KEY_CODE_LABEL).appendint(keyCode).append(CommonSeps.getInstance().SPACE).append(this.inputFactory.DEVICE_ID_LABEL).appendint(deviceId).toString(), this, this.gameInputStrings.KEY_RELEASED);
+                PreLogUtil.put(Std.string(new StringMaker().append(this.inputFactory.KEY_CODE_LABEL).appendint(keyCode).append(CommonSeps.getInstance().SPACE).append(this.inputFactory.DEVICE_ID_LABEL).appendint(deviceId)), this, this.gameInputStrings.KEY_RELEASED);
                 final gameKey : GameKey = GameKeyFactory.getInstance().KEY_NUM0;
                 final gameKeyEventSourceInterface : GameKeyEventSourceInterface = (cast canvas : GameKeyEventSourceInterface);
                 final gameKeyEvent : GameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(gameKeyEventSourceInterface, gameKey);

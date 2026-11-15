@@ -31,7 +31,7 @@ class SpecialMessageUtil {
         final stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append(Memory.getInfo());
         stringBuffer.append(CommonSeps.getInstance().SPACE);
-        stringBuffer.append(GameStatisticsFactory.getInstance().toString());
+        stringBuffer.append(Std.string(GameStatisticsFactory.getInstance()));
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(" Option: ");
         if (Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AUTO_SELECT)) {
@@ -39,7 +39,7 @@ class SpecialMessageUtil {
         } else {
             stringBuffer.append(OpenGLFeatureFactory.getInstance().OPENGL_MINIMUM.getName());
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function new() {

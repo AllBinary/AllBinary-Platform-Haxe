@@ -34,7 +34,17 @@ class VectorMirrorGenerator {
     public function new() {
     }
 
-    public function getInstance(points : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>>, width : Int) : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>> {
+    public function getInstance(...args : Dynamic) : Dynamic {
+        if (args.length == 2 && Std.isOfType(args[0], Int)) {
+            return this.getInstance_intArrayArrayArray_int(args[0], args[1]);
+        }
+        if (args.length == 2) {
+            return this.getInstance_BasicArrayList_int(args[0], args[1]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: getInstance");
+    }
+
+    public function getInstance_intArrayArrayArray_int(points : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>>, width : Int) : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>> {
         try {
             final pointFactory : PointFactory = PointFactory.getInstance();
             var pointBasicArrayList : BasicArrayList = null;
@@ -64,7 +74,7 @@ class VectorMirrorGenerator {
     }
 
     // throws Exception
-    public function getInstance(pointBasicArrayList : BasicArrayList, width : Int) : BasicArrayList {
+    public function getInstance_BasicArrayList_int(pointBasicArrayList : BasicArrayList, width : Int) : BasicArrayList {
         var graphicsPipe : BasicGraphicsPipeline = new BasicGraphicsPipeline(pointBasicArrayList);
         graphicsPipe.createMatrix();
         graphicsPipe.mirror(width);

@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration.feature;
 
-//import javax.microedition.lcdui.Canvas;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Graphics;
 
 class GameFeatureCanvas extends Canvas {
     public function new() {

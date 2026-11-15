@@ -21,13 +21,13 @@ class SqlTypeStrings {
     public final SIX_SIZE : String = "(6)";
     public final ELEVEN_SIZE : String = "(11)";
     public final TWELVE_SIZE : String = "(12)";
-    public final ONE_KB_CHAR_COLUMN : String = new StringMaker().append(CommonSeps.getInstance().SPACE).append(CHAR_COLUMN).append("(1024)").append(CommonSeps.getInstance().COMMA_SEP).toString();
-    public final MAX_CHAR_COLUMN : String = new StringMaker().append(CommonSeps.getInstance().SPACE).append(CHAR_COLUMN).append(MAX_SIZE).append(CommonSeps.getInstance().COMMA_SEP).toString();
-    public final MAX_CHAR_COLUMN_NOT_NULL : String = new StringMaker().append(CommonSeps.getInstance().SPACE).append(CHAR_COLUMN).append(MAX_SIZE).append(CommonSeps.getInstance().SPACE).append(NOT_NULL).append(CommonSeps.getInstance().COMMA_SEP).toString();
-    public final SIXTY_CHAR_COLUMN_NOT_NULL : String = new StringMaker().append(CommonSeps.getInstance().SPACE).append(CHAR_COLUMN).append(SIXTY_SIZE).append(NOT_NULL).append(CommonSeps.getInstance().COMMA_SEP).toString();
-    public final ONE_CHAR_COLUMN_NOT_NULL : String = new StringMaker().append(CommonSeps.getInstance().SPACE).append(CHAR_COLUMN).append(ONE_SIZE).append(NOT_NULL).append(CommonSeps.getInstance().COMMA_SEP).toString();
-    public final SIX_CHAR_COLUMN_NOT_NULL : String = new StringMaker().append(CommonSeps.getInstance().SPACE).append(CHAR_COLUMN).append(SIX_SIZE).append(NOT_NULL).append(CommonSeps.getInstance().COMMA_SEP).toString();
-    public final TWELVE_CHAR_COLUMN_NOT_NULL : String = new StringMaker().append(CommonSeps.getInstance().SPACE).append(CHAR_COLUMN).append(this.TWELVE_SIZE).append(NOT_NULL).append(CommonSeps.getInstance().COMMA_SEP).toString();
+    public final ONE_KB_CHAR_COLUMN : String;
+    public final MAX_CHAR_COLUMN : String;
+    public final MAX_CHAR_COLUMN_NOT_NULL : String;
+    public final SIXTY_CHAR_COLUMN_NOT_NULL : String;
+    public final ONE_CHAR_COLUMN_NOT_NULL : String;
+    public final SIX_CHAR_COLUMN_NOT_NULL : String;
+    public final TWELVE_CHAR_COLUMN_NOT_NULL : String;
     public final TWO_INT_NOT_NULL : String = " INT(2) NOT NULL, ";
     public final THREE_INT_NOT_NULL : String = " INT(3) NOT NULL, ";
     public final FOUR_INT_NOT_NULL : String = " INT(4) NOT NULL, ";
@@ -42,6 +42,13 @@ class SqlTypeStrings {
     public final BLOB : String = " BLOB, ";
     public final BLOB_NOT_NULL : String = " BLOB NOT NULL, ";
     public function new() {
+        this.ONE_KB_CHAR_COLUMN = Std.string(new StringMaker().append(CommonSeps.getInstance().SPACE).append(CHAR_COLUMN).append("(1024)").append(CommonSeps.getInstance().COMMA_SEP));
+        this.MAX_CHAR_COLUMN = Std.string(new StringMaker().append(CommonSeps.getInstance().SPACE).append(CHAR_COLUMN).append(MAX_SIZE).append(CommonSeps.getInstance().COMMA_SEP));
+        this.MAX_CHAR_COLUMN_NOT_NULL = Std.string(new StringMaker().append(CommonSeps.getInstance().SPACE).append(CHAR_COLUMN).append(MAX_SIZE).append(CommonSeps.getInstance().SPACE).append(NOT_NULL).append(CommonSeps.getInstance().COMMA_SEP));
+        this.SIXTY_CHAR_COLUMN_NOT_NULL = Std.string(new StringMaker().append(CommonSeps.getInstance().SPACE).append(CHAR_COLUMN).append(SIXTY_SIZE).append(NOT_NULL).append(CommonSeps.getInstance().COMMA_SEP));
+        this.ONE_CHAR_COLUMN_NOT_NULL = Std.string(new StringMaker().append(CommonSeps.getInstance().SPACE).append(CHAR_COLUMN).append(ONE_SIZE).append(NOT_NULL).append(CommonSeps.getInstance().COMMA_SEP));
+        this.SIX_CHAR_COLUMN_NOT_NULL = Std.string(new StringMaker().append(CommonSeps.getInstance().SPACE).append(CHAR_COLUMN).append(SIX_SIZE).append(NOT_NULL).append(CommonSeps.getInstance().COMMA_SEP));
+        this.TWELVE_CHAR_COLUMN_NOT_NULL = Std.string(new StringMaker().append(CommonSeps.getInstance().SPACE).append(CHAR_COLUMN).append(this.TWELVE_SIZE).append(NOT_NULL).append(CommonSeps.getInstance().COMMA_SEP));
     }
 }
 

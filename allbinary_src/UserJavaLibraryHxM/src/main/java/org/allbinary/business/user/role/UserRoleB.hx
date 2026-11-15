@@ -37,7 +37,7 @@ class UserRoleB extends UserRole {
             final size : Int = roleVector.size();
             for (index in 0...size) {
                 var userRole : UserRole = (cast roleVector.get(index) : UserRole);
-                if (Reflect.compare(role, userRole.toString()) == 0) {
+                if (Reflect.compare(role, Std.string(userRole)) == 0) {
                     return userRole;
                 }
             }

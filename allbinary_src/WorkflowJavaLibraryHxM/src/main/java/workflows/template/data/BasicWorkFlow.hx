@@ -36,7 +36,7 @@ class BasicWorkFlow implements WorkFlowInterface {
     private var pageContext : PageContext;
     public function new(propertiesHashMap : HashMap, pageContext : PageContext) {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().WORKFLOW)) {
-            this.logUtil.putF("Properties: " + propertiesHashMap.toString(), this, "BasicWorkFlow()");
+            this.logUtil.putF("Properties: " + Std.string(propertiesHashMap), this, "BasicWorkFlow()");
         }
         this.propertiesHashMap = propertiesHashMap;
         this.pageContext = pageContext;

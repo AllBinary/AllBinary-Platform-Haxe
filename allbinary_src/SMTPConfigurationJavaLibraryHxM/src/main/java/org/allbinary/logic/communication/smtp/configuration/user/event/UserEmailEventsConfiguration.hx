@@ -57,7 +57,7 @@ class UserEmailEventsConfiguration implements UserEmailEventsConfigurationInterf
 
     // throws Exception
     public function getEventListener(abeClientInformation : AbeClientInformationInterface, userEmailEventNameData : UserEmailEventNameData, userInterface : UserInterface) : UserEmailEventListenerInterface {
-        final userEmailEventConfigurationInterface : UserEmailEventConfigurationInterface = (cast this.emailEventHashMap.get(userEmailEventNameData.toString()) : UserEmailEventConfigurationInterface);
+        final userEmailEventConfigurationInterface : UserEmailEventConfigurationInterface = (cast this.emailEventHashMap.get(Std.string(userEmailEventNameData)) : UserEmailEventConfigurationInterface);
         return UserEmailEventListenerFactory.getInstance(abeClientInformation, userEmailEventConfigurationInterface, userInterface);
     }
 

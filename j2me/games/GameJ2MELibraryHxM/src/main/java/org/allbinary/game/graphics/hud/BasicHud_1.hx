@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.graphics.hud;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
@@ -41,8 +41,8 @@ class BasicHud_1 implements UpdateMyFontInterface {
     public final canvasStrings : CanvasStrings = CanvasStrings.getInstance();
     public final basicSetColorUtil : BasicColorSetUtil = BasicColorSetUtil.getInstance();
     private final displayInfo : DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
-    private final updateMyFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
-    private var myFontProcessor : MyFontProcessor = this.updateMyFontProcessor;
+    private final updateMyFontProcessor : MyFontProcessor;
+    private var myFontProcessor : MyFontProcessor;
     private var location : Int = 0;
     private var direction : Int = 0;
     private var bufferZone : Int = 0;
@@ -54,6 +54,8 @@ class BasicHud_1 implements UpdateMyFontInterface {
     public var updateMaxWidth : Int = 0;
     public var updateMaxHeight : Int = 0;
     public function new(location : Int, direction : Int, bufferZone : Int, basicColor : BasicColor) {
+        this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
+        this.myFontProcessor = this.updateMyFontProcessor;
         this.setLocation(location);
         this.setDirection(direction);
         this.setBufferZone(bufferZone);

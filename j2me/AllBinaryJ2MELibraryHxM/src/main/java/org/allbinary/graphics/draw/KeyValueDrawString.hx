@@ -15,19 +15,20 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.draw;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.font.MyFontProcessor;
 import org.allbinary.graphics.font.UpdateMyFontInterface;
 import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.logic.string.StringUtil;
 
 class KeyValueDrawString implements UpdateMyFontInterface {
-    private var myFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
+    private var myFontProcessor : MyFontProcessor;
     private final LABEL : String;
     private final labelX : Int;
     private var valueX : Int = 0;
     private var value : String = StringUtil.getInstance().EMPTY_STRING;
     public function new(label : String, x : Int) {
+        this.myFontProcessor = new UpdateMyFontProcessor(this);
         this.LABEL = label;
         this.labelX = x;
     }
@@ -45,9 +46,7 @@ class KeyValueDrawString implements UpdateMyFontInterface {
     }
 
     public function update(value : String) : Void {
-        if (value != null) {
-            this.value = value;
-        }
+        this.value = value;
     }
 
 }

@@ -156,7 +156,7 @@ class GameConfigurationCentral {
         stringBuffer.append(this.MAX_LAYERS.getName());
         stringBuffer.append(commonStrings.EQUALS);
         stringBuffer.appendint(Std.int(Std.int(this.MAX_LAYERS.getValue())));
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

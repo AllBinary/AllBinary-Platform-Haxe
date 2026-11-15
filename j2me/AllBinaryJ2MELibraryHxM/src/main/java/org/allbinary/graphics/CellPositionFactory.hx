@@ -40,7 +40,7 @@ class CellPositionFactory {
         stringBuffer.appendint(columns);
         stringBuffer.append(" rows: ");
         stringBuffer.appendint(rows);
-        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
+        this.logUtil.putF(Std.string(stringBuffer), this, commonStrings.INIT);
         this.cellPositionArray = haxe.ds.Vector.fromArrayCopy([for (index in 0...columns) haxe.ds.Vector.fromArrayCopy([for (index2 in 0...rows) null])]);
         this.columns = columns;
         this.rows = rows;
@@ -56,7 +56,7 @@ class CellPositionFactory {
             return this.cellPositionArray[i_column][i_row];
         } catch (e : haxe.Exception) {
             final commonStrings : CommonStrings = CommonStrings.getInstance();
-            this.logUtil.put(new StringMaker().append("columns: ").appendint(this.getColumns()).append(" rows: ").appendint(this.getRows()).append(" col: ").appendint(i_column).append(" row: ").appendint(i_row).toString(), this, commonStrings.GET_INSTANCE, e);
+            this.logUtil.put(Std.string(new StringMaker().append("columns: ").appendint(this.getColumns()).append(" rows: ").appendint(this.getRows()).append(" col: ").appendint(i_column).append(" row: ").appendint(i_row)), this, commonStrings.GET_INSTANCE, e);
             return this.NONE;
         }
     }

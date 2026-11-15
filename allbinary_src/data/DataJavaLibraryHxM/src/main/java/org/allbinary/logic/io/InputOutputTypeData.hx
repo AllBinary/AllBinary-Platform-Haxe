@@ -23,6 +23,8 @@ class InputOutputTypeData {
     }
 
     public function new() {
+        this.DEFAULT = this.JSP;
+        this.DEFAULT_FRAGMENT = this.JSP_FRAGMENT;
     }
 
     public final NAME : String = "INPUT_OUTPUT_TYPE_NAME";
@@ -34,7 +36,7 @@ class InputOutputTypeData {
     public final PHP : String = "php";
     public final ASP : String = "asp";
     public final PL : String = "pl";
-    public final DEFAULT : String = this.JSP;
-    public final DEFAULT_FRAGMENT : String = this.JSP_FRAGMENT;
+    public final DEFAULT : String;
+    public final DEFAULT_FRAGMENT : String;
 }
 

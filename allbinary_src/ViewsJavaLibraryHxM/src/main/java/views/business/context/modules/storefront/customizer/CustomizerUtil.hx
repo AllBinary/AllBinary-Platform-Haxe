@@ -97,7 +97,7 @@ class CustomizerUtil {
             stringBuffer.appendint(allViewsToBeModified.size());
             stringBuffer.append(" New Xml/Data: ");
             stringBuffer.append(documentString);
-            this.logUtil.putF(stringBuffer.toString(), this, "insert()");
+            this.logUtil.putF(Std.string(stringBuffer), this, "insert()");
         }
         transformInfoInterface.setData(documentString);
         final size : Int = allViewsToBeModified.size();
@@ -109,7 +109,7 @@ class CustomizerUtil {
                 stringBuffer.append(transformInfoInterface.getName());
                 stringBuffer.append(" is modifying view: ");
                 stringBuffer.append(viewNameOfViewToBeModified);
-                this.logUtil.putF(stringBuffer.toString(), this, "insert()");
+                this.logUtil.putF(Std.string(stringBuffer), this, "insert()");
             }
             var httpTransformInfoInterface : TransformInfoHttpInterface = (cast transformInfoInterface : TransformInfoHttpInterface);
             var specifiedTransformInfoInterface : TransformInfoInterface = transformInfoEntityInterface.get(viewNameOfViewToBeModified, httpTransformInfoInterface.getPropertiesHashMap(), httpTransformInfoInterface.getPageContext());
@@ -120,7 +120,7 @@ class CustomizerUtil {
                     stringBuffer.append(" is unable to add data to view: ");
                     stringBuffer.append(viewNameOfViewToBeModified);
                     stringBuffer.append(" since it does not exist");
-                    this.logUtil.putF(stringBuffer.toString(), this, "insert()");
+                    this.logUtil.putF(Std.string(stringBuffer), this, "insert()");
                 }
             } else {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
@@ -130,10 +130,10 @@ class CustomizerUtil {
                     stringBuffer.delete(0, stringBuffer.length());
                     stringBuffer.append(viewNameOfViewToBeModified);
                     stringBuffer.append(" is changing data in ");
-                    stringBuffer.append(specifiedTransformInfoInterface.getDataFilePath().toString());
+                    stringBuffer.append(Std.string(specifiedTransformInfoInterface.getDataFilePath()));
                     stringBuffer.append(" to the following data:\n");
                     stringBuffer.append(documentString);
-                    this.logUtil.putF(stringBuffer.toString(), this, "insert()");
+                    this.logUtil.putF(Std.string(stringBuffer), this, "insert()");
                 }
                 this.write(specifiedTransformInfoInterface, documentString);
             }

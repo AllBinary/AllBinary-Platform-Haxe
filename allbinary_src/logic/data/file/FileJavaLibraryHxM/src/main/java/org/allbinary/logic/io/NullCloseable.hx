@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.io;
 
-//import java.io.Closeable;
-//import java.io.IOException;
+import jre.io.Closeable;
+import jre.io.IOException;
 
 class NullCloseable implements Closeable {
     public static final NULL_CLOSEABLE : NullCloseable = new NullCloseable();

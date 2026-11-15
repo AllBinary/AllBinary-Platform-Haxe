@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.media.audio;
 
-//import javax.microedition.media.Player;
+import javax.microedition.media.Player;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -48,15 +48,15 @@ class Sounds {
             final soundInterface : Sound = soundInterfaceArray[i];
             if (soundInterface != null) {
                 indexInteger = smallIntegerSingletonFactory.getAt(i);
-                indexString = indexInteger.toString();
+                indexString = Std.string(indexInteger);
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append(commonLabels.INDEX_LABEL);
                 stringBuffer.append(indexString);
                 stringBuffer.append(this.soundStrings.SOUND);
                 stringBuffer.append(Type.getClassName(Type.getClass(soundInterface)));
-                this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.INIT);
+                this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.INIT);
                 soundInterface.init();
-                progressCanvas.addNormalPortion(100, new StringMaker().append(this.soundStrings.INIT_SOUND).append(indexString).toString());
+                progressCanvas.addNormalPortion(100, Std.string(new StringMaker().append(this.soundStrings.INIT_SOUND).append(indexString)));
             }
         }
         this.soundsFactoryInterface.setInitialized(true);

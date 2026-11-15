@@ -32,10 +32,10 @@ class TransformInfoHttpContext extends TransformInfoHttp {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append("Database HashMap: ");
-            stringBuffer.append(databaseHashMap.toString());
+            stringBuffer.append(Std.string(databaseHashMap));
             stringBuffer.append("\nProperties HashMap: ");
-            stringBuffer.append(propertiesHashMap.toString());
-            this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.CONSTRUCTOR);
+            stringBuffer.append(Std.string(propertiesHashMap));
+            this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.CONSTRUCTOR);
         }
         this.setStoreName(StringUtil.getInstance().EMPTY_STRING);
     }
@@ -44,7 +44,7 @@ class TransformInfoHttpContext extends TransformInfoHttp {
     public function new(propertiesHashMap : HashMap, pageContext : PageContext) {
         super(propertiesHashMap, pageContext);
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-            this.logUtil.putF("Properties HashMap: " + propertiesHashMap.toString(), this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.putF("Properties HashMap: " + Std.string(propertiesHashMap), this, this.commonStrings.CONSTRUCTOR);
         }
         this.setStoreName(StringUtil.getInstance().EMPTY_STRING);
     }
@@ -57,7 +57,7 @@ class TransformInfoHttpContext extends TransformInfoHttp {
         stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().INSTALLPATH);
         stringBuffer.append(this.getStoreName());
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     // throws Exception

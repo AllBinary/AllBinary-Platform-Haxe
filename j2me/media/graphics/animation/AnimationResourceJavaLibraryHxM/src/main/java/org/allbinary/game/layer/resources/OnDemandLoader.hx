@@ -72,7 +72,7 @@ class OnDemandLoader {
         final portion : Int = 120;
         var index : Int = 0;
         final onDemandArray : haxe.ds.Vector<Int> = layerPlacementInterfaceBasicArrayListFactoryInterface.getOnDemandResources();
-        PreLogUtil.put(new StringMaker().append(commonStrings.START).appendint(onDemandArray.length).toString(), this, "initLevel");
+        PreLogUtil.put(Std.string(new StringMaker().append(commonStrings.START).appendint(onDemandArray.length)), this, "initLevel");
         var onDemandResources : OnDemandResources = null;
         {
             var onDemandIndex : Int = onDemandArray.length;

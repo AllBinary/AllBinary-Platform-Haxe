@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration;
 
-//import javax.microedition.lcdui.TextField;
+import javax.microedition.lcdui.TextField;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.ABHashtable;

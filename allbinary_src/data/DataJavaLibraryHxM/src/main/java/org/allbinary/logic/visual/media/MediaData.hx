@@ -15,11 +15,11 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.visual.media;
 
-//import java.util.HashMap;
+import jre.util.HashMap;
 import org.allbinary.logic.StdUtil;
 
 class MediaData {
-    private static var hashMap : HashMap = StdUtil.getInstance().createHashMap();
+    private static var hashMap : HashMap<Dynamic, Dynamic> = StdUtil.getInstance().createHashMap();
     private var name : String;
     private var type : String;
     private var extension : String;
@@ -59,7 +59,7 @@ class MediaData {
         if (mediaData != null) {
             return mediaData;
         } else {
-            throw new haxe.Exception("No Such MediaData");
+            throw new jre.lang.JavaException("No Such MediaData");
         }
     }
 
@@ -67,7 +67,7 @@ class MediaData {
         return MediaDataFactory.getInstance().JPG;
     }
 
-    public static function toHashMap() : HashMap {
+    public static function toHashMap() : HashMap<Dynamic, Dynamic> {
         return MediaData.hashMap;
     }
 

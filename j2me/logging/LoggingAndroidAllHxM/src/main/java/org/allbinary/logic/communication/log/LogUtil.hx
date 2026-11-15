@@ -51,14 +51,14 @@ class LogUtil {
 
     public function put(specialMessage : String, anyType : Any, functionName : String, exception : Any) : Void {
         var className : String = this.LABEL;
-        className = new StringMaker().append(Type.getClassName(Type.getClass(anyType))).append(this.commonSeps.COLON).append(StringTools.hex(TsUtil.getInstance().hashCode(anyType))).toString();
+        className = Std.string(new StringMaker().append(Type.getClassName(Type.getClass(anyType))).append(this.commonSeps.COLON).append(StringTools.hex(TsUtil.getInstance().hashCode(anyType))));
         final message : String = this.logFormatUtil.get(className, functionName, specialMessage, exception);
         android.util.Log.i(this.LABEL, message);
     }
 
     public function putS(specialMessage : String, string : String, functionName : String, exception : Any) : Void {
         var className : String = this.LABEL;
-        className = new StringMaker().append(string).append(this.commonSeps.COLON).append(StringTools.hex(TsUtil.getInstance().hashCode(string))).toString();
+        className = Std.string(new StringMaker().append(string).append(this.commonSeps.COLON).append(StringTools.hex(TsUtil.getInstance().hashCode(string))));
         final message : String = this.logFormatUtil.get(className, functionName, specialMessage, exception);
         android.util.Log.i(this.LABEL, message);
     }

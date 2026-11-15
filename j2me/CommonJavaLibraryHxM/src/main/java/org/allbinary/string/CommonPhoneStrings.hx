@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.string;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 
 class CommonPhoneStrings {
     private static final instance : CommonPhoneStrings = new CommonPhoneStrings();

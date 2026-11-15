@@ -15,12 +15,12 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.communication.smtp.event;
 
-//import java.util.HashMap;
+import jre.util.HashMap;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
 import org.allbinary.logic.StdUtil;
 
 class UserEmailEventNameData {
-    private static var userNameEvenNameHashMap : HashMap = StdUtil.getInstance().createHashMap();
+    private static var userNameEvenNameHashMap : HashMap<Dynamic, Dynamic> = StdUtil.getInstance().createHashMap();
     private static var nextId : Int = 0;
     private var eventNameId : Int = 0;
     private var eventHandlerName : String;
@@ -69,7 +69,7 @@ class UserEmailEventNameData {
     public static function getInstance(userEmailEventNameString : String) : UserEmailEventNameData {
         var userEmailEventNameData : UserEmailEventNameData = (cast UserEmailEventNameData.userNameEvenNameHashMap.get(userEmailEventNameString) : UserEmailEventNameData);
         if (userEmailEventNameData == null) {
-            throw new haxe.Exception();
+            throw new jre.lang.JavaException();
         } else {
             return userEmailEventNameData;
         }

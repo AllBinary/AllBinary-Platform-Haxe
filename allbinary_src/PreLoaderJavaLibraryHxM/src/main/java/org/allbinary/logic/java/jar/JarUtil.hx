@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.java.jar;
 
-//import java.io.IOException;
-//import java.net.URL;
+import jre.io.IOException;
+import jre.net.URL;
 //import java.net.URLConnection;
 //import java.util.jar.JarEntry;
 //import java.util.jar.JarInputStream;

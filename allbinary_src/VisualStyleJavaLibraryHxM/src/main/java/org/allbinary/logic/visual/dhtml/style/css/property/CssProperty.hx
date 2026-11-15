@@ -60,7 +60,7 @@ class CssProperty implements DomNodeInterface {
     public function toXmlNode(document : Document) : Node {
         var hashMap : HashMap = this.toHashMap();
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-            this.logUtil.putF("CssView HashMap: " + hashMap.toString(), this, "toXmlNode()");
+            this.logUtil.putF("CssView HashMap: " + Std.string(hashMap), this, "toXmlNode()");
         }
         var node : Node = ModDomHelper.createNameValueNodes(document, CssPropertyData.getInstance().NAME, this.propertyName);
         node.appendChild(this.cssPropertyValues.toXmlNode(document));

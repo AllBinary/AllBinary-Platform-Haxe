@@ -91,8 +91,8 @@ class BasicPaymentType {
 
     public function toHashMap() : HashMap {
         var hashMap : HashMap = StdUtil.getInstance().createHashMap();
-        hashMap.put(PaymentGatewayData.NAME.toString(), this.name);
-        hashMap.put(PaymentGatewayData.VALUE.toString(), this.value);
+        hashMap.put(Std.string(PaymentGatewayData.NAME), this.name);
+        hashMap.put(Std.string(PaymentGatewayData.VALUE), this.value);
         return hashMap;
     }
 

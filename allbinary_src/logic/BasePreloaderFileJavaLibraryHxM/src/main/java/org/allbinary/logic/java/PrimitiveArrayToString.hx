@@ -23,7 +23,7 @@ class PrimitiveArrayToString {
         for (index in 0...floats.length) {
             stringBuffer.appendfloat(floats[index]);
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function new() {

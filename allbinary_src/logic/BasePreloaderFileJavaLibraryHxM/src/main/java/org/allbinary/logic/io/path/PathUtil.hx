@@ -32,21 +32,21 @@ class PathUtil {
     }
 
     public function getExtensionWithAbFilePath(abFilePath : AbFilePath) : String {
-        return this.abPathData.getExtension(abFilePath.toString());
+        return this.abPathData.getExtension(Std.string(abFilePath));
     }
 
     public function getExtensionWithAbPath(abPath : AbPath) : String {
-        return this.abPathData.getExtension(abPath.toString());
+        return this.abPathData.getExtension(Std.string(abPath));
     }
 
     // throws Exception
     public function getWithoutExtensionWithAbFilePath(abFilePath : AbFilePath) : String {
-        return this.getWithoutExtension(abFilePath.toString());
+        return this.getWithoutExtension(Std.string(abFilePath));
     }
 
     // throws Exception
     public function getWithoutExtensionWithAbPath(abPath : AbPath) : String {
-        return this.getWithoutExtension(abPath.toString());
+        return this.getWithoutExtension(Std.string(abPath));
     }
 
     // throws Exception

@@ -50,7 +50,7 @@ class BasicTransformer extends AbTransformer {
         var inputStream : AbFileInputStream = null;
         try {
             outputStream = new ByteArrayOutputStream();
-            inputStream = new AbFileInputStream(file);
+            inputStream = AbFileInputStream.createFromAbFile(file);
             outputStream = (cast this.streamUtil.get(inputStream, outputStream, haxe.ds.Vector.fromArrayCopy([for (index in 0...16384) 0])) : ByteArrayOutputStream);
             final abCrypt : AbCrypt = new AbCrypt(KeySpecFactory.DESEDE, AbKeys.getInstance().getKey(this.abeClientInformation, file.getAbsolutePath()));
             final decrypted : haxe.ds.Vector<Int> = abCrypt.decrypt(outputStream.toByteArray());
@@ -66,7 +66,7 @@ class BasicTransformer extends AbTransformer {
                 stringBuffer.append(file.getPath());
                 stringBuffer.append(" \nName:");
                 stringBuffer.append(file.getName());
-                this.logUtil.put(stringBuffer.toString(), this, "setEncryptedTemplateFileAsInputStream()", e);
+                this.logUtil.put(Std.string(stringBuffer), this, "setEncryptedTemplateFileAsInputStream()", e);
             }
             throw e;
         }
@@ -88,7 +88,7 @@ class BasicTransformer extends AbTransformer {
             final abCrypt : AbCrypt = new AbCrypt(KeySpecFactory.DESEDE, AbKeys.getInstance().getKey(this.abeClientInformation, this.getTransformInfoInterface().getName()));
             final decrypted : haxe.ds.Vector<Int> = abCrypt.decrypt(outputStream.toByteArray());
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                this.logUtil.putF("Decrypted Template: \n" + decrypted.toString(), this, "setEncryptedTemplateAsInputStream()");
+                this.logUtil.putF("Decrypted Template: \n" + Std.string(decrypted), this, "setEncryptedTemplateAsInputStream()");
             }
             this.setInputStream((cast new ByteArrayInputStream(decrypted) : InputStream));
             this.setURIResolver((cast new BasicUriResolver(TransformInfoTemplateData.getInstance().ENCRYPTED_EXTENSION) : URIResolver));
@@ -126,7 +126,7 @@ class BasicTransformer extends AbTransformer {
                     stringBuffer.append(filePath);
                     stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);
                     stringBuffer.append(transformInfoTemplateData.ENCRYPTED_EXTENSION);
-                    final encFile : AbFile = AbFile.createAbFile(stringBuffer.toString());
+                    final encFile : AbFile = AbFile.createAbFile(Std.string(stringBuffer));
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
                         this.logUtil.putF(this.getTransformInfoInterface().log(), this, "setTemplateAsInputStream()");
                     }
@@ -136,7 +136,7 @@ class BasicTransformer extends AbTransformer {
                         stringBuffer.appendboolean(encFile.isFile());
                         stringBuffer.append("\nEncTemplateFilePath: ");
                         stringBuffer.append(encFile.getPath());
-                        this.logUtil.putF(stringBuffer.toString(), this, "setTemplateAsInputStream()");
+                        this.logUtil.putF(Std.string(stringBuffer), this, "setTemplateAsInputStream()");
                     }
                     if (encFile.isFile()) {
                         this.setEncryptedTemplateFileAsInputStream(encFile);
@@ -150,11 +150,11 @@ class BasicTransformer extends AbTransformer {
                             this.logUtil.putF("Template File isFile=" + file.isFile(), this, "setTemplateAsInputStream()");
                         }
                         if (file.isFile()) {
-                            inputStream = new AbFileInputStream(file);
+                            inputStream = AbFileInputStream.createFromAbFile(file);
                             outputStream = new ByteArrayOutputStream();
                             outputStream = (cast this.streamUtil.get(inputStream, outputStream, haxe.ds.Vector.fromArrayCopy([for (index in 0...16384) 0])) : ByteArrayOutputStream);
                             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                                this.logUtil.putF("Template: " + outputStream.toString(), this, "getTemplateAsInputStream()");
+                                this.logUtil.putF("Template: " + Std.string(outputStream), this, "getTemplateAsInputStream()");
                             }
                             this.setInputStream((cast new ByteArrayInputStream(outputStream.toByteArray()) : InputStream));
                             this.setURIResolver((cast new BasicUriResolver(transformInfoTemplateData.UNCRYPTED_EXTENSION) : URIResolver));
@@ -166,7 +166,7 @@ class BasicTransformer extends AbTransformer {
                     stringBuffer.append(filePath);
                     stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);
                     stringBuffer.append(transformInfoTemplateData.ENCRYPTED_EXTENSION);
-                    final file : AbFile = AbFile.createAbFile(stringBuffer.toString());
+                    final file : AbFile = AbFile.createAbFile(Std.string(stringBuffer));
                     if (file.isFile()) {
                         this.setEncryptedTemplateFileAsInputStream(file);
                     }

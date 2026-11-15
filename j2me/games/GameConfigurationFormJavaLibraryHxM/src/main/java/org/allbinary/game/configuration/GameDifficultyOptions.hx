@@ -15,21 +15,21 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration;
 
-//import javax.microedition.lcdui.Choice;
-//import javax.microedition.lcdui.ChoiceGroup;
-//import javax.microedition.lcdui.CommandListener;
-//import javax.microedition.lcdui.NullImage;
+import javax.microedition.lcdui.Choice;
+import javax.microedition.lcdui.ChoiceGroup;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.NullImage;
+import org.allbinary.MIDPUtil;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.persistance.GameDifficultyFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
-import org.allbinary.logic.MEUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 
 class GameDifficultyOptions extends CommandForm {
-    private final meUtil : MEUtil = MEUtil.getInstance();
+    private final meUtil : MIDPUtil = MIDPUtil.getInstance();
     private final list : BasicArrayList;
     public function new(commandListener : CommandListener, title : String, list : BasicArrayList, backgrounBasicColor : BasicColor, foregroundBasicColor : BasicColor) {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
@@ -87,8 +87,8 @@ class GameDifficultyOptions extends CommandForm {
         var anyType : Any = null;
         for (index in 0...size) {
             anyType = list.objectArray[index];
-            this.logUtil.putF(new StringMaker().append(NAME).append(anyType.toString()).toString(), this, METHOD_NAME);
-            choiceGroup.append(anyType.toString(), NullImage.NULL_IMAGE);
+            this.logUtil.putF(Std.string(new StringMaker().append(NAME).append(Std.string(anyType))), this, METHOD_NAME);
+            choiceGroup.append(Std.string(anyType), NullImage.NULL_IMAGE);
         }
         return choiceGroup;
     }

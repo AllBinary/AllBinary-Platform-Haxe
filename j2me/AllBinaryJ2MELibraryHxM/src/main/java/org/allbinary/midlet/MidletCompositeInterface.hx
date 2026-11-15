@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.midlet;
 
-//import javax.microedition.lcdui.Displayable;
-//import javax.microedition.midlet.MIDlet;
+import javax.microedition.lcdui.Displayable;
+import javax.microedition.midlet.MIDlet;
 
 interface MidletCompositeInterface {
     function setMidlet(midlet : MIDlet) : Void;

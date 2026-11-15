@@ -24,6 +24,7 @@ import org.allbinary.business.user.group.GroupData;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.util.BasicArrayList;
 
 class AffiliateSalesEntity extends AbSqlBean implements AffiliateSalesEntityInterface {
     public final logUtil : LogUtil = LogUtil.getInstance();
@@ -53,7 +54,7 @@ class AffiliateSalesEntity extends AbSqlBean implements AffiliateSalesEntityInte
         stringBuffer.append(this.getTableName());
         stringBuffer.append(this.sqlStrings.START);
         stringBuffer.append(entryData.ID).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(StoreFrontData.getInstance().NAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(GroupData.NAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(DynamicObjectData.NAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(entryData.TIMECREATED).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(entryData.LASTMODIFIED).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(this.sqlStrings.PRIMARY_KEY).append(entryData.ID).append(this.sqlStrings.END);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function createTable() : String {
@@ -67,6 +68,10 @@ class AffiliateSalesEntity extends AbSqlBean implements AffiliateSalesEntityInte
 
     public function dropTable() : String {
         return super.dropTable();
+    }
+
+    public override function insert(values : BasicArrayList) : Void {
+        super.insert(values);
     }
 
 }

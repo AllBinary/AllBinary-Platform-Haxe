@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation.image;
 
-//import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.Image;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
@@ -88,8 +88,8 @@ class BaseImageAnimationFactory implements AnimationInterfaceFactoryInterface {
         stringBuffer.append(commonLabels.HEIGHT_LABEL);
         stringBuffer.appendint(Std.int(this.image.getHeight()));
         stringBuffer.append(commonSeps.SPACE);
-        stringBuffer.append(this.animationFactoryInitializationVisitor.toString());
-        return stringBuffer.toString();
+        stringBuffer.append(Std.string(this.animationFactoryInitializationVisitor));
+        return Std.string(stringBuffer);
     }
 
 }

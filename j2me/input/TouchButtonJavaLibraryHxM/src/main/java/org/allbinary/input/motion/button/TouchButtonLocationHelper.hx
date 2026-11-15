@@ -74,7 +74,7 @@ class TouchButtonLocationHelper {
         stringBuffer.appendint(this.columnsRemainderHalf);
         stringBuffer.append(" rowsRemainderHalf: ");
         stringBuffer.appendint(this.rowsRemainderHalf);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

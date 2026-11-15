@@ -80,7 +80,7 @@ class AddFileValidationView extends DownloadableInventoryItemView implements Val
                 return false;
             }
             var storeFrontInterface : StoreFrontInterface = StoreFrontFactory.getInstance(this.getWeblisketSession().getStoreName());
-            var fullCategory : String = new StringMaker().append(URLGLOBALS.getWebappPath()).append(storeFrontInterface.getCurrentHostNamePath()).append(this.itemInterface.getCategory()).toString();
+            var fullCategory : String = Std.string(new StringMaker().append(URLGLOBALS.getWebappPath()).append(storeFrontInterface.getCurrentHostNamePath()).append(this.itemInterface.getCategory()));
             var categoryFile : AbFile = AbFile.createAbFile(fullCategory);
             if (!categoryFile.isDirectory()) {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
@@ -189,7 +189,7 @@ class AddFileValidationView extends DownloadableInventoryItemView implements Val
                 stringBuffer.append("<br/>");
             }
             var storeFrontInterface : StoreFrontInterface = StoreFrontFactory.getInstance(this.getWeblisketSession().getStoreName());
-            var fullCategory : String = new StringMaker().append(URLGLOBALS.getWebappPath()).append(storeFrontInterface.getCurrentHostNamePath()).append(this.itemInterface.getCategory()).toString();
+            var fullCategory : String = Std.string(new StringMaker().append(URLGLOBALS.getWebappPath()).append(storeFrontInterface.getCurrentHostNamePath()).append(this.itemInterface.getCategory()));
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
                 this.logUtil.putF("Category: " + fullCategory, this, "validationInfo()");
             }
@@ -237,7 +237,7 @@ class AddFileValidationView extends DownloadableInventoryItemView implements Val
                     stringBuffer.append("<br/>");
                 }
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
@@ -256,7 +256,7 @@ class AddFileValidationView extends DownloadableInventoryItemView implements Val
                         var stringBuffer : StringMaker = new StringMaker();
                         stringBuffer.append("File name is not valid: ");
                         stringBuffer.append(fileName);
-                        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.IS_VALID);
+                        this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.IS_VALID);
                     }
                     return false;
                 } else {
@@ -268,7 +268,7 @@ class AddFileValidationView extends DownloadableInventoryItemView implements Val
                     stringBuffer.appendlong(size);
                     stringBuffer.append(">");
                     stringBuffer.appendint(Std.int(fileData.MAXDOWNLOADABLEFILESIZE));
-                    this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.IS_VALID);
+                    this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.IS_VALID);
                 }
                 return false;
             }
@@ -279,7 +279,7 @@ class AddFileValidationView extends DownloadableInventoryItemView implements Val
                 stringBuffer.appendlong(size);
                 stringBuffer.append(">");
                 stringBuffer.appendint(Std.int(fileData.MINDOWNLOADABLEFILESIZE));
-                this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.IS_VALID);
+                this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.IS_VALID);
             }
             return false;
         }
@@ -308,6 +308,11 @@ class AddFileValidationView extends DownloadableInventoryItemView implements Val
                 stringBuffer.append("<br/>");
             }
         }
+    }
+
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
     }
 
 }

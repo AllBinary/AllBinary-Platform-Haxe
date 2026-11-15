@@ -96,7 +96,7 @@ class GenericOperatingSystem implements OperatingSystemInterface {
         osBuffer.append(NEW_LINE);
         osBuffer.append(StringUtil.getInstance().toString(this.getCharacterSet()));
         osBuffer.append(NEW_LINE);
-        return osBuffer.toString();
+        return Std.string(osBuffer);
     }
 
 }

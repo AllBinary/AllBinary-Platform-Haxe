@@ -79,7 +79,7 @@ class PageValidation extends Validation implements DomNodeInterface {
             if (!this.title.isValid()) {
                 stringBuffer.append(this.title.validationInfo());
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);

@@ -30,8 +30,9 @@ class HtmlInputData {
     public final PASSWORD : String = "password";
     public final RESET : String = "reset";
     public final SUBMIT : String = "submit";
-    public final TYPES : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy([this.TEXT, this.RADIO, this.CHECKBOX, this.HIDDEN, this.IMAGE, this.PASSWORD, this.RADIO, this.RESET, this.SUBMIT]);
+    public final TYPES : haxe.ds.Vector<String>;
     public function new() {
+        this.TYPES = haxe.ds.Vector.fromArrayCopy([this.TEXT, this.RADIO, this.CHECKBOX, this.HIDDEN, this.IMAGE, this.PASSWORD, this.RADIO, this.RESET, this.SUBMIT]);
     }
 }
 

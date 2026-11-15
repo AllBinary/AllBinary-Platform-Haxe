@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.canvas.GameStatisticsFactory;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
@@ -27,8 +27,8 @@ import org.allbinary.graphics.paint.InitUpdatePaintable;
 
 class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable implements UpdateMyFontInterface {
     private final halfHeight : Int = DisplayInfoSingleton.getInstance().getLastHalfHeight();
-    private final yArray : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy([this.halfHeight + 30, this.halfHeight + 30, this.halfHeight + 30 + 15, this.halfHeight + 30 + 15, this.halfHeight + 30 + 30, this.halfHeight + 30 + 30, this.halfHeight + 30 + 45, this.halfHeight + 30 + 45]);
-    private var myFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
+    private final yArray : haxe.ds.Vector<Int>;
+    private var myFontProcessor : MyFontProcessor;
     private var baseRefreshHelperCharArray : haxe.ds.Vector<haxe.ds.Vector<Int>> = haxe.ds.Vector.fromArrayCopy([for (index in 0...0) haxe.ds.Vector.fromArrayCopy([for (index2 in 0...0) 0])]);
     private var defaultStringWidth : Int = 0;
     public override function updateMeasurement(graphics : Graphics) : Void {
@@ -69,6 +69,8 @@ class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable implements 
 
     public function new() {
         super();
+        this.yArray = haxe.ds.Vector.fromArrayCopy([this.halfHeight + 30, this.halfHeight + 30, this.halfHeight + 30 + 15, this.halfHeight + 30 + 15, this.halfHeight + 30 + 30, this.halfHeight + 30 + 30, this.halfHeight + 30 + 45, this.halfHeight + 30 + 45]);
+        this.myFontProcessor = new UpdateMyFontProcessor(this);
     }
 }
 

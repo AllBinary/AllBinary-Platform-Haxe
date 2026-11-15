@@ -48,7 +48,7 @@ class StreetAddressesEntity extends AbSqlBean implements StreetAddressesEntityIn
         try {
             var whereHashMap : HashMap = StdUtil.getInstance().createHashMap();
             whereHashMap.put(UserData.USERNAME, this.userName);
-            whereHashMap.put(StreetAddressData.ID, (cast index.toString() : String));
+            whereHashMap.put(StreetAddressData.ID, (cast Std.string(index) : String));
             super.deleteWhere(whereHashMap);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                 this.logUtil.putF(this.commonStrings.SUCCESS, this, "remove");
@@ -77,7 +77,7 @@ class StreetAddressesEntity extends AbSqlBean implements StreetAddressesEntityIn
             values.add(address.getCode());
             values.add(address.getCountry());
             var calendar : Calendar = Calendar.getInstance();
-            var time : String = calendar.getTimeInMillis().toString();
+            var time : String = Std.string(calendar.getTimeInMillis());
             values.add(time);
             super.insert(values);
             this.setDefault(getLastId());
@@ -140,7 +140,7 @@ class StreetAddressesEntity extends AbSqlBean implements StreetAddressesEntityIn
         try {
             var keyAndValue : HashMap = StdUtil.getInstance().createHashMap();
             keyAndValue.put(UserData.USERNAME, this.userName);
-            keyAndValue.put(StreetAddressData.ID, index.toString());
+            keyAndValue.put(StreetAddressData.ID, Std.string(index));
             var addressHashMap : HashMap = super.getRow(keyAndValue);
             if (addressHashMap != null) {
                 return new StreetAddress(addressHashMap);
@@ -213,7 +213,7 @@ class StreetAddressesEntity extends AbSqlBean implements StreetAddressesEntityIn
     public function createTableStatement() : String {
         var stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append(this.sqlStrings.CREATE_TABLE).append(this.getTableName()).append(this.sqlStrings.START).append(StreetAddressData.ID).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_AUTO_INCREMENT_NOT_NULL).append(UserData.USERNAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(StreetAddressData.DEFAULT).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(StreetAddressData.NAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(StreetAddressData.STREET).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(StreetAddressData.CITY).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(StreetAddressData.STATE).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(StreetAddressData.CODE).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(StreetAddressData.COUNTRY).append(this.sqlTypeStrings.MAX_CHAR_COLUMN).append(EntryData.getInstance().TIMECREATED).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(this.sqlStrings.PRIMARY_KEY).append(StreetAddressData.ID).append(this.sqlStrings.END);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function createTable() : String {
@@ -221,6 +221,10 @@ class StreetAddressesEntity extends AbSqlBean implements StreetAddressesEntityIn
     }
 
     public function drop() : String {
+        return super.dropTable();
+    }
+
+    public override function dropTable() : String {
         return super.dropTable();
     }
 

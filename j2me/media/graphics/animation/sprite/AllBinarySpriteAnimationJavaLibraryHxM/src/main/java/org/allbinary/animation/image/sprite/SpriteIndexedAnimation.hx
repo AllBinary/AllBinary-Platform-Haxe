@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation.image.sprite;
 
-//import javax.microedition.lcdui.Graphics;
-//import javax.microedition.lcdui.Image;
-//import javax.microedition.lcdui.game.Sprite;
+import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.game.Sprite;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.graphics.color.BasicColor;
@@ -37,7 +37,7 @@ class SpriteIndexedAnimation extends IndexedAnimation implements ColorCompositeI
         this.image = image;
         this.basicColorArray = basicColorArray;
         if (this.basicColorArray.length != 0 && this.getSize() != this.basicColorArray.length) {
-            throw new haxe.Exception(new StringMaker().append(CommonLabels.getInstance().TOTAL_LABEL).appendint(this.getSize()).append("!=").appendint(this.basicColorArray.length).toString());
+            throw new jre.lang.JavaException(Std.string(new StringMaker().append(CommonLabels.getInstance().TOTAL_LABEL).appendint(this.getSize()).append("!=").appendint(this.basicColorArray.length)));
         }
     }
 

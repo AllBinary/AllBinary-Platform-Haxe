@@ -39,7 +39,7 @@ class UserConfigurationInterfaceFactory {
 
     // throws Exception
     public static function getInstance(userRole : UserRole) : UserConfigurationInterface {
-        var abPath : AbPath = new AbPath(URLGLOBALS.getMainPath() + FREEBLISKET_PATH_GLOBALS.getInstance().USERCONFIGURATIONPATH, UserConfigurationInterfaceFactory.configurationName + userRole.toString() + AbPathData.getInstance().EXTENSION_SEP + UserConfigurationData.UNCRYPTED_EXTENSION);
+        var abPath : AbPath = new AbPath(URLGLOBALS.getMainPath() + FREEBLISKET_PATH_GLOBALS.getInstance().USERCONFIGURATIONPATH, UserConfigurationInterfaceFactory.configurationName + Std.string(userRole) + AbPathData.getInstance().EXTENSION_SEP + UserConfigurationData.UNCRYPTED_EXTENSION);
         var documentString : String = new CryptFileReader(UserConfigurationData.UNCRYPTED_EXTENSION, UserConfigurationData.ENCRYPTED_EXTENSION).get(abPath);
         var document : Document = DomDocumentHelper.create(documentString);
         return UserConfigurationInterfaceFactory.getInstance(document);

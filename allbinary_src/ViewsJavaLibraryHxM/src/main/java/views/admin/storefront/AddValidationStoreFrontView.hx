@@ -70,7 +70,7 @@ class AddValidationStoreFrontView extends HttpContextView implements ValidationC
         stringBuffer.append(URLGLOBALS.getMainPath());
         stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
         stringBuffer.append(this.newStoreFrontInterface.getName());
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function validationInfo() : String {
@@ -85,7 +85,7 @@ class AddValidationStoreFrontView extends HttpContextView implements ValidationC
             if (AbFile.createAbFileFromAbPath(new AbPath(this.getStoreViewsPath(), StringUtil.getInstance().EMPTY_STRING)).isFile()) {
                 stringBuffer.append("Store name clashes with template name<br/>");
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
@@ -105,6 +105,11 @@ class AddValidationStoreFrontView extends HttpContextView implements ValidationC
     // throws Exception
     public function view() : String {
         return views.ValidationOnlyTempUtil.getInstance().view(this);
+    }
+
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
     }
 
 }

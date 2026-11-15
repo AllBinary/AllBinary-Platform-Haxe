@@ -92,7 +92,7 @@ class BasicTouchInputFactory {
     }
 
     public function updateAllFromList(list : BasicArrayList, inputToGameKeyMapping : InputToGameKeyMapping) : Void {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).appendint(list.size()).toString(), this, "updateAll");
+        this.logUtil.putF(Std.string(new StringMaker().append(CommonLabels.getInstance().START_LABEL).appendint(list.size())), this, "updateAll");
         var touchButtonInput : TouchButtonInput = null;
         {
             var index : Int = list.size() - 1;

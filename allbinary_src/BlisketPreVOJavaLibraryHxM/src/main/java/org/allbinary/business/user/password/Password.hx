@@ -77,7 +77,7 @@ class Password {
         this.password = StringUtil.getInstance().getNonNull(this.password);
         var random : Int = new Random().nextInt(SuperCrypt.KEYMAX);
         var vector : BasicArrayList = new BasicArrayListD();
-        vector.add(random.toString());
+        vector.add(Std.string(random));
         vector.add(secret);
         vector.add(new SuperCrypt(random).encrypt(this.password));
         return vector;
@@ -87,7 +87,7 @@ class Password {
         this.password = StringUtil.getInstance().getNonNull(this.password);
         var values : HashMap = StdUtil.getInstance().createHashMap();
         var random : Int = new Random().nextInt(SuperCrypt.KEYMAX);
-        values.put(EntryData.getInstance().ENCRYPTION, random.toString());
+        values.put(EntryData.getInstance().ENCRYPTION, Std.string(random));
         values.put(UserData.SECRET, secret);
         values.put(UserData.PASSWORD, new SuperCrypt(random).encrypt(this.password));
         return values;

@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.business.context.modules.storefronts;
 
-//import java.util.HashMap;
+import jre.util.HashMap;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.init.InitSql;
 import org.allbinary.business.init.db.UserDbInitInfo;
@@ -32,14 +32,14 @@ class BasicStoreFrontsEntity extends InitSql {
 
     // throws Exception
     public function getStoreFrontInterface(name : String) : BasicStoreFrontInterface {
-        var keysAndValues : HashMap = StdUtil.getInstance().createHashMap();
+        var keysAndValues : HashMap<Dynamic, Dynamic> = StdUtil.getInstance().createHashMap();
         keysAndValues.put(StoreFrontData.getInstance().NAME, name);
-        var storeHashMap : HashMap = super.getRow(keysAndValues);
+        var storeHashMap : HashMap<Dynamic, Dynamic> = super.getRow(keysAndValues);
         if (storeHashMap == null) {
-            throw new haxe.Exception("No Such Store: " + name);
+            throw new jre.lang.JavaException("No Such Store: " + name);
         }
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR)) {
-            this.logUtil.putF("StoreFront: " + storeHashMap.toString(), this, "getStore()");
+            this.logUtil.putF("StoreFront: " + Std.string(storeHashMap), this, "getStore()");
         }
         return (cast new BasicStoreFront(storeHashMap) : BasicStoreFrontInterface);
     }

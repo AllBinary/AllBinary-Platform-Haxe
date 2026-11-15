@@ -17,7 +17,7 @@ package org.allbinary.logic.java.number;
 
 
 class LongData {
-    public static var MAX_LONG_LENGTH : Int = Long.MAX_VALUE.toString().length;
+    public static var MAX_LONG_LENGTH : Int = Std.string(Long.MAX_VALUE).length;
     public function new() {
     }
 

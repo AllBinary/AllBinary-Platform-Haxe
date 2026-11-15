@@ -141,7 +141,7 @@ class RotationImageJPanel extends javax.swing.JPanel implements ImageProcessedVi
         if (!this.writeOverOriginalJCheckBox.isSelected()) {
             var filePath : String = file.getAbsolutePath();
             var extensionIndex : Int = filePath.indexOf(this.imageStrings.PNG_EXTENSION);
-            filePath = new StringMaker().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).append(name).append(this.imageStrings.PNG_EXTENSION).toString();
+            filePath = Std.string(new StringMaker().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).append(name).append(this.imageStrings.PNG_EXTENSION));
             file = new File(filePath);
         }
         final isWritten : Bool = ImageIO.write((cast this.result : RenderedImage), imageStrings.PNG, file);

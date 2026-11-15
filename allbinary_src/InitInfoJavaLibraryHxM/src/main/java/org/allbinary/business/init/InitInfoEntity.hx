@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.business.init;
 
-//import java.util.HashMap;
+import jre.util.HashMap;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.business.init.db.UserDbInitInfo;
@@ -54,15 +54,15 @@ class InitInfoEntity extends InitSql {
         stringBuffer.append(this.sqlStrings.PRIMARY_KEY);
         stringBuffer.append(this.NOTHING);
         stringBuffer.append(this.sqlStrings.END);
-        this.tableData = stringBuffer.toString();
+        this.tableData = Std.string(stringBuffer);
         this.setTable(this.tableName);
     }
 
     public function get() : Bool {
         try {
-            var keyAndValue : HashMap = StdUtil.getInstance().createHashMap();
+            var keyAndValue : HashMap<Dynamic, Dynamic> = StdUtil.getInstance().createHashMap();
             keyAndValue.put(this.NOTHING, this.NOTHING);
-            var hashMap : HashMap = getRow(keyAndValue);
+            var hashMap : HashMap<Dynamic, Dynamic> = getRow(keyAndValue);
             if (hashMap != null) {
                 InitInfo.getInstance().set(hashMap);
                 return true;
@@ -82,9 +82,9 @@ class InitInfoEntity extends InitSql {
 
     public function is() : Bool {
         try {
-            var keyAndValue : HashMap = StdUtil.getInstance().createHashMap();
+            var keyAndValue : HashMap<Dynamic, Dynamic> = StdUtil.getInstance().createHashMap();
             keyAndValue.put(this.NOTHING, this.NOTHING);
-            var hashMap : HashMap = getRow(keyAndValue);
+            var hashMap : HashMap<Dynamic, Dynamic> = getRow(keyAndValue);
             if (hashMap != null) {
                 return true;
             } else {
@@ -128,7 +128,7 @@ class InitInfoEntity extends InitSql {
             stringBuffer.append(this.FAILED_TO_CREATE);
             stringBuffer.append(this.tableData);
             stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         }
     }
 

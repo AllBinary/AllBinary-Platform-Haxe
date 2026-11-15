@@ -41,7 +41,21 @@ class LogConfig {
     private var description : String;
     private var path : String;
     private var fileName : String;
-    public function new(aName : String, aDescription : String, aPath : String, aFileName : String) {
+    public function new(...args : Dynamic) {
+        if (args.length == 4) {
+            final aName : String = args[0];
+            final aDescription : String = args[1];
+            final aPath : String = args[2];
+            final aFileName : String = args[3];
+            this._new0(aName, aDescription, aPath, aFileName);
+        }
+        else if (args.length == 1) {
+            final node : Node = args[0];
+            this._new1(node);
+        }
+    }
+
+    private function _new0(aName : String, aDescription : String, aPath : String, aFileName : String) : Void {
         this.isEnabled = false;
         this.name = aName;
         this.description = aDescription;
@@ -49,8 +63,7 @@ class LogConfig {
         this.fileName = aFileName;
     }
 
-    // Java overloaded constructor: Haxe allows one constructor
-    public function new(node : Node) {
+    private function _new1(node : Node) : Void {
         var enabledValueNode : Node = DomSearchHelper.getNode(EntryData.getInstance().ENABLE, node.getChildNodes());
         var isEnabledString : String = DomNodeHelper.getTextNodeValue(enabledValueNode);
         this.isEnabled = BooleanUtil.getInstance().getFromString(isEnabledString);
@@ -109,7 +122,7 @@ class LogConfig {
         stringBuffer.append(URLGLOBALS.getWebappPath());
         stringBuffer.append(PATH_GLOBALS.getInstance().INIT_PATH);
         stringBuffer.append(this.getFileName());
-        var file : AbFile = AbFile.createAbFile(stringBuffer.toString());
+        var file : AbFile = AbFile.createAbFile(Std.string(stringBuffer));
         var document : Document = DomDocumentHelper.create(new AbFileLocalInputStream(file));
         return document;
     }

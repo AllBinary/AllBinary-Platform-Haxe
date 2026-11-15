@@ -59,7 +59,7 @@ class TransformsGeneratorUtil {
             stringBuffer.appendint(transformInfoObjectConfigComponentVector.size());
             stringBuffer.append(" Components Group: ");
             stringBuffer.append(group);
-            this.logUtil.putF(stringBuffer.toString(), this, "generateComponentsFromObjectConfig()");
+            this.logUtil.putF(Std.string(stringBuffer), this, "generateComponentsFromObjectConfig()");
         }
         if (transformInfoObjectConfigComponentVector.size() < 1) {
             throw new haxe.Exception("No Pages Generated For Template.");
@@ -76,7 +76,7 @@ class TransformsGeneratorUtil {
         stringBuffer.append("<!-- Generated all template views successfully for View: ");
         stringBuffer.append(transformInfoInterface.getName());
         stringBuffer.append("-->");
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

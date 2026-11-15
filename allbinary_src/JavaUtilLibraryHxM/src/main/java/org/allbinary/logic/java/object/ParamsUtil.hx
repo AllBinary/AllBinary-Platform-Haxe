@@ -28,7 +28,7 @@ class ParamsUtil {
                 stringBuffer.append(" ");
                 stringBuffer.append(params[index].getName());
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } else {
             return "Params Null";
         }

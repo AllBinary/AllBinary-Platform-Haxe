@@ -29,7 +29,7 @@ class J2MEGameKey extends Input {
     }
 
     public function toString() : String {
-        return new StringMaker().append("J2MEGameKey: ").append(super.toString()).toString();
+        return Std.string(new StringMaker().append("J2MEGameKey: ").append(super.toString()));
     }
 
     public static function getString(keyCode : Int) : String {

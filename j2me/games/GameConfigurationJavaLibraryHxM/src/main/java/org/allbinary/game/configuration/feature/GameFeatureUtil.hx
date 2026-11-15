@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration.feature;
 
-//import java.util.Enumeration;
-//import javax.microedition.lcdui.ChoiceGroup;
+import jre.util.Enumeration;
+import javax.microedition.lcdui.ChoiceGroup;
 import org.allbinary.TsUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -47,7 +47,7 @@ class GameFeatureUtil {
         var total : Int = choiceGroup.getSelectedFlags(selectedArray_return);
         stringBuffer.append("Multiple Total Choices: ");
         stringBuffer.appendint(total);
-        this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
+        this.logUtil.putF(Std.string(stringBuffer), this, METHOD_NAME);
         var features : Features = Features.getInstance();
         for (index in 0...selectedArray_return.length) {
             var isSelected : Bool = selectedArray_return[index];
@@ -56,7 +56,7 @@ class GameFeatureUtil {
             stringBuffer.appendint(index);
             stringBuffer.append(SELECTED_SEP);
             stringBuffer.appendboolean(isSelected);
-            this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
+            this.logUtil.putF(Std.string(stringBuffer), this, METHOD_NAME);
             var selectedChoiceLabel : String = choiceGroup.getString(index);
             var gameFeature : Feature = Feature.getInstance(selectedChoiceLabel);
             if (features.isDefault(gameFeature)) {
@@ -79,7 +79,7 @@ class GameFeatureUtil {
         var total : Int = choiceGroup.getSelectedFlags(selectedArray_return);
         stringBuffer.append("Multiple Total Choices: ");
         stringBuffer.appendint(total);
-        this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
+        this.logUtil.putF(Std.string(stringBuffer), this, METHOD_NAME);
         var features : Features = Features.getInstance();
         for (index in 0...selectedArray_return.length) {
             var isSelected : Bool = selectedArray_return[index];
@@ -88,7 +88,7 @@ class GameFeatureUtil {
             stringBuffer.appendint(index);
             stringBuffer.append(SELECTED_SEP);
             stringBuffer.appendboolean(isSelected);
-            this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
+            this.logUtil.putF(Std.string(stringBuffer), this, METHOD_NAME);
             var selectedChoiceLabel : String = choiceGroup.getString(index);
             var gameFeature : Feature = Feature.getInstance(selectedChoiceLabel);
             if (!isSelected && features.isFeature(gameFeature)) {
@@ -109,7 +109,7 @@ class GameFeatureUtil {
         var total : Int = choiceGroup.getSelectedFlags(selectedArray_return);
         stringBuffer.append("Exclusive Total Choices: 1==");
         stringBuffer.appendint(total);
-        this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
+        this.logUtil.putF(Std.string(stringBuffer), this, METHOD_NAME);
         for (index in 0...selectedArray_return.length) {
             var isSelected : Bool = selectedArray_return[index];
             stringBuffer.delete(0, stringBuffer.length());
@@ -117,7 +117,7 @@ class GameFeatureUtil {
             stringBuffer.appendint(index);
             stringBuffer.append(SELECTED_SEP);
             stringBuffer.appendboolean(isSelected);
-            this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
+            this.logUtil.putF(Std.string(stringBuffer), this, METHOD_NAME);
             if (isSelected) {
                 var selectedChoiceLabel : String = choiceGroup.getString(index);
                 this.updateExclusive(selectedChoiceLabel);
@@ -126,7 +126,7 @@ class GameFeatureUtil {
     }
 
     public function isExclusive(itemLabel : String) : Bool {
-        final enumeration : Enumeration = GameFeatureChoiceGroups.getExclusiveInstance().get().keys();
+        final enumeration : Enumeration<Dynamic> = GameFeatureChoiceGroups.getExclusiveInstance().get().keys();
         var name : String = null;
         while (this.enumerationUtil.hasMoreElements(enumeration)) {
             name = (cast this.enumerationUtil.nextElement(enumeration) : String);
@@ -139,7 +139,7 @@ class GameFeatureUtil {
 
     // throws Exception
     private function updateExclusive(selectedChoiceLabel : String) : Void {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(selectedChoiceLabel).toString(), this, "updateExclusive");
+        this.logUtil.putF(Std.string(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(selectedChoiceLabel)), this, "updateExclusive");
         final gameFeature : Feature = Feature.getInstance(selectedChoiceLabel);
         final hashtable : ABHashtable<Any, Any> = GameFeatureChoiceGroups.getExclusiveInstance().get();
         final objectArray : haxe.ds.Vector<Any> = HashtableUtil.getInstance().getKeysAsArray(hashtable);

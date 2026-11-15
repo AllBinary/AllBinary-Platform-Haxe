@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form;
 
-//import javax.microedition.lcdui.Canvas;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
@@ -68,90 +68,6 @@ class ScrollSelectionForm extends PaintableForm {
 
     private static final INSIDE_FORM : String = " inside form";
     private static final IS_IN_FORM : String = "isInForm";
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class ScrollSelectionFormHorizontalPaintable extends ItemIndexPaintable {
-        private final scrollSelectionForm : ScrollSelectionForm;
-        public function new(scrollSelectionForm : ScrollSelectionForm) {
-            super();
-            this.scrollSelectionForm = scrollSelectionForm;
-        }
-
-        // throws Exception
-        public override function paint(graphics : Graphics, index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
-            return this.scrollSelectionForm.paintItemHorizontal(graphics, index, item, dx, dy);
-        }
-
-    }
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class ScrollSelectionFormVerticalPaintable extends ItemIndexPaintable {
-        private final scrollSelectionForm : ScrollSelectionForm;
-        public function new(scrollSelectionForm : ScrollSelectionForm) {
-            super();
-            this.scrollSelectionForm = scrollSelectionForm;
-        }
-
-        // throws Exception
-        public override function paint(graphics : Graphics, index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
-            return this.scrollSelectionForm.paintItemVertical(graphics, index, item, dx, dy);
-        }
-
-    }
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class ScrollSelectionFormTempHorizontalPaintable extends ItemIndexPaintable {
-        private final scrollSelectionForm : ScrollSelectionForm;
-        public function new(scrollSelectionForm : ScrollSelectionForm) {
-            super();
-            this.scrollSelectionForm = scrollSelectionForm;
-        }
-
-        // throws Exception
-        public override function paint(graphics : Graphics, index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
-            return this.scrollSelectionForm.paintItemTempHorizontal(graphics, index, item, dx, dy);
-        }
-
-    }
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class ScrollSelectionFormHorizontalDx extends ItemIndexDx {
-        private final scrollSelectionForm : ScrollSelectionForm;
-        public function new(multipleScrollSelectionForm : ScrollSelectionForm) {
-            super();
-            this.scrollSelectionForm = multipleScrollSelectionForm;
-        }
-
-        // throws Exception
-        public override function getDx(index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
-            return this.scrollSelectionForm.getSelectedIndexForPointHorizontalDx(index, item, dx, dy);
-        }
-
-    }
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class ScrollSelectionFormVericalDx extends ItemIndexDx {
-        private final scrollSelectionForm : ScrollSelectionForm;
-        public function new(multipleScrollSelectionForm : ScrollSelectionForm) {
-            super();
-            this.scrollSelectionForm = multipleScrollSelectionForm;
-        }
-
-        // throws Exception
-        public override function getDx(index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
-            return this.scrollSelectionForm.getSelectedIndexForPointVerticalDx(index, item, dx, dy);
-        }
-
-    }
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class ScrollSelectionFormTempHorizontalDx extends ItemIndexDx {
-        private final scrollSelectionForm : ScrollSelectionForm;
-        public function new(multipleScrollSelectionForm : ScrollSelectionForm) {
-            super();
-            this.scrollSelectionForm = multipleScrollSelectionForm;
-        }
-
-        // throws Exception
-        public override function getDx(index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
-            return this.scrollSelectionForm.getSelectedIndexForPointTempHorizontalDx(index, item, dx, dy);
-        }
-
-    }
     private final rectangleCollisionUtil : RectangleCollisionUtil = RectangleCollisionUtil.getInstance();
     public final border : Int;
     public final halfBorder : Int;
@@ -184,7 +100,7 @@ class ScrollSelectionForm extends PaintableForm {
             this.formTypeItemIndexDx = new ScrollSelectionFormTempHorizontalDx(this);
         } else if (formType == formTypeFactory.NULL_FORM_TYPE) {
         } else {
-            throw new haxe.Exception(formTypeFactory.UNK);
+            throw new jre.lang.JavaException(formTypeFactory.UNK);
         }
     }
 
@@ -260,7 +176,7 @@ class ScrollSelectionForm extends PaintableForm {
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(commonLabels.TOTAL_LABEL);
         stringBuffer.appendint(size);
-        this.logUtil.putF(stringBuffer.toString(), this, ScrollSelectionForm.GET_SELECTED_INDEX);
+        this.logUtil.putF(Std.string(stringBuffer), this, ScrollSelectionForm.GET_SELECTED_INDEX);
         var item : ABCustomItem = null;
         var width : Int = 0;
         var height : Int = 0;
@@ -277,7 +193,7 @@ class ScrollSelectionForm extends PaintableForm {
                 stringBuffer.append(CommonSeps.getInstance().SPACE);
                 stringBuffer.append(commonLabels.INDEX_LABEL);
                 stringBuffer.appendint(index);
-                this.logUtil.putF(stringBuffer.toString(), this, ScrollSelectionForm.GET_SELECTED_INDEX);
+                this.logUtil.putF(Std.string(stringBuffer), this, ScrollSelectionForm.GET_SELECTED_INDEX);
                 return index;
             }
             if (this.formType == formTypeFactory.HORIZONTAL_FORM) {
@@ -292,7 +208,7 @@ class ScrollSelectionForm extends PaintableForm {
                 }
             } else if (this.formType == formTypeFactory.NULL_FORM_TYPE) {
             } else {
-                throw new haxe.Exception(formTypeFactory.UNK);
+                throw new jre.lang.JavaException(formTypeFactory.UNK);
             }
         }
         return -1;
@@ -319,7 +235,7 @@ class ScrollSelectionForm extends PaintableForm {
             }
         } else if (this.formType == formTypeFactory.NULL_FORM_TYPE) {
         } else {
-            throw new haxe.Exception(formTypeFactory.UNK);
+            throw new jre.lang.JavaException(formTypeFactory.UNK);
         }
         final max : Int = this.size() - 1;
         if (index < 0) {
@@ -334,7 +250,7 @@ class ScrollSelectionForm extends PaintableForm {
 
     public function isInForm(point : GPoint) : Bool {
         if (this.rectangleCollisionUtil.isInside(this.x, this.y - this.halfBorder, this.rectangle.getMaxX() + this.border, this.rectangle.getMaxY() + this.border, point.getX(), point.getY())) {
-            this.logUtil.putF(new StringMaker().append(StringUtil.getInstance().toString(point)).append(ScrollSelectionForm.INSIDE_FORM).toString(), this, ScrollSelectionForm.IS_IN_FORM);
+            this.logUtil.putF(Std.string(new StringMaker().append(StringUtil.getInstance().toString(point)).append(ScrollSelectionForm.INSIDE_FORM)), this, ScrollSelectionForm.IS_IN_FORM);
             return true;
         }
         return false;

@@ -1,8 +1,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.J2MEUtil;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
@@ -24,59 +24,22 @@ class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm implemen
         return scrollSelectionForm;
     }
 
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class MultipleScrollSelectionFormHorizontalPaintable extends ItemIndexPaintable {
-        private final multipleScrollSelectionForm : MultipleScrollSelectionHorizontalForm;
-        public function new(multipleScrollSelectionForm : MultipleScrollSelectionHorizontalForm) {
-            super();
-            this.multipleScrollSelectionForm = multipleScrollSelectionForm;
-        }
-
-        // throws Exception
-        public override function paint(graphics : Graphics, index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
-            return this.multipleScrollSelectionForm.paintHorizontal(graphics, index, item, dx, dy);
-        }
-
-    }
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class MultipleScrollSelectionFormVerticalPaintable extends ItemIndexPaintable {
-        private final multipleScrollSelectionForm : MultipleScrollSelectionHorizontalForm;
-        public function new(multipleScrollSelectionForm : MultipleScrollSelectionHorizontalForm) {
-            super();
-            this.multipleScrollSelectionForm = multipleScrollSelectionForm;
-        }
-
-        // throws Exception
-        public override function paint(graphics : Graphics, index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
-            return this.multipleScrollSelectionForm.paintVertical(graphics, index, item, dx, dy);
-        }
-
-    }
     private var rectPaintable : Paintable = NullPaintable.getInstance();
     private var multipleScrollSelectionHorizontalFormTypeItemIndexPaintable : ItemIndexPaintable = ItemIndexPaintable.getInstance();
     private final backgroundColor : Int = Std.int(BasicColorFactory.getInstance().TRANSPARENT_GREY);
-    private var myFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
+    private var myFontProcessor : MyFontProcessor;
     private var logged : Bool = false;
     private var fontHeight : Int = 0;
     public function new(title : String, items : haxe.ds.Vector<ABCustomItem>, formPaintableFactory : ItemPaintableFactory, border : Int, backgroundBasicColor : BasicColor, foregroundBasicColor : BasicColor) {
         super(title, items, formPaintableFactory, border, 3, backgroundBasicColor, foregroundBasicColor);
+        this.myFontProcessor = new UpdateMyFontProcessor(this);
         if (J2MEUtil.isJ2ME() || J2MEUtil.isHTML()) {
         } else {
-            // Java inner class: Haxe does not nest classes so move this to its own module
-            class MPaintable extends Paintable {
-                public override function paint(graphics : Graphics) : Void {
-                    this.fillRect(graphics);
-                }
-
-                public function new() {
-                    super();
-                }
-            }
-            this.rectPaintable = new MPaintable();
+            this.rectPaintable = new MultipleScrollSelectionFormRectPaintable(this);
         }
     }
 
-    private function fillRect(graphics : Graphics) : Void {
+    public function fillRect(graphics : Graphics) : Void {
         graphics.setColor(this.backgroundColor);
         graphics.fillRect(this.x, this.y, this.rectangle.getWidth(), this.rectangle.getHeight());
     }
@@ -91,7 +54,7 @@ class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm implemen
             this.multipleScrollSelectionHorizontalFormTypeItemIndexPaintable = new MultipleScrollSelectionFormVerticalPaintable(this);
         } else if (formType == formTypeFactory.NULL_FORM_TYPE) {
         } else {
-            throw new haxe.Exception(formTypeFactory.UNK);
+            throw new jre.lang.JavaException(formTypeFactory.UNK);
         }
     }
 
@@ -102,7 +65,7 @@ class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm implemen
     }
 
     // throws Exception
-    private function paintHorizontal(graphics : Graphics, index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
+    public function paintHorizontal(graphics : Graphics, index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
         var dx2 : Int = this.paintItem(graphics, index, item, dx, dy) + this.border;
         this.paintable.paint(graphics, index, dx, dy);
         dx = dx2;
@@ -110,7 +73,7 @@ class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm implemen
     }
 
     // throws Exception
-    private function paintVertical(graphics : Graphics, index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
+    public function paintVertical(graphics : Graphics, index : Int, item : ABCustomItem, dx : Int, dy : Int) : Int {
         this.paintItem(graphics, index, item, dx, dy);
         this.paintable.paint(graphics, index, dx, dy);
         return dx;
@@ -136,7 +99,7 @@ class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm implemen
                     if (this.logged) {
                     } else {
                         this.logged = true;
-                        PreLogUtil.put(new StringMaker().append("painting beyond maxx: ").appendint(Std.int(this.rectangle.getMaxX())).toString(), this, this.canvasStrings.PAINT);
+                        PreLogUtil.put(Std.string(new StringMaker().append("painting beyond maxx: ").appendint(Std.int(this.rectangle.getMaxX()))), this, this.canvasStrings.PAINT);
                     }
                 }
                 dx = this.multipleScrollSelectionHorizontalFormTypeItemIndexPaintable.paint(graphics, index, item, dx, dy);

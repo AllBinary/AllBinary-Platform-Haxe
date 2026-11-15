@@ -29,21 +29,21 @@
     </properties>
 
     <modules>      
-        <module>../input/platform/me/TouchJ2MENoneJavaLibraryHaxeM</module>
+        <module>../input/platform/me/TouchJ2MENoneJavaLibraryHxM</module>
         <!--
-        <module>../input/platform/me/TouchJ2MEJavaLibraryHaxeM</module>
+        <module>../input/platform/me/TouchJ2MEJavaLibraryHxM</module>
         -->
         
         <!--
         Nexus and AllBinaryOnDeployJavaLibraryPOM
         -->
 
-        <module>../media/graphics/geography/map/GraphBaseJavaLibraryHaxeM</module>
-        <module>../TempJavaLibraryHaxeM</module>
-        <module>../AllBinaryJ2MELibraryHaxeM</module>
-        <module>../NullJ2MELibraryHaxeM</module>
+        <module>../media/graphics/geography/map/GraphBaseJavaLibraryHxM</module>
+        <module>../TempJavaLibraryHxM</module>
+        <module>../AllBinaryJ2MELibraryHxM</module>
+        <module>../NullJ2MELibraryHxM</module>
                 
-        <module>../AllBinaryOptionalLibraryPOHaxeM</module>
+        <module>../AllBinaryOptionalLibraryPOHxM</module>
     </modules>
 
 </project>

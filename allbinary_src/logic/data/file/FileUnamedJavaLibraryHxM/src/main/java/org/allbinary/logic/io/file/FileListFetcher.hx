@@ -30,7 +30,23 @@ class FileListFetcher {
     }
 
     private final subDirectory : SubDirectory = SubDirectory.getInstance();
-    public function getFiles(path : String) : BasicArrayList {
+    public function getFiles(...args : Dynamic) : Dynamic {
+        if (args.length == 1) {
+            return this.getFiles_String(args[0]);
+        }
+        if (args.length == 2 && Std.isOfType(args[0], String)) {
+            return this.getFiles_String_StringArray(args[0], args[1]);
+        }
+        if (args.length == 2) {
+            return this.getFiles_String_String(args[0], args[1]);
+        }
+        if (args.length == 3) {
+            return this.getFiles_String_String_String(args[0], args[1], args[2]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: getFiles");
+    }
+
+    public function getFiles_String(path : String) : BasicArrayList {
         try {
             final files : BasicArrayList = this.subDirectory.search(AbFile.createAbFile(path));
             return files;
@@ -41,7 +57,7 @@ class FileListFetcher {
         return null;
     }
 
-    public function getFiles(path : String, includeExtensions : haxe.ds.Vector<String>) : BasicArrayList {
+    public function getFiles_String_StringArray(path : String, includeExtensions : haxe.ds.Vector<String>) : BasicArrayList {
         try {
             final includeExtensionBasicArrayList : BasicArrayList = new BasicArrayListD();
             final size : Int = includeExtensions.length;
@@ -58,7 +74,7 @@ class FileListFetcher {
         return null;
     }
 
-    public function getFiles(path : String, includeExtension : String) : BasicArrayList {
+    public function getFiles_String_String(path : String, includeExtension : String) : BasicArrayList {
         try {
             final includeExtensionBasicArrayList : BasicArrayList = new BasicArrayListD();
             includeExtensionBasicArrayList.add(includeExtension);
@@ -72,7 +88,7 @@ class FileListFetcher {
         return null;
     }
 
-    public function getFiles(path : String, pathIncludes : String, includeExtension : String) : BasicArrayList {
+    public function getFiles_String_String_String(path : String, pathIncludes : String, includeExtension : String) : BasicArrayList {
         try {
             final includeExtensionBasicArrayList : BasicArrayList = new BasicArrayListD();
             includeExtensionBasicArrayList.add(includeExtension);
@@ -86,7 +102,17 @@ class FileListFetcher {
         return null;
     }
 
-    public function getTrackedFiles(path : String, includeExtensions : haxe.ds.Vector<String>) : BasicArrayList {
+    public function getTrackedFiles(...args : Dynamic) : Dynamic {
+        if (args.length == 2 && Std.isOfType(args[0], String)) {
+            return this.getTrackedFiles_String_StringArray(args[0], args[1]);
+        }
+        if (args.length == 2) {
+            return this.getTrackedFiles_String_String(args[0], args[1]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: getTrackedFiles");
+    }
+
+    public function getTrackedFiles_String_StringArray(path : String, includeExtensions : haxe.ds.Vector<String>) : BasicArrayList {
         try {
             final includeExtensionBasicArrayList : BasicArrayList = new BasicArrayListD();
             final size : Int = includeExtensions.length;
@@ -103,7 +129,7 @@ class FileListFetcher {
         return null;
     }
 
-    public function getTrackedFiles(path : String, includeExtension : String) : BasicArrayList {
+    public function getTrackedFiles_String_String(path : String, includeExtension : String) : BasicArrayList {
         try {
             final includeExtensionBasicArrayList : BasicArrayList = new BasicArrayListD();
             includeExtensionBasicArrayList.add(includeExtension);

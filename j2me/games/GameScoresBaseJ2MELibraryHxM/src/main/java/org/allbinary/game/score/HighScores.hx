@@ -77,7 +77,7 @@ class HighScores implements HighScoresInterface {
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(CommonLabels.getInstance().TOTAL_LABEL);
         stringBuffer.appendint(this.orderedHighScoresList.size());
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

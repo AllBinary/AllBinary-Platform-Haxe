@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation;
 
-//import javax.microedition.lcdui.Graphics;
-//import javax.microedition.lcdui.NullImage;
+import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.NullImage;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
@@ -152,6 +152,10 @@ class VectorAnimation extends IndexedAnimation implements VectorAnimationInterfa
     public function setPoints(currentPoints : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>>) : Void {
         this.currentPoints = currentPoints;
         this.circularIndexUtil = CircularIndexUtil.createInstance(currentPoints.length);
+    }
+
+    public override function getBasicColorP() : BasicColor {
+        return super.getBasicColorP();
     }
 
 }

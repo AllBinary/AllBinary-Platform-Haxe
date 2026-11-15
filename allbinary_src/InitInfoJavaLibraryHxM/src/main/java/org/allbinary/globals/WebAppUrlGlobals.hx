@@ -47,7 +47,7 @@ class WebAppUrlGlobals extends UrlGlobalsInterface {
         } else if (this.isWebappPathSet) {
             return this.getWebappPath();
         } else {
-            throw new haxe.Exception("Webapp Path is not set");
+            throw new jre.lang.JavaException("Webapp Path is not set");
         }
     }
 

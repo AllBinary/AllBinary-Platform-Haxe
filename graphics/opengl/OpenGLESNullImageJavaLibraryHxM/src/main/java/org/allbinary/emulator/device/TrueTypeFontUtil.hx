@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.emulator.device;
 
-//import javax.microedition.khronos.opengles.GL10;
-//import javax.microedition.lcdui.Image;
+import javax.microedition.khronos.opengles.GL10;
+import javax.microedition.lcdui.Image;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.image.opengles.OpenGLESImage;
 
@@ -32,26 +32,26 @@ class TrueTypeFontUtil extends TrueTypeFontUtilBase {
     }
 
     public override function getAsTextureSize(textureSize : Int) : Int {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public override function getCellSize(cellSize : Int) : Int {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getFontBitmap(filename : String, fontSize : Int, cellSize : Int, basicColor : BasicColor) : Image {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function saveFontAtlasAsFile() : Void {
     }
 
     public function getFontBitmapGL(gl : GL10, filename : String, cellSize : Int, basicColor : BasicColor) : Image {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getFontWidths(filename : String, fontSize : Int) : haxe.ds.Vector<Int> {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
 }

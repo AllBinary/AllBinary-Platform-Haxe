@@ -20,19 +20,31 @@ class IntPermutationVisitor extends Visitor {
         return NullUtil.getInstance().NULL_OBJECT;
     }
 
-    public function print(data : haxe.ds.Vector<Int>) : Void {
+    public function print(...args : Dynamic) : Dynamic {
+        if (args.length == 1) {
+            this.print_intArray(args[0]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.print_intArray_StringMaker(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: print");
+    }
+
+    public function print_intArray(data : haxe.ds.Vector<Int>) : Void {
         final stringBuilder : StringMaker = new StringMaker();
         this.print(data, stringBuilder);
     }
 
-    public function print(data : haxe.ds.Vector<Int>, stringBuilder : StringMaker) : Void {
+    public function print_intArray_StringMaker(data : haxe.ds.Vector<Int>, stringBuilder : StringMaker) : Void {
         final commonSeps : CommonSeps = CommonSeps.getInstance();
         final size : Int = data.length;
         for (i in 0...size) {
             stringBuilder.appendint(data[i]);
             stringBuilder.append(commonSeps.SPACE);
         }
-        trace(stringBuilder.toString());
+        trace(Std.string(stringBuilder));
     }
 
 }

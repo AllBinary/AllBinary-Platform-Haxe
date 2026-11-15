@@ -53,7 +53,7 @@ class PaymentGatewayPrimaryKey implements java.io.Serializable {
         stringBuffer.append(PaymentGateway.getName());
         stringBuffer.append("=");
         stringBuffer.append(this.getName());
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

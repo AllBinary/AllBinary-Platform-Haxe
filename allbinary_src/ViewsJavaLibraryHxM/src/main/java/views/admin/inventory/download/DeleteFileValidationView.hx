@@ -96,10 +96,15 @@ class DeleteFileValidationView extends DownloadableInventoryItemView implements 
             if (vector.size() > 1) {
                 stringBuffer.append("To Many DownloadItems exist.<br />");
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             return "Unkown Validation Error.<br />";
         }
+    }
+
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
     }
 
 }

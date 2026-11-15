@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.io;
 
-//import java.io.DataOutputStream;
-//import java.io.OutputStream;
+import jre.io.DataOutputStream;
+import jre.io.OutputStream;
 
 class AbDataOutputStream extends DataOutputStream {
     public function new(out : OutputStream) {

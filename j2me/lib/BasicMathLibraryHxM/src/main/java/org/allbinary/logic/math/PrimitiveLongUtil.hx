@@ -25,7 +25,7 @@ class PrimitiveLongUtil {
         if (powerOfTen % 10 != 0) {
             final logUtil : LogUtil = LogUtil.getInstance();
             final commonStrings : CommonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, primitiveLongUtil, commonStrings.CONSTRUCTOR, new haxe.Exception("Max must be power of 10"));
+            logUtil.put(commonStrings.EXCEPTION, primitiveLongUtil, commonStrings.CONSTRUCTOR, new jre.lang.JavaException("Max must be power of 10"));
         }
         return primitiveLongUtil;
     }

@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.android;
 
-//import java.util.List;
+import jre.util.List;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningServiceInfo;
 import android.content.ComponentName;
@@ -44,7 +44,7 @@ class AndroidServicesUtil {
         for (index in 0...size) {
             runningServiceInfo = runningServicesList.get(index);
             serviceComponent = runningServiceInfo.service;
-            serviceName = serviceComponent.toString();
+            serviceName = Std.string(serviceComponent);
             if (serviceName.indexOf(name) >= 0) {
                 return true;
             }

@@ -64,7 +64,7 @@ class CompoundContextTransformInfoObjectConfig extends GenericStoreTransformInfo
         stringBuffer.append(templateNameOverride);
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(RootTransformInfoData.NAME);
-        var rootComponentInterface : TransformInterface = TransformFactory.getInstance().getInstance(abeClientInformation, stringBuffer.toString(), this.getTransformInfoInterface());
+        var rootComponentInterface : TransformInterface = TransformFactory.getInstance().getInstance(abeClientInformation, Std.string(stringBuffer), this.getTransformInfoInterface());
         var viewVector : BasicArrayList = this.getTransformDomNodes();
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
             this.logUtil.putF("Root View Called with: " + viewVector.size(), this, "get(transformInfoInterface)");
@@ -83,14 +83,14 @@ class CompoundContextTransformInfoObjectConfig extends GenericStoreTransformInfo
             stringBuffer.append(startXMLHeader);
             stringBuffer.append(replacementViewString);
             stringBuffer.append(endXMLHeader);
-            var templateValue : String = stringBuffer.toString();
+            var templateValue : String = Std.string(stringBuffer);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append("Replacing: ");
                 stringBuffer.append(templateKey);
                 stringBuffer.append(" with ");
                 stringBuffer.append(templateValue);
-                this.logUtil.putF(stringBuffer.toString(), this, "get()");
+                this.logUtil.putF(Std.string(stringBuffer), this, "get()");
             }
             var replace : Replace = new Replace(templateKey, templateValue);
             rootView = replace.all(rootView);
@@ -106,7 +106,7 @@ class CompoundContextTransformInfoObjectConfig extends GenericStoreTransformInfo
         var completeTemplateViewBytes : haxe.ds.Vector<Int> = this.get().getBytes();
         var bais : ByteArrayInputStream = new ByteArrayInputStream(completeTemplateViewBytes);
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-            this.logUtil.putF("Template: " + haxe.io.Bytes.ofData(completeTemplateViewBytes).toString().toString(), this, "createInputStream()");
+            this.logUtil.putF("Template: " + Std.string(haxe.io.Bytes.ofData(completeTemplateViewBytes).toString()), this, "createInputStream()");
         }
         return bais;
     }

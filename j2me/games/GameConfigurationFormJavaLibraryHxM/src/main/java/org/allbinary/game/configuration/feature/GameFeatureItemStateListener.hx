@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration.feature;
 
-//import javax.microedition.lcdui.ChoiceGroup;
-//import javax.microedition.lcdui.Item;
-//import javax.microedition.lcdui.ItemStateListener;
+import javax.microedition.lcdui.ChoiceGroup;
+import javax.microedition.lcdui.Item;
+import javax.microedition.lcdui.ItemStateListener;
 import org.allbinary.game.configuration.GameConfigurationGauge;
 import org.allbinary.game.configuration.GameConfigurationUtil;
 import org.allbinary.game.configuration.GameOptionsForm;
@@ -54,7 +54,7 @@ class GameFeatureItemStateListener implements ItemStateListener {
     public function itemStateChanged(item : Item) : Void {
         try {
             var itemLabel : String = item.getLabel();
-            this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(itemLabel).toString(), this, "itemStateChanged");
+            this.logUtil.putF(Std.string(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(itemLabel)), this, "itemStateChanged");
             if (Std.isOfType(item, GameConfigurationGauge)) {
                 GameConfigurationUtil.getInstance().change(this.gameOptionsForm, (cast item : GameConfigurationGauge));
             } else if (Std.isOfType(item, ChoiceGroup)) {

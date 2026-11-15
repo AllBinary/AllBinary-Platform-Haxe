@@ -66,7 +66,7 @@ class UpdateValidationUserView extends HttpStoreComponentView implements Validat
             if (this.user.isValid() == false) {
                 stringBuffer.append(this.user.validationInfo());
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
@@ -86,6 +86,11 @@ class UpdateValidationUserView extends HttpStoreComponentView implements Validat
     // throws Exception
     public function view() : String {
         return views.ValidationOnlyTempUtil.getInstance().view(this);
+    }
+
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
     }
 
 }

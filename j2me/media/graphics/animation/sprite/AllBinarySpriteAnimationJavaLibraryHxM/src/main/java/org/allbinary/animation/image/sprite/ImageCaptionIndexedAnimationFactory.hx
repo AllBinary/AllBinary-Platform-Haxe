@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation.image.sprite;
 
-//import javax.microedition.lcdui.Image;
-//import javax.microedition.lcdui.game.Sprite;
-//import javax.microedition.media.Player;
+import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.game.Sprite;
+import javax.microedition.media.Player;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
@@ -71,7 +71,7 @@ class ImageCaptionIndexedAnimationFactory implements AnimationInterfaceFactoryIn
         final movieIndexedAnimationInterface : IndexedAnimation = new SpriteIndexedAnimation(sprite, this.spriteMovieImage, BasicColorUtil.getInstance().ZERO_ARRAY, this.animationBehaviorFactory.getOrCreateInstance());
         var player : Player = this.soundInterface.getPlayerP();
         if (player == null) {
-            throw new haxe.Exception("Sound Was not Initialized");
+            throw new jre.lang.JavaException("Sound Was not Initialized");
         }
         return new CaptionIndexedAnimation(animationInterface, movieIndexedAnimationInterface, player, this.captionDx, this.captionDy, this.dx, this.dy, this.time, this.animationBehaviorFactory.getOrCreateInstance());
     }

@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation.vector;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.Animation;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.ColorCompositeInterface;
@@ -44,6 +44,14 @@ class RectangleFilledAnimation extends Animation implements ColorCompositeInterf
 
     public function setHeight(height : Int) : Void {
         this.heightP = height;
+    }
+
+    public override function getBasicColorP() : BasicColor {
+        return super.getBasicColorP();
+    }
+
+    public override function setBasicColorP(basicColor : BasicColor) : Void {
+        super.setBasicColorP(basicColor);
     }
 
 }

@@ -31,7 +31,7 @@ class UsersValidationView extends UsersView implements ValidationComponentInterf
     public function new(transformInfoInterface : TransformInfoInterface) {
         super(transformInfoInterface);
         var httpTransformInfoInterface : TransformInfoHttpInterface = (cast this.getTransformInfoInterface() : TransformInfoHttpInterface);
-        var role : String = (cast httpTransformInfoInterface.getPropertiesHashMap().get(UserRoleData.NAME.toString()) : String);
+        var role : String = (cast httpTransformInfoInterface.getPropertiesHashMap().get(Std.string(UserRoleData.NAME)) : String);
         var userRole : UserRole = UserRoleB.getRole(role);
         this.userVector = UserEntityFactory.getInstance().getUsersWithRole(userRole);
     }
@@ -68,6 +68,11 @@ class UsersValidationView extends UsersView implements ValidationComponentInterf
 
     public function toValidationInfoNode(document : Document) : Node {
         return null;
+    }
+
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
     }
 
 }

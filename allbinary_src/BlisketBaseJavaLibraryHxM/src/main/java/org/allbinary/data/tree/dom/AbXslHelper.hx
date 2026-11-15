@@ -41,7 +41,7 @@ class AbXslHelper {
     public function translate(xsltFilePath : String, xmlFilePath : String) : String {
         try {
             final outputStream : ByteArrayOutputStream = new ByteArrayOutputStream();
-            return XslHelper.getInstance().translate(new StreamSource(xsltFilePath), new StreamSource(xmlFilePath), new StreamResult(outputStream)).toString();
+            return Std.string(XslHelper.getInstance().translate(new StreamSource(xsltFilePath), new StreamSource(xmlFilePath), new StreamResult(outputStream)));
         } catch (e : haxe.Exception) {
             throw e;
         }

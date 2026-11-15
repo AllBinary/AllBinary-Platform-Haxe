@@ -15,34 +15,34 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.Command;
-//import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.CommandListener;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 
 class NullAllBinaryGameCanvas implements AllBinaryGameCanvasInterface {
     public static final NULL_ALLBINARY_GAME_CANVAS : NullAllBinaryGameCanvas = new NullAllBinaryGameCanvas();
     public function getLayerManager() : AllBinaryGameLayerManager {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function addCommand(cmd : Command) : Void {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getHeight() : Int {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getWidth() : Int {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function removeCommand(cmd : Command) : Void {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function setCommandListener(l : CommandListener) : Void {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function new() {

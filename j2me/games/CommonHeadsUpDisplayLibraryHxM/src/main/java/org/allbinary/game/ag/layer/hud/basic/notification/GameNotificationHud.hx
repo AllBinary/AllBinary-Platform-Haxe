@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.layer.hud.basic.notification;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.graphics.hud.BasicHud;
 import org.allbinary.game.graphics.hud.BasicHudFactory;
 import org.allbinary.game.layer.hud.event.GameNotificationEvent;

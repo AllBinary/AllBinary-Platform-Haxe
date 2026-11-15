@@ -37,10 +37,11 @@ class LogFormatUtil {
     private final EMPTY : String = "Empty";
     private final STACK_TRACE : String = "\nStack Trace: ";
     private final TIME : String = "Time: ";
-    private final CLASS_NAME : String = this.commonSeps.SPACE;
+    private final CLASS_NAME : String;
     private final FUNCTION_CALL : String = CommonLabels.getInstance().COLON_SEP;
     private final SPECIAL_MESSAGE : String = "> ";
     public function new() {
+        this.CLASS_NAME = this.commonSeps.SPACE;
     }
 
     public function get(className : String, functionName : String, specialMessage : String, exception : Any) : String {
@@ -49,7 +50,7 @@ class LogFormatUtil {
         stringBuffer.append(this.SPECIAL_MESSAGE);
         stringBuffer.append(specialMessage);
         stringBuffer.append(this.commonSeps.NEW_LINE);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function getS(className : String, functionName : String, specialMessage : String) : String {
@@ -57,13 +58,10 @@ class LogFormatUtil {
         stringBuffer.append(this.SPECIAL_MESSAGE);
         stringBuffer.append(specialMessage);
         stringBuffer.append(this.commonSeps.NEW_LINE);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     private function getF(className : String, functionName : String) : StringMaker {
-        if (functionName == null) {
-            functionName = this.NONE;
-        }
         final stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append(this.TIME);
         stringBuffer.append(this.timeStampUtil.getAsString());
@@ -81,19 +79,15 @@ class LogFormatUtil {
         if (exception != this.nullUtil.NULL_OBJECT) {
             final stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append(this.LOG_ERROR);
-            final exceptionAsString : String = exception.toString();
-            if (exceptionAsString != null) {
-                stringBuffer.append(exceptionAsString);
-            } else {
-                stringBuffer.append(this.EMPTY);
-            }
+            final exceptionAsString : String = Std.string(exception);
+            stringBuffer.append(exceptionAsString);
             stringBuffer.append(this.STACK_TRACE);
             if (exception != this.nullUtil.NULL_OBJECT) {
                 stringBuffer.append(this.exceptionUtil.getStackTrace((cast exception : haxe.Exception)));
             } else {
                 stringBuffer.append(this.stringUtil.NULL_STRING);
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } else {
             return StringUtil.getInstance().EMPTY_STRING;
         }

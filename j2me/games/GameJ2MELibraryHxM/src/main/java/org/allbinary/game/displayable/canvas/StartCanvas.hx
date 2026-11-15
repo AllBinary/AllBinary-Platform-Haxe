@@ -15,10 +15,10 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.Command;
-//import javax.microedition.lcdui.CommandListener;
-//import javax.microedition.lcdui.Graphics;
-//import javax.microedition.lcdui.Item;
+import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Item;
 import org.allbinary.J2MEUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.IndexedAnimationBehavior;
@@ -133,6 +133,7 @@ class StartCanvas extends RunnableCanvas implements GameCanvasRunnableInterface 
     private var progressPaintable : PaintableInterface = ProgressCanvasFactory.getLazyInstance();
     public function new(abeClientInformation : AbeClientInformationInterface, commandListener : CommandListener, highScoresFactoryInterface : HighScoresFactoryInterface, paintable : Paintable, overlayPaintable : InitUpdatePaintable, gameInitializationInterfaceFactoryInterface : BasicBuildGameInitializerFactory, isContinue : Bool) {
         super(commandListener, CurrentDisplayableFactory.getInstance().DEFAULT_CHILD_NAME_LIST, true);
+        this.isSingleKeyRepeatableProcessing = this.features.isFeature(InputFeatureFactory.getInstance().SINGLE_KEY_REPEAT_PRESS);
         this.setWait(NullWaitGameRunnable.getInstance().WAIT);
         this.gameInitializationInterfaceFactoryInterface = gameInitializationInterfaceFactoryInterface;
         GameInitializationUtil.getInstance().initDemo(abeClientInformation, this, gameInitializationInterfaceFactoryInterface);
@@ -266,7 +267,7 @@ class StartCanvas extends RunnableCanvas implements GameCanvasRunnableInterface 
         this.removeGameKeyEvent(keyCode, false);
     }
 
-    private var isSingleKeyRepeatableProcessing : Bool = this.features.isFeature(InputFeatureFactory.getInstance().SINGLE_KEY_REPEAT_PRESS);
+    private var isSingleKeyRepeatableProcessing : Bool;
     public override function keyRepeatedByDevice(keyCode : Int, deviceId : Int) : Void {
         if (this.isSingleKeyRepeatableProcessing) {
             this.addGameKeyEvent(keyCode, true);
@@ -282,7 +283,7 @@ class StartCanvas extends RunnableCanvas implements GameCanvasRunnableInterface 
                 var gameKeyEvent : GameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(this, gameKey);
                 DownGameKeyEventHandler.getInstance().fireEvent(gameKeyEvent);
             } else {
-                this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+                this.logUtil.putF(Std.string(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode)), this, this.gameInputStrings.ADD_KEY_EVENT);
             }
         } catch (e : haxe.Exception) {
             this.logUtil.put("Key Event Error", this, this.gameInputStrings.ADD_KEY_EVENT, e);
@@ -296,7 +297,7 @@ class StartCanvas extends RunnableCanvas implements GameCanvasRunnableInterface 
                 var gameKeyEvent : GameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(this, gameKey);
                 UpGameKeyEventHandler.getInstance().fireEvent(gameKeyEvent);
             } else {
-                this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
+                this.logUtil.putF(Std.string(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode)), this, this.gameInputStrings.REMOVE_KEY_EVENT);
             }
         } catch (e : haxe.Exception) {
             this.logUtil.put("Key Event Error", this, this.gameInputStrings.REMOVE_KEY_EVENT, e);
@@ -324,7 +325,7 @@ class StartCanvas extends RunnableCanvas implements GameCanvasRunnableInterface 
     }
 
     public override function isGameOver() : Bool {
-        this.logUtil.putF(new StringMaker().append(this.commonStrings.NOT_IMPLEMENTED).append(" since not a game").toString(), this, "isGameOver");
+        this.logUtil.putF(Std.string(new StringMaker().append(this.commonStrings.NOT_IMPLEMENTED).append(" since not a game")), this, "isGameOver");
         return false;
     }
 
@@ -389,7 +390,7 @@ class StartCanvas extends RunnableCanvas implements GameCanvasRunnableInterface 
 
     private final SET_STATE : String = "setState";
     public function updateDemoState() : Void {
-        PreLogUtil.put(SmallIntegerSingletonFactory.getInstance().createInstance(this.state).toString(), this, this.SET_STATE);
+        PreLogUtil.put(Std.string(SmallIntegerSingletonFactory.getInstance().createInstance(this.state)), this, this.SET_STATE);
         this.getBasicGameDemoPaintable().setState(this.state);
         if (this.state == 0) {
             this.highScoresPaintable = NullPaintable.getInstance();
@@ -406,17 +407,17 @@ class StartCanvas extends RunnableCanvas implements GameCanvasRunnableInterface 
 
     // throws Exception
     public function getNextRandom() : Int {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception
     public function createGameLayerManager(randomValue : Int) : AllBinaryGameLayerManager {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception
     public function createRunnable(randomLevel : Int) : GameCanvasRunnableInterface {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception
@@ -509,7 +510,7 @@ class StartCanvas extends RunnableCanvas implements GameCanvasRunnableInterface 
     // throws Exception
     public function end() : Void {
         final progressCanvas : ProgressCanvas = ProgressCanvasFactory.getInstance();
-        this.baseGameStatistics.add(new StringMaker().append(StartCanvas.BOT_GAME_STATS).append(this.baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());
+        this.baseGameStatistics.add(Std.string(new StringMaker().append(StartCanvas.BOT_GAME_STATS).append(Std.string(this.baseGameStatistics)).append(CommonSeps.getInstance().NEW_LINE)));
         this.baseGameStatistics.init();
         if (this.features.isFeature(MainFeatureFactory.getInstance().LOAD_ONDEMAND)) {
             progressCanvas.start();
@@ -628,6 +629,18 @@ class StartCanvas extends RunnableCanvas implements GameCanvasRunnableInterface 
 
     public function getGameInitializationInterfaceFactoryInterface() : BasicBuildGameInitializerFactory {
         return this.gameInitializationInterfaceFactoryInterface;
+    }
+
+    public override function getTitle() : String {
+        return super.getTitle();
+    }
+
+    public override function isPaused() : Bool {
+        return super.isPaused();
+    }
+
+    public override function getType() : Int {
+        return super.getType();
     }
 
 }

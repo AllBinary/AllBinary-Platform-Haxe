@@ -39,10 +39,10 @@ class CompositeGroup {
         final groupCommonFactory : GroupCommonFactory = GroupCommonFactory.getInstance();
         final stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append(groupCommonFactory.ADDING_LABEL);
-        stringBuffer.append(groupInterface.toString());
+        stringBuffer.append(Std.string(groupInterface));
         stringBuffer.append(groupCommonFactory.TO_LABEL);
         stringBuffer.append(StringUtil.getInstance().toString(this.groupInterface));
-        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.ADD);
+        this.logUtil.putF(Std.string(stringBuffer), this, commonStrings.ADD);
         this.list.add(groupInterface);
     }
 

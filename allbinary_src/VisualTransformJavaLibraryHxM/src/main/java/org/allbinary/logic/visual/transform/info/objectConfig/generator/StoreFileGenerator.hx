@@ -52,7 +52,7 @@ class StoreFileGenerator extends TransformInfoObjectConfigGenerator {
         stringBuffer.append(URLGLOBALS.getWebappPath());
         stringBuffer.append(weblisketSession.getStoreName());
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
-        var abPath : AbPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
+        var abPath : AbPath = new AbPath(Std.string(stringBuffer), StringUtil.getInstance().EMPTY_STRING);
         var fileName : String = (cast httpTransformInfoInterface.getPropertiesHashMap().get(InputOutputTypeData.getInstance().FILE) : String);
         var stringValidationUtil : StringValidationUtil = StringValidationUtil.getInstance();
         if (stringValidationUtil.isEmpty(fileName)) {
@@ -80,11 +80,11 @@ class StoreFileGenerator extends TransformInfoObjectConfigGenerator {
         stringBuffer.append(fileName);
         stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);
         stringBuffer.append(this.output);
-        abPath = new AbPath(abPath.toString(), stringBuffer.toString());
+        abPath = new AbPath(Std.string(abPath), Std.string(stringBuffer));
         this.fileAbPath = abPath;
         this.file = AbFile.createAbFileFromAbPath(this.fileAbPath);
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-            this.logUtil.putF("File: " + this.fileAbPath.toString(), this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.putF("File: " + Std.string(this.fileAbPath), this, this.commonStrings.CONSTRUCTOR);
         }
     }
 
@@ -100,7 +100,7 @@ class StoreFileGenerator extends TransformInfoObjectConfigGenerator {
             var inputStream : InputStream = new ByteArrayInputStream(haxe.io.Bytes.ofString(input));
             FileUtil.getInstance().write(inputStream, this.file);
         } else {
-            throw new haxe.Exception("Could Not Create: " + this.fileAbPath.toString());
+            throw new haxe.Exception("Could Not Create: " + Std.string(this.fileAbPath));
         }
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
             this.logUtil.putF("Processed", this, this.commonStrings.PROCESS);

@@ -18,7 +18,7 @@ package org.allbinary.media.image;
 //import java.awt.image.BufferedImage;
 //import java.awt.image.ColorModel;
 //import java.awt.image.WritableRaster;
-//import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.Image;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.logic.communication.log.PreLogUtil;

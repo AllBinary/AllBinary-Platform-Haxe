@@ -67,7 +67,7 @@ class AbSqlRow extends AbSqlColumn {
             final keyArray : haxe.ds.Vector<Any> = updatedKeyValuePairs.keySet().toArray();
             final size : Int = keyArray.length;
             for (i in 0...size) {
-                final columnName : String = keyArray[i].toString();
+                final columnName : String = Std.string(keyArray[i]);
                 stringBuffer.append(this.commonSeps.SPACE);
                 stringBuffer.append(columnName);
                 stringBuffer.append(this.EQUAL_QUOTE);
@@ -88,7 +88,7 @@ class AbSqlRow extends AbSqlColumn {
             stringBuffer.append(this.sqlStrings.EQUAL_QUOTE);
             stringBuffer.append(this.getValue(value));
             stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
-            final sqlStatement : String = stringBuffer.toString();
+            final sqlStatement : String = Std.string(stringBuffer);
             this.executeSQLStatement(sqlStatement);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                 this.logUtil.putF(this.SUCCESS_SQL_STATEMENT + sqlStatement, this, this.METHOD_UPDATE_WHERE);
@@ -111,7 +111,7 @@ class AbSqlRow extends AbSqlColumn {
             final keyArray : haxe.ds.Vector<Any> = updatedKeyValuePairs.keySet().toArray();
             final size : Int = keyArray.length;
             for (i in 0...size) {
-                final columnName : String = keyArray[i].toString();
+                final columnName : String = Std.string(keyArray[i]);
                 stringBuffer.append(this.commonSeps.SPACE);
                 stringBuffer.append(columnName);
                 stringBuffer.append(this.EQUAL_QUOTE);
@@ -147,7 +147,7 @@ class AbSqlRow extends AbSqlColumn {
                     }
                 }
             }
-            final sqlStatement : String = stringBuffer.toString();
+            final sqlStatement : String = Std.string(stringBuffer);
             this.executeSQLStatement(sqlStatement);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                 this.logUtil.putF(this.SUCCESS_SQL_STATEMENT + sqlStatement, this, this.METHOD_UPDATE_WHERE);
@@ -172,14 +172,14 @@ class AbSqlRow extends AbSqlColumn {
         stringBuffer.append(value);
         stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
         try {
-            final sqlStatement : String = stringBuffer.toString();
+            final sqlStatement : String = Std.string(stringBuffer);
             this.executeSQLStatement(sqlStatement);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                 this.logUtil.putF(this.SUCCESS_SQL_STATEMENT + sqlStatement, this, this.METHOD_DELETE_WHERE);
             }
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR)) {
-                this.logUtil.put(this.FAILED_SQL_STATEMENT + stringBuffer.toString(), this, this.METHOD_DELETE_WHERE, e);
+                this.logUtil.put(this.FAILED_SQL_STATEMENT + Std.string(stringBuffer), this, this.METHOD_DELETE_WHERE, e);
             }
         }
     }
@@ -206,14 +206,14 @@ class AbSqlRow extends AbSqlColumn {
                     stringBuffer.append(this.sqlStrings.AND);
                 }
             }
-            final sqlStatement : String = stringBuffer.toString();
+            final sqlStatement : String = Std.string(stringBuffer);
             this.executeSQLStatement(sqlStatement);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                 this.logUtil.putF(this.SUCCESS_SQL_STATEMENT + sqlStatement, this, this.METHOD_DELETE_WHERE);
             }
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR)) {
-                this.logUtil.put(this.FAILED_SQL_STATEMENT + stringBuffer.toString(), this, this.METHOD_DELETE_WHERE, e);
+                this.logUtil.put(this.FAILED_SQL_STATEMENT + Std.string(stringBuffer), this, this.METHOD_DELETE_WHERE, e);
             }
         }
     }
@@ -234,14 +234,14 @@ class AbSqlRow extends AbSqlColumn {
             value = new Replace(this.sqlStrings.ESCAPE, this.sqlStrings.DOUBLE_ESCAPE).all(value);
             stringBuffer.append(value);
             stringBuffer.append(this.INSERT_END);
-            var sqlStatement : String = stringBuffer.toString();
+            var sqlStatement : String = Std.string(stringBuffer);
             this.executeSQLStatement(sqlStatement);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                 this.logUtil.putF(this.SUCCESS_SQL_STATEMENT + sqlStatement, this, this.INSERT);
             }
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR)) {
-                this.logUtil.put(this.FAILED_SQL_STATEMENT + stringBuffer.toString(), this, INSERT, e);
+                this.logUtil.put(this.FAILED_SQL_STATEMENT + Std.string(stringBuffer), this, INSERT, e);
             }
         }
     }
@@ -267,7 +267,7 @@ class AbSqlRow extends AbSqlColumn {
                     stringBuffer.append(this.sqlStrings.AND);
                 }
             }
-            final sqlStatement : String = stringBuffer.toString();
+            final sqlStatement : String = Std.string(stringBuffer);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                 this.logUtil.putF(this.sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, this.METHOD_GET_ROW);
             }
@@ -282,7 +282,7 @@ class AbSqlRow extends AbSqlColumn {
                     result.put(columnName, field);
                 }
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
-                    this.logUtil.putF(this.ROW_VALUE_LABEL + result.toString(), this, this.METHOD_GET_ROW);
+                    this.logUtil.putF(this.ROW_VALUE_LABEL + Std.string(result), this, this.METHOD_GET_ROW);
                 }
                 return result;
             }
@@ -327,7 +327,7 @@ class AbSqlRow extends AbSqlColumn {
                 this.logUtil.putF(this.sqlStrings.SQL_STATEMENT_LABEL + stringBuffer, this, this.METHOD_GET_ROWS);
             }
             stringBuffer.append(more);
-            final sqlStatement : String = stringBuffer.toString();
+            final sqlStatement : String = Std.string(stringBuffer);
             final rset : ResultSet = this.executeSQLStatement(sqlStatement);
             final resultSetMetaData : ResultSetMetaData = rset.getMetaData();
             while (rset.next()) {
@@ -338,7 +338,7 @@ class AbSqlRow extends AbSqlColumn {
                     final field : String = rset.getString(columnName);
                     result.put(columnName, field);
                 }
-                final resultAsString : String = result.toString();
+                final resultAsString : String = Std.string(result);
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                     this.logUtil.putF(this.GET_ROW + resultAsString, this, this.METHOD_GET_ROWS);
                 }
@@ -362,7 +362,7 @@ class AbSqlRow extends AbSqlColumn {
                 this.logUtil.putF(this.sqlStrings.SQL_STATEMENT_LABEL + stringBuffer, this, this.METHOD_GET_ALL_ROWS);
             }
             final rows : BasicArrayList = new BasicArrayListD();
-            final sqlStatement : String = stringBuffer.toString();
+            final sqlStatement : String = Std.string(stringBuffer);
             final rset : ResultSet = this.executeSQLStatement(sqlStatement);
             final resultSetMetaData : ResultSetMetaData = rset.getMetaData();
             while (rset.next()) {
@@ -374,7 +374,7 @@ class AbSqlRow extends AbSqlColumn {
                     result.put(columnName, field);
                 }
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
-                    this.logUtil.putF(this.ROW_VALUES_LABEL + result.toString(), this, this.METHOD_GET_ALL_ROWS);
+                    this.logUtil.putF(this.ROW_VALUES_LABEL + Std.string(result), this, this.METHOD_GET_ALL_ROWS);
                 }
                 rows.add(result);
             }
@@ -417,7 +417,7 @@ class AbSqlRow extends AbSqlColumn {
             stringBuffer.append(this.sqlStrings.LESS_THAN_QUOTE);
             stringBuffer.append(largest);
             stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
-            final sqlStatement : String = stringBuffer.toString();
+            final sqlStatement : String = Std.string(stringBuffer);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                 this.logUtil.putF(this.sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, this.METHOD_GET_ROWS_WHERE_BETWEEN);
             }
@@ -438,7 +438,7 @@ class AbSqlRow extends AbSqlColumn {
                     result.put(columnName, field);
                 }
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
-                    this.logUtil.putF(this.ROW_VALUE_LABEL + result.toString(), this, this.METHOD_GET_ROWS_WHERE_BETWEEN);
+                    this.logUtil.putF(this.ROW_VALUE_LABEL + Std.string(result), this, this.METHOD_GET_ROWS_WHERE_BETWEEN);
                 }
                 rows.add(result);
             }
@@ -467,7 +467,7 @@ class AbSqlRow extends AbSqlColumn {
             stringBuffer.append(this.sqlStrings.LESS_THAN_QUOTE);
             stringBuffer.append(largest);
             stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
-            final sqlStatement : String = stringBuffer.toString();
+            final sqlStatement : String = Std.string(stringBuffer);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                 this.logUtil.putF(this.sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, this.METHOD_GET_ROWS_WHERE_BETWEEN);
             }
@@ -488,7 +488,7 @@ class AbSqlRow extends AbSqlColumn {
                     result.put(columnName, field);
                 }
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
-                    this.logUtil.putF(this.ROW_VALUE_LABEL + result.toString(), this, this.METHOD_GET_ROWS_WHERE_BETWEEN);
+                    this.logUtil.putF(this.ROW_VALUE_LABEL + Std.string(result), this, this.METHOD_GET_ROWS_WHERE_BETWEEN);
                 }
                 rows.add(result);
             }

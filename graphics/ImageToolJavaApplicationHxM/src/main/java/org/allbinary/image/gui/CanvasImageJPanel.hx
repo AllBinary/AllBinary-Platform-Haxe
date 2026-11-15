@@ -184,11 +184,11 @@ class CanvasImageJPanel extends javax.swing.JPanel implements ImageProcessedVisi
         if (!this.writeOverOriginalJCheckBox.isSelected()) {
             var filePath : String = file.getAbsolutePath();
             final extensionIndex : Int = filePath.indexOf(this.imageStrings.PNG_EXTENSION);
-            filePath = new StringMaker().append(filePath.substring(0, extensionIndex)).append(this.commonSeps.UNDERSCORE).append(name).append(this.imageStrings.PNG_EXTENSION).toString();
+            filePath = Std.string(new StringMaker().append(filePath.substring(0, extensionIndex)).append(this.commonSeps.UNDERSCORE).append(name).append(this.imageStrings.PNG_EXTENSION));
             file = new File(filePath);
         }
         final isWritten : Bool = ImageIO.write((cast this.result : RenderedImage), imageStrings.PNG, file);
-        this.logUtil.putF(new StringMaker().append("File: ").append(StringUtil.getInstance().toString(file)).append(" Wrote: ").appendboolean(isWritten).toString(), this, this.commonStrings.RUN);
+        this.logUtil.putF(Std.string(new StringMaker().append("File: ").append(StringUtil.getInstance().toString(file)).append(" Wrote: ").appendboolean(isWritten)), this, this.commonStrings.RUN);
     }
 
 }

@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.Command;
-//import javax.microedition.lcdui.CommandListener;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.input.GameKey;
 import org.allbinary.game.input.GameKeyFactory;
@@ -47,13 +47,15 @@ class GameInputMappingCanvas extends GameCommandCanvas implements InputMappingIn
     private final inputMapping : PersistentInputMapping;
     private final NONE : GameKey = GameKeyFactory.getInstance().NONE;
     private final abeClientInformation : AbeClientInformationInterface;
-    private var selectedGameKey : GameKey = this.NONE;
-    private var selectedInput : Input = this.NONE;
+    private var selectedGameKey : GameKey;
+    private var selectedInput : Input;
     public function new(abeClientInformation : AbeClientInformationInterface, commandListener : CommandListener, allBinaryGameLayerManager : AllBinaryGameLayerManager, helpPaintable : HelpPaintable) {
         super(commandListener, GameInputMappingCanvas.NAME, allBinaryGameLayerManager.getBackgroundBasicColor(), allBinaryGameLayerManager.getForegroundBasicColor());
+        this.selectedGameKey = this.NONE;
+        this.selectedInput = this.NONE;
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         if (helpPaintable == null) {
-            throw new haxe.Exception("Help Paintable Exception");
+            throw new jre.lang.JavaException("Help Paintable Exception");
         }
         this.abeClientInformation = abeClientInformation;
         this.helpPaintable = (cast helpPaintable : InputMappingHelpPaintable);
@@ -99,7 +101,7 @@ class GameInputMappingCanvas extends GameCommandCanvas implements InputMappingIn
     private final inputFactory : InputFactory = InputFactory.getInstance();
     private function addGameKey(keyCode : Int, repeated : Bool) : Void {
         try {
-            this.logUtil.putF(new StringMaker().append("Raw Device Key Code: ").append(StringTools.hex(keyCode)).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+            this.logUtil.putF(Std.string(new StringMaker().append("Raw Device Key Code: ").append(StringTools.hex(keyCode))), this, this.gameInputStrings.ADD_KEY_EVENT);
             var gameKey : GameKey = this.inputToGameKeyMapping.getInstanceForCanvas(this, keyCode);
             var input : Input = this.inputFactory.getInstanceById(keyCode);
             this.processInputMapping(gameKey, input);
@@ -115,7 +117,7 @@ class GameInputMappingCanvas extends GameCommandCanvas implements InputMappingIn
         stringBuffer.append(this.stringUtil.toString(gameKey));
         stringBuffer.append(" Input: ");
         stringBuffer.append(this.stringUtil.toString(input));
-        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.PROCESS);
+        this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.PROCESS);
         if (this.selectedGameKey != this.NONE) {
             this.gameActionCrud(gameKey, input);
         } else {
@@ -124,7 +126,7 @@ class GameInputMappingCanvas extends GameCommandCanvas implements InputMappingIn
     }
 
     private function setSelectedAction(gameKey : GameKey) : Void {
-        this.logUtil.putF(new StringMaker().append("Selected GameKey: ").append(this.stringUtil.toString(gameKey)).toString(), this, "setSelectedAction");
+        this.logUtil.putF(Std.string(new StringMaker().append("Selected GameKey: ").append(this.stringUtil.toString(gameKey))), this, "setSelectedAction");
         this.selectedGameKey = gameKey;
         this.selectedInput = this.NONE;
         this.helpPaintable.update(this.selectedGameKey, this.selectedInput);
@@ -138,12 +140,12 @@ class GameInputMappingCanvas extends GameCommandCanvas implements InputMappingIn
         stringBuffer.append(this.stringUtil.toString(this.selectedGameKey));
         stringBuffer.append(" Input: ");
         stringBuffer.append(this.stringUtil.toString(this.selectedInput));
-        this.logUtil.putF(stringBuffer.toString(), this, "gameActionCrud");
+        this.logUtil.putF(Std.string(stringBuffer), this, "gameActionCrud");
         if (this.selectedInput == this.NONE) {
             var list : BasicArrayList = this.inputMapping.getInputMapping().getMappedInput(this.selectedGameKey);
             var isInputAlreadyMappedToSelectedAction : Bool = list.contains(input);
             if (isInputAlreadyMappedToSelectedAction) {
-                this.logUtil.putF(new StringMaker().append("Already Mapped Input: ").append(this.stringUtil.toString(input)).toString(), this, "gameActionCrud");
+                this.logUtil.putF(Std.string(new StringMaker().append("Already Mapped Input: ").append(this.stringUtil.toString(input))), this, "gameActionCrud");
                 this.selectedInput = input;
                 this.helpPaintable.update(this.selectedGameKey, this.selectedInput);
                 this.repaintBehavior.onChangeRepaint(this);
@@ -168,7 +170,7 @@ class GameInputMappingCanvas extends GameCommandCanvas implements InputMappingIn
             stringBuffer.append(this.stringUtil.toString(this.selectedGameKey));
             stringBuffer.append(" Input: ");
             stringBuffer.append(this.stringUtil.toString(this.selectedInput));
-            this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
+            this.logUtil.putF(Std.string(stringBuffer), this, METHOD_NAME);
             this.inputMapping.getInputMapping().add(this.selectedGameKey, input);
             this.selectedInput = input;
             this.update();
@@ -189,7 +191,7 @@ class GameInputMappingCanvas extends GameCommandCanvas implements InputMappingIn
             stringBuffer.append(this.stringUtil.toString(this.selectedGameKey));
             stringBuffer.append(" Input: ");
             stringBuffer.append(this.stringUtil.toString(this.selectedInput));
-            this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
+            this.logUtil.putF(Std.string(stringBuffer), this, METHOD_NAME);
             this.inputMapping.getInputMapping().remove(this.selectedGameKey, this.selectedInput);
             this.selectedInput = this.NONE;
             this.update();

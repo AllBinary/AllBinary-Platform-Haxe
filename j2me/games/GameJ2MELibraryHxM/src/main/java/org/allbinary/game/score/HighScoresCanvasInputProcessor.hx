@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.score;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.score.displayable.HighScoresCanvas;

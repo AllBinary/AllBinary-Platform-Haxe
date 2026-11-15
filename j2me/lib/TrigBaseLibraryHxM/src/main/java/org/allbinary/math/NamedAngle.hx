@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.math;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsProperty;
-import jsinterop.annotations.JsConstructor;
+//import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsProperty;
+//import jsinterop.annotations.JsConstructor;
 
 class NamedAngle extends Angle {
     public final name : String;

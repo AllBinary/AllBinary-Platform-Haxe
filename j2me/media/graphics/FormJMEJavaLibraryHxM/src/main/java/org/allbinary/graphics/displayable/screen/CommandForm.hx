@@ -15,10 +15,10 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.displayable.screen;
 
-//import javax.microedition.lcdui.Command;
-//import javax.microedition.lcdui.CommandListener;
-//import javax.microedition.lcdui.Form;
-//import javax.microedition.lcdui.NullCommandListener;
+import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Form;
+import javax.microedition.lcdui.NullCommandListener;
 import org.allbinary.canvas.Processor;
 import org.allbinary.game.displayable.canvas.MenuListener;
 import org.allbinary.graphics.color.BasicColor;
@@ -42,10 +42,11 @@ class CommandForm extends Form implements MyCommandInterface implements MenuList
 
     public final logUtil : LogUtil = LogUtil.getInstance();
     public final commonStrings : CommonStrings = CommonStrings.getInstance();
-    private final repaintProcessor : Processor = ScreenRepaintProcessorFactory.getInstance().create(this);
+    private final repaintProcessor : Processor;
     private var commandStack : ABStack<Any>;
     public function new(commandListener : CommandListener, formTitle : String, backgrounBasicColor : BasicColor, foregroundBasicColor : BasicColor) {
         super(formTitle);
+        this.repaintProcessor = ScreenRepaintProcessorFactory.getInstance().create(this);
         this.commandStack = StdUtil.getInstance().createStack();
         try {
             this.repaintProcessor.process();

@@ -75,10 +75,15 @@ class DeleteFileValidationView extends InventoryItemView implements ValidationCo
             if (InventoryEntityFactory.getInstance().getInventoryEntityInstance().getItem(this.id) == null) {
                 stringBuffer.append("Item does not exist.<br />");
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             return "Unkown Validation Error.<br />";
         }
+    }
+
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
     }
 
 }

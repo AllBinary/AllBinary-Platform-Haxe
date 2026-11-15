@@ -1,12 +1,12 @@
 // Generated Code Do Not Modify
 package org.allbinary.util;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 import org.allbinary.logic.math.MathUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
-import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsMethod;
 
 class ArrayUtil {
     private static final instance : ArrayUtil = new ArrayUtil();
@@ -114,7 +114,7 @@ class ArrayUtil {
             stringBuffer.append(commonSeps.BRACE_CLOSE);
             stringBuffer.append(commonSeps.NEW_LINE);
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function toStringFromObjectArray(objectArray : haxe.ds.Vector<Any>) : String {
@@ -124,7 +124,7 @@ class ArrayUtil {
             stringBuffer.append(StringUtil.getInstance().toString(objectArray[index]));
             stringBuffer.append(commonSeps.COMMA_SEP);
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function toStringFromByteArray(byteArray : haxe.ds.Vector<Int>) : String {
@@ -134,7 +134,7 @@ class ArrayUtil {
             stringBuffer.appendbyte(byteArray[index]);
             stringBuffer.append(commonSeps.COMMA_SEP);
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function new() {

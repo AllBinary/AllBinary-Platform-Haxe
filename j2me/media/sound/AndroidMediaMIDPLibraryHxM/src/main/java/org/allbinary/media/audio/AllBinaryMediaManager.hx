@@ -15,10 +15,10 @@
 // Generated Code Do Not Modify
 package org.allbinary.media.audio;
 
-//import java.io.IOException;
-//import java.io.InputStream;
-//import javax.microedition.media.MediaException;
-//import javax.microedition.media.Player;
+import jre.io.IOException;
+import jre.io.InputStream;
+import javax.microedition.media.MediaException;
+import javax.microedition.media.Player;
 import org.allbinary.TsUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureFactory;
@@ -78,7 +78,7 @@ class AllBinaryMediaManager {
                             androidMediaPlayerWrapper = (cast player2 : AndroidMediaPlayerWrapper);
                             MediaPlayerUtil.getInstance().waitForMediaPlayer(androidMediaPlayerWrapper.getMediaPlayer());
                         } else {
-                            throw new haxe.Exception("Unknown Property Player: " + Type.getClassName(Type.getClass(player)));
+                            throw new jre.lang.JavaException("Unknown Property Player: " + Type.getClassName(Type.getClass(player)));
                         }
                     }
                 }

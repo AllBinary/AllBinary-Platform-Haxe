@@ -65,7 +65,7 @@ class LogConfigTypes {
                 return logConfigType;
             }
         }
-        throw new haxe.Exception("No Such LogConfigType: " + name);
+        throw new jre.lang.JavaException("No Such LogConfigType: " + name);
     }
 
 }

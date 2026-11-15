@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.string.regex.replace;
 
-//import java.util.HashMap;
+import jre.util.HashMap;
 import org.allbinary.J2SEUtil;
 import org.allbinary.globals.AppUrlGlobals;
 import org.allbinary.globals.URLGLOBALS;
@@ -31,20 +31,35 @@ class Replace {
     private final REPLACERS_ : String = "Replacers: ";
     private final ALL : String = "all";
     private final FOUND_KEY : String = "found key total: ";
-    private final hashMap : HashMap;
-    public function new(key : String, value : String) {
+    private final hashMap : HashMap<Dynamic, Dynamic>;
+    public function new(...args : Dynamic) {
+        if (args.length == 2 && Std.isOfType(args[0], String) && Std.isOfType(args[0], String)) {
+            final key : String = args[0];
+            final value : String = args[1];
+            this._new0(key, value);
+        }
+        else if (args.length == 2) {
+            final keys : haxe.ds.Vector<String> = args[0];
+            final values : haxe.ds.Vector<String> = args[1];
+            this._new1(keys, values);
+        }
+        else if (args.length == 1) {
+            final hashMap : HashMap<Dynamic, Dynamic> = args[0];
+            this._new2(hashMap);
+        }
+    }
+
+    private function _new0(key : String, value : String) : Void {
         this.hashMap = StdUtil.getInstance().createHashMap();
         this.hashMap.put(haxe.ds.Vector.fromArrayCopy([key]), haxe.ds.Vector.fromArrayCopy([value]));
     }
 
-    // Java overloaded constructor: Haxe allows one constructor
-    public function new(keys : haxe.ds.Vector<String>, values : haxe.ds.Vector<String>) {
+    private function _new1(keys : haxe.ds.Vector<String>, values : haxe.ds.Vector<String>) : Void {
         this.hashMap = StdUtil.getInstance().createHashMap();
         this.hashMap.put(keys, values);
     }
 
-    // Java overloaded constructor: Haxe allows one constructor
-    public function new(hashMap : HashMap) {
+    private function _new2(hashMap : HashMap<Dynamic, Dynamic>) : Void {
         this.hashMap = hashMap;
     }
 
@@ -82,7 +97,7 @@ class Replace {
                     newStringBuffer.append(values[0]);
                     index = newStringBuffer.length();
                     newStringBuffer.append(replace.substring(end, replace.length));
-                    replace = newStringBuffer.toString();
+                    replace = Std.string(newStringBuffer);
                     if (keys.length > 1) {
                         nextSecondKey = keys[1];
                         begin2 = replace.indexOf(nextSecondKey, index);
@@ -93,7 +108,7 @@ class Replace {
                             newStringBuffer.append(values[1]);
                             index = newStringBuffer.length();
                             newStringBuffer.append(replace.substring(end2, replace.length));
-                            replace = newStringBuffer.toString();
+                            replace = Std.string(newStringBuffer);
                         }
                     }
                     totalNumberOfReplaces++;
@@ -129,12 +144,12 @@ class Replace {
                 final begin : Int = replace.indexOf(key, index);
                 if (begin != -1) {
                     trace(this.FOUND_KEY);
-                    final end : Int = replace.indexOf("\n".code, begin + key.length) + 1;
+                    final end : Int = replace.indexOf(String.fromCharCode("\n".code), begin + key.length) + 1;
                     if (end >= 0) {
                         newStringBuffer.append(replace.substring(0, begin));
                         index = newStringBuffer.length();
                         newStringBuffer.append(replace.substring(end, replace.length));
-                        replace = newStringBuffer.toString();
+                        replace = Std.string(newStringBuffer);
                         totalNumberOfReplaces++;
                     }
                 } else {

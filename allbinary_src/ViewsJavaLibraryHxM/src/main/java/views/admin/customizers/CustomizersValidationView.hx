@@ -61,5 +61,10 @@ class CustomizersValidationView extends CustomizersView implements ValidationCom
         return null;
     }
 
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
+    }
+
 }
 

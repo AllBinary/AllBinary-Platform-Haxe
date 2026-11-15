@@ -59,7 +59,7 @@ class GameKeyEvent extends AllBinaryEventObject {
         var stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append("\nKey: ");
         stringBuffer.appendint(this.getKey());
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function getOriginalKey() : Int {

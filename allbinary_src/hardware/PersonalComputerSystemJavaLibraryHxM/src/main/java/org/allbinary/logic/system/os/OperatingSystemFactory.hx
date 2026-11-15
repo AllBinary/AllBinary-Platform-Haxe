@@ -67,10 +67,10 @@ class OperatingSystemFactory {
                     }
                     this.genericOperatingSystem = SolarisOperatingSystemFactory.getInstance().getOperatingSystemInstance();
                 } else {
-                    throw new haxe.Exception(new StringMaker().append("OS Not Supported: ").append(osName).toString());
+                    throw new jre.lang.JavaException(Std.string(new StringMaker().append("OS Not Supported: ").append(osName)));
                 }
-                var log : Log = LogFactory.getInstanceF(new StringMaker().append("OperatingSystem Info: ").append(StringUtil.getInstance().toString(this.genericOperatingSystem)).toString(), this, this.commonStrings.GET_INSTANCE);
-                trace(log.toString());
+                var log : Log = LogFactory.getInstanceF(Std.string(new StringMaker().append("OperatingSystem Info: ").append(StringUtil.getInstance().toString(this.genericOperatingSystem))), this, this.commonStrings.GET_INSTANCE);
+                trace(Std.string(log));
                 this.logUtil.putL(log);
             }
             return this.genericOperatingSystem;

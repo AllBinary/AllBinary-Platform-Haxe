@@ -41,10 +41,10 @@ class InitializeCloud {
                 stringBuffer.append(URLGLOBALS.getWebappPath());
                 stringBuffer.append(cloud);
                 stringBuffer.append(PATH_GLOBALS.getInstance().DATA_PATH);
-                final path : AbPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
+                final path : AbPath = new AbPath(Std.string(stringBuffer), StringUtil.getInstance().EMPTY_STRING);
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append(URLGLOBALS.getWebappPath());
-                final realPath : AbPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
+                final realPath : AbPath = new AbPath(Std.string(stringBuffer), StringUtil.getInstance().EMPTY_STRING);
                 final file : AbFile = AbFile.createAbFileFromAbPath(path);
                 final fileBasicArrayList : BasicArrayList = Directory.getInstance().search(file, true);
                 final size : Int = fileBasicArrayList.size();
@@ -63,7 +63,7 @@ class InitializeCloud {
                 stringBuffer.appendint(start);
                 stringBuffer.append(" - ");
                 stringBuffer.appendint(end);
-                this.logUtil.putF(stringBuffer.toString(), this, "initialize()");
+                this.logUtil.putF(Std.string(stringBuffer), this, "initialize()");
                 var nextFile : AbFile = null;
                 for (index in start...end) {
                     nextFile = (cast fileBasicArrayList.get(index) : AbFile);

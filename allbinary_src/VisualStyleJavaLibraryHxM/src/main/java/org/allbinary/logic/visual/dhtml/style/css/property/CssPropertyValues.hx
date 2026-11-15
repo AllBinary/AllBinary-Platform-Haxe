@@ -60,7 +60,7 @@ class CssPropertyValues implements DomNodeInterface {
         final size2 : Int = indexPropertyValueHashMap.keySet().size();
         for (index in 0...size2) {
             var indexInt : Null<Int> = index;
-            var propertyValue : String = (cast indexPropertyValueHashMap.get(indexInt.toString()) : String);
+            var propertyValue : String = (cast indexPropertyValueHashMap.get(Std.string(indexInt)) : String);
             this.propertyValueVector.add(propertyValue);
         }
     }
@@ -80,7 +80,7 @@ class CssPropertyValues implements DomNodeInterface {
             stringBuffer.append(commonSeps.BRACKET_OPEN);
             stringBuffer.appendint(index);
             stringBuffer.append(commonSeps.BRACKET_CLOSE);
-            hashMap.put(stringBuffer.toString(), value);
+            hashMap.put(Std.string(stringBuffer), value);
             index++;
                 index++;
             }
@@ -92,7 +92,7 @@ class CssPropertyValues implements DomNodeInterface {
     public function toXmlNode(document : Document) : Node {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
             var hashMap : HashMap = this.toHashMap();
-            this.logUtil.putF("CssPropertyValues HashMap: " + hashMap.toString(), this, "toXmlNode()");
+            this.logUtil.putF("CssPropertyValues HashMap: " + Std.string(hashMap), this, "toXmlNode()");
         }
         return ModDomHelper.createNameValueIndexNodes(document, CssPropertyData.getInstance().VALUES, CssPropertyValueData.getInstance().NAME, this.propertyValueVector);
     }

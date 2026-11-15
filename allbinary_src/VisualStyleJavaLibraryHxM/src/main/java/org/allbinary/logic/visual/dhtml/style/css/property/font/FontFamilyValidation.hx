@@ -56,7 +56,7 @@ class FontFamilyValidation extends FontFamilyView implements ValidationInterface
         try {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append("Css Font Family Property Validation Error");
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
                 this.logUtil.put("Failed to generate validation info error", this, "validationInfo()", e);

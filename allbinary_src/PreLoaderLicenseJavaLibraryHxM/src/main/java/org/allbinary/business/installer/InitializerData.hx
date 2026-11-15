@@ -75,7 +75,7 @@ class InitializerData {
         stringBuffer.append("Solution: Get a JDBC driver. <br/>");
         stringBuffer.append("3. The JDBC driver you specified is not valid.<br/>");
         stringBuffer.append("Solution: Use a valid JDBC driver.<p/>");
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function new() {

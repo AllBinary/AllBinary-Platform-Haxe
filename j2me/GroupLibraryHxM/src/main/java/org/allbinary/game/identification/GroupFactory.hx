@@ -10,7 +10,7 @@
  * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
  * 
  * Created By: Travis Berthelot
- *  
+ *   
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.identification;
@@ -23,7 +23,7 @@ import org.allbinary.util.BasicArrayListD;
 
 class GroupFactory {
     public final logUtil : LogUtil = LogUtil.getInstance();
-    private static var instance : GroupFactory = new GroupFactory();
+    private static final instance : GroupFactory = new GroupFactory();
     public static function getInstance() : GroupFactory {
         return GroupFactory.instance;
     }
@@ -32,7 +32,7 @@ class GroupFactory {
     private final list : BasicArrayList = new BasicArrayListD();
     private var index : Int = 0;
     public function getNextGroup() : Group {
-        var group : Group = (cast this.list.objectArray[this.index] : Group);
+        final group : Group = (cast this.list.objectArray[this.index] : Group);
         this.index++;
         return group;
     }
@@ -50,13 +50,14 @@ class GroupFactory {
         this.list.clear();
         this.index = 0;
         var size : Int = this.list.size();
+        var name : String = null;
         while (size < groups) {
-            var name : String = stringUtil.EMPTY_STRING;
+            name = stringUtil.EMPTY_STRING;
             if (size < nameArray.length) {
                 name = nameArray[size];
             } else {
                 stringMaker.delete(0, stringMaker.length());
-                name = stringMaker.append(TEAM).appendint(size).toString();
+                name = Std.string(stringMaker.append(TEAM).appendint(size));
             }
             this.list.add(new Group(name, (size + 3)));
             size++;

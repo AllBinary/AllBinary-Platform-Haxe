@@ -37,7 +37,7 @@ class RegistrationConfiguration {
     }
 
     public function toString() : String {
-        return new StringMaker().append("Registration Code: ").append(this.getRegistrationCode()).toString();
+        return Std.string(new StringMaker().append("Registration Code: ").append(this.getRegistrationCode()));
     }
 
     public function setRegistrationCode(registrationCode : String) : Void {

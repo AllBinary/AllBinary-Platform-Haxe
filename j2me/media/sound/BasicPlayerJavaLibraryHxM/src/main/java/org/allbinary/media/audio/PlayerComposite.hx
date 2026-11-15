@@ -15,10 +15,10 @@
 // Generated Code Do Not Modify
 package org.allbinary.media.audio;
 
-//import javax.microedition.media.Control;
-//import javax.microedition.media.Controllable;
-//import javax.microedition.media.Player;
-//import javax.microedition.media.PlayerListener;
+import javax.microedition.media.Control;
+import javax.microedition.media.Controllable;
+import javax.microedition.media.Player;
+import javax.microedition.media.PlayerListener;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.time.GameTickTimeDelayHelper;
@@ -122,7 +122,7 @@ class PlayerComposite implements Controllable implements Player {
     }
 
     public function getControls() : haxe.ds.Vector<Control> {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function setVolume(leftVolume : Int, rightVolume : Int) : Void {

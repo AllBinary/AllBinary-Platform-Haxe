@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.media.image;
 
-//import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.Image;
 
 class ImageCompleteUtil {
     private static final instance : ImageCompleteUtil = new ImageCompleteUtil();

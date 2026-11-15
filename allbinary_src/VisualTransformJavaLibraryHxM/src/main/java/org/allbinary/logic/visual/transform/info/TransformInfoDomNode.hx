@@ -45,7 +45,7 @@ class TransformInfoDomNode {
                 stringBuffer.append(" with ");
                 stringBuffer.appendint(Std.int(nodeList.getLength()));
                 stringBuffer.append(" children");
-                this.logUtil.putF(stringBuffer.toString(), this, "TransformInfoObjectConfigComponent(Node node)");
+                this.logUtil.putF(Std.string(stringBuffer), this, "TransformInfoObjectConfigComponent(Node node)");
             }
             var objectFileNameNode : Node = DomSearchHelper.getNode(transformInfoData.OBJECTFILENAME, nodeList);
             var objectFileName : String = DomNodeHelper.getTextNodeValue(objectFileNameNode);
@@ -64,7 +64,7 @@ class TransformInfoDomNode {
                 stringBuffer.append(" with ");
                 stringBuffer.appendint(Std.int(nodeList.getLength()));
                 stringBuffer.append(" children");
-                this.logUtil.putF(stringBuffer.toString(), this, "TransformInfoObjectConfigComponent(Node node)");
+                this.logUtil.putF(Std.string(stringBuffer), this, "TransformInfoObjectConfigComponent(Node node)");
             }
             this.transformInfoInterface = (cast new TransformInfo(name) : TransformInfoInterface);
         }
@@ -107,7 +107,7 @@ class TransformInfoDomNode {
         stringBuffer.append("<transform:component name=\"");
         stringBuffer.append("body");
         stringBuffer.append("\"/>");
-        var key : String = stringBuffer.toString();
+        var key : String = Std.string(stringBuffer);
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
             this.logUtil.putF("Component Key: " + key, this, "getReplaceKey()");
         }

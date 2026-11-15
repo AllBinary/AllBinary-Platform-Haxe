@@ -50,10 +50,10 @@ class DestroyedEvent extends AllBinaryEventObject {
         final stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append("DestroyedEvent: \n");
         stringBuffer.append("AllBinaryLayerInterface: ");
-        stringBuffer.append(this.allBinaryLayerInterface.toString());
+        stringBuffer.append(Std.string(this.allBinaryLayerInterface));
         stringBuffer.append("\nAllBinaryGameCanvas: ");
         stringBuffer.append(StringUtil.getInstance().toString(this.getAllBinaryGameCanvas()));
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

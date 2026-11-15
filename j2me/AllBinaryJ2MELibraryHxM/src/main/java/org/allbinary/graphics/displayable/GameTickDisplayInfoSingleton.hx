@@ -23,10 +23,10 @@ class GameTickDisplayInfoSingleton {
     }
 
     private final displayInfoSingleton : DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
-    private var lastWidth : Int = this.displayInfoSingleton.getLastWidth();
-    private var lastHeight : Int = this.displayInfoSingleton.getLastHeight();
-    private var lastHalfWidth : Int = this.displayInfoSingleton.getLastHalfWidth();
-    private var lastHalfHeight : Int = this.displayInfoSingleton.getLastHalfHeight();
+    private var lastWidth : Int;
+    private var lastHeight : Int;
+    private var lastHalfWidth : Int;
+    private var lastHalfHeight : Int;
     public function update() : Void {
         this.lastWidth = this.displayInfoSingleton.getLastWidth();
         this.lastHeight = this.displayInfoSingleton.getLastHeight();
@@ -51,6 +51,10 @@ class GameTickDisplayInfoSingleton {
     }
 
     public function new() {
+        this.lastWidth = this.displayInfoSingleton.getLastWidth();
+        this.lastHeight = this.displayInfoSingleton.getLastHeight();
+        this.lastHalfWidth = this.displayInfoSingleton.getLastHalfWidth();
+        this.lastHalfHeight = this.displayInfoSingleton.getLastHalfHeight();
     }
 }
 

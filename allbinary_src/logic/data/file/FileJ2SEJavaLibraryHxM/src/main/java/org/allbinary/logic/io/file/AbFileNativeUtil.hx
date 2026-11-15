@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.io.file;
 
-//import java.io.File;
+import jre.io.File;
 
 class AbFileNativeUtil {
     public static function get(file : AbFile) : File {

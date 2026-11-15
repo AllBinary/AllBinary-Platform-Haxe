@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.content;
 
-//import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.Command;
 import android.app.Notification;
 import android.app.Notification.Builder;
 import android.app.PendingIntent;

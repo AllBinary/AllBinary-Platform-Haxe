@@ -27,11 +27,15 @@ class GameStateFactory {
     }
 
     private var index : Int = 0;
-    public final NO_GAME_STATE : GameState = this.createGameState("NO_GAME_STATE");
-    public final PLAYING_GAME_STATE : GameState = this.createGameState("PLAYING_GAME_STATE");
-    public final SHOW_END_RESULT_GAME_STATE : GameState = this.createGameState("SHOW_END_RESULT_GAME_STATE");
-    public final SHOW_HIGH_SCORE_GAME_STATE : GameState = this.createGameState("SHOW_HIGH_SCORE_GAME_STATE");
+    public final NO_GAME_STATE : GameState;
+    public final PLAYING_GAME_STATE : GameState;
+    public final SHOW_END_RESULT_GAME_STATE : GameState;
+    public final SHOW_HIGH_SCORE_GAME_STATE : GameState;
     public function new() {
+        this.NO_GAME_STATE = this.createGameState("NO_GAME_STATE");
+        this.PLAYING_GAME_STATE = this.createGameState("PLAYING_GAME_STATE");
+        this.SHOW_END_RESULT_GAME_STATE = this.createGameState("SHOW_END_RESULT_GAME_STATE");
+        this.SHOW_HIGH_SCORE_GAME_STATE = this.createGameState("SHOW_HIGH_SCORE_GAME_STATE");
     }
 
     public function createGameState(name : String) : GameState {

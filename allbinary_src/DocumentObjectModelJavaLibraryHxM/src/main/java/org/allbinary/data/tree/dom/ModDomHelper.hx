@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.data.tree.dom;
 
-//import java.util.HashMap;
-//import java.util.Set;
+import jre.util.HashMap;
+import jre.util.Set;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.java.anyType.clazz.ClassUtil;
@@ -49,11 +49,30 @@ class ModDomHelper {
 
     // throws Exception
     public static function createIndexNode(document : Document, index : Int) : Node {
-        return ModDomHelper.createTextNode(document, DomData.INDEX, index.toString());
+        return ModDomHelper.createTextNode(document, DomData.INDEX, Std.string(index));
+    }
+
+    public static function createNameValueNodes(...args : Dynamic) : Dynamic {
+        if (args.length == 4 && Std.isOfType(args[0], Document) && Std.isOfType(args[0], String) && Std.isOfType(args[0], String) && Std.isOfType(args[0], String)) {
+            return ModDomHelper.createNameValueNodes_Document_String_String_String(args[0], args[1], args[2], args[3]);
+        }
+        if (args.length == 3 && Std.isOfType(args[0], Document) && Std.isOfType(args[0], String) && Std.isOfType(args[0], String)) {
+            return ModDomHelper.createNameValueNodes_Document_String_String(args[0], args[1], args[2]);
+        }
+        if (args.length == 3 && Std.isOfType(args[0], Document) && Std.isOfType(args[0], String) && Std.isOfType(args[0], HashMap)) {
+            return ModDomHelper.createNameValueNodes_Document_String_HashMap(args[0], args[1], args[2]);
+        }
+        if (args.length == 3) {
+            return ModDomHelper.createNameValueNodes_Document_Node_HashMap(args[0], args[1], args[2]);
+        }
+        if (args.length == 4) {
+            return ModDomHelper.createNameValueNodes_Document_String_String_BasicArrayList(args[0], args[1], args[2], args[3]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: createNameValueNodes");
     }
 
     // throws Exception
-    public static function createNameValueNodes(document : Document, elementName : String, nameText : String, valueText : String) : Node {
+    public static function createNameValueNodes_Document_String_String_String(document : Document, elementName : String, nameText : String, valueText : String) : Node {
         var newNode : Node = document.createElement(elementName);
         newNode.appendChild(ModDomHelper.createNameNode(document, nameText));
         newNode.appendChild(ModDomHelper.createValueNode(document, valueText));
@@ -61,28 +80,38 @@ class ModDomHelper {
     }
 
     // throws Exception
-    public static function createNameValueNodes(document : Document, elementNameAndNameText : String, valueText : String) : Node {
+    public static function createNameValueNodes_Document_String_String(document : Document, elementNameAndNameText : String, valueText : String) : Node {
         var newNode : Node = ModDomHelper.createNameValueNodes(document, elementNameAndNameText, elementNameAndNameText, valueText);
         return newNode;
     }
 
+    public static function createNameValueIndexNodes(...args : Dynamic) : Dynamic {
+        if (args.length == 4 && Std.isOfType(args[0], Document) && Std.isOfType(args[0], String) && Std.isOfType(args[0], Int) && Std.isOfType(args[0], String)) {
+            return ModDomHelper.createNameValueIndexNodes_Document_String_int_String(args[0], args[1], args[2], args[3]);
+        }
+        if (args.length == 4) {
+            return ModDomHelper.createNameValueIndexNodes_Document_String_String_BasicArrayList(args[0], args[1], args[2], args[3]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: createNameValueIndexNodes");
+    }
+
     // throws Exception
-    public static function createNameValueIndexNodes(document : Document, elementNameAndNameText : String, index : Int, valueText : String) : Node {
+    public static function createNameValueIndexNodes_Document_String_int_String(document : Document, elementNameAndNameText : String, index : Int, valueText : String) : Node {
         var newNode : Node = ModDomHelper.createNameValueNodes(document, elementNameAndNameText, valueText);
         newNode.appendChild(ModDomHelper.createIndexNode(document, index));
         return newNode;
     }
 
     // throws Exception
-    public static function createNameValueNodes(document : Document, rootNode : String, hashMap : HashMap) : Node {
+    public static function createNameValueNodes_Document_String_HashMap(document : Document, rootNode : String, hashMap : HashMap<Dynamic, Dynamic>) : Node {
         var node : Node = document.createElement(rootNode);
         return ModDomHelper.createNameValueNodes(document, node, hashMap);
     }
 
     // throws Exception
-    public static function createNameValueNodes(document : Document, node : Node, hashMap : HashMap) : Node {
+    public static function createNameValueNodes_Document_Node_HashMap(document : Document, node : Node, hashMap : HashMap<Dynamic, Dynamic>) : Node {
         var stringUtil : StringUtil = StringUtil.getInstance();
-        var keySet : Set = hashMap.keySet();
+        var keySet : Set<Dynamic> = hashMap.keySet();
         var keyArray : haxe.ds.Vector<Any> = keySet.toArray();
         var size : Int = keyArray.length;
         for (i in 0...size) {
@@ -98,14 +127,14 @@ class ModDomHelper {
             } else if (Std.isOfType(anyType, HashMap)) {
                 node.appendChild(ModDomHelper.createNameValueNodes(document, name, hashMap));
             } else {
-                throw new haxe.Exception("HashMap value is the wrong instance and is: " + ClassUtil.viewAll(anyType, CommonSeps.getInstance().NEW_LINE));
+                throw new jre.lang.JavaException("HashMap value is the wrong instance and is: " + ClassUtil.viewAll(anyType, CommonSeps.getInstance().NEW_LINE));
             }
         }
         return node;
     }
 
     // throws Exception
-    public static function createNameValueNodes(document : Document, rootNodeName : String, duplicateNodeName : String, valueVector : BasicArrayList) : Node {
+    public static function createNameValueNodes_Document_String_String_BasicArrayList(document : Document, rootNodeName : String, duplicateNodeName : String, valueVector : BasicArrayList) : Node {
         var stringUtil : StringUtil = StringUtil.getInstance();
         var node : Node = document.createElement(rootNodeName);
         var size : Int = valueVector.size();
@@ -117,7 +146,7 @@ class ModDomHelper {
     }
 
     // throws Exception
-    public static function createNameValueIndexNodes(document : Document, rootNodeName : String, duplicateNodeName : String, valueVector : BasicArrayList) : Node {
+    public static function createNameValueIndexNodes_Document_String_String_BasicArrayList(document : Document, rootNodeName : String, duplicateNodeName : String, valueVector : BasicArrayList) : Node {
         var stringUtil : StringUtil = StringUtil.getInstance();
         var node : Node = document.createElement(rootNodeName);
         var size : Int = valueVector.size();
@@ -128,16 +157,26 @@ class ModDomHelper {
         return node;
     }
 
+    public static function createNodeWithValueNodes(...args : Dynamic) : Dynamic {
+        if (args.length == 3 && Std.isOfType(args[0], Document) && Std.isOfType(args[0], String) && Std.isOfType(args[0], HashMap)) {
+            return ModDomHelper.createNodeWithValueNodes_Document_String_HashMap(args[0], args[1], args[2]);
+        }
+        if (args.length == 3) {
+            return ModDomHelper.createNodeWithValueNodes_Document_Node_HashMap(args[0], args[1], args[2]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: createNodeWithValueNodes");
+    }
+
     // throws Exception
-    public static function createNodeWithValueNodes(document : Document, rootNode : String, hashMap : HashMap) : Node {
+    public static function createNodeWithValueNodes_Document_String_HashMap(document : Document, rootNode : String, hashMap : HashMap<Dynamic, Dynamic>) : Node {
         var node : Node = document.createElement(rootNode);
         return ModDomHelper.createNodeWithValueNodes(document, node, hashMap);
     }
 
     // throws Exception
-    public static function createNodeWithValueNodes(document : Document, node : Node, hashMap : HashMap) : Node {
+    public static function createNodeWithValueNodes_Document_Node_HashMap(document : Document, node : Node, hashMap : HashMap<Dynamic, Dynamic>) : Node {
         var stringUtil : StringUtil = StringUtil.getInstance();
-        var keySet : Set = hashMap.keySet();
+        var keySet : Set<Dynamic> = hashMap.keySet();
         var keyArray : haxe.ds.Vector<Any> = keySet.toArray();
         var size : Int = keyArray.length;
         for (i in 0...size) {

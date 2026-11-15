@@ -50,7 +50,7 @@ class ShippingMethodsFactory {
         stringBuffer.append(sep);
         stringBuffer.append("shipping");
         stringBuffer.append(sep);
-        SHIPPINGMETHODSFILEPATHSTRING = stringBuffer.toString();
+        SHIPPINGMETHODSFILEPATHSTRING = Std.string(stringBuffer);
     }
     private static final SHIPPINGMETHODSFILENAME : String = "shippingMethods.xml";
     private var document : Document;
@@ -63,7 +63,7 @@ class ShippingMethodsFactory {
         stringBuffer.append(storeFrontInterface.getName());
         stringBuffer.append(sep);
         stringBuffer.append(ShippingMethodsFactory.SHIPPINGMETHODSFILEPATHSTRING);
-        final abPath : AbPath = (cast new AbPath(stringBuffer.toString(), this.SHIPPINGMETHODSFILENAME) : AbPath);
+        final abPath : AbPath = (cast new AbPath(Std.string(stringBuffer), this.SHIPPINGMETHODSFILENAME) : AbPath);
         final data : String = new CryptFileReader(TransformInfoObjectConfigData.getInstance().UNCRYPTED_EXTENSION, TransformInfoObjectConfigData.getInstance().ENCRYPTED_EXTENSION).get(abPath);
         this.document = DomDocumentHelper.create(data);
         this.shippingVector = new BasicArrayListD();

@@ -30,21 +30,21 @@
 
     <modules>
 
-        <module>../BaseHardwareJavaLibraryHaxeM</module>
-        <module>../BaseOperatingSystemJavaLibraryHaxeM</module>
-        <module>../BaseSystemJavaLibraryHaxeM</module>
-        <module>../NoHardwareJavaLibraryHaxeM</module>
-        <module>../NoSystemJavaLibraryHaxeM</module>
+        <module>../BaseHardwareJavaLibraryHxM</module>
+        <module>../BaseOperatingSystemJavaLibraryHxM</module>
+        <module>../BaseSystemJavaLibraryHxM</module>
+        <module>../NoHardwareJavaLibraryHxM</module>
+        <module>../NoSystemJavaLibraryHxM</module>
         <!--
         AndroidResource should not be part of AndroidSystem
         instead it is in GameJ2MELibraryPOM for now.
-        <module>../../../j2me/AndroidResourceLibraryHaxeM</module>
-        <module>../AndroidSystemJavaLibraryHaxeM</module>
+        <module>../../../j2me/AndroidResourceLibraryHxM</module>
+        <module>../AndroidSystemJavaLibraryHxM</module>
         -->
         
-        <module>../PersonalComputerSystemJavaLibraryHaxeM</module>
-        <module>../PersonalComputerOperatingSystemsJavaLibraryHaxeM</module>
-        <module>../PersonalComputerHardwareJavaLibraryHaxeM</module>
+        <module>../PersonalComputerSystemJavaLibraryHxM</module>
+        <module>../PersonalComputerOperatingSystemsJavaLibraryHxM</module>
+        <module>../PersonalComputerHardwareJavaLibraryHxM</module>
         
     </modules>
 

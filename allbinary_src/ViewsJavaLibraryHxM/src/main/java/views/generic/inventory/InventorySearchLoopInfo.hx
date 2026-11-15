@@ -33,7 +33,7 @@ class InventorySearchLoopInfo {
         stringBuffer.appendint(this.numberOfResults);
         stringBuffer.append(this.LAST);
         stringBuffer.appendint(this.lastPage);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function new() {

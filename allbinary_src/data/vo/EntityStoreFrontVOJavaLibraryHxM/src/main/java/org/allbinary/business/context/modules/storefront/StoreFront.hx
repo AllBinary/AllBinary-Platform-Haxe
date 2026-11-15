@@ -57,34 +57,34 @@ class StoreFront implements StoreFrontInterface {
     private final directory : Directory = Directory.getInstance();
     private final stringUtil : StringUtil = StringUtil.getInstance();
     private final abPathUtil : AbPathUtil = AbPathUtil.getInstance();
-    private var name : String = this.stringUtil.EMPTY_STRING;
-    private var basketName : String = this.stringUtil.EMPTY_STRING;
-    private var homeHostName : String = this.stringUtil.EMPTY_STRING;
-    private var homeHostNamePath : AbPath = this.abPathUtil.NO_ABPATH;
-    private var hostName : String = this.stringUtil.EMPTY_STRING;
-    private var hostNamePath : AbPath = this.abPathUtil.NO_ABPATH;
-    private var testHomeHostName : String = this.stringUtil.EMPTY_STRING;
-    private var testHomeHostNamePath : AbPath = this.abPathUtil.NO_ABPATH;
-    private var testHostName : String = this.stringUtil.EMPTY_STRING;
-    private var testHostNamePath : AbPath = this.abPathUtil.NO_ABPATH;
-    private var imagePath : AbPath = this.abPathUtil.NO_ABPATH;
-    private var staticPath : AbPath = this.abPathUtil.NO_ABPATH;
-    private var categoryPath : AbPath = this.abPathUtil.NO_ABPATH;
-    private var inventoryControl : String = this.stringUtil.EMPTY_STRING;
+    private var name : String;
+    private var basketName : String;
+    private var homeHostName : String;
+    private var homeHostNamePath : AbPath;
+    private var hostName : String;
+    private var hostNamePath : AbPath;
+    private var testHomeHostName : String;
+    private var testHomeHostNamePath : AbPath;
+    private var testHostName : String;
+    private var testHostNamePath : AbPath;
+    private var imagePath : AbPath;
+    private var staticPath : AbPath;
+    private var categoryPath : AbPath;
+    private var inventoryControl : String;
     private var contextConfigurationInterface : ContextConfigurationInterface;
-    private var subStores : String = this.stringUtil.EMPTY_STRING;
-    private var tagLocation : String = this.stringUtil.EMPTY_STRING;
-    private var packageLocation : String = this.stringUtil.EMPTY_STRING;
-    private var ftp : String = this.stringUtil.EMPTY_STRING;
-    private var ftpPath : AbPath = this.abPathUtil.NO_ABPATH;
-    private var ftpUserName : String = this.stringUtil.EMPTY_STRING;
-    private var ftpPassword : String = this.stringUtil.EMPTY_STRING;
-    private var testFtp : String = this.stringUtil.EMPTY_STRING;
-    private var testFtpPath : AbPath = this.abPathUtil.NO_ABPATH;
-    private var testFtpUserName : String = this.stringUtil.EMPTY_STRING;
-    private var testFtpPassword : String = this.stringUtil.EMPTY_STRING;
-    private var timeCreated : String = this.stringUtil.EMPTY_STRING;
-    private var lastModified : String = this.stringUtil.EMPTY_STRING;
+    private var subStores : String;
+    private var tagLocation : String;
+    private var packageLocation : String;
+    private var ftp : String;
+    private var ftpPath : AbPath;
+    private var ftpUserName : String;
+    private var ftpPassword : String;
+    private var testFtp : String;
+    private var testFtpPath : AbPath;
+    private var testFtpUserName : String;
+    private var testFtpPassword : String;
+    private var timeCreated : String;
+    private var lastModified : String;
     private final MINCHAR : Int = 0;
     private final MINSTORENAMELENGTH : Int = 1;
     private final MAXCHAR : Int = 255;
@@ -92,11 +92,65 @@ class StoreFront implements StoreFrontInterface {
     private final EMPTY_STRING : String = StringUtil.getInstance().EMPTY_STRING;
     private final ONE_EMPTY_STRING_ARRAY : haxe.ds.Vector<String> = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
     public function new() {
+        this.name = this.stringUtil.EMPTY_STRING;
+        this.basketName = this.stringUtil.EMPTY_STRING;
+        this.homeHostName = this.stringUtil.EMPTY_STRING;
+        this.homeHostNamePath = this.abPathUtil.NO_ABPATH;
+        this.hostName = this.stringUtil.EMPTY_STRING;
+        this.hostNamePath = this.abPathUtil.NO_ABPATH;
+        this.testHomeHostName = this.stringUtil.EMPTY_STRING;
+        this.testHomeHostNamePath = this.abPathUtil.NO_ABPATH;
+        this.testHostName = this.stringUtil.EMPTY_STRING;
+        this.testHostNamePath = this.abPathUtil.NO_ABPATH;
+        this.imagePath = this.abPathUtil.NO_ABPATH;
+        this.staticPath = this.abPathUtil.NO_ABPATH;
+        this.categoryPath = this.abPathUtil.NO_ABPATH;
+        this.inventoryControl = this.stringUtil.EMPTY_STRING;
+        this.subStores = this.stringUtil.EMPTY_STRING;
+        this.tagLocation = this.stringUtil.EMPTY_STRING;
+        this.packageLocation = this.stringUtil.EMPTY_STRING;
+        this.ftp = this.stringUtil.EMPTY_STRING;
+        this.ftpPath = this.abPathUtil.NO_ABPATH;
+        this.ftpUserName = this.stringUtil.EMPTY_STRING;
+        this.ftpPassword = this.stringUtil.EMPTY_STRING;
+        this.testFtp = this.stringUtil.EMPTY_STRING;
+        this.testFtpPath = this.abPathUtil.NO_ABPATH;
+        this.testFtpUserName = this.stringUtil.EMPTY_STRING;
+        this.testFtpPassword = this.stringUtil.EMPTY_STRING;
+        this.timeCreated = this.stringUtil.EMPTY_STRING;
+        this.lastModified = this.stringUtil.EMPTY_STRING;
         this.contextConfigurationInterface = new ContextConfiguration();
     }
 
     // Java overloaded constructor: Haxe allows one constructor
     public function new(request : HttpServletRequest) {
+        this.name = this.stringUtil.EMPTY_STRING;
+        this.basketName = this.stringUtil.EMPTY_STRING;
+        this.homeHostName = this.stringUtil.EMPTY_STRING;
+        this.homeHostNamePath = this.abPathUtil.NO_ABPATH;
+        this.hostName = this.stringUtil.EMPTY_STRING;
+        this.hostNamePath = this.abPathUtil.NO_ABPATH;
+        this.testHomeHostName = this.stringUtil.EMPTY_STRING;
+        this.testHomeHostNamePath = this.abPathUtil.NO_ABPATH;
+        this.testHostName = this.stringUtil.EMPTY_STRING;
+        this.testHostNamePath = this.abPathUtil.NO_ABPATH;
+        this.imagePath = this.abPathUtil.NO_ABPATH;
+        this.staticPath = this.abPathUtil.NO_ABPATH;
+        this.categoryPath = this.abPathUtil.NO_ABPATH;
+        this.inventoryControl = this.stringUtil.EMPTY_STRING;
+        this.subStores = this.stringUtil.EMPTY_STRING;
+        this.tagLocation = this.stringUtil.EMPTY_STRING;
+        this.packageLocation = this.stringUtil.EMPTY_STRING;
+        this.ftp = this.stringUtil.EMPTY_STRING;
+        this.ftpPath = this.abPathUtil.NO_ABPATH;
+        this.ftpUserName = this.stringUtil.EMPTY_STRING;
+        this.ftpPassword = this.stringUtil.EMPTY_STRING;
+        this.testFtp = this.stringUtil.EMPTY_STRING;
+        this.testFtpPath = this.abPathUtil.NO_ABPATH;
+        this.testFtpUserName = this.stringUtil.EMPTY_STRING;
+        this.testFtpPassword = this.stringUtil.EMPTY_STRING;
+        this.timeCreated = this.stringUtil.EMPTY_STRING;
+        this.lastModified = this.stringUtil.EMPTY_STRING;
         this.getFormData(new RequestParams(request).toHashMap());
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
             this.logUtil.putF("TWB- needs update for adding and updating context configuration - currently defaults to admin context config", this, "StoreFront");
@@ -106,6 +160,33 @@ class StoreFront implements StoreFrontInterface {
 
     // Java overloaded constructor: Haxe allows one constructor
     public function new(hashMap : HashMap) {
+        this.name = this.stringUtil.EMPTY_STRING;
+        this.basketName = this.stringUtil.EMPTY_STRING;
+        this.homeHostName = this.stringUtil.EMPTY_STRING;
+        this.homeHostNamePath = this.abPathUtil.NO_ABPATH;
+        this.hostName = this.stringUtil.EMPTY_STRING;
+        this.hostNamePath = this.abPathUtil.NO_ABPATH;
+        this.testHomeHostName = this.stringUtil.EMPTY_STRING;
+        this.testHomeHostNamePath = this.abPathUtil.NO_ABPATH;
+        this.testHostName = this.stringUtil.EMPTY_STRING;
+        this.testHostNamePath = this.abPathUtil.NO_ABPATH;
+        this.imagePath = this.abPathUtil.NO_ABPATH;
+        this.staticPath = this.abPathUtil.NO_ABPATH;
+        this.categoryPath = this.abPathUtil.NO_ABPATH;
+        this.inventoryControl = this.stringUtil.EMPTY_STRING;
+        this.subStores = this.stringUtil.EMPTY_STRING;
+        this.tagLocation = this.stringUtil.EMPTY_STRING;
+        this.packageLocation = this.stringUtil.EMPTY_STRING;
+        this.ftp = this.stringUtil.EMPTY_STRING;
+        this.ftpPath = this.abPathUtil.NO_ABPATH;
+        this.ftpUserName = this.stringUtil.EMPTY_STRING;
+        this.ftpPassword = this.stringUtil.EMPTY_STRING;
+        this.testFtp = this.stringUtil.EMPTY_STRING;
+        this.testFtpPath = this.abPathUtil.NO_ABPATH;
+        this.testFtpUserName = this.stringUtil.EMPTY_STRING;
+        this.testFtpPassword = this.stringUtil.EMPTY_STRING;
+        this.timeCreated = this.stringUtil.EMPTY_STRING;
+        this.lastModified = this.stringUtil.EMPTY_STRING;
         this.getFormData(hashMap);
         final domDocumentString : String = (cast hashMap.get(StoreFrontData.getInstance().CONFIGURATION) : String);
         if (domDocumentString == null) {
@@ -214,34 +295,34 @@ class StoreFront implements StoreFrontInterface {
         if (!stringValidationUtil.isValidRequired(this.homeHostName, this.MINCHAR, this.MAXCHAR)) {
             valid = false;
         }
-        if (!stringValidationUtil.isValidNotRequired(this.homeHostNamePath.toString(), this.MINCHAR, this.MAXCHAR)) {
+        if (!stringValidationUtil.isValidNotRequired(Std.string(this.homeHostNamePath), this.MINCHAR, this.MAXCHAR)) {
             valid = false;
         }
         if (!stringValidationUtil.isValidRequired(this.hostName, this.MINCHAR, this.MAXCHAR)) {
             valid = false;
         }
-        if (!stringValidationUtil.isValidRequired(this.hostNamePath.toString(), this.MINCHAR, this.MAXCHAR)) {
+        if (!stringValidationUtil.isValidRequired(Std.string(this.hostNamePath), this.MINCHAR, this.MAXCHAR)) {
             valid = false;
         }
         if (!stringValidationUtil.isValidNotRequired(this.testHomeHostName, this.MINCHAR, this.MAXCHAR)) {
             valid = false;
         }
-        if (!stringValidationUtil.isValidNotRequired(this.testHomeHostNamePath.toString(), this.MINCHAR, this.MAXCHAR)) {
+        if (!stringValidationUtil.isValidNotRequired(Std.string(this.testHomeHostNamePath), this.MINCHAR, this.MAXCHAR)) {
             valid = false;
         }
         if (!stringValidationUtil.isValidNotRequired(this.testHostName, this.MINCHAR, this.MAXCHAR)) {
             valid = false;
         }
-        if (!stringValidationUtil.isValidNotRequired(this.testHostNamePath.toString(), this.MINCHAR, this.MAXCHAR)) {
+        if (!stringValidationUtil.isValidNotRequired(Std.string(this.testHostNamePath), this.MINCHAR, this.MAXCHAR)) {
             valid = false;
         }
-        if (!stringValidationUtil.isValidRequired(this.imagePath.toString(), this.MINCHAR, this.MAXCHAR)) {
+        if (!stringValidationUtil.isValidRequired(Std.string(this.imagePath), this.MINCHAR, this.MAXCHAR)) {
             valid = false;
         }
-        if (!stringValidationUtil.isValidRequired(this.staticPath.toString(), this.MINCHAR, this.MAXCHAR)) {
+        if (!stringValidationUtil.isValidRequired(Std.string(this.staticPath), this.MINCHAR, this.MAXCHAR)) {
             valid = false;
         }
-        if (!stringValidationUtil.isValidRequired(this.categoryPath.toString(), this.MINCHAR, this.MAXCHAR)) {
+        if (!stringValidationUtil.isValidRequired(Std.string(this.categoryPath), this.MINCHAR, this.MAXCHAR)) {
             valid = false;
         }
         if (!stringValidationUtil.isValidRequired(this.inventoryControl, this.MINCHAR, this.MAXCHAR)) {
@@ -259,7 +340,7 @@ class StoreFront implements StoreFrontInterface {
         if (!stringValidationUtil.isValidNotRequired(this.ftp, this.MINCHAR, this.MAXCHAR)) {
             valid = false;
         }
-        if (!stringValidationUtil.isValidNotRequired(this.ftpPath.toString(), this.MINCHAR, this.MAXCHAR)) {
+        if (!stringValidationUtil.isValidNotRequired(Std.string(this.ftpPath), this.MINCHAR, this.MAXCHAR)) {
             valid = false;
         }
         if (!stringValidationUtil.isValidNotRequired(this.ftpUserName, this.MINCHAR, this.MAXCHAR)) {
@@ -271,7 +352,7 @@ class StoreFront implements StoreFrontInterface {
         if (!stringValidationUtil.isValidNotRequired(this.testFtp, this.MINCHAR, this.MAXCHAR)) {
             valid = false;
         }
-        if (!stringValidationUtil.isValidNotRequired(this.testFtpPath.toString(), this.MINCHAR, this.MAXCHAR)) {
+        if (!stringValidationUtil.isValidNotRequired(Std.string(this.testFtpPath), this.MINCHAR, this.MAXCHAR)) {
             valid = false;
         }
         if (!stringValidationUtil.isValidNotRequired(this.testFtpUserName, this.MINCHAR, this.MAXCHAR)) {
@@ -294,7 +375,7 @@ class StoreFront implements StoreFrontInterface {
             stringBuffer.append("Name is invalid. Must be < ");
             stringBuffer.appendint(this.MAXCHAR);
             stringBuffer.append(" and > 0 characters.<br>");
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         }
         return this.EMPTY_STRING;
     }
@@ -314,7 +395,7 @@ class StoreFront implements StoreFrontInterface {
                 stringBuffer.appendint(this.MAXCHAR);
                 stringBuffer.append(" and > 0 characters.<br>");
             }
-            if (!stringValidationUtil.isValidNotRequired(this.homeHostNamePath.toString(), this.MINCHAR, this.MAXCHAR)) {
+            if (!stringValidationUtil.isValidNotRequired(Std.string(this.homeHostNamePath), this.MINCHAR, this.MAXCHAR)) {
                 stringBuffer.append("Home host name path is invalid. Must be < ");
                 stringBuffer.appendint(this.MAXCHAR);
                 stringBuffer.append(" and > 0 characters.<br>");
@@ -324,7 +405,7 @@ class StoreFront implements StoreFrontInterface {
                 stringBuffer.appendint(this.MAXCHAR);
                 stringBuffer.append(" and > 0 characters.<br>");
             }
-            if (!stringValidationUtil.isValidRequired(this.hostNamePath.toString(), this.MINCHAR, this.MAXCHAR)) {
+            if (!stringValidationUtil.isValidRequired(Std.string(this.hostNamePath), this.MINCHAR, this.MAXCHAR)) {
                 stringBuffer.append("Host name path is invalid. Must be < ");
                 stringBuffer.appendint(this.MAXCHAR);
                 stringBuffer.append(" and > 0 characters.<br>");
@@ -332,22 +413,22 @@ class StoreFront implements StoreFrontInterface {
             if (!stringValidationUtil.isValidNotRequired(this.testHomeHostName, this.MINCHAR, this.MAXCHAR)) {
                 stringBuffer.append("Test home host name is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
-            if (!stringValidationUtil.isValidNotRequired(this.testHomeHostNamePath.toString(), this.MINCHAR, this.MAXCHAR)) {
+            if (!stringValidationUtil.isValidNotRequired(Std.string(this.testHomeHostNamePath), this.MINCHAR, this.MAXCHAR)) {
                 stringBuffer.append("Test home host name path is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
             if (!stringValidationUtil.isValidNotRequired(this.testHostName, this.MINCHAR, this.MAXCHAR)) {
                 stringBuffer.append("Test host name is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
-            if (!stringValidationUtil.isValidNotRequired(this.testHostNamePath.toString(), this.MINCHAR, this.MAXCHAR)) {
+            if (!stringValidationUtil.isValidNotRequired(Std.string(this.testHostNamePath), this.MINCHAR, this.MAXCHAR)) {
                 stringBuffer.append("Test host name path is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
-            if (!stringValidationUtil.isValidRequired(this.imagePath.toString(), this.MINCHAR, this.MAXCHAR)) {
+            if (!stringValidationUtil.isValidRequired(Std.string(this.imagePath), this.MINCHAR, this.MAXCHAR)) {
                 stringBuffer.append("Image path is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
-            if (!stringValidationUtil.isValidRequired(this.staticPath.toString(), this.MINCHAR, this.MAXCHAR)) {
+            if (!stringValidationUtil.isValidRequired(Std.string(this.staticPath), this.MINCHAR, this.MAXCHAR)) {
                 stringBuffer.append("Static path is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
-            if (!stringValidationUtil.isValidRequired(this.categoryPath.toString(), this.MINCHAR, this.MAXCHAR)) {
+            if (!stringValidationUtil.isValidRequired(Std.string(this.categoryPath), this.MINCHAR, this.MAXCHAR)) {
                 stringBuffer.append("Category path is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
             if (!stringValidationUtil.isValidRequired(this.inventoryControl, this.MINCHAR, this.MAXCHAR)) {
@@ -365,7 +446,7 @@ class StoreFront implements StoreFrontInterface {
             if (!stringValidationUtil.isValidNotRequired(this.ftp, this.MINCHAR, this.MAXCHAR)) {
                 stringBuffer.append("Ftp is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
-            if (!stringValidationUtil.isValidNotRequired(this.ftpPath.toString(), this.MINCHAR, this.MAXCHAR)) {
+            if (!stringValidationUtil.isValidNotRequired(Std.string(this.ftpPath), this.MINCHAR, this.MAXCHAR)) {
                 stringBuffer.append("Ftp path is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
             if (!stringValidationUtil.isValidNotRequired(this.ftpUserName, this.MINCHAR, this.MAXCHAR)) {
@@ -377,7 +458,7 @@ class StoreFront implements StoreFrontInterface {
             if (!stringValidationUtil.isValidNotRequired(this.testFtp, this.MINCHAR, this.MAXCHAR)) {
                 stringBuffer.append("Test ftp is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
-            if (!stringValidationUtil.isValidNotRequired(this.testFtpPath.toString(), this.MINCHAR, this.MAXCHAR)) {
+            if (!stringValidationUtil.isValidNotRequired(Std.string(this.testFtpPath), this.MINCHAR, this.MAXCHAR)) {
                 stringBuffer.append("Test ftp Path is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
             if (!stringValidationUtil.isValidNotRequired(this.testFtpUserName, this.MINCHAR, this.MAXCHAR)) {
@@ -386,7 +467,7 @@ class StoreFront implements StoreFrontInterface {
             if (!stringValidationUtil.isValidNotRequired(this.testFtpPassword, this.MINCHAR, this.MAXCHAR)) {
                 stringBuffer.append("Test ftp password is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
@@ -452,7 +533,7 @@ class StoreFront implements StoreFrontInterface {
     }
 
     public function getHomeHostNamePath() : String {
-        return this.homeHostNamePath.toString();
+        return Std.string(this.homeHostNamePath);
     }
 
     public function getHostName() : String {
@@ -460,7 +541,7 @@ class StoreFront implements StoreFrontInterface {
     }
 
     public function getHostNamePath() : String {
-        return this.hostNamePath.toString();
+        return Std.string(this.hostNamePath);
     }
 
     public function getTestHomeHostName() : String {
@@ -468,7 +549,7 @@ class StoreFront implements StoreFrontInterface {
     }
 
     public function getTestHomeHostNamePath() : String {
-        return this.testHomeHostNamePath.toString();
+        return Std.string(this.testHomeHostNamePath);
     }
 
     public function getTestHostName() : String {
@@ -476,15 +557,15 @@ class StoreFront implements StoreFrontInterface {
     }
 
     public function getTestHostNamePath() : String {
-        return this.testHostNamePath.toString();
+        return Std.string(this.testHostNamePath);
     }
 
     public function getStaticPath() : String {
-        return this.staticPath.toString();
+        return Std.string(this.staticPath);
     }
 
     public function getCategoryPath() : String {
-        return this.categoryPath.toString();
+        return Std.string(this.categoryPath);
     }
 
     public function getInventoryControl() : String {
@@ -535,11 +616,11 @@ class StoreFront implements StoreFrontInterface {
     }
 
     public function getFtpPath() : String {
-        return this.ftpPath.toString();
+        return Std.string(this.ftpPath);
     }
 
     public function getTestFtpPath() : String {
-        return this.testFtpPath.toString();
+        return Std.string(this.testFtpPath);
     }
 
     public function getTimeCreated() : String {
@@ -696,24 +777,24 @@ class StoreFront implements StoreFrontInterface {
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append(URLGLOBALS.getMainPath());
             stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
-            final viewPath : String = stringBuffer.toString();
+            final viewPath : String = Std.string(stringBuffer);
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append(viewPath);
             stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().INSTALLPATH);
-            final fromDirectoryAbPath : AbPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
+            final fromDirectoryAbPath : AbPath = new AbPath(Std.string(stringBuffer), StringUtil.getInstance().EMPTY_STRING);
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append(viewPath);
             stringBuffer.append("special");
             stringBuffer.append(AbPathData.getInstance().SEPARATOR);
-            final fromSpecialDirectoryAbPath : AbPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
+            final fromSpecialDirectoryAbPath : AbPath = new AbPath(Std.string(stringBuffer), StringUtil.getInstance().EMPTY_STRING);
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append(viewPath);
             stringBuffer.append(this.getName());
             stringBuffer.append(AbPathData.getInstance().SEPARATOR);
-            final toDirectoryAbPath : AbPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
+            final toDirectoryAbPath : AbPath = new AbPath(Std.string(stringBuffer), StringUtil.getInstance().EMPTY_STRING);
             if (current == 0) {
                 if (!this.directory.create(toDirectoryAbPath)) {
-                    throw new haxe.Exception("Unable to create store view directory: " + toDirectoryAbPath.toString());
+                    throw new haxe.Exception("Unable to create store view directory: " + Std.string(toDirectoryAbPath));
                 }
             }
             final viewTotal : Int = Std.int((total * 85) / 100);
@@ -751,29 +832,29 @@ class StoreFront implements StoreFrontInterface {
     // throws Exception
     private function installResources(fromDirectoryAbPath : AbPath, current : Int, total : Int) : Void {
         final stringBuffer : StringMaker = new StringMaker();
-        stringBuffer.append(fromDirectoryAbPath.toString());
+        stringBuffer.append(Std.string(fromDirectoryAbPath));
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
         stringBuffer.append("Resources");
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
-        final installCategoryAbPath : AbPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
+        final installCategoryAbPath : AbPath = new AbPath(Std.string(stringBuffer), StringUtil.getInstance().EMPTY_STRING);
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append(URLGLOBALS.getMainPath());
         stringBuffer.append(this.getCurrentHomeHostNamePath());
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
         stringBuffer.append(this.getCategoryPath());
-        final categoryAbPath : AbPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
+        final categoryAbPath : AbPath = new AbPath(Std.string(stringBuffer), StringUtil.getInstance().EMPTY_STRING);
         FileUtil.getInstance().copyDirectoryPortion(installCategoryAbPath, categoryAbPath, true, false, current, total);
     }
 
     // throws Exception
     private function installMedia(fromDirectoryAbPath : AbPath, current : Int, total : Int) : Void {
         final stringBuffer : StringMaker = new StringMaker();
-        stringBuffer.append(fromDirectoryAbPath.toString());
+        stringBuffer.append(Std.string(fromDirectoryAbPath));
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
         stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().TEMPLATEPATH);
         stringBuffer.append("images");
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
-        final viewStoreImagesDirectoryAbPath : AbPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
+        final viewStoreImagesDirectoryAbPath : AbPath = new AbPath(Std.string(stringBuffer), StringUtil.getInstance().EMPTY_STRING);
         final storeAbPath : AbPath = new AbPath(URLGLOBALS.getWebappPath() + this.getCurrentHomeHostNamePath(), StringUtil.getInstance().EMPTY_STRING);
         FileUtil.getInstance().copyDirectoryPortion(viewStoreImagesDirectoryAbPath, storeAbPath, true, false, current, total);
     }
@@ -783,16 +864,16 @@ class StoreFront implements StoreFrontInterface {
         final dataVector : BasicArrayList = new BasicArrayListD();
         dataVector.add(this.name);
         dataVector.add(this.homeHostName);
-        dataVector.add(this.homeHostNamePath.toString());
+        dataVector.add(Std.string(this.homeHostNamePath));
         dataVector.add(this.hostName);
-        dataVector.add(this.hostNamePath.toString());
+        dataVector.add(Std.string(this.hostNamePath));
         dataVector.add(this.testHomeHostName);
-        dataVector.add(this.testHomeHostNamePath.toString());
+        dataVector.add(Std.string(this.testHomeHostNamePath));
         dataVector.add(this.testHostName);
-        dataVector.add(this.testHostNamePath.toString());
-        dataVector.add(this.imagePath.toString());
-        dataVector.add(this.staticPath.toString());
-        dataVector.add(this.categoryPath.toString());
+        dataVector.add(Std.string(this.testHostNamePath));
+        dataVector.add(Std.string(this.imagePath));
+        dataVector.add(Std.string(this.staticPath));
+        dataVector.add(Std.string(this.categoryPath));
         dataVector.add(this.inventoryControl);
         final contextConfigurationDomDocumentMapping : ContextConfigurationDomDocumentMapping = new ContextConfigurationDomDocumentMapping(this.getContextConfigurationInterface());
         dataVector.add(contextConfigurationDomDocumentMapping.toDomDocumentString());
@@ -800,15 +881,15 @@ class StoreFront implements StoreFrontInterface {
         dataVector.add(this.tagLocation);
         dataVector.add(this.packageLocation);
         dataVector.add(this.ftp);
-        dataVector.add(this.ftpPath.toString());
+        dataVector.add(Std.string(this.ftpPath));
         dataVector.add(this.ftpUserName);
         dataVector.add(this.ftpPassword);
         dataVector.add(this.testFtp);
-        dataVector.add(this.testFtpPath.toString());
+        dataVector.add(Std.string(this.testFtpPath));
         dataVector.add(this.testFtpUserName);
         dataVector.add(this.testFtpPassword);
         var calendar : Calendar = Calendar.getInstance();
-        var time : String = calendar.getTimeInMillis().toString();
+        var time : String = Std.string(calendar.getTimeInMillis());
         dataVector.add(time);
         dataVector.add(time);
         return dataVector;
@@ -820,16 +901,16 @@ class StoreFront implements StoreFrontInterface {
         final dataHashMap : HashMap = StdUtil.getInstance().createHashMap();
         dataHashMap.put(storeFrontData.NAME, this.name);
         dataHashMap.put(storeFrontData.HOMEHOSTNAME, this.homeHostName);
-        dataHashMap.put(storeFrontData.HOMEHOSTNAMEPATH, this.homeHostNamePath.toString());
+        dataHashMap.put(storeFrontData.HOMEHOSTNAMEPATH, Std.string(this.homeHostNamePath));
         dataHashMap.put(storeFrontData.HOSTNAME, this.hostName);
-        dataHashMap.put(storeFrontData.HOSTNAMEPATH, this.hostNamePath.toString());
+        dataHashMap.put(storeFrontData.HOSTNAMEPATH, Std.string(this.hostNamePath));
         dataHashMap.put(storeFrontData.TESTHOMEHOSTNAME, this.testHomeHostName);
-        dataHashMap.put(storeFrontData.TESTHOMEHOSTNAMEPATH, this.testHomeHostNamePath.toString());
+        dataHashMap.put(storeFrontData.TESTHOMEHOSTNAMEPATH, Std.string(this.testHomeHostNamePath));
         dataHashMap.put(storeFrontData.TESTHOSTNAME, this.testHostName);
-        dataHashMap.put(storeFrontData.TESTHOSTNAMEPATH, this.testHostNamePath.toString());
-        dataHashMap.put(storeFrontData.IMAGEPATH, this.imagePath.toString());
-        dataHashMap.put(storeFrontData.STATICPATH, this.staticPath.toString());
-        dataHashMap.put(storeFrontData.CATEGORYPATH, this.categoryPath.toString());
+        dataHashMap.put(storeFrontData.TESTHOSTNAMEPATH, Std.string(this.testHostNamePath));
+        dataHashMap.put(storeFrontData.IMAGEPATH, Std.string(this.imagePath));
+        dataHashMap.put(storeFrontData.STATICPATH, Std.string(this.staticPath));
+        dataHashMap.put(storeFrontData.CATEGORYPATH, Std.string(this.categoryPath));
         dataHashMap.put(storeFrontData.INVENTORYCONTROL, this.inventoryControl);
         var contextConfigurationDomDocumentMapping : ContextConfigurationDomDocumentMapping = new ContextConfigurationDomDocumentMapping(this.getContextConfigurationInterface());
         dataHashMap.put(storeFrontData.CONFIGURATION, contextConfigurationDomDocumentMapping.toDomDocumentString());
@@ -837,15 +918,15 @@ class StoreFront implements StoreFrontInterface {
         dataHashMap.put(storeFrontData.TAGLOCATION, this.tagLocation);
         dataHashMap.put(storeFrontData.PACKAGELOCATION, this.packageLocation);
         dataHashMap.put(storeFrontData.FTP, this.ftp);
-        dataHashMap.put(storeFrontData.FTPPATH, this.ftpPath.toString());
+        dataHashMap.put(storeFrontData.FTPPATH, Std.string(this.ftpPath));
         dataHashMap.put(storeFrontData.FTPUSERNAME, this.ftpUserName);
         dataHashMap.put(storeFrontData.FTPPASSWORD, this.ftpPassword);
         dataHashMap.put(storeFrontData.TESTFTP, this.testFtp);
-        dataHashMap.put(storeFrontData.TESTFTPPATH, this.testFtpPath.toString());
+        dataHashMap.put(storeFrontData.TESTFTPPATH, Std.string(this.testFtpPath));
         dataHashMap.put(storeFrontData.TESTFTPUSERNAME, this.testFtpUserName);
         dataHashMap.put(storeFrontData.TESTFTPPASSWORD, this.testFtpPassword);
         final calendar : Calendar = Calendar.getInstance();
-        final time : String = calendar.getTimeInMillis().toString();
+        final time : String = Std.string(calendar.getTimeInMillis());
         dataHashMap.put(EntryData.getInstance().LASTMODIFIED, time);
         return dataHashMap;
     }

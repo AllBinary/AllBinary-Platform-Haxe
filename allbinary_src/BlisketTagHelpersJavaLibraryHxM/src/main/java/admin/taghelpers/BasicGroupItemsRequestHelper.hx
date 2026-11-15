@@ -83,7 +83,7 @@ class BasicGroupItemsRequestHelper extends ModifyTable {
         values.put(BasicGroupItemData.ITEM_NINE, this.itemNine);
         values.put(BasicGroupItemData.ITEM_TEN, this.itemTen);
         var calendar : Calendar = Calendar.getInstance();
-        var time : String = calendar.getTimeInMillis().toString();
+        var time : String = Std.string(calendar.getTimeInMillis());
         values.put(EntryData.getInstance().LASTMODIFIED, time);
         return values;
     }
@@ -91,7 +91,7 @@ class BasicGroupItemsRequestHelper extends ModifyTable {
     public function insert() : String {
         try {
             var calendar : Calendar = Calendar.getInstance();
-            var time : String = calendar.getTimeInMillis().toString();
+            var time : String = Std.string(calendar.getTimeInMillis());
             var values : BasicArrayList = new BasicArrayListD();
             values.add(this.id);
             values.add(this.itemOne);
@@ -144,7 +144,7 @@ class BasicGroupItemsRequestHelper extends ModifyTable {
             var values : HashMap = this.getHashMap();
             BasicGroupItemsEntityFactory.getInstance().getBasicGroupItemsEntityInstance().update(values);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS)) {
-                this.logUtil.putF(new StringMaker().append(this.id).append(CommonSeps.getInstance().SPACE).append(success).toString(), this, "update()");
+                this.logUtil.putF(Std.string(new StringMaker().append(this.id).append(CommonSeps.getInstance().SPACE).append(success)), this, "update()");
             }
             return success;
         } catch (e : haxe.Exception) {

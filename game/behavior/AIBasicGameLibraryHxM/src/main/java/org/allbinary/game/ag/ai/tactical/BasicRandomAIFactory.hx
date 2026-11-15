@@ -29,7 +29,7 @@ class BasicRandomAIFactory implements ArtificialIntelligenceInterfaceFactoryInte
     public function getInstance(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
         var visitor : Visitor = (cast hashtable.get((cast BasicAI.AI_VISITOR : Any)) : Visitor);
         if (visitor == null) {
-            throw new haxe.Exception("No Visitor Provided");
+            throw new jre.lang.JavaException("No Visitor Provided");
         }
         final inputProbability : InputProbability = (cast hashtable.get((cast InputProbability.INPUT_PROBABILITY : Any)) : InputProbability);
         return new BasicRandomAI(ownerLayerInterface, gameInput, inputProbability, visitor);

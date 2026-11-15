@@ -68,13 +68,13 @@ class CollidableCompositeLayer extends AllBinaryGameLayer implements CollidableI
         final commonSeps : CommonSeps = CommonSeps.getInstance();
         super.toStringAppend(stringBuffer);
         stringBuffer.append(commonSeps.NEW_LINE);
-        stringBuffer.append(this.getCollidableInferface().toString());
+        stringBuffer.append(Std.string(this.getCollidableInferface()));
     }
 
     public function toString() : String {
         final stringBuffer : StringMaker = new StringMaker();
         this.toStringAppend(stringBuffer);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

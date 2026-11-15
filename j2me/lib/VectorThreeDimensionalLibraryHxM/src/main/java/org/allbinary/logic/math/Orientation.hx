@@ -39,12 +39,12 @@ class Orientation {
     public function toString() : String {
         var stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append("Y: ");
-        stringBuffer.append(this.yaw.toString());
+        stringBuffer.append(Std.string(this.yaw));
         stringBuffer.append(" P: ");
-        stringBuffer.append(this.pitch.toString());
+        stringBuffer.append(Std.string(this.pitch));
         stringBuffer.append(" R: ");
-        stringBuffer.append(this.roll.toString());
-        return stringBuffer.toString();
+        stringBuffer.append(Std.string(this.roll));
+        return Std.string(stringBuffer);
     }
 
 }

@@ -85,7 +85,7 @@ class BasicWorkFlow {
         values.add(this.storeName);
         values.add(XmlDocumentHelper.toString(this.workFlowDoc));
         var calendar : Calendar = Calendar.getInstance();
-        var time : String = calendar.getTimeInMillis().toString();
+        var time : String = Std.string(calendar.getTimeInMillis());
         values.add(time);
         values.add(time);
         return values;
@@ -98,7 +98,7 @@ class BasicWorkFlow {
         hashMap.put(StoreFrontData.getInstance().NAME, this.storeName);
         hashMap.put(WorkFlowData.getInstance().DATA, XmlDocumentHelper.toString(this.workFlowDoc));
         var calendar : Calendar = Calendar.getInstance();
-        var time : String = calendar.getTimeInMillis().toString();
+        var time : String = Std.string(calendar.getTimeInMillis());
         hashMap.put(EntryData.getInstance().LASTMODIFIED, time);
         return hashMap;
     }
@@ -156,7 +156,7 @@ class BasicWorkFlow {
             if (this.workFlowName == null) {
                 stringBuffer.append("No WorkFlow name specified.");
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);

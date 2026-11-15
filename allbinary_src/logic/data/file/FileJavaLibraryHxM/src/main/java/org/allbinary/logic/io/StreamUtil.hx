@@ -15,10 +15,10 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.io;
 
-//import java.io.ByteArrayOutputStream;
-//import java.io.Closeable;
-//import java.io.InputStream;
-//import java.io.OutputStream;
+import jre.io.ByteArrayOutputStream;
+import jre.io.Closeable;
+import jre.io.InputStream;
+import jre.io.OutputStream;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 

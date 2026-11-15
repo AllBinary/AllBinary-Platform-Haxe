@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.ai;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.bounds.BoundsVisitorInterface;
 import org.allbinary.bounds.LayerBounds;
 import org.allbinary.game.ai.BasicAI;

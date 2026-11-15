@@ -30,8 +30,8 @@ class TerrainEvent extends AllBinaryEventObject {
         final stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append("TerrainEvent: \n");
         stringBuffer.append("LayerInterface: ");
-        stringBuffer.append(this.basicTerrainInfo.toString());
-        return stringBuffer.toString();
+        stringBuffer.append(Std.string(this.basicTerrainInfo));
+        return Std.string(stringBuffer);
     }
 
     public function getBasicTerrainInfo() : BasicTerrainInfo {

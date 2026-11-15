@@ -30,31 +30,31 @@
 
     <modules>
         <!--
-        <module>../AllBinaryCoreJavaLibraryHaxeM</module>        
+        <module>../AllBinaryCoreJavaLibraryHxM</module>        
         -->
 
-        <module>../../replace_these_stub_projects/osgi/YourOSGIComponentLibraryHaxeM</module>
-        <module>../../allbinary_src/AllBinaryOSGIJavaLibraryHaxeM</module>
+        <module>../../replace_these_stub_projects/osgi/YourOSGIComponentLibraryHxM</module>
+        <module>../../allbinary_src/AllBinaryOSGIJavaLibraryHxM</module>
 
-        <module>../../graphics/ColorJavaLibraryHaxeM</module>
-        <module>../../graphics/ImageJavaLibraryHaxeM</module>
-        <module>../../graphics/ImageComparisonJavaLibraryHaxeM</module>
-        <module>../../graphics/AdvancedImageJ2SEJavaLibraryHaxeM</module>
+        <module>../../graphics/ColorJavaLibraryHxM</module>
+        <module>../../graphics/ImageJavaLibraryHxM</module>
+        <module>../../graphics/ImageComparisonJavaLibraryHxM</module>
+        <module>../../graphics/AdvancedImageJ2SEJavaLibraryHxM</module>
         
-        <module>../InputAutomationModuleJavaLibraryHaxeM</module>
+        <module>../InputAutomationModuleJavaLibraryHxM</module>
         
-        <module>../InputAutomationActionScriptJavaLibraryHaxeM</module>
-        <module>../InputAutomationGenericModuleJavaLibraryHaxeM</module>
-        <module>../InputAutomationGeneric2ModuleJavaLibraryHaxeM</module>
+        <module>../InputAutomationActionScriptJavaLibraryHxM</module>
+        <module>../InputAutomationGenericModuleJavaLibraryHxM</module>
+        <module>../InputAutomationGeneric2ModuleJavaLibraryHxM</module>
 
-        <module>../../allbinary_src/HelpJavaLibraryHaxeM</module>
-        <module>../InputAutomationJavaLibraryHaxeM</module>
+        <module>../../allbinary_src/HelpJavaLibraryHxM</module>
+        <module>../InputAutomationJavaLibraryHxM</module>
 
-        <module>../InputAutomationJavaApplicationHaxeM</module>
+        <module>../InputAutomationJavaApplicationHxM</module>
         
-        <module>../../game/InputAutomationGameModulesJavaLibraryHaxeM</module>
+        <module>../../game/InputAutomationGameModulesJavaLibraryHxM</module>
         
-        <module>../AllBinaryCoreJavaLibraryHaxeM</module>
+        <module>../AllBinaryCoreJavaLibraryHxM</module>
     </modules>
 
 </project>

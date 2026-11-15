@@ -92,7 +92,7 @@ class AdvertisementCampaignInternalEntity extends AbSqlBean implements Advertise
         stringBuffer.append(this.getTableName());
         stringBuffer.append(this.sqlStrings.START);
         stringBuffer.append(entryData.ID).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(StoreFrontData.getInstance().NAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(advertisementCampaignData.NAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(advertisementCampaignData.DESCRIPTION).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(advertisementCampaignData.CONFIG).append(this.sqlTypeStrings.BLOB_NOT_NULL).append(TimeData.getInstance().START).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(TimeData.getInstance().END).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(entryData.TIMECREATED).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(entryData.LASTMODIFIED).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(this.sqlStrings.PRIMARY_KEY).append(entryData.ID).append(this.sqlStrings.END);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function createTable() : String {
@@ -102,6 +102,10 @@ class AdvertisementCampaignInternalEntity extends AbSqlBean implements Advertise
 
     public function dropTable() : String {
         return super.dropTable();
+    }
+
+    public override function insert(values : BasicArrayList) : Void {
+        super.insert(values);
     }
 
 }

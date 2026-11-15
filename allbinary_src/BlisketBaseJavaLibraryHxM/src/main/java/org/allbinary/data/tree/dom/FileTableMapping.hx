@@ -55,10 +55,10 @@ class FileTableMapping implements TableMappingInterface {
         final rootFileName : String = pathData.getNameFromPath(pathUtil.getWithoutExtension(this.file.getPath()));
         final fileData : FileData = FileData.getInstance();
         filePropertyHashMap.put(fileData.ROOT_NAME, rootFileName);
-        filePropertyHashMap.put(fileData.ISFILE, Std.string(this.file.isFile()).toString());
-        filePropertyHashMap.put(fileData.ISDIRECTORY, Std.string(this.file.isDirectory()).toString());
-        filePropertyHashMap.put(fileData.ISHIDDEN, Std.string(this.file.isHidden()).toString());
-        filePropertyHashMap.put(fileData.ISABSOLUTE, Std.string(this.file.isAbsolute()).toString());
+        filePropertyHashMap.put(fileData.ISFILE, Std.string(Std.string(this.file.isFile())));
+        filePropertyHashMap.put(fileData.ISDIRECTORY, Std.string(Std.string(this.file.isDirectory())));
+        filePropertyHashMap.put(fileData.ISHIDDEN, Std.string(Std.string(this.file.isHidden())));
+        filePropertyHashMap.put(fileData.ISABSOLUTE, Std.string(Std.string(this.file.isAbsolute())));
         filePropertyHashMap.put(fileData.ABSOLUTE_PATH, file.getAbsolutePath());
         filePropertyHashMap.put(fileData.CANONICAL_PATH, file.getCanonicalPath());
         filePropertyHashMap.put(fileData.NAME, file.getName());

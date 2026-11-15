@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation.text;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.graphics.Anchor;
@@ -30,8 +30,8 @@ import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
 class TextAnimation extends IndexedAnimation implements UpdateMyFontInterface {
-    private final updateMyFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
-    public var myFontProcessor : MyFontProcessor = this.updateMyFontProcessor;
+    private final updateMyFontProcessor : MyFontProcessor;
+    public var myFontProcessor : MyFontProcessor;
     public var textArrayP : haxe.ds.Vector<String> = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
     private var anchor : Int = Anchor.TOP_LEFT;
     private var fontHeight : Int = 0;
@@ -39,6 +39,8 @@ class TextAnimation extends IndexedAnimation implements UpdateMyFontInterface {
     private var textChangeListener : TextChangeListener = TextChangeListener.getInstance();
     public function new(text : String, animationBehavior : AnimationBehavior) {
         super(animationBehavior);
+        this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
+        this.myFontProcessor = this.updateMyFontProcessor;
         this.setText(text);
     }
 
@@ -76,13 +78,13 @@ class TextAnimation extends IndexedAnimation implements UpdateMyFontInterface {
 
     public function setText(text : String) : Void {
         final list : BasicArrayList = new BasicArrayListD();
-        if (text != null && text.length > 0) {
+        if (text.length > 0) {
             var index : Int = 0;
             var startIndex : Int = 0;
             var endIndex : Int = 0;
             while (index >= 0) {
                 startIndex = index;
-                index = text.indexOf("\n".code, startIndex);
+                index = text.indexOf(String.fromCharCode("\n".code), startIndex);
                 endIndex = index;
                 if (index < 0) {
                     endIndex = text.length;

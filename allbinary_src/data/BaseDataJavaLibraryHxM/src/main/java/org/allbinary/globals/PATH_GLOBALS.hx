@@ -30,27 +30,27 @@ class PATH_GLOBALS {
         final abPathData : AbPathData = AbPathData.getInstance();
         stringBuffer.append("data");
         stringBuffer.append(abPathData.SEPARATOR);
-        this.DATA_PATH = stringBuffer.toString();
+        this.DATA_PATH = Std.string(stringBuffer);
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append(this.DATA_PATH);
         stringBuffer.append(CommonStrings.getInstance().INIT);
         stringBuffer.append(abPathData.SEPARATOR);
-        this.INIT_PATH = stringBuffer.toString();
+        this.INIT_PATH = Std.string(stringBuffer);
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append(this.DATA_PATH);
         stringBuffer.append("log");
         stringBuffer.append(abPathData.SEPARATOR);
-        this.LOG_PATH = stringBuffer.toString();
+        this.LOG_PATH = Std.string(stringBuffer);
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append(this.DATA_PATH);
         stringBuffer.append("backup");
         stringBuffer.append(abPathData.SEPARATOR);
-        this.BACKUP_PATH = stringBuffer.toString();
+        this.BACKUP_PATH = Std.string(stringBuffer);
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append(this.INIT_PATH);
         stringBuffer.append("views");
         stringBuffer.append(abPathData.SEPARATOR);
-        this.VIEWS_PATH = stringBuffer.toString();
+        this.VIEWS_PATH = Std.string(stringBuffer);
     }
 
     public final DATA_PATH : String;

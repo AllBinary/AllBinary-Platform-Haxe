@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.input;
 
-//import javax.microedition.lcdui.Canvas;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.layer.AllBinaryGameLayer;
 import org.allbinary.graphics.RectangleFactory;
@@ -39,13 +39,13 @@ class TestingInputSingleton extends AllBinaryGameLayer implements GameInputInter
         GameInputProcessorUtil.init(this.inputProcessorArray);
     }
 
-    private var paintable : PaintableInterface = NullPaintable.getInstance();
+    private var testInputPaintable : PaintableInterface = NullPaintable.getInstance();
     public override function initInputProcessors() : Void {
     }
 
     public function initInputProcessorsForTestInput(aTestInputInterface : TestInputInterface) : Void {
         final testInputInterface : TestInputInterface = aTestInputInterface;
-        this.paintable = testInputInterface;
+        this.testInputPaintable = testInputInterface;
         this.inputProcessorArray[Canvas.UP] = /* anonymous class body:
             // throws Exception
             public function processEvent(allbinaryLayerManager : AllBinaryLayerManager, gameKeyEvent : GameKeyEvent) : Void {
@@ -112,7 +112,7 @@ class TestingInputSingleton extends AllBinaryGameLayer implements GameInputInter
     }
 
     public override function paint(graphics : Graphics) : Void {
-        this.paintable.paint(graphics);
+        this.testInputPaintable.paint(graphics);
     }
 
     public override function implmentsGameInputInterface() : Bool {

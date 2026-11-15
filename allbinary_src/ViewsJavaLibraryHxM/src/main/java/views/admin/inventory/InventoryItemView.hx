@@ -86,7 +86,7 @@ class InventoryItemView extends HttpStoreComponentView implements RequestMapInte
                     stringBuffer.append(this.imageFileName);
                     stringBuffer.append(" Extension: ");
                     stringBuffer.append(this.mediaData.getName());
-                    this.logUtil.putF(stringBuffer.toString(), this, "getFormData()");
+                    this.logUtil.putF(Std.string(stringBuffer), this, "getFormData()");
                 }
             }
         }

@@ -89,7 +89,7 @@ class HtmlTable extends HtmlTag {
         result += this.END;
         final size : Int = this.htmlRowsVector.size();
         for (i in 0...size) {
-            result += this.htmlRowsVector.get(i).toString();
+            result += Std.string(this.htmlRowsVector.get(i));
             result += " ";
         }
         result += this.ENDTAG;

@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.media.audio;
 
-//import javax.microedition.media.MediaException;
-//import javax.microedition.media.Player;
-//import javax.microedition.media.PlayerListener;
+import javax.microedition.media.MediaException;
+import javax.microedition.media.Player;
+import javax.microedition.media.PlayerListener;
 import android.media.MediaPlayer;
 import org.allbinary.android.NullAndroidCanvas;
 import org.allbinary.data.resource.ResourceUtil;
@@ -31,7 +31,7 @@ class AndroidMediaPlayerWrapper extends BasicPlayer {
         try {
             return new AndroidMediaPlayerWrapper(StringUtil.getInstance().EMPTY_STRING);
         } catch (e : haxe.Exception) {
-            throw new haxe.Exception();
+            throw new jre.lang.JavaException();
         }
     }
 
@@ -46,7 +46,7 @@ class AndroidMediaPlayerWrapper extends BasicPlayer {
                 final resourceUtil : ResourceUtil = ResourceUtil.getInstance();
                 final mediaPlayer : MediaPlayer = MediaPlayer.create(resourceUtil.getContext(), Std.int(resourceUtil.getResourceId(resource)));
                 if (mediaPlayer == null) {
-                    throw new haxe.Exception(new StringMaker().append("Failed to create media player for: ").append(resource).append(" with id: ").append(resourceUtil.getResourceId(resource).toString()).toString());
+                    throw new jre.lang.JavaException(Std.string(new StringMaker().append("Failed to create media player for: ").append(resource).append(" with id: ").append(Std.string(resourceUtil.getResourceId(resource)))));
                 }
                 this.setMediaPlayer(mediaPlayer);
                 this.mediaPlayer.setLooping(false);

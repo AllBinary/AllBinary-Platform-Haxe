@@ -43,12 +43,12 @@ class DamageUtil {
         if (damage > 20000) {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append("Collision ");
-            stringBuffer.append(collidableInterfaceCompositeInterface1.toString());
+            stringBuffer.append(Std.string(collidableInterfaceCompositeInterface1));
             stringBuffer.append(" with: ");
-            stringBuffer.append(collidableInterfaceCompositeInterface.toString());
+            stringBuffer.append(Std.string(collidableInterfaceCompositeInterface));
             stringBuffer.append(" damage: ");
             stringBuffer.appendint(damage);
-            this.logUtil.putF(stringBuffer.toString(), collidableInterfaceCompositeInterface1, this.COLLIDE);
+            this.logUtil.putF(Std.string(stringBuffer), collidableInterfaceCompositeInterface1, this.COLLIDE);
         }
     }
 

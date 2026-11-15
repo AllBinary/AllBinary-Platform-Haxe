@@ -34,12 +34,12 @@ class DatabaseEncoder {
             var array : haxe.ds.Vector<Int> = value;
             final stringBuffer : StringMaker = new StringMaker();
             for (index in 0...array.length) {
-                stringBuffer.append(array[index].toString());
+                stringBuffer.append(Std.string(array[index]));
                 if (index < array.length - 1) {
                     stringBuffer.append(CommonSeps.getInstance().SPACE);
                 }
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             final commonStrings : CommonStrings = CommonStrings.getInstance();
             PreLogUtil.putOE(commonStrings.EXCEPTION, "DatabaseEncoder", "decode", e);
@@ -51,20 +51,12 @@ class DatabaseEncoder {
         try {
             final tokenizer : Tokenizer = new Tokenizer(CommonSeps.getInstance().SPACE);
             final vector : BasicArrayList = tokenizer.getTokensFromString(value, new BasicArrayListD());
-            final byteVector : BasicArrayList = new BasicArrayListD();
             final size : Int = vector.size();
+            final decode : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy([for (index in 0...size) 0]);
             var byteOfData : String = null;
             for (index in 0...size) {
                 byteOfData = (cast vector.objectArray[index] : String);
-                byteVector.add(byteOfData);
-            }
-            final decode : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy([for (index in 0...byteVector.size()) 0]);
-            var decodeIndex : Int = 0;
-            var aByte : Null<Int> = null;
-            for (index in 0...size) {
-                aByte = (cast byteVector.objectArray[index] : Null<Int>);
-                decode[decodeIndex] = Std.int(aByte);
-                decodeIndex++;
+                decode[index] = Byte.parseByte(byteOfData);
             }
             return decode;
         } catch (e : haxe.Exception) {

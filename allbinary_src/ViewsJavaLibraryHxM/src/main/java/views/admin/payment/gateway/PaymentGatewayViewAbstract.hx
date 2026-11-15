@@ -30,7 +30,7 @@ class PaymentGatewayViewAbstract extends TransformInfoHttpComposite {
 
     public function getFormData(request : HttpServletRequest) : Void {
         var storeName : String = this.getWeblisketSession().getStoreName();
-        var gatewayName : String = request.getParameter(PaymentGatewayData.NAME.toString());
+        var gatewayName : String = request.getParameter(Std.string(PaymentGatewayData.NAME));
         this.setPaymentGatewayPrimaryKey(new PaymentGatewayPrimaryKey(storeName, gatewayName));
     }
 

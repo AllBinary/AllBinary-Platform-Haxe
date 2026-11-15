@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.layer;
 
-//import javax.microedition.lcdui.Image;
-//import javax.microedition.lcdui.game.Sprite;
+import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.game.Sprite;
 import org.allbinary.logic.communication.log.LogUtil;
 
 class SpriteFactory implements SpriteFactoryInterface {

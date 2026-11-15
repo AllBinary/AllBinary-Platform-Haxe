@@ -93,8 +93,8 @@ class TransformInfo implements TransformInfoInterface {
             stringBuffer.append("TransformInfo properties overridden for: ");
             stringBuffer.append(this.getName());
             stringBuffer.append("\n properties: ");
-            stringBuffer.append(hashMap.toString());
-            this.logUtil.putF(stringBuffer.toString(), this, "override(HashMap hashMap)");
+            stringBuffer.append(Std.string(hashMap));
+            this.logUtil.putF(Std.string(stringBuffer), this, "override(HashMap hashMap)");
         }
         var aStoreName : String = (cast hashMap.get(StoreFrontData.getInstance().NAME) : String);
         if (!stringValidationUtil.isEmpty(aStoreName)) {
@@ -109,13 +109,13 @@ class TransformInfo implements TransformInfoInterface {
         stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
         stringBuffer.append(this.storeName);
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
-        var fileAbPath : AbPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
+        var fileAbPath : AbPath = new AbPath(Std.string(stringBuffer), StringUtil.getInstance().EMPTY_STRING);
         var aObject : String = (cast hashMap.get(transformInfoData.OBJECT) : String);
         if (!stringValidationUtil.isEmpty(aObject)) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
                 this.logUtil.putF("TransformInfo override view Object for: " + this.getName(), this, "override(HashMap hashMap)");
             }
-            var fileDataString : String = new CryptFileReader(TransformInfoObjectData.getInstance().UNCRYPTED_EXTENSION, TransformInfoObjectData.getInstance().ENCRYPTED_EXTENSION).get(new AbPath(fileAbPath.toString(), aObject));
+            var fileDataString : String = new CryptFileReader(TransformInfoObjectData.getInstance().UNCRYPTED_EXTENSION, TransformInfoObjectData.getInstance().ENCRYPTED_EXTENSION).get(new AbPath(Std.string(fileAbPath), aObject));
             if (fileDataString != null) {
                 this.anyType = fileDataString;
             }
@@ -149,7 +149,7 @@ class TransformInfo implements TransformInfoInterface {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
                 this.logUtil.putF("TransformInfo override Template for: " + this.getName(), this, "override(HashMap hashMap)");
             }
-            var fileDataString : String = new CryptFileReader(TransformInfoTemplateData.getInstance().UNCRYPTED_EXTENSION, TransformInfoTemplateData.getInstance().ENCRYPTED_EXTENSION).get(new AbPath(fileAbPath.toString(), aTemplate));
+            var fileDataString : String = new CryptFileReader(TransformInfoTemplateData.getInstance().UNCRYPTED_EXTENSION, TransformInfoTemplateData.getInstance().ENCRYPTED_EXTENSION).get(new AbPath(Std.string(fileAbPath), aTemplate));
             if (!stringValidationUtil.isEmpty(fileDataString)) {
                 this.template = fileDataString;
             }
@@ -163,7 +163,7 @@ class TransformInfo implements TransformInfoInterface {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
                 this.logUtil.putF("TransformInfo override Data for: " + this.getName(), this, "override(HashMap hashMap)");
             }
-            var fileDataString : String = new CryptFileReader(TransformInfoDataData.getInstance().UNCRYPTED_EXTENSION, TransformInfoDataData.getInstance().ENCRYPTED_EXTENSION).get(new AbPath(fileAbPath.toString(), aData));
+            var fileDataString : String = new CryptFileReader(TransformInfoDataData.getInstance().UNCRYPTED_EXTENSION, TransformInfoDataData.getInstance().ENCRYPTED_EXTENSION).get(new AbPath(Std.string(fileAbPath), aData));
             if (!stringValidationUtil.isEmpty(fileDataString)) {
                 this.data = fileDataString;
             }
@@ -175,7 +175,7 @@ class TransformInfo implements TransformInfoInterface {
             stringBuffer.append("\nTemp Object File: ");
             stringBuffer.append(aObject);
             stringBuffer.append("\nTemp Object Config File: ");
-            stringBuffer.append(this.getObjectConfigFilePath().toString());
+            stringBuffer.append(Std.string(this.getObjectConfigFilePath()));
             stringBuffer.append("\nTemp Template File: ");
             stringBuffer.append(aTemplate);
             stringBuffer.append("\nTemp Data File: ");
@@ -185,7 +185,7 @@ class TransformInfo implements TransformInfoInterface {
             stringBuffer.append("\nObjectFile: ");
             stringBuffer.append(this.getObjectFile());
             stringBuffer.append("->TransformInfo");
-            this.logUtil.putF(stringBuffer.toString(), this, "TransformInfoInterface(HashMap)");
+            this.logUtil.putF(Std.string(stringBuffer), this, "TransformInfoInterface(HashMap)");
         }
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
             this.logUtil.putF(this.log(), this, "override");
@@ -210,7 +210,7 @@ class TransformInfo implements TransformInfoInterface {
         stringBuffer.append(this.getObjectFile());
         stringBuffer.append("->TransformInfo");
         stringBuffer.append("TransformInfoInterface(HashMap)");
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function setName(value : String) : Void {
@@ -338,7 +338,7 @@ class TransformInfo implements TransformInfoInterface {
                     stringBuffer.append("\nPath: ");
                     stringBuffer.append(this.getDataFilePath().toFileSystemString());
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
-                        this.logUtil.putF(stringBuffer.toString(), this, "getData()");
+                        this.logUtil.putF(Std.string(stringBuffer), this, "getData()");
                     }
                 }
             }
@@ -377,13 +377,13 @@ class TransformInfo implements TransformInfoInterface {
         hashMap.put(transformInfoData.OBJECTFILENAME, this.objectFileName);
         hashMap.put(transformInfoData.OBJECT, this.anyType);
         hashMap.put(transformInfoData.OBJECTCONFIGFILENAME, this.getObjectConfigFile());
-        hashMap.put(transformInfoData.OBJECTCONFIG, Encoder.encode(haxe.io.Bytes.ofString(this.getObjectConfigInterface().toString())));
+        hashMap.put(transformInfoData.OBJECTCONFIG, Encoder.encode(haxe.io.Bytes.ofString(Std.string(this.getObjectConfigInterface()))));
         hashMap.put(transformInfoData.TEMPLATEFILENAME, this.templateFileName);
         hashMap.put(transformInfoData.TEMPLATE, this.template);
         hashMap.put(transformInfoData.DATAFILENAME, this.dataFileName);
         hashMap.put(transformInfoData.DATA, Encoder.encode(haxe.io.Bytes.ofString(this.data)));
         var calendar : Calendar = Calendar.getInstance();
-        var time : String = calendar.getTimeInMillis().toString();
+        var time : String = Std.string(calendar.getTimeInMillis());
         hashMap.put(EntryData.getInstance().LASTMODIFIED, time);
         return hashMap;
     }
@@ -395,13 +395,13 @@ class TransformInfo implements TransformInfoInterface {
         vector.add(this.objectFileName);
         vector.add(this.anyType);
         vector.add(this.getObjectConfigFile());
-        vector.add(Encoder.encode(haxe.io.Bytes.ofString(this.getObjectConfigInterface().toString())));
+        vector.add(Encoder.encode(haxe.io.Bytes.ofString(Std.string(this.getObjectConfigInterface()))));
         vector.add(this.templateFileName);
         vector.add(this.template);
         vector.add(this.dataFileName);
         vector.add(Encoder.encode(haxe.io.Bytes.ofString(this.data)));
         var calendar : Calendar = Calendar.getInstance();
-        var time : String = calendar.getTimeInMillis().toString();
+        var time : String = Std.string(calendar.getTimeInMillis());
         vector.add(time);
         vector.add(time);
         return vector;

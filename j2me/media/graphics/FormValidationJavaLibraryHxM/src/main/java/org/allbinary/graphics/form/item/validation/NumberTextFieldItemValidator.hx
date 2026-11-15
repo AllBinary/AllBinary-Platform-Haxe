@@ -77,22 +77,22 @@ class NumberTextFieldItemValidator extends ValidatorBase {
                 var number : Null<Int> = smallIntegerSingletonFactory.createInstance(Std.parseInt(this.textFieldItem.getString()));
                 if (Std.int(number) > this.min) {
                     stringMaker.delete(0, stringMaker.length());
-                    list.add(stringMaker.append(name).append(" is to small").toString());
+                    list.add(Std.string(stringMaker.append(name).append(" is to small")));
                 } else if (Std.int(number) > this.max) {
                     stringMaker.delete(0, stringMaker.length());
-                    list.add(stringMaker.append(name).append(" is to large").toString());
+                    list.add(Std.string(stringMaker.append(name).append(" is to large")));
                 }
             } catch (e : NumberFormatException) {
                 stringMaker.delete(0, stringMaker.length());
-                list.add(stringMaker.append(name).append(" is not a number").toString());
+                list.add(Std.string(stringMaker.append(name).append(" is not a number")));
             }
         } else {
             if (textLength < 1) {
                 stringMaker.delete(0, stringMaker.length());
-                list.add(stringMaker.append(name).append(" is to short").toString());
+                list.add(Std.string(stringMaker.append(name).append(" is to short")));
             } else if (textLength > this.maxChars) {
                 stringMaker.delete(0, stringMaker.length());
-                list.add(stringMaker.append(name).append(" is to long").toString());
+                list.add(Std.string(stringMaker.append(name).append(" is to long")));
             }
         }
         return list;

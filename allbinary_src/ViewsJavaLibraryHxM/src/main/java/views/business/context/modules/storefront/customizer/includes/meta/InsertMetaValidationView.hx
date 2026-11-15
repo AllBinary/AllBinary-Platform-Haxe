@@ -51,7 +51,7 @@ class InsertMetaValidationView extends MetaView implements ValidationComponentIn
     public function validationInfo() : String {
         try {
             var stringBuffer : StringMaker = new StringMaker();
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
@@ -66,6 +66,11 @@ class InsertMetaValidationView extends MetaView implements ValidationComponentIn
 
     public function toValidationInfoNode(document : Document) : Node {
         return null;
+    }
+
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
     }
 
 }

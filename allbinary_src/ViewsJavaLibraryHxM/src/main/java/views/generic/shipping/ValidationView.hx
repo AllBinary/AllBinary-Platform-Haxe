@@ -40,5 +40,10 @@ class ValidationView extends ShippingMethodsView implements ValidationComponentI
         return MESSAGES.CONTACTADMIN;
     }
 
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
+    }
+
 }
 

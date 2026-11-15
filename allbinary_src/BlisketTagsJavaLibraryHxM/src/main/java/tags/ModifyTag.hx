@@ -92,7 +92,7 @@ class ModifyTag extends HelperTag {
                 stringBuffer.append(this.getCommand());
                 stringBuffer.append(" Request URI: ");
                 stringBuffer.append(request.getRequestURI());
-                this.logUtil.putF(stringBuffer.toString(), this, tagStrings.DO_START_TAG);
+                this.logUtil.putF(Std.string(stringBuffer), this, tagStrings.DO_START_TAG);
             }
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG)) {
             }

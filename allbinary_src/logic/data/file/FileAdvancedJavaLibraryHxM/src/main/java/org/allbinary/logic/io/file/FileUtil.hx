@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.io.file;
 
-//import java.io.InputStream;
-//import java.io.OutputStream;
+import jre.io.InputStream;
+import jre.io.OutputStream;
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
@@ -52,14 +52,34 @@ class FileUtil {
     public function new() {
     }
 
+    public function write(...args : Dynamic) : Dynamic {
+        if (args.length == 2 && Std.isOfType(args[0], InputStream) && Std.isOfType(args[0], AbFile)) {
+            this.write_InputStream_AbFile(args[0], args[1]);
+            return null;
+        }
+        if (args.length == 2 && Std.isOfType(args[0], InputStream) && Std.isOfType(args[0], AbDataOutputStream)) {
+            this.write_InputStream_AbDataOutputStream(args[0], args[1]);
+            return null;
+        }
+        if (args.length == 3) {
+            this.write_InputStream_AbDataOutputStream_byteArray(args[0], args[1], args[2]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.write_String_String(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: write");
+    }
+
     // throws Exception
-    public function write(inputStream : InputStream, file : AbFile) : Void {
+    public function write_InputStream_AbFile(inputStream : InputStream, file : AbFile) : Void {
         var dataOutputStream : AbDataOutputStream = DataOutputStreamFactory.getInstance().getInstanceForAbFile(file);
         this.write(inputStream, dataOutputStream);
     }
 
     // throws Exception
-    public function write(inputStream : InputStream, dataOutputStream : AbDataOutputStream) : Void {
+    public function write_InputStream_AbDataOutputStream(inputStream : InputStream, dataOutputStream : AbDataOutputStream) : Void {
         try {
             dataOutputStream = (cast StreamUtil.getInstance().get(inputStream, dataOutputStream, haxe.ds.Vector.fromArrayCopy([for (index in 0...16384) 0])) : AbDataOutputStream);
             dataOutputStream.flush();
@@ -71,7 +91,7 @@ class FileUtil {
     }
 
     // throws Exception
-    public function write(inputStream : InputStream, dataOutputStream : AbDataOutputStream, buffer : haxe.ds.Vector<Int>) : Void {
+    public function write_InputStream_AbDataOutputStream_byteArray(inputStream : InputStream, dataOutputStream : AbDataOutputStream, buffer : haxe.ds.Vector<Int>) : Void {
         try {
             dataOutputStream = (cast StreamUtil.getInstance().get(inputStream, dataOutputStream, buffer) : AbDataOutputStream);
             dataOutputStream.flush();
@@ -82,8 +102,19 @@ class FileUtil {
         }
     }
 
+    public function copy(...args : Dynamic) : Dynamic {
+        if (args.length == 2 && Std.isOfType(args[0], AbFileInputStream) && Std.isOfType(args[0], AbDataOutputStream)) {
+            this.copy_AbFileInputStream_AbDataOutputStream(args[0], args[1]);
+            return null;
+        }
+        if (args.length == 2) {
+            return this.copy_AbPath_AbPath(args[0], args[1]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: copy");
+    }
+
     // throws Exception
-    private function copy(dataInputStream : AbFileInputStream, dataOutputStream : AbDataOutputStream) : Void {
+    private function copy_AbFileInputStream_AbDataOutputStream(dataInputStream : AbFileInputStream, dataOutputStream : AbDataOutputStream) : Void {
         try {
             dataOutputStream = (cast StreamUtil.getInstance().get(dataInputStream, dataOutputStream, haxe.ds.Vector.fromArrayCopy([for (index in 0...16384) 0])) : AbDataOutputStream);
             dataOutputStream.flush();
@@ -110,13 +141,33 @@ class FileUtil {
         return outPath;
     }
 
+    public function copyToCloud(...args : Dynamic) : Dynamic {
+        if (args.length == 4 && Std.isOfType(args[0], AbFile) && Std.isOfType(args[0], AbPath) && Std.isOfType(args[0], AbPath) && Std.isOfType(args[0], String)) {
+            this.copyToCloud_AbFile_AbPath_AbPath_String(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        if (args.length == 6) {
+            this.copyToCloud_AbFile_AbPath_AbPath_String_boolean_boolean(args[0], args[1], args[2], args[3], args[4], args[5]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.copyToCloud_AbFile_AbFile(args[0], args[1]);
+            return null;
+        }
+        if (args.length == 4) {
+            this.copyToCloud_AbFile_AbFile_boolean_boolean(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: copyToCloud");
+    }
+
     // throws Exception
-    public function copyToCloud(file : AbFile, path : AbPath, realPath : AbPath, cloud : String) : Void {
+    public function copyToCloud_AbFile_AbPath_AbPath_String(file : AbFile, path : AbPath, realPath : AbPath, cloud : String) : Void {
         this.copyToCloud(file, path, realPath, cloud, false, false);
     }
 
     // throws Exception
-    public function copyToCloud(file : AbFile, path : AbPath, realPath : AbPath, cloud : String, overwriteNewer : Bool, overwriteAll : Bool) : Void {
+    public function copyToCloud_AbFile_AbPath_AbPath_String_boolean_boolean(file : AbFile, path : AbPath, realPath : AbPath, cloud : String, overwriteNewer : Bool, overwriteAll : Bool) : Void {
         try {
             var outPath : AbPath = this.fixPath(file, path, realPath, cloud);
             var outFile : AbFile = AbFile.createAbFileFromAbPath(outPath);
@@ -130,7 +181,7 @@ class FileUtil {
                     stringBuffer.append(" In File: ");
                     stringBuffer.append(file.getPath());
                     stringBuffer.append(" to cloud.");
-                    this.logUtil.putF(stringBuffer.toString(), getInstance(), "copyToCloud");
+                    this.logUtil.putF(Std.string(stringBuffer), getInstance(), "copyToCloud");
                 }
             }
             var dataOutputStream : AbDataOutputStream = DataOutputStreamFactory.getInstance().getInstanceForAbFile(outFile);
@@ -140,21 +191,21 @@ class FileUtil {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(this.logConfigTypeFactory.FILEERROR)) {
                 var stringBuffer : StringMaker = new StringMaker();
                 stringBuffer.append("Error Copying File File: ");
-                stringBuffer.append(file.toString());
+                stringBuffer.append(Std.string(file));
                 stringBuffer.append(" to cloud.");
-                this.logUtil.put(stringBuffer.toString(), getInstance(), "copyToCloud", e);
+                this.logUtil.put(Std.string(stringBuffer), getInstance(), "copyToCloud", e);
             }
             throw e;
         }
     }
 
     // throws Exception
-    public function copyToCloud(file : AbFile, outFile : AbFile) : Void {
+    public function copyToCloud_AbFile_AbFile(file : AbFile, outFile : AbFile) : Void {
         this.copyToCloud(file, outFile, false, false);
     }
 
     // throws Exception
-    public function copyToCloud(file : AbFile, outFile : AbFile, overwriteNewer : Bool, overwriteAll : Bool) : Void {
+    public function copyToCloud_AbFile_AbFile_boolean_boolean(file : AbFile, outFile : AbFile, overwriteNewer : Bool, overwriteAll : Bool) : Void {
         try {
             var stringBuffer : StringMaker = new StringMaker();
             if (!this.copyPrepare(file, outFile, overwriteNewer, overwriteAll)) {
@@ -167,7 +218,7 @@ class FileUtil {
                     stringBuffer.append(" In File: ");
                     stringBuffer.append(file.getPath());
                     stringBuffer.append(" to cloud.");
-                    this.logUtil.putF(stringBuffer.toString(), getInstance(), "copyToCloud");
+                    this.logUtil.putF(Std.string(stringBuffer), getInstance(), "copyToCloud");
                 }
             }
             var dataOutputStream : AbDataOutputStream = DataOutputStreamFactory.getInstance().getInstanceForAbFile(outFile);
@@ -177,9 +228,9 @@ class FileUtil {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(this.logConfigTypeFactory.FILEERROR)) {
                 var stringBuffer : StringMaker = new StringMaker();
                 stringBuffer.append("Error Copying File File: ");
-                stringBuffer.append(file.toString());
+                stringBuffer.append(Std.string(file));
                 stringBuffer.append(" to cloud.");
-                this.logUtil.put(stringBuffer.toString(), getInstance(), "copyToCloud", e);
+                this.logUtil.put(Std.string(stringBuffer), getInstance(), "copyToCloud", e);
             }
             throw e;
         }
@@ -194,7 +245,7 @@ class FileUtil {
                     stringBuffer.delete(0, stringBuffer.length());
                     stringBuffer.append("Overwriting File: ");
                     stringBuffer.append(toFile.getPath());
-                    this.logUtil.putF(stringBuffer.toString(), getInstance(), "copyFile");
+                    this.logUtil.putF(Std.string(stringBuffer), getInstance(), "copyFile");
                 }
                 toFile.delete();
                 toFile.createNewFile();
@@ -206,7 +257,7 @@ class FileUtil {
                     stringBuffer.append("ms ");
                     stringBuffer.append("Copying File: ");
                     stringBuffer.append(toFile.getPath());
-                    this.logUtil.putF(stringBuffer.toString(), getInstance(), "copyFile");
+                    this.logUtil.putF(Std.string(stringBuffer), getInstance(), "copyFile");
                 }
                 toFile.delete();
                 toFile.createNewFile();
@@ -221,7 +272,7 @@ class FileUtil {
                     }
                     stringBuffer.append(CommonLabels.getInstance().COLON_SEP);
                     stringBuffer.append(toFile.getPath());
-                    this.logUtil.putF(stringBuffer.toString(), getInstance(), "copyFile");
+                    this.logUtil.putF(Std.string(stringBuffer), getInstance(), "copyFile");
                 }
                 return false;
             }
@@ -231,13 +282,25 @@ class FileUtil {
         return true;
     }
 
+    private function copyFile(...args : Dynamic) : Dynamic {
+        if (args.length == 2) {
+            this.copyFile_AbFile_AbFile(args[0], args[1]);
+            return null;
+        }
+        if (args.length == 4) {
+            this.copyFile_AbFile_AbFile_boolean_boolean(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: copyFile");
+    }
+
     // throws Exception
-    private function copyFile(fromFile : AbFile, toFile : AbFile) : Void {
+    private function copyFile_AbFile_AbFile(fromFile : AbFile, toFile : AbFile) : Void {
         this.copyFile(fromFile, toFile, false, false);
     }
 
     // throws Exception
-    private function copyFile(fromFile : AbFile, toFile : AbFile, overwriteNewer : Bool, overwriteAll : Bool) : Void {
+    private function copyFile_AbFile_AbFile_boolean_boolean(fromFile : AbFile, toFile : AbFile, overwriteNewer : Bool, overwriteAll : Bool) : Void {
         try {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(this.logConfigTypeFactory.FILE)) {
                 var stringBuffer : StringMaker = new StringMaker();
@@ -247,22 +310,22 @@ class FileUtil {
                 stringBuffer.append(fromFile.getPath());
                 stringBuffer.append(" to: ");
                 stringBuffer.append(toFile.getPath());
-                this.logUtil.putF(stringBuffer.toString(), getInstance(), "copyFile");
+                this.logUtil.putF(Std.string(stringBuffer), getInstance(), "copyFile");
             }
             if (!this.copyPrepare(fromFile, toFile, overwriteNewer, overwriteAll)) {
                 return;
             }
             var dataOutputStream : AbDataOutputStream = DataOutputStreamFactory.getInstance().getInstanceForAbFile(toFile);
-            var fileInputStream : AbFileInputStream = new AbFileInputStream(fromFile);
+            var fileInputStream : AbFileInputStream = AbFileInputStream.createFromAbFile(fromFile);
             this.copy(fileInputStream, dataOutputStream);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(this.logConfigTypeFactory.FILEERROR)) {
                 var stringBuffer : StringMaker = new StringMaker();
                 stringBuffer.append("Error Copying File fromFile: ");
-                stringBuffer.append(fromFile.toString());
+                stringBuffer.append(Std.string(fromFile));
                 stringBuffer.append(" to: ");
-                stringBuffer.append(toFile.toString());
-                this.logUtil.put(stringBuffer.toString(), getInstance(), "copyFile", e);
+                stringBuffer.append(Std.string(toFile));
+                this.logUtil.put(Std.string(stringBuffer), getInstance(), "copyFile", e);
             }
             throw e;
         }
@@ -286,7 +349,7 @@ class FileUtil {
     public function copyDirectoryPortion(fromDirectoryAbPath : AbPath, toDirectoryAbPath : AbPath, overwriteNewer : Bool, overwriteAll : Bool, current : Int, total : Int) : Void {
         final file : AbFile = AbFile.createAbFileFromAbPath(fromDirectoryAbPath);
         if (!file.isDirectory()) {
-            throw new haxe.Exception("Not a directory: " + file.getPath());
+            throw new jre.lang.JavaException("Not a directory: " + file.getPath());
         }
         final fileList : BasicArrayList = this.directory.search(file, true);
         final size : Int = fileList.size();
@@ -306,7 +369,7 @@ class FileUtil {
         stringBuffer.append(" - ");
         stringBuffer.appendint(end);
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(this.logConfigTypeFactory.FILE)) {
-            this.logUtil.putF(stringBuffer.toString(), getInstance(), "copySomeFilesToDirectory()");
+            this.logUtil.putF(Std.string(stringBuffer), getInstance(), "copySomeFilesToDirectory()");
         }
         var nextFile : AbFile = null;
         for (index in start...end) {
@@ -334,12 +397,12 @@ class FileUtil {
                 stringBuffer.append(fromFile.getPath());
                 stringBuffer.append(" to: ");
                 stringBuffer.append(to.getPath());
-                this.logUtil.putF(stringBuffer.toString(), getInstance(), "copyDirectory");
+                this.logUtil.putF(Std.string(stringBuffer), getInstance(), "copyDirectory");
             }
             final newDirectory : String = FileUtil.getNewDirectory(fromFile);
             final newDirectoryAbPath : AbPath = new AbPath(to.getPath() + AbPathData.getInstance().SEPARATOR + newDirectory, StringUtil.getInstance().EMPTY_STRING);
             if (!this.directory.create(newDirectoryAbPath)) {
-                throw new haxe.Exception("Failed to create directory: " + newDirectoryAbPath);
+                throw new jre.lang.JavaException("Failed to create directory: " + newDirectoryAbPath);
             }
             final fileArray : haxe.ds.Vector<AbFile> = FileWrapperUtil.wrapFiles(fromFile.listFiles());
             final size : Int = fileArray.length;
@@ -351,27 +414,27 @@ class FileUtil {
                 stringBuffer.append(fromFile.getPath());
                 stringBuffer.append(" to: ");
                 stringBuffer.append(to.getPath());
-                this.logUtil.putF(stringBuffer.toString(), getInstance(), "copyDirectory");
+                this.logUtil.putF(Std.string(stringBuffer), getInstance(), "copyDirectory");
             }
             var file : AbFile = null;
             for (index in 0...size) {
                 file = fileArray[index];
                 if (file.isFile()) {
-                    this.copyFile(file, AbFile.createAbFilePathAndName(newDirectoryAbPath.toString(), file.getName()));
+                    this.copyFile(file, AbFile.createAbFilePathAndName(Std.string(newDirectoryAbPath), file.getName()));
                 } else if (file.isDirectory()) {
                     this.copyDirectory(file, AbFile.createAbFileFromAbPath(newDirectoryAbPath));
                 } else {
-                    throw new haxe.Exception("File Copy Error");
+                    throw new jre.lang.JavaException("File Copy Error");
                 }
             }
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(this.logConfigTypeFactory.FILEERROR)) {
                 final stringBuffer : StringMaker = new StringMaker();
                 stringBuffer.append("Error Copying Directory fromFile: ");
-                stringBuffer.append(fromFile.toString());
+                stringBuffer.append(Std.string(fromFile));
                 stringBuffer.append(" to: ");
-                stringBuffer.append(to.toString());
-                this.logUtil.put(stringBuffer.toString(), getInstance(), "copyDirectory", e);
+                stringBuffer.append(Std.string(to));
+                this.logUtil.put(Std.string(stringBuffer), getInstance(), "copyDirectory", e);
             }
             throw e;
         }
@@ -379,22 +442,22 @@ class FileUtil {
 
     // throws Exception
     // synchronized
-    public function copy(fromAbPath : AbPath, to : AbPath) : Bool {
+    public function copy_AbPath_AbPath(fromAbPath : AbPath, to : AbPath) : Bool {
         final COPY : String = "copy";
         try {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(this.logConfigTypeFactory.FILE)) {
                 final stringBuffer : StringMaker = new StringMaker();
                 stringBuffer.append("Copying AbPaths from: ");
-                stringBuffer.append(fromAbPath.toString());
+                stringBuffer.append(Std.string(fromAbPath));
                 stringBuffer.append(" to: ");
-                stringBuffer.append(to.toString());
-                this.logUtil.putF(stringBuffer.toString(), getInstance(), COPY);
+                stringBuffer.append(Std.string(to));
+                this.logUtil.putF(Std.string(stringBuffer), getInstance(), COPY);
             }
             if (fromAbPath == null) {
-                throw new haxe.Exception("Cannot Copy From A Null Location");
+                throw new jre.lang.JavaException("Cannot Copy From A Null Location");
             }
             if (to == null) {
-                throw new haxe.Exception("Cannot Copy To A Null Location");
+                throw new jre.lang.JavaException("Cannot Copy To A Null Location");
             }
             final fromLocationFile : AbFile = AbFile.createAbFileFromAbPath(fromAbPath);
             final toLocationFile : AbFile = AbFile.createAbFileFromAbPath(to);
@@ -410,7 +473,7 @@ class FileUtil {
                         stringBuffer.append(fromLocationFile.getPath());
                         stringBuffer.append(" to: ");
                         stringBuffer.append(toLocationFile.getPath());
-                        this.logUtil.putF(stringBuffer.toString(), getInstance(), COPY);
+                        this.logUtil.putF(Std.string(stringBuffer), getInstance(), COPY);
                     }
                 } else {
                     this.copyFile(fromLocationFile, toLocationFile);
@@ -421,11 +484,11 @@ class FileUtil {
                         stringBuffer.append(fromLocationFile.getPath());
                         stringBuffer.append(" to: ");
                         stringBuffer.append(toLocationFile.getPath());
-                        this.logUtil.putF(stringBuffer.toString(), getInstance(), COPY);
+                        this.logUtil.putF(Std.string(stringBuffer), getInstance(), COPY);
                     }
                 }
             } else if (fromLocationFile.isDirectory() && toLocationFile.isDirectory()) {
-                if (fromAbPath.toFileSystemString().charAt(fromAbPath.toFileSystemString().length() - 1) == java.io.File.separatorChar) {
+                if (fromAbPath.toFileSystemString().charAt(fromAbPath.toFileSystemString().length() - 1) == jre.io.File.separatorChar) {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(this.logConfigTypeFactory.FILE)) {
                         this.logUtil.putF("Copying subdirectories", getInstance(), COPY);
                     }
@@ -438,7 +501,7 @@ class FileUtil {
                         } else if (file.isDirectory()) {
                             this.copyDirectory(file, toLocationFile);
                         } else {
-                            throw new haxe.Exception("File Copy Error");
+                            throw new jre.lang.JavaException("File Copy Error");
                         }
                     }
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(this.logConfigTypeFactory.FILE)) {
@@ -459,10 +522,10 @@ class FileUtil {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(this.logConfigTypeFactory.FILEERROR)) {
                 final stringBuffer : StringMaker = new StringMaker();
                 stringBuffer.append("Error Copying fromAbPath: ");
-                stringBuffer.append(fromAbPath.toString());
+                stringBuffer.append(Std.string(fromAbPath));
                 stringBuffer.append(" to: ");
-                stringBuffer.append(to.toString());
-                this.logUtil.put(stringBuffer.toString(), getInstance(), COPY, e);
+                stringBuffer.append(Std.string(to));
+                this.logUtil.put(Std.string(stringBuffer), getInstance(), COPY, e);
             }
             throw e;
         }
@@ -484,10 +547,10 @@ class FileUtil {
     private final DATA_LABEL : String = " data: ";
     private final WRITE_METHOD : String = "write";
     // throws Exception
-    public function write(filePath : String, string : String) : Void {
+    public function write_String_String(filePath : String, string : String) : Void {
         var dataOutputStream : AbDataOutputStream = null;
         try {
-            PreLogUtil.put(new StringMaker().append(this.WRITE_LABEL).append(filePath).append(this.DATA_LABEL).append(string).toString(), this, this.WRITE_METHOD);
+            PreLogUtil.put(Std.string(new StringMaker().append(this.WRITE_LABEL).append(filePath).append(this.DATA_LABEL).append(string)), this, this.WRITE_METHOD);
             final fileInputStreamFactory : FileStreamFactory = FileStreamFactory.getInstance();
             final fileOutputStream : OutputStream = fileInputStreamFactory.getFileOutputStreamInstance(StringUtil.getInstance().EMPTY_STRING, filePath);
             dataOutputStream = new AbDataOutputStream(fileOutputStream);

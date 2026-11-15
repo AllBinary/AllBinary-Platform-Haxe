@@ -54,7 +54,7 @@ class TitleNotRequiredValidation extends TitleView implements ValidationInterfac
                 stringBuffer.append(this.getTitle());
                 stringBuffer.append("End: ");
                 stringBuffer.appendboolean(valid);
-                this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.IS_VALID);
+                this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.IS_VALID);
             }
             return valid;
         } catch (e : haxe.Exception) {
@@ -69,7 +69,7 @@ class TitleNotRequiredValidation extends TitleView implements ValidationInterfac
         try {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append("Title is not valid.");
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);

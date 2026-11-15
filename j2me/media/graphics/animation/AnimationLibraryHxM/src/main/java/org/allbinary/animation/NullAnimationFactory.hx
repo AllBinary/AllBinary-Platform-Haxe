@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.media.ScaleProperties;
 
 class NullAnimationFactory implements AnimationInterfaceFactoryInterface implements ProceduralAnimationInterfaceFactoryInterface {

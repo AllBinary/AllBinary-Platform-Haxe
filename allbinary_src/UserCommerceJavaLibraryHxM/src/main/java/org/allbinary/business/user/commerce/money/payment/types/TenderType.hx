@@ -23,7 +23,7 @@ class TenderType {
     }
 
     public function isEqual(tenderType : TenderType) : Bool {
-        if (Reflect.compare(this.toString(), tenderType.toString()) == 0) {
+        if (Reflect.compare(Std.string(this), Std.string(tenderType)) == 0) {
             return true;
         } else {
             return false;

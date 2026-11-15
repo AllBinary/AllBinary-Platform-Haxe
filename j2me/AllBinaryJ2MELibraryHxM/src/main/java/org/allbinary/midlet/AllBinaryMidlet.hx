@@ -15,13 +15,13 @@
 // Generated Code Do Not Modify
 package org.allbinary.midlet;
 
-//import javax.microedition.lcdui.Command;
-//import javax.microedition.lcdui.CommandListener;
-//import javax.microedition.lcdui.Display;
-//import javax.microedition.lcdui.Displayable;
-//import javax.microedition.lcdui.NullCanvas;
-//import javax.microedition.midlet.MIDlet;
-//import javax.microedition.midlet.MIDletStateChangeException;
+import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Display;
+import javax.microedition.lcdui.Displayable;
+import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.midlet.MIDlet;
+import javax.microedition.midlet.MIDletStateChangeException;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -61,11 +61,7 @@ class AllBinaryMidlet extends MIDlet implements CommandListener {
         var title : String = StringUtil.getInstance().EMPTY_STRING;
         if (newDisplay != NullCanvas.NULL_CANVAS) {
             title = newDisplay.getTitle();
-            if (title != null) {
-                this.logUtil.putF(new StringMaker().append(this.SETTING_).append(title).append(this._DISPLAY_).append(StringUtil.getInstance().toString(newDisplay)).toString(), this, this.SET_DISPLAY);
-            } else {
-                this.logUtil.putF(new StringMaker().append(this.SETTING_NO_TITLE).append(StringUtil.getInstance().toString(newDisplay)).toString(), this, this.SET_DISPLAY);
-            }
+            this.logUtil.putF(Std.string(new StringMaker().append(this.SETTING_).append(title).append(this._DISPLAY_).append(StringUtil.getInstance().toString(newDisplay))), this, this.SET_DISPLAY);
         }
         final display : Display = this.getDisplay();
         display.setCurrent(newDisplay);
@@ -112,13 +108,13 @@ class AllBinaryMidlet extends MIDlet implements CommandListener {
 
     // throws Exception
     public function setStartStateHashtable(hashtable : ABHashtable<Any, Any>) : Void {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, "setStartStateHashtable");
+        this.logUtil.putF(Std.string(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(hashtable))), this, "setStartStateHashtable");
         this.hashtable = hashtable;
     }
 
     // throws Exception
     public function getStartStateHashtable() : ABHashtable<Any, Any> {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(this.hashtable)).toString(), this, "getStartStateHashtable");
+        this.logUtil.putF(Std.string(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(this.hashtable))), this, "getStartStateHashtable");
         return this.hashtable;
     }
 

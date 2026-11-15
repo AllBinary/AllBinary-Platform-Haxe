@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.ai.scroller;
 
-//import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Canvas;
 import org.allbinary.direction.Direction;
 import org.allbinary.direction.DirectionCompositeInterface;
 import org.allbinary.direction.DirectionFactory;

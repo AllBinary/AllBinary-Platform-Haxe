@@ -89,7 +89,7 @@ class LoggingInitInfo {
             LoggingInitInfo.read();
             LoggingInitInfo.hasRead = true;
             if (LoggingInitInfo.logConfigInfoList == null) {
-                throw new haxe.Exception("Read Failed");
+                throw new jre.lang.JavaException("Read Failed");
             }
         }
     }

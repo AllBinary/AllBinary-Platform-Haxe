@@ -46,7 +46,7 @@ class IndexedAnimation extends Animation implements IndexedAnimationInterface {
 
     // throws Exception
     public function getAnimationSize() : Int {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     public override function getSize() : Int {

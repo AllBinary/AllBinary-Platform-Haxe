@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.ai;
 
-//import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Canvas;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.time.NoTimeDelayHelper;
 import org.allbinary.util.ABHashtable;

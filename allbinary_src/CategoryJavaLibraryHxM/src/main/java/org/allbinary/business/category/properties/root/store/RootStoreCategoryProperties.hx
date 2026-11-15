@@ -61,7 +61,7 @@ class RootStoreCategoryProperties implements RootCategoryPropertiesInterface imp
     public function new(transformInfoInterface : TransformInfoInterface, categoryAbPath : AbPath) {
         this.transformInfoInterface = transformInfoInterface;
         this.abPath = categoryAbPath;
-        this.category = this.pathData.getNameFromPath(categoryAbPath.toString());
+        this.category = this.pathData.getNameFromPath(Std.string(categoryAbPath));
         if (StringValidationUtil.getInstance().isEmpty(this.category)) {
             this.isRealRoot = true;
             this.category = CategoryData.getInstance().ROOTCATEGORY;
@@ -186,7 +186,7 @@ class RootStoreCategoryProperties implements RootCategoryPropertiesInterface imp
 
     public function log() : Void {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY)) {
-            this.logUtil.putF(new StringMaker().append("filePath = ").append(this.fileAbPath.toString()).append("\npath = ").append(this.abPath.toString()).append("\ncategory = ").append(this.category).toString(), this, "log()");
+            this.logUtil.putF(Std.string(new StringMaker().append("filePath = ").append(Std.string(this.fileAbPath)).append("\npath = ").append(Std.string(this.abPath)).append("\ncategory = ").append(this.category)), this, "log()");
         }
     }
 

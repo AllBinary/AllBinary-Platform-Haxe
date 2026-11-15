@@ -22,14 +22,25 @@ import org.allbinary.logic.system.security.licensing.LicensingException;
 
 //Warning you must have sql root access
 class DynamicInitDb extends InitDb {
-    public function new(abeClientInformation : AbeClientInformationInterface) {
-        super();
+    public function new(...args : Dynamic) {
+        if (args.length == 1) {
+            final abeClientInformation : AbeClientInformationInterface = args[0];
+            super();
+            this._new0(abeClientInformation);
+        }
+        else if (args.length == 2) {
+            final abeClientInformation : AbeClientInformationInterface = args[0];
+            final databaseConnectionInfoInterface : DatabaseConnectionInfoInterface = args[1];
+            super();
+            this._new1(abeClientInformation, databaseConnectionInfoInterface);
+        }
+    }
+
+    private function _new0(abeClientInformation : AbeClientInformationInterface) : Void {
         this.setHelper(InitDbHelperFactory.getInstance(abeClientInformation));
     }
 
-    // Java overloaded constructor: Haxe allows one constructor
-    public function new(abeClientInformation : AbeClientInformationInterface, databaseConnectionInfoInterface : DatabaseConnectionInfoInterface) {
-        super();
+    private function _new1(abeClientInformation : AbeClientInformationInterface, databaseConnectionInfoInterface : DatabaseConnectionInfoInterface) : Void {
         this.setHelper(InitDbHelperFactory.getInstance(abeClientInformation, databaseConnectionInfoInterface));
     }
 

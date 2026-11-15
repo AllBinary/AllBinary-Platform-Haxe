@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.system.loader;
 
-//import java.io.FileInputStream;
-//import java.io.IOException;
-//import java.util.Map;
+import jre.io.FileInputStream;
+import jre.io.IOException;
+import jre.util.Map;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogBuffer;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -31,7 +31,7 @@ class AbeClassLoader extends ClassLoader {
     public final logUtil : LogUtil = LogUtil.getInstance();
     private final abCryptUtil : AbCryptUtil = AbCryptUtil.getInstance();
     private final LOAD_CLASS : String = "loadClass";
-    private static var classes : Map = StdUtil.getInstance().createHashMap();
+    private static var classes : Map<Dynamic, Dynamic> = StdUtil.getInstance().createHashMap();
     private final ENCRYPTED_EXTENSION : String = AbPathData.getInstance().EXTENSION_SEP + "abc";
     private static var PATH : String;
     private var key : String;
@@ -45,15 +45,25 @@ class AbeClassLoader extends ClassLoader {
         return (cast AbeClassLoader.classes.get(name) : Class<Dynamic>);
     }
 
+    public function loadClass(...args : Dynamic) : Dynamic {
+        if (args.length == 1) {
+            return this.loadClass_String(args[0]);
+        }
+        if (args.length == 2) {
+            return this.loadClass_String_boolean(args[0], args[1]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: loadClass");
+    }
+
     // throws ClassNotFoundException
     // synchronized
-    public function loadClass(name : String) : Class<Dynamic> {
+    public function loadClass_String(name : String) : Class<Dynamic> {
         return this.loadClass(name, false);
     }
 
     // throws ClassNotFoundException
     // synchronized
-    public function loadClass(name : String, resolve : Bool) : Class<Dynamic> {
+    public function loadClass_String_boolean(name : String, resolve : Bool) : Class<Dynamic> {
         var loadedWith : String = "findLoadedClass1";
         var logBuffer : LogBuffer = new LogBuffer();
         try {

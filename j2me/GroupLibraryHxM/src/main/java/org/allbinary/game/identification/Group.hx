@@ -39,7 +39,7 @@ class Group implements GroupInterface {
         stringBuffer.append(this.name);
         stringBuffer.append(groupCommonFactory.ID_LABEL);
         stringBuffer.appendshort(this.teamId);
-        this.string = stringBuffer.toString();
+        this.string = Std.string(stringBuffer);
     }
 
     public function getGroupId() : Int {

@@ -86,7 +86,7 @@ class GameMotionGestureListener implements MotionGestureEventListener {
             final stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append(this.commonStrings.EXCEPTION_LABEL);
             stringBuffer.append(StringUtil.getInstance().toString(ev.getMotionGesture()));
-            this.logUtil.put(stringBuffer.toString(), this, "release", e);
+            this.logUtil.put(Std.string(stringBuffer), this, "release", e);
         }
     }
 
@@ -110,7 +110,7 @@ class GameMotionGestureListener implements MotionGestureEventListener {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append(this.commonStrings.EXCEPTION_LABEL);
             stringBuffer.append(StringUtil.getInstance().toString(ev.getMotionGesture()));
-            this.logUtil.put(stringBuffer.toString(), this, "onMotionGestureEvent", e);
+            this.logUtil.put(Std.string(stringBuffer), this, "onMotionGestureEvent", e);
         }
     }
 

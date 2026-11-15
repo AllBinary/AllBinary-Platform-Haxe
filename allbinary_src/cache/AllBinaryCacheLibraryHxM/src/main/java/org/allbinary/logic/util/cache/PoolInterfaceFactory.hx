@@ -22,7 +22,7 @@ class PoolInterfaceFactory {
 
     // throws Exception
     public static function getInstance(cacheableInterfaceFactoryInterface : CacheableInterfaceFactoryInterface, poolType : PoolType, cachePolicy : CachePolicy) : PoolInterface {
-        throw new haxe.Exception("No Such PoolType: " + poolType.toString());
+        throw new jre.lang.JavaException("No Such PoolType: " + Std.string(poolType));
     }
 
 }

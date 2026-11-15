@@ -1,8 +1,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form.item;
 
-//import javax.microedition.lcdui.Image;
-//import javax.microedition.lcdui.NullImage;
+import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullImage;
 import org.allbinary.graphics.color.BasicColor;
 
 class ABCustomImageItem extends ABCustomItem {

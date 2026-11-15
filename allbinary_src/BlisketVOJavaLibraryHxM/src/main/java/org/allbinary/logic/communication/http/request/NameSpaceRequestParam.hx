@@ -41,7 +41,7 @@ class NameSpaceRequestParam {
         var sepTokenizer : Tokenizer = new Tokenizer(NameSpaceRequestParamData.SEP);
         var nameSpaceWithPropertiesVector : BasicArrayList = sepTokenizer.getTokensFromString(packages, new BasicArrayListD());
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST)) {
-            this.logUtil.putF("\nSep Tokens: " + nameSpaceWithPropertiesVector.toString(), this, "NameSpaceRequestParam()");
+            this.logUtil.putF("\nSep Tokens: " + Std.string(nameSpaceWithPropertiesVector), this, "NameSpaceRequestParam()");
         }
         var nameSpaceAndPropertiesTokenizer : Tokenizer = new Tokenizer(NameSpaceRequestParamData.PROPERTIES);
         var packageIndex : Int = 0;
@@ -53,7 +53,7 @@ class NameSpaceRequestParam {
             list.clear();
             var nameSpaceAndPropertiesVector : BasicArrayList = nameSpaceAndPropertiesTokenizer.getTokensFromString(nameSpaceWithProperties, list);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST)) {
-                this.logUtil.putF("\nPackageName and PackageName Properties Tokens: " + nameSpaceAndPropertiesVector.toString(), this, "NameSpaceRequestParam()");
+                this.logUtil.putF("\nPackageName and PackageName Properties Tokens: " + Std.string(nameSpaceAndPropertiesVector), this, "NameSpaceRequestParam()");
             }
             if (nameSpaceAndPropertiesVector.size() > 0) {
                 var packageName : String = (cast nameSpaceAndPropertiesVector.get(0) : String);
@@ -70,13 +70,13 @@ class NameSpaceRequestParam {
             }
         }
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST)) {
-            this.logUtil.putF("NameSpace: " + this.nameSpaceVector.toString(), this, "NameSpaceRequestParam()");
+            this.logUtil.putF("NameSpace: " + Std.string(this.nameSpaceVector), this, "NameSpaceRequestParam()");
         }
     }
 
     public function getPackages() : BasicArrayList {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST)) {
-            this.logUtil.putF("NameSpace: " + this.nameSpaceVector.toString(), this, "getPackages()");
+            this.logUtil.putF("NameSpace: " + Std.string(this.nameSpaceVector), this, "getPackages()");
         }
         return this.nameSpaceVector;
     }
@@ -87,7 +87,7 @@ class NameSpaceRequestParam {
             packagePropertiesHashMap = StdUtil.getInstance().createHashMap();
         }
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST)) {
-            this.logUtil.putF("Package Properties: " + packagePropertiesHashMap.toString(), this, "getPackagesProperties()");
+            this.logUtil.putF("Package Properties: " + Std.string(packagePropertiesHashMap), this, "getPackagesProperties()");
         }
         return packagePropertiesHashMap;
     }

@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.layer.hud.basic;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.canvas.Processor;
 import org.allbinary.game.GameAdState;
@@ -45,44 +45,19 @@ class PlayerGameNotificationHud extends GameNotificationHud implements UpdateMyF
     private final circularIndexUtil : CircularIndexUtil;
     private final gameNotification : GameNotification = new GameNotification();
     private final permanentGameNotification : GameNotification = new GameNotification();
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class SetAndRemoveProcessor extends Processor {
-        private final updateMeasurementProcessor : PlayerGameNotificationHud;
-        public function new(updateMeasurementProcessor : PlayerGameNotificationHud) {
-            super();
-            this.updateMeasurementProcessor = updateMeasurementProcessor;
-        }
-
-        // throws Exception
-        public override function process() : Void {
-            this.updateMeasurementProcessor.setAndRemoveProcess();
-        }
-
-    }
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class NextUnremoveableProcessor extends Processor {
-        private final updateMeasurementProcessor : PlayerGameNotificationHud;
-        public function new(updateMeasurementProcessor : PlayerGameNotificationHud) {
-            super();
-            this.updateMeasurementProcessor = updateMeasurementProcessor;
-        }
-
-        // throws Exception
-        public override function process() : Void {
-            this.updateMeasurementProcessor.setNextUnremoveableProcess();
-        }
-
-    }
-    private final setAndRemoveProcessor : Processor = new SetAndRemoveProcessor(this);
-    private final nextUnremoveableProcessor : Processor = new NextUnremoveableProcessor(this);
+    private final setAndRemoveProcessor : Processor;
+    private final nextUnremoveableProcessor : Processor;
     private var processor : Processor = Processor.getInstance();
     private final PERMANENT_GAME_NOTIFICATION : String = "Permanent Game Notification: ";
     private var lastString : String = StringUtil.getInstance().EMPTY_STRING;
-    private var string : String = this.EMPTY_STRING;
+    private var string : String;
     private var point : CustomGPoint = CustomGPoint.NULL_CUSTOM_POINT;
     private var width : Int = 0;
     public function new(location : Int, direction : Int, bufferZone : Int, basicColor : BasicColor) {
         super(location, direction, bufferZone, basicColor);
+        this.setAndRemoveProcessor = new SetAndRemoveProcessor(this);
+        this.nextUnremoveableProcessor = new NextUnremoveableProcessor(this);
+        this.string = this.EMPTY_STRING;
         this.circularIndexUtil = CircularIndexUtil.createInstance(0);
         final gameNotificationEventHandler : GameNotificationEventHandler = GameNotificationEventHandler.getInstance();
         gameNotificationEventHandler.removeAllListeners();
@@ -114,7 +89,7 @@ class PlayerGameNotificationHud extends GameNotificationHud implements UpdateMyF
         if (permanent) {
             if (this.lastString != string) {
                 this.lastString = string;
-                this.logUtil.putF(new StringMaker().append(this.PERMANENT_GAME_NOTIFICATION).append(string).toString(), this, this.commonStrings.ADD);
+                this.logUtil.putF(Std.string(new StringMaker().append(this.PERMANENT_GAME_NOTIFICATION).append(string)), this, this.commonStrings.ADD);
             }
             this.permanentGameNotification.add(string, seconds, basicColor);
             this.circularIndexUtil.setSize(this.permanentGameNotification.getSize());
@@ -149,7 +124,7 @@ class PlayerGameNotificationHud extends GameNotificationHud implements UpdateMyF
     }
 
     // throws Exception
-    private function setAndRemoveProcess() : Void {
+    public function setAndRemoveProcess() : Void {
         this.setX((this.displayInfo.getLastWidth() - this.width) >> 1);
         this.point.setX(this.getX());
         this.point.setY(this.getY());
@@ -170,7 +145,7 @@ class PlayerGameNotificationHud extends GameNotificationHud implements UpdateMyF
     }
 
     // throws Exception
-    private function setNextUnremoveableProcess() : Void {
+    public function setNextUnremoveableProcess() : Void {
         final index : Int = this.circularIndexUtil.getIndex();
         this.setX((this.displayInfo.getLastWidth() - this.width) >> 1);
         this.point.setX(this.getX());

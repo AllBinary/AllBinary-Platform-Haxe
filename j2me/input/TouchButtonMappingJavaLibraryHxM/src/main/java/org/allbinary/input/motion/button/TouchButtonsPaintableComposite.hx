@@ -77,7 +77,7 @@ class TouchButtonsPaintableComposite extends ProcessPaintable implements Complet
                 return;
             }
             this.released = false;
-            this.logUtil.putF(new StringMaker().append("GameKey: ").append(StringUtil.getInstance().toString(gameKey)).append(" MotionGestureInput: ").append(StringUtil.getInstance().toString(motionGestureInput)).toString(), this, this.METHOD_NAME);
+            this.logUtil.putF(Std.string(new StringMaker().append("GameKey: ").append(StringUtil.getInstance().toString(gameKey)).append(" MotionGestureInput: ").append(StringUtil.getInstance().toString(motionGestureInput))), this, this.METHOD_NAME);
             this.inputMappingInterface.processInputMapping(gameKey, motionGestureInput);
         } catch (e : haxe.Exception) {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.METHOD_NAME, e);

@@ -209,15 +209,15 @@ class OrderHistory extends Order implements OrderHistoryInterface {
         hashMap.put(OrderHistoryData.SHIPPEDDATE, this.shipDate);
         hashMap.put(OrderHistoryData.TRANSDATE, this.transDate);
         hashMap.put(OrderHistoryData.CANCELDATE, this.cancelDate);
-        hashMap.put(OrderHistoryData.ORDERDATEFORMATTED, new Date(haxe.Int64.ofInt(this.orderDate)).toString());
-        hashMap.put(OrderHistoryData.SHIPPEDDATEFORMATTED, new Date(haxe.Int64.ofInt(this.shipDate)).toString());
-        hashMap.put(OrderHistoryData.TRANSDATEFORMATTED, new Date(haxe.Int64.ofInt(this.transDate)).toString());
-        hashMap.put(OrderHistoryData.CANCELDATEFORMATTED, new Date(haxe.Int64.ofInt(this.cancelDate)).toString());
+        hashMap.put(OrderHistoryData.ORDERDATEFORMATTED, Std.string(new Date(haxe.Int64.ofInt(this.orderDate))));
+        hashMap.put(OrderHistoryData.SHIPPEDDATEFORMATTED, Std.string(new Date(haxe.Int64.ofInt(this.shipDate))));
+        hashMap.put(OrderHistoryData.TRANSDATEFORMATTED, Std.string(new Date(haxe.Int64.ofInt(this.transDate))));
+        hashMap.put(OrderHistoryData.CANCELDATEFORMATTED, Std.string(new Date(haxe.Int64.ofInt(this.cancelDate))));
         hashMap.put(OrderHistoryData.STATUS, this.status);
-        hashMap.put(OrderHistoryData.SUBTOTAL, this.subTotal.toString());
-        hashMap.put(OrderHistoryData.TOTAL, this.total.toString());
-        hashMap.put(OrderHistoryData.SHIPPINGCOST, this.shippingCost.toString());
-        hashMap.put(OrderHistoryData.TAX, this.taxes.toString());
+        hashMap.put(OrderHistoryData.SUBTOTAL, Std.string(this.subTotal));
+        hashMap.put(OrderHistoryData.TOTAL, Std.string(this.total));
+        hashMap.put(OrderHistoryData.SHIPPINGCOST, Std.string(this.shippingCost));
+        hashMap.put(OrderHistoryData.TAX, Std.string(this.taxes));
         return hashMap;
     }
 
@@ -243,6 +243,10 @@ class OrderHistory extends Order implements OrderHistoryInterface {
             node.appendChild(ModDomHelper.createNameValueNodes(document, name, value));
         }
         return node;
+    }
+
+    public override function getPaymentMethod() : String {
+        return super.getPaymentMethod();
     }
 
 }

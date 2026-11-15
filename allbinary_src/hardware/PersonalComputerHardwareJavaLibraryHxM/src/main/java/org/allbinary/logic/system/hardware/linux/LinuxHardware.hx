@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.system.hardware.linux;
 
-//import java.io.FileReader;
-//import java.io.LineNumberReader;
+import jre.io.FileReader;
+import jre.io.LineNumberReader;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -63,15 +63,24 @@ class LinuxHardware implements HardwareInterface {
     private static final PCIFILE : String = "/proc/pci";
     private final NAME : String = "Linux Hardware Profile";
     private final MINHARDWARE : Int = 5;
-    public function new(path : String) {
+    public function new(...args : Dynamic) {
+        if (args.length == 1) {
+            final path : String = args[0];
+            this._new0(path);
+        }
+        else if (args.length == 0) {
+            this._new1();
+        }
+    }
+
+    private function _new0(path : String) : Void {
         this.init(path);
     }
 
-    // Java overloaded constructor: Haxe allows one constructor
-    public function new() {
+    private function _new1() : Void {
         this.init(PCIFILE);
         if (this.componentInterfaceVector.size() < this.MINHARDWARE) {
-            throw new haxe.Exception("Not Enough Data For A Valid License On Linux");
+            throw new jre.lang.JavaException("Not Enough Data For A Valid License On Linux");
         }
         var cpu : Cpu = new Cpu();
         if (cpu != null) {
@@ -79,25 +88,37 @@ class LinuxHardware implements HardwareInterface {
             this.componentInterfaceVector.add(cpu);
         }
         if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS)) {
-            this.logUtil.putF("Hardware Data: " + this.toString(), this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.putF("Hardware Data: " + Std.string(this), this, this.commonStrings.CONSTRUCTOR);
         }
     }
 
+    private function init(...args : Dynamic) : Dynamic {
+        if (args.length == 1) {
+            this.init_String(args[0]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.init_LineNumberReader_String(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: init");
+    }
+
     // throws Exception
-    private function init(filePath : String) : Void {
+    private function init_String(filePath : String) : Void {
         var lineNumberReader : LineNumberReader = null;
         try {
             this.init(lineNumberReader, filePath);
         } catch (e : haxe.Exception) {
             if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS)) {
-                this.logUtil.put("Hardware Data: " + this.toString(), this, this.commonStrings.CONSTRUCTOR, e);
+                this.logUtil.put("Hardware Data: " + Std.string(this), this, this.commonStrings.CONSTRUCTOR, e);
             }
             throw e;
         }
     }
 
     // throws Exception
-    private function init(lineNumberReader : LineNumberReader, filePath : String) : Void {
+    private function init_LineNumberReader_String(lineNumberReader : LineNumberReader, filePath : String) : Void {
         try {
             this.componentInterfaceVector = new BasicArrayListD();
             this.videoInterfaceVector = new BasicArrayListD();
@@ -120,7 +141,7 @@ class LinuxHardware implements HardwareInterface {
                     lineNumberReader = new LineNumberReader(new FileReader(file.getPath()));
                 }
                 if (lineNumberReader == null) {
-                    throw new haxe.Exception("No Linux File Data");
+                    throw new jre.lang.JavaException("No Linux File Data");
                 }
             }
             if (lineNumberReader != null) {
@@ -128,7 +149,7 @@ class LinuxHardware implements HardwareInterface {
                     this.logUtil.putF("PCI File Found", this, this.commonStrings.CONSTRUCTOR);
                 }
                 var nextLine : String = lineNumberReader.readLine();
-                while (lineNumberReader != null && nextLine != null) {
+                while (nextLine != null) {
                     if (this.isNextHardware(nextLine)) {
                         break;
                     }
@@ -143,7 +164,7 @@ class LinuxHardware implements HardwareInterface {
                     componentData.append(CommonSeps.getInstance().NEW_LINE);
                     nextLine = lineNumberReader.readLine();
                     var componentType : String = PCComponentFactory.getInstance().getComponentType(nextLine);
-                    while (lineNumberReader != null) {
+                    while (true) {
                         componentData.append(nextLine);
                         componentData.append(CommonSeps.getInstance().NEW_LINE);
                         nextLine = lineNumberReader.readLine();
@@ -151,7 +172,7 @@ class LinuxHardware implements HardwareInterface {
                             break;
                         }
                     }
-                    var componentInterface : HardwareComponentInterface = PCComponentFactory.getInstance().getInstance(componentType, componentData.toString());
+                    var componentInterface : HardwareComponentInterface = PCComponentFactory.getInstance().getInstance(componentType, Std.string(componentData));
                     if (componentInterface != null) {
                         this.componentInterfaceVector.add(componentInterface);
                     }
@@ -227,10 +248,10 @@ class LinuxHardware implements HardwareInterface {
             hardwareBuffer.append("Component ");
             hardwareBuffer.appendint(index);
             hardwareBuffer.append(": \n");
-            hardwareBuffer.append(componentInterface.toString());
+            hardwareBuffer.append(Std.string(componentInterface));
             hardwareBuffer.append(CommonSeps.getInstance().NEW_LINE);
         }
-        return hardwareBuffer.toString();
+        return Std.string(hardwareBuffer);
     }
 
     public function compareTo(hardwareInterface : HardwareInterface) : Bool {

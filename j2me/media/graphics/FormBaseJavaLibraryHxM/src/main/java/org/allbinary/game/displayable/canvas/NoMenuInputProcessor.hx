@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullCanvas;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
 import org.allbinary.util.BasicArrayListUtil;

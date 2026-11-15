@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation.image;
 
-//import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.Image;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.math.AngleInfo;
 
@@ -29,15 +29,15 @@ class ImageArrayRotationAnimation extends ImageArrayBaseRotationAnimation {
     private var expectedTotalFrames : Int = 0;
     public function new(imageArray : haxe.ds.Vector<Image>, angleInfo : AngleInfo, totalAngle : Int, animationBehavior : AnimationBehavior) {
         super(imageArray, angleInfo, animationBehavior);
-        this.init(imageArray, angleInfo, totalAngle);
+        this.initImageArray(imageArray, angleInfo, totalAngle);
     }
 
     // throws Exception
-    private function init(imageArray : haxe.ds.Vector<Image>, angleInfo : AngleInfo, totalAngle : Int) : Void {
+    private function initImageArray(imageArray : haxe.ds.Vector<Image>, angleInfo : AngleInfo, totalAngle : Int) : Void {
         this.expectedTotalFrames = totalAngle / this.angleInfo.getAngleIncrementInfo().getAngleIncrement();
         this.angleInfo.adjustAngle(0);
         if (this.expectedTotalFrames != this.getSize()) {
-            throw new haxe.Exception("Wrong Number of Frames");
+            throw new jre.lang.JavaException("Wrong Number of Frames");
         }
     }
 

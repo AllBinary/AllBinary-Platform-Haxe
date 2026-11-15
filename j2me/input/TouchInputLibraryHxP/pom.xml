@@ -27,17 +27,17 @@
 
     <modules>
 
-        <module>../TouchButtonBaseJavaLibraryHaxeM</module>
-        <module>../TouchButtonMappingJavaLibraryHaxeM</module>
-        <module>../NoTouchButtonJavaLibraryHaxeM</module>
-        <module>../TouchScreenJavaLibraryHaxeM</module>
-        <module>../TouchButtonJavaLibraryHaxeM</module>
+        <module>../TouchButtonBaseJavaLibraryHxM</module>
+        <module>../TouchButtonMappingJavaLibraryHxM</module>
+        <module>../NoTouchButtonJavaLibraryHxM</module>
+        <module>../TouchScreenJavaLibraryHxM</module>
+        <module>../TouchButtonJavaLibraryHxM</module>
         
         <!-- Not really required here -->
-        <module>../platform/me/TouchScreenJ2MENoneJavaLibraryHaxeM</module>
-        <module>../platform/me/TouchScreenJ2MEJavaLibraryHaxeM</module>
+        <module>../platform/me/TouchScreenJ2MENoneJavaLibraryHxM</module>
+        <module>../platform/me/TouchScreenJ2MEJavaLibraryHxM</module>
         
-        <module>../platform/me/TouchJ2MEJavaLibraryHaxeM</module>
+        <module>../platform/me/TouchJ2MEJavaLibraryHxM</module>
         
     </modules>
 

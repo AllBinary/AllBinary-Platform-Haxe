@@ -28,7 +28,7 @@ class PoolType {
 
     public function toString() : String {
         final POOL_TYPE : String = "PoolType: ";
-        return POOL_TYPE + this.getCacheType().toString();
+        return POOL_TYPE + Std.string(this.getCacheType());
     }
 
 }

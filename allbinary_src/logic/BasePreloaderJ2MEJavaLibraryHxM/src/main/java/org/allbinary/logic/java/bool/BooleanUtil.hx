@@ -42,7 +42,7 @@ class BooleanUtil {
         } else if (this.tsUtil.compareTo(booleanStringLowerCase, booleanFactory.FALSE_STRING) == 0) {
             return false;
         } else {
-            throw new haxe.Exception("Invalid booleanString - Must be true or false");
+            throw new jre.lang.JavaException("Invalid booleanString - Must be true or false");
         }
     }
 
@@ -62,7 +62,7 @@ class BooleanUtil {
         for (index in 0...size) {
             stringMaker.appendboolean(booleanArray[index]);
         }
-        return stringMaker.toString();
+        return Std.string(stringMaker);
     }
 
 }

@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.media.image;
 
-//import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.Image;
 
 class ImageToRotationImageArrayUtil {
     private static final instance : ImageToRotationImageArrayUtil = new ImageToRotationImageArrayUtil();

@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.collision;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -49,7 +49,7 @@ class CollidableBaseBehavior implements CollidableInterface {
 
     // throws Exception
     public function collide(ownerLayer : CollidableCompositeLayer, allbinaryCollidableLayer : CollidableCompositeLayer) : Void {
-        throw new haxe.Exception(new StringMaker().append(this.commonStrings.NOT_IMPLEMENTED).append(CommonLabels.getInstance().COLON_SEP).append(Type.getClassName(Type.getClass(this))).toString());
+        throw new jre.lang.JavaException(Std.string(new StringMaker().append(this.commonStrings.NOT_IMPLEMENTED).append(CommonLabels.getInstance().COLON_SEP).append(Type.getClassName(Type.getClass(this)))));
     }
 
     public function isCollision(ownerLayer : CollidableCompositeLayer, collisionLayer : CollidableCompositeLayer) : Bool {
@@ -62,7 +62,7 @@ class CollidableBaseBehavior implements CollidableInterface {
 
     // throws Exception
     public function collideInterface(ownerLayer : CollidableCompositeLayer, collidableInterfaceCompositeInterface : CollidableInterfaceCompositeInterface) : Void {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     public function paint(ownerLayer : CollidableCompositeLayer, graphics : Graphics) : Void {

@@ -26,8 +26,9 @@ class MotionEventCircularPool {
     }
 
     private final MIN : Int = TouchMotionGestureFactory.getInstance().LAST_MOTION.getId();
-    private var eventPool : AllBinaryEventCircularPool = new AllBinaryEventCircularPool((InputFactory.getInstance().MAX - 1) - this.MIN);
+    private var eventPool : AllBinaryEventCircularPool;
     public function new(id : Int) {
+        this.eventPool = new AllBinaryEventCircularPool((InputFactory.getInstance().MAX - 1) - this.MIN);
         this.eventPool.initAllBinaryEventCircularPool(new MotionEventFactory(this.eventPool, id));
     }
 

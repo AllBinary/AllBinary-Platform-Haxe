@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.system.security.licensing;
 
-//import java.io.InputStream;
-//import java.io.OutputStream;
+import jre.io.InputStream;
+import jre.io.OutputStream;
 import org.allbinary.business.init.LicenseInitInfoUtil;
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.logic.communication.log.LogUtil;

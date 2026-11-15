@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.visual.transform.info.dom;
 
-//import java.util.HashMap;
+import jre.util.HashMap;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.data.tree.dom.DomSearchHelper;
@@ -40,9 +40,9 @@ class TransformInfoPropertiesDocument {
         this.document = DomDocumentFileHelper.createDocument(xmlFile);
     }
 
-    public function toTransformInfoPropertiesHashMap() : HashMap {
+    public function toTransformInfoPropertiesHashMap() : HashMap<Dynamic, Dynamic> {
         try {
-            final transformInfoPropertiesHashMap : HashMap = StdUtil.getInstance().createHashMap();
+            final transformInfoPropertiesHashMap : HashMap<Dynamic, Dynamic> = StdUtil.getInstance().createHashMap();
             final transformInfosNode : Node = this.document.getElementsByTagName(TransformInfosData.getInstance().NAME).item(0);
             final transformInfosChildNodeList : NodeList = transformInfosNode.getChildNodes();
             final transformInfoNodeVector : BasicArrayList = DomSearchHelper.getAllNodes(TransformInfoData.getInstance().NAME, transformInfosChildNodeList);

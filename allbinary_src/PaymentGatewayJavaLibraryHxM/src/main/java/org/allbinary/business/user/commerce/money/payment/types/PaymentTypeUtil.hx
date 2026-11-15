@@ -67,7 +67,7 @@ class PaymentTypeUtil {
         stringBuffer.append(sep);
         stringBuffer.append("gateway");
         stringBuffer.append(sep);
-        this.PAYMENTGATEWAYFILEPATHSTRING = stringBuffer.toString();
+        this.PAYMENTGATEWAYFILEPATHSTRING = Std.string(stringBuffer);
     }
 
     public function add(paymentType : PaymentType) : Void {
@@ -98,7 +98,7 @@ class PaymentTypeUtil {
             stringBuffer.append(storeName);
             stringBuffer.append(AbPathData.getInstance().SEPARATOR);
             stringBuffer.append(this.PAYMENTGATEWAYFILEPATHSTRING);
-            var abPath : AbPath = (cast new AbPath(stringBuffer.toString(), this.SHIPPINGMETHODSFILENAME) : AbPath);
+            var abPath : AbPath = (cast new AbPath(Std.string(stringBuffer), this.SHIPPINGMETHODSFILENAME) : AbPath);
             var data : String = new CryptFileReader(TransformInfoObjectConfigData.getInstance().UNCRYPTED_EXTENSION, TransformInfoObjectConfigData.getInstance().ENCRYPTED_EXTENSION).get(abPath);
             var document : Document = DomDocumentHelper.create(data);
             var nodeList : NodeList = document.getElementsByTagName(PaymentGatewaysData.NAME);

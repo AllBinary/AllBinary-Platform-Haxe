@@ -28,8 +28,9 @@ class AnalogControllerConfigurationFactory {
     public final SCALE_FACTOR : Int = ScaleFactorFactory.getInstance().DEFAULT_SCALE_FACTOR;
     public final SCALE_VALUE : Int = ScaleFactorFactory.getInstance().DEFAULT_SCALE_VALUE;
     private var available : Bool = false;
-    private final analogControllerConfigurationEvent : AnalogControllerConfigurationEvent = new AnalogControllerConfigurationEvent(this);
+    private final analogControllerConfigurationEvent : AnalogControllerConfigurationEvent;
     public function new() {
+        this.analogControllerConfigurationEvent = new AnalogControllerConfigurationEvent(this);
     }
 
     public function isAvailable() : Bool {

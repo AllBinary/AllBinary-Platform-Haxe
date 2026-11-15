@@ -24,7 +24,7 @@ class PropertyInitUtil {
     public static function getInstance(value : Int) : PropertyInitUtil {
         final commonStrings : CommonStrings = CommonStrings.getInstance();
         final logUtil : LogUtil = LogUtil.getInstance();
-        logUtil.putF(new StringMaker().append("PropertyInitUtil: ").appendint(value).toString(), logUtil, commonStrings.CONSTRUCTOR);
+        logUtil.putF(Std.string(new StringMaker().append("PropertyInitUtil: ").appendint(value)), logUtil, commonStrings.CONSTRUCTOR);
         return PropertyInitUtil.instance;
     }
 

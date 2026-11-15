@@ -41,11 +41,21 @@ class PointsUtil {
         return newPoints;
     }
 
-    public function adjust(points : haxe.ds.Vector<haxe.ds.Vector<Int>>, both : Int) : haxe.ds.Vector<haxe.ds.Vector<Int>> {
+    public function adjust(...args : Dynamic) : Dynamic {
+        if (args.length == 2) {
+            return this.adjust_intArrayArray_int(args[0], args[1]);
+        }
+        if (args.length == 3) {
+            return this.adjust_intArrayArray_int_int(args[0], args[1], args[2]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: adjust");
+    }
+
+    public function adjust_intArrayArray_int(points : haxe.ds.Vector<haxe.ds.Vector<Int>>, both : Int) : haxe.ds.Vector<haxe.ds.Vector<Int>> {
         return this.adjust(points, both, both);
     }
 
-    public function adjust(points : haxe.ds.Vector<haxe.ds.Vector<Int>>, x : Int, y : Int) : haxe.ds.Vector<haxe.ds.Vector<Int>> {
+    public function adjust_intArrayArray_int_int(points : haxe.ds.Vector<haxe.ds.Vector<Int>>, x : Int, y : Int) : haxe.ds.Vector<haxe.ds.Vector<Int>> {
         var newPoints : haxe.ds.Vector<haxe.ds.Vector<Int>> = haxe.ds.Vector.fromArrayCopy([for (index in 0...points.length) haxe.ds.Vector.fromArrayCopy([for (index2 in 0...2) 0])]);
         for (index2 in 0...points.length) {
             if (points[index2][0] != 1000) {

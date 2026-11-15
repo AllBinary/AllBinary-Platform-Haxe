@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.time;
 
-//import java.util.Calendar;
+import jre.util.Calendar;
 
 class TimeUtil {
     private static final instance : TimeUtil = new TimeUtil();
@@ -31,7 +31,7 @@ class TimeUtil {
         calendar.set(year, month, day, hour, 0);
     }
 
-    public function setCalendar(calendar : Calendar, yearString : String, monthString : String, dayString : String, hourString : String, minuteString : String, secondString : String) : Void {
+    public function setCalendarWithTime(calendar : Calendar, yearString : String, monthString : String, dayString : String, hourString : String, minuteString : String, secondString : String) : Void {
         var year : Int = Std.int(yearString);
         var month : Int = Std.int(monthString);
         var day : Int = Std.int(dayString);

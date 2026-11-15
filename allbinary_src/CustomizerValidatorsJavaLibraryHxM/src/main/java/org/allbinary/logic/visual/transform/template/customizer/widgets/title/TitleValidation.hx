@@ -64,7 +64,7 @@ class TitleValidation extends TitleView implements ValidationInterface {
         try {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append("Title is not valid.");
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);

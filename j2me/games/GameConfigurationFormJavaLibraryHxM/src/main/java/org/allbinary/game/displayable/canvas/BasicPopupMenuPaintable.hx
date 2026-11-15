@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.AndroidUtil;
 import org.allbinary.J2MEUtil;
 import org.allbinary.animation.Animation;
@@ -44,7 +44,7 @@ class BasicPopupMenuPaintable extends Paintable implements UpdateMyFontInterface
     private final drawStringUtil : DrawVerticalStringUtil = DrawVerticalStringUtil.getInstance();
     private final label : String;
     private final foregroundBasicColor : BasicColor;
-    private var myFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
+    private var myFontProcessor : MyFontProcessor;
     private var rectangle : Rectangle;
     private var BORDER : Int = 0;
     private var heightOffset : Int = 0;
@@ -52,6 +52,7 @@ class BasicPopupMenuPaintable extends Paintable implements UpdateMyFontInterface
     private var animationInterface : Animation = null;
     public function new(rectangle : Rectangle, backgroundBasicColor : BasicColor, foregroundBasicColor : BasicColor) {
         super();
+        this.myFontProcessor = new UpdateMyFontProcessor(this);
         this.foregroundBasicColor = foregroundBasicColor;
         this.label = BasicPopupMenuPaintable.NAME;
         this.rectangle = rectangle;

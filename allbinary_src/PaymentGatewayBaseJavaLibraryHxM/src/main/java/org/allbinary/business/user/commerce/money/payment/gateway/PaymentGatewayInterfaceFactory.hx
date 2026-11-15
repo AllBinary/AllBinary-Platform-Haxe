@@ -48,7 +48,7 @@ class PaymentGatewayInterfaceFactory implements PaymentGatewayInterfaceFactoryIn
     // throws Exception
     public function getInstance(paymentType : BasicPaymentType) : PaymentGatewayInterface {
         var hashMap : HashMap = StdUtil.getInstance().createHashMap();
-        hashMap.put(PaymentGatewayData.NAME.toString(), paymentType.getName());
+        hashMap.put(Std.string(PaymentGatewayData.NAME), paymentType.getName());
         return this.getInstance(hashMap);
     }
 
@@ -56,7 +56,7 @@ class PaymentGatewayInterfaceFactory implements PaymentGatewayInterfaceFactoryIn
     public function getInstance(hashMap : HashMap) : PaymentGatewayInterface {
         final commonStrings : CommonStrings = CommonStrings.getInstance();
         try {
-            var gatewayName : String = (cast hashMap.get(PaymentGatewayData.NAME.toString()) : String);
+            var gatewayName : String = (cast hashMap.get(Std.string(PaymentGatewayData.NAME)) : String);
             var paymentType : BasicPaymentType = BasicPaymentTypeUtil.getInstance().get(gatewayName);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT)) {
                 this.logUtil.putF("Getting PaymentGatewayInterface for PaymentType: " + paymentType.getName() + " with: " + hashMap, this, commonStrings.GET_INSTANCE);

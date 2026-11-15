@@ -88,13 +88,13 @@ class DownGameKeyEventHandlerBase extends BasicEventHandler {
             try {
                 eventListenerInterface = (cast this.list.get(index) : EventListenerInterface);
                 stringBuffer.append(DownGameKeyEventHandlerBase.LISTENER_LABEL);
-                stringBuffer.append(eventListenerInterface.toString());
+                stringBuffer.append(Std.string(eventListenerInterface));
             } catch (e : haxe.Exception) {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.TOSTRING, e);
             }
             index++;
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

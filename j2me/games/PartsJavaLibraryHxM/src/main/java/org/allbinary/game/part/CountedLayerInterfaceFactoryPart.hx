@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.part;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
@@ -30,8 +30,8 @@ import org.allbinary.util.ABHashtable;
 
 class CountedLayerInterfaceFactoryPart implements PartInterface implements UpdateMyFontInterface {
     public static final NULL_COUNTED_LAYER_INTERFACE_FACTORY : CountedLayerInterfaceFactoryPart = new CountedLayerInterfaceFactoryPart(0, CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY);
-    private final updateMyFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
-    private var myFontProcessor : MyFontProcessor = this.updateMyFontProcessor;
+    private final updateMyFontProcessor : MyFontProcessor;
+    private var myFontProcessor : MyFontProcessor;
     private var animationInterface : Animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
     private var total : Int = 0;
     private var totalString : haxe.ds.Vector<Int> = NullUtil.getInstance().NULL_CHAR_ARRAY;
@@ -39,6 +39,8 @@ class CountedLayerInterfaceFactoryPart implements PartInterface implements Updat
     private var countedPickedUpLayerInterfaceFactory : CountedPickedUpLayerInterfaceFactory = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
     private final primitiveLongUtil : PrimitiveLongUtil;
     public function new(total : Int, countedPickedUpLayerInterfaceFactory : CountedPickedUpLayerInterfaceFactory) {
+        this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
+        this.myFontProcessor = this.updateMyFontProcessor;
         this.primitiveLongUtil = PrimitiveLongUtil.createPowerOfTen(1000);
         this.init(total, countedPickedUpLayerInterfaceFactory);
     }
@@ -60,7 +62,7 @@ class CountedLayerInterfaceFactoryPart implements PartInterface implements Updat
             this.setTotal(this.total - 1);
             return this.getCountedPickedUpLayerInterfaceFactory().getNextInstance(hashtable, x, y, z);
         } else {
-            throw new haxe.Exception("No more left. Could use a listener to automatically remove");
+            throw new jre.lang.JavaException("No more left. Could use a listener to automatically remove");
         }
     }
 

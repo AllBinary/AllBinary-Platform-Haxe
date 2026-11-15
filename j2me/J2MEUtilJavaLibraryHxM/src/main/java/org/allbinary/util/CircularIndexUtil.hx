@@ -15,12 +15,12 @@
 // Generated Code Do Not Modify
 package org.allbinary.util;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsConstructor;
+//import jsinterop.annotations.JsProperty;
 
 class CircularIndexUtil {
     public static final NULL_CIRCULAR_INDEX_UTIL : CircularIndexUtil = new CircularIndexUtil(0, 0);
@@ -80,7 +80,7 @@ class CircularIndexUtil {
     }
 
     public function toString() : String {
-        return new StringMaker().append(CommonLabels.getInstance().INDEX_LABEL).appendint(this.index).append("lastIndex: ").appendint(this.lastIndex).append("size: ").appendint(this.size).toString();
+        return Std.string(new StringMaker().append(CommonLabels.getInstance().INDEX_LABEL).appendint(this.index).append("lastIndex: ").appendint(this.lastIndex).append("size: ").appendint(this.size));
     }
 
 }

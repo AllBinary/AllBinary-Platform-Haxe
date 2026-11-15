@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.io;
 
-//import java.io.File;
-//import java.io.FileInputStream;
-//import java.io.FileNotFoundException;
+import jre.io.File;
+import jre.io.FileInputStream;
+import jre.io.FileNotFoundException;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.AbFileNativeUtil;
 
@@ -26,14 +26,14 @@ class AbFileInputStream extends FileInputStream {
         super(name);
     }
 
-    // Java overloaded constructor: Haxe allows one constructor
-    public function new(file : AbFile) {
-        super(AbFileNativeUtil.get(file));
+    // throws FileNotFoundException
+    public static function createFromAbFile(file : AbFile) : AbFileInputStream {
+        return new AbFileInputStream(AbFileNativeUtil.get(file).getPath());
     }
 
-    // Java overloaded constructor: Haxe allows one constructor
-    public function new(file : File) {
-        super(file);
+    // throws FileNotFoundException
+    public static function createFromFile(file : File) : AbFileInputStream {
+        return new AbFileInputStream(file.getPath());
     }
 
 }

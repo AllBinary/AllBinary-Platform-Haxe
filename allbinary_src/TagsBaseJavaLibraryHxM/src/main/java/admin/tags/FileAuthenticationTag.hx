@@ -155,7 +155,7 @@ class FileAuthenticationTag extends CustomTagSupport {
                         stringBuffer.appendlong(timeFirst);
                         stringBuffer.append(" > ");
                         stringBuffer.appendlong(timeCreated);
-                        this.logUtil.putF(stringBuffer.toString(), this, "isSessionOld()");
+                        this.logUtil.putF(Std.string(stringBuffer), this, "isSessionOld()");
                     }
                     return true;
                 }
@@ -188,7 +188,7 @@ class FileAuthenticationTag extends CustomTagSupport {
                 stringBuffer.appendlong(timeFirst);
                 stringBuffer.append(" > ");
                 stringBuffer.appendlong(timePassed);
-                this.logUtil.putF(stringBuffer.toString(), this, "isRarelyUsedSession()");
+                this.logUtil.putF(Std.string(stringBuffer), this, "isRarelyUsedSession()");
             }
         } else {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION)) {
@@ -216,7 +216,7 @@ class FileAuthenticationTag extends CustomTagSupport {
         try {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append("Trying New login<p>");
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             var error : String = "Failed to set valid role";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR)) {
@@ -233,7 +233,7 @@ class FileAuthenticationTag extends CustomTagSupport {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append("Sorry your username and password is invalid on this page.");
             stringBuffer.append("Trying New login<p>");
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             var error : String = "Failed to set role invalid";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR)) {
@@ -416,7 +416,7 @@ class FileAuthenticationTag extends CustomTagSupport {
                         stringBuffer.append(this.password);
                         stringBuffer.append(" Command: ");
                         stringBuffer.append(this.command);
-                        this.logUtil.putF(stringBuffer.toString(), this, this.tagStrings.DO_START_TAG);
+                        this.logUtil.putF(Std.string(stringBuffer), this, this.tagStrings.DO_START_TAG);
                     }
                     if (Reflect.compare(this.command, org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0) {
                         return TagSupport.SKIP_BODY;

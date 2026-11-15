@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation.vector;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.Animation;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.ColorCompositeInterface;
@@ -58,6 +58,14 @@ class LineAnimation extends Animation implements ColorCompositeInterface impleme
     }
 
     public override function nextFrame() : Void {
+    }
+
+    public override function getBasicColorP() : BasicColor {
+        return super.getBasicColorP();
+    }
+
+    public override function setBasicColorP(basicColor : BasicColor) : Void {
+        super.setBasicColorP(basicColor);
     }
 
 }

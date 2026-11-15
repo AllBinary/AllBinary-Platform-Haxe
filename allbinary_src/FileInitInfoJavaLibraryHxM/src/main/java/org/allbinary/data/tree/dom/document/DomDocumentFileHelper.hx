@@ -33,7 +33,7 @@ class DomDocumentFileHelper {
     // throws Exception
     public static function createDocument(xmlFile : AbFile) : Document {
         try {
-            return DomDocumentHelper.create(new AbFileInputStream(xmlFile));
+            return DomDocumentHelper.create(AbFileInputStream.createFromAbFile(xmlFile));
         } catch (e : haxe.Exception) {
             throw e;
         }

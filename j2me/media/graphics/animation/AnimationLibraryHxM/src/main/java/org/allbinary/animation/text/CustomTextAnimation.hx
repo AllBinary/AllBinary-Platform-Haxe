@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation.text;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.graphics.font.FontDebugFactory;
 import org.allbinary.logic.string.StringUtil;
@@ -43,10 +43,14 @@ class CustomTextAnimation extends TextAnimation implements TextInterface {
 
     public override function setScale(scaleX : Float, scaleY : Float) : Void {
         if (scaleX != scaleY) {
-            throw new haxe.Exception();
+            throw new jre.lang.JavaException();
         }
         this.hasChanged = true;
         this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, Std.int((this.fontSize * scaleX)));
+    }
+
+    public override function setTextWithOnMeasure(text : String, textChangeListener : TextChangeListener) : Void {
+        super.setTextWithOnMeasure(text, textChangeListener);
     }
 
     public override function setText(text : String) : Void {

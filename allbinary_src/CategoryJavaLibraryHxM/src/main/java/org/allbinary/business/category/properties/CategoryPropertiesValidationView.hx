@@ -37,7 +37,7 @@ class CategoryPropertiesValidationView extends CategoryPropertiesView implements
         try {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append(this.categoryPropertiesInterface.validationInfo());
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
                 this.logUtil.put("Failed to generate validation info error", this, "validationInfo()", e);

@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form.item;
 
-//import javax.microedition.lcdui.CommandListener;
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.J2MEUtil;
 import org.allbinary.game.displayable.canvas.GameCommandCanvas;
 import org.allbinary.game.input.Input;
@@ -46,7 +46,7 @@ class CustomTextBox extends GameCommandCanvas implements RawKeyEventListener {
 
     private final inputFactory : InputFactory = InputFactory.getInstance();
     public override function onEventRaw(keyCode : Int, deviceId : Int, repeated : Bool) : Void {
-        this.logUtil.putF(new StringMaker().append(this.commonStrings.START).appendint(keyCode).toString(), this, "onEvent");
+        this.logUtil.putF(Std.string(new StringMaker().append(this.commonStrings.START).appendint(keyCode)), this, "onEvent");
         this.keyPressedByDevice(keyCode, deviceId);
     }
 
@@ -64,7 +64,7 @@ class CustomTextBox extends GameCommandCanvas implements RawKeyEventListener {
 
     public override function keyPressedByDevice(keyCode : Int, deviceId : Int) : Void {
         try {
-            this.logUtil.putF(new StringMaker().append(CommonSeps.getInstance().SPACE).appendint(keyCode).toString(), this, this.gameInputStrings.KEY_PRESSED);
+            this.logUtil.putF(Std.string(new StringMaker().append(CommonSeps.getInstance().SPACE).appendint(keyCode)), this, this.gameInputStrings.KEY_PRESSED);
             final platformKeyFactory : PlatformKeyFactory = PlatformKeyFactory.getInstance();
             final input : Input = this.inputFactory.getInstanceById(keyCode);
             if (platformKeyFactory.isSubmission(input)) {

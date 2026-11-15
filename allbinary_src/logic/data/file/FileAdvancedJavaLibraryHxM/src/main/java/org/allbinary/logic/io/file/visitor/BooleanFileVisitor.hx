@@ -26,14 +26,27 @@ class BooleanFileVisitor implements VisitorInterface {
     private var filterStringBasicArrayList : BasicArrayList = null;
     public function new(filterStringBasicArrayList : BasicArrayList) {
         this.setFilterStringBasicArrayList(filterStringBasicArrayList);
-        PreLogUtil.put("Filter BasicArrayList: " + this.getFilterStringBasicArrayList().toString(), this, this.commonStrings.CONSTRUCTOR);
+        PreLogUtil.put("Filter BasicArrayList: " + Std.string(this.getFilterStringBasicArrayList()), this, this.commonStrings.CONSTRUCTOR);
     }
 
-    public function visit(anyType : Any) : Any {
+    public function visit(...args : Dynamic) : Dynamic {
+        if (args.length == 1) {
+            return this.visit_Any(args[0]);
+        }
+        if (args.length == 1) {
+            return this.visit_AbFile(args[0]);
+        }
+        if (args.length == 2) {
+            return this.visit_AbFile_String(args[0], args[1]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: visit");
+    }
+
+    public function visit_Any(anyType : Any) : Any {
         return (cast this.visit((cast anyType : AbFile)) : Any);
     }
 
-    public function visit(file : AbFile) : Null<Bool> {
+    public function visit_AbFile(file : AbFile) : Null<Bool> {
         final list : BasicArrayList = this.getFilterStringBasicArrayList();
         final size : Int = list.size();
         var nextFileFilterString : String = null;
@@ -54,7 +67,7 @@ class BooleanFileVisitor implements VisitorInterface {
         this.filterStringBasicArrayList = filterStringBasicArrayList;
     }
 
-    public function visit(file : AbFile, fileNameString : String) : Null<Bool> {
+    public function visit_AbFile_String(file : AbFile, fileNameString : String) : Null<Bool> {
         return false;
     }
 

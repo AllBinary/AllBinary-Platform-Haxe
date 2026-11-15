@@ -94,12 +94,12 @@ class UpKeyEventHandlerBase extends BasicEventHandler {
             try {
                 var eventListenerInterface : EventListenerInterface = (cast this.list.get(index) : EventListenerInterface);
                 stringBuffer.append(UpKeyEventHandlerBase.LISTENER_LABEL);
-                stringBuffer.append(eventListenerInterface.toString());
+                stringBuffer.append(Std.string(eventListenerInterface));
             } catch (e : haxe.Exception) {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.TOSTRING, e);
             }
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

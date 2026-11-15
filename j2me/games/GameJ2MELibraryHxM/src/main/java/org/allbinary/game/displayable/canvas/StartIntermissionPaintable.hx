@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
@@ -39,8 +39,8 @@ class StartIntermissionPaintable extends InitUpdatePaintable implements UpdateMy
     public final fontSize : Int;
     public final font : Font;
     public final lastWidth : haxe.ds.Vector<Int>;
-    private final updateMyFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
-    private var myFontProcessor : MyFontProcessor = this.updateMyFontProcessor;
+    private final updateMyFontProcessor : MyFontProcessor;
+    private var myFontProcessor : MyFontProcessor;
     private var basicColor : BasicColor = BasicColorFactory.getInstance().BLACK;
     private var color : Int;
     public var lineYOffsetArray : haxe.ds.Vector<Int> = NullUtil.getInstance().NULL_INT_ARRAY;
@@ -49,6 +49,8 @@ class StartIntermissionPaintable extends InitUpdatePaintable implements UpdateMy
     public var fontHeightP : Int = 0;
     public function new(gameCanvas : AllBinaryGameCanvas, stringArray : haxe.ds.Vector<String>, basicColor : BasicColor, font : Font) {
         super();
+        this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
+        this.myFontProcessor = this.updateMyFontProcessor;
         this.gameCanvas = gameCanvas;
         this.stringArray = stringArray;
         this.lastWidth = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.stringArray.length) 0]);
@@ -90,7 +92,7 @@ class StartIntermissionPaintable extends InitUpdatePaintable implements UpdateMy
     private final EMPTY_STRING : String = StringUtil.getInstance().EMPTY_STRING;
     public override function update() : Void {
         var level : Int = this.gameCanvas.getLayerManager().getGameInfo().getCurrentLevel();
-        this.stringArray[0] = new StringMaker().append(this.BEGIN_LEVEL).appendint(level).toString();
+        this.stringArray[0] = Std.string(new StringMaker().append(this.BEGIN_LEVEL).appendint(level));
         {
             var index : Int = this.stringArray.length - 1;
             while (index >= 1) {

@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation.image.sprite;
 
-//import javax.microedition.lcdui.Image;
-//import javax.microedition.lcdui.game.Sprite;
+import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.game.Sprite;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.direction.Direction;
 import org.allbinary.math.Angle;

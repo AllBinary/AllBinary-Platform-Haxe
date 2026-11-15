@@ -84,16 +84,16 @@ class LayerManagerEventHandler extends BasicEventHandler {
         final eventListenerInterfaceList : BasicArrayList = this.eventListenerInterfaceList;
         var eventListenerInterface : EventListenerInterface = null;
         var layerManagerEventListenerInterface : LayerManagerEventListenerInterface = null;
-        var index : Int = 0;
-        while (index < eventListenerInterfaceList.size()) {
+        var listenerIndex : Int = 0;
+        while (listenerIndex < eventListenerInterfaceList.size()) {
             try {
-                eventListenerInterface = (cast eventListenerInterfaceList.objectArray[index] : EventListenerInterface);
+                eventListenerInterface = (cast eventListenerInterfaceList.objectArray[listenerIndex] : EventListenerInterface);
                 layerManagerEventListenerInterface = ((cast eventListenerInterface : LayerManagerEventListenerInterface));
                 layerManagerEventListenerInterface.onDeleteLayerManagerEvent((cast eventObject : LayerManagerEvent));
             } catch (e : haxe.Exception) {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
-            index++;
+            listenerIndex++;
         }
     }
 

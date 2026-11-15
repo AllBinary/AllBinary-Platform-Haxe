@@ -27,19 +27,19 @@ class SystemProperties {
     }
 
     public function getName() : String {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getArch() : String {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getVersion() : String {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getUserHomePath() : String {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
 }

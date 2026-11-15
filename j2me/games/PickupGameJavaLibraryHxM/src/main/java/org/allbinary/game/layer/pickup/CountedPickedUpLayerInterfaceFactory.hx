@@ -34,7 +34,7 @@ class CountedPickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactory
 
     // throws Exception
     public override function getNextInstance(hashtable : ABHashtable<Any, Any>, x : Int, y : Int, z : Int) : AllBinaryLayer {
-        throw new haxe.Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     public override function getTotal() : Int {

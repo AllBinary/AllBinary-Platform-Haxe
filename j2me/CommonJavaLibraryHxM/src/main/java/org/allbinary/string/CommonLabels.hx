@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.string;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
+//import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsProperty;
 
 class CommonLabels {
     private static final instance : CommonLabels = new CommonLabels();
@@ -33,7 +33,7 @@ class CommonLabels {
     public final START_LABEL : String = "Start: ";
     public final COMMAND_LABEL : String = "Command: ";
     public final NAME_LABEL : String = "Name: ";
-    public final START : String = this.START_LABEL;
+    public final START : String;
     public final ELAPSED : String = " Elapsed: ";
     public final CURRENT : String = " Current: ";
     public final NEXT : String = "Next";
@@ -41,6 +41,7 @@ class CommonLabels {
     public final RESULT_ : String = "Result: ";
     public final COLON_SEP : String = ": ";
     public function new() {
+        this.START = this.START_LABEL;
     }
 }
 

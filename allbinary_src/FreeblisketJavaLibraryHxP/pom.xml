@@ -30,33 +30,33 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
-
+    </dependencies>
     
     <modules>
 
-        <module>../BlisketJavaLibraryP</module>
+        <module>../BlisketJavaLibraryHxP</module>
 
         <!--
-        <module>../logging/LogConfigTypeFreeblisketJavaLibraryHaxeM</module>
+        <module>../logging/LogConfigTypeFreeblisketJavaLibraryHxM</module>
         -->
         
         <!--
-        <module>../TagsBaseJavaLibraryHaxeM</module>
+        <module>../TagsBaseJavaLibraryHxM</module>
         -->
-        <module>../CustomLoaderFakeJavaLibraryHaxeM</module>
+        <!--<module>../CustomLoaderFakeJavaLibraryHxM</module>-->
 
-        <module>../ViewsJavaLibraryHaxeM</module>
+        <!--<module>../ViewsJavaLibraryHxM</module>-->
 
-        <module>../data/NullSQLAllBinaryJavaLibraryHaxeM</module>
-        <module>../BlisketTagHelpersJavaLibraryHaxeM</module>
-        <module>../BlisketTagHelperFactoriesJavaLibraryHaxeM</module>
-        <module>../BlisketTagsJavaLibraryHaxeM</module>
+        <!--<module>../data/NullSQLAllBinaryJavaLibraryHxM</module>-->
+        <!--<module>../BlisketTagHelpersJavaLibraryHxM</module>-->
+        <!--<module>../BlisketTagHelperFactoriesJavaLibraryHxM</module>-->
+        <!--<module>../BlisketTagsJavaLibraryHxM</module>-->
         
         <!--
-        <module>../WorkflowJavaLibraryHaxeM</module>
+        <module>../WorkflowJavaLibraryHxM</module>
         -->
 
-        <module>../FreeblisketJavaLibraryHaxeM</module>
+        <!--<module>../FreeblisketJavaLibraryHxM</module>-->
 
     </modules>
 

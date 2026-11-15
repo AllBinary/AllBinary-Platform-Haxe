@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.score;
 
-//import java.io.ByteArrayOutputStream;
-//import java.io.DataOutputStream;
+import jre.io.ByteArrayOutputStream;
+import jre.io.DataOutputStream;
 import org.allbinary.game.GameInfo;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
@@ -70,7 +70,7 @@ class HighScore {
 
     public function toString() : String {
         final commonSeps : CommonSeps = CommonSeps.getInstance();
-        return new StringMaker().append(this.name).append(commonSeps.COLON).appendlong(this.score).append(commonSeps.FORWARD_SLASH).append(this.scoreString).toString();
+        return Std.string(new StringMaker().append(this.name).append(commonSeps.COLON).appendlong(this.score).append(commonSeps.FORWARD_SLASH).append(this.scoreString));
     }
 
 }

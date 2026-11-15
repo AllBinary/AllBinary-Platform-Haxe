@@ -83,7 +83,7 @@ class CategoryEntity extends AbSqlBean implements CategoryEntityInterface {
         stringBuffer.append(this.sqlStrings.PRIMARY_KEY);
         stringBuffer.append(CategoryData.getInstance().NAME);
         stringBuffer.append(this.sqlStrings.END);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function createTable() : String {
@@ -96,6 +96,10 @@ class CategoryEntity extends AbSqlBean implements CategoryEntityInterface {
 
     public function dropTable() : String {
         return super.dropTable();
+    }
+
+    public override function insert(values : BasicArrayList) : Void {
+        super.insert(values);
     }
 
 }

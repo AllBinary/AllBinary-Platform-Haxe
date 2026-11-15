@@ -61,7 +61,7 @@ class PlayerQueue {
             if (sound != null) {
                 resource = sound.getResource();
             }
-            PreLogUtil.put(new StringMaker().append(this.commonStrings.EXCEPTION_LABEL).append(resource).toString(), this, this.commonStrings.PROCESS);
+            PreLogUtil.put(Std.string(new StringMaker().append(this.commonStrings.EXCEPTION_LABEL).append(resource)), this, this.commonStrings.PROCESS);
             return false;
         }
     }
@@ -71,7 +71,7 @@ class PlayerQueue {
     }
 
     public function toString() : String {
-        return new StringMaker().append(PlayerQueue.TOTAL).appendint(this.list.size()).toString();
+        return Std.string(new StringMaker().append(PlayerQueue.TOTAL).appendint(this.list.size()));
     }
 
 }

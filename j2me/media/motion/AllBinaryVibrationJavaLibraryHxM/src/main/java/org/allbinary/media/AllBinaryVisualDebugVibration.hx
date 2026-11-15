@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.media;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFontProcessor;
@@ -28,7 +28,7 @@ class AllBinaryVisualDebugVibration extends AllBinaryVibrationME implements Upda
     private final displayInfoSingleton : DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
     private final timeDelayHelper : TimeDelayHelper = new TimeDelayHelper(Integer.MAX_VALUE);
     private final VIBRATING : String = "Vibrating";
-    private var myFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
+    private var myFontProcessor : MyFontProcessor;
     private var anchor : Int = Anchor.TOP_LEFT;
     private var width : Int = 0;
     public override function updateMeasurement(graphics : Graphics) : Void {
@@ -51,6 +51,7 @@ class AllBinaryVisualDebugVibration extends AllBinaryVibrationME implements Upda
 
     public function new() {
         super();
+        this.myFontProcessor = new UpdateMyFontProcessor(this);
     }
 }
 

@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation.caption;
 
-//import javax.microedition.lcdui.Graphics;
-//import javax.microedition.media.Player;
+import javax.microedition.lcdui.Graphics;
+import javax.microedition.media.Player;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationEventHandler;

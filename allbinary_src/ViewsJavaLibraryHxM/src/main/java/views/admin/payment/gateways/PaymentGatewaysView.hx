@@ -49,7 +49,7 @@ class PaymentGatewaysView extends HttpStoreComponentView implements DomNodeInter
                 var paymentType : BasicPaymentType = (cast this.paymentGatewayVector.get(index) : BasicPaymentType);
                 var hashMap : HashMap = paymentType.toHashMap();
                 hashMap.put(EntryData.getInstance().DEFAULT, PaymentTypeUtil.getInstance().getDefault(storeName).getBasicPaymentType().getName());
-                var paymentGatewayNode : Node = ModDomHelper.createNodeWithValueNodes(document, PaymentGatewayData.NAME.toString(), hashMap);
+                var paymentGatewayNode : Node = ModDomHelper.createNodeWithValueNodes(document, Std.string(PaymentGatewayData.NAME), hashMap);
                 paymentGatewaysNode.appendChild(paymentGatewayNode);
             }
             return paymentGatewaysNode;

@@ -29,10 +29,10 @@
     </properties>
 
     <modules>
-        <module>../J2SEForJ2MEJavaLibraryHaxeM</module>
-        <module>../J2MEForJ2MEJavaLibraryHaxeM</module>
+        <module>../J2SEForJ2MEJavaLibraryHxM</module>
+        <module>../J2MEForJ2MEJavaLibraryHxM</module>
         
-        <module>../media/graphics/GameResourceNoneJavaLibraryHaxeM</module>
+        <module>../media/graphics/GameResourceNoneJavaLibraryHxM</module>
         
     </modules>
 

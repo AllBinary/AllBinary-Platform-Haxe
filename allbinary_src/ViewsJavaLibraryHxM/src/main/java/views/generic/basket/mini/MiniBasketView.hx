@@ -37,13 +37,13 @@ class MiniBasketView extends HttpStoreComponentView implements DomNodeInterface 
             var basketInterface : BasketInterface = this.getWeblisketSession().getOrder().getBasket();
             var basketNode : Node = document.createElement(BasketData.BASKET);
             var totalNumberNode : Node = document.createElement(SearchData.TOTAL_NUMBER_ITEMS);
-            var totalNumberTextNode : Node = document.createTextNode(basketInterface.getNumberOfItems().toString());
+            var totalNumberTextNode : Node = document.createTextNode(Std.string(basketInterface.getNumberOfItems()));
             totalNumberNode.appendChild(totalNumberTextNode);
             var totalWeightNode : Node = document.createElement(BasketData.TOTALWEIGHT);
-            var totalWeightTextNode : Node = document.createTextNode(basketInterface.getTotalWeight().toString());
+            var totalWeightTextNode : Node = document.createTextNode(Std.string(basketInterface.getTotalWeight()));
             totalWeightNode.appendChild(totalWeightTextNode);
             var subTotalNode : Node = document.createElement(BasketData.SUBTOTAL);
-            var subTotalTextNode : Node = document.createTextNode(basketInterface.getSubTotal().toString());
+            var subTotalTextNode : Node = document.createTextNode(Std.string(basketInterface.getSubTotal()));
             subTotalNode.appendChild(subTotalTextNode);
             basketNode.appendChild(totalNumberNode);
             basketNode.appendChild(totalWeightNode);

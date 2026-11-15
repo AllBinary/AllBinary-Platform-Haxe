@@ -34,15 +34,15 @@ class LogFormatUtil {
     }
 
     public function get(className : String, functionName : String, specialMessage : String, exception : Any) : String {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getS(className : String, functionName : String, specialMessage : String) : String {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function getO(exception : Any) : String {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
 }

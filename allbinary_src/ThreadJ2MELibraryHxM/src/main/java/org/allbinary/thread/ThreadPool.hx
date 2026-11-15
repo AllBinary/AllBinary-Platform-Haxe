@@ -58,7 +58,7 @@ class ThreadPool {
 
     // throws Exception
     public function runAPriorityTask() : Void {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function runTaskWithPriority(task : PriorityRunnable) : Void {
@@ -175,7 +175,7 @@ class ThreadPool {
     }
 
     public function createName() : String {
-        return new StringMaker().append(this.poolName).append(ThreadPool.ROOT_NAME).appendint(this.threadID++).toString();
+        return Std.string(new StringMaker().append(this.poolName).append(ThreadPool.ROOT_NAME).appendint(this.threadID++));
     }
 
 }

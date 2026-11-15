@@ -42,7 +42,7 @@ class TransformInfoHttpSearch extends TransformInfoHttp {
         stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
         stringBuffer.append(this.getStoreName());
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     // throws Exception

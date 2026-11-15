@@ -61,7 +61,7 @@ class TaxFactory {
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
         stringBuffer.append("taxes");
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
-        final abPath : AbPath = new AbPath(stringBuffer.toString(), TAXATIONFILENAME);
+        final abPath : AbPath = new AbPath(Std.string(stringBuffer), TAXATIONFILENAME);
         final transformInfoObjectConfigData : TransformInfoObjectConfigData = TransformInfoObjectConfigData.getInstance();
         final data : String = new CryptFileReader(transformInfoObjectConfigData.UNCRYPTED_EXTENSION, transformInfoObjectConfigData.ENCRYPTED_EXTENSION).get(abPath);
         final document : Document = DomDocumentHelper.create(data);

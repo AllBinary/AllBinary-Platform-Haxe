@@ -15,16 +15,25 @@
 // Generated Code Do Not Modify
 package org.allbinary.util;
 
-//import java.util.Hashtable;
+import jre.util.Hashtable;
 
 class ABHashtable<K, V> extends Hashtable<K, V> {
-    public function new(initialCapacity : Int) {
-        super(initialCapacity);
+    public function new(...args : Dynamic) {
+        if (args.length == 1) {
+            final initialCapacity : Int = args[0];
+            super(initialCapacity);
+            this._new0(initialCapacity);
+        }
+        else if (args.length == 0) {
+            super();
+            this._new1();
+        }
     }
 
-    // Java overloaded constructor: Haxe allows one constructor
-    public function new() {
-        super();
+    private function _new0(initialCapacity : Int) : Void {
+    }
+
+    private function _new1() : Void {
     }
 
 }

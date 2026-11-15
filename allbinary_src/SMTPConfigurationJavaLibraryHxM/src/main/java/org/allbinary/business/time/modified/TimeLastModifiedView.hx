@@ -35,7 +35,7 @@ class TimeLastModifiedView implements DomNodeInterface {
 
     // throws Exception
     public function toXmlNode(document : Document) : Node {
-        return ModDomHelper.createTextNode(document, EntryData.getInstance().TIMECREATED, this.getTimeLastModified().toString());
+        return ModDomHelper.createTextNode(document, EntryData.getInstance().TIMECREATED, Std.string(this.getTimeLastModified()));
     }
 
     public function getTimeLastModified() : TimeLastModified {

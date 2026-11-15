@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.layer.pickup;
 
-//import javax.microedition.khronos.opengles.GL;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.khronos.opengles.GL;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.game.collision.CollidableAlwaysPickupNeverCollideBehaviorFactory;

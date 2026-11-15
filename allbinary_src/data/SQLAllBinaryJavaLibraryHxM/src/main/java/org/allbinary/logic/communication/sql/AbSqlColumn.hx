@@ -44,7 +44,7 @@ class AbSqlColumn extends AbSqlTable {
         stringBuffer.append(this.sqlStrings.EQUAL_QUOTE);
         stringBuffer.append(value);
         stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
-        final sqlStatement : String = stringBuffer.toString();
+        final sqlStatement : String = Std.string(stringBuffer);
         try {
             var largest : Int = 0;
             final rset : ResultSet = executeSQLStatement(sqlStatement);
@@ -54,14 +54,14 @@ class AbSqlColumn extends AbSqlTable {
                     largest = intValue;
                 }
             }
-            var largestAsString : String = largest.toString();
+            var largestAsString : String = Std.string(largest);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append(this.sqlStrings.SQL_STATEMENT_LABEL);
                 stringBuffer.append(sqlStatement);
                 stringBuffer.append(this.LARGEST_INT_VALUE_IN_COLUMN);
                 stringBuffer.append(largestAsString);
-                this.logUtil.putF(stringBuffer.toString(), this, this.METHOD_GET_LARGETS_INTEGER_IN_COLUMN);
+                this.logUtil.putF(Std.string(stringBuffer), this, this.METHOD_GET_LARGETS_INTEGER_IN_COLUMN);
             }
             return largestAsString;
         } catch (e : haxe.Exception) {
@@ -79,11 +79,11 @@ class AbSqlColumn extends AbSqlTable {
         stringBuffer.append(columnName);
         stringBuffer.append(this.sqlStrings.FROM);
         stringBuffer.append(this.getTableName());
-        final sqlStatement : String = stringBuffer.toString();
+        final sqlStatement : String = Std.string(stringBuffer);
         try {
             final rset : ResultSet = executeSQLStatement(sqlStatement);
             while (rset.next()) {
-                var field : String = rset.getObject(columnName).toString();
+                var field : String = Std.string(rset.getObject(columnName));
                 column.add(field);
             }
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
@@ -91,8 +91,8 @@ class AbSqlColumn extends AbSqlTable {
                 stringBuffer.append(this.sqlStrings.SQL_STATEMENT_LABEL);
                 stringBuffer.append(sqlStatement);
                 stringBuffer.append(this.sqlStrings.COLUMN_VALUE);
-                stringBuffer.append(column.toString());
-                this.logUtil.putF(stringBuffer.toString(), this, this.METHOD_GET_COLUMN);
+                stringBuffer.append(Std.string(column));
+                this.logUtil.putF(Std.string(stringBuffer), this, this.METHOD_GET_COLUMN);
             }
             return column;
         } catch (e : haxe.Exception) {
@@ -114,14 +114,14 @@ class AbSqlColumn extends AbSqlTable {
         stringBuffer.append(this.sqlStrings.EQUAL_QUOTE);
         stringBuffer.append(value);
         stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
-        final sqlStatement : String = stringBuffer.toString();
+        final sqlStatement : String = Std.string(stringBuffer);
         var column : BasicArrayList = new BasicArrayListD();
         var rset : ResultSet = null;
         var field : String = null;
         try {
             rset = executeSQLStatement(sqlStatement);
             while (rset.next()) {
-                field = rset.getObject(columnName).toString();
+                field = Std.string(rset.getObject(columnName));
                 column.add(field);
             }
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
@@ -129,8 +129,8 @@ class AbSqlColumn extends AbSqlTable {
                 stringBuffer.append(this.sqlStrings.SQL_STATEMENT_LABEL);
                 stringBuffer.append(sqlStatement);
                 stringBuffer.append(this.sqlStrings.COLUMN_VALUE);
-                stringBuffer.append(column.toString());
-                this.logUtil.putF(stringBuffer.toString(), this, this.METHOD_GET_COLUMN_WHERE);
+                stringBuffer.append(Std.string(column));
+                this.logUtil.putF(Std.string(stringBuffer), this, this.METHOD_GET_COLUMN_WHERE);
             }
             return column;
         } catch (e : haxe.Exception) {

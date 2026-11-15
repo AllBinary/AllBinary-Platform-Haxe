@@ -34,7 +34,7 @@ class CompoundTransform extends AbTransformer {
         this.setURIResolver((cast new StoreUriResolver(this.getTransformInfoInterface(), (cast this.getURIResolver() : BasicUriResolver)) : URIResolver));
         var objectConfig : CompoundContextTransformInfoObjectConfig = new CompoundContextTransformInfoObjectConfig(this.abeClientInformation, this.getTransformInfoInterface(), this.getTransformInfoInterface().getObjectConfigInterface().toXmlDoc());
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-            this.logUtil.putF("\nObjectConfig: \n" + objectConfig.toString(), this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.putF("\nObjectConfig: \n" + Std.string(objectConfig), this, this.commonStrings.CONSTRUCTOR);
         }
         var templateInputStream : InputStream = objectConfig.createInputStream();
         this.setInputStream(templateInputStream);

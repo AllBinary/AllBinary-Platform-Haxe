@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.business.context.modules.storefronts;
 
-//import java.util.HashMap;
+import jre.util.HashMap;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.UserData;
@@ -53,11 +53,20 @@ class BasicStoreFront implements BasicStoreFrontInterface {
     private var testFtpPassword : String;
     private var timeCreated : String;
     private var lastModified : String;
-    public function new() {
+    public function new(...args : Dynamic) {
+        if (args.length == 0) {
+            this._new0();
+        }
+        else if (args.length == 1) {
+            final storeHashMap : HashMap<Dynamic, Dynamic> = args[0];
+            this._new1(storeHashMap);
+        }
     }
 
-    // Java overloaded constructor: Haxe allows one constructor
-    public function new(storeHashMap : HashMap) {
+    private function _new0() : Void {
+    }
+
+    private function _new1(storeHashMap : HashMap<Dynamic, Dynamic>) : Void {
         var storeFrontData : StoreFrontData = StoreFrontData.getInstance();
         this.name = (cast storeHashMap.get(storeFrontData.NAME) : String);
         this.userName = (cast storeHashMap.get(UserData.USERNAME) : String);

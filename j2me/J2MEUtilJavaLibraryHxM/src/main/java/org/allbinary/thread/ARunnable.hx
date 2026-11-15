@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.thread;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsMethod;
 
 class ARunnable implements Runnable {
     public function run() : Void {

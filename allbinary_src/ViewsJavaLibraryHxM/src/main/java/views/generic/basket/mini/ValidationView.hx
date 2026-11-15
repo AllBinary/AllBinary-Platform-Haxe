@@ -40,5 +40,10 @@ class ValidationView extends MiniBasketView implements ValidationComponentInterf
         return MESSAGES.CONTACTADMIN;
     }
 
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
+    }
+
 }
 

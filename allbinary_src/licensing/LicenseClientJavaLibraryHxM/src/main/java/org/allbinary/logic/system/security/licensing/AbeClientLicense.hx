@@ -94,7 +94,7 @@ class AbeClientLicense implements AbeLicenseInterface {
         stringBuffer.appendboolean(this.isValid());
         stringBuffer.append(BREAK);
         stringBuffer.append("Keys: ");
-        stringBuffer.append(this.hashtable.toString());
+        stringBuffer.append(Std.string(this.hashtable));
         stringBuffer.append(BREAK);
         var serverVector : BasicArrayList = this.getServers();
         var size : Int = serverVector.size();
@@ -104,7 +104,7 @@ class AbeClientLicense implements AbeLicenseInterface {
             stringBuffer.append(nextServerString);
             stringBuffer.append(BREAK);
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     private function setSpecial(special : String) : Void {

@@ -44,21 +44,21 @@ class PCComponentFactory {
     public function getInstance(component : String, componentData : String) : HardwareComponentInterface {
         try {
             if (component != null) {
-                if (Reflect.compare(component, this.componentFactory.ETHERNET.toString()) == 0) {
+                if (Reflect.compare(component, Std.string(this.componentFactory.ETHERNET)) == 0) {
                     return (cast new Ethernet(componentData) : HardwareComponentInterface);
-                } else if (Reflect.compare(component, this.componentFactory.BRIDGE.toString()) == 0) {
+                } else if (Reflect.compare(component, Std.string(this.componentFactory.BRIDGE)) == 0) {
                     return (cast new Bridge(componentData) : HardwareComponentInterface);
-                } else if (Reflect.compare(component, this.componentFactory.IDE.toString()) == 0) {
+                } else if (Reflect.compare(component, Std.string(this.componentFactory.IDE)) == 0) {
                     return (cast new HardDriveController(componentData) : HardwareComponentInterface);
-                } else if (Reflect.compare(component, this.componentFactory.MULTIMEDIA.toString()) == 0) {
+                } else if (Reflect.compare(component, Std.string(this.componentFactory.MULTIMEDIA)) == 0) {
                     return (cast new Media(componentData) : HardwareComponentInterface);
-                } else if (Reflect.compare(component, this.componentFactory.SCSI.toString()) == 0) {
+                } else if (Reflect.compare(component, Std.string(this.componentFactory.SCSI)) == 0) {
                     return (cast new HardDriveController(componentData) : HardwareComponentInterface);
-                } else if (Reflect.compare(component, this.componentFactory.USB.toString()) == 0) {
+                } else if (Reflect.compare(component, Std.string(this.componentFactory.USB)) == 0) {
                     return (cast new Usb(componentData) : HardwareComponentInterface);
-                } else if (Reflect.compare(component, this.componentFactory.VGA.toString()) == 0) {
+                } else if (Reflect.compare(component, Std.string(this.componentFactory.VGA)) == 0) {
                     return (cast new Video(componentData) : HardwareComponentInterface);
-                } else if (Reflect.compare(component, this.componentFactory.PCI.toString()) == 0) {
+                } else if (Reflect.compare(component, Std.string(this.componentFactory.PCI)) == 0) {
                     return (cast new PCI(componentData) : HardwareComponentInterface);
                 }
             }
@@ -73,24 +73,24 @@ class PCComponentFactory {
     }
 
     public function getComponentType(component : String) : String {
-        if (component.indexOf(this.componentFactory.ETHERNET.toString()) >= 0) {
-            return this.componentFactory.ETHERNET.toString();
-        } else if (component.indexOf(this.componentFactory.BRIDGE.toString()) >= 0) {
-            return this.componentFactory.BRIDGE.toString();
-        } else if (component.indexOf(this.componentFactory.IDE.toString()) >= 0) {
-            return this.componentFactory.IDE.toString();
-        } else if (component.indexOf(this.componentFactory.MULTIMEDIA.toString()) >= 0) {
-            return this.componentFactory.MULTIMEDIA.toString();
-        } else if (component.indexOf(this.componentFactory.SCSI.toString()) >= 0) {
-            return this.componentFactory.SCSI.toString();
-        } else if (component.indexOf(this.componentFactory.USB.toString()) >= 0) {
-            return this.componentFactory.USB.toString();
-        } else if (component.indexOf(this.componentFactory.VGA.toString()) >= 0) {
-            return this.componentFactory.VGA.toString();
-        } else if (Reflect.compare(component, this.componentFactory.PCI.toString()) == 0) {
-            return this.componentFactory.PCI.toString();
+        if (component.indexOf(Std.string(this.componentFactory.ETHERNET)) >= 0) {
+            return Std.string(this.componentFactory.ETHERNET);
+        } else if (component.indexOf(Std.string(this.componentFactory.BRIDGE)) >= 0) {
+            return Std.string(this.componentFactory.BRIDGE);
+        } else if (component.indexOf(Std.string(this.componentFactory.IDE)) >= 0) {
+            return Std.string(this.componentFactory.IDE);
+        } else if (component.indexOf(Std.string(this.componentFactory.MULTIMEDIA)) >= 0) {
+            return Std.string(this.componentFactory.MULTIMEDIA);
+        } else if (component.indexOf(Std.string(this.componentFactory.SCSI)) >= 0) {
+            return Std.string(this.componentFactory.SCSI);
+        } else if (component.indexOf(Std.string(this.componentFactory.USB)) >= 0) {
+            return Std.string(this.componentFactory.USB);
+        } else if (component.indexOf(Std.string(this.componentFactory.VGA)) >= 0) {
+            return Std.string(this.componentFactory.VGA);
+        } else if (Reflect.compare(component, Std.string(this.componentFactory.PCI)) == 0) {
+            return Std.string(this.componentFactory.PCI);
         }
-        return this.componentFactory.UNKNOWN.toString();
+        return Std.string(this.componentFactory.UNKNOWN);
     }
 
 }

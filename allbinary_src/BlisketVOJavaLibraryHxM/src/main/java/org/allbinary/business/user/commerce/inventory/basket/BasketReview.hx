@@ -72,7 +72,7 @@ class BasketReview {
             var item : Item = (cast itemArray[index] : Item);
             weightFloat += item.getWeight();
         }
-        return weightFloat.toString();
+        return Std.string(weightFloat);
     }
 
     public function getNumberOfItems() : Null<Int> {

@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.string;
 
-//import java.util.HashMap;
+import jre.util.HashMap;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.math.MathData;
@@ -23,11 +23,11 @@ import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonSeps;
 
 class SpecialCharacterUtil {
-    public static function getHashMap() : HashMap {
+    public static function getHashMap() : HashMap<Dynamic, Dynamic> {
         final commonSeps : CommonSeps = CommonSeps.getInstance();
         final commonPhoneStrings : CommonPhoneStrings = CommonPhoneStrings.getInstance();
         final stringUtil : StringUtil = StringUtil.getInstance();
-        final hashMap : HashMap = StdUtil.getInstance().createHashMap();
+        final hashMap : HashMap<Dynamic, Dynamic> = StdUtil.getInstance().createHashMap();
         hashMap.put("!", stringUtil.EMPTY_STRING);
         hashMap.put("@", stringUtil.EMPTY_STRING);
         hashMap.put(commonPhoneStrings.POUND, stringUtil.EMPTY_STRING);

@@ -24,7 +24,7 @@ class EndGameInfo {
     private final TEASER_DEMO_GAME_END_LAST_LEVEL : String = "End of Demo.";
     private final TEASER_DEMO_GAME_END : String = "Demo Game Over.";
     private var gameOverStr : String = StringUtil.getInstance().EMPTY_STRING;
-    private var winStr : String = this.gameOverStr;
+    private var winStr : String;
     public function update(gameInfo : GameInfo, myCanvas : MyCanvas) : Void {
         if (gameInfo.isLastLevel()) {
             this.setWinStr(this.TEASER_DEMO_GAME_END_LAST_LEVEL);
@@ -52,6 +52,7 @@ class EndGameInfo {
     }
 
     public function new() {
+        this.winStr = this.gameOverStr;
     }
 }
 

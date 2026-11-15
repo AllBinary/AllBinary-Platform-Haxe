@@ -52,7 +52,7 @@ class NoZBasicConstantVelocityMovement extends Movement implements VelocityInter
     }
 
     public function toString() : String {
-        return this.velocityProperties.toString();
+        return Std.string(this.velocityProperties);
     }
 
     public override function stop() : Void {

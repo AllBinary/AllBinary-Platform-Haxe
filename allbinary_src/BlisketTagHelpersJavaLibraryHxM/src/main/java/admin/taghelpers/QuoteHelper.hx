@@ -70,7 +70,7 @@ class QuoteHelper extends BasicTable {
         stringBuffer.append("This is just a verification email. ");
         stringBuffer.append("We usually respond to quote request within 24 hours.");
         stringBuffer.append("\n\nThank You For Your Business.");
-        var userEmailTextBody : String = stringBuffer.toString();
+        var userEmailTextBody : String = Std.string(stringBuffer);
         var basicEmailInfo : BasicEmailInfo = (cast new StoreEmailInfo(this.storeFrontInterface, userEmailSubject, userEmailTextBody) : BasicEmailInfo);
         var emailInfo : EmailInfo = new EmailInfo(basicEmailInfo);
         var userEmailEventHandler : UserEmailEventHandler = UserEmailEventHandlerSingletons.getInstance().getInstance(this.abeClientInformation, UserEmailEventNameData.QUOTEREQUEST, user);
@@ -93,7 +93,7 @@ class QuoteHelper extends BasicTable {
         stringBuffer.append(quoteRequest.getTimeFrame());
         stringBuffer.append("\nComments: \n");
         stringBuffer.append(quoteRequest.getComments());
-        var adminEmailTextBody : String = stringBuffer.toString();
+        var adminEmailTextBody : String = Std.string(stringBuffer);
         var basicEmailInfo : BasicEmailInfo = (cast new StoreEmailInfo(this.storeFrontInterface, adminEmailSubject, adminEmailTextBody) : BasicEmailInfo);
         var emailInfo : EmailInfo = new EmailInfo(basicEmailInfo);
         var storeAdminUserEmailEventHandler : UserEmailEventHandler = AdminUserEmailEventHandlerSingletons.getInstance().getInstance(this.abeClientInformation, UserEmailEventNameData.QUOTEREQUEST);

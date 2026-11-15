@@ -37,7 +37,7 @@ class TransformInfoHttp extends TransformInfo implements TransformInfoHttpInterf
         super();
         this.abContext = new AbContext(propertiesHashMap, pageContext);
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-            this.logUtil.putF("Properties HashMap: " + propertiesHashMap.toString(), this, "Constructor(HashMap, PageContext, boolean)");
+            this.logUtil.putF("Properties HashMap: " + Std.string(propertiesHashMap), this, "Constructor(HashMap, PageContext, boolean)");
         }
         this.override_(propertiesHashMap);
     }
@@ -47,7 +47,7 @@ class TransformInfoHttp extends TransformInfo implements TransformInfoHttpInterf
         super();
         this.abContext = new AbContext(propertiesHashMap, pageContext);
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-            this.logUtil.putF("Properties HashMap: " + propertiesHashMap.toString(), this, "Constructor(HttpServletRequest, HashMap, PageContext)");
+            this.logUtil.putF("Properties HashMap: " + Std.string(propertiesHashMap), this, "Constructor(HttpServletRequest, HashMap, PageContext)");
         }
         this.set(new RequestParams((cast request : HttpServletRequest)).toHashMap());
         this.override_(propertiesHashMap);
@@ -58,7 +58,7 @@ class TransformInfoHttp extends TransformInfo implements TransformInfoHttpInterf
         super();
         this.abContext = new AbContext(propertiesHashMap, pageContext);
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-            this.logUtil.putF("Properties HashMap: " + propertiesHashMap.toString(), this, "Constructor(HashMap, HashMap, PageContext)");
+            this.logUtil.putF("Properties HashMap: " + Std.string(propertiesHashMap), this, "Constructor(HashMap, HashMap, PageContext)");
         }
         this.set(databaseHashMap);
     }
@@ -68,7 +68,7 @@ class TransformInfoHttp extends TransformInfo implements TransformInfoHttpInterf
         super();
         this.abContext = new AbContext(propertiesHashMap, pageContext);
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-            this.logUtil.putF("Properties HashMap: " + propertiesHashMap.toString(), this, "Constructor(HashMap, PageContext)");
+            this.logUtil.putF("Properties HashMap: " + Std.string(propertiesHashMap), this, "Constructor(HashMap, PageContext)");
         }
         this.set(propertiesHashMap);
     }
@@ -82,7 +82,7 @@ class TransformInfoHttp extends TransformInfo implements TransformInfoHttpInterf
     // throws Exception
     private function set(hashMap : HashMap) : Void {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-            this.logUtil.putF("Properties HashMap: " + hashMap.toString(), this, "set()");
+            this.logUtil.putF("Properties HashMap: " + Std.string(hashMap), this, "set()");
         }
         var transformInfoData : TransformInfoData = TransformInfoData.getInstance();
         this.setName((cast hashMap.get(transformInfoData.NAME) : String));
@@ -94,7 +94,7 @@ class TransformInfoHttp extends TransformInfo implements TransformInfoHttpInterf
         if (stringValidationUtil.isValidRequired(objectConfigString, 10, AbSqlData.MAXBLOB)) {
             this.setObjectConfig(objectConfigString);
         } else {
-            this.setObjectConfig(new TransformInfoObjectConfig(this).toString());
+            this.setObjectConfig(Std.string(new TransformInfoObjectConfig(this)));
         }
         if (!stringValidationUtil.isEmpty((cast hashMap.get(transformInfoData.OBJECTCONFIGFILENAME) : String))) {
             this.setObjectConfigFile((cast hashMap.get(transformInfoData.OBJECTCONFIGFILENAME) : String));

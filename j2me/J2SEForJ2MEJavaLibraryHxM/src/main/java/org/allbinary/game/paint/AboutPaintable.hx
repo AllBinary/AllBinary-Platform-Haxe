@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.paint;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
@@ -35,8 +35,8 @@ class AboutPaintable extends Paintable implements UpdateMyFontInterface {
     private final ABOUT : String = CanvasStrings.getInstance().ABOUT;
     private final info : haxe.ds.Vector<String>;
     private final developers : haxe.ds.Vector<String>;
-    private final paintableArray : haxe.ds.Vector<Paintable> = haxe.ds.Vector.fromArrayCopy([this]);
-    private var myFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
+    private final paintableArray : haxe.ds.Vector<Paintable>;
+    private var myFontProcessor : MyFontProcessor;
     private var charHeight : Int = 0;
     private var aboutBeginWidth : Int = 0;
     private var infoBeginWidth : haxe.ds.Vector<Int>;
@@ -44,6 +44,8 @@ class AboutPaintable extends Paintable implements UpdateMyFontInterface {
     private var anchor : Int = Anchor.TOP_LEFT;
     public function new(info : haxe.ds.Vector<String>, developers : haxe.ds.Vector<String>) {
         super();
+        this.paintableArray = haxe.ds.Vector.fromArrayCopy([this]);
+        this.myFontProcessor = new UpdateMyFontProcessor(this);
         this.info = info;
         this.infoBeginWidth = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.info.length) 0]);
         this.developers = developers;

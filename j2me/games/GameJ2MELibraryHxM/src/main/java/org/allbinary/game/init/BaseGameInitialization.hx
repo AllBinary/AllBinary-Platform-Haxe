@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.init;
 
-//import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.CommandListener;
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.game.configuration.event.ChangedGameFeatureListener;

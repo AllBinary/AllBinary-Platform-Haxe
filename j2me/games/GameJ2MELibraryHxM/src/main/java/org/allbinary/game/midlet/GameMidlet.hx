@@ -15,13 +15,13 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.midlet;
 
-//import java.util.Enumeration;
-//import javax.microedition.lcdui.Canvas;
-//import javax.microedition.lcdui.Command;
-//import javax.microedition.lcdui.CommandListener;
-//import javax.microedition.lcdui.Displayable;
-//import javax.microedition.lcdui.NullCanvas;
-//import javax.microedition.midlet.MIDletStateChangeException;
+import jre.util.Enumeration;
+import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Displayable;
+import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.midlet.MIDletStateChangeException;
 import org.allbinary.J2MEUtil;
 import org.allbinary.TsUtil;
 import org.allbinary.business.advertisement.GameAdStateFactory;
@@ -119,7 +119,7 @@ class GameMidlet extends ProgressMidlet implements CommandListener {
     private final COMMAND_NAME : String = "command Name/Label: ";
     private final NO_COMMAND : String = "No Command";
     private final NO_DISPLAYABLE : String = "No Displayable";
-    private final COMMAND_ACTION : String = new StringMaker().append("GameMidlet::").append(this.midletStrings.COMMAND_ACTION).toString();
+    private final COMMAND_ACTION : String;
     private final PAUSE_APP_BACKGROUND : String = "pauseAppBackground";
     private final UN_PAUSE_APP_BACKGROUND : String = "unPauseAppBackground";
     private final aboutCommandProcessor : AboutCommandProcessor = AboutCommandProcessor.getInstance();
@@ -135,6 +135,7 @@ class GameMidlet extends ProgressMidlet implements CommandListener {
     private var resized : Bool = false;
     public function new(clientInformationFactory : ClientInformationFactory) {
         super(clientInformationFactory);
+        this.COMMAND_ACTION = Std.string(new StringMaker().append("GameMidlet::").append(this.midletStrings.COMMAND_ACTION));
         SmallIntegerSingletonFactory.getInstance().initWithRange(0x291, 6);
         this.loadGameForm = CommandForm.getNullCommandForm();
         final progressCanvas : ProgressCanvas = ProgressCanvasFactory.getInstance();
@@ -150,17 +151,17 @@ class GameMidlet extends ProgressMidlet implements CommandListener {
 
     // throws Exception
     public function setDemo() : Void {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception
     public function createGame() : Void {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception
     public function mediaShutdown() : Void {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     public function stopAll() : Void {
@@ -214,7 +215,7 @@ class GameMidlet extends ProgressMidlet implements CommandListener {
     public override function destroyApp(unconditional : Bool) : Void {
         final METHOD_NAME : String = "GameMidlet::destroyApp";
         try {
-            PreLogUtil.put(GameStatisticsFactory.getInstance().toString(), this, METHOD_NAME);
+            PreLogUtil.put(Std.string(GameStatisticsFactory.getInstance()), this, METHOD_NAME);
             final gameAdState : GameAdState = this.gameAdStateFactory.getCurrentInstance();
             gameAdState.getAdvertisements().stopAll();
             if (!this.isDestroyed()) {
@@ -263,13 +264,13 @@ class GameMidlet extends ProgressMidlet implements CommandListener {
         try {
             var displayableAsString : String = this.NO_DISPLAYABLE;
             if (displayable != null) {
-                displayableAsString = displayable.toString();
+                displayableAsString = Std.string(displayable);
             }
             var label : String = this.NO_COMMAND;
             if (command != null) {
                 label = command.getLabel();
             }
-            PreLogUtil.put(new StringMaker().append(this.COMMAND_NAME).append(label).append(this.DISPLAYABLE).append(displayableAsString).toString(), this, this.COMMAND_ACTION);
+            PreLogUtil.put(Std.string(new StringMaker().append(this.COMMAND_NAME).append(label).append(this.DISPLAYABLE).append(displayableAsString)), this, this.COMMAND_ACTION);
             final gameCommandsFactory : GameCommandsFactory = GameCommandsFactory.getInstance();
             final allbinaryGameCanvasRunnableInterface : GameCanvasRunnableInterface = this.allbinaryGameCanvasRunnableInterface;
             final gameCanvasRunnableInterface : Any = allbinaryGameCanvasRunnableInterface;
@@ -414,7 +415,7 @@ class GameMidlet extends ProgressMidlet implements CommandListener {
                 stringBuffer.appendboolean(this.fullScreenUtil.isScreenChange(this.isFullScreen));
                 stringBuffer.append(" isResized: ");
                 stringBuffer.appendboolean(this.isResized());
-                PreLogUtil.put(stringBuffer.toString(), this, this.COMMAND_ACTION);
+                PreLogUtil.put(Std.string(stringBuffer), this, this.COMMAND_ACTION);
                 if (this.isResized() || this.fullScreenUtil.isScreenChange(this.isFullScreen)) {
                     this.updateFullScreen();
                 }
@@ -439,9 +440,9 @@ class GameMidlet extends ProgressMidlet implements CommandListener {
                     this.setStartStateHashtable(keyValuePersistance.get(index));
                     final menuListener : MenuListener = this.getLoadGameForm();
                     menuListener.close();
-                    PreLogUtil.put(BasicMotionGesturesHandler.getInstance().toString(), this, this.COMMAND_ACTION);
+                    PreLogUtil.put(Std.string(BasicMotionGesturesHandler.getInstance()), this, this.COMMAND_ACTION);
                     this.commandAction(gameCommandsFactory.START_COMMAND, NullCanvas.NULL_CANVAS);
-                    PreLogUtil.put(BasicMotionGesturesHandler.getInstance().toString(), this, this.COMMAND_ACTION);
+                    PreLogUtil.put(Std.string(BasicMotionGesturesHandler.getInstance()), this, this.COMMAND_ACTION);
                 }
             } else if (command == gameCommandsFactory.DELETE_FILE) {
                 final loadGameForm : LoadGameForm = (cast this.getLoadGameForm() : LoadGameForm);
@@ -484,7 +485,7 @@ class GameMidlet extends ProgressMidlet implements CommandListener {
                 this.updateFullScreen();
             }
         } catch (e : haxe.Exception) {
-            this.logUtil.put(new StringMaker().append(this.commonStrings.EXCEPTION_LABEL).append(command.getLabel()).toString(), this, this.midletStrings.COMMAND_ACTION, e);
+            this.logUtil.put(Std.string(new StringMaker().append(this.commonStrings.EXCEPTION_LABEL).append(command.getLabel())), this, this.midletStrings.COMMAND_ACTION, e);
             if (command != GameCommandsFactory.getInstance().EXIT_COMMAND) {
                 this.exitProgress(false);
             }
@@ -522,19 +523,19 @@ class GameMidlet extends ProgressMidlet implements CommandListener {
 
     // throws Exception
     public function getHelpPaintable() : HelpPaintable {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception
     public function createHighScoresCanvas() : HighScoresCanvas {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception
     public function startGameCanvasRunnableInterface() : Void {
         final threadFactoryUtil : ThreadFactoryUtil = ThreadFactoryUtil.getInstance();
         this.thread = threadFactoryUtil.getInstanceGameCanvasRunnable(this.allbinaryGameCanvasRunnableInterface);
-        this.logUtil.putF(new StringMaker().append("Thread Priority: ").appendint(Std.int(this.thread.getPriority())).toString(), this, "startGameCanvasRunnableInterface");
+        this.logUtil.putF(Std.string(new StringMaker().append("Thread Priority: ").appendint(Std.int(this.thread.getPriority()))), this, "startGameCanvasRunnableInterface");
         this.allbinaryGameCanvasRunnableInterface.setThread(this.thread);
         threadFactoryUtil.start(this.thread);
     }
@@ -547,7 +548,7 @@ class GameMidlet extends ProgressMidlet implements CommandListener {
         GameEventHandlerUtil.removeAllListeners();
         final gameCanvasRunnableInterface : GameCanvasRunnableInterface = this.allbinaryGameCanvasRunnableInterface;
         if (gameCanvasRunnableInterface != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) {
-            this.logUtil.putF(new StringMaker().append("Set Running False: ").append(gameCanvasRunnableInterface.toString()).toString(), this, this.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
+            this.logUtil.putF(Std.string(new StringMaker().append("Set Running False: ").append(Std.string(gameCanvasRunnableInterface))), this, this.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
             gameCanvasRunnableInterface.setRunning(false);
         } else {
             this.logUtil.putF("StopGame - Could Not Stop", this, this.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
@@ -593,7 +594,7 @@ class GameMidlet extends ProgressMidlet implements CommandListener {
         final hashtable : ABHashtable<Any, Any> = StdUtil.getInstance().createHashtable();
         if (this.allbinaryGameCanvasRunnableInterface != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) {
             final currentHashtable : ABHashtable<Any, Any> = this.allbinaryGameCanvasRunnableInterface.getCurrentStateHashtable();
-            final enumeration : Enumeration = currentHashtable.keys();
+            final enumeration : Enumeration<Dynamic> = currentHashtable.keys();
             var key : Any = null;
             while (this.enumerationUtil.hasMoreElements(enumeration)) {
                 key = this.enumerationUtil.nextElement(enumeration);

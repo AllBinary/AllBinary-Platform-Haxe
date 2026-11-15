@@ -27,11 +27,11 @@ class PreLogUtil {
     }
 
     public static function putOE(specialMessage : String, anyType : Any, functionName : String, exception : Any) : Void {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public static function putSE(specialMessage : String, className : String, functionName : String, exception : Any) : Void {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
 }

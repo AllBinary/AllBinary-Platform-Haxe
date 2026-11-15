@@ -67,7 +67,7 @@ class SequenceAI extends ArrayAI {
         stringBuffer.append(super.toString());
         stringBuffer.append(" Selected AI: ");
         stringBuffer.append(StringUtil.getInstance().toString(this.getSelectedArtificialIntelligenceInterface()));
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

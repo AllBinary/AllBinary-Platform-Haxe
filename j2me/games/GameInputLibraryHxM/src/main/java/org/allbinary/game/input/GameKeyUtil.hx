@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.input;
 
-//import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Canvas;
 
 class GameKeyUtil {
     private static final instance : GameKeyUtil = new GameKeyUtil();

@@ -1,13 +1,13 @@
 // Generated Code Do Not Modify
 package org.allbinary.util;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsConstructor;
+//import jsinterop.annotations.JsProperty;
 
 //This is a very fast and simple resizable list.
 class BasicArrayList {
@@ -26,7 +26,7 @@ class BasicArrayList {
             stringBuffer.appendint(index);
             stringBuffer.append(BasicArrayList.SIZE);
             stringBuffer.appendint(this.currentIndex);
-            throw new IndexOutOfBoundsException(stringBuffer.toString());
+            throw new IndexOutOfBoundsException(Std.string(stringBuffer));
         }
         this.ensureCapacity(this.currentIndex + 1);
         haxe.ds.Vector.blit(this.objectArray, index, this.objectArray, index + 1, this.currentIndex - index);
@@ -47,7 +47,7 @@ class BasicArrayList {
             stringBuffer.appendint(index);
             stringBuffer.append(BasicArrayList.SIZE);
             stringBuffer.appendint(this.currentIndex);
-            throw new IndexOutOfBoundsException(stringBuffer.toString());
+            throw new IndexOutOfBoundsException(Std.string(stringBuffer));
         }
         var oldValue : Any = this.objectArray[index];
         final numMoved : Int = this.currentIndex - index - 1;
@@ -72,7 +72,7 @@ class BasicArrayList {
             }
         } else {
             for (index in 0...this.currentIndex) {
-                if (anyType == this.objectArray[index] || anyType.equals(this.objectArray[index])) {
+                if (anyType == this.objectArray[index] || jre.lang.JavaObject.equals(anyType, this.objectArray[index])) {
                     final numMoved : Int = this.currentIndex - index - 1;
                     if (numMoved > 0) {
                         haxe.ds.Vector.blit(this.objectArray, index + 1, this.objectArray, index, numMoved);
@@ -146,7 +146,7 @@ class BasicArrayList {
             }
         } else {
             for (i in 0...this.currentIndex) {
-                if (anyType.equals(this.objectArray[i])) {
+                if (jre.lang.JavaObject.equals(anyType, this.objectArray[i])) {
                     return i;
                 }
             }
@@ -169,7 +169,7 @@ class BasicArrayList {
             {
                 var i : Int = this.currentIndex - 1;
                 while (i >= 0) {
-                if (anyType.equals(this.objectArray[i])) {
+                if (jre.lang.JavaObject.equals(anyType, this.objectArray[i])) {
                     return i;
                 }
                     i--;
@@ -186,7 +186,7 @@ class BasicArrayList {
             stringBuffer.appendint(index);
             stringBuffer.append(BasicArrayList.SIZE);
             stringBuffer.appendint(this.currentIndex);
-            throw new IndexOutOfBoundsException(stringBuffer.toString());
+            throw new IndexOutOfBoundsException(Std.string(stringBuffer));
         }
         return this.objectArray[index];
     }
@@ -198,7 +198,7 @@ class BasicArrayList {
             stringBuffer.appendint(index);
             stringBuffer.append(BasicArrayList.SIZE);
             stringBuffer.appendint(this.currentIndex);
-            throw new IndexOutOfBoundsException(stringBuffer.toString());
+            throw new IndexOutOfBoundsException(Std.string(stringBuffer));
         }
         final oldValue : Any = this.objectArray[index];
         this.objectArray[index] = element;
@@ -254,10 +254,10 @@ class BasicArrayList {
         final COMMA_SEP : String = CommonSeps.getInstance().COMMA_SEP;
         final stringBuffer : StringMaker = new StringMaker();
         for (index in 0...this.currentIndex) {
-            stringBuffer.append(this.objectArray[index].toString());
+            stringBuffer.append(Std.string(this.objectArray[index]));
             stringBuffer.append(COMMA_SEP);
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

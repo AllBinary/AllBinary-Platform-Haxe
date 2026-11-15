@@ -59,7 +59,7 @@ class OrderHelper extends TagHelper {
         try {
             var paymentGatewayBoolean : Null<Bool> = false;
             var orderInterface : OrderInterface = this.weblisketSession.getOrder();
-            var requestPaymentGateway : String = (cast this.request.getParameter(PaymentGatewayData.NAME.toString()) : String);
+            var requestPaymentGateway : String = (cast this.request.getParameter(Std.string(PaymentGatewayData.NAME)) : String);
             if (!StringValidationUtil.getInstance().isEmpty(requestPaymentGateway)) {
                 this.weblisketSession.setPaymentMethod(requestPaymentGateway);
                 orderInterface.setPaymentMethod(requestPaymentGateway);
@@ -81,7 +81,7 @@ class OrderHelper extends TagHelper {
                 stringBuffer.append(orderInterface.getId());
                 stringBuffer.append(" to: ");
                 stringBuffer.append(orderInterface.getPaymentMethod());
-                this.logUtil.putF(stringBuffer.toString(), this, "setPaymentGateway()");
+                this.logUtil.putF(Std.string(stringBuffer), this, "setPaymentGateway()");
             }
             return paymentGatewayBoolean;
         } catch (e : haxe.Exception) {
@@ -98,7 +98,7 @@ class OrderHelper extends TagHelper {
                 } catch (ex : haxe.Exception) {
                     stringBuffer.append(" Exception Getting");
                 }
-                this.logUtil.put(stringBuffer.toString(), this, "setPaymentGateway()", e);
+                this.logUtil.put(Std.string(stringBuffer), this, "setPaymentGateway()", e);
             }
             return false;
         }
@@ -121,7 +121,7 @@ class OrderHelper extends TagHelper {
             } catch (ex : haxe.Exception) {
                 stringBuffer.append(" Exception Getting Id");
             }
-            final error : String = stringBuffer.toString();
+            final error : String = Std.string(stringBuffer);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR)) {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.PROCESS, e);
             }

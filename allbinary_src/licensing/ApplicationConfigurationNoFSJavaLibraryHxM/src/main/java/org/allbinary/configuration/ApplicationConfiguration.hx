@@ -36,7 +36,7 @@ class ApplicationConfiguration {
         this.setFullscreen(true);
         this.setProgressBarView(false);
         this.setShowTitleBar(false);
-        this.logUtil.putF("Read Configuration: " + this.toString(), this, "read");
+        this.logUtil.putF("Read Configuration: " + Std.string(this), this, "read");
     }
 
     // throws Exception
@@ -93,7 +93,7 @@ class ApplicationConfiguration {
         stringBuffer.appendboolean(this.isProgressBarView());
         stringBuffer.append(" isShowTitleBar: ");
         stringBuffer.appendboolean(this.isShowTitleBar());
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

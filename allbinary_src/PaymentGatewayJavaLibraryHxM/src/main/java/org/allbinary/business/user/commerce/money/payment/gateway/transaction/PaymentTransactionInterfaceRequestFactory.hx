@@ -70,8 +70,8 @@ class PaymentTransactionInterfaceRequestFactory {
                 var orderHistoryEntityInterface : OrderHistoryEntityInterface = OrderHistoryEntityFactory.getInstance();
                 var orderReview : OrderHistory = orderHistoryEntityInterface.getOrder(orderId);
                 var orderPaymentInfo : Payment = orderReview.getPaymentInfo();
-                orderPaymentInfo.setTransactionType(TransactionTypeFactory.getInstance().SALE.toString());
-                orderPaymentInfo.setTenderType(TenderTypeFactory.getInstance().CREDITCARD.toString());
+                orderPaymentInfo.setTransactionType(Std.string(TransactionTypeFactory.getInstance().SALE));
+                orderPaymentInfo.setTenderType(Std.string(TenderTypeFactory.getInstance().CREDITCARD));
                 orderReview.setPaymentInfo(orderPaymentInfo);
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT)) {
                     this.logUtil.putF(orderReview.getId(), this, "getPaymentTransactionInterface()");
@@ -98,7 +98,7 @@ class PaymentTransactionInterfaceRequestFactory {
             var httpServletRequest : HttpServletRequest = (cast pageContext.getRequest() : HttpServletRequest);
             var gatewayName : String = (cast weblisketSession.getPaymentMethod() : String);
             if (StringValidationUtil.getInstance().isEmpty(gatewayName)) {
-                gatewayName = httpServletRequest.getParameter(PaymentGatewayData.NAME.toString());
+                gatewayName = httpServletRequest.getParameter(Std.string(PaymentGatewayData.NAME));
             }
             var transactionType : String = httpServletRequest.getParameter(PaymentData.TRANSACTIONTYPE);
             var tenderType : String = httpServletRequest.getParameter(PaymentData.TENDERTYPE);

@@ -41,7 +41,7 @@ class LicenseInitInfoUtil {
     public final INITFILENAME : String = "licenseinitdata.dat";
     public final ABOUT : String = "about";
     public final PRIVACY_POLICY : String = "privacy_policy";
-    private var filePath : String = this.stringUtil.EMPTY_STRING;
+    private var filePath : String;
     // synchronized
     public function setFilePath(filePath : String) : Void {
         this.filePath = filePath;
@@ -96,7 +96,7 @@ class LicenseInitInfoUtil {
                 final licenseIdDecoded : String = haxe.io.Bytes.ofData(decodedByteArray).toString();
                 initInfo.setLicenseId(new WeakCrypt(1).decrypt(licenseIdDecoded));
                 var numberOfLicenseServers : Int = iData.readInt();
-                final NEXT_FILE : String = new StringMaker().append(CommonLabels.getInstance().NEXT).append(" License Server From File: ").toString();
+                final NEXT_FILE : String = Std.string(new StringMaker().append(CommonLabels.getInstance().NEXT).append(" License Server From File: "));
                 var licenseServerDecoded : String = null;
                 for (index in 0...numberOfLicenseServers) {
                     decodedByteArray = DatabaseEncoder.decode(iData.readUTF());
@@ -106,7 +106,7 @@ class LicenseInitInfoUtil {
                 }
                 return initInfo;
             } else {
-                throw new haxe.Exception("Could Not Load License InitInfo: " + this.INITFILENAME);
+                throw new jre.lang.JavaException("Could Not Load License InitInfo: " + this.INITFILENAME);
             }
         } catch (e : haxe.Exception) {
             try {
@@ -114,7 +114,7 @@ class LicenseInitInfoUtil {
             } catch (e2 : haxe.Exception) {
                 this.logUtil.put("LicenseInitInfo Read Retry: " + this.INITFILENAME, this, "readAgain()", e2);
             }
-            throw new haxe.Exception("LicenseInitInfo Read Error: " + this.INITFILENAME);
+            throw new jre.lang.JavaException("LicenseInitInfo Read Error: " + this.INITFILENAME);
         }
     }
 
@@ -123,6 +123,7 @@ class LicenseInitInfoUtil {
     }
 
     public function new() {
+        this.filePath = this.stringUtil.EMPTY_STRING;
     }
 }
 

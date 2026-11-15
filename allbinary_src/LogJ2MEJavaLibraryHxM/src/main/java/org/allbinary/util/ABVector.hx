@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.util;
 
-//import java.util.Vector;
+import jre.util.Vector;
 
 class ABVector<E> extends Vector<E> {
     public function new() {

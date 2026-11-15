@@ -21,7 +21,7 @@ import android.os.Parcel;
 class NullParcelable implements Parcelable {
     public static final NULL_PARCELABLE : NullParcelable = new NullParcelable();
     public function describeContents() : Int {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function writeToParcel(dest : Parcel, flags : Int) : Void {

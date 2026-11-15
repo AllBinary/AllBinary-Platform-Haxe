@@ -57,7 +57,7 @@ class BasicItemView implements DomNodeInterface {
             value = stringUtil.getNonNull(value);
             node.appendChild(ModDomHelper.createNameValueNodes(document, name, value));
         }
-        var totalNode : Node = ModDomHelper.createNameValueNodes(document, this.basicItemData.TOTAL, this.itemInterface.getTotal().toString());
+        var totalNode : Node = ModDomHelper.createNameValueNodes(document, this.basicItemData.TOTAL, Std.string(this.itemInterface.getTotal()));
         node.appendChild(totalNode);
         final size : Int = this.vector.size();
         for (index in 0...size) {

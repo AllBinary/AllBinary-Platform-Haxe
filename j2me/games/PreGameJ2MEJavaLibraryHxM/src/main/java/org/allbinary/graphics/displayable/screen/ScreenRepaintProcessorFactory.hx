@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.displayable.screen;
 
-//import javax.microedition.lcdui.Displayable;
+import javax.microedition.lcdui.Displayable;
 import org.allbinary.J2MEUtil;
 import org.allbinary.canvas.Processor;
 

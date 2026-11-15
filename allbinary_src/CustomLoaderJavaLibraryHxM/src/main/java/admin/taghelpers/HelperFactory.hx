@@ -43,7 +43,7 @@ class HelperFactory {
             var anyType : Any = abeFactory.getInstance(abeClientInformation, className, classes, params);
             return anyType;
         } catch (e : LicensingException) {
-            var error : String = "Failed To Get Instance Args: HashMap=" + hashMap.toString() + " HttpServletRequest=" + httpServletRequest;
+            var error : String = "Failed To Get Instance Args: HashMap=" + Std.string(hashMap) + " HttpServletRequest=" + httpServletRequest;
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR)) {
                 logUtil.put(error, factoryName + "->HelperFactory", "getInstance(String, String, HashMap, PageContext)", e);
             }
@@ -72,7 +72,7 @@ class HelperFactory {
             return anyType;
         } catch (e : LicensingException) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR)) {
-                var error : String = "Failed To Get Instance Args: HashMap=" + hashMap.toString() + " PageContext=" + pageContext;
+                var error : String = "Failed To Get Instance Args: HashMap=" + Std.string(hashMap) + " PageContext=" + pageContext;
                 logUtil.put(error, factoryName + "->HelperFactory", "getInstance(String, String, HashMap, PageContext)", e);
             }
             throw e;
@@ -102,7 +102,7 @@ class HelperFactory {
             return anyType;
         } catch (e : LicensingException) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR)) {
-                var error : String = "Failed To Get Instance Args: HashMap=" + hashMap.toString() + " PageContext=" + pageContext;
+                var error : String = "Failed To Get Instance Args: HashMap=" + Std.string(hashMap) + " PageContext=" + pageContext;
                 logUtil.put(error, factoryName + "->HelperFactory", "getInstance(String, String, HashMap, PageContext)", e);
             }
             throw e;

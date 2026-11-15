@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 
 class Anchor {
     public static var TOP_LEFT : Int = Graphics.TOP & Graphics.LEFT;

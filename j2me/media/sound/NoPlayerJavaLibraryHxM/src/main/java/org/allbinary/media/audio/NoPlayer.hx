@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.media.audio;
 
-//import javax.microedition.media.Control;
+import javax.microedition.media.Control;
 import org.allbinary.logic.string.StringUtil;
 
 class NoPlayer extends BasicPlayer {

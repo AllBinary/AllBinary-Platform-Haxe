@@ -33,53 +33,53 @@
 
         <!--
         -->
-        <module>../../graphics/animation/vector/VectorAnimationBaseJavaLibraryHaxeM</module>
+        <module>../../graphics/animation/vector/VectorAnimationBaseJavaLibraryHxM</module>
 
-        <module>../../graphics/animation/vector/VectorAnimationJ2MEJavaLibraryHaxeM</module>
-        <module>../../graphics/animation/vector/VectorAnimationJavaLibraryHaxeM</module>
+        <module>../../graphics/animation/vector/VectorAnimationJ2MEJavaLibraryHxM</module>
+        <module>../../graphics/animation/vector/VectorAnimationJavaLibraryHxM</module>
 
-        <module>../../graphics/VectorJavaLibraryHaxeM</module>
+        <module>../../graphics/VectorJavaLibraryHxM</module>
 
-        <module>../../graphics/BoundsJavaLibraryHaxeM</module>
+        <module>../../graphics/BoundsJavaLibraryHxM</module>
 
-        <module>../../../../graphics/opengl/OpenGLESNullImageJavaLibraryHaxeM</module>
-        <module>../../../../graphics/opengl/OpenGLESNullImageJ2MEJavaLibraryHaxeM</module>
+        <module>../../../../graphics/opengl/OpenGLESNullImageJavaLibraryHxM</module>
+        <module>../../../../graphics/opengl/OpenGLESNullImageJ2MEJavaLibraryHxM</module>
 
-        <module>../../graphics/animation/image/AllBinaryImageAnimationJavaLibraryHaxeM</module>
-        <module>../../graphics/animation/sprite/AllBinarySpriteAnimationJavaLibraryHaxeM</module>
+        <module>../../graphics/animation/image/AllBinaryImageAnimationJavaLibraryHxM</module>
+        <module>../../graphics/animation/sprite/AllBinarySpriteAnimationJavaLibraryHxM</module>
 
         <!--
         ../../
-        <module>../../../../../work/j2me/media/graphics/animation/sprite/AllBinaryQuarterSpriteAnimationJavaLibraryHaxeM</module>
+        <module>../../../../../work/j2me/media/graphics/animation/sprite/AllBinaryQuarterSpriteAnimationJavaLibraryHxM</module>
         -->
         <!--
         ../../
-        <module>../../../../../work/j2me/media/graphics/animation/sprite/AllBinaryQuarterSpriteAnimation2JavaLibraryHaxeM</module>
+        <module>../../../../../work/j2me/media/graphics/animation/sprite/AllBinaryQuarterSpriteAnimation2JavaLibraryHxM</module>
         -->
 
-        <module>../../graphics/animation/image/ImageJ2MEJavaLibraryHaxeM</module>
+        <module>../../graphics/animation/image/ImageJ2MEJavaLibraryHxM</module>
         <!--
-        <module>../../graphics/animation/image/ImageHTMLJavaLibraryHaxeM</module>
+        <module>../../graphics/animation/image/ImageHTMLJavaLibraryHxM</module>
         -->
-        <module>../../graphics/animation/image/ImageJ2SEJavaLibraryHaxeM</module>
+        <module>../../graphics/animation/image/ImageJ2SEJavaLibraryHxM</module>
         <!--
-        <module>../../graphics/animation/image/ImageAndroidJavaLibraryHaxeM</module>
+        <module>../../graphics/animation/image/ImageAndroidJavaLibraryHxM</module>
         -->
         <!--
-        <module>../../graphics/animation/image/ImageSwtJ2SEJavaLibraryHaxeM</module>
+        <module>../../graphics/animation/image/ImageSwtJ2SEJavaLibraryHxM</module>
         -->
         
         <!--
         ../../
-        <module>../../../../../work/j2me/media/graphics/layer/AllBinaryTiledLayerJavaLibraryHaxeM</module>
-        <module>../../graphics/layer/AllBinaryTiledLayerJavaLibraryHaxeM</module>
+        <module>../../../../../work/j2me/media/graphics/layer/AllBinaryTiledLayerJavaLibraryHxM</module>
+        <module>../../graphics/layer/AllBinaryTiledLayerJavaLibraryHxM</module>
         -->
 
         <!-- Not used in Platform Libraries -->
-        <module>../../graphics/GraphicsBasicImageJavaLibraryHaxeM</module>
+        <module>../../graphics/GraphicsBasicImageJavaLibraryHxM</module>
         <!--
         -->
-        <module>../../graphics/animation/image/AllBinaryImageAnimationRotationJavaLibraryHaxeM</module>
+        <module>../../graphics/animation/image/AllBinaryImageAnimationRotationJavaLibraryHxM</module>
 
     </modules>
 

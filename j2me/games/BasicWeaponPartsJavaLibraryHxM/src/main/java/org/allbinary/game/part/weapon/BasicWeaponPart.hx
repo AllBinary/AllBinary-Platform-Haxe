@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.part.weapon;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.game.combat.weapon.WeaponProperties;
@@ -58,7 +58,7 @@ class BasicWeaponPart implements PartInterface implements SalvoInterface {
 
     // throws Exception
     public function processScore(allbinaryLayerManager : AllBinaryLayerManager, angle : Int, otherAngle : Int, weaponProperties : WeaponProperties, scoreableInterface : ScoreableInterface) : Void {
-        throw new haxe.Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     public function getOwnerLayerInterface() : AllBinaryLayer {

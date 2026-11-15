@@ -70,10 +70,10 @@ class LogoValidation extends Validation implements DomNodeInterface {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append("HashMap: ");
-            stringBuffer.append(hashMap.toString());
+            stringBuffer.append(Std.string(hashMap));
             stringBuffer.append("\nLogoFileName: ");
             stringBuffer.append(this.logoFile);
-            this.logUtil.putF(stringBuffer.toString(), this, "getFormData()");
+            this.logUtil.putF(Std.string(stringBuffer), this, "getFormData()");
         }
     }
 
@@ -84,9 +84,9 @@ class LogoValidation extends Validation implements DomNodeInterface {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
                 this.logUtil.putF("LogoValidation", this, this.commonStrings.IS_VALID);
             }
-            if (!StringValidationUtil.getInstance().isValidRequired(this.logoAbPath.toString(), 0, 512)) {
+            if (!StringValidationUtil.getInstance().isValidRequired(Std.string(this.logoAbPath), 0, 512)) {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-                    this.logUtil.putF("logoPath is invalid: " + this.logoAbPath.toString(), this, this.commonStrings.IS_VALID);
+                    this.logUtil.putF("logoPath is invalid: " + Std.string(this.logoAbPath), this, this.commonStrings.IS_VALID);
                 }
                 return false;
             }
@@ -123,7 +123,7 @@ class LogoValidation extends Validation implements DomNodeInterface {
         try {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append("Logo is not valid.");
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
@@ -145,7 +145,7 @@ class LogoValidation extends Validation implements DomNodeInterface {
         final hashMap : HashMap = StdUtil.getInstance().createHashMap();
         hashMap.put(LogoData.getInstance().IMAGE, stringUtil.EMPTY_STRING);
         if (this.logoFile != null) {
-            hashMap.put(LogoData.getInstance().IMAGEPATH, this.logoAbPath.toString());
+            hashMap.put(LogoData.getInstance().IMAGEPATH, Std.string(this.logoAbPath));
             hashMap.put(LogoData.getInstance().IMAGEFILENAME, this.logoFile);
         } else {
             hashMap.put(LogoData.getInstance().IMAGEPATH, null);
@@ -165,9 +165,9 @@ class LogoValidation extends Validation implements DomNodeInterface {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append("Processing logoFile: ");
-            stringBuffer.append(this.logoAbPath.toString());
+            stringBuffer.append(Std.string(this.logoAbPath));
             stringBuffer.append(this.logoFile);
-            this.logUtil.putF(stringBuffer.toString(), this, "processLogoFile()");
+            this.logUtil.putF(Std.string(stringBuffer), this, "processLogoFile()");
         }
         new LogoImageFileUtil(this.logoAbPath, this.logoFile).saveFiles(this.logoFileItem);
     }

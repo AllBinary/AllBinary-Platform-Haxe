@@ -39,7 +39,7 @@ class StoreFrontInventoryStatistics implements StoreFrontInventoryStatisticsInte
             this.totalNumberOfItems = this.totalNumberOfItems + haxe.Int64.ofInt(numberInStock);
             var itemPriceMoney : Money = itemInterface.getPrice();
             itemPriceMoney.multiply(numberInStock);
-            this.totalInventorySaleValueMoney.add(itemPriceMoney.toString());
+            this.totalInventorySaleValueMoney.add(Std.string(itemPriceMoney));
         }
     }
 
@@ -53,8 +53,8 @@ class StoreFrontInventoryStatistics implements StoreFrontInventoryStatisticsInte
 
     public function toHashMap() : HashMap {
         var hashMap : HashMap = StdUtil.getInstance().createHashMap();
-        hashMap.put(StoreFrontInventoryStatisticsData.getInstance().NUMBEROFITEMS, this.getNumber().toString());
-        hashMap.put(StoreFrontInventoryStatisticsData.getInstance().TOTALVALUE, this.getTotal().toString());
+        hashMap.put(StoreFrontInventoryStatisticsData.getInstance().NUMBEROFITEMS, Std.string(this.getNumber()));
+        hashMap.put(StoreFrontInventoryStatisticsData.getInstance().TOTALVALUE, Std.string(this.getTotal()));
         return hashMap;
     }
 

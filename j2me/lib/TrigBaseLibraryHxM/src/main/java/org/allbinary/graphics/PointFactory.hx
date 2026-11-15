@@ -15,10 +15,10 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
+//import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsConstructor;
+//import jsinterop.annotations.JsProperty;
 
 class PointFactory {
     private static final instance : PointFactory = new PointFactory();
@@ -26,11 +26,12 @@ class PointFactory {
         return PointFactory.instance;
     }
 
-    public var ZERO_ZERO : GPoint = this.createXYZ(0, 0, 0);
+    public var ZERO_ZERO : GPoint;
     public function init() : Void {
     }
 
     public function new() {
+        this.ZERO_ZERO = this.createXYZ(0, 0, 0);
     }
 
     public function createXY(x : Int, y : Int) : GPoint {

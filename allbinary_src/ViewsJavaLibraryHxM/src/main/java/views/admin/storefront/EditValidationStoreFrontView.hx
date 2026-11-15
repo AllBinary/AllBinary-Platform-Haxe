@@ -74,5 +74,10 @@ class EditValidationStoreFrontView extends StoreFrontComponent implements Valida
         return null;
     }
 
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
+    }
+
 }
 

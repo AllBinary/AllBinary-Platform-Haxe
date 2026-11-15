@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.paint;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 
 class PaintableComposite extends Paintable {
     private var paintableArray : haxe.ds.Vector<PaintableInterface>;

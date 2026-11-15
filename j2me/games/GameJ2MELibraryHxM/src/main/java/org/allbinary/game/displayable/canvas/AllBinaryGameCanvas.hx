@@ -15,12 +15,12 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.ChoiceGroup;
-//import javax.microedition.lcdui.CommandListener;
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
-//import javax.microedition.lcdui.Item;
-//import javax.microedition.lcdui.NullCommandListener;
+import javax.microedition.lcdui.ChoiceGroup;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Item;
+import javax.microedition.lcdui.NullCommandListener;
 import org.allbinary.AndroidUtil;
 import org.allbinary.J2MEUtil;
 import org.allbinary.business.advertisement.GameAdStateFactory;
@@ -156,12 +156,12 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
     public final gameStateFactory : GameStateFactory = GameStateFactory.getInstance();
     private final gameTickTimeDelayHelper : GameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
     private final gameTickDisplayInfoSingleton : GameTickDisplayInfoSingleton = GameTickDisplayInfoSingleton.getInstance();
-    public final gameRunnable : GameCanvasRunnable = new GameCanvasRunnable(this);
-    public final gamePauseRunnable : GameCanvasPauseRunnable = new GameCanvasPauseRunnable(this);
+    public final gameRunnable : GameCanvasRunnable;
+    public final gamePauseRunnable : GameCanvasPauseRunnable;
     public final formUtil : FormUtil = FormUtil.getInstance();
     public final myFormUtil : MyFormUtil = MyFormUtil.getInstance();
-    private final updateMyFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
-    private var myFontProcessor : MyFontProcessor = this.updateMyFontProcessor;
+    private final updateMyFontProcessor : MyFontProcessor;
+    private var myFontProcessor : MyFontProcessor;
     public var gameSpecificPaintable : Paintable = NullPaintable.getInstance();
     private final sensorGameUpdateProcessor : SensorGameUpdateProcessor = new SingleSensorGameUpdateProcessor();
     public var endGameInfo : EndGameInfo = new EndGameInfo();
@@ -169,7 +169,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
     private final endLevelIntermissionInterface : IntermissionInterface = new Intermission();
     private static final id : Int = 0;
     public var gameLayerManager : AllBinaryGameLayerManager = AllBinaryGameLayerManager.getNullInstance();
-    private var gameState : GameState = this.gameStateFactory.NO_GAME_STATE;
+    private var gameState : GameState;
     private var gameOver : Bool = false;
     private var initialized : Bool = false;
     private final gameStateTimeHelper : TimeDelayHelper = new TimeDelayHelper(0);
@@ -179,7 +179,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
     private var highScoresPaintable : Paintable = NullPaintable.getInstance();
     private var localPlayerGameInputList : BasicArrayList = new BasicArrayListD();
     private var isCheating : Bool = false;
-    private var hashtable : ABHashtable<Any, Any> = this.stdUtil.NULL_TABLE;
+    private var hashtable : ABHashtable<Any, Any>;
     private var isSingleKeyRepeatableProcessing : Bool = false;
     private var gameInitializationInterfaceFactoryInterface : BasicBuildGameInitializerFactory = BasicBuildGameInitializerFactory.NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY;
     private var touchButtonsPaintable : Paintable = NullPaintable.getInstance();
@@ -207,7 +207,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
     private var openMenuPaintable : Paintable = NullPaintable.getInstance();
     private var menuPaintable : Paintable = NullPaintable.getInstance();
     private var currentTouchInputFactory : BaseTouchInput = NoButtonsTouchInputFactory.getInstance();
-    public var colorFillPaintable : ColorFillBasePaintable = ColorFillPaintableFactory.getInstance().getInstance(this.basicColorFactory.BLACK, true);
+    public var colorFillPaintable : ColorFillBasePaintable;
     private final baseGameStatistics : BaseGameStatistics = GameStatisticsFactory.getInstance();
     private final primaryPlayerQueue : PlayerQueue = PrimaryPlayerQueueFactory.getInstance();
     private final secondaryPlayerQueue : PlayerQueue = SecondaryPlayerQueueFactory.getInstance();
@@ -222,6 +222,16 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
     public var fontHeightP : Int = 0;
     public function new(commandListener : CommandListener, gameLayerManager : AllBinaryGameLayerManager, highScoresFactoryInterface : HighScoresFactoryInterface, gameInitializationInterfaceFactoryInterface : BasicBuildGameInitializerFactory, buffered : Bool) {
         super(commandListener, CanvasStrings.getInstance().EMPTY_CHILD_NAME_LIST, true);
+        this.gameRunnable = new GameCanvasRunnable(this);
+        this.gamePauseRunnable = new GameCanvasPauseRunnable(this);
+        this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
+        this.myFontProcessor = this.updateMyFontProcessor;
+        this.gameState = this.gameStateFactory.NO_GAME_STATE;
+        this.hashtable = this.stdUtil.NULL_TABLE;
+        this.colorFillPaintable = ColorFillPaintableFactory.getInstance().getInstance(this.basicColorFactory.BLACK, true);
+        this.rawGameInputProcessor = new GameCanvasInputProcessor(this);
+        this.rawInputProcessor = new FormInputProcessor(this);
+        this.inputProcessor = this.getRawGameInputProcessor();
         this.highScoresHelper = highScoresFactoryInterface.createHighScoresHelper();
         this.gameInitializationInterfaceFactoryInterface = gameInitializationInterfaceFactoryInterface;
         this.init(gameLayerManager, buffered);
@@ -242,7 +252,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
     public override function updateMeasurement(graphics : Graphics) : Void {
         try {
             final font : Font = graphics.getFont();
-            this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(this.canvasStrings.FD_WIDTH).appendint(Std.int(MyFontProcessor.defaultCharWidth(font))).append(this.canvasStrings.FD_HEIGHT).appendint(Std.int(font.getHeight())).toString(), this, this.canvasStrings.UPDATE_MEASUREMENT);
+            this.logUtil.putF(Std.string(new StringMaker().append(this.commonStrings.START).append(this.canvasStrings.FD_WIDTH).appendint(Std.int(MyFontProcessor.defaultCharWidth(font))).append(this.canvasStrings.FD_HEIGHT).appendint(Std.int(font.getHeight()))), this, this.canvasStrings.UPDATE_MEASUREMENT);
             this.fontHeightP = font.getHeight();
             this.myFormUtil.updateMeasurement(graphics);
             final popupMenuRectangle : Rectangle = this.myFormUtil.getPopupMenuRectangle();
@@ -276,7 +286,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
 
     public override function onDisplayChangeEvent(displayChangeEvent : DisplayChangeEvent) : Void {
         try {
-            this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(DisplayInfoSingleton.getInstance().toString()).toString(), this, this.canvasStrings.UPDATE_MEASUREMENT);
+            this.logUtil.putF(Std.string(new StringMaker().append(this.commonStrings.START).append(Std.string(DisplayInfoSingleton.getInstance()))), this, this.canvasStrings.UPDATE_MEASUREMENT);
             this.myFontProcessor = this.updateMyFontProcessor;
             this.menuBehavior.onDisplayChangeEvent(this, displayChangeEvent);
         } catch (e : haxe.Exception) {
@@ -476,7 +486,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
             final BUFF_MESSAGE : String = "XXX Not Buffering Causes Concurrency Issues XXX";
             this.logUtil.putF(BUFF_MESSAGE, this, this.commonStrings.CONSTRUCTOR);
         } else {
-            throw new haxe.Exception("Buffering is disabled");
+            throw new jre.lang.JavaException("Buffering is disabled");
         }
         this.setGameInputProcessor(Processor.getInstance());
         final features : Features = Features.getInstance();
@@ -526,7 +536,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
         final changedGameFeatureListener : ChangedGameFeatureListener = ChangedGameFeatureListener.getInstance();
         if (changedGameFeatureListener.isChangedFeature(gameFeatureFactory.SOUND)) {
             final features : Features = Features.getInstance();
-            this.logUtil.putF(new StringMaker().append("Sound Changing To: ").appendboolean(features.isFeature(gameFeatureFactory.SOUND)).toString(), this, "initConfigurable");
+            this.logUtil.putF(Std.string(new StringMaker().append("Sound Changing To: ").appendboolean(features.isFeature(gameFeatureFactory.SOUND))), this, "initConfigurable");
             this.mediaInit();
             changedGameFeatureListener.remove(gameFeatureFactory.SOUND);
         }
@@ -564,7 +574,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
     public function updateCurrentTouchInputFactory(nextTouchInput : BaseTouchInput) : Void {
         if (nextTouchInput != this.currentTouchInputFactory) {
             this.currentTouchInputFactory = nextTouchInput;
-            PreLogUtil.put(this.currentTouchInputFactory.toString(), this, this.gameInputStrings.UDPATE_CURRENT_TOUCH_INPUT_FACTORY);
+            PreLogUtil.put(Std.string(this.currentTouchInputFactory), this, this.gameInputStrings.UDPATE_CURRENT_TOUCH_INPUT_FACTORY);
             this.touchButtonFactory.toggle(this.isPaused(), this.currentTouchInputFactory.getList());
         }
     }
@@ -620,7 +630,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
     public override function itemStateChanged(item : Item) : Void {
         try {
             final itemLabel : String = item.getLabel();
-            this.logUtil.putF(new StringMaker().append(this.commonLabels.ITEM_LABEL).append(itemLabel).toString(), this, "itemStateChanged");
+            this.logUtil.putF(Std.string(new StringMaker().append(this.commonLabels.ITEM_LABEL).append(itemLabel)), this, "itemStateChanged");
             if (Std.isOfType(item, ChoiceGroup)) {
                 final gameFeatureUtil : GameFeatureUtil = GameFeatureUtil.getInstance();
                 if (gameFeatureUtil.isExclusive(itemLabel)) {
@@ -694,7 +704,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
         if (highScoreSubmitted) {
             this.highScoresHelper.setSelectedHighScores(NullHighScoresSingletonFactory.getInstance());
         }
-        this.logUtil.putF(new StringMaker().append("isHighScoreSubmitted: ").appendboolean(highScoreSubmitted).toString(), this, "setHighScoreSubmitted");
+        this.logUtil.putF(Std.string(new StringMaker().append("isHighScoreSubmitted: ").appendboolean(highScoreSubmitted)), this, "setHighScoreSubmitted");
     }
 
     public override function getGameState() : GameState {
@@ -703,7 +713,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
 
     // throws Exception
     public override function setGameState(gameState : GameState) : Void {
-        this.logUtil.putF(new StringMaker().append(this.gameStrings.GAME_STATE).append(this.stringUtil.toString(gameState)).toString(), this, this.gameStrings.SET_GAME_STATE);
+        this.logUtil.putF(Std.string(new StringMaker().append(this.gameStrings.GAME_STATE).append(this.stringUtil.toString(gameState))), this, this.gameStrings.SET_GAME_STATE);
         this.gameState = gameState;
         this.gameStateTimeHelper.setStartTimeTNT();
         this.updateEndGameProcessor();
@@ -841,13 +851,13 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
     }
 
     public function buildGame2() : Void {
-        PreLogUtil.put(new StringMaker().append(this.gameInputStrings.ENABLE_PLAYER_GAME_INPUTS).appendint(this.localPlayerGameInputList.size()).toString(), this, this.BUILD_GAME);
+        PreLogUtil.put(Std.string(new StringMaker().append(this.gameInputStrings.ENABLE_PLAYER_GAME_INPUTS).appendint(this.localPlayerGameInputList.size())), this, this.BUILD_GAME);
         var playerGameInput : PlayerGameInput = null;
         {
             var index : Int = this.localPlayerGameInputList.size() - 1;
             while (index >= 0) {
             playerGameInput = (cast this.localPlayerGameInputList.get(index) : PlayerGameInput);
-            PreLogUtil.put(new StringMaker().append(this.gameInputStrings.ENABLE_PLAYER_GAME_INPUT).append(playerGameInput.toString()).toString(), this, this.BUILD_GAME);
+            PreLogUtil.put(Std.string(new StringMaker().append(this.gameInputStrings.ENABLE_PLAYER_GAME_INPUT).append(Std.string(playerGameInput))), this, this.BUILD_GAME);
             playerGameInput.removeNonAIInputGameKeyEvents();
             this.addKeyInputListener(playerGameInput);
                 index--;
@@ -878,20 +888,20 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
 
     // throws Exception
     public override function getLoadStateHashtable() : ABHashtable<Any, Any> {
-        this.logUtil.putF(new StringMaker().append(this.commonLabels.START_LABEL).append(this.stringUtil.toString(this.hashtable)).toString(), this, "getLoadStateHashtable");
+        this.logUtil.putF(Std.string(new StringMaker().append(this.commonLabels.START_LABEL).append(this.stringUtil.toString(this.hashtable))), this, "getLoadStateHashtable");
         return this.hashtable;
     }
 
     public override function setLoadStateHashtable(hashtable : ABHashtable<Any, Any>) : Void {
-        this.logUtil.putF(new StringMaker().append(this.commonLabels.START_LABEL).append(this.stringUtil.toString(hashtable)).toString(), this, "setLoadStateHashtable");
+        this.logUtil.putF(Std.string(new StringMaker().append(this.commonLabels.START_LABEL).append(this.stringUtil.toString(hashtable))), this, "setLoadStateHashtable");
         this.hashtable = hashtable;
     }
 
     public override function getCurrentStateHashtable() : ABHashtable<Any, Any> {
         final hashtable : ABHashtable<Any, Any> = this.stdUtil.createHashtable();
         final level : Int = this.gameLayerManager.getGameInfo().getCurrentLevel();
-        hashtable.put(GameInfo.LEVEL_NAME.toString(), Std.string(level));
-        this.logUtil.putF(new StringMaker().append("End: ").append(this.stringUtil.toString(hashtable)).toString(), this, "getCurrentStateHashtable");
+        hashtable.put(Std.string(GameInfo.LEVEL_NAME), Std.string(level));
+        this.logUtil.putF(Std.string(new StringMaker().append("End: ").append(this.stringUtil.toString(hashtable))), this, "getCurrentStateHashtable");
         return hashtable;
     }
 
@@ -934,9 +944,9 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
     public function paintIntermission(graphics : Graphics) : Void {
     }
 
-    private final rawGameInputProcessor : InputProcessor = new GameCanvasInputProcessor(this);
-    private final rawInputProcessor : InputProcessor = new FormInputProcessor(this);
-    private var inputProcessor : InputProcessor = this.getRawGameInputProcessor();
+    private final rawGameInputProcessor : InputProcessor;
+    private final rawInputProcessor : InputProcessor;
+    private var inputProcessor : InputProcessor;
     public override function keyPressed(keyCode : Int) : Void {
         this.keyPressedByDevice(keyCode, 0);
     }
@@ -1115,7 +1125,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
     // throws Exception
     public function end() : Void {
         this.screenCapture.endRecording();
-        this.baseGameStatistics.add(new StringMaker().append(this.baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());
+        this.baseGameStatistics.add(Std.string(new StringMaker().append(Std.string(this.baseGameStatistics)).append(CommonSeps.getInstance().NEW_LINE)));
         this.baseGameStatistics.init();
         this.gameKeyEventHandler.removeListener(this.cheatProcessor);
         this.close();
@@ -1149,28 +1159,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
             this.getCustomCommandListener().commandAction(GameCommandsFactory.getInstance().SET_MENU_DISPLAYABLE, textBox);
         }
         if (autoSubmit) {
-            // Java inner class: Haxe does not nest classes so move this to its own module
-            class SaveHighScoreRunnable implements Runnable {
-                private final progressCanvas : ProgressCanvas = ProgressCanvasFactory.getInstance();
-                public function run() : Void {
-                    final logUtil : LogUtil = LogUtil.getInstance();
-                    try {
-                        if (isLast) {
-                            textBox.submit();
-                        } else {
-                            textBox.saveHighScore();
-                        }
-                    } catch (e : haxe.Exception) {
-                        final commonStrings : CommonStrings = CommonStrings.getInstance();
-                        logUtil.put(commonStrings.EXCEPTION, this, "run", e);
-                        this.progressCanvas.end();
-                    }
-                }
-
-                public function new() {
-                }
-            }
-            SecondaryThreadPool.getInstance().runTask(new SaveHighScoreRunnable());
+            SecondaryThreadPool.getInstance().runTask(new SaveHighScoreRunnable(isLast, textBox));
         }
     }
 
@@ -1424,6 +1413,14 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
     public static final TYPE : Int = 2;
     public override function getType() : Int {
         return AllBinaryGameCanvas.TYPE;
+    }
+
+    public override function getTitle() : String {
+        return super.getTitle();
+    }
+
+    public override function isPaused() : Bool {
+        return super.isPaused();
     }
 
 }

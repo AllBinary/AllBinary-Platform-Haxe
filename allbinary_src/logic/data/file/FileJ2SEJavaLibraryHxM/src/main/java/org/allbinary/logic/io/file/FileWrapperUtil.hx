@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.io.file;
 
-//import java.io.File;
+import jre.io.File;
 import org.allbinary.logic.communication.log.PreLogUtil;
 
 class FileWrapperUtil {

@@ -42,7 +42,7 @@ class SystemProperties {
     }
 
     public function getUserHomePath() : String {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
 }

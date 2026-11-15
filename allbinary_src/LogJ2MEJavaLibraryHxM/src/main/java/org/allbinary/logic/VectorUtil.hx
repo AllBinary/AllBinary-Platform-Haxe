@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic;
 
-//import java.util.Vector;
+import jre.util.Vector;
 
 class VectorUtil {
     private static final instance : VectorUtil = new VectorUtil();

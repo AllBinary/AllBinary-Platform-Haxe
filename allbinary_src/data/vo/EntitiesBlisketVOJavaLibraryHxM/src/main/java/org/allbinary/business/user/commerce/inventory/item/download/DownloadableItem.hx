@@ -94,7 +94,7 @@ class DownloadableItem {
 
     public function toVector() : BasicArrayList {
         var calendar : Calendar = Calendar.getInstance();
-        var time : String = calendar.getTimeInMillis().toString();
+        var time : String = Std.string(calendar.getTimeInMillis());
         var values : BasicArrayList = new BasicArrayListD();
         values.add(getId());
         values.add(this.basicItemId);
@@ -106,8 +106,8 @@ class DownloadableItem {
         values.add(this.getPlatform());
         values.add(this.getLicenseFile());
         values.add(this.getFile());
-        values.add(this.getSize().toString());
-        values.add(this.getValidTime().toString());
+        values.add(Std.string(this.getSize()));
+        values.add(Std.string(this.getValidTime()));
         values.add(this.getRetries());
         values.add(time);
         values.add(time);
@@ -126,11 +126,11 @@ class DownloadableItem {
         values.put(DownloadItemData.CHANGES, this.getChanges());
         values.put(DownloadItemData.LICENSE_FILE, this.getLicenseFile());
         values.put(DownloadItemData.FILE, this.getFile());
-        values.put(DownloadItemData.SIZE, this.getSize().toString());
-        values.put(DownloadItemData.VALID_TIME, this.getValidTime().toString());
+        values.put(DownloadItemData.SIZE, Std.string(this.getSize()));
+        values.put(DownloadItemData.VALID_TIME, Std.string(this.getValidTime()));
         values.put(DownloadItemData.RETRIES, this.getRetries());
         var calendar : Calendar = Calendar.getInstance();
-        var time : String = calendar.getTimeInMillis().toString();
+        var time : String = Std.string(calendar.getTimeInMillis());
         values.put(EntryData.getInstance().LASTMODIFIED, time);
         return values;
     }

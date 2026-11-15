@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.input.mapping;
 
-//import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Canvas;
 import org.allbinary.game.input.GameKey;
 import org.allbinary.game.input.GameKeyFactory;
 import org.allbinary.game.input.Input;
@@ -39,11 +39,12 @@ class InputToGameKeyMapping extends InputMapping {
     }
 
     private final gameKeyFactory : GameKeyFactory = GameKeyFactory.getInstance();
-    private final mappedGameKeys : haxe.ds.Vector<GameKey> = haxe.ds.Vector.fromArrayCopy([this.gameKeyFactory.UP, this.gameKeyFactory.DOWN, this.gameKeyFactory.LEFT, this.gameKeyFactory.RIGHT]);
+    private final mappedGameKeys : haxe.ds.Vector<GameKey>;
     private final platformToGameKeyMapping : haxe.ds.Vector<GameKey> = haxe.ds.Vector.fromArrayCopy([for (index in 0...InputFactory.getInstance().MAX) null]);
     public var negativePlatformToGameKeyMapping : haxe.ds.Vector<GameKey> = haxe.ds.Vector.fromArrayCopy([for (index in 0...0) null]);
     public function new() {
         super();
+        this.mappedGameKeys = haxe.ds.Vector.fromArrayCopy([this.gameKeyFactory.UP, this.gameKeyFactory.DOWN, this.gameKeyFactory.LEFT, this.gameKeyFactory.RIGHT]);
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         this.clear();
     }
@@ -93,7 +94,7 @@ class InputToGameKeyMapping extends InputMapping {
     }
 
     public override function remove(input : Input, mappedToInput : Input) : Void {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(input)).append(" == ").append(StringUtil.getInstance().toString(mappedToInput)).toString(), this, "InputToGameKeyMapping::remove");
+        this.logUtil.putF(Std.string(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(input)).append(" == ").append(StringUtil.getInstance().toString(mappedToInput))), this, "InputToGameKeyMapping::remove");
         super.remove(input, mappedToInput);
         this.set(input, this.gameKeyFactory.NONE);
     }
@@ -133,7 +134,7 @@ class InputToGameKeyMapping extends InputMapping {
                 this.platformToGameKeyMapping[key] = gameKey;
             }
         } else {
-            PreLogUtil.putOE(new StringMaker().append(gameKey.toString()).append(CommonSeps.getInstance().COLON_SEP).appendint(key).toString(), this, this.commonStrings.INIT, new haxe.Exception());
+            PreLogUtil.putOE(Std.string(new StringMaker().append(Std.string(gameKey)).append(CommonSeps.getInstance().COLON_SEP).appendint(key)), this, this.commonStrings.INIT, new jre.lang.JavaException());
         }
     }
 

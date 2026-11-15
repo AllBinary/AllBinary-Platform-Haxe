@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.math.permutations;
 
-//import java.util.Arrays;
+import jre.util.Arrays;
 import org.allbinary.TsUtil;
 import org.allbinary.logic.util.visitor.Visitor;
 

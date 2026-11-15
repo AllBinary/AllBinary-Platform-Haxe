@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.system.hardware.components.linux;
 
-//import java.io.FileReader;
-//import java.io.LineNumberReader;
-//import java.util.HashMap;
+import jre.io.FileReader;
+import jre.io.LineNumberReader;
+import jre.util.HashMap;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
@@ -37,31 +37,52 @@ class Cpu implements CpuInterface implements HardwareComponentInterface {
     public final logUtil : LogUtil = LogUtil.getInstance();
     public final commonStrings : CommonStrings = CommonStrings.getInstance();
     private final CPUFILE : String = "/proc/cpuinfo";
-    private var cpuHashMap : HashMap = null;
-    public function new(filePath : String) {
+    private var cpuHashMap : HashMap<Dynamic, Dynamic> = null;
+    public function new(...args : Dynamic) {
+        if (args.length == 1) {
+            final filePath : String = args[0];
+            this._new0(filePath);
+        }
+        else if (args.length == 0) {
+            this._new1();
+        }
+    }
+
+    private function _new0(filePath : String) : Void {
         this.init(filePath);
     }
 
-    // Java overloaded constructor: Haxe allows one constructor
-    public function new() {
+    private function _new1() : Void {
         this.init(this.CPUFILE);
     }
 
+    private function init(...args : Dynamic) : Dynamic {
+        if (args.length == 1) {
+            this.init_String(args[0]);
+            return null;
+        }
+        if (args.length == 2) {
+            this.init_LineNumberReader_String(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: init");
+    }
+
     // throws Exception
-    private function init(filePath : String) : Void {
+    private function init_String(filePath : String) : Void {
         var lineNumberReader : LineNumberReader = null;
         try {
             this.init(lineNumberReader, filePath);
         } catch (e : haxe.Exception) {
             if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS)) {
-                this.logUtil.put(new StringMaker().append("Cpu Data: ").append(this.toString()).toString(), this, this.commonStrings.CONSTRUCTOR, e);
+                this.logUtil.put(Std.string(new StringMaker().append("Cpu Data: ").append(Std.string(this))), this, this.commonStrings.CONSTRUCTOR, e);
             }
             throw e;
         }
     }
 
     // throws Exception
-    private function init(lineNumberReader : LineNumberReader, filePath : String) : Void {
+    private function init_LineNumberReader_String(lineNumberReader : LineNumberReader, filePath : String) : Void {
         try {
             var fileReader : FileReader = new FileReader(filePath);
             lineNumberReader = new LineNumberReader(fileReader);
@@ -69,7 +90,7 @@ class Cpu implements CpuInterface implements HardwareComponentInterface {
             if (lineNumberReader == null) {
                 final fileVector : BasicArrayList = SubDirectory.getInstance().search(filePath, AbFile.createAbFile(FilePathData.getInstance().PATH_START));
                 if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS)) {
-                    this.logUtil.putF(new StringMaker().append("Cpu File BasicArrayList Size: ").appendint(fileVector.size()).toString(), this, this.commonStrings.CONSTRUCTOR);
+                    this.logUtil.putF(Std.string(new StringMaker().append("Cpu File BasicArrayList Size: ").appendint(fileVector.size())), this, this.commonStrings.CONSTRUCTOR);
                 }
                 if (!fileVector.isEmpty()) {
                     var file : AbFile = (cast fileVector.get(0) : AbFile);
@@ -78,34 +99,34 @@ class Cpu implements CpuInterface implements HardwareComponentInterface {
             }
             if (lineNumberReader != null) {
                 var nextLine : String = lineNumberReader.readLine();
-                while (lineNumberReader != null && nextLine != null) {
-                    var index : Int = nextLine.indexOf(":".code);
+                while (nextLine != null) {
+                    var index : Int = nextLine.indexOf(String.fromCharCode(":".code));
                     if (index >= 0) {
                         var key : String = nextLine.substring(0, index);
                         var valueIndex : Int = index + 1;
                         var value : String = nextLine.substring(valueIndex, nextLine.length);
-                        if (key.indexOf(CpuInfo.PROCESSOR.toString()) >= 0) {
+                        if (key.indexOf(Std.string(CpuInfo.PROCESSOR)) >= 0) {
                             this.cpuHashMap.put(CpuInfo.PROCESSOR, value);
                         }
-                        if (key.indexOf(CpuInfo.VENDORID.toString()) >= 0) {
+                        if (key.indexOf(Std.string(CpuInfo.VENDORID)) >= 0) {
                             this.cpuHashMap.put(CpuInfo.VENDORID, value);
                         }
-                        if (key.indexOf(CpuInfo.CPUFAMILY.toString()) >= 0) {
+                        if (key.indexOf(Std.string(CpuInfo.CPUFAMILY)) >= 0) {
                             this.cpuHashMap.put(CpuInfo.CPUFAMILY, value);
                         }
-                        if (key.indexOf(CpuInfo.MODEL.toString()) >= 0) {
+                        if (key.indexOf(Std.string(CpuInfo.MODEL)) >= 0) {
                             this.cpuHashMap.put(CpuInfo.MODEL, value);
                         }
-                        if (key.indexOf(CpuInfo.MODELNAME.toString()) >= 0) {
+                        if (key.indexOf(Std.string(CpuInfo.MODELNAME)) >= 0) {
                             this.cpuHashMap.put(CpuInfo.MODELNAME, value);
                         }
-                        if (key.indexOf(CpuInfo.STEPPING.toString()) >= 0) {
+                        if (key.indexOf(Std.string(CpuInfo.STEPPING)) >= 0) {
                             this.cpuHashMap.put(CpuInfo.STEPPING, value);
                         }
-                        if (key.indexOf(CpuInfo.CPUMHZ.toString()) >= 0) {
+                        if (key.indexOf(Std.string(CpuInfo.CPUMHZ)) >= 0) {
                             this.cpuHashMap.put(CpuInfo.CPUMHZ, value);
                         }
-                        if (key.indexOf(CpuInfo.CACHESIZE.toString()) >= 0) {
+                        if (key.indexOf(Std.string(CpuInfo.CACHESIZE)) >= 0) {
                             this.cpuHashMap.put(CpuInfo.CACHESIZE, value);
                         }
                     }
@@ -153,11 +174,21 @@ class Cpu implements CpuInterface implements HardwareComponentInterface {
         return (cast this.cpuHashMap.get(CpuInfo.CACHESIZE) : String);
     }
 
-    public function compareTo(cpuInterface : CpuInterface) : Bool {
+    public function compareTo(...args : Dynamic) : Dynamic {
+        if (args.length == 1 && Std.isOfType(args[0], CpuInterface)) {
+            return this.compareTo_CpuInterface(args[0]);
+        }
+        if (args.length == 1) {
+            return this.compareTo_HardwareComponentInterface(args[0]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: compareTo");
+    }
+
+    public function compareTo_CpuInterface(cpuInterface : CpuInterface) : Bool {
         return true;
     }
 
-    public function compareTo(componentInterface : HardwareComponentInterface) : Bool {
+    public function compareTo_HardwareComponentInterface(componentInterface : HardwareComponentInterface) : Bool {
         return true;
     }
 
@@ -165,22 +196,22 @@ class Cpu implements CpuInterface implements HardwareComponentInterface {
         final commonLabels : CommonLabels = CommonLabels.getInstance();
         final commonSeps : CommonSeps = CommonSeps.getInstance();
         final stringMaker : StringMaker = new StringMaker();
-        stringMaker.append(CpuInfo.PROCESSOR.toString()).append(commonLabels.COLON_SEP).append(this.getProcessor());
+        stringMaker.append(Std.string(CpuInfo.PROCESSOR)).append(commonLabels.COLON_SEP).append(this.getProcessor());
         stringMaker.append(commonSeps.NEW_LINE);
-        stringMaker.append(CpuInfo.VENDORID.toString()).append(commonLabels.COLON_SEP).append(this.getVendorId());
+        stringMaker.append(Std.string(CpuInfo.VENDORID)).append(commonLabels.COLON_SEP).append(this.getVendorId());
         stringMaker.append(commonSeps.NEW_LINE);
-        stringMaker.append(CpuInfo.CPUFAMILY.toString()).append(commonLabels.COLON_SEP).append(this.getCpuFamily());
+        stringMaker.append(Std.string(CpuInfo.CPUFAMILY)).append(commonLabels.COLON_SEP).append(this.getCpuFamily());
         stringMaker.append(commonSeps.NEW_LINE);
-        stringMaker.append(CpuInfo.MODEL.toString()).append(commonLabels.COLON_SEP).append(this.getModel());
+        stringMaker.append(Std.string(CpuInfo.MODEL)).append(commonLabels.COLON_SEP).append(this.getModel());
         stringMaker.append(commonSeps.NEW_LINE);
-        stringMaker.append(CpuInfo.MODELNAME.toString()).append(commonLabels.COLON_SEP).append(this.getModelName());
+        stringMaker.append(Std.string(CpuInfo.MODELNAME)).append(commonLabels.COLON_SEP).append(this.getModelName());
         stringMaker.append(commonSeps.NEW_LINE);
-        stringMaker.append(CpuInfo.STEPPING.toString()).append(commonLabels.COLON_SEP).append(this.getStepping());
+        stringMaker.append(Std.string(CpuInfo.STEPPING)).append(commonLabels.COLON_SEP).append(this.getStepping());
         stringMaker.append(commonSeps.NEW_LINE);
-        stringMaker.append(CpuInfo.CPUMHZ.toString()).append(commonLabels.COLON_SEP).append(this.getCpuSpeed());
+        stringMaker.append(Std.string(CpuInfo.CPUMHZ)).append(commonLabels.COLON_SEP).append(this.getCpuSpeed());
         stringMaker.append(commonSeps.NEW_LINE);
-        stringMaker.append(CpuInfo.CACHESIZE.toString()).append(commonLabels.COLON_SEP).append(this.getCacheSize());
-        return stringMaker.toString();
+        stringMaker.append(Std.string(CpuInfo.CACHESIZE)).append(commonLabels.COLON_SEP).append(this.getCacheSize());
+        return Std.string(stringMaker);
     }
 
 }

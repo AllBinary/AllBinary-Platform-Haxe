@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.platform.graphics;
 
-//import javax.microedition.lcdui.Image;
-//import javax.microedition.lcdui.NullImage;
+import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullImage;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 

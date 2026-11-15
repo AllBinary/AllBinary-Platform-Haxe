@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary;
 
-//import java.util.HashMap;
-//import java.util.Map;
-//import java.util.Set;
+import jre.util.HashMap;
+import jre.util.Map;
+import jre.util.Set;
 
 //J2SEForJ2ME
 class J2SEUtil {

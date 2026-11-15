@@ -15,20 +15,21 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.draw;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.logic.java.character.CharArrayFactory;
 import org.allbinary.graphics.font.MyFontProcessor;
 import org.allbinary.graphics.font.UpdateMyFontInterface;
 import org.allbinary.graphics.font.UpdateMyFontProcessor;
 
 class KeyValueDrawCharArray implements UpdateMyFontInterface {
-    private var myFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
+    private var myFontProcessor : MyFontProcessor;
     private final LABEL : String;
     private var labelX : Int;
     private var valueX : Int = 0;
     private var value : haxe.ds.Vector<Int> = CharArrayFactory.getInstance().getZeroCharArray();
     private var len : Int = 0;
     public function new(label : String, x : Int) {
+        this.myFontProcessor = new UpdateMyFontProcessor(this);
         this.LABEL = label;
         this.labelX = x;
     }

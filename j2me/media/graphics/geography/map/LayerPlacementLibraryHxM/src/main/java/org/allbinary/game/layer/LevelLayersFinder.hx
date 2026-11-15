@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.layer;
 
-//import java.util.Enumeration;
+import jre.util.Enumeration;
 import org.allbinary.layer.Layer;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.util.ABHashtable;
@@ -33,7 +33,7 @@ class LevelLayersFinder {
     public function get(hashtable : ABHashtable<Any, Any>) : BasicArrayList {
         final smallIntegerSingletonFactory : SmallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         final list : BasicArrayList = new BasicArrayListD();
-        final enumeration : Enumeration = hashtable.keys();
+        final enumeration : Enumeration<Dynamic> = hashtable.keys();
         var layerHashtableCanBeNull : ABHashtable<Any, Any> = null;
         var integerCanBeNull : Null<Int> = null;
         var cachedIntegerCanBeNull : Null<Int> = null;

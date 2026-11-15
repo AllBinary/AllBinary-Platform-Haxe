@@ -55,8 +55,8 @@ class TransformInfoObjectConfig implements TransformInfoObjectConfigInterface {
                 stringBuffer.append("No Owner!?#@");
             }
             stringBuffer.append("\nConstructed with document: ");
-            stringBuffer.append(this.toString());
-            this.logUtil.putF(stringBuffer.toString(), this, "Constructor(TransformInfoInterface)");
+            stringBuffer.append(Std.string(this));
+            this.logUtil.putF(Std.string(stringBuffer), this, "Constructor(TransformInfoInterface)");
         }
     }
 
@@ -77,8 +77,8 @@ class TransformInfoObjectConfig implements TransformInfoObjectConfigInterface {
                 stringBuffer.append("No Owner!?#@");
             }
             stringBuffer.append("\nConstructed with document: ");
-            stringBuffer.append(this.toString());
-            this.logUtil.putF(stringBuffer.toString(), this, "Constructor(TransformInfoInterface, Document)");
+            stringBuffer.append(Std.string(this));
+            this.logUtil.putF(Std.string(stringBuffer), this, "Constructor(TransformInfoInterface, Document)");
         }
     }
 
@@ -99,8 +99,8 @@ class TransformInfoObjectConfig implements TransformInfoObjectConfigInterface {
                 stringBuffer.append("No Owner!?#@");
             }
             stringBuffer.append("\nConstructed with document: ");
-            stringBuffer.append(this.toString());
-            this.logUtil.putF(stringBuffer.toString(), this, "Constructor(TransformInfoInterface, name, type)");
+            stringBuffer.append(Std.string(this));
+            this.logUtil.putF(Std.string(stringBuffer), this, "Constructor(TransformInfoInterface, name, type)");
         }
     }
 
@@ -168,7 +168,7 @@ class TransformInfoObjectConfig implements TransformInfoObjectConfigInterface {
                 stringBuffer.append(nodeName);
                 stringBuffer.append(" Nodes: ");
                 stringBuffer.appendint(numberOfViews);
-                this.logUtil.putF(stringBuffer.toString(), this, "getNodeVector(nodename)");
+                this.logUtil.putF(Std.string(stringBuffer), this, "getNodeVector(nodename)");
             }
             return viewNodeVector;
         }

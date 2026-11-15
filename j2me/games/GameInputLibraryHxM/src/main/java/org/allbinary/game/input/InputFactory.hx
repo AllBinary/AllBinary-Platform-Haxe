@@ -35,9 +35,11 @@ class InputFactory {
     public final KEY_CODE_LABEL : String = "KeyCode: ";
     public final DEVICE_ID_LABEL : String = "DeviceId: ";
     public final MAX : Int = SmallIntegerSingletonFactory.getInstance().getMin();
-    public final inputIntegerArray : haxe.ds.Vector<Input> = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.MAX) null]);
-    public final NO_INPUT : Input = new Input(0, this.commonStrings.UNKNOWN);
+    public final inputIntegerArray : haxe.ds.Vector<Input>;
+    public final NO_INPUT : Input;
     public function new() {
+        this.inputIntegerArray = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.MAX) null]);
+        this.NO_INPUT = new Input(0, this.commonStrings.UNKNOWN);
         final size : Int = this.inputIntegerArray.length;
         for (index in 0...size) {
             this.inputIntegerArray[index] = this.NO_INPUT;
@@ -53,7 +55,7 @@ class InputFactory {
             id = -id;
         }
         if (id > this.inputIntegerArray.length) {
-            this.logUtil.putF(new StringMaker().append("Warning id: ").appendint(id).toString(), this, this.commonStrings.GET_INSTANCE);
+            this.logUtil.putF(Std.string(new StringMaker().append("Warning id: ").appendint(id)), this, this.commonStrings.GET_INSTANCE);
             return this.NO_INPUT;
         }
         return this.inputIntegerArray[id];

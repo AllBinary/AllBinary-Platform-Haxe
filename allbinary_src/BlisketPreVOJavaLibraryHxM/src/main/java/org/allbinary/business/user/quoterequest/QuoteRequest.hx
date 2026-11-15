@@ -121,7 +121,7 @@ class QuoteRequest {
             if (this.comments == null || this.comments.length < 0 || this.comments.length > AbSqlData.MAXBLOB) {
                 stringBuffer.append("Please enter comments with less than " + AbSqlData.MAXBLOB + " characters.<br>");
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
@@ -140,7 +140,7 @@ class QuoteRequest {
         values.add(this.timeFrame);
         values.add(this.comments);
         var calendar : Calendar = Calendar.getInstance();
-        var time : String = calendar.getTimeInMillis().toString();
+        var time : String = Std.string(calendar.getTimeInMillis());
         values.add(time);
         values.add(time);
         return values;
@@ -156,7 +156,7 @@ class QuoteRequest {
         values.put(quoteRequestData.TIMEFRAME, this.timeFrame);
         values.put(quoteRequestData.COMMENTS, this.comments);
         var calendar : Calendar = Calendar.getInstance();
-        var time : String = calendar.getTimeInMillis().toString();
+        var time : String = Std.string(calendar.getTimeInMillis());
         values.put(EntryData.getInstance().LASTMODIFIED, time);
         return values;
     }

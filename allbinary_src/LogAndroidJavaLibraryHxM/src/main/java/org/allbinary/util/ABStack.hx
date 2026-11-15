@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.util;
 
-//import java.util.Stack;
+import jre.util.Stack;
 
 class ABStack<E> extends Stack<E> {
     public function new() {

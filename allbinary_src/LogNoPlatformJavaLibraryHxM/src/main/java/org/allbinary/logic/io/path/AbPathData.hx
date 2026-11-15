@@ -33,7 +33,7 @@ class AbPathData {
 
     public function getExtensionIndex(filePath : String) : Int {
         final indexOfFileExtensionDelmiter : Int = filePath.lastIndexOf(this.EXTENSION_SEP);
-        final indexOfLatDelimiter : Int = filePath.lastIndexOf(this.SEPARATORCHAR);
+        final indexOfLatDelimiter : Int = filePath.lastIndexOf(String.fromCharCode(this.SEPARATORCHAR));
         if (indexOfFileExtensionDelmiter < 0) {
             return -1;
         }
@@ -62,7 +62,7 @@ class AbPathData {
     }
 
     public function getNameFromPath(path : String) : String {
-        var endIndex : Int = path.lastIndexOf(this.SEPARATORCHAR);
+        var endIndex : Int = path.lastIndexOf(String.fromCharCode(this.SEPARATORCHAR));
         if (endIndex < 0) {
             endIndex = path.lastIndexOf(FilePathData.getInstance().SEPARATORCHAR);
         }
@@ -79,7 +79,7 @@ class AbPathData {
     }
 
     public function removeNameFromPath(path : String) : String {
-        var endIndex : Int = path.lastIndexOf(this.SEPARATORCHAR);
+        var endIndex : Int = path.lastIndexOf(String.fromCharCode(this.SEPARATORCHAR));
         if (endIndex < 0) {
             endIndex = path.lastIndexOf(FilePathData.getInstance().SEPARATORCHAR);
         }

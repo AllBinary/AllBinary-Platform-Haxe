@@ -28,10 +28,11 @@ import org.allbinary.string.CommonStrings;
 class TouchButtonInput extends Input implements GameKeyEventSourceInterface {
     public final logUtil : LogUtil = LogUtil.getInstance();
     private final gameKeyEventFactory : GameKeyEventFactory = GameKeyEventFactory.getInstance();
-    private final TOUCH_BUTTON_SOURCE_ID : Int = this.gameKeyEventFactory.TOUCH_BUTTON_SOURCE_ID;
+    private final TOUCH_BUTTON_SOURCE_ID : Int;
     private var gameKeyEvent : GameKeyEvent = GameKeyEvent.NONE;
     public function new(id : Int, name : String) {
         super(id, name);
+        this.TOUCH_BUTTON_SOURCE_ID = this.gameKeyEventFactory.TOUCH_BUTTON_SOURCE_ID;
         final inputFactory : InputFactory = InputFactory.getInstance();
         inputFactory.add(this.getId(), this);
     }

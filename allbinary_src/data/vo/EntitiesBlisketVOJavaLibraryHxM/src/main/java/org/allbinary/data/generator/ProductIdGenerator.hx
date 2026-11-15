@@ -28,7 +28,7 @@ class ProductIdGenerator extends UniqueIdGenerator {
         stringBuffer.append(PATH_GLOBALS.getInstance().INIT_PATH);
         stringBuffer.append(this.IDFILE);
         stringBuffer.append(UniqueIdGenerator.EXT);
-        super.setFile(stringBuffer.toString(), this.IDFILE);
+        super.setFile(Std.string(stringBuffer), this.IDFILE);
     }
 
 }

@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.ai.scroller;
 
-//import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Canvas;
 import org.allbinary.game.ai.BasicAI;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
@@ -33,7 +33,7 @@ import org.allbinary.util.ABHashtable;
 class HorizontalScreenPatrolAI extends BasicAI {
     public var keyDirection : Int = Canvas.LEFT;
     private final displayInfoSingleton : DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
-    private var firingX : Int = this.displayInfoSingleton.getLastHalfWidth();
+    private var firingX : Int;
     private var firedIndex : Int = 0;
     private final MAX_FIRE : Int = 28;
     private final timeDelayHelper : TimeDelayHelper = new TimeDelayHelper(240);
@@ -42,9 +42,10 @@ class HorizontalScreenPatrolAI extends BasicAI {
     public static final SOUND : Null<Int> = SmallIntegerSingletonFactory.getInstance().getAt(433);
     public function new(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) {
         super(ownerLayerInterface, gameInput);
+        this.firingX = this.displayInfoSingleton.getLastHalfWidth();
         this.sound = (cast hashtable.get(HorizontalScreenPatrolAI.SOUND) : Sound);
         if (this.sound == null) {
-            throw new haxe.Exception("No Sound Provided!!");
+            throw new jre.lang.JavaException("No Sound Provided!!");
         }
     }
 

@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.score;
 
-//import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.Command;
 import org.allbinary.logic.string.StringUtil;
 
 class HighScoreCommands {

@@ -15,10 +15,10 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.Command;
-//import javax.microedition.lcdui.CommandListener;
-//import javax.microedition.lcdui.Graphics;
-//import javax.microedition.lcdui.Item;
+import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Item;
 import org.allbinary.J2MEUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.IndexedAnimationBehavior;
@@ -135,7 +135,7 @@ class DemoCanvas extends RunnableCanvas implements GameCanvasRunnableInterface i
     private var state : Int = 0;
     private var canvasThread : Thread = NullThread.NULL_THREAD;
     private final timeDelayHelper : TimeDelayHelper = new TimeDelayHelper(6000);
-    private var basicColor : BasicColor = this.basicColorFactory.RED;
+    private var basicColor : BasicColor;
     public final abeClientInformation : AbeClientInformationInterface;
     private final highScoresFactoryInterface : HighScoresFactoryInterface;
     private var menuInputProcessor : BasicMenuInputProcessor = NoMenuInputProcessor.getInstance();
@@ -152,6 +152,7 @@ class DemoCanvas extends RunnableCanvas implements GameCanvasRunnableInterface i
     public var gameRunnable : GameRunnable = NullWaitGameRunnable.getInstance();
     public function new(abeClientInformation : AbeClientInformationInterface, commandListener : CommandListener, highScoresFactoryInterface : HighScoresFactoryInterface, paintable : Paintable, overlayPaintable : InitUpdatePaintable, gameInitializationInterfaceFactoryInterface : BasicBuildGameInitializerFactory, isContinue : Bool) {
         super(commandListener, CurrentDisplayableFactory.getInstance().DEFAULT_CHILD_NAME_LIST, true);
+        this.basicColor = this.basicColorFactory.RED;
         this.abeClientInformation = abeClientInformation;
         this.setWait(NullWaitGameRunnable.getInstance().WAIT);
         this.gameInitializationInterfaceFactoryInterface = gameInitializationInterfaceFactoryInterface;
@@ -177,7 +178,7 @@ class DemoCanvas extends RunnableCanvas implements GameCanvasRunnableInterface i
 
     public override function onDisplayChangeEvent(displayChangeEvent : DisplayChangeEvent) : Void {
         try {
-            this.logUtil.putF(new StringMaker().append(this.commonLabels.START_LABEL).append(this.displayInfo.toString()).toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+            this.logUtil.putF(Std.string(new StringMaker().append(this.commonLabels.START_LABEL).append(Std.string(this.displayInfo))), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
             final scrollSelectionForm : ScrollSelectionForm = this.getMenuForm();
             if (scrollSelectionForm != null) {
                 final formType : FormType = FormTypeFactory.getInstance().getFormType();
@@ -254,7 +255,7 @@ class DemoCanvas extends RunnableCanvas implements GameCanvasRunnableInterface i
         final items : haxe.ds.Vector<ABCustomItem> = commandTextItemArrayFactory.getInstance(this.getCommandStack(), this.basicColorFactory.BLACK, this.basicColorFactory.WHITE);
         final formType : FormType = FormTypeFactory.getInstance().getFormType();
         final rectangle : Rectangle = this.formUtil.createFormRectangle();
-        PreLogUtil.put(new StringMaker().append(this.commonLabels.START_LABEL).append(this.displayInfo.toString()).toString(), this, "initMenu");
+        PreLogUtil.put(Std.string(new StringMaker().append(this.commonLabels.START_LABEL).append(Std.string(this.displayInfo))), this, "initMenu");
         final scrollSelectionForm : ScrollSelectionForm = CommandCurrentSelectionFormFactory.getInstance(StringUtil.getInstance().EMPTY_STRING, items, rectangle, formType, 15, true, this.basicColorFactory.BLACK, this.basicColorFactory.WHITE);
         this.setMenuForm(scrollSelectionForm);
         final formType2 : FormType = FormTypeFactory.getInstance().getFormType();
@@ -320,7 +321,7 @@ class DemoCanvas extends RunnableCanvas implements GameCanvasRunnableInterface i
             } else {
                 if (this.lastKeyNotMapped != keyCode) {
                     this.lastKeyNotMapped = keyCode;
-                    this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+                    this.logUtil.putF(Std.string(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode)), this, this.gameInputStrings.ADD_KEY_EVENT);
                 }
             }
         } catch (e : haxe.Exception) {
@@ -335,7 +336,7 @@ class DemoCanvas extends RunnableCanvas implements GameCanvasRunnableInterface i
                 var gameKeyEvent : GameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(this, gameKey);
                 UpGameKeyEventHandler.getInstance().fireEvent(gameKeyEvent);
             } else {
-                this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
+                this.logUtil.putF(Std.string(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode)), this, this.gameInputStrings.REMOVE_KEY_EVENT);
             }
         } catch (e : haxe.Exception) {
             this.logUtil.put("Key Event Error", this, this.gameInputStrings.REMOVE_KEY_EVENT, e);
@@ -367,7 +368,7 @@ class DemoCanvas extends RunnableCanvas implements GameCanvasRunnableInterface i
     }
 
     public override function isGameOver() : Bool {
-        this.logUtil.putF(new StringMaker().append(this.commonStrings.NOT_IMPLEMENTED).append(" since not a game").toString(), this, "isGameOver");
+        this.logUtil.putF(Std.string(new StringMaker().append(this.commonStrings.NOT_IMPLEMENTED).append(" since not a game")), this, "isGameOver");
         return false;
     }
 
@@ -433,7 +434,7 @@ class DemoCanvas extends RunnableCanvas implements GameCanvasRunnableInterface i
 
     private final SET_STATE : String = "setState";
     public function updateDemoState() : Void {
-        PreLogUtil.put(SmallIntegerSingletonFactory.getInstance().createInstance(this.state).toString(), this, this.SET_STATE);
+        PreLogUtil.put(Std.string(SmallIntegerSingletonFactory.getInstance().createInstance(this.state)), this, this.SET_STATE);
         this.getBasicGameDemoPaintable().setState(this.state);
         if (this.state == 0) {
             this.highScoresPaintable = NullPaintable.getInstance();
@@ -452,17 +453,17 @@ class DemoCanvas extends RunnableCanvas implements GameCanvasRunnableInterface i
 
     // throws Exception
     public function getNextRandom() : Int {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception
     public function createGameLayerManager(randomValue : Int) : AllBinaryGameLayerManager {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception
     public function createRunnable(randomLevel : Int) : GameCanvasRunnableInterface {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception
@@ -481,7 +482,7 @@ class DemoCanvas extends RunnableCanvas implements GameCanvasRunnableInterface i
     // throws Exception
     public function start() : Void {
         final gameCanvas : AllBinaryGameCanvas = this.gameCanvas;
-        PreLogUtil.put(new StringMaker().append("Game Thread in DemoCanvas: ").append(this.stringUtil.toString(gameCanvas)).toString(), this, this.commonStrings.START);
+        PreLogUtil.put(Std.string(new StringMaker().append("Game Thread in DemoCanvas: ").append(this.stringUtil.toString(gameCanvas))), this, this.commonStrings.START);
         this.canvasThread = this.threadFactoryUtil.getInstanceGameCanvasRunnable(gameCanvas);
         this.gameCanvas.setThread(this.canvasThread);
         this.threadFactoryUtil.start(this.canvasThread);
@@ -655,7 +656,7 @@ class DemoCanvas extends RunnableCanvas implements GameCanvasRunnableInterface i
     public function end() : Void {
         final progressCanvas : ProgressCanvas = ProgressCanvasFactory.getInstance();
         final features : Features = Features.getInstance();
-        this.baseGameStatistics.add(new StringMaker().append(DemoCanvas.BOT_GAME_STATS).append(this.baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());
+        this.baseGameStatistics.add(Std.string(new StringMaker().append(DemoCanvas.BOT_GAME_STATS).append(Std.string(this.baseGameStatistics)).append(CommonSeps.getInstance().NEW_LINE)));
         this.baseGameStatistics.init();
         if (features.isFeature(MainFeatureFactory.getInstance().LOAD_ONDEMAND)) {
             progressCanvas.start();
@@ -794,6 +795,14 @@ class DemoCanvas extends RunnableCanvas implements GameCanvasRunnableInterface i
     public static final TYPE : Int = 3;
     public override function getType() : Int {
         return DemoCanvas.TYPE;
+    }
+
+    public override function getTitle() : String {
+        return super.getTitle();
+    }
+
+    public override function isPaused() : Bool {
+        return super.isPaused();
     }
 
 }

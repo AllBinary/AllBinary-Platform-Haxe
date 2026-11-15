@@ -43,7 +43,7 @@ class Globals {
         stringBuffer.append(pathString);
         stringBuffer.append(" ClassLoader: ");
         stringBuffer.append(Type.getClassName(Type.getClass(classLoader)));
-        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
+        this.logUtil.putF(Std.string(stringBuffer), this, commonStrings.INIT);
         final stringValidationUtil : StringValidationUtil = StringValidationUtil.getInstance();
         if (stringValidationUtil.isEmpty(pathString)) {
             stringBuffer.delete(0, stringBuffer.length());
@@ -53,12 +53,12 @@ class Globals {
             stringBuffer.append(CommonSeps.getInstance().EQUALS);
             stringBuffer.append(CommonSeps.getInstance().SPACE);
             stringBuffer.append(URLGLOBALS.getWebappPath());
-            this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
+            this.logUtil.putF(Std.string(stringBuffer), this, commonStrings.INIT);
         }
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append("Webapp Path Set To: ");
         stringBuffer.append(URLGLOBALS.getWebappPath());
-        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
+        this.logUtil.putF(Std.string(stringBuffer), this, commonStrings.INIT);
     }
 
 }

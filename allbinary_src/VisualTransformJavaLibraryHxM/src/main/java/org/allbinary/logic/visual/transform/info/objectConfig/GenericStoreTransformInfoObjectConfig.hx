@@ -67,7 +67,7 @@ class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectConfig {
             } else {
                 stringBuffer.append("No Owner!?#@");
             }
-            this.logUtil.putF(stringBuffer.toString(), this, "generate()");
+            this.logUtil.putF(Std.string(stringBuffer), this, "generate()");
         }
         final transformInfoHttpStoreInterface : TransformInfoHttp = (cast this.getTransformInfoInterface() : TransformInfoHttp);
         final objectConfigDocumentString : String = XmlDocumentHelper.toString(objectConfigDocument);
@@ -102,7 +102,7 @@ class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectConfig {
         templateNameStringBuffer.append(RootTransformInfoData.NAME);
         var templateNameKey : String = TransformInfoObjectConfigData.getInstance().VARKEY + TransformInfoData.getInstance().OWNER;
         if (objectConfigDocumentString.indexOf(templateNameKey) != -1) {
-            var templateInterface : TransformTemplateInterface = TransformTemplateFactory.getInstance().getInstance(this.abeClientInformation, templateNameStringBuffer.toString(), transformInfoHttpStoreInterface.getPropertiesHashMap(), transformInfoHttpStoreInterface.getPageContext());
+            var templateInterface : TransformTemplateInterface = TransformTemplateFactory.getInstance().getInstance(this.abeClientInformation, Std.string(templateNameStringBuffer), transformInfoHttpStoreInterface.getPropertiesHashMap(), transformInfoHttpStoreInterface.getPageContext());
             var selectedTemplate : String = templateInterface.getName();
             hashMap.put(templateNameKey, selectedTemplate);
         }

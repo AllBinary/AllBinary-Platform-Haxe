@@ -64,7 +64,7 @@ class CategoryRequestHelper extends ModifyTable {
         }
     }
 
-    private static final categoryRequest : String = new StringMaker().append("<").append(CategoryData.getInstance().REQUEST).append(">").toString();
+    private static final categoryRequest : String = Std.string(new StringMaker().append("<").append(CategoryData.getInstance().REQUEST).append(">"));
     public function getXmlData() : Void {
         try {
             var map : Map = this.request.getParameterMap();

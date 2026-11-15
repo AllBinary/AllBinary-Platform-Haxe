@@ -100,7 +100,7 @@ class NameSpaceRequestParams extends RequestParams {
         var rootNode : Node = DomSearchHelper.getNodeNoThrow(rootElementPackage, document.getChildNodes());
         if (rootNode == null) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST)) {
-                this.logUtil.putF("\nAppending Document Root: " + "\nElementName: " + rootElementPackage + "\nProperties: " + packagePropertiesHashMap.toString(), this, "getRootNode");
+                this.logUtil.putF("\nAppending Document Root: " + "\nElementName: " + rootElementPackage + "\nProperties: " + Std.string(packagePropertiesHashMap), this, "getRootNode");
             }
             var node : Node = this.createPackageNode(document, rootElementPackage, packagePropertiesHashMap);
             document.appendChild(node);
@@ -119,7 +119,7 @@ class NameSpaceRequestParams extends RequestParams {
     // throws Exception
     private function addNewProperties(document : Document, node : Node, nextPackagePropertiesHashMap : HashMap) : Node {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST)) {
-            this.logUtil.putF(new StringMaker().append("\nAdding Any New Properties: ").append(nextPackagePropertiesHashMap.toString()).append("\nto node: ").append(node.getNodeName()).toString(), this, "addNewProperties");
+            this.logUtil.putF(Std.string(new StringMaker().append("\nAdding Any New Properties: ").append(Std.string(nextPackagePropertiesHashMap)).append("\nto node: ").append(node.getNodeName())), this, "addNewProperties");
         }
         final propertyNameSet : Set = nextPackagePropertiesHashMap.keySet();
         final propertyNameSetArray : haxe.ds.Vector<Any> = propertyNameSet.toArray();
@@ -153,7 +153,7 @@ class NameSpaceRequestParams extends RequestParams {
     // throws Exception
     private function isElementValueTextNodeEqual(nextPackagePropertiesHashMap : HashMap, node : Node) : Bool {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST)) {
-            this.logUtil.putF("\nComparing the value property in: " + nextPackagePropertiesHashMap.toString() + "\nto node child leaves of node: " + node.getNodeName(), this, "isElementValueTextNodeEqual");
+            this.logUtil.putF("\nComparing the value property in: " + Std.string(nextPackagePropertiesHashMap) + "\nto node child leaves of node: " + node.getNodeName(), this, "isElementValueTextNodeEqual");
         }
         var propertyValue : String = (cast nextPackagePropertiesHashMap.get(DomData.VALUE) : String);
         var valueNode : Node = DomSearchHelper.getNodeNoThrow(DomData.VALUE, node.getChildNodes());
@@ -194,7 +194,7 @@ class NameSpaceRequestParams extends RequestParams {
         for (index in 1...size) {
             var nextPackageName : String = (cast packageVector.get(index) : String);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST)) {
-                this.logUtil.putF(new StringMaker().append("\nTrying to Add Child to Node: ").append(node.getNodeName()).append("\nwith new PackageName: ").append(nextPackageName).toString(), this, "addChildren");
+                this.logUtil.putF(Std.string(new StringMaker().append("\nTrying to Add Child to Node: ").append(node.getNodeName()).append("\nwith new PackageName: ").append(nextPackageName)), this, "addChildren");
             }
             var nextPackagePropertiesHashMap : HashMap = nameSpaceRequestParam.getPackageProperties(index);
             var elementNodeVector : BasicArrayList = DomSearchHelper.getAllNodesNoThrow(nextPackageName, node.getChildNodes());
@@ -237,7 +237,7 @@ class NameSpaceRequestParams extends RequestParams {
     // throws Exception
     private function addNameSpace(key : String, value : String, document : Document) : Document {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST)) {
-            this.logUtil.putF(new StringMaker().append("NameSpace key: ").append(key).append(" Value: ").append(value).toString(), this, "addNameSpace");
+            this.logUtil.putF(Std.string(new StringMaker().append("NameSpace key: ").append(key).append(" Value: ").append(value)), this, "addNameSpace");
         }
         final nameSpaceRequestParam : NameSpaceRequestParam = new NameSpaceRequestParam(key, value);
         final packageVector : BasicArrayList = nameSpaceRequestParam.getPackages();
@@ -293,7 +293,7 @@ class NameSpaceRequestParams extends RequestParams {
             }
         }
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST)) {
-            this.logUtil.putF("NameSpaceRequestParams: " + this.getMap().toString() + "\ntoHashMap(): " + hashMap.toString() + "\nDocument Created: " + XmlDocumentHelper.toString(document), this, "toHashMap()");
+            this.logUtil.putF("NameSpaceRequestParams: " + Std.string(this.getMap()) + "\ntoHashMap(): " + Std.string(hashMap) + "\nDocument Created: " + XmlDocumentHelper.toString(document), this, "toHashMap()");
         }
         hashMap.put(NameSpaceRequestParamData.DOCUMENT, document);
         return hashMap;

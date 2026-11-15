@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.io;
 
-//import java.io.DataOutputStream;
-//import java.io.FileOutputStream;
+import jre.io.DataOutputStream;
+import jre.io.FileOutputStream;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.file.AbFileSystem;
 import org.allbinary.string.CommonStrings;

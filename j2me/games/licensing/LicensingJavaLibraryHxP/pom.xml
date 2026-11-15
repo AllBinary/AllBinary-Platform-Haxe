@@ -14,20 +14,20 @@
 
     <modules>
 
-        <module>../../platform/android/AndroidResourcesTempJavaLibraryHaxeM</module>
-        <module>../../../../allbinary_src/licensing/ClientInformationMobileLicensingRegistrationJavaLibraryHaxeM</module>
+        <module>../../platform/android/AndroidResourcesTempJavaLibraryHxM</module>
+        <module>../../../../allbinary_src/licensing/ClientInformationMobileLicensingRegistrationJavaLibraryHxM</module>
 
         <!--
-        <module>../../../../../working/allbinary_src/licensing/LicenseRegistrationJavaLibraryHaxeM</module>
+        <module>../../../../../working/allbinary_src/licensing/LicenseRegistrationJavaLibraryHxM</module>
 
-        <module>../LicensedGameDemoJavaLibraryHaxeM</module>
+        <module>../LicensedGameDemoJavaLibraryHxM</module>
         
-        <module>../../../../../working/j2me/games/licensing/GameLicensingOnlyDemoJavaLibraryHaxeM</module>
-        <module>../../../../../working/j2me/games/licensing/GameLicensingOnlyNormalJavaLibraryHaxeM</module>
+        <module>../../../../../working/j2me/games/licensing/GameLicensingOnlyDemoJavaLibraryHxM</module>
+        <module>../../../../../working/j2me/games/licensing/GameLicensingOnlyNormalJavaLibraryHxM</module>
         -->
         
         <!--
-        <module>../StoreGameDemoJavaLibraryHaxeM</module>
+        <module>../StoreGameDemoJavaLibraryHxM</module>
         -->
         
     </modules>
@@ -39,7 +39,7 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
-
+    </dependencies>
 
 </project>
 

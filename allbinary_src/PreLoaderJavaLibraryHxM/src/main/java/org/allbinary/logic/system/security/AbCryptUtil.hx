@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.system.security;
 
-//import java.io.ByteArrayOutputStream;
-//import java.io.InputStream;
+import jre.io.ByteArrayOutputStream;
+import jre.io.InputStream;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.system.security.crypt.jcehelper.AbCrypt;
 import org.allbinary.logic.system.security.crypt.jcehelper.KeySpecFactory;

@@ -224,7 +224,7 @@ class StreetAddress {
             stringBuffer.append("Please enter a valid country");
             stringBuffer.append("<br></br>");
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     private function toValidationInfoDoc() : Document {

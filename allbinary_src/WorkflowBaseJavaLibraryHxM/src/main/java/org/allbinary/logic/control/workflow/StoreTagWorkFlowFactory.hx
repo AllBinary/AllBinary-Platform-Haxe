@@ -46,7 +46,7 @@ class StoreTagWorkFlowFactory {
                 stringBuffer.append("->");
                 stringBuffer.append(Type.getClassName(Type.getClass(StoreTagWorkFlowFactory.instance)));
                 final commonStrings : CommonStrings = CommonStrings.getInstance();
-                this.logUtil.putF(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);
+                this.logUtil.putF(Std.string(stringBuffer), this, commonStrings.GET_INSTANCE);
             }
             var params : haxe.ds.Vector<Any> = haxe.ds.Vector.fromArrayCopy([for (index in 0...2) null]);
             var classes : haxe.ds.Vector<Class<Dynamic>> = haxe.ds.Vector.fromArrayCopy([for (index in 0...2) null]);
@@ -64,7 +64,7 @@ class StoreTagWorkFlowFactory {
                 stringBuffer.append("->");
                 stringBuffer.append(Type.getClassName(Type.getClass(StoreTagWorkFlowFactory.instance)));
                 final commonStrings : CommonStrings = CommonStrings.getInstance();
-                this.logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE, e);
+                this.logUtil.put(Std.string(stringBuffer), this, commonStrings.GET_INSTANCE, e);
             }
             throw e;
         } catch (e : haxe.Exception) {
@@ -76,7 +76,7 @@ class StoreTagWorkFlowFactory {
                 stringBuffer.append("->");
                 stringBuffer.append(Type.getClassName(Type.getClass(StoreTagWorkFlowFactory.instance)));
                 final commonStrings : CommonStrings = CommonStrings.getInstance();
-                this.logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE, e);
+                this.logUtil.put(Std.string(stringBuffer), this, commonStrings.GET_INSTANCE, e);
             }
             throw e;
         }

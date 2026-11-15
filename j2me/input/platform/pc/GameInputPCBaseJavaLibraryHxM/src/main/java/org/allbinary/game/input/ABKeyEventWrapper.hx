@@ -16,7 +16,7 @@
 package org.allbinary.game.input;
 
 //import java.awt.event.KeyEvent;
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 
 class ABKeyEventWrapper {
     private static final instance : ABKeyEventWrapper = new ABKeyEventWrapper();

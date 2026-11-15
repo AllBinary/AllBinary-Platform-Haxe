@@ -23,9 +23,11 @@ class LogConfigTypeFactory {
     }
 
     private final NO_DESCRIPTION : String = "No Description";
-    public final OS : LogConfigType = new LogConfigType("Operating System", this.NO_DESCRIPTION);
-    public final FACTORYERROR : LogConfigType = new LogConfigType("Factory Error", this.NO_DESCRIPTION);
+    public final OS : LogConfigType;
+    public final FACTORYERROR : LogConfigType;
     public function new() {
+        this.OS = new LogConfigType("Operating System", this.NO_DESCRIPTION);
+        this.FACTORYERROR = new LogConfigType("Factory Error", this.NO_DESCRIPTION);
         LogConfigTypes.LOGGING.add(OS);
         LogConfigTypes.LOGGING.add(this.FACTORYERROR);
     }

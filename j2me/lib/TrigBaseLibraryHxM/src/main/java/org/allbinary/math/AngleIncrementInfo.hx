@@ -15,12 +15,12 @@
 // Generated Code Do Not Modify
 package org.allbinary.math;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
-import jsinterop.annotations.JsProperty;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
+//import jsinterop.annotations.JsProperty;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsConstructor;
 
 class AngleIncrementInfo {
     private final angleIncrement : Int;
@@ -49,7 +49,7 @@ class AngleIncrementInfo {
 
     private static final INCREMENT : String = "Inc: ";
     public function toString() : String {
-        return new StringMaker().append(AngleIncrementInfo.INCREMENT).appendshort(this.angleIncrement).toString();
+        return Std.string(new StringMaker().append(AngleIncrementInfo.INCREMENT).appendshort(this.angleIncrement));
     }
 
     public function getClosestGeneralDirection(angle : Int) : Int {

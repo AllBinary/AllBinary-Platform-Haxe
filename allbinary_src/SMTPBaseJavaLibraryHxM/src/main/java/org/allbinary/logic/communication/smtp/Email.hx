@@ -134,7 +134,7 @@ class Email implements EmailInterface {
 
     public function getDebugInfo() : String {
         if (this.isDebug) {
-            return "More Logging Before This To Standard Out: " + this.bs.toString();
+            return "More Logging Before This To Standard Out: " + Std.string(this.bs);
         } else {
             return "Debugging Is Off";
         }
@@ -142,7 +142,7 @@ class Email implements EmailInterface {
 
     // throws Exception
     public function log() : String {
-        return "\nHashMap: " + this.toHashMap().toString();
+        return "\nHashMap: " + Std.string(this.toHashMap());
     }
 
     // throws Exception
@@ -153,25 +153,25 @@ class Email implements EmailInterface {
             var addresses : haxe.ds.Vector<Address> = this.msg.getFrom();
             if (addresses != null) {
                 for (index in 0...addresses.length) {
-                    hashMap.put(EmailData.FROM, addresses[index].toString());
+                    hashMap.put(EmailData.FROM, Std.string(addresses[index]));
                 }
             }
             addresses = this.msg.getRecipients(Message.RecipientType.TO);
             if (addresses != null) {
                 for (index in 0...addresses.length) {
-                    hashMap.put(EmailData.TO, addresses[index].toString());
+                    hashMap.put(EmailData.TO, Std.string(addresses[index]));
                 }
             }
             addresses = this.msg.getRecipients(Message.RecipientType.CC);
             if (addresses != null) {
                 for (index in 0...addresses.length) {
-                    hashMap.put(EmailData.CC, addresses[index].toString());
+                    hashMap.put(EmailData.CC, Std.string(addresses[index]));
                 }
             }
             addresses = this.msg.getRecipients(Message.RecipientType.BCC);
             if (addresses != null) {
                 for (index in 0...addresses.length) {
-                    hashMap.put(EmailData.BCC, addresses[index].toString());
+                    hashMap.put(EmailData.BCC, Std.string(addresses[index]));
                 }
             }
             hashMap.put(EmailData.SUBJECT, this.msg.getSubject());

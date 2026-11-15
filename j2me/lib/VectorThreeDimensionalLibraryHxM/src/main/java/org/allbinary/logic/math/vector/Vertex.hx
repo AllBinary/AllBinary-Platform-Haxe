@@ -31,14 +31,14 @@ class Vertex {
         var stringBuffer : StringMaker = new StringMaker();
         var positionStrings : PositionStrings = PositionStrings.getInstance();
         stringBuffer.append(positionStrings.X_LABEL);
-        stringBuffer.append(this.x.toString());
+        stringBuffer.append(Std.string(this.x));
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(positionStrings.Y_LABEL);
-        stringBuffer.append(this.y.toString());
+        stringBuffer.append(Std.string(this.y));
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(positionStrings.Z_LABEL);
-        stringBuffer.append(this.z.toString());
-        return stringBuffer.toString();
+        stringBuffer.append(Std.string(this.z));
+        return Std.string(stringBuffer);
     }
 
 }

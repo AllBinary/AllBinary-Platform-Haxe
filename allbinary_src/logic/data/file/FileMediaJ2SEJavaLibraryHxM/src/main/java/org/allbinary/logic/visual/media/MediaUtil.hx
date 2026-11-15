@@ -35,7 +35,7 @@ class MediaUtil {
         }
         if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW)) {
             var hashMap : HashMap = this.getImageBufferPropertyHashMap(bufferedImage);
-            this.logUtil.putF("Image Properties: " + hashMap.toString(), this, "saveImageFile()");
+            this.logUtil.putF("Image Properties: " + Std.string(hashMap), this, "saveImageFile()");
         }
         final imageFile : AbFile = AbFile.createAbFile(category + newImageFileName);
         imageFile.createNewFile();
@@ -64,7 +64,7 @@ class MediaUtil {
             stringBuffer.appendlong(haxe.Int64.ofInt(originalImageFile.length()));
             stringBuffer.append("\nNew File Length: ");
             stringBuffer.appendlong(haxe.Int64.ofInt(imageFile.length()));
-            this.logUtil.putF(stringBuffer.toString(), this, "saveImageFile()");
+            this.logUtil.putF(Std.string(stringBuffer), this, "saveImageFile()");
         }
     }
 
@@ -74,7 +74,7 @@ class MediaUtil {
         if (propertyStringArray != null) {
             for (index in 0...propertyStringArray.length) {
                 var propertyObject : Any = bufferedImage.getProperty(propertyStringArray[index]);
-                hashMap.put(propertyStringArray[index], propertyObject.toString());
+                hashMap.put(propertyStringArray[index], Std.string(propertyObject));
             }
         }
         return hashMap;

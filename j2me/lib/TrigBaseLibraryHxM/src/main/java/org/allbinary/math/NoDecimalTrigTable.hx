@@ -15,15 +15,15 @@
 // Generated Code Do Not Modify
 package org.allbinary.math;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.MathUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsConstructor;
+//import jsinterop.annotations.JsProperty;
 
 class NoDecimalTrigTable {
     private static final instance : NoDecimalTrigTable = new NoDecimalTrigTable();
@@ -1207,7 +1207,7 @@ class NoDecimalTrigTable {
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(PositionStrings.getInstance().DX_LABEL);
         stringBuffer.appendint(dy);
-        throw new haxe.Exception(stringBuffer.toString());
+        throw new jre.lang.JavaException(Std.string(stringBuffer));
     }
 
     // throws Exception
@@ -1215,7 +1215,7 @@ class NoDecimalTrigTable {
         final METHOD_NAME : String = "antiTanDebug";
         final TARGET_ANGLE : String = " Targeting angle: ";
         final stringMaker : StringMaker = new StringMaker();
-        PreLogUtil.put(stringMaker.append("screenX: ").appendint(screenX).append(" screenY: ").appendint(screenY).append(" targetX: ").appendint(targetX).append(" targetY: ").appendint(targetY).toString(), this, METHOD_NAME);
+        PreLogUtil.put(Std.string(stringMaker.append("screenX: ").appendint(screenX).append(" screenY: ").appendint(screenY).append(" targetX: ").appendint(targetX).append(" targetY: ").appendint(targetY)), this, METHOD_NAME);
         var targetX2 : Int = -targetX;
         var targetY2 : Int = -targetY;
         var screenX2 : Int = -screenX;
@@ -1238,7 +1238,7 @@ class NoDecimalTrigTable {
                 angleOfTarget = this.antiTan(dx[index], dy[index2]);
                 angle = angleFactory.getAt(angleOfTarget);
                 stringMaker.delete(0, stringMaker.length());
-                PreLogUtil.put(stringMaker.append(CommonLabels.getInstance().INDEX_LABEL).appendint(index).append(" index2: ").appendint(index2).append(PositionStrings.getInstance().DX_LABEL).appendint(dx[index]).append(PositionStrings.getInstance().DY_LABEL).appendint(dy[index2]).append(TARGET_ANGLE).appendshort(angleOfTarget).append(CommonSeps.getInstance().EQUALS).appendshort(Std.int(angle.getValue())).toString(), this, METHOD_NAME);
+                PreLogUtil.put(Std.string(stringMaker.append(CommonLabels.getInstance().INDEX_LABEL).appendint(index).append(" index2: ").appendint(index2).append(PositionStrings.getInstance().DX_LABEL).appendint(dx[index]).append(PositionStrings.getInstance().DY_LABEL).appendint(dy[index2]).append(TARGET_ANGLE).appendshort(angleOfTarget).append(CommonSeps.getInstance().EQUALS).appendshort(Std.int(angle.getValue()))), this, METHOD_NAME);
             }
         }
         angleOfTarget = this.antiTan(dx[0], dy[0]);

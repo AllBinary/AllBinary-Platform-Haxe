@@ -134,7 +134,7 @@ class SearchParams {
 
     // throws Exception
     private function getFieldsNode(document : Document) : Node {
-        var fieldsNode : Node = ModDomHelper.createNameValueNodes(document, SearchData.FIELDS, this.columnsAndSearchValues.size().toString());
+        var fieldsNode : Node = ModDomHelper.createNameValueNodes(document, SearchData.FIELDS, Std.string(this.columnsAndSearchValues.size()));
         var set : Set = this.columnsAndSearchValues.keySet();
         final searchValueArray : haxe.ds.Vector<Any> = set.toArray();
         final size : Int = searchValueArray.length;

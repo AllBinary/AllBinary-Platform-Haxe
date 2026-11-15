@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.image;
 
-//import java.io.InputStream;
-//import javax.microedition.lcdui.Image;
-//import javax.microedition.lcdui.NullImage;
+import jre.io.InputStream;
+import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullImage;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -32,13 +32,17 @@ class ImageCacheBase {
     public final imageFactory : ImageFactory = ImageFactory.getInstance();
     public final hashtable : ABHashtable<Any, Any> = StdUtil.getInstance().createHashtable();
     public final SIZE : Int = 128;
-    public final widths : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.SIZE) 0]);
-    public final heights : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.SIZE) 0]);
-    public final listOfList : haxe.ds.Vector<BasicArrayList> = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.SIZE) null]);
-    public final availableListOfList : haxe.ds.Vector<BasicArrayList> = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.SIZE) null]);
+    public final widths : haxe.ds.Vector<Int>;
+    public final heights : haxe.ds.Vector<Int>;
+    public final listOfList : haxe.ds.Vector<BasicArrayList>;
+    public final availableListOfList : haxe.ds.Vector<BasicArrayList>;
     public var volume : Int = 0;
     public var nextIndex : Int = 0;
     public function new() {
+        this.widths = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.SIZE) 0]);
+        this.heights = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.SIZE) 0]);
+        this.listOfList = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.SIZE) null]);
+        this.availableListOfList = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.SIZE) null]);
         {
             var index : Int = this.listOfList.length - 1;
             while (index >= 0) {
@@ -72,7 +76,7 @@ class ImageCacheBase {
                 index--;
             }
         }
-        this.logUtil.putF(new StringMaker().append("ImageCache: ").append(this.toString()).toString(), this, "releaseAll");
+        this.logUtil.putF(Std.string(new StringMaker().append("ImageCache: ").append(Std.string(this))), this, "releaseAll");
     }
 
     public function getIndexWH(width : Int, height : Int) : Int {
@@ -99,12 +103,12 @@ class ImageCacheBase {
 
     // throws Exception
     public function get(caller : String, width : Int, height : Int) : Image {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     // throws Exception
     public function getWithKey(key : Any) : Image {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     // throws Exception
@@ -138,7 +142,7 @@ class ImageCacheBase {
                 index--;
             }
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function getHashtableP() : ABHashtable<Any, Any> {

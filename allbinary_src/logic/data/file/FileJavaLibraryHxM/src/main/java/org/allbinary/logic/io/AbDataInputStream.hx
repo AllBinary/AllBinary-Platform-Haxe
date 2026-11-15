@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.io;
 
-//import java.io.DataInputStream;
-//import java.io.InputStream;
+import jre.io.DataInputStream;
+import jre.io.InputStream;
 
 class AbDataInputStream extends DataInputStream {
     public function new(out : InputStream) {

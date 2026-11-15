@@ -96,7 +96,7 @@ class TransformHttpRequestDocument implements TransformDocumentInterface {
         }
         stringBuffer.append("\nDocument: ");
         stringBuffer.append(XmlDocumentHelper.toString(this.document));
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

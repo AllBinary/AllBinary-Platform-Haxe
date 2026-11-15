@@ -37,8 +37,8 @@ class NewUserFactory {
         var httpTransformInfoInterface : TransformInfoHttpInterface = (cast transformInfoInterface : TransformInfoHttpInterface);
         var httpServletRequest : HttpServletRequest = (cast httpTransformInfoInterface.getPageContext().getRequest() : HttpServletRequest);
         var hashMap : HashMap = new RequestParams(httpServletRequest).toHashMap();
-        var role : String = (cast httpTransformInfoInterface.getPropertiesHashMap().get(UserRoleData.NAME.toString()) : String);
-        hashMap.put(UserRoleData.NAME.toString(), role);
+        var role : String = (cast httpTransformInfoInterface.getPropertiesHashMap().get(Std.string(UserRoleData.NAME)) : String);
+        hashMap.put(Std.string(UserRoleData.NAME), role);
         return CreateUserFactory.getInstance(hashMap);
     }
 
@@ -46,8 +46,8 @@ class NewUserFactory {
     public static function getInstance(httpServletRequest : HttpServletRequest, propertiesHashMap : HashMap) : UserInterface {
         if (propertiesHashMap != null) {
             var requestHashMap : HashMap = new RequestParams(httpServletRequest).toHashMap();
-            var roleString : String = (cast propertiesHashMap.get(UserRoleData.NAME.toString()) : String);
-            requestHashMap.put(UserRoleData.NAME.toString(), roleString);
+            var roleString : String = (cast propertiesHashMap.get(Std.string(UserRoleData.NAME)) : String);
+            requestHashMap.put(Std.string(UserRoleData.NAME), roleString);
             return CreateUserFactory.getInstance(requestHashMap);
         } else {
             throw new haxe.Exception("Null HashMap");

@@ -46,7 +46,7 @@ class CustomUriResolver implements URIResolver {
             stringBuffer.append(this.path);
             stringBuffer.append(AbPathData.getInstance().SEPARATOR);
             stringBuffer.append(href);
-            final fileAbPath : AbPath = (cast new AbFilePath(stringBuffer.toString()) : AbPath);
+            final fileAbPath : AbPath = (cast new AbFilePath(Std.string(stringBuffer)) : AbPath);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XMLLOGGING)) {
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append(this.uriResolverStrings.ATTEMPT);
@@ -54,7 +54,7 @@ class CustomUriResolver implements URIResolver {
                 stringBuffer.append(this.uriResolverStrings.BASE);
                 stringBuffer.append(base);
                 stringBuffer.append(this.uriResolverStrings.NEW_PATH);
-                stringBuffer.append(fileAbPath.toString());
+                stringBuffer.append(Std.string(fileAbPath));
                 stringBuffer.append(this.uriResolverStrings.NOTE);
                 stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
                 stringBuffer.append(this.uriResolverStrings.URL_GLOBAL);

@@ -31,20 +31,20 @@
 
     <modules>
 
-        <module>../AIBasicGameLibraryHaxeM</module>
+        <module>../AIBasicGameLibraryHxM</module>
         <!--
-        <module>../AIBasicPathFollowingJavaLibraryHaxeM</module>
+        <module>../AIBasicPathFollowingJavaLibraryHxM</module>
         -->
-        <module>../AIBounceGameLibraryHaxeM</module>
-        <module>../AICombatGameJavaLibraryHaxeM</module>
-        <module>../AIRotationGameLibraryHaxeM</module>
-        <module>../AIScrollerTwoDimensionalJavaLibraryHaxeM</module>
-        <module>../AITerrainPatrolJavaLibraryHaxeM</module>
-        <module>../AITrackingPatrolJavaLibraryHaxeM</module>
+        <module>../AIBounceGameLibraryHxM</module>
+        <module>../AICombatGameJavaLibraryHxM</module>
+        <module>../AIRotationGameLibraryHxM</module>
+        <module>../AIScrollerTwoDimensionalJavaLibraryHxM</module>
+        <module>../AITerrainPatrolJavaLibraryHxM</module>
+        <module>../AITrackingPatrolJavaLibraryHxM</module>
         
         <!--
         Already on GameJ2MELibraryPOM
-        <module>../ArtificialIntelligenceLibraryHaxeM</module>
+        <module>../ArtificialIntelligenceLibraryHxM</module>
         -->
 
     </modules>

@@ -1,7 +1,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -51,7 +51,7 @@ class ABCustomForm extends CustomScreen {
     }
 
     public function getWidth() : Int {
-        throw new haxe.Exception();
+        throw new jre.lang.JavaException();
     }
 
     public function paint(graphics : Graphics) : Void {

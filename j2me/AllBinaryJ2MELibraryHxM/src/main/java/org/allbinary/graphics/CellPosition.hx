@@ -54,7 +54,7 @@ class CellPosition extends V {
         stringBuffer.append(commonSeps.COMMA);
         stringBuffer.appendint(i_row);
         stringBuffer.append(commonSeps.PARENTHESIS_CLOSE);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public override function getId() : Int {

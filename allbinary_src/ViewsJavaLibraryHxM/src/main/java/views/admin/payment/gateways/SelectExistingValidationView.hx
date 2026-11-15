@@ -56,5 +56,10 @@ class SelectExistingValidationView extends HttpStoreComponentView implements Val
         return new SelectExistingView(this.getTransformInfoInterface()).view();
     }
 
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
+    }
+
 }
 

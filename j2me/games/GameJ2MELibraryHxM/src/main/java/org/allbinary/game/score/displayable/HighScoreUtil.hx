@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.score.displayable;
 
-//import javax.microedition.lcdui.Command;
-//import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.CommandListener;
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.score.HighScore;
 import org.allbinary.game.score.HighScoreNamePersistanceSingleton;
@@ -63,7 +63,7 @@ class HighScoreUtil implements HighScoresResultsListener {
     }
 
     public function saveHighScore() : Void {
-        this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(StringUtil.getInstance().toString(this.highScore)).toString(), this, "saveHighScore");
+        this.logUtil.putF(Std.string(new StringMaker().append(this.commonStrings.START).append(StringUtil.getInstance().toString(this.highScore))), this, "saveHighScore");
         final size : Int = this.highScoresArray.length;
         if (this.firstTime && size == 0) {
             this.logUtil.putF("Games canvas did not give us any HighScores", this, "saveHighScore");
@@ -75,8 +75,8 @@ class HighScoreUtil implements HighScoresResultsListener {
         for (index in 0...size) {
             highScores = this.highScoresArray[index];
             highScores.addHighScore(this.highScore);
-            highScoresAsString = highScores.toString();
-            this.logUtil.putF(new StringMaker().append("Added/Adding Score: ").append(highScoresAsString).toString(), this, "saveHighScore");
+            highScoresAsString = Std.string(highScores);
+            this.logUtil.putF(Std.string(new StringMaker().append("Added/Adding Score: ").append(highScoresAsString)), this, "saveHighScore");
         }
         this.highScoresHelper.setHighScoresArray(this.highScoresArray);
     }

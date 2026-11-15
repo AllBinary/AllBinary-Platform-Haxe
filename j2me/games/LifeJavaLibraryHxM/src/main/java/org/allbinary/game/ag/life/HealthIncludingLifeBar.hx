@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.life;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.health.Health;
 import org.allbinary.game.health.HealthBarAnimation;
 import org.allbinary.game.health.HealthBarTwodAnimation;

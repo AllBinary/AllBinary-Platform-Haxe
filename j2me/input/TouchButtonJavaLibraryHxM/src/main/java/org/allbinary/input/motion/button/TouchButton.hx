@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.input.motion.button;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.graphics.CellPosition;
@@ -58,7 +58,7 @@ class TouchButton extends Paintable {
         this.xBorder = xBorder;
         this.yBorder = yBorder;
         this.updateRectangle();
-        this.logUtil.putF(new StringMaker().append("Created: ").append(this.toString()).toString(), this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(Std.string(new StringMaker().append("Created: ").append(Std.string(this))), this, this.commonStrings.CONSTRUCTOR);
     }
 
     public function paintHint(graphics : Graphics) : Void {
@@ -107,7 +107,7 @@ class TouchButton extends Paintable {
         stringBuffer.appendint(this.xBorder);
         stringBuffer.append(" yBorder: ");
         stringBuffer.appendint(this.yBorder);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

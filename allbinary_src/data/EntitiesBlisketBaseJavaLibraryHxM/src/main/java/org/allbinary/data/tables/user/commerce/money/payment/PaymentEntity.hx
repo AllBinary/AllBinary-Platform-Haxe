@@ -58,7 +58,7 @@ class PaymentEntity extends AbSqlBean implements PaymentEntityInterface {
                 super.updateWhere(whereKeyAndValue, updateKeyAndValue);
             }
             updateKeyAndValue.put(EntryData.getInstance().DEFAULT, EntryData.getInstance().DEFAULT);
-            whereKeyAndValue.put(PaymentData.ID, index.toString());
+            whereKeyAndValue.put(PaymentData.ID, Std.string(index));
             super.updateWhere(whereKeyAndValue, updateKeyAndValue);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                 this.logUtil.putF(this.commonStrings.SUCCESS, this, "setDefault");
@@ -121,7 +121,7 @@ class PaymentEntity extends AbSqlBean implements PaymentEntityInterface {
         try {
             var whereHashMap : HashMap = StdUtil.getInstance().createHashMap();
             whereHashMap.put(UserData.USERNAME, userName);
-            whereHashMap.put(PaymentData.ID, (cast index.toString() : String));
+            whereHashMap.put(PaymentData.ID, (cast Std.string(index) : String));
             super.deleteWhere(whereHashMap);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                 this.logUtil.putF(this.commonStrings.SUCCESS, this, "remove");
@@ -144,9 +144,9 @@ class PaymentEntity extends AbSqlBean implements PaymentEntityInterface {
             vector.add(paymentInterface.getExpiration());
             var random : Int = new Random().nextInt(SuperCrypt.KEYMAX);
             vector.add(new SuperCrypt(random).encrypt(paymentInterface.getNumber()));
-            vector.add(random.toString());
+            vector.add(Std.string(random));
             var calendar : Calendar = Calendar.getInstance();
-            var time : String = calendar.getTimeInMillis().toString();
+            var time : String = Std.string(calendar.getTimeInMillis());
             vector.add(time);
             super.insert(vector);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
@@ -163,7 +163,7 @@ class PaymentEntity extends AbSqlBean implements PaymentEntityInterface {
         var entryData : EntryData = EntryData.getInstance();
         var stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append(this.sqlStrings.CREATE_TABLE).append(tableName).append(this.sqlStrings.START).append(PaymentData.ID).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_AUTO_INCREMENT_NOT_NULL).append(UserData.USERNAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(entryData.DEFAULT).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(PaymentData.NAME).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(PaymentData.TYPE).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(PaymentData.EXPIRATION).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(PaymentData.NUMBER).append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL).append(entryData.ENCRYPTION).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(entryData.TIMECREATED).append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL).append(this.sqlStrings.PRIMARY_KEY).append(PaymentData.ID).append(this.sqlStrings.END);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function createTable() : String {
@@ -171,6 +171,14 @@ class PaymentEntity extends AbSqlBean implements PaymentEntityInterface {
     }
 
     public function drop() : String {
+        return super.dropTable();
+    }
+
+    public override function insert(values : BasicArrayList) : Void {
+        super.insert(values);
+    }
+
+    public override function dropTable() : String {
         return super.dropTable();
     }
 

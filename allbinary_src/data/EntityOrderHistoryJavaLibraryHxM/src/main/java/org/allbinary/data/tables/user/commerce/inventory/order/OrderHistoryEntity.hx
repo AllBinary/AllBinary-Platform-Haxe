@@ -79,11 +79,11 @@ class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityInterfac
             final taxRate : Null<Float> = TaxFactory.getInstance().getInstance(abeClientInformation, storeFrontInterface).getTaxRate(shippingAddress, storeFrontInterface);
             final tax : Money = new Money();
             final total : Money = new Money();
-            total.add(shippingCost.toString());
-            total.add(subTotal.toString());
-            tax.add(total.toString());
+            total.add(Std.string(shippingCost));
+            total.add(Std.string(subTotal));
+            tax.add(Std.string(total));
             tax.multiply(taxRate);
-            total.add(tax.toString());
+            total.add(Std.string(tax));
             final empty : String = StringUtil.getInstance().EMPTY_STRING;
             vector.add(new OrderHistoryIdGenerator().getNext());
             final ZERO : String = TableDataFactory.getInstance().ZERO_STRING;
@@ -91,7 +91,7 @@ class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityInterfac
             vector.add(userName);
             vector.add(order.getStoreName());
             var calendar : Calendar = Calendar.getInstance();
-            var time : String = calendar.getTimeInMillis().toString();
+            var time : String = Std.string(calendar.getTimeInMillis());
             vector.add(ZERO);
             vector.add(time);
             vector.add(ZERO);
@@ -104,7 +104,7 @@ class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityInterfac
                 vector.add(paymentInterface.getExpiration());
                 var random : Int = new Random().nextInt(SuperCrypt.KEYMAX);
                 vector.add(new SuperCrypt(random).encrypt(paymentInterface.getNumber()));
-                vector.add(random.toString());
+                vector.add(Std.string(random));
             } else {
                 vector.add(empty);
                 vector.add(empty);
@@ -143,10 +143,10 @@ class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityInterfac
                 vector.add(empty);
             }
             vector.add(order.getShippingMethod());
-            vector.add(subTotal.toString());
-            vector.add(shippingCost.toString());
-            vector.add(tax.toString());
-            vector.add(total.toString());
+            vector.add(Std.string(subTotal));
+            vector.add(Std.string(shippingCost));
+            vector.add(Std.string(tax));
+            vector.add(Std.string(total));
             vector.add(order.getSpecial());
             vector.add(order.getUserComments());
             vector.add(order.getUserCancelComments());
@@ -179,7 +179,7 @@ class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityInterfac
     public function setStatus(orderId : String, status : String) : Void {
         try {
             var calendar : Calendar = Calendar.getInstance();
-            var time : String = calendar.getTimeInMillis().toString();
+            var time : String = Std.string(calendar.getTimeInMillis());
             var updateHashMap : HashMap = StdUtil.getInstance().createHashMap();
             updateHashMap.put(OrderHistoryData.STATUS, status);
             if (Reflect.compare(status, OrderHistoryData.CANCELLED) == 0) {
@@ -198,7 +198,7 @@ class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityInterfac
     public function setPaymentMethod(orderId : String, paymentMethod : String) : Void {
         try {
             var calendar : Calendar = Calendar.getInstance();
-            var time : String = calendar.getTimeInMillis().toString();
+            var time : String = Std.string(calendar.getTimeInMillis());
             var updateHashMap : HashMap = StdUtil.getInstance().createHashMap();
             updateHashMap.put(PaymentData.METHOD, paymentMethod);
             updateHashMap.put(OrderHistoryData.TRANSDATE, time);
@@ -364,7 +364,7 @@ class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityInterfac
         stringBuffer.append("PRIMARY KEY(");
         stringBuffer.append(entryData.ID);
         stringBuffer.append(") )");
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function createTable() : String {

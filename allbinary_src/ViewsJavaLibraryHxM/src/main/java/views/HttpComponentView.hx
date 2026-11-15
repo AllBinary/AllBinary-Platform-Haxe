@@ -108,5 +108,10 @@ class HttpComponentView extends TransformInfoHttpComposite implements TransformI
         }
     }
 
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
+    }
+
 }
 

@@ -75,11 +75,11 @@ class StoreFrontOrdersHistoryStatistics implements StoreFrontOrdersHistoryStatis
     public function toHashMap() : HashMap {
         var hashMap : HashMap = StdUtil.getInstance().createHashMap();
         var storeFrontOrdersHistoryStatisticsData : StoreFrontOrdersHistoryStatisticsData = StoreFrontOrdersHistoryStatisticsData.getInstance();
-        hashMap.put(storeFrontOrdersHistoryStatisticsData.NUMBEROFORDERS, this.getNumberOfOrders().toString());
-        hashMap.put(storeFrontOrdersHistoryStatisticsData.SUBTOTAL, this.getSubTotal().toString());
-        hashMap.put(storeFrontOrdersHistoryStatisticsData.SHIPPINGCOST, this.getShippingCost().toString());
-        hashMap.put(storeFrontOrdersHistoryStatisticsData.TAXES, this.getTaxes().toString());
-        hashMap.put(storeFrontOrdersHistoryStatisticsData.TOTAL, this.getTotal().toString());
+        hashMap.put(storeFrontOrdersHistoryStatisticsData.NUMBEROFORDERS, Std.string(this.getNumberOfOrders()));
+        hashMap.put(storeFrontOrdersHistoryStatisticsData.SUBTOTAL, Std.string(this.getSubTotal()));
+        hashMap.put(storeFrontOrdersHistoryStatisticsData.SHIPPINGCOST, Std.string(this.getShippingCost()));
+        hashMap.put(storeFrontOrdersHistoryStatisticsData.TAXES, Std.string(this.getTaxes()));
+        hashMap.put(storeFrontOrdersHistoryStatisticsData.TOTAL, Std.string(this.getTotal()));
         return hashMap;
     }
 

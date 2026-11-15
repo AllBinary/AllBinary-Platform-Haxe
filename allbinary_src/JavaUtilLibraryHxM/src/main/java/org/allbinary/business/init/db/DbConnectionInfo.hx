@@ -44,7 +44,7 @@ class DbConnectionInfo implements DatabaseConnectionInfoInterface {
         stringBuffer.append(this.getUserName());
         stringBuffer.append(this.getPasswordKey());
         stringBuffer.append(this.getPassword());
-        this.url = stringBuffer.toString();
+        this.url = Std.string(stringBuffer);
     }
 
     public function getUrl() : String {
@@ -77,7 +77,7 @@ class DbConnectionInfo implements DatabaseConnectionInfoInterface {
             stringBuffer.append(this.getPort());
         }
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
-        this.host = stringBuffer.toString();
+        this.host = Std.string(stringBuffer);
     }
 
     public function getHost() : String {

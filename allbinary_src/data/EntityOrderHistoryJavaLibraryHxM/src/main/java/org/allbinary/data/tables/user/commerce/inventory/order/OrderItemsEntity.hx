@@ -73,7 +73,7 @@ class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInterface {
                 vector.add(userName);
                 vector.add(order.getStoreName());
                 vector.add(itemInterface.getId());
-                vector.add(basket.getNumberOf(item).toString());
+                vector.add(Std.string(basket.getNumberOf(item)));
                 vector.add(itemInterface.getNewOrUsed());
                 vector.add(itemInterface.getSummary());
                 vector.add(itemInterface.getDistributor());
@@ -89,7 +89,7 @@ class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInterface {
                 vector.add(itemInterface.getMediumImage());
                 vector.add(itemInterface.getLargeImage());
                 vector.add(itemInterface.getWeight());
-                vector.add(itemInterface.getPrice().toString());
+                vector.add(Std.string(itemInterface.getPrice()));
                 vector.add(itemInterface.getComment());
                 vector.add(itemInterface.getCustoms());
                 vector.add(itemInterface.getDownloads());
@@ -117,7 +117,7 @@ class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInterface {
             }
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
-                this.logUtil.put("Command Failed: " + vector.toString(), this, INSERT, e);
+                this.logUtil.put("Command Failed: " + Std.string(vector), this, INSERT, e);
             }
         }
     }
@@ -287,7 +287,7 @@ class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInterface {
         stringBuffer.append("PRIMARY KEY(");
         stringBuffer.append(entryData.ID);
         stringBuffer.append(") )");
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function createTable() : String {
@@ -296,6 +296,10 @@ class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInterface {
 
     public function dropTable() : String {
         return super.dropTable();
+    }
+
+    public override function insert(values : BasicArrayList) : Void {
+        super.insert(values);
     }
 
 }

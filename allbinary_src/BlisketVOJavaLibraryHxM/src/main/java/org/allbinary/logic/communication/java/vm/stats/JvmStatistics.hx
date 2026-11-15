@@ -95,39 +95,39 @@ class JvmStatistics {
     }
 
     public function getFreeMemoryBytesString() : String {
-        return this.getFreeMemoryBytesLong().toString();
+        return Std.string(this.getFreeMemoryBytesLong());
     }
 
     public function getFreeMemoryKilobytesString() : String {
-        return this.getFreeMemoryKilobytesLong().toString();
+        return Std.string(this.getFreeMemoryKilobytesLong());
     }
 
     public function getFreeMemoryMegabytesString() : String {
-        return this.getFreeMemoryMegabytesLong().toString();
+        return Std.string(this.getFreeMemoryMegabytesLong());
     }
 
     public function getMaxMemoryBytesString() : String {
-        return this.getMaxMemoryBytesLong().toString();
+        return Std.string(this.getMaxMemoryBytesLong());
     }
 
     public function getMaxMemoryKilobytesString() : String {
-        return this.getMaxMemoryKilobytesLong().toString();
+        return Std.string(this.getMaxMemoryKilobytesLong());
     }
 
     public function getMaxMemoryMegabytesString() : String {
-        return this.getMaxMemoryMegabytesLong().toString();
+        return Std.string(this.getMaxMemoryMegabytesLong());
     }
 
     public function getTotalMemoryBytesString() : String {
-        return this.getTotalMemoryBytesLong().toString();
+        return Std.string(this.getTotalMemoryBytesLong());
     }
 
     public function getTotalMemoryKilobytesString() : String {
-        return this.getTotalMemoryKilobytesLong().toString();
+        return Std.string(this.getTotalMemoryKilobytesLong());
     }
 
     public function getTotalMemoryMegabytesString() : String {
-        return this.getTotalMemoryMegabytesLong().toString();
+        return Std.string(this.getTotalMemoryMegabytesLong());
     }
 
     public function getNumberOfThreads() : haxe.Int64 {
@@ -139,7 +139,7 @@ class JvmStatistics {
     }
 
     public function getNumberOfThreadsString() : String {
-        return this.getNumberOfThreadsLong().toString();
+        return Std.string(this.getNumberOfThreadsLong());
     }
 
     public function collectGarbage() : Void {

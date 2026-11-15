@@ -34,14 +34,17 @@ class MotionGestureRecognizer {
     public final logUtil : LogUtil = LogUtil.getInstance();
     private final j2seMath : J2SEMath = J2SEMath.getInstance();
     private final origin : GPoint = PointFactory.getInstance().ZERO_ZERO;
-    private var previous : GPoint = this.origin;
-    private var intermediate : GPoint = this.origin;
-    private final line : Line = new Line(this.origin, this.origin);
+    private var previous : GPoint;
+    private var intermediate : GPoint;
+    private final line : Line;
     private final motionGesturesHandler : BasicMotionGesturesHandler;
     private final movedMotionGesturesHandler : BasicEventHandler;
     private final scrolledMotionGesturesHandler : BasicEventHandler;
     private final motionEventCircularPool : MotionEventCircularPool;
     public function new(id : Int) {
+        this.previous = this.origin;
+        this.intermediate = this.origin;
+        this.line = new Line(this.origin, this.origin);
         this.motionEventCircularPool = MotionEventCircularPool.createPool(id);
         var motionGesturesHandler : BasicEventHandler = new BasicEventHandler();
         var movedMotionGesturesHandler : BasicEventHandler = motionGesturesHandler;

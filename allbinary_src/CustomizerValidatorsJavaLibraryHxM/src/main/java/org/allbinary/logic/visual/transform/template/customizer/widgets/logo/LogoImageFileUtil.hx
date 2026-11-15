@@ -39,7 +39,7 @@ class LogoImageFileUtil {
         if (!this.directory.create(this.imageFileAbPath)) {
             throw new haxe.Exception("Unable to save file to non creatable directory");
         }
-        final originalImageFile : AbFile = AbFile.createAbFile(this.imageFileAbPath.toString() + this.fileName);
+        final originalImageFile : AbFile = AbFile.createAbFile(Std.string(this.imageFileAbPath) + this.fileName);
         originalImageFile.createNewFile();
         FileUtil.getInstance().write(new ByteArrayInputStream(fileItem.get()), originalImageFile);
     }

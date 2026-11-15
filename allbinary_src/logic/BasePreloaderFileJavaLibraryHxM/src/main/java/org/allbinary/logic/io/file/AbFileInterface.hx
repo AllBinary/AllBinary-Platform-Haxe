@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.io.file;
 
-//import java.io.FilenameFilter;
-//import java.io.IOException;
-//import java.net.URI;
+import jre.io.FilenameFilter;
+import jre.io.IOException;
+import jre.net.URI;
 
 interface AbFileInterface {
     function canRead() : Bool;

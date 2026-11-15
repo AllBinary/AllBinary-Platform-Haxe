@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration.persistance;
 
-//import javax.microedition.rms.RecordStore;
+import javax.microedition.rms.RecordStore;
 
 class NullRecordStore extends RecordStore {
     public static var NULL_RECORD_STORE : NullRecordStore = new NullRecordStore();

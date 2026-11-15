@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.layer;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.game.input.PlayerGameInputCompositeInterface;
 import org.allbinary.graphics.PointFactory;

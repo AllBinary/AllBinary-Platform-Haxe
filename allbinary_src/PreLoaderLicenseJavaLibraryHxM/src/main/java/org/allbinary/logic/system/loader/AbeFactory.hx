@@ -35,9 +35,19 @@ class AbeFactory {
     public function new() {
     }
 
+    public function getInstance(...args : Dynamic) : Dynamic {
+        if (args.length == 2) {
+            return this.getInstance_AbeClientInformationInterface_String(args[0], args[1]);
+        }
+        if (args.length == 4) {
+            return this.getInstance_AbeClientInformationInterface_String_ClassArray_AnyArray(args[0], args[1], args[2], args[3]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: getInstance");
+    }
+
     // throws LicensingException
     // synchronized
-    public function getInstance(abeClientInformation : AbeClientInformationInterface, className : String) : Any {
+    public function getInstance_AbeClientInformationInterface_String(abeClientInformation : AbeClientInformationInterface, className : String) : Any {
         try {
             return this.getClass(abeClientInformation, className).newInstance();
         } catch (e : LicensingException) {
@@ -55,7 +65,7 @@ class AbeFactory {
 
     // throws LicensingException
     // synchronized
-    public function getInstance(abeClientInformation : AbeClientInformationInterface, className : String, classes : haxe.ds.Vector<Class<Dynamic>>, params : haxe.ds.Vector<Any>) : Any {
+    public function getInstance_AbeClientInformationInterface_String_ClassArray_AnyArray(abeClientInformation : AbeClientInformationInterface, className : String, classes : haxe.ds.Vector<Class<Dynamic>>, params : haxe.ds.Vector<Any>) : Any {
         var constructor : Constructor = null;
         try {
             var parent : ClassLoader = WebappClassLoaderInfo.getLoader();
@@ -76,7 +86,7 @@ class AbeFactory {
                 stringBuffer.append(className);
                 stringBuffer.append(CommonSeps.getInstance().SPACE);
                 stringBuffer.append(ConstructorUtil.view(constructor, CommonSeps.getInstance().NEW_LINE));
-                this.logUtil.put(stringBuffer.toString(), this, "getInstance(className,params)", e);
+                this.logUtil.put(Std.string(stringBuffer), this, "getInstance(className,params)", e);
             }
             throw e;
         } catch (e : haxe.Exception) {
@@ -86,7 +96,7 @@ class AbeFactory {
                 stringBuffer.append(className);
                 stringBuffer.append(CommonSeps.getInstance().SPACE);
                 stringBuffer.append(ConstructorUtil.view(constructor, CommonSeps.getInstance().NEW_LINE));
-                this.logUtil.put(stringBuffer.toString(), this, "getInstance(className,params)", e);
+                this.logUtil.put(Std.string(stringBuffer), this, "getInstance(className,params)", e);
             }
             return null;
         }

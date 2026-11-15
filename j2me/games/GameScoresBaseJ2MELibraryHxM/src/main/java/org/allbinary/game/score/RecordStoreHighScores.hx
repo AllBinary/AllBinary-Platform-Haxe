@@ -15,15 +15,15 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.score;
 
-//import java.io.ByteArrayInputStream;
-//import java.io.DataInputStream;
-//import java.io.EOFException;
-//import java.io.IOException;
-//import javax.microedition.rms.RecordComparator;
-//import javax.microedition.rms.RecordEnumeration;
-//import javax.microedition.rms.RecordStore;
-//import javax.microedition.rms.RecordStoreException;
-//import javax.microedition.rms.RecordStoreNotFoundException;
+import jre.io.ByteArrayInputStream;
+import jre.io.DataInputStream;
+import jre.io.EOFException;
+import jre.io.IOException;
+import javax.microedition.rms.RecordComparator;
+import javax.microedition.rms.RecordEnumeration;
+import javax.microedition.rms.RecordStore;
+import javax.microedition.rms.RecordStoreException;
+import javax.microedition.rms.RecordStoreNotFoundException;
 import org.allbinary.TsUtil;
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.configuration.persistance.NullRecordComparator;
@@ -72,14 +72,14 @@ class RecordStoreHighScores extends HighScores {
     }
 
     private function getRecordId(abeClientInformation : AbeClientInformationInterface) : String {
-        return this.platformRecordIdUtil.getRecordId(abeClientInformation, new StringMaker().append(CommonSeps.getInstance().UNDERSCORE).append(this.getName()).append(this.RECORD_ID).toString());
+        return this.platformRecordIdUtil.getRecordId(abeClientInformation, Std.string(new StringMaker().append(CommonSeps.getInstance().UNDERSCORE).append(this.getName()).append(this.RECORD_ID)));
     }
 
     // synchronized
     public override function addHighScore(newHighScore : HighScore) : Void {
         var recordStore : RecordStore = NullRecordStore.NULL_RECORD_STORE;
         try {
-            this.logUtil.putF(new StringMaker().append("Adding HighScore: ").appendlong(haxe.Int64.ofInt(newHighScore.getScore())).toString(), this, this.commonStrings.ADD);
+            this.logUtil.putF(Std.string(new StringMaker().append("Adding HighScore: ").appendlong(haxe.Int64.ofInt(newHighScore.getScore()))), this, this.commonStrings.ADD);
             if (this.isTooManyHighScores()) {
                 this.logUtil.putF("Removing Lowest Score", this, this.commonStrings.ADD);
                 this.removeLowestHighScore();
@@ -133,7 +133,7 @@ class RecordStoreHighScores extends HighScores {
                 }
             }
             if (bestHighScore.getId() != -1) {
-                this.logUtil.putF(new StringMaker().append("Removing Lowest HighScore: ").appendlong(haxe.Int64.ofInt(bestHighScore.getScore())).toString(), this, this.commonStrings.LOAD);
+                this.logUtil.putF(Std.string(new StringMaker().append("Removing Lowest HighScore: ").appendlong(haxe.Int64.ofInt(bestHighScore.getScore()))), this, this.commonStrings.LOAD);
                 recordStore.deleteRecord(bestHighScore.getId());
             }
         } catch (e : RecordStoreException) {
@@ -216,7 +216,7 @@ class RecordStoreHighScores extends HighScores {
         if (this.getList() != null && this.getList().size() < this.MAXHIGHSCORES) {
             return false;
         } else {
-            this.logUtil.putF(new StringMaker().append("HighScores RecordStore Max Reached: ").appendint(this.MAXHIGHSCORES).toString(), this, "isTooManyHighScores");
+            this.logUtil.putF(Std.string(new StringMaker().append("HighScores RecordStore Max Reached: ").appendint(this.MAXHIGHSCORES)), this, "isTooManyHighScores");
             return true;
         }
     }
@@ -257,7 +257,7 @@ class RecordStoreHighScores extends HighScores {
             stringBuffer.append(highScore.getScoreString());
             stringBuffer.append(CommonSeps.getInstance().COMMA_SEP);
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

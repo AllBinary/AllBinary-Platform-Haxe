@@ -29,7 +29,7 @@ class OpenGLImageSpecificFactory {
 
     public function setImageFactory(imageFactory : OpenGLImageFactory) : Void {
         this.imageFactory = imageFactory;
-        PreLogUtil.put(new StringMaker().append("Selected Image Factory: ").append(StringUtil.getInstance().toString(this.imageFactory)).toString(), this, "setImageFactory");
+        PreLogUtil.put(Std.string(new StringMaker().append("Selected Image Factory: ").append(StringUtil.getInstance().toString(this.imageFactory))), this, "setImageFactory");
     }
 
     public function getImageFactory() : OpenGLImageFactory {

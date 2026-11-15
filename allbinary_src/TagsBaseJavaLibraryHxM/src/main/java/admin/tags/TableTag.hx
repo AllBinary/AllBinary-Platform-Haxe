@@ -215,7 +215,7 @@ class TableTag extends PropertiesTag {
                 stringBuffer.append(Type.getClassName(Type.getClass(this.getTagHelperFactoryInterface())));
                 stringBuffer.append(" Request URI: ");
                 stringBuffer.append(request.getRequestURI());
-                this.logUtil.putF(stringBuffer.toString(), this, this.tagStrings.DO_START_TAG);
+                this.logUtil.putF(Std.string(stringBuffer), this, this.tagStrings.DO_START_TAG);
             }
             if (this.getTagRequestHelperFactoryInterface() != null) {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG)) {

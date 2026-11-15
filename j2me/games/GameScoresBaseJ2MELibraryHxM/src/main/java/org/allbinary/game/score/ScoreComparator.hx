@@ -15,11 +15,11 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.score;
 
-//import java.io.ByteArrayInputStream;
-//import java.io.DataInputStream;
-//import java.io.EOFException;
-//import java.io.IOException;
-//import javax.microedition.rms.RecordComparator;
+import jre.io.ByteArrayInputStream;
+import jre.io.DataInputStream;
+import jre.io.EOFException;
+import jre.io.IOException;
+import javax.microedition.rms.RecordComparator;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 

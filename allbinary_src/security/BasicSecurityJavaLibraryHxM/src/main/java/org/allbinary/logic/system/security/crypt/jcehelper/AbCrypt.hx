@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.system.security.crypt.jcehelper;
 
-//import java.security.Security;
+import jre.security.Security;
 //import java.security.spec.KeySpec;
 //import javax.crypto.Cipher;
 //import javax.crypto.SecretKey;

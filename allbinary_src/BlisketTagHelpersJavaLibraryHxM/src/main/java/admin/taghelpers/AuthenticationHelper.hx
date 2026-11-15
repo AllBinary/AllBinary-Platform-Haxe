@@ -95,7 +95,7 @@ class AuthenticationHelper extends TagHelper {
                     stringBuffer.appendlong(timeFirst);
                     stringBuffer.append(" > ");
                     stringBuffer.appendlong(timeCreated);
-                    this.logUtil.putF(stringBuffer.toString(), this, "isSessionOld()");
+                    this.logUtil.putF(Std.string(stringBuffer), this, "isSessionOld()");
                 }
                 return true;
             }
@@ -122,7 +122,7 @@ class AuthenticationHelper extends TagHelper {
                 stringBuffer.appendlong(timeFirst);
                 stringBuffer.append(" > ");
                 stringBuffer.appendlong(inactivityAllowed);
-                this.logUtil.putF(stringBuffer.toString(), this, "isRarelyUsedSession()");
+                this.logUtil.putF(Std.string(stringBuffer), this, "isRarelyUsedSession()");
             }
         } else {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION)) {
@@ -136,7 +136,7 @@ class AuthenticationHelper extends TagHelper {
         try {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append("Trying New login<p/>");
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             var error : String = "Failed to set valid role";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR)) {
@@ -152,7 +152,7 @@ class AuthenticationHelper extends TagHelper {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append("Sorry your username and password is invalid on this page. ");
             stringBuffer.append("Trying New login<p/>");
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             var error : String = "Failed to set role invalid";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR)) {
@@ -277,7 +277,7 @@ class AuthenticationHelper extends TagHelper {
                 stringBuffer.append(" UserName: ");
                 stringBuffer.append(this.sessionUserName);
                 stringBuffer.append(" Role: ");
-                stringBuffer.append(this.role.toString());
+                stringBuffer.append(Std.string(this.role));
                 stringBuffer.append("<br/>\n");
                 stringBuffer.append("Time Left: ");
                 stringBuffer.appendlong(haxe.Int64.ofInt((this.role.getSessionTimeout() - (calendar.getTimeInMillis() - timeCreated))));
@@ -291,7 +291,7 @@ class AuthenticationHelper extends TagHelper {
             } else {
                 stringBuffer.append("Role Is Not Set<br/>\n");
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             return "Error";
         }

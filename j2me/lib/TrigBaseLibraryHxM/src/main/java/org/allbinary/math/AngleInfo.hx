@@ -15,12 +15,12 @@
 // Generated Code Do Not Modify
 package org.allbinary.math;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsConstructor;
 
 class AngleInfo {
     private final angleIncrementInfo : AngleIncrementInfo;
@@ -58,7 +58,7 @@ class AngleInfo {
         stringBuffer.appendshort(this.angle);
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(StringUtil.getInstance().toString(this.getAngleIncrementInfo()));
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

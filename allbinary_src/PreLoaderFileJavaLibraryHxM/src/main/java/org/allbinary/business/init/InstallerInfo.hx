@@ -75,7 +75,7 @@ class InstallerInfo {
                 this.setPassword(new WeakCrypt(2).decrypt(decryptedPassword));
             } else {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADER)) {
-                    this.logUtil.putF("Not a File - Failed Loading: " + FILEABPATH.toString(), this, "read");
+                    this.logUtil.putF("Not a File - Failed Loading: " + Std.string(FILEABPATH), this, "read");
                 }
             }
         } catch (e : haxe.Exception) {

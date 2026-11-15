@@ -59,7 +59,7 @@ class Direction {
         stringBuffer.append(this.getOtherName());
         stringBuffer.append(" Value: ");
         stringBuffer.appendint(this.value);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.CommandListener;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.paint.ColorFillBasePaintable;
 import org.allbinary.game.paint.ColorFillPaintableFactory;

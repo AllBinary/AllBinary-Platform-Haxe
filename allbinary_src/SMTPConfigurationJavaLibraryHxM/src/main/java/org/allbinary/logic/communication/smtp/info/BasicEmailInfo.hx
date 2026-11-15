@@ -53,13 +53,13 @@ class BasicEmailInfo {
 
     public function toString() : String {
         final stringBuffer : StringMaker = new StringMaker();
-        stringBuffer.append(this.getEmailServerConfigurationInterface().toString());
+        stringBuffer.append(Std.string(this.getEmailServerConfigurationInterface()));
         stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
         stringBuffer.append("Subject: \n");
         stringBuffer.append(this.getSubject());
         stringBuffer.append("\nText Body: \n");
         stringBuffer.append(this.getTextBody());
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     // throws Exception

@@ -15,12 +15,12 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration.persistance;
 
-//import java.io.ByteArrayInputStream;
-//import java.io.ByteArrayOutputStream;
-//import java.io.DataInputStream;
-//import java.io.DataOutputStream;
-//import javax.microedition.rms.RecordEnumeration;
-//import javax.microedition.rms.RecordStore;
+import jre.io.ByteArrayInputStream;
+import jre.io.ByteArrayOutputStream;
+import jre.io.DataInputStream;
+import jre.io.DataOutputStream;
+import javax.microedition.rms.RecordEnumeration;
+import javax.microedition.rms.RecordStore;
 import org.allbinary.TsUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
@@ -59,7 +59,7 @@ class KeyValuePersistance extends BasicPersitance {
             while (recordEnum.hasNextElement()) {
                 final id : Int = recordEnum.nextRecordId();
                 stringBuffer.delete(0, stringBuffer.length());
-                this.logUtil.putF(stringBuffer.append(this.persistanceStrings.LOADING_ID).appendint(id).toString(), this, this.persistanceStrings.LOAD_ALL);
+                this.logUtil.putF(Std.string(stringBuffer.append(this.persistanceStrings.LOADING_ID).appendint(id)), this, this.persistanceStrings.LOAD_ALL);
                 recordAsBytes = this.tsUtil.getRecord(recordStore, id);
                 if (recordAsBytes != null) {
                     byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
@@ -91,7 +91,7 @@ class KeyValuePersistance extends BasicPersitance {
     public function save(abeClientInformation : AbeClientInformationInterface, hashtable : ABHashtable<Any, Any>) : Void {
         var recordStore : RecordStore = NullRecordStore.NULL_RECORD_STORE;
         try {
-            this.logUtil.putF(new StringMaker().append(this.persistanceStrings.SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.commonStrings.SAVE);
+            this.logUtil.putF(Std.string(new StringMaker().append(this.persistanceStrings.SAVING).append(StringUtil.getInstance().toString(hashtable))), this, this.commonStrings.SAVE);
             recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
             final byteArrayOutputStream : ByteArrayOutputStream = new ByteArrayOutputStream();
             final outputStream : DataOutputStream = new DataOutputStream(byteArrayOutputStream);
@@ -108,7 +108,7 @@ class KeyValuePersistance extends BasicPersitance {
                 outputStream.writeUTF(value);
             }
             final tsUtil : TsUtil = TsUtil.getInstance();
-            final savedGameBytes : haxe.ds.Vector<Int> = tsUtil.getByteArray(byteArrayOutputStream.toString());
+            final savedGameBytes : haxe.ds.Vector<Int> = tsUtil.getByteArray(Std.string(byteArrayOutputStream));
             recordStore.addRecord(savedGameBytes, 0, savedGameBytes.length);
         } catch (e : haxe.Exception) {
             throw e;

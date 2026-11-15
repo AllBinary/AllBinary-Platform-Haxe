@@ -20,8 +20,9 @@ import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 class GameRunnable implements Runnable {
     public final WAIT : Int = 240;
     public final FAST : Int = 60;
-    public var waitInMillis : haxe.Int64 = haxe.Int64.ofInt(this.WAIT);
+    public var waitInMillis : haxe.Int64;
     public function new() {
+        this.waitInMillis = haxe.Int64.ofInt(this.WAIT);
     }
 
     public function run() : Void {

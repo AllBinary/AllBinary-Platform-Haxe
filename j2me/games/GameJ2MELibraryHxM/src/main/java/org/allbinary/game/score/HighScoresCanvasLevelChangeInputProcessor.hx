@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.score;
 
-//import javax.microedition.lcdui.Canvas;
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.input.event.GameKeyEventHandler;
 import org.allbinary.game.input.event.GameKeyEventUtil;
 import org.allbinary.game.score.displayable.HighScoresCanvas;
@@ -31,11 +31,12 @@ import org.allbinary.util.BasicArrayList;
 class HighScoresCanvasLevelChangeInputProcessor extends HighScoresCanvasInputProcessor implements UpdateMyFontInterface {
     private final displayInfoSingleton : DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
     private final INSTRUCTIONS : String = "(Right = Next Track, Left = Previous Track)";
-    private var myFontProcessor : MyFontProcessor = new UpdateMyFontProcessor(this);
+    private var myFontProcessor : MyFontProcessor;
     private var anchor : Int = Anchor.TOP_LEFT;
     private var fontHeight : Int = 0;
     public function new(highScoresCanvas : HighScoresCanvas) {
         super(highScoresCanvas);
+        this.myFontProcessor = new UpdateMyFontProcessor(this);
     }
 
     public override function updateMeasurement(graphics : Graphics) : Void {

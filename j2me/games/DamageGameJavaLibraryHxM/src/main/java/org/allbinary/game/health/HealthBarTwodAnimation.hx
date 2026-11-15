@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.health;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.layer.AllBinaryLayer;
 
 class HealthBarTwodAnimation extends HealthBarAnimation {

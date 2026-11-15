@@ -1,9 +1,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.configuration;
 
-//import java.io.Closeable;
-//import java.io.InputStream;
-//import java.io.OutputStream;
+import jre.io.Closeable;
+import jre.io.InputStream;
+import jre.io.OutputStream;
 import org.allbinary.game.configuration.feature.Feature;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
@@ -57,7 +57,7 @@ class ApplicationConfiguration {
         } else if (fullScreen == 1) {
             this.setFullscreen(true);
         } else {
-            throw new haxe.Exception("Invalid FullScreen ActivityConfiguration");
+            throw new jre.lang.JavaException("Invalid FullScreen ActivityConfiguration");
         }
         final progressBarView : Int = dataInputStream.readInt();
         if (progressBarView == 0) {
@@ -65,7 +65,7 @@ class ApplicationConfiguration {
         } else if (progressBarView == 1) {
             this.setProgressBarView(true);
         } else {
-            throw new haxe.Exception("Invalid ProgressBarView ActivityConfiguration");
+            throw new jre.lang.JavaException("Invalid ProgressBarView ActivityConfiguration");
         }
         final showTitleBar : Int = dataInputStream.readInt();
         if (showTitleBar == 0) {
@@ -73,16 +73,16 @@ class ApplicationConfiguration {
         } else if (showTitleBar == 1) {
             this.setShowTitleBar(true);
         } else {
-            throw new haxe.Exception("Invalid ShowTitleBar ActivityConfiguration");
+            throw new jre.lang.JavaException("Invalid ShowTitleBar ActivityConfiguration");
         }
-        this.logUtil.putF("Read Configuration: " + this.toString(), this, "read");
+        this.logUtil.putF("Read Configuration: " + Std.string(this), this, "read");
     }
 
     // throws Exception
     public function write() : Void {
         var closeable : Closeable = NullCloseable.NULL_CLOSEABLE;
         try {
-            this.logUtil.putF("Write Configuration: " + this.toString(), this, "write");
+            this.logUtil.putF("Write Configuration: " + Std.string(this), this, "write");
             final fileInputStreamFactory : FileStreamFactory = FileStreamFactory.getInstance();
             final fileOutputStream : OutputStream = fileInputStreamFactory.getFileOutputStreamInstance(StringUtil.getInstance().EMPTY_STRING, this.FILE);
             final dataOutputStream : AbDataOutputStream = new AbDataOutputStream(fileOutputStream);
@@ -162,7 +162,7 @@ class ApplicationConfiguration {
         stringBuffer.appendboolean(this.isProgressBarView());
         stringBuffer.append(" isShowTitleBar: ");
         stringBuffer.appendboolean(this.isShowTitleBar());
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.score;
 
-//import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.Command;
 import org.allbinary.J2MEUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -50,7 +50,7 @@ class HighScoreCommandsBaseFactory {
                 index--;
             }
         }
-        throw new haxe.Exception("No Such Command");
+        throw new jre.lang.JavaException("No Such Command");
     }
 
 }

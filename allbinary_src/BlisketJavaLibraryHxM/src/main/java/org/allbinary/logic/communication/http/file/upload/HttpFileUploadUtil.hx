@@ -63,7 +63,7 @@ class HttpFileUploadUtil {
         stringBuffer.append("Size:");
         stringBuffer.append(" Not Calculated Yet");
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTP)) {
-            logUtil.putF(stringBuffer.toString(), getInstance(), "log()");
+            logUtil.putF(Std.string(stringBuffer), getInstance(), "log()");
         }
     }
 
@@ -85,7 +85,7 @@ class HttpFileUploadUtil {
         stringBuffer.append("Size:");
         stringBuffer.appendlong(haxe.Int64.ofInt(fileItem.getSize()));
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST)) {
-            logUtil.putF(stringBuffer.toString(), getInstance(), "log()");
+            logUtil.putF(Std.string(stringBuffer), getInstance(), "log()");
         }
     }
 

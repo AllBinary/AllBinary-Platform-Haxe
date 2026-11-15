@@ -62,7 +62,7 @@ class WeblisketSession implements WeblisketSessionInterface {
     }
 
     public function setPaymentMethod(value : String) : Void {
-        this.session.setAttribute(PaymentGatewayData.NAME.toString(), value);
+        this.session.setAttribute(Std.string(PaymentGatewayData.NAME), value);
     }
 
     public function setAuthenticated() : Void {
@@ -70,7 +70,7 @@ class WeblisketSession implements WeblisketSessionInterface {
     }
 
     public function setRole(aRole : UserRole) : Void {
-        this.session.setAttribute(UserRoleData.NAME.toString(), aRole);
+        this.session.setAttribute(Std.string(UserRoleData.NAME), aRole);
     }
 
     public function setAttempts(value : Null<Int>) : Void {
@@ -98,7 +98,7 @@ class WeblisketSession implements WeblisketSessionInterface {
     }
 
     public function getPaymentMethod() : String {
-        return (cast this.session.getAttribute(PaymentGatewayData.NAME.toString()) : String);
+        return (cast this.session.getAttribute(Std.string(PaymentGatewayData.NAME)) : String);
     }
 
     public function getAuthentication() : String {
@@ -119,7 +119,7 @@ class WeblisketSession implements WeblisketSessionInterface {
 
     // throws Exception
     public function getRole() : UserRole {
-        var userRole : UserRole = (cast this.session.getAttribute(UserRoleData.NAME.toString()) : UserRole);
+        var userRole : UserRole = (cast this.session.getAttribute(Std.string(UserRoleData.NAME)) : UserRole);
         if (userRole != null) {
             return UserRoleB.getRole(userRole.getBasicUserRole().getRole());
         } else {
@@ -150,7 +150,7 @@ class WeblisketSession implements WeblisketSessionInterface {
     public function clear() : Void {
         this.session.removeAttribute(WeblisketSessionData.AUTHENTICATED);
         this.session.removeAttribute(WeblisketSessionData.TIMEOUT);
-        this.session.removeAttribute(UserRoleData.NAME.toString());
+        this.session.removeAttribute(Std.string(UserRoleData.NAME));
         this.session.removeAttribute(UserData.USERNAME);
     }
 

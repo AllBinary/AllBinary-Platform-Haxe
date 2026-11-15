@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.input;
 
-//import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Canvas;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.string.CommonPhoneStrings;
 

@@ -15,11 +15,12 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration;
 
-//import javax.microedition.lcdui.Choice;
-//import javax.microedition.lcdui.Command;
-//import javax.microedition.lcdui.CommandListener;
-//import javax.microedition.lcdui.Item;
-//import javax.microedition.lcdui.TextField;
+import javax.microedition.lcdui.Choice;
+import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Item;
+import javax.microedition.lcdui.TextField;
+import org.allbinary.MIDPUtil;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.feature.GameFeatureChoiceGroups;
 import org.allbinary.game.configuration.feature.GameFeatureFormUtil;
@@ -32,7 +33,6 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.command.MyCommandsFactory;
 import org.allbinary.graphics.displayable.screen.CommandForm;
 import org.allbinary.input.gyro.OrientationData;
-import org.allbinary.logic.MEUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.util.BasicArrayList;
@@ -41,7 +41,7 @@ import org.allbinary.logic.StdUtil;
 import org.allbinary.util.ABHashtable;
 
 class GameOptionsForm extends CommandForm {
-    private final meUtil : MEUtil = MEUtil.getInstance();
+    private final meUtil : MIDPUtil = MIDPUtil.getInstance();
     public function new(commandListener : CommandListener, title : String, backgrounBasicColor : BasicColor, foregroundBasicColor : BasicColor) {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
@@ -99,7 +99,7 @@ class GameOptionsForm extends CommandForm {
         for (index in 0...size) {
             gameConfiguration = (cast list.objectArray[index] : GameConfiguration);
             stringMaker.delete(0, stringMaker.length());
-            this.logUtil.putF(stringMaker.append(NAME).append(gameConfiguration.toString()).toString(), this, METHOD_NAME);
+            this.logUtil.putF(Std.string(stringMaker.append(NAME).append(Std.string(gameConfiguration))), this, METHOD_NAME);
             gauge = new GameConfigurationGauge(gameConfiguration);
             gauge.setDefaultCommand(GAUGE_CHANGE);
             gauge.setItemCommandListener(new GameFeatureItemCommandListener(this));
@@ -130,7 +130,7 @@ class GameOptionsForm extends CommandForm {
         GameConfigurationUtil.getInstance().updateCompetitionValue();
         final hashtable : ABHashtable<Any, Any> = StdUtil.getInstance().createHashtable();
         final SCALE : GameConfiguration = GameConfigurationCentral.getInstance().SCALE;
-        hashtable.put(SCALE.getName(), SCALE.getValue().toString());
+        hashtable.put(SCALE.getName(), Std.string(Std.int(SCALE.getValue())));
         final keyValuePersistance : KeyValuePersistance = GameConfigurationPersistanceSingleton.getInstance();
         keyValuePersistance.clear();
         keyValuePersistance.loadAll(abeClientInformation);

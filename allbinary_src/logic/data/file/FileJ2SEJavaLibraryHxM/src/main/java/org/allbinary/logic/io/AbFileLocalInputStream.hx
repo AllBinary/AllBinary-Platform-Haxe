@@ -15,13 +15,13 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.io;
 
-//import java.io.FileNotFoundException;
+import jre.io.FileNotFoundException;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.AbFileNativeUtil;
 
 class AbFileLocalInputStream extends AbFileInputStream {
     public function new(file : AbFile) {
-        super(AbFileNativeUtil.get(file));
+        super(AbFileNativeUtil.get(file).getPath());
     }
 
 }

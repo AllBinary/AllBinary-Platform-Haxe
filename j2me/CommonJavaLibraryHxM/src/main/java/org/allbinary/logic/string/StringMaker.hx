@@ -1,9 +1,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.string;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
+//import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsConstructor;
 
 class StringMaker {
     private var charArray : haxe.ds.Vector<Int>;
@@ -15,7 +15,7 @@ class StringMaker {
     public function append(string : String) : StringMaker {
         final stringLength : Int = string.length;
         this.ensureCapacity(this.currentLength + stringLength);
-        string.getChars(0, stringLength, this.charArray, this.currentLength);
+        for (index in (0)...(stringLength)) this.charArray[(this.currentLength) + index - (0)] = StringTools.fastCodeAt(string, index);
         this.currentLength += stringLength;
         return this;
     }
@@ -105,7 +105,7 @@ class StringMaker {
     }
 
     public function toString() : String {
-        return new String(this.charArray, 0, this.currentLength);
+        return [for (index in (0)...(0) + (this.currentLength)) String.fromCharCode(this.charArray[index])].join("");
     }
 
 }

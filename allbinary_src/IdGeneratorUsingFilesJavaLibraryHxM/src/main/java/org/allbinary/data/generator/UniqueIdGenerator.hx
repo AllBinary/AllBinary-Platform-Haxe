@@ -59,14 +59,14 @@ class UniqueIdGenerator implements IdGeneratorInterface {
         var idData : AbDataInputStream = null;
         var idOutData : AbDataOutputStream = null;
         try {
-            final idFile : AbFileInputStream = new AbFileInputStream(this.newFile);
+            final idFile : AbFileInputStream = AbFileInputStream.createFromAbFile(this.newFile);
             idData = new AbDataInputStream(idFile);
             this.id = idData.readLong();
             final idOutFile : AbFileOutputStream = AbFileOutputStream.createFromAbFile(this.newFile);
             idOutData = new AbDataOutputStream(idOutFile);
             idOutData.writeLong(this.id + 1);
             final idLong : Null<haxe.Int64> = this.id;
-            return idLong.toString();
+            return Std.string(idLong);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING)) {
                 final commonStrings : CommonStrings = CommonStrings.getInstance();

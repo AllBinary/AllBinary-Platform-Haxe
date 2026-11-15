@@ -85,7 +85,7 @@ class ImageUnifierJPanel extends javax.swing.JPanel implements ImageProcessorInp
             }
             var totalImages : Int = this.imageUnifierProperties.getRows() * this.imageUnifierProperties.getColumns();
             var averageRatio : Float = this.imagesRatioUtil.getAverage(tempBufferedImageArray, totalImages);
-            var averageRatioString : String = averageRatio.toString();
+            var averageRatioString : String = Std.string(averageRatio);
             if (averageRatioString.length > 4) {
                 averageRatioString = averageRatioString.substring(0, 4);
             }
@@ -136,7 +136,7 @@ class ImageUnifierJPanel extends javax.swing.JPanel implements ImageProcessorInp
             final imageUnifierCell : ImageUnifierCell = new ImageUnifierCell(this.cellWidthJTextField.getText(), this.cellHeightJTextField.getText());
             this.imageUnifierProperties.setImageUnifierCell(imageUnifierCell);
             final cellRatio : Float = (imageUnifierCell.getWidth() / imageUnifierCell.getHeight());
-            var cellRatioString : String = cellRatio.toString();
+            var cellRatioString : String = Std.string(cellRatio);
             if (cellRatioString.length > 4) {
                 cellRatioString = cellRatioString.substring(0, 4);
             }
@@ -316,7 +316,7 @@ class ImageUnifierJPanel extends javax.swing.JPanel implements ImageProcessorInp
             final file : File = fileArray[0];
             var filePath : String = file.getAbsolutePath();
             final extensionIndex : Int = filePath.indexOf(this.imageStrings.PNG_EXTENSION);
-            filePath = new StringMaker().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).appendint(Std.int(this.imageUnifierProperties.getColumns())).append("_By_").appendint(Std.int(this.imageUnifierProperties.getRows())).append("_Unified").append(this.imageStrings.PNG_EXTENSION).toString();
+            filePath = Std.string(new StringMaker().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).appendint(Std.int(this.imageUnifierProperties.getColumns())).append("_By_").appendint(Std.int(this.imageUnifierProperties.getRows())).append("_Unified").append(this.imageStrings.PNG_EXTENSION));
             this.logUtil.putF("New File Path: " + filePath, this, StringUtil.getInstance().EMPTY_STRING);
             final outputFile : File = new File(filePath);
             ImagePersistanceUtil.getInstance().saveWithBatik(FileWrapperUtil.wrapFile(outputFile), this.result);

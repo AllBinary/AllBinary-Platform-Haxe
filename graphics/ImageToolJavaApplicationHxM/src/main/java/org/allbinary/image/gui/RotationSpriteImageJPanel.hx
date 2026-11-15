@@ -60,7 +60,7 @@ class RotationSpriteImageJPanel extends javax.swing.JPanel implements ImageProce
                         if (!this.writeOverOriginalJCheckBox.isSelected()) {
                             var filePath : String = file.getAbsolutePath();
                             final extensionIndex : Int = filePath.indexOf(imageStrings.PNG_EXTENSION);
-                            filePath = new StringMaker().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).append("sprite").append(imageStrings.PNG_EXTENSION).toString();
+                            filePath = Std.string(new StringMaker().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).append("sprite").append(imageStrings.PNG_EXTENSION));
                             logUtil.putF("New File Path: " + filePath, this, commonStrings.RUN);
                             file = new File(filePath);
                         }

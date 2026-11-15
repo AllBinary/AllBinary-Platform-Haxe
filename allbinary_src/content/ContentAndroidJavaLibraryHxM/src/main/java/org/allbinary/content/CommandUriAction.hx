@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.content;
 
-//import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.Command;
 import android.content.Intent;
 import android.net.Uri;
 import org.allbinary.data.resource.ResourceUtil;

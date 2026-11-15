@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas;
 
-//import javax.microedition.lcdui.CommandListener;
-//import javax.microedition.lcdui.Graphics;
-//import javax.microedition.lcdui.NullCommandListener;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.NullCommandListener;
 import org.allbinary.game.init.BasicBuildGameInitializerFactory;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.score.NoHighScoresFactory;
@@ -31,7 +31,7 @@ class NullGameCanvas extends AllBinaryGameCanvas {
             return new NullGameCanvas(AllBinaryGameLayerManager.getNullInstance());
         } catch (e : haxe.Exception) {
             LogUtil.getInstance().put(CommonStrings.getInstance().EXCEPTION, "NullGameCanvas", CommonStrings.getInstance().GET_INSTANCE, e);
-            throw new haxe.Exception();
+            throw new jre.lang.JavaException();
         }
     }
 

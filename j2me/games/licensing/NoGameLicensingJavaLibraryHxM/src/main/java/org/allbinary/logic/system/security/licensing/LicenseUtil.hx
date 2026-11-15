@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.system.security.licensing;
 
-//import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.CommandListener;
 
 class LicenseUtil {
     private static final instance : LicenseUtil = new LicenseUtil();

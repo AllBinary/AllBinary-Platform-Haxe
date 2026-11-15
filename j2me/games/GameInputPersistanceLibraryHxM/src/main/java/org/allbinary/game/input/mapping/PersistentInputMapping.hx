@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.input.mapping;
 
-//import java.util.Enumeration;
+import jre.util.Enumeration;
 import org.allbinary.game.configuration.persistance.GamePersistanceStrings;
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputPersistance;
@@ -49,6 +49,7 @@ class PersistentInputMapping {
     private var inputMappingEventListenerInterface : InputMappingEventListenerInterface = NullInputMappingEventListener.NULL_INPUT_MAPPING_EVENT_LISTENER;
     private final inputPersistance : InputPersistance;
     public function new(name : String) {
+        this.inputMappingEvent = new InputMappingEvent(this);
         this.inputPersistance = new InputPersistance(name);
     }
 
@@ -77,7 +78,7 @@ class PersistentInputMapping {
         this.save(abeClientInformation);
     }
 
-    private var inputMappingEvent : InputMappingEvent = new InputMappingEvent(this);
+    private var inputMappingEvent : InputMappingEvent;
     // throws Exception
     public function save(abeClientInformation : AbeClientInformationInterface) : Void {
         this.inputPersistance.save(abeClientInformation, this.getInputMapping().getHashtable());
@@ -102,7 +103,7 @@ class PersistentInputMapping {
         var totalMappedTo : Int = 0;
         final size : Int = list.size();
         var hashtable : ABHashtable<Any, Any> = null;
-        var enumeration : Enumeration = null;
+        var enumeration : Enumeration<Dynamic> = null;
         var mappedToInput : Input = null;
         var gameActionInput : Input = null;
         for (index in 0...size) {
@@ -120,7 +121,7 @@ class PersistentInputMapping {
         stringBuffer.appendint(this.getTotalMapped());
         stringBuffer.append(" to: ");
         stringBuffer.appendint(totalMappedTo);
-        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.INIT);
+        this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.INIT);
     }
 
     public function setInputMappingEventListenerInterface(inputMappingEventListenerInterface : InputMappingEventListenerInterface) : Void {
@@ -137,12 +138,12 @@ class PersistentInputMapping {
 
     // throws Exception
     public function isDelete(input : Input) : Bool {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception
     public function isSystemInput(input : Input) : Bool {
-        throw new haxe.Exception(this.commonStrings.NOT_IMPLEMENTED);
+        throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
 }

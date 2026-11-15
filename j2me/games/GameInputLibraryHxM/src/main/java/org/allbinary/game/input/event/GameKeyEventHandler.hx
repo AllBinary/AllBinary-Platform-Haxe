@@ -38,21 +38,21 @@ class GameKeyEventHandler {
     }
 
     public function addListenerForPlayer(eventListenerInterface : EventListenerInterface, playerInputId : Int) : Void {
-        this.logUtil.putF(eventListenerInterface.toString(), this, this.commonStrings.ADD_LISTENER);
+        this.logUtil.putF(Std.string(eventListenerInterface), this, this.commonStrings.ADD_LISTENER);
         this.pressGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
         this.upGameKeyEventHandler.getInstanceForPlayer(playerInputId).addListenerSingleThreaded(eventListenerInterface);
         this.downGameKeyEventHandler.getInstanceForPlayer(playerInputId).addListenerSingleThreaded(eventListenerInterface);
     }
 
     public function addListener(eventListenerInterface : EventListenerInterface) : Void {
-        this.logUtil.putF(eventListenerInterface.toString(), this, this.commonStrings.ADD_LISTENER);
+        this.logUtil.putF(Std.string(eventListenerInterface), this, this.commonStrings.ADD_LISTENER);
         this.pressGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
         this.upGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
         this.downGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
     }
 
     public function removeListener(eventListenerInterface : EventListenerInterface) : Void {
-        this.logUtil.putF(eventListenerInterface.toString(), this, this.commonStrings.REMOVE_LISTENER);
+        this.logUtil.putF(Std.string(eventListenerInterface), this, this.commonStrings.REMOVE_LISTENER);
         this.pressGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
         this.upGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
         this.downGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);

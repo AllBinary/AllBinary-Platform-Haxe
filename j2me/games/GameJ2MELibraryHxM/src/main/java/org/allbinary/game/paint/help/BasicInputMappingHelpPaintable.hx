@@ -50,7 +50,7 @@ class BasicInputMappingHelpPaintable extends HelpPaintable {
             gameKey = gameInputMapping.getGameKey();
             list = gameKeyMapping.getInputMapping().getMappedInput(gameKey);
             stringMaker.delete(0, stringMaker.length());
-            keyInfo[index] = stringMaker.append(gameInputMapping.getName()).append(EQUAL).append(this.get(list)).toString();
+            keyInfo[index] = Std.string(stringMaker.append(gameInputMapping.getName()).append(EQUAL).append(this.get(list)));
         }
         super.setInputInfoP(keyInfo);
     }
@@ -77,7 +77,7 @@ class BasicInputMappingHelpPaintable extends HelpPaintable {
                 }
             }
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

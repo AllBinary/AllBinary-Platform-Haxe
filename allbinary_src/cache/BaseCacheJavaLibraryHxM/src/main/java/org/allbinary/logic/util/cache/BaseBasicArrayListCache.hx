@@ -15,12 +15,12 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.util.cache;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsProperty;
 
 class BaseBasicArrayListCache {
     public final list : BasicArrayList = new BasicArrayListD();
@@ -28,7 +28,7 @@ class BaseBasicArrayListCache {
         final stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append("S: ");
         stringBuffer.appendint(this.list.size());
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function new() {

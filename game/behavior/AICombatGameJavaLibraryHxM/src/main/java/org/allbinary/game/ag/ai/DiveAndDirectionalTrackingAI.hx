@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.ai;
 
-//import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Canvas;
 import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.direction.Direction;
 import org.allbinary.direction.DirectionFactory;
@@ -25,6 +25,7 @@ import org.allbinary.game.ai.BasicAI;
 import org.allbinary.game.combat.destroy.event.DestroyedEvent;
 import org.allbinary.game.combat.destroy.event.DestroyedEventHandler;
 import org.allbinary.game.combat.destroy.event.DestroyedEventListenerInterface;
+import org.allbinary.game.identification.Group;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.game.physics.velocity.BasicVelocityProperties;
 import org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface;
@@ -105,7 +106,9 @@ class DiveAndDirectionalTrackingAI extends BasicAI implements TrackingEventListe
         this.lastTrackingLayerInterface = lastTrackingEvent.getLayerInterface();
         var layerInterface : AllBinaryLayer = this.lastTrackingLayerInterface;
         var ownerLayerInterface : AllBinaryLayer = this.getOwnerLayerInterface();
-        if (layerInterface.getGroupInterface() == ownerLayerInterface.getGroupInterface()) {
+        final groupArray : haxe.ds.Vector<Group> = layerInterface.getGroupInterface();
+        final ownerGroupArray : haxe.ds.Vector<Group> = ownerLayerInterface.getGroupInterface();
+        if (groupArray == ownerGroupArray) {
             return;
         }
         var x : Int = this.lastTrackingLayerInterface.getXP();
@@ -296,7 +299,7 @@ class DiveAndDirectionalTrackingAI extends BasicAI implements TrackingEventListe
         stringBuffer.append(super.toString());
         stringBuffer.append(" LastDirection: ");
         stringBuffer.append(StringUtil.getInstance().toString(this.getLastDirection()));
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

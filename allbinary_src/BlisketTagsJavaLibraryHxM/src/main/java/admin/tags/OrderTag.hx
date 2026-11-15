@@ -91,7 +91,7 @@ class OrderTag extends CustomTagSupport {
                 this.propertiesHashMap.put(StoreFrontData.getInstance().NAME, this.storeName);
                 if (Reflect.compare(this.command, org.allbinary.globals.GLOBALS2.PROCESS) == 0) {
                     this.process();
-                } else if (Reflect.compare(this.command, PaymentGatewayData.NAME.toString()) == 0) {
+                } else if (Reflect.compare(this.command, Std.string(PaymentGatewayData.NAME)) == 0) {
                     if (this.setPaymentGateway() == true) {
                         return TagSupport.EVAL_BODY_INCLUDE;
                     }

@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.system.security.licensing;
 
-//import java.io.InputStream;
-//import java.io.InputStreamReader;
+import jre.io.InputStream;
+import jre.io.InputStreamReader;
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
@@ -39,7 +39,7 @@ class PartnerIdentifierFileUtil {
             final size : Int = inputStreamReader.read(chars);
             var partnerString : String = StringUtil.getInstance().EMPTY_STRING;
             if (size > 0) {
-                partnerString = new String(chars, 0, size);
+                partnerString = [for (index in (0)...(0) + (size)) String.fromCharCode(chars[index])].join("");
             }
             inputStreamReader.close();
             return partnerString;

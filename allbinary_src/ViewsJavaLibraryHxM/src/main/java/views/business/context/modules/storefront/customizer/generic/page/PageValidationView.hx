@@ -65,7 +65,7 @@ class PageValidationView extends PageView implements ValidationComponentInterfac
                     stringBuffer.append(this.getTransformInfoInterface().getName());
                     stringBuffer.append(" is modifying view: ");
                     stringBuffer.append(viewNameOfViewToBeModified);
-                    this.logUtil.putF(stringBuffer.toString(), this, "insert()");
+                    this.logUtil.putF(Std.string(stringBuffer), this, "insert()");
                 }
                 var httpTransformInfoInterface : TransformInfoHttpInterface = (cast this.getTransformInfoInterface() : TransformInfoHttpInterface);
                 var specifiedTransformInfoInterface : TransformInfoInterface = transformInfoEntityInterface.get(viewNameOfViewToBeModified, httpTransformInfoInterface.getPropertiesHashMap(), httpTransformInfoInterface.getPageContext());
@@ -74,7 +74,7 @@ class PageValidationView extends PageView implements ValidationComponentInterfac
                     stringBuffer.append(this.getTransformInfoInterface().getName());
                     stringBuffer.append(" is adding data to view: ");
                     stringBuffer.append(viewNameOfViewToBeModified);
-                    this.logUtil.putF(stringBuffer.toString(), this, "insert()");
+                    this.logUtil.putF(Std.string(stringBuffer), this, "insert()");
                 }
                 var hashMap : HashMap = StdUtil.getInstance().createHashMap();
                 var title : String = specifiedTransformInfoInterface.getName().substring(this.getTransformInfoInterface().getStoreName().length());
@@ -95,10 +95,10 @@ class PageValidationView extends PageView implements ValidationComponentInterfac
                         var stringBuffer : StringMaker = new StringMaker();
                         stringBuffer.append(viewNameOfViewToBeModified);
                         stringBuffer.append(" is changing data in ");
-                        stringBuffer.append(specifiedTransformInfoInterface.getDataFilePath().toString());
+                        stringBuffer.append(Std.string(specifiedTransformInfoInterface.getDataFilePath()));
                         stringBuffer.append(" to the following data:\n");
                         stringBuffer.append(documentString);
-                        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.IS_VALID);
+                        this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.IS_VALID);
                     }
                     CustomizerUtil.getInstance().write(specifiedTransformInfoInterface, documentString);
                 }
@@ -138,7 +138,7 @@ class PageValidationView extends PageView implements ValidationComponentInterfac
                     stringBuffer.append("PageValidation Info:" + pageValidation.validationInfo());
                 }
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
@@ -153,6 +153,11 @@ class PageValidationView extends PageView implements ValidationComponentInterfac
 
     public function toValidationInfoNode(document : Document) : Node {
         return null;
+    }
+
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
     }
 
 }

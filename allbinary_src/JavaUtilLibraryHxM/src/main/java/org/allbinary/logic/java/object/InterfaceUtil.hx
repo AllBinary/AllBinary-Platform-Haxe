@@ -33,7 +33,7 @@ class InterfaceUtil {
             stringBuffer.append(interfaces[index].getName());
             stringBuffer.append(lineBreak);
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public static function getClass(interfaceName : String, interfaces : haxe.ds.Vector<Class<Dynamic>>) : Class<Dynamic> {
@@ -47,17 +47,27 @@ class InterfaceUtil {
         return null;
     }
 
-    public static function isImplemented(clazz : Class<Dynamic>, anyType : Any) : Bool {
+    public static function isImplemented(...args : Dynamic) : Dynamic {
+        if (args.length == 2 && Std.isOfType(args[0], Class)) {
+            return InterfaceUtil.isImplemented_Class_Any(args[0], args[1]);
+        }
+        if (args.length == 2) {
+            return InterfaceUtil.isImplemented_String_Any(args[0], args[1]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: isImplemented");
+    }
+
+    public static function isImplemented_Class_Any(clazz : Class<Dynamic>, anyType : Any) : Bool {
         var classes : haxe.ds.Vector<Class<Dynamic>> = Type.getClass(anyType).getInterfaces();
         for (index in 0...classes.length) {
-            if (clazz.getName().compareTo(classes[index].getName()) == 0) {
+            if (Type.getClassName(clazz).compareTo(classes[index].getName()) == 0) {
                 return true;
             }
         }
         return false;
     }
 
-    public static function isImplemented(className : String, anyType : Any) : Bool {
+    public static function isImplemented_String_Any(className : String, anyType : Any) : Bool {
         var classes : haxe.ds.Vector<Class<Dynamic>> = Type.getClass(anyType).getInterfaces();
         for (index in 0...classes.length) {
             if (classes[index].getName().indexOf(className) == 0) {
@@ -72,13 +82,13 @@ class InterfaceUtil {
         var classes : haxe.ds.Vector<Class<Dynamic>> = Type.getClass(anyType).getInterfaces();
         stringBuffer.append("isImplementedView: \n");
         for (index in 0...classes.length) {
-            stringBuffer.append(clazz.getName());
+            stringBuffer.append(Type.getClassName(clazz));
             stringBuffer.append(" should be = ");
             stringBuffer.append(classes[index].getName());
             stringBuffer.append(classes[index].getName());
             stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

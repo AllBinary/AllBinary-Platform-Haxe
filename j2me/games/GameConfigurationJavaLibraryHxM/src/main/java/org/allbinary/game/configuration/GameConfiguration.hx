@@ -27,10 +27,12 @@ class GameConfiguration {
     private var name : String = StringUtil.getInstance().EMPTY_STRING;
     private var defaultValue : Null<Int> = SmallIntegerSingletonFactory.getInstance().getAt(0);
     private var value : Null<Int> = GameConfiguration.MIN_VALUE;
-    private var minValue : Null<Int> = this.defaultValue;
-    private var maxValue : Null<Int> = this.defaultValue;
+    private var minValue : Null<Int>;
+    private var maxValue : Null<Int>;
     private var modifiable : Null<Bool> = BooleanFactory.getInstance().TRUE;
     public function new(name : String, defaultValue : Null<Int>, minValue : Null<Int>, maxValue : Null<Int>) {
+        this.minValue = this.defaultValue;
+        this.maxValue = this.defaultValue;
         this.setName(name);
         this.setDefaultValue(defaultValue);
         this.value = this.getDefaultValue();
@@ -44,7 +46,7 @@ class GameConfiguration {
         if (this.value != value) {
             final oldValue : Null<Int> = this.value;
             this.value = value;
-            GameFeatureEventHandler.getInstance().fireEvent(new GameFeatureEvent(this, new StringMaker().append(this.name).append(" value: from: ").appendint(Std.int(Std.int(oldValue))).append(" to ").appendint(Std.int(Std.int(this.value))).toString()));
+            GameFeatureEventHandler.getInstance().fireEvent(new GameFeatureEvent(this, Std.string(new StringMaker().append(this.name).append(" value: from: ").appendint(Std.int(Std.int(oldValue))).append(" to ").appendint(Std.int(Std.int(this.value))))));
         }
     }
 
@@ -103,7 +105,7 @@ class GameConfiguration {
         stringBuffer.appendint(Std.int(Std.int(this.getDefaultValue())));
         stringBuffer.append(" Modifiable: ");
         stringBuffer.appendboolean(this.isModifiable());
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function setModifiable(modifiable : Null<Bool>) : Void {

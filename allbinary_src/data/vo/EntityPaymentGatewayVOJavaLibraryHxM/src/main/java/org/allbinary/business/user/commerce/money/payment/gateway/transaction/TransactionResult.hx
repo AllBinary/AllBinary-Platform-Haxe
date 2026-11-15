@@ -61,28 +61,28 @@ class TransactionResult implements TransactionResultInterface {
     private function getAllPossibleKeys() : BasicArrayList {
         var paymentTransactionKeysFactory : PaymentTransactionKeysFactory = PaymentTransactionKeysFactory.getInstance();
         var verisignResponseKeys : BasicArrayList = new BasicArrayListD();
-        verisignResponseKeys.add(paymentTransactionKeysFactory.RESULT.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.PNREF.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.RESPMSG.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.AUTHCODE.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.AVSADDR.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.AVSZIP.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.ORIGRESULT.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.STATUS.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.FRAUDCODE.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.FRAUDMSG.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.ERRCODE.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.SCORE.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.REASON1.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.REASON2.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.REASON3.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.EXCEPTION1.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.EXCEPTION2.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.EXCEPTION3.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.EXCEPTION4.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.EXCEPTION5.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.EXCEPTION6.toString());
-        verisignResponseKeys.add(paymentTransactionKeysFactory.EXCEPTION7.toString());
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.RESULT));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.PNREF));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.RESPMSG));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.AUTHCODE));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.AVSADDR));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.AVSZIP));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.ORIGRESULT));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.STATUS));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.FRAUDCODE));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.FRAUDMSG));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.ERRCODE));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.SCORE));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.REASON1));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.REASON2));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.REASON3));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.EXCEPTION1));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.EXCEPTION2));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.EXCEPTION3));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.EXCEPTION4));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.EXCEPTION5));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.EXCEPTION6));
+        verisignResponseKeys.add(Std.string(paymentTransactionKeysFactory.EXCEPTION7));
         return verisignResponseKeys;
     }
 
@@ -103,87 +103,87 @@ class TransactionResult implements TransactionResultInterface {
     }
 
     public function getPnRef() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().PNREF.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().PNREF)) : String);
     }
 
     public function getRespMsg() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().RESPMSG.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().RESPMSG)) : String);
     }
 
     public function getResult() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().RESULT.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().RESULT)) : String);
     }
 
     public function getScore() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().SCORE.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().SCORE)) : String);
     }
 
     public function getStatus() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().STATUS.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().STATUS)) : String);
     }
 
     public function getFraudCode() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().FRAUDCODE.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().FRAUDCODE)) : String);
     }
 
     public function getFraudMsg() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().FRAUDMSG.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().FRAUDMSG)) : String);
     }
 
     public function getOrigResult() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().ORIGRESULT.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().ORIGRESULT)) : String);
     }
 
     public function getAvsAddr() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().AVSADDR.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().AVSADDR)) : String);
     }
 
     public function getAvsZip() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().AVSZIP.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().AVSZIP)) : String);
     }
 
     public function getErrCode() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().ERRCODE.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().ERRCODE)) : String);
     }
 
     public function getException1() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION1.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().EXCEPTION1)) : String);
     }
 
     public function getException2() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION2.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().EXCEPTION2)) : String);
     }
 
     public function getException3() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION3.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().EXCEPTION3)) : String);
     }
 
     public function getException4() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION4.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().EXCEPTION4)) : String);
     }
 
     public function getException5() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION5.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().EXCEPTION5)) : String);
     }
 
     public function getException6() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION6.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().EXCEPTION6)) : String);
     }
 
     public function getException7() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION7.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().EXCEPTION7)) : String);
     }
 
     public function getReason1() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().REASON1.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().REASON1)) : String);
     }
 
     public function getReason2() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().REASON2.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().REASON2)) : String);
     }
 
     public function getReason3() : String {
-        return (cast this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().REASON3.toString()) : String);
+        return (cast this.keyValuePairs.get(Std.string(PaymentTransactionKeysFactory.getInstance().REASON3)) : String);
     }
 
 }

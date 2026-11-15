@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 
 class ItemPaintable {
     public function paint(graphics : Graphics, currentIndex : Int, x : Int, y : Int) : Void {

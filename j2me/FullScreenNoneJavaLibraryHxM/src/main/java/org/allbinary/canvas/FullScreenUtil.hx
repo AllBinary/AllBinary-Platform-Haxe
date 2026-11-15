@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.canvas;
 
-//import javax.microedition.lcdui.Canvas;
-//import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.CommandListener;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
 

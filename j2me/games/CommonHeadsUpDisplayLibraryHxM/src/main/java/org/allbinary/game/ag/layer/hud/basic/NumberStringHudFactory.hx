@@ -38,12 +38,13 @@ class NumberStringHudFactory {
             final logUtil : LogUtil = LogUtil.getInstance();
             final commonStrings : CommonStrings = CommonStrings.getInstance();
             logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
-            throw new haxe.Exception();
+            throw new jre.lang.JavaException();
         }
     }
 
-    public final NULL_NUMBER_STRING_HUD : NumberStringHud = this.createHud();
+    public final NULL_NUMBER_STRING_HUD : NumberStringHud;
     public function new() {
+        this.NULL_NUMBER_STRING_HUD = this.createHud();
     }
 }
 

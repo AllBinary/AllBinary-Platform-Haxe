@@ -60,7 +60,7 @@ class AddFileValidationView extends InventoryItemView implements ValidationCompo
                     stringBuffer.append(AddFileValidationView.ADDPRODUCT);
                     stringBuffer.append(" or ");
                     stringBuffer.append(AddFileValidationView.NEXTSTEP);
-                    this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.IS_VALID);
+                    this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.IS_VALID);
                 }
                 return false;
             }
@@ -73,7 +73,7 @@ class AddFileValidationView extends InventoryItemView implements ValidationCompo
             }
             var storeFrontInterface : StoreFrontInterface = StoreFrontFactory.getInstance(this.getWeblisketSession().getStoreName());
             this.itemInterface.setCategory(storeFrontInterface.getCategoryPath() + this.itemInterface.getCategory());
-            var fullCategory : String = new StringMaker().append(URLGLOBALS.getWebappPath()).append(storeFrontInterface.getCurrentHostNamePath()).append(this.itemInterface.getCategory()).toString();
+            var fullCategory : String = Std.string(new StringMaker().append(URLGLOBALS.getWebappPath()).append(storeFrontInterface.getCurrentHostNamePath()).append(this.itemInterface.getCategory()));
             var categoryFile : AbFile = AbFile.createAbFile(fullCategory);
             if (!categoryFile.isDirectory()) {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
@@ -127,7 +127,7 @@ class AddFileValidationView extends InventoryItemView implements ValidationCompo
                 stringBuffer.append("<br/>");
             }
             var storeFrontInterface : StoreFrontInterface = StoreFrontFactory.getInstance(this.getWeblisketSession().getStoreName());
-            var fullCategory : String = new StringMaker().append(URLGLOBALS.getWebappPath()).append(storeFrontInterface.getCurrentHostNamePath()).append(this.itemInterface.getCategory()).toString();
+            var fullCategory : String = Std.string(new StringMaker().append(URLGLOBALS.getWebappPath()).append(storeFrontInterface.getCurrentHostNamePath()).append(this.itemInterface.getCategory()));
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
                 this.logUtil.putF("Category: " + fullCategory, this, "validationInfo()");
             }
@@ -154,7 +154,7 @@ class AddFileValidationView extends InventoryItemView implements ValidationCompo
                 var size : haxe.Int64 = fileItem.getSize();
                 this.validationInfo(stringBuffer, fileName, fileItemFieldName, size);
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
@@ -185,7 +185,7 @@ class AddFileValidationView extends InventoryItemView implements ValidationCompo
                     stringBuffer.appendlong(size);
                     stringBuffer.append(">");
                     stringBuffer.appendint(Std.int(fileData.MAXIMAGEFILESIZE));
-                    this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.IS_VALID);
+                    this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.IS_VALID);
                 }
                 return false;
             }
@@ -197,7 +197,7 @@ class AddFileValidationView extends InventoryItemView implements ValidationCompo
                 stringBuffer.appendlong(size);
                 stringBuffer.append(">");
                 stringBuffer.appendint(Std.int(fileData.MINIMAGEFILESIZE));
-                this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.IS_VALID);
+                this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.IS_VALID);
             }
             return false;
         }
@@ -240,6 +240,11 @@ class AddFileValidationView extends InventoryItemView implements ValidationCompo
             stringBuffer.appendint(Std.int(fileData.MAXIMAGEFILESIZE));
             stringBuffer.append("<br/>");
         }
+    }
+
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
     }
 
 }

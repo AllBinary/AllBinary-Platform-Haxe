@@ -2,5 +2,7 @@
 package jsinterop.annotations;
 
 
-/* Otherwise - classOrInterfaceDeclaration - type - AnnotationDeclaration */
+// Java annotation: Haxe metadata such as @JsNonNull does not need a declaration
+interface JsNonNull {
+}
 

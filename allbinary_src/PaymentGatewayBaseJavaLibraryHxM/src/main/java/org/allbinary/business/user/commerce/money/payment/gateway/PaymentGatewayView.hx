@@ -50,7 +50,7 @@ class PaymentGatewayView implements DomNodeInterface {
             }
             final hashMap : HashMap = new PaymentGatewayMapping(this.paymentGatewayInterface).toHashMap();
             hashMap.putAll(this.toHashMap());
-            final paymentGatewayNode : Node = ModDomHelper.createNodeWithValueNodes(document, PaymentGatewayData.NAME.toString(), hashMap);
+            final paymentGatewayNode : Node = ModDomHelper.createNodeWithValueNodes(document, Std.string(PaymentGatewayData.NAME), hashMap);
             return paymentGatewayNode;
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGINGERROR)) {

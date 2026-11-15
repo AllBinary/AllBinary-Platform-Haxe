@@ -16,7 +16,7 @@
 package org.allbinary.media.image;
 
 //import java.awt.image.BufferedImage;
-//import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.Image;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.microemu.device.j2se.J2SEImmutableImage;
@@ -46,7 +46,7 @@ class ImageCopyUtil {
             image.getGraphics().drawImage(originalImage, 0, 0, this.anchor);
             return image;
         } else {
-            throw new haxe.Exception("Not Mutable");
+            throw new jre.lang.JavaException("Not Mutable");
         }
     }
 

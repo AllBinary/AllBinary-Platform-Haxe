@@ -115,7 +115,7 @@ class VectorExplosionGenerator {
     // throws Exception
     private function createPointsBasicArrayList(points : haxe.ds.Vector<haxe.ds.Vector<Int>>) : BasicArrayList {
         if (points.length == 0) {
-            throw new haxe.Exception("Not Points Provided");
+            throw new jre.lang.JavaException("Not Points Provided");
         }
         final firstPointBasicArrayList : BasicArrayList = new BasicArrayListS(points.length);
         final pointFactory : PointFactory = PointFactory.getInstance();

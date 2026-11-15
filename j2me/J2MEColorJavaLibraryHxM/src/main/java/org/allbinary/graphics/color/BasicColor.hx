@@ -15,11 +15,11 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.color;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 import org.allbinary.logic.string.StringMaker;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsConstructor;
+//import jsinterop.annotations.JsProperty;
 
 class BasicColor {
     private final name : String;
@@ -81,7 +81,7 @@ class BasicColor {
         stringBuffer.appendshort(this.blue);
         stringBuffer.append(" Value: ");
         stringBuffer.appendint(this.value);
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     public function getName() : String {

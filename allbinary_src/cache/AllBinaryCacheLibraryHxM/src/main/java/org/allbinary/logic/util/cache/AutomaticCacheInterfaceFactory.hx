@@ -22,7 +22,7 @@ class AutomaticCacheInterfaceFactory {
 
     // throws Exception
     public static function getInstance(cacheableInterfaceFactoryInterface : CacheableInterfaceFactoryInterface, cacheType : CacheType, cachePolicy : CachePolicy) : AutomaticCacheInterface {
-        throw new haxe.Exception("No such " + cacheType.toString());
+        throw new jre.lang.JavaException("No such " + Std.string(cacheType));
     }
 
 }

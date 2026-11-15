@@ -17,13 +17,22 @@ package org.allbinary.business.init.db;
 
 
 class UserDbInitInfo extends DbInitInfo {
-    public function new() {
-        super(null, false);
+    public function new(...args : Dynamic) {
+        if (args.length == 0) {
+            super(null, false);
+            this._new0();
+        }
+        else if (args.length == 1) {
+            final read : Bool = args[0];
+            super(null, false);
+            this._new1(read);
+        }
     }
 
-    // Java overloaded constructor: Haxe allows one constructor
-    public function new(read : Bool) {
-        super(null, false);
+    private function _new0() : Void {
+    }
+
+    private function _new1(read : Bool) : Void {
     }
 
 }

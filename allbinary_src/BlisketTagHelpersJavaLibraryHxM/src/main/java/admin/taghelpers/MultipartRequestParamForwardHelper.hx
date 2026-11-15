@@ -51,7 +51,7 @@ class MultipartRequestParamForwardHelper {
                 var stringBuffer : StringMaker = new StringMaker();
                 stringBuffer.append(this.page);
                 stringBuffer.append(params);
-                this.pageContext.forward(stringBuffer.toString());
+                this.pageContext.forward(Std.string(stringBuffer));
             }
         } catch (e : haxe.Exception) {
             final commonStrings : CommonStrings = CommonStrings.getInstance();
@@ -81,7 +81,7 @@ class MultipartRequestParamForwardHelper {
             stringBuffer.append(EQUALS);
             stringBuffer.append(value);
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     private function shouldForward() : Bool {

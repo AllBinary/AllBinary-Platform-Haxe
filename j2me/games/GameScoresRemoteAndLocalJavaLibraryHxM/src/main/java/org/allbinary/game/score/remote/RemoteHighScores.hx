@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.score.remote;
 
-//import java.util.Enumeration;
+import jre.util.Enumeration;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.score.HighScore;
@@ -40,7 +40,7 @@ class RemoteHighScores extends HighScores {
     private var ascending : Null<Bool> = null;
     public final ASCENDING : String = "ASCENDING";
     public function new(abeClientInformation : AbeClientInformationInterface, softwareInformation : SoftwareInformation, gameInfo : GameInfo, heading : String, columnTwoHeading : String, ascending : Null<Bool>, preload : Bool) {
-        super(gameInfo.toString(), heading, columnTwoHeading);
+        super(Std.string(gameInfo), heading, columnTwoHeading);
         this.abeClientInformation = abeClientInformation;
         this.softwareInformation = softwareInformation;
         this.setAscending(ascending);
@@ -89,9 +89,9 @@ class RemoteHighScores extends HighScores {
                 this.getList().add(highScore);
             }
         } else {
-            final NEXT_ELEMENT : String = new StringMaker().append(CommonLabels.getInstance().NEXT).append("Element: ").toString();
+            final NEXT_ELEMENT : String = Std.string(new StringMaker().append(CommonLabels.getInstance().NEXT).append("Element: "));
             final commonStrings : CommonStrings = CommonStrings.getInstance();
-            final enumeration : Enumeration = hashtable.elements();
+            final enumeration : Enumeration<Dynamic> = hashtable.elements();
             var nextElement : Any = null;
             while (this.enumerationUtil.hasMoreElements(enumeration)) {
                 nextElement = this.enumerationUtil.nextElement(enumeration);

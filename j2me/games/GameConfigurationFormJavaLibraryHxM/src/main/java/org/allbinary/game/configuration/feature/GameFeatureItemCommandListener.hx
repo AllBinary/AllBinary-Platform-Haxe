@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration.feature;
 
-//import javax.microedition.lcdui.Command;
-//import javax.microedition.lcdui.Item;
-//import javax.microedition.lcdui.ItemCommandListener;
+import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.Item;
+import javax.microedition.lcdui.ItemCommandListener;
 import org.allbinary.game.configuration.GameConfigurationGauge;
 import org.allbinary.game.configuration.GameConfigurationUtil;
 import org.allbinary.game.configuration.GameOptionsForm;
@@ -37,7 +37,7 @@ class GameFeatureItemCommandListener implements ItemCommandListener {
     public function commandAction(command : Command, item : Item) : Void {
         try {
             var itemLabel : String = item.getLabel();
-            this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(itemLabel).toString(), this, MidletStrings.getInstance().COMMAND_ACTION);
+            this.logUtil.putF(Std.string(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(itemLabel)), this, MidletStrings.getInstance().COMMAND_ACTION);
             if (Std.isOfType(item, GameConfigurationGauge)) {
                 GameConfigurationUtil.getInstance().change(this.gameOptionsForm, (cast item : GameConfigurationGauge));
             }

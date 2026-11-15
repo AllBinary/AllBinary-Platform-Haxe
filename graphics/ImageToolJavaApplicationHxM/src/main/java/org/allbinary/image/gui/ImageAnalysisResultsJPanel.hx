@@ -90,19 +90,19 @@ class ImageAnalysisResultsJPanel extends javax.swing.JPanel {
 
     private function updateImageColorRangeResults(imageAnalysisResults : ImageAnalysisResults) : Void {
         final imageColorRangeResults : ImageColorRangeResults = imageAnalysisResults.getImageColorRangeResults();
-        this.matchingPixelsJTextField.setText(imageColorRangeResults.getMatchingPixelsChecked().toString());
-        this.totalPixelsJTextField.setText(imageColorRangeResults.getTotalPixelsChecked().toString());
-        this.percentMatchingJTextField.setText(imageColorRangeResults.getPercent().toString());
+        this.matchingPixelsJTextField.setText(Std.string(imageColorRangeResults.getMatchingPixelsChecked()));
+        this.totalPixelsJTextField.setText(Std.string(imageColorRangeResults.getTotalPixelsChecked()));
+        this.percentMatchingJTextField.setText(Std.string(imageColorRangeResults.getPercent()));
         var imageColorResults : ImageColorResults = imageAnalysisResults.getImageColorResults();
-        this.avgRedJTextField.setText(imageColorResults.getColorAverage().getAvgRed().toString());
-        this.avgGreenJTextField.setText(imageColorResults.getColorAverage().getAvgGreen().toString());
-        this.avgBlueJTextField.setText(imageColorResults.getColorAverage().getAvgBlue().toString());
-        this.minRedJTextField.setText(imageColorResults.getColorRange().getMinRed().toString());
-        this.minGreenJTextField.setText(imageColorResults.getColorRange().getMinGreen().toString());
-        this.minBlueJTextField.setText(imageColorResults.getColorRange().getMinBlue().toString());
-        this.maxRedJTextField.setText(imageColorResults.getColorRange().getMaxRed().toString());
-        this.maxGreenJTextField.setText(imageColorResults.getColorRange().getMaxGreen().toString());
-        this.maxBlueJTextField.setText(imageColorResults.getColorRange().getMaxBlue().toString());
+        this.avgRedJTextField.setText(Std.string(imageColorResults.getColorAverage().getAvgRed()));
+        this.avgGreenJTextField.setText(Std.string(imageColorResults.getColorAverage().getAvgGreen()));
+        this.avgBlueJTextField.setText(Std.string(imageColorResults.getColorAverage().getAvgBlue()));
+        this.minRedJTextField.setText(Std.string(imageColorResults.getColorRange().getMinRed()));
+        this.minGreenJTextField.setText(Std.string(imageColorResults.getColorRange().getMinGreen()));
+        this.minBlueJTextField.setText(Std.string(imageColorResults.getColorRange().getMinBlue()));
+        this.maxRedJTextField.setText(Std.string(imageColorResults.getColorRange().getMaxRed()));
+        this.maxGreenJTextField.setText(Std.string(imageColorResults.getColorRange().getMaxGreen()));
+        this.maxBlueJTextField.setText(Std.string(imageColorResults.getColorRange().getMaxBlue()));
     }
 
     private var avgBlueJTextField : javax.swing.JTextField = null;

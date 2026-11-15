@@ -1,9 +1,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics;
 
-//import java.io.IOException;
-//import java.io.InputStream;
-//import javax.microedition.lcdui.Image;
+import jre.io.IOException;
+import jre.io.InputStream;
+import javax.microedition.lcdui.Image;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.platform.graphics.PlatformBitmapBase;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
@@ -14,16 +14,18 @@ class OpenGLBitmapFactory extends PlatformBitmapBaseFactory {
         return OpenGLBitmapFactory.instance;
     }
 
-    // Java inner class: Haxe does not nest classes so move this to its own module
-    class Config {
-        public final bitmapConfig : Any;
-        public function new(bitmapConfig : Any) {
-            this.bitmapConfig = bitmapConfig;
+    public final ARGB_8888 : OpenGLBitmapConfig = new OpenGLBitmapConfig(NullUtil.getInstance().NULL_OBJECT);
+    public override function createBitmap(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            return this.createBitmap_int_int_OpenGLBitmapConfig(args[0], args[1], args[2]);
         }
-
+        if (args.length == 1) {
+            return this.createBitmap_Image(args[0]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: createBitmap");
     }
-    public final ARGB_8888 : Config = new Config(NullUtil.getInstance().NULL_OBJECT);
-    public function createBitmap(width : Int, height : Int, config : OpenGLBitmapFactory.Config) : OpenGLBitmap {
+
+    public function createBitmap_int_int_OpenGLBitmapConfig(width : Int, height : Int, config : OpenGLBitmapConfig) : OpenGLBitmap {
         return new OpenGLBitmap(NullUtil.getInstance().NULL_OBJECT);
     }
 
@@ -32,7 +34,7 @@ class OpenGLBitmapFactory extends PlatformBitmapBaseFactory {
         return new OpenGLBitmap(NullUtil.getInstance().NULL_OBJECT);
     }
 
-    public override function createBitmap(image : Image) : PlatformBitmapBase {
+    public override function createBitmap_Image(image : Image) : PlatformBitmapBase {
         return new OpenGLBitmap(NullUtil.getInstance().NULL_OBJECT);
     }
 

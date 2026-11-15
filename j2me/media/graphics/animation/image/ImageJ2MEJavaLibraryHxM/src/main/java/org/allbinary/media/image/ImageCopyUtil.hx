@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.media.image;
 
-//import javax.microedition.lcdui.Graphics;
-//import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Image;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureFactory;
 import org.allbinary.graphics.Anchor;
@@ -47,7 +47,7 @@ class ImageCopyUtil {
     // throws Exception
     public function createImage(originalImage : Image) : Image {
         if (!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            this.logUtil.put(this.NO_COPY, this, this.commonStrings.CONSTRUCTOR, new haxe.Exception());
+            this.logUtil.put(this.NO_COPY, this, this.commonStrings.CONSTRUCTOR, new jre.lang.JavaException());
             return originalImage;
         }
         final image : Image = this.imageCreationUtil.createImageWH(originalImage.getWidth(), originalImage.getHeight());
@@ -55,14 +55,14 @@ class ImageCopyUtil {
             image.getGraphics().drawImage(originalImage, 0, 0, this.anchor);
             return image;
         } else {
-            throw new haxe.Exception("Not Mutable");
+            throw new jre.lang.JavaException("Not Mutable");
         }
     }
 
     // throws Exception
     public function createImageScale(originalImage : Image, canvasScale : Float, resize : Bool) : Image {
         if (!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            this.logUtil.put(this.NO_COPY, this, this.commonStrings.CONSTRUCTOR, new haxe.Exception());
+            this.logUtil.put(this.NO_COPY, this, this.commonStrings.CONSTRUCTOR, new jre.lang.JavaException());
             return originalImage;
         }
         var newWidth : Int = Std.int((originalImage.getWidth() * canvasScale));
@@ -83,7 +83,7 @@ class ImageCopyUtil {
             graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, this.anchor);
             return image;
         } else {
-            throw new haxe.Exception("Not Mutable");
+            throw new jre.lang.JavaException("Not Mutable");
         }
     }
 

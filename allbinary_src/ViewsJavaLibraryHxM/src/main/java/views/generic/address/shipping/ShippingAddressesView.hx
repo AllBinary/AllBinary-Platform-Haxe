@@ -53,7 +53,7 @@ class ShippingAddressesView extends HttpStoreComponentView implements DomNodeInt
                 var streetAddress : StreetAddress = (cast this.streetAddressList.get(index) : StreetAddress);
                 billingAddressesNode.appendChild(streetAddress.toXmlNode(document));
             }
-            billingAddressesNode.appendChild(ModDomHelper.createNameValueNodes(document, StreetAddressData.NUMBEROFADDRESSES, streetAddressList.size().toString()));
+            billingAddressesNode.appendChild(ModDomHelper.createNameValueNodes(document, StreetAddressData.NUMBEROFADDRESSES, Std.string(streetAddressList.size())));
             return billingAddressesNode;
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGINGERROR)) {

@@ -45,7 +45,7 @@ class SolarisOperatingSystemFactory {
                 if (operatingSystems.isUnknownSpecificOSAllowed()) {
                     operatingSystemInterface = new SolarisOS();
                 } else {
-                    throw new haxe.Exception("Specific Solaris OS Not Supported: " + osName);
+                    throw new jre.lang.JavaException("Specific Solaris OS Not Supported: " + osName);
                 }
             }
             return operatingSystemInterface;

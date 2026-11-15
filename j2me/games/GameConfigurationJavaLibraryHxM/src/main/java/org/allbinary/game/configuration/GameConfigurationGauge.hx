@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration;
 
-//import javax.microedition.lcdui.Gauge;
+import javax.microedition.lcdui.Gauge;
 
 class GameConfigurationGauge extends Gauge {
     public function new(gameConfiguration : GameConfiguration) {

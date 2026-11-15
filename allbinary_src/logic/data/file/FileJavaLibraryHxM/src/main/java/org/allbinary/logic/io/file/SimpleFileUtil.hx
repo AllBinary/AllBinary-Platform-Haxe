@@ -15,15 +15,16 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.io.file;
 
-//import java.io.ByteArrayOutputStream;
-//import java.io.IOException;
-//import java.io.InputStream;
-//import java.io.OutputStream;
-//import java.io.Reader;
-//import java.io.Writer;
-//import java.nio.CharBuffer;
+import jre.io.ByteArrayOutputStream;
+import jre.io.InputStream;
+import jre.io.OutputStream;
+import jre.io.Reader;
+import jre.io.Writer;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.NullOutputStream;
+import org.allbinary.logic.io.NullReader;
+import org.allbinary.logic.io.NullWriter;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
@@ -38,97 +39,15 @@ class SimpleFileUtil {
     }
 
     public static function nullOutputStream() : OutputStream {
-        return /* anonymous class body:
-            // throws IOException
-            public function write(b : Int) : Void {
-            }
-
-            // throws IOException
-            public function write(b : haxe.ds.Vector<Int>, off : Int, len : Int) : Void {
-            }
-
-            public function close() : Void {
-            }
-
-*/ new OutputStream();
+        return NullOutputStream.NULL_OUTPUT_STREAM;
     }
 
     public static function nullWriter() : Writer {
-        return /* anonymous class body:
-            private var closed : Bool = false;
-            // throws IOException
-            public function append(c : Int) : Writer {
-                return this;
-            }
-
-            // throws IOException
-            public function append(csq : CharSequence) : Writer {
-                return this;
-            }
-
-            // throws IOException
-            public function append(csq : CharSequence, start : Int, end : Int) : Writer {
-                return this;
-            }
-
-            // throws IOException
-            public function write(c : Int) : Void {
-            }
-
-            // throws IOException
-            public function write(cbuf : haxe.ds.Vector<Int>, off : Int, len : Int) : Void {
-            }
-
-            // throws IOException
-            public function write(str : String) : Void {
-            }
-
-            // throws IOException
-            public function write(str : String, off : Int, len : Int) : Void {
-            }
-
-            // throws IOException
-            public function flush() : Void {
-            }
-
-            // throws IOException
-            public function close() : Void {
-            }
-
-*/ new Writer();
+        return NullWriter.NULL_WRITER;
     }
 
     public static function nullReader() : Reader {
-        return /* anonymous class body:
-            // throws IOException
-            public function read() : Int {
-                return -1;
-            }
-
-            // throws IOException
-            public function read(cbuf : haxe.ds.Vector<Int>, off : Int, len : Int) : Int {
-                return -1;
-            }
-
-            // throws IOException
-            public function read(target : CharBuffer) : Int {
-                return -1;
-            }
-
-            // throws IOException
-            public function ready() : Bool {
-                return false;
-            }
-
-            // throws IOException
-            public function skip(n : haxe.Int64) : haxe.Int64 {
-                return haxe.Int64.ofInt(0);
-            }
-
-            public function close() : Void {
-            }
-
-*/ new Reader();
+        return NullReader.NULL_READER;
     }
 
     public final NULL_WRITER : Writer = SimpleFileUtil.nullWriter();
@@ -186,7 +105,7 @@ class SimpleFileUtil {
         for (index in 0...size) {
             stringMaker.append(stringArray[index]);
         }
-        return stringMaker.toString();
+        return Std.string(stringMaker);
     }
 
     public function new() {

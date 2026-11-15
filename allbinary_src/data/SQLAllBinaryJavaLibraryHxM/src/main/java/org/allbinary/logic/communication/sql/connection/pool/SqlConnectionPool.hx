@@ -66,12 +66,12 @@ class SqlConnectionPool {
                     stringBuffer.append(this.NEW_CONNECTION_FOR);
                     stringBuffer.append(url);
                     stringBuffer.append(this.CREATED);
-                    this.logUtil.putF(stringBuffer.toString(), this, this.METHOD_GET);
+                    this.logUtil.putF(Std.string(stringBuffer), this, this.METHOD_GET);
                 }
                 return DriverManager.getConnection(url);
             } else if (connectionVector.size() == 0) {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL)) {
-                    this.logUtil.putF(new StringMaker().append(this.NEW_CONNECTION_FOR).append(url).append(this.CREATED).toString(), this, METHOD_GET);
+                    this.logUtil.putF(Std.string(new StringMaker().append(this.NEW_CONNECTION_FOR).append(url).append(this.CREATED)), this, METHOD_GET);
                 }
                 return DriverManager.getConnection(url);
             } else {
@@ -89,7 +89,7 @@ class SqlConnectionPool {
                             stringBuffer.append(this.IS);
                             stringBuffer.appendint(connectionVector.size());
                             this.logUtil.putF(NUMBER_OF_SQL_CONNECTION_VECTORS + this.connectionHashMap.size(), this, this.METHOD_GET);
-                            this.logUtil.putF(stringBuffer.toString(), this, METHOD_GET);
+                            this.logUtil.putF(Std.string(stringBuffer), this, METHOD_GET);
                         }
                         return (cast sqlConnection : Connection);
                     }
@@ -101,7 +101,7 @@ class SqlConnectionPool {
             stringBuffer.append(this.NEW_CONNECTION_FOR);
             stringBuffer.append(url);
             stringBuffer.append(this.CREATED);
-            this.logUtil.putF(stringBuffer.toString(), this, this.METHOD_GET);
+            this.logUtil.putF(Std.string(stringBuffer), this, this.METHOD_GET);
         }
         return DriverManager.getConnection(url);
     }
@@ -130,7 +130,7 @@ class SqlConnectionPool {
                 stringBuffer.append(this.IS);
                 stringBuffer.appendint(connectionVector.size());
                 this.logUtil.putF(this.NUMBER_OF_SQL_CONNECTION_VECTORS + this.connectionHashMap.size(), this, this.METHOD_ADD);
-                this.logUtil.putF(stringBuffer.toString(), this, this.METHOD_ADD);
+                this.logUtil.putF(Std.string(stringBuffer), this, this.METHOD_ADD);
             }
         }
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL)) {

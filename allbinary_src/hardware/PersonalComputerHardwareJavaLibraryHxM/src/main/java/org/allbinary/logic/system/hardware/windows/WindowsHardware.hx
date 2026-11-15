@@ -67,7 +67,7 @@ class WindowsHardware implements HardwareInterface {
             this.macInterfaceVector = new BasicArrayListD();
             this.monitorInterfaceVector = new BasicArrayListD();
             if (this.componentInterfaceVector.size() < this.MINHARDWARE) {
-                throw new haxe.Exception("Not Enough Data For A Valid License On Windows");
+                throw new jre.lang.JavaException("Not Enough Data For A Valid License On Windows");
             }
         } catch (e : haxe.Exception) {
             throw e;
@@ -75,20 +75,20 @@ class WindowsHardware implements HardwareInterface {
     }
 
     private function getComponentType(component : String) : String {
-        if (component.indexOf(this.componentFactory.ETHERNET.toString()) >= 0) {
-            return this.componentFactory.ETHERNET.toString();
-        } else if (component.indexOf(this.componentFactory.BRIDGE.toString()) >= 0) {
-            return this.componentFactory.BRIDGE.toString();
-        } else if (component.indexOf(this.componentFactory.IDE.toString()) >= 0) {
-            return this.componentFactory.IDE.toString();
-        } else if (component.indexOf(this.componentFactory.MULTIMEDIA.toString()) >= 0) {
-            return this.componentFactory.MULTIMEDIA.toString();
-        } else if (component.indexOf(this.componentFactory.SCSI.toString()) >= 0) {
-            return this.componentFactory.SCSI.toString();
-        } else if (component.indexOf(this.componentFactory.USB.toString()) >= 0) {
-            return this.componentFactory.USB.toString();
-        } else if (component.indexOf(this.componentFactory.VGA.toString()) >= 0) {
-            return this.componentFactory.VGA.toString();
+        if (component.indexOf(Std.string(this.componentFactory.ETHERNET)) >= 0) {
+            return Std.string(this.componentFactory.ETHERNET);
+        } else if (component.indexOf(Std.string(this.componentFactory.BRIDGE)) >= 0) {
+            return Std.string(this.componentFactory.BRIDGE);
+        } else if (component.indexOf(Std.string(this.componentFactory.IDE)) >= 0) {
+            return Std.string(this.componentFactory.IDE);
+        } else if (component.indexOf(Std.string(this.componentFactory.MULTIMEDIA)) >= 0) {
+            return Std.string(this.componentFactory.MULTIMEDIA);
+        } else if (component.indexOf(Std.string(this.componentFactory.SCSI)) >= 0) {
+            return Std.string(this.componentFactory.SCSI);
+        } else if (component.indexOf(Std.string(this.componentFactory.USB)) >= 0) {
+            return Std.string(this.componentFactory.USB);
+        } else if (component.indexOf(Std.string(this.componentFactory.VGA)) >= 0) {
+            return Std.string(this.componentFactory.VGA);
         } else {
             return null;
         }
@@ -147,10 +147,10 @@ class WindowsHardware implements HardwareInterface {
         final size : Int = this.componentInterfaceVector.size();
         for (index in 0...size) {
             var componentInterface : HardwareComponentInterface = (cast this.componentInterfaceVector.get(index) : HardwareComponentInterface);
-            hardwareBuffer.append(componentInterface.toString());
+            hardwareBuffer.append(Std.string(componentInterface));
             hardwareBuffer.append(CommonSeps.getInstance().NEW_LINE);
         }
-        return hardwareBuffer.toString();
+        return Std.string(hardwareBuffer);
     }
 
     public function compareTo(hardwareInterface : HardwareInterface) : Bool {

@@ -45,11 +45,11 @@ class EmailEvent extends EventObject {
         final stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append("EmailEvent Log: \n");
         stringBuffer.append("Event Name: ");
-        stringBuffer.append(this.userEmailEventNameData.toString());
-        stringBuffer.append(this.getEmailInfo().toString());
+        stringBuffer.append(Std.string(this.userEmailEventNameData));
+        stringBuffer.append(Std.string(this.getEmailInfo()));
         stringBuffer.append("\nNumber of Attempts: ");
         stringBuffer.appendint(this.getAttempts());
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
 }

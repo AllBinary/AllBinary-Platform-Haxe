@@ -155,7 +155,7 @@ class AuthenticationRequestHelper extends TagHelper {
             var userInterface : UserInterface = userEntityInterface.getUser(userName);
             if (userInterface.getRole() == null) {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER)) {
-                    this.logUtil.putF("Role is null: " + userInterface.getRole() + " Valid Roles: " + roles.toString(), this, "isRoleValid()");
+                    this.logUtil.putF("Role is null: " + userInterface.getRole() + " Valid Roles: " + Std.string(roles), this, "isRoleValid()");
                 }
                 return false;
             }
@@ -173,10 +173,10 @@ class AuthenticationRequestHelper extends TagHelper {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER)) {
                 var stringBuffer : StringMaker = new StringMaker();
                 stringBuffer.append("Role is not valid: ");
-                stringBuffer.append(userInterface.getRole().toString());
+                stringBuffer.append(Std.string(userInterface.getRole()));
                 stringBuffer.append(" Valid Roles: ");
-                stringBuffer.append(roles.toString());
-                this.logUtil.putF(stringBuffer.toString(), this, "isRoleValid()");
+                stringBuffer.append(Std.string(roles));
+                this.logUtil.putF(Std.string(stringBuffer), this, "isRoleValid()");
             }
             return false;
         } catch (e : haxe.Exception) {

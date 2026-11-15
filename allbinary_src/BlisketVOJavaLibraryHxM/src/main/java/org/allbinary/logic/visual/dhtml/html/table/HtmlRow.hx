@@ -66,7 +66,7 @@ class HtmlRow extends HtmlTag {
         }
         result += this.END;
         for (i in 0...cellSize) {
-            result += this.htmlCellsVector.get(i).toString();
+            result += Std.string(this.htmlCellsVector.get(i));
             result += " ";
         }
         result += this.ENDTAG;

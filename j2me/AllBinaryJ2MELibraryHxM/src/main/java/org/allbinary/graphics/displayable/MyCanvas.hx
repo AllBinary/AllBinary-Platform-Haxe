@@ -15,11 +15,11 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.displayable;
 
-//import javax.microedition.lcdui.Canvas;
-//import javax.microedition.lcdui.Command;
-//import javax.microedition.lcdui.CommandListener;
-//import javax.microedition.lcdui.Graphics;
-//import javax.microedition.lcdui.NullCommandListener;
+import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Command;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.NullCommandListener;
 import org.allbinary.graphics.displayable.command.MyCommandInterface;
 import org.allbinary.graphics.displayable.command.MyCommandsFactory;
 import org.allbinary.input.TouchJ2ME;
@@ -49,6 +49,14 @@ class MyCanvas extends Canvas implements DisplayableInterface implements MyComma
         this.name = name;
         this.childNameList = childNameList;
         this.commandStack = StdUtil.getInstance().createStack();
+    }
+
+    public override function getWidth() : Int {
+        return super.getWidth();
+    }
+
+    public override function getHeight() : Int {
+        return super.getHeight();
     }
 
     public override function setFullScreenMode(mode : Bool) : Void {

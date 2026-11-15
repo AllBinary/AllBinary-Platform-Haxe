@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.draw;
 
-//import javax.microedition.lcdui.Font;
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.AndroidUtil;
 import org.allbinary.J2MEUtil;
 import org.allbinary.graphics.Anchor;
@@ -39,7 +39,7 @@ class DrawStringUtil {
         try {
             graphics.drawSubstring(string, offset, length, x - width, y, this.anchor);
         } catch (e : haxe.Exception) {
-            PreLogUtil.put(new StringMaker().append("Exception: stringLength: ").appendint(string.length).append(" offset: ").appendint(offset).append(" currentLength: ").appendint(length).toString(), this, "drawCenterString");
+            PreLogUtil.put(Std.string(new StringMaker().append("Exception: stringLength: ").appendint(string.length).append(" offset: ").appendint(offset).append(" currentLength: ").appendint(length)), this, "drawCenterString");
         }
     }
 

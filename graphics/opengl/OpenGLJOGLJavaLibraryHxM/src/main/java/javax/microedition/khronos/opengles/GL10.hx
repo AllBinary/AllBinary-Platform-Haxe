@@ -262,11 +262,11 @@ interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     function glColorMask(red : Bool, green : Bool, blue : Bool, alpha : Bool) : Void;
 
-    function glColorPointer(size : Int, type : Int, stride : Int, pointer : java.nio.Buffer) : Void;
+    function glColorPointer(size : Int, type : Int, stride : Int, pointer : jre.nio.Buffer) : Void;
 
-    function glCompressedTexImage2D(target : Int, level : Int, internalformat : Int, width : Int, height : Int, border : Int, imageSize : Int, data : java.nio.Buffer) : Void;
+    function glCompressedTexImage2D(target : Int, level : Int, internalformat : Int, width : Int, height : Int, border : Int, imageSize : Int, data : jre.nio.Buffer) : Void;
 
-    function glCompressedTexSubImage2D(target : Int, level : Int, xoffset : Int, yoffset : Int, width : Int, height : Int, format : Int, imageSize : Int, data : java.nio.Buffer) : Void;
+    function glCompressedTexSubImage2D(target : Int, level : Int, xoffset : Int, yoffset : Int, width : Int, height : Int, format : Int, imageSize : Int, data : jre.nio.Buffer) : Void;
 
     function glCopyTexImage2D(target : Int, level : Int, internalformat : Int, x : Int, y : Int, width : Int, height : Int, border : Int) : Void;
 
@@ -274,9 +274,11 @@ interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     function glCullFace(mode : Int) : Void;
 
-    function glDeleteTextures(n : Int, textures : haxe.ds.Vector<Int>, offset : Int) : Void;
+    function glDeleteTextures(...args : Dynamic) : Dynamic;
 
-    function glDeleteTextures(n : Int, textures : java.nio.IntBuffer) : Void;
+    function glDeleteTextures_int_intArray_int(n : Int, textures : haxe.ds.Vector<Int>, offset : Int) : Void;
+
+    function glDeleteTextures_int_IntBuffer(n : Int, textures : jre.nio.IntBuffer) : Void;
 
     function glDepthFunc(func : Int) : Void;
 
@@ -290,7 +292,7 @@ interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     function glDrawArrays(mode : Int, first : Int, count : Int) : Void;
 
-    function glDrawElements(mode : Int, count : Int, type : Int, indices : java.nio.Buffer) : Void;
+    function glDrawElements(mode : Int, count : Int, type : Int, indices : jre.nio.Buffer) : Void;
 
     function glEnable(cap : Int) : Void;
 
@@ -302,23 +304,29 @@ interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     function glFogf(pname : Int, param : Float) : Void;
 
-    function glFogfv(pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void;
+    function glFogfv(...args : Dynamic) : Dynamic;
 
-    function glFogfv(pname : Int, params : java.nio.FloatBuffer) : Void;
+    function glFogfv_int_floatArray_int(pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void;
+
+    function glFogfv_int_FloatBuffer(pname : Int, params : jre.nio.FloatBuffer) : Void;
 
     function glFrontFace(mode : Int) : Void;
 
     function glFrustumf(left : Float, right : Float, bottom : Float, top : Float, zNear : Float, zFar : Float) : Void;
 
-    function glGenTextures(n : Int, textures : haxe.ds.Vector<Int>, offset : Int) : Void;
+    function glGenTextures(...args : Dynamic) : Dynamic;
 
-    function glGenTextures(n : Int, textures : java.nio.IntBuffer) : Void;
+    function glGenTextures_int_intArray_int(n : Int, textures : haxe.ds.Vector<Int>, offset : Int) : Void;
+
+    function glGenTextures_int_IntBuffer(n : Int, textures : jre.nio.IntBuffer) : Void;
 
     function glGetError() : Int;
 
-    function glGetIntegerv(pname : Int, params : haxe.ds.Vector<Int>, offset : Int) : Void;
+    function glGetIntegerv(...args : Dynamic) : Dynamic;
 
-    function glGetIntegerv(pname : Int, params : java.nio.IntBuffer) : Void;
+    function glGetIntegerv_int_intArray_int(pname : Int, params : haxe.ds.Vector<Int>, offset : Int) : Void;
+
+    function glGetIntegerv_int_IntBuffer(pname : Int, params : jre.nio.IntBuffer) : Void;
 
     function glGetString(name : Int) : String;
 
@@ -326,43 +334,53 @@ interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     function glLightModelf(pname : Int, param : Float) : Void;
 
-    function glLightModelfv(pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void;
+    function glLightModelfv(...args : Dynamic) : Dynamic;
 
-    function glLightModelfv(pname : Int, params : java.nio.FloatBuffer) : Void;
+    function glLightModelfv_int_floatArray_int(pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void;
+
+    function glLightModelfv_int_FloatBuffer(pname : Int, params : jre.nio.FloatBuffer) : Void;
 
     function glLightf(light : Int, pname : Int, param : Float) : Void;
 
-    function glLightfv(light : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void;
+    function glLightfv(...args : Dynamic) : Dynamic;
 
-    function glLightfv(light : Int, pname : Int, params : java.nio.FloatBuffer) : Void;
+    function glLightfv_int_int_floatArray_int(light : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void;
+
+    function glLightfv_int_int_FloatBuffer(light : Int, pname : Int, params : jre.nio.FloatBuffer) : Void;
 
     function glLineWidth(width : Float) : Void;
 
     function glLoadIdentity() : Void;
 
-    function glLoadMatrixf(m : haxe.ds.Vector<Float>, offset : Int) : Void;
+    function glLoadMatrixf(...args : Dynamic) : Dynamic;
 
-    function glLoadMatrixf(m : java.nio.FloatBuffer) : Void;
+    function glLoadMatrixf_floatArray_int(m : haxe.ds.Vector<Float>, offset : Int) : Void;
+
+    function glLoadMatrixf_FloatBuffer(m : jre.nio.FloatBuffer) : Void;
 
     function glLogicOp(opcode : Int) : Void;
 
     function glMaterialf(face : Int, pname : Int, param : Float) : Void;
 
-    function glMaterialfv(face : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void;
+    function glMaterialfv(...args : Dynamic) : Dynamic;
 
-    function glMaterialfv(face : Int, pname : Int, params : java.nio.FloatBuffer) : Void;
+    function glMaterialfv_int_int_floatArray_int(face : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void;
+
+    function glMaterialfv_int_int_FloatBuffer(face : Int, pname : Int, params : jre.nio.FloatBuffer) : Void;
 
     function glMatrixMode(mode : Int) : Void;
 
-    function glMultMatrixf(m : haxe.ds.Vector<Float>, offset : Int) : Void;
+    function glMultMatrixf(...args : Dynamic) : Dynamic;
 
-    function glMultMatrixf(m : java.nio.FloatBuffer) : Void;
+    function glMultMatrixf_floatArray_int(m : haxe.ds.Vector<Float>, offset : Int) : Void;
+
+    function glMultMatrixf_FloatBuffer(m : jre.nio.FloatBuffer) : Void;
 
     function glMultiTexCoord4f(target : Int, s : Float, t : Float, r : Float, q : Float) : Void;
 
     function glNormal3f(nx : Float, ny : Float, nz : Float) : Void;
 
-    function glNormalPointer(type : Int, stride : Int, pointer : java.nio.Buffer) : Void;
+    function glNormalPointer(type : Int, stride : Int, pointer : jre.nio.Buffer) : Void;
 
     function glOrthof(left : Float, right : Float, bottom : Float, top : Float, zNear : Float, zFar : Float) : Void;
 
@@ -376,7 +394,7 @@ interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     function glPushMatrix() : Void;
 
-    function glReadPixels(x : Int, y : Int, width : Int, height : Int, format : Int, type : Int, pixels : java.nio.Buffer) : Void;
+    function glReadPixels(x : Int, y : Int, width : Int, height : Int, format : Int, type : Int, pixels : jre.nio.Buffer) : Void;
 
     function glRotatef(angle : Float, x : Float, y : Float, z : Float) : Void;
 
@@ -398,25 +416,27 @@ interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     function glStencilOp(fail : Int, zfail : Int, zpass : Int) : Void;
 
-    function glTexCoordPointer(size : Int, type : Int, stride : Int, pointer : java.nio.Buffer) : Void;
+    function glTexCoordPointer(size : Int, type : Int, stride : Int, pointer : jre.nio.Buffer) : Void;
 
     function glTexEnvf(target : Int, pname : Int, param : Float) : Void;
 
-    function glTexEnvfv(target : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void;
+    function glTexEnvfv(...args : Dynamic) : Dynamic;
 
-    function glTexEnvfv(target : Int, pname : Int, params : java.nio.FloatBuffer) : Void;
+    function glTexEnvfv_int_int_floatArray_int(target : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void;
 
-    function glTexImage2D(target : Int, level : Int, internalformat : Int, width : Int, height : Int, border : Int, format : Int, type : Int, pixels : java.nio.Buffer) : Void;
+    function glTexEnvfv_int_int_FloatBuffer(target : Int, pname : Int, params : jre.nio.FloatBuffer) : Void;
+
+    function glTexImage2D(target : Int, level : Int, internalformat : Int, width : Int, height : Int, border : Int, format : Int, type : Int, pixels : jre.nio.Buffer) : Void;
 
     function glTexParameterf(target : Int, pname : Int, param : Float) : Void;
 
     function glTexParameteri(target : Int, pname : Int, param : Int) : Void;
 
-    function glTexSubImage2D(target : Int, level : Int, xoffset : Int, yoffset : Int, width : Int, height : Int, format : Int, type : Int, pixels : java.nio.Buffer) : Void;
+    function glTexSubImage2D(target : Int, level : Int, xoffset : Int, yoffset : Int, width : Int, height : Int, format : Int, type : Int, pixels : jre.nio.Buffer) : Void;
 
     function glTranslatef(x : Float, y : Float, z : Float) : Void;
 
-    function glVertexPointer(size : Int, type : Int, stride : Int, pointer : java.nio.Buffer) : Void;
+    function glVertexPointer(size : Int, type : Int, stride : Int, pointer : jre.nio.Buffer) : Void;
 
     function glViewport(x : Int, y : Int, width : Int, height : Int) : Void;
 

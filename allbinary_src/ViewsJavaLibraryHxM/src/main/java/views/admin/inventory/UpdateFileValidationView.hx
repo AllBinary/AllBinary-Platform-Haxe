@@ -65,7 +65,7 @@ class UpdateFileValidationView extends InventoryItemView implements ValidationCo
             stringBuffer.append(URLGLOBALS.getWebappPath());
             stringBuffer.append(storeFrontInterface.getCurrentHostNamePath());
             stringBuffer.append(this.itemInterface.getCategory());
-            var fullCategory : String = stringBuffer.toString();
+            var fullCategory : String = Std.string(stringBuffer);
             var categoryFile : AbFile = AbFile.createAbFile(fullCategory);
             if (!categoryFile.isDirectory()) {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
@@ -134,7 +134,7 @@ class UpdateFileValidationView extends InventoryItemView implements ValidationCo
             var fileItemFieldName : String = fileItem.getFieldName();
             this.validationInfo(stringBuffer, fileName, fileItemFieldName, size);
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     // throws Exception
@@ -152,7 +152,7 @@ class UpdateFileValidationView extends InventoryItemView implements ValidationCo
                     stringBuffer.appendlong(size);
                     stringBuffer.append(">");
                     stringBuffer.appendint(Std.int(fileData.MAXIMAGEFILESIZE));
-                    this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.IS_VALID);
+                    this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.IS_VALID);
                 }
                 return false;
             }
@@ -182,6 +182,11 @@ class UpdateFileValidationView extends InventoryItemView implements ValidationCo
                 }
             }
         }
+    }
+
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
     }
 
 }

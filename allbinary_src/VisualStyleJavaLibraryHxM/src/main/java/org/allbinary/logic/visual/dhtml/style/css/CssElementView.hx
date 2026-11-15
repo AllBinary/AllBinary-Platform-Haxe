@@ -70,7 +70,7 @@ class CssElementView implements DomNodeInterface {
                 this.description = StringUtil.getInstance().EMPTY_STRING;
             }
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-                this.logUtil.putF(new StringMaker().append("Value: ").append(this.value).append("\nTitle: ").append(this.title).append("\nDescription: ").append(this.description).toString(), this, this.commonStrings.CONSTRUCTOR);
+                this.logUtil.putF(Std.string(new StringMaker().append("Value: ").append(this.value).append("\nTitle: ").append(this.title).append("\nDescription: ").append(this.description)), this, this.commonStrings.CONSTRUCTOR);
             }
             var cssElementStyleNodeVector : BasicArrayList = DomSearchHelper.getAllNodes(CssElementData.getInstance().NAME, node.getChildNodes());
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
@@ -81,7 +81,7 @@ class CssElementView implements DomNodeInterface {
             this.cssPropertyVector = CssPropertiesValidationFactory.getInstance(nodeList);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
-                this.logUtil.put(new StringMaker().append("Value: ").append(this.value).append("\nTitle: ").append(this.title).append("\nDescription: ").append(this.description).toString(), this, this.commonStrings.CONSTRUCTOR, e);
+                this.logUtil.put(Std.string(new StringMaker().append("Value: ").append(this.value).append("\nTitle: ").append(this.title).append("\nDescription: ").append(this.description)), this, this.commonStrings.CONSTRUCTOR, e);
             }
             throw new haxe.Exception("CssElementView");
         }
@@ -103,7 +103,7 @@ class CssElementView implements DomNodeInterface {
     public function toXmlNode(document : Document) : Node {
         var hashMap : HashMap = this.toHashMap();
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-            this.logUtil.putF("CssView HashMap: " + hashMap.toString(), this, "toXmlNode");
+            this.logUtil.putF("CssView HashMap: " + Std.string(hashMap), this, "toXmlNode");
         }
         var node : Node = ModDomHelper.createNodeWithValueNodes(document, CssElementData.getInstance().NAME, hashMap);
         final size : Int = this.cssPropertyVector.size();

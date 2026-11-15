@@ -80,10 +80,10 @@ class CategoryProperties implements CategoryPropertiesInterface {
                     break;
                 }
                 if (nextParentCategoryInterface.getProperties().isRoot()) {
-                    list.addAt(0, nextParentCategoryInterface.getPath().toString());
+                    list.addAt(0, Std.string(nextParentCategoryInterface.getPath()));
                 } else {
                     pathStringBuffer.delete(0, pathStringBuffer.length());
-                    list.addAt(0, pathStringBuffer.append(abPathData.SEPARATOR).append(nextParentCategoryInterface.getProperties().getValue()).toString());
+                    list.addAt(0, Std.string(pathStringBuffer.append(abPathData.SEPARATOR).append(nextParentCategoryInterface.getProperties().getValue())));
                 }
                 if (nextParentCategoryInterface == nextParentCategoryInterface.getHierarchy().getParent()) {
                     break;
@@ -103,9 +103,9 @@ class CategoryProperties implements CategoryPropertiesInterface {
         }
         pathStringBuffer.append(abPathData.SEPARATOR);
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY)) {
-            this.logUtil.putF("path = " + pathStringBuffer.toString(), this, "getPath");
+            this.logUtil.putF("path = " + Std.string(pathStringBuffer), this, "getPath");
         }
-        return new AbPath(pathStringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
+        return new AbPath(Std.string(pathStringBuffer), StringUtil.getInstance().EMPTY_STRING);
     }
 
     public function getFileName() : String {

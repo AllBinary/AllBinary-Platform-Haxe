@@ -49,7 +49,7 @@ class BaseResourceAnimationInterfaceFactoryInterfaceFactory implements FeatureRe
     // throws Exception
     public function init(level : Int) : Void {
         final commonStrings : CommonStrings = CommonStrings.getInstance();
-        this.logUtil.putF(new StringMaker().append("Available List of Animations: ").append(this.hashtable.toString()).toString(), this, commonStrings.INIT);
+        this.logUtil.putF(Std.string(new StringMaker().append("Available List of Animations: ").append(Std.string(this.hashtable))), this, commonStrings.INIT);
         this.setInitialized(true);
     }
 
@@ -60,7 +60,7 @@ class BaseResourceAnimationInterfaceFactoryInterfaceFactory implements FeatureRe
     // throws Exception
     public function add(resource : String, animationInterfaceFactoryInterface : BasicAnimationInterfaceFactoryInterface) : Void {
         if (this.hashtable.containsKey((cast resource : Any))) {
-            throw new haxe.Exception(new StringMaker().append("Resource Already Created: ").append(resource).toString());
+            throw new jre.lang.JavaException(Std.string(new StringMaker().append("Resource Already Created: ").append(resource)));
         }
         this.hashtable.put(resource, animationInterfaceFactoryInterface);
     }
@@ -90,7 +90,13 @@ class BaseResourceAnimationInterfaceFactoryInterfaceFactory implements FeatureRe
 
     // throws Exception
     public function getRectangleArrayOfArrays(resource : String) : haxe.ds.Vector<haxe.ds.Vector<Rectangle>> {
-        return (cast this.rectangleArrayOfArraysHashtable.get(resource) : haxe.ds.Vector<haxe.ds.Vector<Rectangle>>);
+        var valueCanBeNull : Any = this.rectangleArrayOfArraysHashtable.get(resource);
+        if (valueCanBeNull != null) {
+            final rectangleArrayOfArrays : haxe.ds.Vector<haxe.ds.Vector<Rectangle>> = (cast valueCanBeNull : haxe.ds.Vector<haxe.ds.Vector<Rectangle>>);
+            return rectangleArrayOfArrays;
+        } else {
+            return RectangleFactory.ARRAY_OF_ARRAYS;
+        }
     }
 
     // throws Exception
@@ -112,7 +118,7 @@ class BaseResourceAnimationInterfaceFactoryInterfaceFactory implements FeatureRe
     }
 
     public function toString() : String {
-        return new StringMaker().append(Type.getClassName(Type.getClass(this))).append(CommonSeps.getInstance().SEMICOLON).append(CommonSeps.getInstance().SPACE).append(this.name).toString();
+        return Std.string(new StringMaker().append(Type.getClassName(Type.getClass(this))).append(CommonSeps.getInstance().SEMICOLON).append(CommonSeps.getInstance().SPACE).append(this.name));
     }
 
     public function getHashtable() : ABHashtable<Any, Any> {

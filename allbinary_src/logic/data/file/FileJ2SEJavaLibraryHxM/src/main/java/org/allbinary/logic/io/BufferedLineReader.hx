@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.io;
 
-//import java.io.BufferedReader;
-//import java.io.FileReader;
+import jre.io.BufferedReader;
+import jre.io.FileReader;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.AbFileNativeUtil;
 
@@ -32,6 +32,11 @@ class BufferedLineReader {
     // throws Exception
     public function readLine() : String {
         return this.tmpIn.readLine();
+    }
+
+    // throws Exception
+    public function ready() : Bool {
+        return this.tmpIn.ready();
     }
 
     public function getSize() : haxe.Int64 {

@@ -80,11 +80,11 @@ class CreateIconImagesJPanel extends javax.swing.JPanel implements ImageProcesso
                             final path : String = filePath.substring(0, endIndex + 1);
                             stringMaker.delete(0, stringMaker.length());
                             stringMaker.append(path).append(ANDROID).appendint(width).append(CanvasStrings.getInstance()._PNG);
-                            var newFilePath : String = stringMaker.toString();
+                            var newFilePath : String = Std.string(stringMaker);
                             imagePersistanceUtil.saveWithBatik(AbFile.createAbFile(newFilePath), generatedBufferedImageArray[index]);
                             stringMaker.delete(0, stringMaker.length());
                             stringMaker.append(path).append(IOS).appendint(width).append(CanvasStrings.getInstance()._PNG);
-                            newFilePath = stringMaker.toString();
+                            newFilePath = Std.string(stringMaker);
                             imagePersistanceUtil.saveWithBatik(AbFile.createAbFile(newFilePath), generatedBufferedImageArray[index]);
                         }
                     }

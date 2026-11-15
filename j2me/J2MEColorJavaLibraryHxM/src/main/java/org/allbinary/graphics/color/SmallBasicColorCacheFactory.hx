@@ -24,10 +24,12 @@ class SmallBasicColorCacheFactory {
     }
 
     private final SIZE : Int = 255;
-    private final INDEX_TO_COLOR : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.SIZE) 0]);
-    private final BASIC_COLOR_ARRAY : haxe.ds.Vector<BasicColor> = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.SIZE) null]);
+    private final INDEX_TO_COLOR : haxe.ds.Vector<Int>;
+    private final BASIC_COLOR_ARRAY : haxe.ds.Vector<BasicColor>;
     private var colorIndex : Int = 0;
     public function new() {
+        this.INDEX_TO_COLOR = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.SIZE) 0]);
+        this.BASIC_COLOR_ARRAY = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.SIZE) null]);
     }
 
     public function add(basicDefaultColor : BasicColor) : Void {

@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.color.BasicColorFactory;
 
 class ColorLessVectorAnimation extends VectorAnimation {

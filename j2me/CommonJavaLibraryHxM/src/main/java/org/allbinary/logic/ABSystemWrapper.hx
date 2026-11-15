@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 
 class ABSystemWrapper {
     private static final instance : ABSystemWrapper = new ABSystemWrapper();

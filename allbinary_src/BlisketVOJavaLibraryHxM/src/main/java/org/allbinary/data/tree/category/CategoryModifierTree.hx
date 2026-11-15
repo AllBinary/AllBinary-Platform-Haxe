@@ -42,7 +42,7 @@ class CategoryModifierTree extends CategoryPrivateTree implements CategoryModifi
             }
             if (parentCategoryInterface.isValid()) {
                 parentCategoryInterface.addChild(newChildCategoryInterface);
-                var directoryToBeCreatedAbPath : AbPath = new AbPath(newChildCategoryInterface.getRootFilePath().toString() + newChildCategoryInterface.getPath().toString(), StringUtil.getInstance().EMPTY_STRING);
+                var directoryToBeCreatedAbPath : AbPath = new AbPath(Std.string(newChildCategoryInterface.getRootFilePath()) + Std.string(newChildCategoryInterface.getPath()), StringUtil.getInstance().EMPTY_STRING);
                 this.directory.create(directoryToBeCreatedAbPath);
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY)) {
                     this.logUtil.putF("Saving", this, "insert()");
@@ -64,7 +64,7 @@ class CategoryModifierTree extends CategoryPrivateTree implements CategoryModifi
         try {
             if (parentCategoryInterface.isValid()) {
                 parentCategoryInterface.addChild(existingChildCategoryInterface);
-                var directoryToBeDeletedAbPath : AbPath = new AbPath(existingChildCategoryInterface.getRootFilePath().toString() + existingChildCategoryInterface.getPath().toString(), StringUtil.getInstance().EMPTY_STRING);
+                var directoryToBeDeletedAbPath : AbPath = new AbPath(Std.string(existingChildCategoryInterface.getRootFilePath()) + Std.string(existingChildCategoryInterface.getPath()), StringUtil.getInstance().EMPTY_STRING);
                 this.delete(existingChildCategoryInterface);
                 parentCategoryInterface.removeChild(existingChildCategoryInterface);
                 this.save(parentCategoryInterface);

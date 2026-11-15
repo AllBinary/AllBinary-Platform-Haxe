@@ -75,8 +75,8 @@ class PaymentGatewayHelper extends BasicTable {
                 stringBuffer.append("Gateway Name: ");
                 stringBuffer.append(paymentGatewayInterface.getName());
                 stringBuffer.append(" HashMap=");
-                stringBuffer.append(paymentGatewayInterface.toHashMap(true).toString());
-                this.logUtil.putF(stringBuffer.toString(), this, "update()");
+                stringBuffer.append(Std.string(paymentGatewayInterface.toHashMap(true)));
+                this.logUtil.putF(Std.string(stringBuffer), this, "update()");
             }
             PaymentGatewayEntityFactory.getInstance().update(paymentGatewayInterface);
             var success : String = "Successfully Updated Payment Gateway information";
@@ -105,7 +105,7 @@ class PaymentGatewayHelper extends BasicTable {
             stringBuffer.append(storeName);
             stringBuffer.append(" and gateway name=");
             stringBuffer.append(gatewayName);
-            var success : String = stringBuffer.toString();
+            var success : String = Std.string(stringBuffer);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS)) {
                 this.logUtil.putF(success, this, "delete()");
             }

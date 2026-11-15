@@ -56,10 +56,10 @@ class UploadMediaSingleton {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST)) {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append("Supported Media Readers: ");
-            stringBuffer.append(this.readerFileTypesHashMap.toString());
+            stringBuffer.append(Std.string(this.readerFileTypesHashMap));
             stringBuffer.append(" Writers: ");
-            stringBuffer.append(this.writerFileTypesHashMap.toString());
-            this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.CONSTRUCTOR);
+            stringBuffer.append(Std.string(this.writerFileTypesHashMap));
+            this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.CONSTRUCTOR);
         }
     }
 

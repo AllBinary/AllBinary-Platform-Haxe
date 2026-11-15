@@ -92,7 +92,7 @@ class AddTaxValidationView extends ShippingAddressView implements ValidationComp
                     stringBuffer.append("Not a valid tax location<br/>");
                 }
             }
-            return stringBuffer.toString();
+            return Std.string(stringBuffer);
         } catch (e : haxe.Exception) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
                 this.logUtil.put("Failed to create validateInfo", this, "validationInfo()", e);
@@ -107,6 +107,11 @@ class AddTaxValidationView extends ShippingAddressView implements ValidationComp
 
     public function toValidationInfoNode(document : Document) : Node {
         return null;
+    }
+
+    // throws Exception
+    public override function getTransformInfoInterface() : TransformInfoInterface {
+        return super.getTransformInfoInterface();
     }
 
 }

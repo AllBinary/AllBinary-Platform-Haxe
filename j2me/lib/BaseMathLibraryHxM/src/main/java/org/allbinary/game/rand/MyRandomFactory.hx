@@ -15,10 +15,10 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.rand;
 
-//import java.util.Random;
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
+import jre.util.Random;
+//import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsConstructor;
 import org.allbinary.logic.math.MathUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
@@ -105,7 +105,7 @@ class MyRandomFactory {
         for (index in 0...size2) {
             stringBuilder.appendint(Std.int(randomFactory.getAbsoluteNextInt(3))).append(commonSeps.COMMA);
         }
-        trace(stringBuilder.toString());
+        trace(Std.string(stringBuilder));
         stringBuilder.delete(0, stringBuilder.length());
         final intArray : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy([for (index in 0...52) 0]);
         final intArray2 : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy([for (index in 0...52) 0]);
@@ -118,12 +118,12 @@ class MyRandomFactory {
         for (index in 0...size) {
             stringBuilder.appendint(intArray[index]).append(commonSeps.COMMA);
         }
-        trace(stringBuilder.toString());
+        trace(Std.string(stringBuilder));
         stringBuilder.delete(0, stringBuilder.length());
         for (index in 0...size) {
             stringBuilder.appendint(intArray2[index]).append(commonSeps.COMMA);
         }
-        trace(stringBuilder.toString());
+        trace(Std.string(stringBuilder));
         var found : Bool = false;
         for (index in 0...size) {
             found = false;
@@ -133,7 +133,7 @@ class MyRandomFactory {
                 }
             }
             if (!found) {
-                throw new haxe.Exception();
+                throw new jre.lang.JavaException();
             }
         }
     }

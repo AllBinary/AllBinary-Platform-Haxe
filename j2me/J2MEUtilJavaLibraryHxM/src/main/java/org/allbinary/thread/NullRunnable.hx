@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.thread;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
+//import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsConstructor;
 
 class NullRunnable extends ARunnable {
     private static final instance : NullRunnable = new NullRunnable();

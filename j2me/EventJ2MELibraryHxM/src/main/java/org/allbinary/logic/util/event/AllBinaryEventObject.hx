@@ -15,11 +15,11 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.util.event;
 
-import jsinterop.annotations.JsType;
+//import jsinterop.annotations.JsType;
 import org.allbinary.logic.NullUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
+//import jsinterop.annotations.JsMethod;
+//import jsinterop.annotations.JsConstructor;
+//import jsinterop.annotations.JsProperty;
 
 class AllBinaryEventObject {
     public static final NULL_EVENT : AllBinaryEventObject = new AllBinaryEventObject(NullUtil.getInstance().NULL_OBJECT);
