@@ -1,0 +1,47 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.form;
+
+//import javax.microedition.lcdui.Graphics;
+import org.allbinary.animation.Animation;
+import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
+import org.allbinary.logic.system.security.licensing.LockedResources;
+import org.allbinary.logic.system.security.licensing.LockedUtil;
+
+class LockablePaintable extends ItemPaintable {
+    private final animation : Animation = FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(LockedResources.getInstance().LOCKED_DEMO_GAME_FEATURE_RESOURCE).getInstance(0);
+    private final lockedIndex : Int;
+    public function new(lockedIndex : Int) {
+        super();
+        this.lockedIndex = lockedIndex;
+    }
+
+    public override function paint(graphics : Graphics, currentIndex : Int, x : Int, y : Int) : Void {
+        if (LockedUtil.getInstance().isLocked() && currentIndex >= this.getLockedIndex()) {
+            this.getAnimation().paintXY(graphics, x, y);
+        }
+    }
+
+    public function getLockedIndex() : Int {
+        return this.lockedIndex;
+    }
+
+    public function getAnimation() : Animation {
+        return this.animation;
+    }
+
+}
+

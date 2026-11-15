@@ -1,0 +1,142 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.allbinary</groupId>
+  <artifactId>CombatGameJavaLibraryPOMHaxe</artifactId>
+  <packaging>pom</packaging>
+  <!-- AllBinary Platform Version Start -->
+  <version>1.0.0-SNAPSHOT</version>
+  <!-- AllBinary Platform Version End -->
+
+  <name>CombatGameJavaLibraryPOMHaxe</name>
+  <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <buildLabel>${project.version}</buildLabel>
+        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+    </properties>
+
+    <modules>
+
+        <!--
+
+        -->
+
+        <module>../../games/TickableJavaLibraryHaxeM</module>
+
+        <module>../../games/CommonHeadsUpDisplayLibraryHaxeM</module>
+
+        <module>../../../physics/MovementJavaLibraryHaxeM</module>
+        <!--        -->
+        <module>../../games/PartsJavaLibraryHaxeM</module>
+        <module>../../games/PickupGameJavaLibraryHaxeM</module>
+
+        <module>../../../allbinary_src/licensing/HardCodedLicenseInitInfoJavaLibraryHaxeM</module>
+        <module>../../../allbinary_src/licensing/FileLicenseInitInfoJavaLibraryHaxeM</module>
+        <module>../../../allbinary_src/licensing/ClientInfoLicensingJavaLibraryHaxeM</module>
+
+        <module>../../games/licensing/PartnerJ2MEJavaLibraryHaxeM</module>
+        <module>../../games/licensing/PartnerHTMLJavaLibraryHaxeM</module>
+        <module>../../games/licensing/PartnerAndroidJavaLibraryHaxeM</module>
+        <module>../../games/licensing/NoGameLicensingJavaLibraryHaxeM</module>
+        <module>../../games/licensing/GameLicensingOnlyDemoJavaLibraryHaxeM</module>
+        <module>../../games/licensing/GameLicensingOnlyNormalJavaLibraryHaxeM</module>
+        <module>../../games/licensing/GameLicensingBaseJavaLibraryHaxeM</module>
+
+        <!--
+        <module>../../games/GameScoresBaseLibraryHaxeM</module>
+        <module>../../games/GameScoresBaseHTMLLibraryHaxeM</module>
+        <module>../../games/GameScoresBaseJ2MELibraryHaxeM</module>
+        -->
+        <module>../../games/GameScoresLocalJavaLibraryHaxeM</module>
+        <module>../../games/GameScoresRemoteAndLocalJavaLibraryHaxeM</module>
+
+        <module>../../../store/ThirdPartyStoreJavaLibraryHaxeM</module>
+        <module>../../../store/NoThirdPartyStoreJavaLibraryHaxeM</module>
+
+        <module>../../media/graphics/layer/CollisionLayerJavaLibraryHaxeM</module>
+        <module>../../games/CollisionLibraryHaxeM</module>
+
+        <module>../../games/multiplayer/AllBinaryGameClientBaseNullJavaLibraryHaxeM</module>
+
+        <module>../../games/PickupLayerJavaLibraryHaxeM</module>
+
+        <module>../../games/DamageGameJavaLibraryHaxeM</module>
+        <module>../../games/DropJavaLibraryHaxeM</module>
+        <module>../../games/WeaponLayerJavaLibraryHaxeM</module>
+
+        <module>../../games/CombatGameJavaLibraryHaxeM</module>
+        <module>../../games/LifeJavaLibraryHaxeM</module>
+
+        <module>../../games/CommonHeadsUpDisplayCombatGameLibraryHaxeM</module>
+        <module>../../games/LifeOrDeathDataJavaLibraryHaxeM</module>
+
+        <module>../../games/BasicWeaponPartsJavaLibraryHaxeM</module>
+        <module>../../games/weapon/WeaponPropertiesJavaLibraryHaxeM</module>
+
+        <module>../../games/weapon/WeaponMineJavaLibraryHaxeM</module>
+
+        <!--
+        <module>../../media/graphics/effects/fireworks/FireworksJavaLibraryHaxeM</module>
+        -->
+
+        <module>../../media/graphics/geography/map/TerrainEventJavaLibraryHaxeM</module>
+
+<!--
+        <module>../../media/graphics/geography/map/BasicPlatformGeographicMapJavaLibraryHaxeM</module>
+        -->
+
+        <!--
+        <module>../../media/graphics/geography/map/RaceTrackP</module>
+        -->
+
+        <!--
+        XmlRpcJavaLibrary
+        RemoteXmlRpcJavaLibrary
+
+        Since POMs are built before the other libs is it best to handle this differently
+        ../../
+        <module>../../../../work/j2me/games/strategy/rts/RTSGameJavaLibraryP</module>
+        -->
+
+        <module>../../media/graphics/OtherGraphicsMediaLibraryP</module>
+
+        <module>../../input/NoTouchButtonResourceAnimationJavaLibraryHaxeM</module>
+        <module>../../input/TouchButtonResourceAnimationJavaLibraryHaxeM</module>
+        <module>../../input/TouchButtonResourceOpenGLESAnimationJavaLibraryHaxeM</module>
+
+        <module>../../input/TrackingEventJavaLibraryHaxeM</module>
+        <module>../../../game/behavior/BehaviorLibraryP</module>
+
+        <module>../../media/sound/OtherSoundMediaLibraryP</module>
+
+        <module>../../../allbinary_src/licensing/ApplicationConfigurationJavaLibraryHaxeM</module>
+        <module>../../../allbinary_src/licensing/ApplicationConfigurationNoFSJavaLibraryHaxeM</module>
+        <module>../../input/AllBinaryMagneticFieldSensorJavaLibraryHaxeM</module>
+        <module>../../android/VirtualKeyboardJavaLibraryHaxeM</module>
+
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
+
+</project>
+

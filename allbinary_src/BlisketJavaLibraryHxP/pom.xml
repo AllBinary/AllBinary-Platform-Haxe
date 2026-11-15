@@ -1,0 +1,147 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary.business</groupId>
+    <artifactId>BlisketJavaLibraryPHaxe</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+
+    <name>BlisketJavaLibraryPHaxe</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+    
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
+    
+    <modules>
+
+        <!--
+        <module>../../j2me/AllBinaryJ2MELibraryP</module>
+        -->
+        <!--
+        <module>../data/DataJavaLibraryHaxeM</module>
+        -->
+
+        <module>../licensing/TestServiceClientInfoJavaLibraryHaxeM</module>        
+
+        <module>../data/DataTableInterfacesHaxeM</module>
+        
+        <module>../QueueJavaLibraryHaxeM</module>
+        
+        <!--
+        <module>../TokenizerJavaLibraryHaxeM</module>
+        -->
+
+        <module>../logging/LogConfigTypeFreeblisketJavaLibraryHaxeM</module>
+
+        <module>../JavaUtilLibraryHaxeM</module>
+        <module>../NullInitInfoJavaLibraryHaxeM</module>        
+        <module>../InitInfoJavaLibraryHaxeM</module>
+        <module>../PreLoaderHttpJavaLibraryHaxeM</module>
+        
+        <module>../TagsBaseJavaLibraryHaxeM</module>
+        <module>../CustomLoaderJavaLibraryHaxeM</module>
+        
+        <!--
+        <module>../logic/data/file/FileJ2SEJavaLibraryHaxeM</module>
+        <module>../logic/data/file/FileJavaLibraryHaxeM</module>
+        -->
+
+        <module>../data/SQLAllBinaryJavaLibraryHaxeM</module>
+
+        <!--
+        <module>../licensing/FileLicenseInitInfoJavaLibraryHaxeM</module>
+        -->
+
+        <module>../DocumentObjectModelJavaLibraryHaxeM</module>
+
+        <module>../VisualStyleJavaLibraryHaxeM</module>
+
+        <module>../ConfigurationJavaLibraryHaxeM</module>
+
+        <module>../VisualTransformBaseJavaLibraryHaxeM</module>
+
+        <module>../CategoryBaseJavaLibraryHaxeM</module>
+        <module>../CategoryJavaLibraryHaxeM</module>
+
+        <module>../UserJavaLibraryHaxeM</module>
+
+        <module>../PaymentGatewayBaseJavaLibraryHaxeM</module>
+
+        <module>../data/vo/EntitiesBlisketVOJavaLibraryHaxeM</module>
+        <module>../PaymentGatewayJavaLibraryHaxeM</module>
+        <module>../data/vo/EntitiesOrderHistoryVOJavaLibraryHaxeM</module>
+        <module>../data/vo/EntityPaymentGatewayVOJavaLibraryHaxeM</module>
+        <module>../data/vo/EntityStoreFrontVOJavaLibraryHaxeM</module>
+
+        <module>../data/EntitiesBlisketBaseInterfacesJavaLibraryHaxeM</module>
+        <module>../data/EntitiesBlisketBaseJavaLibraryHaxeM</module>
+        
+        <module>../data/EntitiesAdvertisementBaseJavaLibraryHaxeM</module>
+        <module>../data/EntityOrderHistoryJavaLibraryHaxeM</module>
+        <module>../data/EntityPaymentGatewayJavaLibraryHaxeM</module>
+        <module>../data/EntityVisualTransformJavaLibraryHaxeM</module>
+        <module>../data/EntityUserJavaLibraryHaxeM</module>
+        <module>../data/EntityWorkflowJavaLibraryHaxeM</module>
+
+        <module>../SMTPConfigurationJavaLibraryHaxeM</module>
+        <module>../SMTPBaseJavaLibraryHaxeM</module>
+
+        <module>../VisualTransformJavaLibraryHaxeM</module>
+
+        <module>../../replace_these_stub_projects/allbinary_src/YourRuntimeEnvironmentJavaLibraryHaxeM</module>
+        <module>../GatewayJavaLibraryHaxeM</module>
+        
+        <module>../WorkflowBaseJavaLibraryHaxeM</module>
+        <module>../WorkflowJavaLibraryHaxeM</module>
+
+        <module>../IdGeneratorUsingFilesJavaLibraryHaxeM</module>
+        <module>../BlisketPreVOJavaLibraryHaxeM</module>
+
+        <!-- 
+        EntitiesOrderHistoryVOJavaLibrary
+        UserJavaLibrary
+        -->
+        
+        <module>../BlisketVOJavaLibraryHaxeM</module>
+
+        <module>../UserCommerceJavaLibraryHaxeM</module>
+
+        <module>../CustomizerValidatorsJavaLibraryHaxeM</module>
+
+        <!-- 
+        AllBinaryCacheForShiftOneJavaLibrary
+        AllBinaryJSECacheJavaLibrary
+        ColorJavaLibrary
+        ImageJavaLibrary
+        -->
+        
+        <module>../logic/data/file/FileMediaJ2SEJavaLibraryHaxeM</module>
+        <module>../BlisketBaseJavaLibraryHaxeM</module>
+
+        <module>../logging/LoggingGAEAllHaxeM</module>
+        <module>../BlisketJavaLibraryHaxeM</module>
+        
+    </modules>
+
+</project>
+

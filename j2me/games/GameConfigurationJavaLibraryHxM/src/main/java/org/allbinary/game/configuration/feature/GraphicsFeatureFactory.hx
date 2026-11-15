@@ -1,0 +1,39 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.configuration.feature;
+
+import org.allbinary.logic.string.StringUtil;
+
+class GraphicsFeatureFactory {
+    private static final instance : GraphicsFeatureFactory = new GraphicsFeatureFactory();
+    public static function getInstance() : GraphicsFeatureFactory {
+        return GraphicsFeatureFactory.instance;
+    }
+
+    public function new() {
+    }
+
+    public final NONE : GraphicsFeature = new GraphicsFeature(StringUtil.getInstance().NULL_STRING);
+    public final TRANSPARENT_IMAGE_CREATION : GraphicsFeature = new GraphicsFeature("Transparent Image Creation");
+    public final IMAGE_GRAPHICS : GraphicsFeature = new GraphicsFeature("Image Graphics");
+    public final IMAGE_ROTATION_ON_THE_FLY : GraphicsFeature = new GraphicsFeature("Image Rotated On The Fly");
+    public final IMAGE_TO_ARRAY_GRAPHICS : GraphicsFeature = new GraphicsFeature("Image To Array Graphics");
+    public final SPRITE_QUARTER_ROTATION_GRAPHICS : GraphicsFeature = new GraphicsFeature("Sprite Quarter Rotation Graphics");
+    public final SPRITE_FULL_GRAPHICS : GraphicsFeature = new GraphicsFeature("Sprite Full Rotation Graphics");
+    public final VECTOR_GRAPHICS : GraphicsFeature = new GraphicsFeature("BasicArrayList Graphics");
+    public final VECTOR_TO_IMAGE_GRAPHICS : GraphicsFeature = new GraphicsFeature("BasicArrayList To Image Graphics");
+}
+

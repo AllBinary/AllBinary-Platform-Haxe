@@ -1,0 +1,84 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media.image.search;
+
+//import java.awt.image.BufferedImage;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
+import org.allbinary.logic.StdUtil;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.media.image.comparison.ImageComparisonResult;
+import org.allbinary.media.image.comparison.ImageComparisonResultsEvent;
+import org.allbinary.media.image.comparison.ImageComparisonResultsListener;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonStrings;
+import org.allbinary.time.TimeDelayHelper;
+
+class ImageComparisonSearchWorker extends BasicEventHandler implements ImageComparisonResultsListener {
+    public final logUtil : LogUtil = LogUtil.getInstance();
+    public final commonStrings : CommonStrings = CommonStrings.getInstance();
+    private final imageComparisonInfoVector : BasicArrayList;
+    private var index : haxe.Int64 = haxe.Int64.ofInt(0);
+    private var running : Bool = false;
+    private var imageSearchConstraintsInterface : ImageComparisonSearchConstraintsInterface;
+    public function new(imageSearchConstraintsInterface : ImageComparisonSearchConstraintsInterface) {
+        super();
+        this.imageComparisonInfoVector = new BasicArrayListD();
+        this.imageSearchConstraintsInterface = imageSearchConstraintsInterface;
+    }
+
+    public function onImageComparisonResultsEvent(imageComparisonResultsEvent : ImageComparisonResultsEvent) : Void {
+        this.imageComparisonInfoVector.add(imageComparisonResultsEvent.getImageComparisonResult());
+        this.run();
+    }
+
+    public function onEvent(allBinaryEventObject : AllBinaryEventObject) : Void {
+        this.onImageComparisonResultsEvent((cast allBinaryEventObject : ImageComparisonResultsEvent));
+    }
+
+    // synchronized
+    public function isRunning() : Bool {
+        return this.running;
+    }
+
+    // synchronized
+    public function setRunning(running : Bool) : Void {
+        this.running = running;
+    }
+
+    public function run() : Void {
+        try {
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.RUN);
+            this.setRunning(true);
+            var timeHelper : TimeDelayHelper = new TimeDelayHelper(1000);
+            timeHelper.setStartTimeTNT();
+            var imageComparisonInfo : ImageComparisonResult = (cast this.imageComparisonInfoVector.get(0) : ImageComparisonResult);
+            this.logUtil.putF(imageComparisonInfo.toString(), this, this.commonStrings.RUN);
+            var latestBufferedImage : BufferedImage = imageComparisonInfo.getBufferedImages()[1];
+            this.imageComparisonInfoVector.remove(imageComparisonInfo);
+            this.index++;
+            this.logUtil.putF(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsedTNT(), this, this.commonStrings.RUN);
+            this.setRunning(false);
+            this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.RUN);
+        } catch (e : haxe.Exception) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
+        }
+    }
+
+}
+

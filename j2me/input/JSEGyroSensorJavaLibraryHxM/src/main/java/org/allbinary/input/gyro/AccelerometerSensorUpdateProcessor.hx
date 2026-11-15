@@ -1,0 +1,44 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.gyro;
+
+import org.allbinary.canvas.Processor;
+import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.game.configuration.feature.SensorFeatureFactory;
+import org.allbinary.game.input.motion.action.NoCompleteMotionGestureInputEventListener;
+import org.allbinary.game.input.motion.action.SingleKeyPressGameKeyFromMotionGestureEventListener;
+import org.allbinary.input.accelerometer.AccelerometerSensorFactory;
+
+class AccelerometerSensorUpdateProcessor extends Processor {
+    // throws Exception
+    public function process() : Void {
+        var sensorFeatureFactory : SensorFeatureFactory = SensorFeatureFactory.getInstance();
+        if (Features.getInstance().isFeature(sensorFeatureFactory.ORIENTATION_SENSORS)) {
+            AccelerometerSensorFactory.getInstance().setCompleteMotionGestureInputEventListener(new SingleKeyPressGameKeyFromMotionGestureEventListener());
+        } else if (Features.getInstance().isFeature(sensorFeatureFactory.SIMULATED_ORIENTATION_SENSORS)) {
+            AccelerometerSensorFactory.getInstance().setCompleteMotionGestureInputEventListener(new SingleKeyPressGameKeyFromMotionGestureEventListener());
+        } else if (Features.getInstance().isFeature(sensorFeatureFactory.NO_ORIENTATION)) {
+            AccelerometerSensorFactory.getInstance().setCompleteMotionGestureInputEventListener(NoCompleteMotionGestureInputEventListener.getInstance());
+        } else {
+            throw new haxe.Exception("Sensor Feature Not Set");
+        }
+    }
+
+    public function new() {
+        super();
+    }
+}
+

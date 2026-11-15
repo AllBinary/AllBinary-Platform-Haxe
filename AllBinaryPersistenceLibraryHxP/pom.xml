@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>AllBinaryPersistenceLibraryPHaxe</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+
+    <name>AllBinaryPersistenceLibraryPHaxe</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+    
+    <properties>
+        <buildLabel>${project.version}</buildLabel>
+        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+    </properties>
+
+    <modules>
+        
+        <!--
+        -->
+        <module>../allbinary_src/cache/AllBinaryCacheLibraryHaxeM</module>
+        <module>../allbinary_src/PermutationsJavaLibraryHaxeM</module>
+        <module>../allbinary_src/logic/BasePreloaderFileJavaLibraryHaxeM</module>
+        <module>../allbinary_src/logic/data/file/FileJavaLibraryHaxeM</module>
+        <module>../allbinary_src/logic/data/file/FileJ2SEJavaLibraryHaxeM</module>
+        <module>../allbinary_src/data/DataJavaLibraryHaxeM</module>
+        <module>../allbinary_src/logic/data/file/FileUnamedJavaLibraryHaxeM</module>
+        <module>../allbinary_src/logic/data/file/FileAdvancedJavaLibraryHaxeM</module>
+        <module>../allbinary_src/PreLoaderJavaLibraryHaxeM</module>
+        <module>../allbinary_src/FileInitInfoJavaLibraryHaxeM</module>
+        <module>../allbinary_src/PreLoaderFileJavaLibraryHaxeM</module>
+        <module>../allbinary_src/PreLoaderLicenseJavaLibraryHaxeM</module>
+        <module>../j2me/PCResourceLibraryHaxeM</module>
+        <module>../j2me/ProgressJ2MEJavaLibraryHaxeM</module>
+        <module>../allbinary_src/licensing/ClientInfoBaseJavaLibraryHaxeM</module>
+        <module>../allbinary_src/licensing/RemoteXmlRpcJavaLibraryHaxeM</module>
+        <module>../allbinary_src/licensing/LicenseClientJavaLibraryHaxeM</module>
+
+        <!--
+        <module>../allbinary_src/PreLoaderLicenseJavaLibraryHaxeM</module>
+        -->
+    </modules>
+
+</project>
+

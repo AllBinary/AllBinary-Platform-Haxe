@@ -1,0 +1,63 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.communication.http;
+
+//import javax.servlet.http.HttpServletRequest;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
+
+class AcceptableResponseGenerator {
+    public final logUtil : LogUtil = LogUtil.getInstance();
+    private static final instance : AcceptableResponseGenerator = new AcceptableResponseGenerator();
+    public static function getInstance() : AcceptableResponseGenerator {
+        return AcceptableResponseGenerator.instance;
+    }
+
+    public function new() {
+    }
+
+    // throws Exception
+    public function get(httpServletRequest : HttpServletRequest) : String {
+        final commonStrings : CommonStrings = CommonStrings.getInstance();
+        try {
+            var acceptableResponseUtil : AcceptableResponseUtil = AcceptableResponseUtil.getInstance();
+            var acceptable : String = httpServletRequest.getHeader("accept");
+            var result : String = acceptableResponseUtil.getTagName(0);
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTP)) {
+                this.logUtil.putF("Request Type: " + acceptable, this, commonStrings.GET);
+            }
+            if (acceptable != null) {
+                var size : Int = acceptableResponseUtil.size();
+                for (index in 0...size) {
+                    if (Reflect.compare(acceptable, acceptableResponseUtil.get(index)) == 0) {
+                        result = acceptableResponseUtil.getTagName(index);
+                    }
+                }
+            }
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTP)) {
+                this.logUtil.putF("Response Type: " + result, this, commonStrings.GET);
+            }
+            return result;
+        } catch (e : haxe.Exception) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPERROR)) {
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET, e);
+            }
+            throw e;
+        }
+    }
+
+}
+

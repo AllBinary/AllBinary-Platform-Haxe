@@ -1,0 +1,49 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package tags.workflow.processing.basic;
+
+//import javax.servlet.jsp.JspTagException;
+import org.allbinary.business.DynamicObjectData;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.log.LogUtil;
+import tags.StoreWorkFlowTag;
+
+//and remove the hidden fields
+class BasicWorkFlowTag extends StoreWorkFlowTag {
+    public final logUtil : LogUtil = LogUtil.getInstance();
+    public function new() {
+        super();
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG)) {
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+        }
+    }
+
+    // throws JspTagException
+    public function doStartTag() : Int {
+        try {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG)) {
+                this.logUtil.putF(this.commonStrings.START, this, tagStrings.DO_START_TAG);
+            }
+            this.getPropertiesHashMap().put(DynamicObjectData.NAME, "workflows.template.data.BasicStoreWorkFlow");
+            return super.doStartTag();
+        } catch (e : haxe.Exception) {
+            AbResponseHandler.sendJspTagRedirect(this.pageContext, e);
+            return SKIP_BODY;
+        }
+    }
+
+}
+

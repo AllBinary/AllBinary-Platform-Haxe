@@ -1,0 +1,74 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.communication.sql;
+
+import org.allbinary.business.init.db.DbConnectionInfo;
+import org.allbinary.logic.communication.log.LogUtil;
+
+class AbSqlTable extends AbSqlBasic {
+    public final logUtil : LogUtil = LogUtil.getInstance();
+    private var tableName : String = null;
+    private final METHOD_CREATED_TABLE : String = "createTable()";
+    private final METHOD_DROP_TABLE : String = "dropTable()";
+    private final TABLE_CREATION_SUCCESS : String = "Table Creation Successful: ";
+    private final DROPPED_SUCCESS : String = " Dropped Successfully";
+    public function new(databaseConnectionInfoInterface : DbConnectionInfo) {
+        super(databaseConnectionInfoInterface);
+    }
+
+    public function setTableName(tableName : String) : Void {
+        this.tableName = tableName;
+    }
+
+    public function getTableName() : String {
+        return this.tableName;
+    }
+
+    // synchronized
+    public function createTable(data : String) : String {
+        try {
+            this.executeSQLStatement(data);
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
+                this.logUtil.putF(this.TABLE_CREATION_SUCCESS + this.tableName + " with statement: " + data, this, this.METHOD_CREATED_TABLE);
+            }
+            return this.tableName + this.sqlStrings.CREATE_RETURN;
+        } catch (e : haxe.Exception) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR)) {
+                this.logUtil.put("Table Creation Failed: " + this.tableName + " with statement: " + data, this, this.METHOD_CREATED_TABLE, e);
+            }
+            return "Failed to Create " + this.tableName + " table.";
+        }
+    }
+
+    // synchronized
+    public function dropTable() : String {
+        var sqlStatement : String = this.sqlStrings.DROP_TABLE + this.tableName;
+        try {
+            this.executeSQLStatement(sqlStatement);
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
+                this.logUtil.putF(this.SUCCESS_SQL_STATEMENT + sqlStatement, this, this.METHOD_DROP_TABLE);
+            }
+            return tableName + this.DROPPED_SUCCESS;
+        } catch (e : haxe.Exception) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR)) {
+                this.logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, this.METHOD_DROP_TABLE, e);
+            }
+            return "Failed to Drop " + tableName + " table.";
+        }
+    }
+
+}
+

@@ -1,0 +1,88 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>AllBinaryBaseLibraryPOMHaxe</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+
+    <name>AllBinaryBaseLibraryPOMHaxe</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+    
+    <properties>
+        <buildLabel>${project.version}</buildLabel>
+        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+    </properties>
+
+    <modules>
+        <module>../CommonJavaLibraryHaxeM</module>
+        <module>../TempBaseJavaLibraryHaxeM</module>
+        
+        <module>../../allbinary_src/LogHaxeM</module>
+        <module>../../allbinary_src/allbinary_src_designpatterns_srcHaxeM</module>
+        <module>../../allbinary_src/data/BaseDataJavaLibraryHaxeM</module>
+        <module>../../allbinary_src/cache/BaseCacheJavaLibraryHaxeM</module>
+        <module>../../allbinary_src/logic/BasePreloaderJavaLibraryHaxeM</module>
+        <module>../../allbinary_src/logic/BasePreloaderJ2MEJavaLibraryHaxeM</module>
+
+        <module>../ExceptionHTMLJavaLibraryHaxeM</module>
+        <module>../J2MEExceptionLibraryHaxeM</module>
+        <module>../../allbinary_src/J2SEExceptionLibraryHaxeM</module>
+        <module>../J2MEUtilJavaLibraryHaxeM</module>
+        <module>../J2MEColorJavaLibraryHaxeM</module>
+        <module>../EventJ2MELibraryHaxeM</module>
+
+        <module>../../allbinary_src/LogNoPlatformJavaLibraryHaxeM</module>
+        <module>../../allbinary_src/LogJ2MEJavaLibraryHaxeM</module>
+        <module>../../allbinary_src/LogJ2SEJavaLibraryHaxeM</module>
+        <module>../../allbinary_src/LogAndroidJavaLibraryHaxeM</module>
+        <module>../logging/LoggingNoneHaxeM</module>
+        <module>../logging/LoggingJ2MEAllHaxeM</module>
+        <module>../logging/LoggingJ2MEExceptionHaxeM</module>
+        <module>../logging/LoggingAndroidAllHaxeM</module>
+        <!--
+        //While it is a possible dependency option it really does not fit here
+        //as such it is actually build in the final POM builds instead
+        <module>../logging/LoggingRemoteExceptionHaxeM</module>  
+        -->
+        
+        <module>../J2MEWindowingJavaLibraryHaxeM</module>
+        
+        <module>../lib/BaseMathLibraryHaxeM</module>
+        <module>../lib/BasicMathLibraryHaxeM</module>
+        
+        <module>../../allbinary_src/ThreadLibraryHaxeM</module>
+        <module>../../allbinary_src/ThreadHTMLLibraryHaxeM</module>
+        <module>../../replace_these_stub_projects/allbinary_src/NoneOnlyJavaLibraryHaxeM</module>
+        <module>../../allbinary_src/ThreadJ2MELibraryHaxeM</module>
+        <module>../time/TimeJavaLibraryHaxeM</module>
+
+        <module>../statistics/ApplicationStatisticsJ2SELibraryHaxeM</module>
+        <module>../statistics/ApplicationStatisticsJ2MELibraryHaxeM</module>
+        <module>../statistics/ApplicationStatisticsJavaLibraryHaxeM</module>
+
+        <module>../../allbinary_src/logging/BasicLogConfigTypeJavaLibraryHaxeM</module>
+        <module>../../allbinary_src/logging/LogConfigTypeGameClientJavaLibraryHaxeM</module>
+
+        <module>../../allbinary_src/hardware/HardwareLibraryPOHaxeM</module>
+
+        <module>../lib/TrigBaseLibraryHaxeM</module>
+
+    </modules>
+
+</project>
+

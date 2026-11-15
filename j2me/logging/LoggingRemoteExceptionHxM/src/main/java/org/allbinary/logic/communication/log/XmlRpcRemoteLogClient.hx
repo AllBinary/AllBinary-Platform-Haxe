@@ -1,0 +1,66 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.communication.log;
+
+//import java.io.IOException;
+import org.apache.xmlrpc.XmlRpcClient;
+import org.apache.xmlrpc.XmlRpcException;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
+import org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient;
+import org.allbinary.logic.system.security.crypt.jcehelper.NoCrypt;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.util.ABHashtable;
+
+class XmlRpcRemoteLogClient extends XmlRpcAbeClient {
+    private final noCrypt : NoCrypt = new NoCrypt();
+    public function new(clientInfo : AbeClientInformationInterface) {
+        super(clientInfo, "SSLLogServ.logUtil");
+    }
+
+    // throws Exception
+    public function get(anyType : Any) : Any {
+        try {
+            var param : BasicArrayList = new BasicArrayListD();
+            var serverUrl : String = getClientInfo().getLicenseServer(this.getServer());
+            var index : Int = serverUrl.lastIndexOf("/");
+            serverUrl = serverUrl.substring(0, index + 1) + "logservssl.php";
+            final xmlRpcClient : XmlRpcClient = new XmlRpcClient(serverUrl);
+            this.setClient(xmlRpcClient);
+            xmlRpcClient.setBasicAuthentication(null, null);
+            var hashtable : ABHashtable<Any, Any> = (cast anyType : ABHashtable<Any, Any>);
+            param.add(hashtable);
+            var result : Any = xmlRpcClient.execute(this.getRemoteMethod(), param, this.noCrypt);
+            trace(CommonLabels.getInstance().RESULT_ + CommonSeps.getInstance().NEW_LINE + result.toString());
+            return result;
+        } catch (e : IOException) {
+            trace("IOException Trying Other Servers");
+            if (!e.message.startsWith(HOST_NOT_RESOLVED)) {
+                return this.tryAnother(anyType);
+            } else {
+                throw new haxe.Exception(HOST_NOT_RESOLVED_MSG);
+            }
+        } catch (e : XmlRpcException) {
+            return this.tryAnother(anyType);
+        } catch (e : haxe.Exception) {
+            return this.tryAnother(anyType);
+        }
+    }
+
+}
+

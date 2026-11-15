@@ -1,0 +1,71 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.visual.transform.info.dom;
+
+//import java.util.HashMap;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
+import org.allbinary.data.tree.dom.DomSearchHelper;
+import org.allbinary.data.tree.dom.document.DomDocumentFileHelper;
+import org.allbinary.logic.StdUtil;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.visual.transform.info.TransformInfoData;
+import org.allbinary.logic.visual.transform.info.TransformInfoProperties;
+import org.allbinary.logic.visual.transform.info.TransformInfoPropertiesFactory;
+import org.allbinary.logic.visual.transform.info.TransformInfosData;
+import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+class TransformInfoPropertiesDocument {
+    public final logUtil : LogUtil = LogUtil.getInstance();
+    private final document : Document;
+    public function new(filePath : String) {
+        final xmlFile : AbFile = AbFile.createAbFile(filePath);
+        this.document = DomDocumentFileHelper.createDocument(xmlFile);
+    }
+
+    public function toTransformInfoPropertiesHashMap() : HashMap {
+        try {
+            final transformInfoPropertiesHashMap : HashMap = StdUtil.getInstance().createHashMap();
+            final transformInfosNode : Node = this.document.getElementsByTagName(TransformInfosData.getInstance().NAME).item(0);
+            final transformInfosChildNodeList : NodeList = transformInfosNode.getChildNodes();
+            final transformInfoNodeVector : BasicArrayList = DomSearchHelper.getAllNodes(TransformInfoData.getInstance().NAME, transformInfosChildNodeList);
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
+                this.logUtil.putF("Size: " + transformInfoNodeVector.size(), this, "toTransformInfoPropertiesHashMap()");
+            }
+            final size : Int = transformInfoNodeVector.size();
+            var node : Node = null;
+            var transformInfoProperties : TransformInfoProperties = null;
+            for (index in 0...size) {
+                node = (cast transformInfoNodeVector.get(index) : Node);
+                transformInfoProperties = TransformInfoPropertiesFactory.getInstance().getInstance(node);
+                transformInfoPropertiesHashMap.put(transformInfoProperties.getName(), transformInfoProperties);
+            }
+            return transformInfoPropertiesHashMap;
+        } catch (e : haxe.Exception) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
+                final commonStrings : CommonStrings = CommonStrings.getInstance();
+                this.logUtil.put(commonStrings.EXCEPTION, this, "toTransformInfoPropertiesHashMap()", e);
+            }
+            return null;
+        }
+    }
+
+}
+

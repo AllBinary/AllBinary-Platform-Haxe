@@ -1,0 +1,216 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package views.generic.inventory;
+
+//import java.util.HashMap;
+import org.allbinary.util.BasicArrayListD;
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.user.commerce.inventory.InventoryData;
+import org.allbinary.business.user.commerce.inventory.basket.BasketData;
+import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
+import org.allbinary.business.user.commerce.inventory.item.BasicItemView;
+import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
+import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
+import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
+import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.control.search.SearchData;
+import org.allbinary.logic.control.search.SearchParams;
+import org.allbinary.logic.control.search.SearchRequest;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.logic.string.regex.replace.Replace;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.visual.transform.StoreTransformer;
+import org.allbinary.logic.visual.transform.data.TransformDocumentInterface;
+import org.allbinary.logic.visual.transform.data.TransformStoreDocumentFactory;
+import org.allbinary.logic.visual.transform.info.TransformInfoHttpSearch;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.string.CommonPhoneStrings;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+
+class InventorySearchUtil {
+    private static final instance : InventorySearchUtil = new InventorySearchUtil();
+    public static function getInstance() : InventorySearchUtil {
+        return InventorySearchUtil.instance;
+    }
+
+    public final logUtil : LogUtil = LogUtil.getInstance();
+    private final commonStrings : CommonStrings = CommonStrings.getInstance();
+    private final commonPhoneStrings : CommonPhoneStrings = CommonPhoneStrings.getInstance();
+    public final basicItemData : BasicItemData = BasicItemData.getInstance();
+    // throws Exception
+    public function getBasicItemIdColumn(searchRequest : SearchRequest) : BasicArrayList {
+        var inventoryEntityInterface : InventoryEntity = InventoryEntityFactory.getInstance().getInventoryEntityInstance();
+        var storeFrontInterface : StoreFrontInterface = searchRequest.getStoreFront();
+        var inventorySearchUtil : InventoryColumnUtil = InventoryColumnUtil.getInstance();
+        var column : BasicArrayList = inventorySearchUtil.getColumnWhereLike(inventoryEntityInterface, storeFrontInterface.getCategoryPath(), basicItemData.ID);
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING)) {
+            this.logUtil.putF("Number Of Items Found: " + column.size(), this, "search");
+        }
+        var subStoreVector : BasicArrayList = storeFrontInterface.getSubStores();
+        var size : Int = subStoreVector.size();
+        for (index in 0...size) {
+            var subStore : String = (cast subStoreVector.get(index) : String);
+            var substoreIdColumn : BasicArrayList = inventorySearchUtil.getColumnWhereLike(inventoryEntityInterface, subStore, basicItemData.ID);
+            column.addAllList(substoreIdColumn);
+        }
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING)) {
+            this.logUtil.putF("Number Of Items Found Including SubStores: " + column.size(), this, "search");
+        }
+        return column;
+    }
+
+    // throws Exception
+    private function getNoResults(viewDocumentInterface : TransformDocumentInterface, inventoryNode : Node) : String {
+        inventoryNode.appendChild(ModDomHelper.createNameValueNodes(viewDocumentInterface.getDoc(), SearchData.TOTAL_NUMBER_PAGES, this.commonPhoneStrings.ZERO));
+        inventoryNode.appendChild(ModDomHelper.createNameValueNodes(viewDocumentInterface.getDoc(), SearchData.TOTAL_NUMBER_ITEMS, this.commonPhoneStrings.ZERO));
+        var success : String = XmlDocumentHelper.toString(viewDocumentInterface.getDoc());
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING)) {
+            this.logUtil.putF("No Results Xml: " + success, this, "search");
+        }
+        return success;
+    }
+
+    public function search(abeClientInformation : AbeClientInformationInterface, searchRequest : SearchRequest, column : BasicArrayList) : haxe.ds.Vector<String> {
+        try {
+            var inventoryEntityInterface : InventoryEntity = InventoryEntityFactory.getInstance().getInventoryEntityInstance();
+            var searchParams : SearchParams = searchRequest.getParams();
+            var startPage : Int = Std.int(searchParams.getStartPageInt());
+            var endPage : Int = Std.int(searchParams.getEndPageInt());
+            var pageLength : Int = Std.int(searchParams.getLengthInt());
+            var savedPagesInRange : Int = 0;
+            var columnValueHashMap : HashMap = searchParams.get();
+            var keyword : String = new Replace("-", CommonSeps.getInstance().SPACE).all((cast columnValueHashMap.get(basicItemData.KEYWORDS) : String));
+            if (StringValidationUtil.getInstance().isEmpty(keyword)) {
+                return null;
+            }
+            var stringBuffer : StringMaker = new StringMaker();
+            if (startPage >= 0) {
+                if (pageLength == 0) {
+                    pageLength = SearchData.DEFAULT_PAGE_LENGTH;
+                }
+                final MAXPAGES : Int = 100;
+                final productListingPages : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy([for (index in 0...MAXPAGES) null]);
+                final documents : haxe.ds.Vector<Document> = haxe.ds.Vector.fromArrayCopy([for (index in 0...MAXPAGES) null]);
+                final inventoryNodes : haxe.ds.Vector<Node> = haxe.ds.Vector.fromArrayCopy([for (index in 0...MAXPAGES) null]);
+                keyword = keyword.toUpperCase();
+                var lastPage : Int = -1;
+                var numberOfResultsOnCurrentPage : Int = 0;
+                var numberOfResults : Int = 0;
+                var viewDocumentInterface : TransformDocumentInterface = TransformStoreDocumentFactory.getInstance(searchRequest);
+                var inventoryNode : Node = viewDocumentInterface.getDoc().createElement(InventoryData.INVENTORY);
+                viewDocumentInterface.getBaseNode().appendChild(inventoryNode);
+                inventoryNode.appendChild(ModDomHelper.createNameValueNodes(viewDocumentInterface.getDoc(), SearchData.PAGE, startPage.toString()));
+                if (searchRequest.getFileBaseName() != null) {
+                    inventoryNode.appendChild(searchRequest.getFileBaseNameNode(viewDocumentInterface.getDoc()));
+                }
+                var currentPage : Int = -1;
+                final size : Int = column.size();
+                for (index in 0...size) {
+                    var product : String = (cast column.get(index) : String);
+                    var itemInterface : ItemInterface = inventoryEntityInterface.getItem(product);
+                    var keywords : String = itemInterface.getKeywords();
+                    keywords = keywords.toUpperCase();
+                    if (keywords.indexOf(keyword) != -1) {
+                        if (currentPage + 1 >= startPage && currentPage + 1 <= endPage) {
+                            var itemNode : Node = new BasicItemView(itemInterface, new BasicArrayListD()).toXmlNode(viewDocumentInterface.getDoc());
+                            itemNode.appendChild(ModDomHelper.createNameValueNodes(viewDocumentInterface.getDoc(), BasketData.ITEMTOTALINBASKET, this.commonPhoneStrings.ONE));
+                            inventoryNode.appendChild(itemNode.cloneNode(true));
+                        }
+                        currentPage = (Std.int((numberOfResults + 1) / pageLength)) - 1;
+                        numberOfResultsOnCurrentPage++;
+                        if (lastPage < currentPage) {
+                            if (currentPage >= startPage && currentPage <= endPage) {
+                                inventoryNode.appendChild(ModDomHelper.createNameValueNodes(viewDocumentInterface.getDoc(), SearchData.TOTAL_NUMBER_ITEMS_ON_THIS_PAGE, numberOfResultsOnCurrentPage.toString()));
+                                documents[currentPage] = viewDocumentInterface.getDoc();
+                                inventoryNodes[currentPage] = inventoryNode;
+                                savedPagesInRange++;
+                                viewDocumentInterface = TransformStoreDocumentFactory.getInstance(searchRequest);
+                                inventoryNode = viewDocumentInterface.getDoc().createElement(InventoryData.INVENTORY);
+                                viewDocumentInterface.getBaseNode().appendChild(inventoryNode);
+                                inventoryNode.appendChild(ModDomHelper.createNameValueNodes(viewDocumentInterface.getDoc(), SearchData.PAGE, currentPage + 1.toString()));
+                                if (searchRequest.getFileBaseName() != null) {
+                                    inventoryNode.appendChild(searchRequest.getFileBaseNameNode(viewDocumentInterface.getDoc()));
+                                }
+                            }
+                            lastPage = currentPage;
+                            numberOfResultsOnCurrentPage = 0;
+                        }
+                        numberOfResults++;
+                        if (lastPage >= MAXPAGES - 1) {
+                            break;
+                        }
+                    }
+                }
+                if (numberOfResultsOnCurrentPage > 0 && (currentPage + 1 >= startPage && currentPage + 1 <= endPage)) {
+                    inventoryNode.appendChild(ModDomHelper.createNameValueNodes(viewDocumentInterface.getDoc(), SearchData.TOTAL_NUMBER_ITEMS_ON_THIS_PAGE, numberOfResultsOnCurrentPage - 1.toString()));
+                    documents[lastPage + 1] = viewDocumentInterface.getDoc();
+                    inventoryNodes[lastPage + 1] = inventoryNode;
+                    savedPagesInRange++;
+                }
+                if (numberOfResultsOnCurrentPage > 0) {
+                    lastPage++;
+                }
+                if (endPage > MAXPAGES - 1) {
+                    endPage = MAXPAGES - 1;
+                }
+                for (index in startPage...endPage + 1) {
+                    if (index <= lastPage) {
+                        var tempDocument : Document = documents[index];
+                        inventoryNodes[index].appendChild(ModDomHelper.createNameValueNodes(tempDocument, SearchData.TOTAL_NUMBER_PAGES, lastPage + 1.toString()));
+                        inventoryNodes[index].appendChild(ModDomHelper.createNameValueNodes(tempDocument, SearchData.TOTAL_NUMBER_ITEMS, numberOfResults.toString()));
+                        for (pageIndex in 0...lastPage + 1) {
+                            stringBuffer.delete(0, stringBuffer.length());
+                            stringBuffer.append(searchRequest.getFileBaseName());
+                            if (stringBuffer.length() > 0) {
+                                if (pageIndex != 0) {
+                                    stringBuffer.append(Std.string(pageIndex));
+                                }
+                                inventoryNodes[index].appendChild(ModDomHelper.createNameValueNodes(tempDocument, SearchData.PAGE_INFO, Std.string(pageIndex), stringBuffer.toString()));
+                            } else {
+                                inventoryNodes[index].appendChild(ModDomHelper.createNameValueNodes(tempDocument, SearchData.PAGE_INFO, Std.string(pageIndex), SearchData.SEARCH));
+                            }
+                        }
+                        var success : String = XmlDocumentHelper.toString(tempDocument);
+                        productListingPages[index] = new StoreTransformer(abeClientInformation, (cast new TransformInfoHttpSearch(searchRequest) : TransformInfoInterface)).translate(success);
+                    }
+                }
+                if (savedPagesInRange == 0) {
+                    var result : String = this.getNoResults(viewDocumentInterface, inventoryNode);
+                    productListingPages[0] = new StoreTransformer(abeClientInformation, new TransformInfoHttpSearch(searchRequest)).translate(result);
+                }
+                return productListingPages;
+            } else {
+                return null;
+            }
+        } catch (e : haxe.Exception) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGINGERROR)) {
+                this.logUtil.put(this.commonStrings.FAILURE, this, "search", e);
+            }
+            return null;
+        }
+    }
+
+    public function new() {
+    }
+}
+

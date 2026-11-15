@@ -1,0 +1,33 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.image.opengles;
+
+
+class OpenGLESImageProperties {
+    public var textureID : Int = -1;
+    public var scaleX : Float = 1.0;
+    public var scaleY : Float = 1.0;
+    public var scaleX2 : Float = 1.0;
+    public var scaleY2 : Float = 1.0;
+    public var angle : Int = 0;
+    public var redf : Float = 1.0;
+    public var greenf : Float = 1.0;
+    public var bluef : Float = 1.0;
+    public var alphaf : Float = 1.0;
+    public function new() {
+    }
+}
+
