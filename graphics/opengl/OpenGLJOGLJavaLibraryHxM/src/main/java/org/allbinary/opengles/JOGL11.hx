@@ -20,7 +20,7 @@ import com.jogamp.opengl.GL2;
 
 //JOGLEToKhronosGL11
 class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengles.GL11 {
-    private final gl11 : GL2;
+    private var gl11 : GL2;
     public function new(...args : Dynamic) {
         if (args.length == 1) {
             final gl : GL = args[0];

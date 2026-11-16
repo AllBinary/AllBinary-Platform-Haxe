@@ -26,7 +26,7 @@ class OrientationToGameKeyEvent {
         if (Features.getInstance().isFeature(SensorFeatureFactory.getInstance().NO_ORIENTATION)) {
             this.allBinaryGyroSensor = new NoGyroSensor();
         } else {
-            throw new haxe.Exception("Not Such Feature");
+            throw new jre.lang.JavaException("Not Such Feature");
         }
     }
 

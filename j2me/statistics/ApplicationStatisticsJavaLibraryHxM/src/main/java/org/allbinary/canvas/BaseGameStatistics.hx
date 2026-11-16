@@ -31,7 +31,7 @@ class BaseGameStatistics {
     private var totalFrames : haxe.Int64 = haxe.Int64.ofInt(0);
     public final gameTickTimeDelayHelper : GameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
     public function new() {
-        this.STRING_ARRAY = haxe.ds.Vector.fromArrayCopy([" Total Time: ", this.EMPTY_STRING, " Total Frames: ", this.EMPTY_STRING, " Frames/10 Sec: ", this.EMPTY_STRING, " Total Paints: ", this.EMPTY_STRING, " Paints/10 Sec: ", this.EMPTY_STRING]);
+        this.STRING_ARRAY = haxe.ds.Vector.fromArrayCopy(([" Total Time: ", this.EMPTY_STRING, " Total Frames: ", this.EMPTY_STRING, " Frames/10 Sec: ", this.EMPTY_STRING, " Total Paints: ", this.EMPTY_STRING, " Paints/10 Sec: ", this.EMPTY_STRING] : Array<String>));
     }
 
     public function init() : Void {
@@ -75,7 +75,7 @@ class BaseGameStatistics {
     private final SPACE_CHAR : Int = " ".code;
     private final PLUS_CHAR : Int = "+".code;
     private final X_CHAR : Int = "X".code;
-    private final CHAR_ARRAY : haxe.ds.Vector<haxe.ds.Vector<Int>> = haxe.ds.Vector.fromArrayCopy([haxe.ds.Vector.fromArrayCopy(["F".code, "r".code, "a".code, "m".code, "e".code, "s".code, "/".code, "1".code, "0".code, " ".code, "S".code, "e".code, "c".code, ":".code]), haxe.ds.Vector.fromArrayCopy(["X".code, "X".code]), haxe.ds.Vector.fromArrayCopy(["P".code, "a".code, "i".code, "n".code, "t".code, "s".code, "/".code, "1".code, "0".code, " ".code, "S".code, "e".code, "c".code, ":".code]), haxe.ds.Vector.fromArrayCopy(["X".code, "X".code])]);
+    private final CHAR_ARRAY : haxe.ds.Vector<haxe.ds.Vector<Int>> = haxe.ds.Vector.fromArrayCopy([haxe.ds.Vector.fromArrayCopy((["F".code, "r".code, "a".code, "m".code, "e".code, "s".code, "/".code, "1".code, "0".code, " ".code, "S".code, "e".code, "c".code, ":".code] : Array<Int>)), haxe.ds.Vector.fromArrayCopy((["X".code, "X".code] : Array<Int>)), haxe.ds.Vector.fromArrayCopy((["P".code, "a".code, "i".code, "n".code, "t".code, "s".code, "/".code, "1".code, "0".code, " ".code, "S".code, "e".code, "c".code, ":".code] : Array<Int>)), haxe.ds.Vector.fromArrayCopy((["X".code, "X".code] : Array<Int>))]);
     private final primitiveLongSingleton : PrimitiveLongSingleton = PrimitiveLongSingleton.getInstance();
     public function to2DCharArray() : haxe.ds.Vector<haxe.ds.Vector<Int>> {
         var totalTime : haxe.Int64 = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelper.startTime);

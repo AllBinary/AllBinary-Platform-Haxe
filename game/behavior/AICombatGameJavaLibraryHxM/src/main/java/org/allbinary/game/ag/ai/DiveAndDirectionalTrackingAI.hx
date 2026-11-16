@@ -55,7 +55,7 @@ class DiveAndDirectionalTrackingAI extends BasicAI implements TrackingEventListe
     private final list : BasicArrayList = new BasicArrayListD();
     private final directionalInterface : DirectionalInterface;
     private final velocityInterface : BasicVelocityProperties;
-    private final directionToKeyMap : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy([Canvas.LEFT, Canvas.DOWN, Canvas.UP, Canvas.RIGHT]);
+    private final directionToKeyMap : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy(([Canvas.LEFT, Canvas.DOWN, Canvas.UP, Canvas.RIGHT] : Array<Int>));
     private var initialDropped : Bool = false;
     private var diveP : Bool = false;
     private var directionOfTarget : Direction = Direction.getInstance(0);

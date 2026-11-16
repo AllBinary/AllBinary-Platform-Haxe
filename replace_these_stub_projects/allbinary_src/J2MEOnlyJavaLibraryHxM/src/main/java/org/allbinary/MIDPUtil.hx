@@ -46,11 +46,11 @@ class MIDPUtil {
 
     // throws IOException, MediaException
     public function createPlayerFromInputStream(inputStream : InputStream, type : String) : Player {
-        return Manager.createPlayer(inputStream, type);
+        return Manager.createPlayerFromInputStream(inputStream, type);
     }
 
     public function appendItem(form : Form, item : Item) : Int {
-        return form.append(item);
+        return form.appendItem(item);
     }
 
     public function new() {

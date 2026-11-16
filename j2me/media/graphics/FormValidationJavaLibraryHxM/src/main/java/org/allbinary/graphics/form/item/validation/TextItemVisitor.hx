@@ -23,7 +23,7 @@ class TextItemVisitor extends Visitor {
         super();
     }
 
-    public override function visit(anyType : Any) : Any {
+    public override function visit_Any(anyType : Any) : Any {
         final value : String = (cast anyType : String);
         if (value.length < 2) {
             return BooleanFactory.getInstance().TRUE;

@@ -124,7 +124,7 @@ class TitleAnimation extends SpecialAnimation {
     public override function paintXY(graphics : Graphics, ax : Int, ay : Int) : Void {
         var x : Int = 0;
         if (this.widthP != Integer.MIN_VALUE) {
-            x = (jre.lang.JavaNumber.divide((this.displayInfoSingleton.getLastWidth() - this.widthP), 2));
+            x = jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide((this.displayInfoSingleton.getLastWidth() - this.widthP), 2)));
         }
         var deltaX : Int = 0;
         var deltaY : Int = 0;

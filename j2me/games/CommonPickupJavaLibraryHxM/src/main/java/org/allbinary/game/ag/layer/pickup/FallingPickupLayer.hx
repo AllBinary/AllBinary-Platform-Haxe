@@ -28,7 +28,7 @@ import org.allbinary.view.ViewPosition;
 class FallingPickupLayer extends PickupLayer implements TickableInterface {
     private static final NAME : String = "FallingPickupLayer";
     public function new(remoteInfo : RemoteInfo) {
-        super(FallingPickupLayer.NAME, remoteInfo, 0, CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY, NullAnimationFactory.getFactoryInstance().getInstance(0), new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), ViewPosition.getInstanceD());
+        super(FallingPickupLayer.NAME, remoteInfo, 0, CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY, NullAnimationFactory.getFactoryInstance().getInstanceFor(0), new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), ViewPosition.getInstanceD());
     }
 
     public override function processTick(allBinaryLayerManager : AllBinaryLayerManager) : Void {

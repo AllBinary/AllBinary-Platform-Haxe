@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.media.audio;
 
-//import javax.microedition.media.Control;
+import javax.microedition.media.Control;
 
 class NullControl implements Control {
     public function new() {

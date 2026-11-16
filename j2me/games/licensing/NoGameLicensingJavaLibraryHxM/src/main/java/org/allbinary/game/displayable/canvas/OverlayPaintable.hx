@@ -26,7 +26,7 @@ class OverlayPaintable extends InitUpdatePaintable {
         super();
     }
 
-    public override function update() : Void {
+    public override function update_() : Void {
         try {
         } catch (e : haxe.Exception) {
             final commonStrings : CommonStrings = CommonStrings.getInstance();

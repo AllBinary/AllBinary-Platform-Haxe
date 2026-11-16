@@ -178,24 +178,6 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>DebugJavaLibraryHaxe</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>BasePreloaderFileJavaLibraryHaxe</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>FileJ2SEJavaLibraryHaxe</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
     <build>

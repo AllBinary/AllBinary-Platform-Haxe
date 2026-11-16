@@ -41,7 +41,7 @@ class MyRandomFactory {
     }
 
     public function getNextInt(range : Int) : Int {
-        var div : Int = (jre.lang.JavaNumber.divide(Integer.MAX_VALUE, range)) + 1;
+        var div : Int = jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide(Integer.MAX_VALUE, range)) + 1);
         return jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide(this.rand.nextInt(), div)));
     }
 

@@ -25,7 +25,15 @@ class InitUpdatePaintable extends Paintable implements InitUpdatePaintableInterf
     public function init() : Void {
     }
 
-    public function update() : Void {
+    public function update(...args : Dynamic) : Dynamic {
+        if (args.length == 0) {
+            this.update_();
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: update");
+    }
+
+    public function update_() : Void {
     }
 
 }

@@ -78,7 +78,7 @@ class CommonStrings {
     public final REMOVE_LISTENER : String = "removeListener";
     public final SIZE : String = "size";
     public function new() {
-        this.DIRECTION_NAME = haxe.ds.Vector.fromArrayCopy([this.DOWN, this.LEFT, this.RIGHT, this.UP]);
+        this.DIRECTION_NAME = haxe.ds.Vector.fromArrayCopy(([this.DOWN, this.LEFT, this.RIGHT, this.UP] : Array<String>));
         this.START_METHOD_NAME = this.START;
     }
 }

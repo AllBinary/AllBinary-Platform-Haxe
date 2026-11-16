@@ -36,7 +36,7 @@ class PtsDamageFloaters extends DamageFloaters {
     private var lastDamageStringSizeArray : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy([for (index in 0...5) 0]);
     private var circularIndexUtil : CircularIndexUtil = CircularIndexUtil.createInstance(5);
     private final primitiveLongUtil : PrimitiveLongUtil;
-    private static final basicColorArrayIndexer : BasicColorArrayIndexer = new BasicColorArrayIndexer(haxe.ds.Vector.fromArrayCopy([BasicColorFactory.getInstance().WHITE, BasicColorFactory.getInstance().RED, BasicColorFactory.getInstance().YELLOW, BasicColorFactory.getInstance().BLUE]));
+    private static final basicColorArrayIndexer : BasicColorArrayIndexer = new BasicColorArrayIndexer(haxe.ds.Vector.fromArrayCopy(([BasicColorFactory.getInstance().WHITE, BasicColorFactory.getInstance().RED, BasicColorFactory.getInstance().YELLOW, BasicColorFactory.getInstance().BLUE] : Array<BasicColor>)));
     public function new(layerInterface : AllBinaryLayer) {
         super();
         this.primitiveLongUtil = PrimitiveLongUtil.createPowerOfTen(100000);

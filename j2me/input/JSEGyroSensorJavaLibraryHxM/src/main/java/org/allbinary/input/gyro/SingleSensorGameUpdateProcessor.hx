@@ -21,12 +21,12 @@ class SingleSensorGameUpdateProcessor extends SensorGameUpdateProcessor {
     private final accelerometerSensorUpdateProcessor : Processor = new AccelerometerSensorUpdateProcessor();
     private final gyroSensorUpdateProcessor : Processor = new GyroSensorUpdateProcessor();
     // throws Exception
-    public function process(anyType : Any) : Void {
+    public override function process(anyType : Any) : Void {
         this.setNoSensors();
     }
 
     // throws Exception
-    public function sendNotifications(anyType : Any) : Void {
+    public override function sendNotifications(anyType : Any) : Void {
     }
 
     public function new() {

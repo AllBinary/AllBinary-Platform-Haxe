@@ -86,7 +86,7 @@ class ScrollSelectionForm extends PaintableForm {
     }
 
     // throws Exception
-    public override function init(rectangle : Rectangle, formType : FormType) : Void {
+    public override function init_Rectangle_FormType(rectangle : Rectangle, formType : FormType) : Void {
         super.init(rectangle, formType);
         final formTypeFactory : FormTypeFactory = FormTypeFactory.getInstance();
         if (formType == formTypeFactory.HORIZONTAL_FORM) {

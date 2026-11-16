@@ -43,20 +43,20 @@
         <!--
         <module>../TagsBaseJavaLibraryHxM</module>
         -->
-        <!--<module>../CustomLoaderFakeJavaLibraryHxM</module>-->
+        <module>../CustomLoaderFakeJavaLibraryHxM</module>
 
-        <!--<module>../ViewsJavaLibraryHxM</module>-->
+        <module>../ViewsJavaLibraryHxM</module>
 
-        <!--<module>../data/NullSQLAllBinaryJavaLibraryHxM</module>-->
-        <!--<module>../BlisketTagHelpersJavaLibraryHxM</module>-->
-        <!--<module>../BlisketTagHelperFactoriesJavaLibraryHxM</module>-->
-        <!--<module>../BlisketTagsJavaLibraryHxM</module>-->
+        <module>../data/NullSQLAllBinaryJavaLibraryHxM</module>
+        <module>../BlisketTagHelpersJavaLibraryHxM</module>
+        <module>../BlisketTagHelperFactoriesJavaLibraryHxM</module>
+        <module>../BlisketTagsJavaLibraryHxM</module>
         
         <!--
         <module>../WorkflowJavaLibraryHxM</module>
         -->
 
-        <!--<module>../FreeblisketJavaLibraryHxM</module>-->
+        <module>../FreeblisketJavaLibraryHxM</module>
 
     </modules>
 

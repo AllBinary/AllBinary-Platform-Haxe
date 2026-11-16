@@ -24,7 +24,7 @@ class HighScoreCommandsFactory extends HighScoreCommandsBaseFactory {
     }
 
     public function new() {
-        super(haxe.ds.Vector.fromArrayCopy([HighScoreCommands.getInstance().PERSONAL, HighScoreCommands.getInstance().WORLD]));
+        super(haxe.ds.Vector.fromArrayCopy(([HighScoreCommands.getInstance().PERSONAL, HighScoreCommands.getInstance().WORLD] : Array<Command>)));
     }
 
 }

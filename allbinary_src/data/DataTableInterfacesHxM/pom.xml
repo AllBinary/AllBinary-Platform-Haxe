@@ -39,7 +39,16 @@
     </dependency>
   </dependencies>
 
-    <build>
+        <properties>
+        <haxe.executable>C:/HaxeToolkit/haxe/haxe.exe</haxe.executable>
+        <!-- Type checks every module with the eval target. Other targets such as cpp need the target library from haxelib -->
+        <haxe.target>--interp</haxe.target>
+        <haxe.dependency.directory>${project.build.directory}/haxe-dependencies/META-INF/haxe</haxe.dependency.directory>
+        <!-- The Java runtime (java.* as jre.*) that every Haxe build has on its class path like the Python RUNTIME_SOURCE -->
+        <haxe.runtime.directory>G:/mnt/bc/mydev/workhaxe/j2me/J2SEForHaxeLibraryHxM/src/main/java</haxe.runtime.directory>
+    </properties>
+
+<build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

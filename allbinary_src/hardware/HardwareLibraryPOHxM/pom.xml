@@ -44,7 +44,7 @@
         
         <module>../PersonalComputerSystemJavaLibraryHxM</module>
         <module>../PersonalComputerOperatingSystemsJavaLibraryHxM</module>
-        <module>../PersonalComputerHardwareJavaLibraryHxM</module>
+        <!--<module>../PersonalComputerHardwareJavaLibraryHxM</module>-->
         
     </modules>
 

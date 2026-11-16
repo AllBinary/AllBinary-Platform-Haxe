@@ -38,7 +38,7 @@ class MineWeaponResources extends BasicGameResources {
         final SIZE_FOUR : String = SMALL;
         final SIZE_FIVE : String = SMALL;
         final SIZE_SIX : String = SMALL;
-        final SIZE : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy([SMALL, MEDIUM, SIZE_FOUR, SIZE_FIVE, SIZE_SIX]);
+        final SIZE : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy(([SMALL, MEDIUM, SIZE_FOUR, SIZE_FIVE, SIZE_SIX] : Array<String>));
         super.init(ROOT, SIZE);
     }
 

@@ -107,14 +107,14 @@
         <module>../../lib/VectorThreeDimensionalLibraryHxM</module>
         <module>../../input/AllBinaryAccelerometerSensorJavaLibraryHxM</module>
         <module>../../input/NoGyroSensorJavaLibraryHxM</module>
-        <!--<module>../../input/JSEGyroSensorJavaLibraryHxM</module>-->
+        <module>../../input/JSEGyroSensorJavaLibraryHxM</module>
         <!--
         <module>../../input/android/</module>
         <module>../../input/platform/android/GameInputAndroidBaseJavaLibraryHxM</module>
         -->
 
         <module>../../media/sound/BasicPlayerJavaLibraryHxM</module>
-        <!--<module>../../media/sound/BasicPlayerMIDP2JavaLibraryHxM</module>-->
+        <module>../../media/sound/BasicPlayerMIDP2JavaLibraryHxM</module>
         <module>../../media/sound/NoPlayerJavaLibraryHxM</module>
         <module>../../media/sound/SoundJ2MELibraryHxM</module>
 

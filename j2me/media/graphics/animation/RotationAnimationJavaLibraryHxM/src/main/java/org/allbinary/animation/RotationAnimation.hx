@@ -90,7 +90,7 @@ class RotationAnimation extends IndexedAnimation implements RotationAnimationInt
     }
 
     public function toString() : String {
-        return Std.string(new StringMaker().append(super.toString()).append("circularIndexUtil: ").append(Std.string(this.circularIndexUtil)).append("angleInfo: ").append(Std.string(this.angleInfo)));
+        return Std.string(new StringMaker().append(jre.lang.JavaObject.objectToString(this)).append("circularIndexUtil: ").append(Std.string(this.circularIndexUtil)).append("angleInfo: ").append(Std.string(this.angleInfo)));
     }
 
 }

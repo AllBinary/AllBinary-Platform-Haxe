@@ -47,12 +47,12 @@ class BasicGameResources {
     public function append(ROOT : String, sizeString : String) : Void {
         final DESTROY : String = "_destroy";
         final string : String = this.getString();
-        BasicGameResources.stringBuffer.delete(0, BasicGameResources.stringBuffer.length());
+        BasicGameResources.stringBuffer.delete(0, jre.lang.JavaString.length(BasicGameResources.stringBuffer));
         BasicGameResources.stringBuffer.append(ROOT);
         BasicGameResources.stringBuffer.append(string);
         BasicGameResources.stringBuffer.append(sizeString);
         this.RESOURCE = Std.string(BasicGameResources.stringBuffer);
-        BasicGameResources.stringBuffer.delete(0, BasicGameResources.stringBuffer.length());
+        BasicGameResources.stringBuffer.delete(0, jre.lang.JavaString.length(BasicGameResources.stringBuffer));
         BasicGameResources.stringBuffer.append(ROOT);
         BasicGameResources.stringBuffer.append(DESTROY);
         BasicGameResources.stringBuffer.append(string);

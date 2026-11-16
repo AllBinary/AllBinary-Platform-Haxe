@@ -84,36 +84,6 @@
             <!-- AllBinary Platform Version End -->
         </dependency>
 
-        <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>NoneOnlyJavaLibraryHaxe</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>J2SEForJ2MEJavaLibraryHaxe</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>J2MEOnlyJavaLibraryHaxe</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>HTMLForJ2MEJavaLibraryHaxe</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>SWTToJ2MELibraryHaxe</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
     <build>

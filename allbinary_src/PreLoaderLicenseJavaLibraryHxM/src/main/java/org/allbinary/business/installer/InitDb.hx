@@ -22,12 +22,12 @@ import org.allbinary.logic.system.security.licensing.LicensingException;
 //Warning you must have sql root access
 class InitDb {
     private var anyType : Any = null;
-    private final METHOD_CALL_GET_HOST_NAME : String = "getHostName";
-    private final METHOD_CALL_ADD_USERS : String = "addUsers";
-    private final METHOD_CALL_ADD_DATABASES : String = "addDatabases";
-    private final METHOD_CALL_ADD_TABLES : String = "addTables";
-    private final METHOD_CALL_TEMP_MAIN_PATH : String = "useTemporaryMainPath";
-    private final METHOD_CALL_MAIN_PATH : String = "useNormalMainPath";
+    private var METHOD_CALL_GET_HOST_NAME : String = "getHostName";
+    private var METHOD_CALL_ADD_USERS : String = "addUsers";
+    private var METHOD_CALL_ADD_DATABASES : String = "addDatabases";
+    private var METHOD_CALL_ADD_TABLES : String = "addTables";
+    private var METHOD_CALL_TEMP_MAIN_PATH : String = "useTemporaryMainPath";
+    private var METHOD_CALL_MAIN_PATH : String = "useNormalMainPath";
     public function new(...args : Dynamic) {
         if (args.length == 0) {
             this._newInitDb0();

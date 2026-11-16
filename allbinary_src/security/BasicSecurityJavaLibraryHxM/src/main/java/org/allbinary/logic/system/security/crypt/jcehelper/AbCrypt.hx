@@ -16,10 +16,10 @@
 package org.allbinary.logic.system.security.crypt.jcehelper;
 
 import jre.security.Security;
-//import java.security.spec.KeySpec;
-//import javax.crypto.Cipher;
-//import javax.crypto.SecretKey;
-//import javax.crypto.SecretKeyFactory;
+import jre.security.spec.KeySpec;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
 import org.allbinary.TsUtil;
 import org.allbinary.init.crypt.jcehelper.CryptInterface;
 import org.allbinary.logic.NullUtil;

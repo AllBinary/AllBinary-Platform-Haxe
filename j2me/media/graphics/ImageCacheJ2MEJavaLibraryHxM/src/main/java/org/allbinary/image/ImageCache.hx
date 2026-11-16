@@ -53,7 +53,7 @@ class ImageCache extends ImageCacheBase {
     }
 
     // throws Exception
-    public override function get(caller : String, width : Int, height : Int) : Image {
+    public override function get_String_int_int(caller : String, width : Int, height : Int) : Image {
         var foundIndex : Int = this.getIndexWH(width, height);
         var image : Image = this.getFromAvailable(foundIndex, width, height);
         if (image == NullImage.NULL_IMAGE) {

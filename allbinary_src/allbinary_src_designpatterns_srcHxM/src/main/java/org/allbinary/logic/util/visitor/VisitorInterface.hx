@@ -17,7 +17,9 @@ package org.allbinary.logic.util.visitor;
 
 
 interface VisitorInterface {
-    function visit(anyType : Any) : Any;
+    function visit(...args : Dynamic) : Dynamic;
+
+    function visit_Any(anyType : Any) : Any;
 
 }
 

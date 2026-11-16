@@ -26,12 +26,12 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 class Replace {
-    private final logUtil : LogUtil = LogUtil.getInstance();
-    private final j2seUtil : J2SEUtil = J2SEUtil.getInstance();
-    private final REPLACERS_ : String = "Replacers: ";
-    private final ALL : String = "all";
-    private final FOUND_KEY : String = "found key total: ";
-    private final hashMap : HashMap<Dynamic, Dynamic>;
+    private var logUtil : LogUtil = LogUtil.getInstance();
+    private var j2seUtil : J2SEUtil = J2SEUtil.getInstance();
+    private var REPLACERS_ : String = "Replacers: ";
+    private var ALL : String = "all";
+    private var FOUND_KEY : String = "found key total: ";
+    private var hashMap : HashMap<Dynamic, Dynamic>;
     public function new(...args : Dynamic) {
         if (args.length == 2 && Std.isOfType(args[0], String) && Std.isOfType(args[0], String)) {
             final key : String = args[0];

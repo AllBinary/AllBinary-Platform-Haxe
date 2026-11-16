@@ -78,7 +78,7 @@ class BasicPopupMenuPaintable extends Paintable implements UpdateMyFontInterface
             BORDER = MyFontProcessor.defaultCharWidth(font) * 2;
         }
         this.BORDER = BORDER;
-        this.heightOffset = this.rectangle.getHeight() - (font.getHeight() * BasicPopupMenuPaintable.NAME.length());
+        this.heightOffset = this.rectangle.getHeight() - (font.getHeight() * jre.lang.JavaString.length(BasicPopupMenuPaintable.NAME));
         if (OpenGLFeatureUtil.getInstance().isAnyThreed()) {
             this.heightOffset -= font.getHeight() + 2;
             if (AndroidUtil.isAndroid()) {

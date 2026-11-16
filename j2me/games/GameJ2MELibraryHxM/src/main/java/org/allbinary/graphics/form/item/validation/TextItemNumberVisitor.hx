@@ -28,7 +28,7 @@ class TextItemNumberVisitor extends Visitor {
         super();
     }
 
-    public override function visit(anyType : Any) : Any {
+    public override function visit_Any(anyType : Any) : Any {
         var value : String = (cast anyType : String);
         if (value.length < 2) {
             final stringValidationUtil : StringValidationUtil = StringValidationUtil.getInstance();

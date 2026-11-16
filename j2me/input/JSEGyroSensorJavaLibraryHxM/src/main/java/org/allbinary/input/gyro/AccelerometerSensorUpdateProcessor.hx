@@ -24,7 +24,7 @@ import org.allbinary.input.accelerometer.AccelerometerSensorFactory;
 
 class AccelerometerSensorUpdateProcessor extends Processor {
     // throws Exception
-    public function process() : Void {
+    public override function process() : Void {
         var sensorFeatureFactory : SensorFeatureFactory = SensorFeatureFactory.getInstance();
         if (Features.getInstance().isFeature(sensorFeatureFactory.ORIENTATION_SENSORS)) {
             AccelerometerSensorFactory.getInstance().setCompleteMotionGestureInputEventListener(new SingleKeyPressGameKeyFromMotionGestureEventListener());
@@ -33,7 +33,7 @@ class AccelerometerSensorUpdateProcessor extends Processor {
         } else if (Features.getInstance().isFeature(sensorFeatureFactory.NO_ORIENTATION)) {
             AccelerometerSensorFactory.getInstance().setCompleteMotionGestureInputEventListener(NoCompleteMotionGestureInputEventListener.getInstance());
         } else {
-            throw new haxe.Exception("Sensor Feature Not Set");
+            throw new jre.lang.JavaException("Sensor Feature Not Set");
         }
     }
 

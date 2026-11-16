@@ -28,7 +28,7 @@ class HudTimer {
     private var hundrethsString : haxe.ds.Vector<Int> = PrimitiveLongSingleton.getInstance().ZERO;
     private var totalDigits : Int = 1;
     private var primitiveLongUtil : PrimitiveLongUtil;
-    private final MAX : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy(["L".code, "O".code, "L".code]);
+    private final MAX : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy((["L".code, "O".code, "L".code] : Array<Int>));
     private final gameTickTimeDelayHelper : GameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
     public function new(maxTime : Int) {
         this.primitiveLongUtil = PrimitiveLongUtil.createPowerOfTen(maxTime);

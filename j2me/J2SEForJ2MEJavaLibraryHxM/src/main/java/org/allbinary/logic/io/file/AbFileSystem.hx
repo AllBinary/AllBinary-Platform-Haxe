@@ -72,7 +72,7 @@ class AbFileSystem {
             closeable = idFile;
             final size : Int = idFile.read(bytes);
             if (size > 0) {
-                return haxe.io.Bytes.ofData(bytes, 0, size).toString();
+                return jre.lang.JavaString.fromBytes(bytes, 0, size);
             }
         } catch (e : haxe.Exception) {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "readAsString", e);

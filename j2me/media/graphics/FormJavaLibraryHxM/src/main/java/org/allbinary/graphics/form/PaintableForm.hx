@@ -30,8 +30,16 @@ class PaintableForm extends ABCustomForm {
         this.setSelectedIndex(0);
     }
 
+    public function init(...args : Dynamic) : Dynamic {
+        if (args.length == 2) {
+            this.init_Rectangle_FormType(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: init");
+    }
+
     // throws Exception
-    public function init(rectangle : Rectangle, formType : FormType) : Void {
+    public function init_Rectangle_FormType(rectangle : Rectangle, formType : FormType) : Void {
         this.rectangle = rectangle;
         final point : GPoint = this.rectangle.getPoint();
         this.x = point.getX();

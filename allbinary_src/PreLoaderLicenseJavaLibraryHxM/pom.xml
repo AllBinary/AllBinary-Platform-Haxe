@@ -132,18 +132,6 @@
 
         </dependency>
 
-        <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>FileLicenseInitInfoJavaLibraryHaxe</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>YourXmlRpcJavaLibraryHaxe</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
     <build>

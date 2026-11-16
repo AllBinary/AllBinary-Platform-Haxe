@@ -96,8 +96,8 @@ class GameCommandCanvas extends MyCanvas implements MenuListener implements Disp
         this.repaintBehavior = RepaintBehavior.getInstance();
         this.foregroundBasicColor = foregroundBasicColor;
         this.backgroundBasicColor = backgroundBasicColor;
-        this.foregroundColor = this.foregroundBasicColor.intValue();
-        this.backgroundColor = this.backgroundBasicColor.intValue();
+        this.foregroundColor = jre.lang.JavaObject.intValue(this.foregroundBasicColor);
+        this.backgroundColor = jre.lang.JavaObject.intValue(this.backgroundBasicColor);
         this.initCommands(cmdListener);
         if (cmdListener != NullCommandListener.NULL_COMMAND_LISTENER) {
             try {
@@ -158,7 +158,7 @@ class GameCommandCanvas extends MyCanvas implements MenuListener implements Disp
 
     public function createRectangle(size : Int) : Rectangle {
         final height : Int = size * this.fontHeight;
-        final startY : Int = (jre.lang.JavaNumber.divide(this.displayInfo.getLastHeight() * 2, 3)) - height;
+        final startY : Int = jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide(this.displayInfo.getLastHeight() * 2, 3)) - height);
         final pointFactory : PointFactory = PointFactory.getInstance();
         final rectangle : Rectangle = new Rectangle(pointFactory.createXY(30, startY), this.displayInfo.getLastWidth() - 30, startY);
         return rectangle;

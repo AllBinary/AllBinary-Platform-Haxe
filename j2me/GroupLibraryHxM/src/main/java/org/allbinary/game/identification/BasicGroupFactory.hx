@@ -37,10 +37,10 @@ class BasicGroupFactory {
     public final ENEMY_ON_LEVEL_ARRAY : haxe.ds.Vector<Group>;
     public final NONE_ARRAY : haxe.ds.Vector<Group>;
     public function new() {
-        this.GOOD_ARRAY = haxe.ds.Vector.fromArrayCopy([this.GOOD]);
-        this.ENEMY_ARRAY = haxe.ds.Vector.fromArrayCopy([this.ENEMY]);
-        this.ENEMY_ON_LEVEL_ARRAY = haxe.ds.Vector.fromArrayCopy([this.ENEMY, this.ENEMY_ON_LEVEL]);
-        this.NONE_ARRAY = haxe.ds.Vector.fromArrayCopy([this.NONE]);
+        this.GOOD_ARRAY = haxe.ds.Vector.fromArrayCopy(([this.GOOD] : Array<Group>));
+        this.ENEMY_ARRAY = haxe.ds.Vector.fromArrayCopy(([this.ENEMY] : Array<Group>));
+        this.ENEMY_ON_LEVEL_ARRAY = haxe.ds.Vector.fromArrayCopy(([this.ENEMY, this.ENEMY_ON_LEVEL] : Array<Group>));
+        this.NONE_ARRAY = haxe.ds.Vector.fromArrayCopy(([this.NONE] : Array<Group>));
     }
 }
 

@@ -34,9 +34,9 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 class Cpu implements CpuInterface implements HardwareComponentInterface {
-    public final logUtil : LogUtil = LogUtil.getInstance();
-    public final commonStrings : CommonStrings = CommonStrings.getInstance();
-    private final CPUFILE : String = "/proc/cpuinfo";
+    public var logUtil : LogUtil = LogUtil.getInstance();
+    public var commonStrings : CommonStrings = CommonStrings.getInstance();
+    private var CPUFILE : String = "/proc/cpuinfo";
     private var cpuHashMap : HashMap<Dynamic, Dynamic> = null;
     public function new(...args : Dynamic) {
         if (args.length == 1) {

@@ -33,7 +33,9 @@ interface CpuInterface {
 
     function getCacheSize() : String;
 
-    function compareTo(cpuInterface : CpuInterface) : Bool;
+    function compareTo(...args : Dynamic) : Dynamic;
+
+    function compareTo_CpuInterface(cpuInterface : CpuInterface) : Bool;
 
 }
 

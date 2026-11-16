@@ -57,7 +57,7 @@ class Animation implements AnimationInterface implements OpenGLSurfaceChangedInt
 
     public function setBasicColorP(basicColor : BasicColor) : Void {
         this.basicColor = basicColor;
-        this.colorP = this.basicColor.intValue();
+        this.colorP = jre.lang.JavaObject.intValue(this.basicColor);
     }
 
     public function setBackgroundBasicColorP(basicColor : BasicColor) : Void {
@@ -69,7 +69,7 @@ class Animation implements AnimationInterface implements OpenGLSurfaceChangedInt
 
     public function changeBasicColor(basicColor : BasicColor) : Void {
         this.changeBasicColorP = basicColor;
-        this.changeColorP = this.changeBasicColorP.intValue();
+        this.changeColorP = jre.lang.JavaObject.intValue(this.changeBasicColorP);
     }
 
     public function getChangeColor() : Int {

@@ -55,7 +55,7 @@ class StartIntermissionPaintable extends InitUpdatePaintable implements UpdateMy
         this.stringArray = stringArray;
         this.lastWidth = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.stringArray.length) 0]);
         this.setBasicColorP(basicColor);
-        this.color = basicColor.intValue();
+        this.color = jre.lang.JavaObject.intValue(basicColor);
         this.fontSize = font.getSize();
         this.font = font;
     }
@@ -90,7 +90,7 @@ class StartIntermissionPaintable extends InitUpdatePaintable implements UpdateMy
 
     private final BEGIN_LEVEL : String = "Begin Level ";
     private final EMPTY_STRING : String = StringUtil.getInstance().EMPTY_STRING;
-    public override function update() : Void {
+    public override function update_() : Void {
         var level : Int = this.gameCanvas.getLayerManager().getGameInfo().getCurrentLevel();
         this.stringArray[0] = Std.string(new StringMaker().append(this.BEGIN_LEVEL).appendint(level));
         {

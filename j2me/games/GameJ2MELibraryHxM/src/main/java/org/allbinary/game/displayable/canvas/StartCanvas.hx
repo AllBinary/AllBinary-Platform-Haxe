@@ -172,7 +172,7 @@ class StartCanvas extends RunnableCanvas implements GameCanvasRunnableInterface 
     public function getCustomCommands() : haxe.ds.Vector<Any> {
         final gameCommandsFactory : GameCommandsFactory = GameCommandsFactory.getInstance();
         if (J2MEUtil.isHTML()) {
-            final commandArray : haxe.ds.Vector<Any> = haxe.ds.Vector.fromArrayCopy([gameCommandsFactory.START_COMMAND, HighScoreCommands.getInstance().DISPLAY, GameInputMappingCanvas.DISPLAY, gameCommandsFactory.DISPLAY_ABOUT]);
+            final commandArray : haxe.ds.Vector<Any> = haxe.ds.Vector.fromArrayCopy(([gameCommandsFactory.START_COMMAND, HighScoreCommands.getInstance().DISPLAY, GameInputMappingCanvas.DISPLAY, gameCommandsFactory.DISPLAY_ABOUT] : Array<Any>));
             return commandArray;
         } else {
             final commandList : BasicArrayList = new BasicArrayListD();

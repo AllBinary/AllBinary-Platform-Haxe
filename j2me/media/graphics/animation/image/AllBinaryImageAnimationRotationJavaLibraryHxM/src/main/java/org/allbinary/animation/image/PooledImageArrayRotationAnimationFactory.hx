@@ -30,14 +30,14 @@ class PooledImageArrayRotationAnimationFactory implements AnimationInterfaceFact
     // throws Exception
     public static function createFactory(image : Image, animationBehaviorFactory : AnimationBehaviorFactory) : PooledImageArrayRotationAnimationFactory {
         final totalAngle : Int = jre.lang.JavaNumber.toInt(AngleFactory.getInstance().TOTAL_ANGLE);
-        final angleIncrement : Int = (jre.lang.JavaNumber.divide(totalAngle, GameConfigurationCentral.getInstance().getGameControlFidelity()));
+        final angleIncrement : Int = jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide(totalAngle, GameConfigurationCentral.getInstance().getGameControlFidelity())));
         return new PooledImageArrayRotationAnimationFactory(image, image.getWidth(), image.getHeight(), -(image.getWidth() >> 2), -(image.getHeight() >> 2), angleIncrement, animationBehaviorFactory);
     }
 
     // throws Exception
     public static function createDXY(image : Image, dx : Int, dy : Int, animationBehaviorFactory : AnimationBehaviorFactory) : PooledImageArrayRotationAnimationFactory {
         final totalAngle : Int = jre.lang.JavaNumber.toInt(AngleFactory.getInstance().TOTAL_ANGLE);
-        final angleIncrement : Int = (jre.lang.JavaNumber.divide(totalAngle, GameConfigurationCentral.getInstance().getGameControlFidelity()));
+        final angleIncrement : Int = jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide(totalAngle, GameConfigurationCentral.getInstance().getGameControlFidelity())));
         return new PooledImageArrayRotationAnimationFactory(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehaviorFactory);
     }
 

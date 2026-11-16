@@ -46,7 +46,7 @@
         <module>./automation/InputAutomationToolsHxP</module>
 -->
         <module>./graphics/GraphicsToolsHxP</module>
-        <module>./allbinary_src/FreeblisketJavaLibraryHxP</module>
+        <!--<module>./allbinary_src/FreeblisketJavaLibraryHxP</module>-->
 
 
         <module>./j2me/games/platform/AllBinaryOnAllPlatformsJavaLibraryHxP</module>
@@ -56,8 +56,8 @@
         <module>./j2me/media/graphics/animation/image/AllBinaryHTML2ImageAnimationRotationJavaLibraryHxM</module>
         -->
         <!--<module>./j2me/media/graphics/animation/image/AllBinaryJ2SEImageAnimationRotationJavaLibraryHxM</module>-->
-        <module>./j2me/games/Resources/sounds/release/GameSoundsJ2SEOggResourcesJavaLibraryHxM</module>
-        <module>./graphics/opengl/AllBinaryJOGLResourcesJavaLibraryHxM</module>
+        <!--<module>./j2me/games/Resources/sounds/release/GameSoundsJ2SEOggResourcesJavaLibraryHxM</module>-->
+        <!--<module>./graphics/opengl/AllBinaryJOGLResourcesJavaLibraryHxM</module>-->
 
     </modules>
 

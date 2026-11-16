@@ -40,7 +40,7 @@ class InitializeCloud {
                 final stringBuffer : StringMaker = new StringMaker();
                 stringBuffer.append(URLGLOBALS.getWebappPath());
                 stringBuffer.append(cloud);
-                stringBuffer.append(PATH_GLOBALS.getInstanceFor().DATA_PATH);
+                stringBuffer.append(PATH_GLOBALS.getInstance().DATA_PATH);
                 final path : AbPath = new AbPath(Std.string(stringBuffer), StringUtil.getInstance().EMPTY_STRING);
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append(URLGLOBALS.getWebappPath());

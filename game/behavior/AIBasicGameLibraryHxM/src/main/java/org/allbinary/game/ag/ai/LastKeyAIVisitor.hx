@@ -28,7 +28,7 @@ class LastKeyAIVisitor extends Visitor {
         super();
     }
 
-    public override function visit(anyType : Any) : Any {
+    public override function visit_Any(anyType : Any) : Any {
         try {
             var basicAI : BasicAI = (cast anyType : BasicAI);
             var key : Int = basicAI.getLastKey();

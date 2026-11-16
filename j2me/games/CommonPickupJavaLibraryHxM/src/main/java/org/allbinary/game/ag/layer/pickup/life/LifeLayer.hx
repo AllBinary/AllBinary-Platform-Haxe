@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.layer.pickup.life;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.ag.life.Life;
 import org.allbinary.game.ag.life.LifeVisitorInterface;
 import org.allbinary.graphics.PointFactory;
@@ -32,7 +32,7 @@ class LifeLayer extends AllBinaryLayer implements LifeVisitorInterface {
     public override function paint(graphics : Graphics) : Void {
     }
 
-    public override function visit(lifeInterface : Life) : Void {
+    public function visit(lifeInterface : Life) : Void {
         lifeInterface.add(1);
     }
 

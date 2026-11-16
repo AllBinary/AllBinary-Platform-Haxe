@@ -164,7 +164,7 @@ class CommandFormInputProcessor extends BasicMenuInputProcessor {
 
     private final NAME_LABEL : String = " ScrollSelectionForm: ";
     public function toString() : String {
-        return Std.string(new StringMaker().append(super.toString()).append(this.NAME_LABEL).append(Std.string(this.form)));
+        return Std.string(new StringMaker().append(jre.lang.JavaObject.objectToString(this)).append(this.NAME_LABEL).append(Std.string(this.form)));
     }
 
 }

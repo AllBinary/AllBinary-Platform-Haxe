@@ -16,9 +16,9 @@
 package org.allbinary.device;
 
 import javax.microedition.khronos.opengles.GL10;
-//import java.nio.Buffer;
-//import java.nio.FloatBuffer;
-//import java.nio.IntBuffer;
+import jre.nio.Buffer;
+import jre.nio.FloatBuffer;
+import jre.nio.IntBuffer;
 import org.allbinary.logic.string.StringUtil;
 
 class NullGL10 implements GL10 {
@@ -67,7 +67,15 @@ class NullGL10 implements GL10 {
         return;
     }
 
-    public function glColorPointer(size : Int, type : Int, stride : Int, pointer : Buffer) : Void {
+    public function glColorPointer(...args : Dynamic) : Dynamic {
+        if (args.length == 4) {
+            this.glColorPointer_int_int_int_Buffer(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glColorPointer");
+    }
+
+    public function glColorPointer_int_int_int_Buffer(size : Int, type : Int, stride : Int, pointer : Buffer) : Void {
         return;
     }
 
@@ -135,7 +143,15 @@ class NullGL10 implements GL10 {
         return;
     }
 
-    public function glDrawElements(mode : Int, count : Int, type : Int, indices : Buffer) : Void {
+    public function glDrawElements(...args : Dynamic) : Dynamic {
+        if (args.length == 4) {
+            this.glDrawElements_int_int_int_Buffer(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glDrawElements");
+    }
+
+    public function glDrawElements_int_int_int_Buffer(mode : Int, count : Int, type : Int, indices : Buffer) : Void {
         return;
     }
 
@@ -375,7 +391,15 @@ class NullGL10 implements GL10 {
         return;
     }
 
-    public function glNormalPointer(type : Int, stride : Int, pointer : Buffer) : Void {
+    public function glNormalPointer(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            this.glNormalPointer_int_int_Buffer(args[0], args[1], args[2]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glNormalPointer");
+    }
+
+    public function glNormalPointer_int_int_Buffer(type : Int, stride : Int, pointer : Buffer) : Void {
         return;
     }
 
@@ -447,7 +471,15 @@ class NullGL10 implements GL10 {
         return;
     }
 
-    public function glTexCoordPointer(size : Int, type : Int, stride : Int, pointer : Buffer) : Void {
+    public function glTexCoordPointer(...args : Dynamic) : Dynamic {
+        if (args.length == 4) {
+            this.glTexCoordPointer_int_int_int_Buffer(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glTexCoordPointer");
+    }
+
+    public function glTexCoordPointer_int_int_int_Buffer(size : Int, type : Int, stride : Int, pointer : Buffer) : Void {
         return;
     }
 
@@ -483,7 +515,15 @@ class NullGL10 implements GL10 {
         return;
     }
 
-    public function glTexParameteri(target : Int, pname : Int, param : Int) : Void {
+    public function glTexParameteri(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            this.glTexParameteri_int_int_int(args[0], args[1], args[2]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glTexParameteri");
+    }
+
+    public function glTexParameteri_int_int_int(target : Int, pname : Int, param : Int) : Void {
         return;
     }
 
@@ -495,7 +535,15 @@ class NullGL10 implements GL10 {
         return;
     }
 
-    public function glVertexPointer(size : Int, type : Int, stride : Int, pointer : Buffer) : Void {
+    public function glVertexPointer(...args : Dynamic) : Dynamic {
+        if (args.length == 4) {
+            this.glVertexPointer_int_int_int_Buffer(args[0], args[1], args[2], args[3]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: glVertexPointer");
+    }
+
+    public function glVertexPointer_int_int_int_Buffer(size : Int, type : Int, stride : Int, pointer : Buffer) : Void {
         return;
     }
 

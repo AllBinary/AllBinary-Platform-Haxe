@@ -108,7 +108,7 @@ class PathUtil {
             return this.abPathData.SEPARATOR;
         }
         if (path.indexOf("\\") >= 0) {
-            path = StringTools.replace(path, "\\".code, this.abPathData.SEPARATORCHAR);
+            path = StringTools.replace(path, jre.lang.JavaString.text("\\".code), jre.lang.JavaString.text(this.abPathData.SEPARATORCHAR));
         }
         return path;
     }

@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.layer.pickup.health;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.health.HealthInterface;
 import org.allbinary.game.health.HealthVisitorInterface;
 import org.allbinary.graphics.PointFactory;
@@ -32,7 +32,7 @@ class HealLayer extends AllBinaryLayer implements HealthVisitorInterface {
     public override function paint(graphics : Graphics) : Void {
     }
 
-    public override function visit(healthInterface : HealthInterface) : Void {
+    public function visit(healthInterface : HealthInterface) : Void {
         if (healthInterface.isAlive()) {
             healthInterface.healMax();
         } else {

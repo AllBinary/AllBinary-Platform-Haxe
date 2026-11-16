@@ -43,7 +43,7 @@ class StraightMultiProjectileWeaponPart extends BasicWeaponPart {
     // throws Exception
     public override function processScore(allbinaryLayerManager : AllBinaryLayerManager, angle : Int, otherAngle : Int, weaponProperties : WeaponProperties, scoreableInterface : ScoreableInterface) : Void {
         final sourceLayerInterface : AllBinaryLayer = this.getOwnerLayerInterface();
-        final reducedWidth : Int = (jre.lang.JavaNumber.divide(sourceLayerInterface.getWidth() * 8, 10));
+        final reducedWidth : Int = jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide(sourceLayerInterface.getWidth() * 8, 10)));
         final halfWidth : Int = (reducedWidth >> 1);
         final x : Int = this.relativeRelationship.getX();
         final y : Int = this.relativeRelationship.getY();

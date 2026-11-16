@@ -20,7 +20,7 @@ import org.allbinary.logic.util.event.EventListenerInterface;
 
 class UpGameKeyEventHandler extends UpGameKeyEventHandlerBase {
     private static final instance : UpGameKeyEventHandler = new UpGameKeyEventHandler();
-    private static final instanceArray : haxe.ds.Vector<UpGameKeyEventHandlerBase> = haxe.ds.Vector.fromArrayCopy([new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase()]);
+    private static final instanceArray : haxe.ds.Vector<UpGameKeyEventHandlerBase> = haxe.ds.Vector.fromArrayCopy(([new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase()] : Array<UpGameKeyEventHandlerBase>));
     public static function getInstance() : UpGameKeyEventHandler {
         return UpGameKeyEventHandler.instance;
     }

@@ -51,7 +51,7 @@ class BasicEventHandler implements BasicEventHandlerInterface {
             }
             index++;
         }
-        return stringBuffer.toString();
+        return Std.string(stringBuffer);
     }
 
     // synchronized
@@ -81,9 +81,17 @@ class BasicEventHandler implements BasicEventHandlerInterface {
         this.eventListenerInterfaceList.remove(eventListenerInterface);
     }
 
+    public function fireEvent(...args : Dynamic) : Dynamic {
+        if (args.length == 1) {
+            this.fireEvent_AllBinaryEventObject(args[0]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: fireEvent");
+    }
+
     // throws Exception
     // synchronized
-    public function fireEvent(eventObject : AllBinaryEventObject) : Void {
+    public function fireEvent_AllBinaryEventObject(eventObject : AllBinaryEventObject) : Void {
         var index : Int = 0;
         var eventListenerInterface : EventListenerInterface = null;
         while (index < this.eventListenerInterfaceList.size()) {

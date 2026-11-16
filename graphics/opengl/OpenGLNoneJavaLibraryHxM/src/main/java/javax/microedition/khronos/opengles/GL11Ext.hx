@@ -1,10 +1,10 @@
 // Generated Code Do Not Modify
 package javax.microedition.khronos.opengles;
 
-//import java.nio.Buffer;
-//import java.nio.FloatBuffer;
-//import java.nio.IntBuffer;
-//import java.nio.ShortBuffer;
+import jre.nio.Buffer;
+import jre.nio.FloatBuffer;
+import jre.nio.IntBuffer;
+import jre.nio.ShortBuffer;
 
 interface GL11Ext extends GL {
     function glTexParameterfv(target : Int, pname : Int, param : haxe.ds.Vector<Float>, offset : Int) : Void;

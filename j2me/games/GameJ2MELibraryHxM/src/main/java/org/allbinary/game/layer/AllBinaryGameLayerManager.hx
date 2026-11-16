@@ -46,8 +46,8 @@ class AllBinaryGameLayerManager extends AllBinaryLayerManager {
         this.backgroundBasicColor = backgroundBasicColor;
         this.foregroundBasicColor = foregroundBasicColor;
         var itemColorFactory : ItemColorFactory = ItemColorFactory.getInstance();
-        itemColorFactory.INVERT_PAINT = this.backgroundBasicColor.intValue();
-        itemColorFactory.PAINT = this.foregroundBasicColor.intValue();
+        itemColorFactory.INVERT_PAINT = jre.lang.JavaObject.intValue(this.backgroundBasicColor);
+        itemColorFactory.PAINT = jre.lang.JavaObject.intValue(this.foregroundBasicColor);
         this.gameInfo = gameInfo;
     }
 
@@ -64,7 +64,7 @@ class AllBinaryGameLayerManager extends AllBinaryLayerManager {
 
     public function setBackgroundBasicColor(backgroundBasicColor : BasicColor) : Void {
         this.backgroundBasicColor = backgroundBasicColor;
-        ItemColorFactory.getInstance().INVERT_PAINT = this.backgroundBasicColor.intValue();
+        ItemColorFactory.getInstance().INVERT_PAINT = jre.lang.JavaObject.intValue(this.backgroundBasicColor);
     }
 
     public function getForegroundBasicColor() : BasicColor {
@@ -73,7 +73,7 @@ class AllBinaryGameLayerManager extends AllBinaryLayerManager {
 
     public function setForegroundBasicColor(foregroundBasicColor : BasicColor) : Void {
         this.foregroundBasicColor = foregroundBasicColor;
-        ItemColorFactory.getInstance().PAINT = this.foregroundBasicColor.intValue();
+        ItemColorFactory.getInstance().PAINT = jre.lang.JavaObject.intValue(this.foregroundBasicColor);
     }
 
     public function getGameInfo() : GameInfo {

@@ -21,8 +21,10 @@ import org.allbinary.logic.util.event.EventListenerInterface;
 interface BasicEventHandlerInterface {
     function addListenerInterface(eventListenerInterface : EventListenerInterface) : Void;
 
+    function fireEvent(...args : Dynamic) : Dynamic;
+
     // throws Exception
-    function fireEvent(eventObject : AllBinaryEventObject) : Void;
+    function fireEvent_AllBinaryEventObject(eventObject : AllBinaryEventObject) : Void;
 
     function removeAllListeners() : Void;
 

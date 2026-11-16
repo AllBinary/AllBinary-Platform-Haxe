@@ -15,9 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.system.security.crypt.jcehelper;
 
-//import java.security.spec.KeySpec;
-//import javax.crypto.spec.DESKeySpec;
-//import javax.crypto.spec.DESedeKeySpec;
+import jre.security.spec.KeySpec;
+import javax.crypto.spec.DESKeySpec;
+import javax.crypto.spec.DESedeKeySpec;
 import org.allbinary.TsUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.string.CommonStrings;

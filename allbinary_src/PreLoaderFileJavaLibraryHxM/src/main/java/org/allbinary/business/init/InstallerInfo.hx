@@ -32,7 +32,7 @@ class InstallerInfo {
     public final logUtil : LogUtil = LogUtil.getInstance();
     private static final instance : InstallerInfo = new InstallerInfo();
     private static final INITFILENAME : String = "installerdata.dat";
-    private static final PACKAGE : String = PATH_GLOBALS.getInstanceFor().INIT_PATH;
+    private static final PACKAGE : String = PATH_GLOBALS.getInstance().INIT_PATH;
     private static var userName : String = StringUtil.getInstance().EMPTY_STRING;
     private static var password : String = StringUtil.getInstance().EMPTY_STRING;
     private static var hasRead : Bool = false;

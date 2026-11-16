@@ -72,8 +72,15 @@ class XmlRpcAbeClient {
         this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.CONSTRUCTOR);
     }
 
+    public function get(...args : Dynamic) : Dynamic {
+        if (args.length == 1) {
+            return this.get_Any(args[0]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: get");
+    }
+
     // throws Exception
-    public function get(anyType : Any) : Any {
+    public function get_Any(anyType : Any) : Any {
         ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
         return NullUtil.getInstance().NULL_OBJECT;
     }

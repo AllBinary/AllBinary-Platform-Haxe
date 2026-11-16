@@ -40,7 +40,7 @@ class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable implements 
     public override function init() : Void {
     }
 
-    public override function update() : Void {
+    public override function update_() : Void {
         this.baseRefreshHelperCharArray = GameStatisticsFactory.getInstance().to2DCharArray();
     }
 
@@ -69,7 +69,7 @@ class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable implements 
 
     public function new() {
         super();
-        this.yArray = haxe.ds.Vector.fromArrayCopy([this.halfHeight + 30, this.halfHeight + 30, this.halfHeight + 30 + 15, this.halfHeight + 30 + 15, this.halfHeight + 30 + 30, this.halfHeight + 30 + 30, this.halfHeight + 30 + 45, this.halfHeight + 30 + 45]);
+        this.yArray = haxe.ds.Vector.fromArrayCopy(([this.halfHeight + 30, this.halfHeight + 30, this.halfHeight + 30 + 15, this.halfHeight + 30 + 15, this.halfHeight + 30 + 30, this.halfHeight + 30 + 30, this.halfHeight + 30 + 45, this.halfHeight + 30 + 45] : Array<Int>));
         this.myFontProcessor = new UpdateMyFontProcessor(this);
     }
 }

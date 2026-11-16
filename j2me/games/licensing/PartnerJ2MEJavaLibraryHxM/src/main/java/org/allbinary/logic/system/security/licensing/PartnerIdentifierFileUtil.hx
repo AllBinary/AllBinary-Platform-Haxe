@@ -39,7 +39,7 @@ class PartnerIdentifierFileUtil {
             final size : Int = inputStreamReader.read(chars);
             var partnerString : String = StringUtil.getInstance().EMPTY_STRING;
             if (size > 0) {
-                partnerString = [for (index in (0)...(0) + (size)) String.fromCharCode(chars[index])].join("");
+                partnerString = jre.lang.JavaString.fromChars(chars, 0, size);
             }
             inputStreamReader.close();
             return partnerString;

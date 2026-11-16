@@ -43,7 +43,7 @@ class VectorAnimation extends IndexedAnimation implements VectorAnimationInterfa
 
     public override function setBasicColorP(basicColor : BasicColor) : Void {
         var changed : Bool = false;
-        if (this.getBasicColorP() == null || jre.lang.JavaObject.intValue(this.getBasicColorP()) != basicColor.intValue()) {
+        if (this.getBasicColorP() == null || jre.lang.JavaObject.intValue(this.getBasicColorP()) != jre.lang.JavaObject.intValue(basicColor)) {
             changed = true;
         }
         super.setBasicColorP(basicColor);
@@ -54,7 +54,7 @@ class VectorAnimation extends IndexedAnimation implements VectorAnimationInterfa
 
     public override function changeBasicColor(basicColor : BasicColor) : Void {
         var changed : Bool = false;
-        if (this.getChangeBasicColor() == null || jre.lang.JavaObject.intValue(this.getChangeBasicColor()) != basicColor.intValue()) {
+        if (this.getChangeBasicColor() == null || jre.lang.JavaObject.intValue(this.getChangeBasicColor()) != jre.lang.JavaObject.intValue(basicColor)) {
             changed = true;
         }
         super.changeBasicColor(basicColor);

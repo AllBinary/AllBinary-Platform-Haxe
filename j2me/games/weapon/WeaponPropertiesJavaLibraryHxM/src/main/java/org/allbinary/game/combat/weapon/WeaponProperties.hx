@@ -75,7 +75,7 @@ class WeaponProperties extends SimpleWeaponProperties {
     }
 
     public function getDamageI(range : Int) : Int {
-        return this.getDamage() - (jre.lang.JavaNumber.divide((this.getDissipation() * range), this.speed.getScaled()));
+        return jre.lang.JavaNumber.toInt(this.getDamage() - (jre.lang.JavaNumber.divide((this.getDissipation() * range), this.speed.getScaled())));
     }
 
     private static final DAMAGE : String = "Damage: ";

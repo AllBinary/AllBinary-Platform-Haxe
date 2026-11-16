@@ -22,7 +22,7 @@ class OpenGLBitmapFactory extends PlatformBitmapBaseFactory {
         if (args.length == 1) {
             return this.createBitmap_Image(args[0]);
         }
-        throw new jre.lang.IllegalArgumentException("No matching overload: createBitmap");
+        return super.createBitmap(...args);
     }
 
     public function createBitmap_int_int_OpenGLBitmapConfig(width : Int, height : Int, config : OpenGLBitmapConfig) : OpenGLBitmap {
@@ -34,7 +34,7 @@ class OpenGLBitmapFactory extends PlatformBitmapBaseFactory {
         return new OpenGLBitmap(NullUtil.getInstance().NULL_OBJECT);
     }
 
-    public function createBitmap_Image(image : Image) : PlatformBitmapBase {
+    public override function createBitmap_Image(image : Image) : PlatformBitmapBase {
         return new OpenGLBitmap(NullUtil.getInstance().NULL_OBJECT);
     }
 

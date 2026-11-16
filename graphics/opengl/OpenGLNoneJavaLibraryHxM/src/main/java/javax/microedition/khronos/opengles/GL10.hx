@@ -1,9 +1,9 @@
 // Generated Code Do Not Modify
 package javax.microedition.khronos.opengles;
 
-//import java.nio.Buffer;
-//import java.nio.FloatBuffer;
-//import java.nio.IntBuffer;
+import jre.nio.Buffer;
+import jre.nio.FloatBuffer;
+import jre.nio.IntBuffer;
 
 interface GL10 extends GL {
     function glActiveTexture(texture : Int) : Void;
@@ -28,7 +28,9 @@ interface GL10 extends GL {
 
     function glColorMask(red : Bool, green : Bool, blue : Bool, alpha : Bool) : Void;
 
-    function glColorPointer(size : Int, type : Int, stride : Int, pointer : Buffer) : Void;
+    function glColorPointer(...args : Dynamic) : Dynamic;
+
+    function glColorPointer_int_int_int_Buffer(size : Int, type : Int, stride : Int, pointer : Buffer) : Void;
 
     function glCompressedTexImage2D(target : Int, level : Int, internalformat : Int, width : Int, height : Int, border : Int, imageSize : Int, data : Buffer) : Void;
 
@@ -58,7 +60,9 @@ interface GL10 extends GL {
 
     function glDrawArrays(mode : Int, first : Int, count : Int) : Void;
 
-    function glDrawElements(mode : Int, count : Int, type : Int, indices : Buffer) : Void;
+    function glDrawElements(...args : Dynamic) : Dynamic;
+
+    function glDrawElements_int_int_int_Buffer(mode : Int, count : Int, type : Int, indices : Buffer) : Void;
 
     function glEnable(cap : Int) : Void;
 
@@ -146,7 +150,9 @@ interface GL10 extends GL {
 
     function glNormal3f(nx : Float, ny : Float, nz : Float) : Void;
 
-    function glNormalPointer(type : Int, stride : Int, pointer : Buffer) : Void;
+    function glNormalPointer(...args : Dynamic) : Dynamic;
+
+    function glNormalPointer_int_int_Buffer(type : Int, stride : Int, pointer : Buffer) : Void;
 
     function glOrthof(left : Float, right : Float, bottom : Float, top : Float, zNear : Float, zFar : Float) : Void;
 
@@ -182,7 +188,9 @@ interface GL10 extends GL {
 
     function glStencilOp(fail : Int, zfail : Int, zpass : Int) : Void;
 
-    function glTexCoordPointer(size : Int, type : Int, stride : Int, pointer : Buffer) : Void;
+    function glTexCoordPointer(...args : Dynamic) : Dynamic;
+
+    function glTexCoordPointer_int_int_int_Buffer(size : Int, type : Int, stride : Int, pointer : Buffer) : Void;
 
     function glTexEnvf(target : Int, pname : Int, param : Float) : Void;
 
@@ -196,13 +204,17 @@ interface GL10 extends GL {
 
     function glTexParameterf(target : Int, pname : Int, param : Float) : Void;
 
-    function glTexParameteri(target : Int, pname : Int, param : Int) : Void;
+    function glTexParameteri(...args : Dynamic) : Dynamic;
+
+    function glTexParameteri_int_int_int(target : Int, pname : Int, param : Int) : Void;
 
     function glTexSubImage2D(target : Int, level : Int, xoffset : Int, yoffset : Int, width : Int, height : Int, format : Int, type : Int, pixels : Buffer) : Void;
 
     function glTranslatef(x : Float, y : Float, z : Float) : Void;
 
-    function glVertexPointer(size : Int, type : Int, stride : Int, pointer : Buffer) : Void;
+    function glVertexPointer(...args : Dynamic) : Dynamic;
+
+    function glVertexPointer_int_int_int_Buffer(size : Int, type : Int, stride : Int, pointer : Buffer) : Void;
 
     function glViewport(x : Int, y : Int, width : Int, height : Int) : Void;
 

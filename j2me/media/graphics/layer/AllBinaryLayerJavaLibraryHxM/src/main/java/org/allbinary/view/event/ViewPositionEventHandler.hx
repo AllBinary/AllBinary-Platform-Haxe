@@ -51,7 +51,7 @@ class ViewPositionEventHandler extends BasicEventHandler {
     }
 
     // throws Exception
-    public override function fireEvent(eventObject : AllBinaryEventObject) : Void {
+    public override function fireEvent_AllBinaryEventObject(eventObject : AllBinaryEventObject) : Void {
         {
             var index : Int = this.list.size();
             while (--index >= 0) {

@@ -39,7 +39,7 @@ class HealthHudWidget extends BasicHud implements PaintableInterface implements 
         this.animationInterface = animationInterface;
         this.healthInterface = healthInterface;
         this.healthInterface.addListener(this);
-        this.healthScale = (jre.lang.JavaNumber.divide(this.healthInterface.getMaxHealth(), 6)) + 1;
+        this.healthScale = jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide(this.healthInterface.getMaxHealth(), 6)) + 1);
         this.onHealthChange();
         this.updateMaxWidth = healthInterface.getMaxHealth() * 16;
         this.updateMaxHeight = 16;
@@ -65,7 +65,7 @@ class HealthHudWidget extends BasicHud implements PaintableInterface implements 
     private final mediumBeatTimeDelayHelper : TimeDelayHelper = new TimeDelayHelper(640);
     private final fastBeatTimeDelayHelper : TimeDelayHelper = new TimeDelayHelper(320);
     public function onHealthChange() : Void {
-        this.max = (jre.lang.JavaNumber.divide(this.healthInterface.getHealth(), this.healthScale));
+        this.max = jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide(this.healthInterface.getHealth(), this.healthScale)));
         this.timeDelayHelper = NoTimeDelayHelper.SINGLETON;
         if (this.max <= 1 && this.healthInterface.isAlive()) {
             this.max = 1;

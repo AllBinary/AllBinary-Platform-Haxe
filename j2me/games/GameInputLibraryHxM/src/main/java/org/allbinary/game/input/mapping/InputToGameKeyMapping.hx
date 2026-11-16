@@ -44,7 +44,7 @@ class InputToGameKeyMapping extends InputMapping {
     public var negativePlatformToGameKeyMapping : haxe.ds.Vector<GameKey> = haxe.ds.Vector.fromArrayCopy([for (index in 0...0) null]);
     public function new() {
         super();
-        this.mappedGameKeys = haxe.ds.Vector.fromArrayCopy([this.gameKeyFactory.UP, this.gameKeyFactory.DOWN, this.gameKeyFactory.LEFT, this.gameKeyFactory.RIGHT]);
+        this.mappedGameKeys = haxe.ds.Vector.fromArrayCopy(([this.gameKeyFactory.UP, this.gameKeyFactory.DOWN, this.gameKeyFactory.LEFT, this.gameKeyFactory.RIGHT] : Array<GameKey>));
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         this.clear();
     }

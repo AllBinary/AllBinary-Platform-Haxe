@@ -41,7 +41,7 @@ class ScrollCurrentSelectionForm extends ScrollSelectionForm implements UpdateMy
     }
 
     // throws Exception
-    public override function init(rectangle : Rectangle, formType : FormType) : Void {
+    public override function init_Rectangle_FormType(rectangle : Rectangle, formType : FormType) : Void {
         super.init(rectangle, formType);
         final formTypeFactory : FormTypeFactory = FormTypeFactory.getInstance();
         if (formType == formTypeFactory.TEMP_HORIZONTAL_FORM) {
@@ -98,9 +98,9 @@ class ScrollCurrentSelectionForm extends ScrollSelectionForm implements UpdateMy
             }
             totalHeight += item2.getMinimumHeight() + this.border;
         }
-        this.dx = (jre.lang.JavaNumber.divide((this.rectangle.getWidth() - this.maxWidth), 2));
+        this.dx = jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide((this.rectangle.getWidth() - this.maxWidth), 2)));
         if (this.size() > 0) {
-            this.dy = this.y + (jre.lang.JavaNumber.divide((this.rectangle.getHeight() - totalHeight), 2));
+            this.dy = jre.lang.JavaNumber.toInt(this.y + (jre.lang.JavaNumber.divide((this.rectangle.getHeight() - totalHeight), 2)));
             if (this.moveForSmallScreen) {
                 var maxTitleHeight : Int = 175;
                 if (this.dy < maxTitleHeight) {

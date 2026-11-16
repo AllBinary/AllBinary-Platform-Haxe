@@ -23,9 +23,9 @@ import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
 class DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor extends IncludeFileExtensionsBooleanFileVisitor {
-    private final trackedStrings : TrackedStrings = TrackedStrings.getInstance();
-    private final gitProcessHelper : GitProcessHelper = GitProcessHelper.getInstance();
-    private final includesString : String;
+    private var trackedStrings : TrackedStrings = TrackedStrings.getInstance();
+    private var gitProcessHelper : GitProcessHelper = GitProcessHelper.getInstance();
+    private var includesString : String;
     public function new(...args : Dynamic) {
         if (args.length == 1) {
             final filterStringBasicArrayList : BasicArrayList = args[0];

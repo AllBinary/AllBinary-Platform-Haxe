@@ -18,11 +18,11 @@ package org.allbinary.business.user.role;
 import jre.io.Serializable;
 
 class BasicUserRole implements Serializable {
-    private final m_int_RoleId : Int;
-    private final role : String;
-    private final displayValue : String;
-    private final sessionTimeout : haxe.Int64;
-    private final sessionInactivityTimeout : haxe.Int64;
+    private var m_int_RoleId : Int;
+    private var role : String;
+    private var displayValue : String;
+    private var sessionTimeout : haxe.Int64;
+    private var sessionInactivityTimeout : haxe.Int64;
     public function new(...args : Dynamic) {
         if (args.length == 4) {
             final aRole : String = args[0];

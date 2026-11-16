@@ -27,11 +27,11 @@ class AboutPaintableFactory {
     }
 
     public function new() {
-        final INFO : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy(["Built with the", "AllBinary Platform", StringUtil.getInstance().EMPTY_STRING, "Comments or Questions:", "support@allbinary.com"]);
-        final DEVELOPERS : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy(["Developed By:", "Travis Berthelot"]);
+        final INFO : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy((["Built with the", "AllBinary Platform", StringUtil.getInstance().EMPTY_STRING, "Comments or Questions:", "support@allbinary.com"] : Array<String>));
+        final DEVELOPERS : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy((["Developed By:", "Travis Berthelot"] : Array<String>));
         this.paintableArray = AboutPaintable.getInstance(INFO, DEVELOPERS).getPaintableArrayInstance();
     }
 
-    public var paintableArray : haxe.ds.Vector<Paintable> = haxe.ds.Vector.fromArrayCopy([NullPaintable.getInstance()]);
+    public var paintableArray : haxe.ds.Vector<Paintable> = haxe.ds.Vector.fromArrayCopy(([NullPaintable.getInstance()] : Array<Paintable>));
 }
 

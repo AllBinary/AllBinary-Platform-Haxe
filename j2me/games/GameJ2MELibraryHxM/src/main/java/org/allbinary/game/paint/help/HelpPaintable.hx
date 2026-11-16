@@ -66,7 +66,7 @@ class HelpPaintable extends Paintable implements UpdateMyFontInterface {
     public override function paint(graphics : Graphics) : Void {
         this.myFontProcessor.process(graphics);
         final halfWidth : Int = this.displayInfo.getLastHalfWidth();
-        graphics.setColor(this.basicColor.intValue());
+        graphics.setColor(jre.lang.JavaObject.intValue(this.basicColor));
         graphics.drawString(this.title, halfWidth - this.titleBeginWidth, this.charHeight, this.anchor);
         final size : Int = this.inputInfo.length;
         for (index in 0...size) {

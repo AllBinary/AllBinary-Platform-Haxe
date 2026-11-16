@@ -46,8 +46,8 @@ import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 
 class LinuxHardware implements HardwareInterface {
-    public final logUtil : LogUtil = LogUtil.getInstance();
-    public final commonStrings : CommonStrings = CommonStrings.getInstance();
+    public var logUtil : LogUtil = LogUtil.getInstance();
+    public var commonStrings : CommonStrings = CommonStrings.getInstance();
     private var componentInterfaceVector : BasicArrayList = null;
     private var videoInterfaceVector : BasicArrayList = null;
     private var hardDriveControllerInterfaceVector : BasicArrayList = null;
@@ -61,8 +61,8 @@ class LinuxHardware implements HardwareInterface {
     private var macInterfaceVector : BasicArrayList = null;
     private var monitorInterfaceVector : BasicArrayList = null;
     private static final PCIFILE : String = "/proc/pci";
-    private final NAME : String = "Linux Hardware Profile";
-    private final MINHARDWARE : Int = 5;
+    private var NAME : String = "Linux Hardware Profile";
+    private var MINHARDWARE : Int = 5;
     public function new(...args : Dynamic) {
         if (args.length == 1) {
             final path : String = args[0];

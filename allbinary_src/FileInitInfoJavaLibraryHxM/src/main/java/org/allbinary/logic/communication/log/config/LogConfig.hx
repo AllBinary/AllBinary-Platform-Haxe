@@ -120,7 +120,7 @@ class LogConfig {
     private function getDoc() : Document {
         var stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append(URLGLOBALS.getWebappPath());
-        stringBuffer.append(PATH_GLOBALS.getInstanceFor().INIT_PATH);
+        stringBuffer.append(PATH_GLOBALS.getInstance().INIT_PATH);
         stringBuffer.append(this.getFileName());
         var file : AbFile = AbFile.createAbFile(Std.string(stringBuffer));
         var document : Document = DomDocumentHelper.create(new AbFileLocalInputStream(file));

@@ -105,7 +105,7 @@ class StringMaker {
     }
 
     public function toString() : String {
-        return [for (index in (0)...(0) + (this.currentLength)) String.fromCharCode(this.charArray[index])].join("");
+        return jre.lang.JavaString.fromChars(this.charArray, 0, this.currentLength);
     }
 
 }

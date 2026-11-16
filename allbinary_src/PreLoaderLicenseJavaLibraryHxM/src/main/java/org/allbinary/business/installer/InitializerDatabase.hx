@@ -29,7 +29,7 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 import org.allbinary.string.CommonStrings;
 
 class InitializerDatabase {
-    public final logUtil : LogUtil = LogUtil.getInstance();
+    public var logUtil : LogUtil = LogUtil.getInstance();
     private var adminDbUserName : String = null;
     private var adminDbPassword : String = null;
     private var adminJdbcDriver : String = null;

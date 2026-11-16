@@ -45,7 +45,7 @@ class OwnershipPaintable extends Paintable implements UpdateMyFontInterface {
     public function new() {
         super();
         this.myFontProcessor = new UpdateMyFontProcessor(this);
-        this.color = this.basicColor.intValue();
+        this.color = jre.lang.JavaObject.intValue(this.basicColor);
     }
 
     public function updateMeasurement(graphics : Graphics) : Void {
@@ -57,7 +57,7 @@ class OwnershipPaintable extends Paintable implements UpdateMyFontInterface {
 
     public override function setBasicColorP(basicColor : BasicColor) : Void {
         this.basicColor = basicColor;
-        this.color = basicColor.intValue();
+        this.color = jre.lang.JavaObject.intValue(basicColor);
     }
 
     public function getBasicColorP() : BasicColor {

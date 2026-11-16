@@ -84,7 +84,15 @@ class ProgressCanvas extends RunnableCanvas implements PaintableInterface implem
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
 
-    public function init(gameMidlet : AllBinaryMidlet) : Void {
+    public function init(...args : Dynamic) : Dynamic {
+        if (args.length == 1) {
+            this.init_AllBinaryMidlet(args[0]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: init");
+    }
+
+    public function init_AllBinaryMidlet(gameMidlet : AllBinaryMidlet) : Void {
         this.allbinaryMidlet = gameMidlet;
     }
 
@@ -190,7 +198,7 @@ class ProgressCanvas extends RunnableCanvas implements PaintableInterface implem
 
     public function paint2(graphics : Graphics) : Void {
         this.myFontProcessor.process(graphics);
-        graphics.setColor(this.backgroundBasicColor.intValue());
+        graphics.setColor(jre.lang.JavaObject.intValue(this.backgroundBasicColor));
         graphics.fillRect(0, 0, this.displayInfo.getLastWidth(), this.displayInfo.getLastHeight());
         this.gauge.paintXY(graphics, 0, 0);
         this.hasPainted = true;

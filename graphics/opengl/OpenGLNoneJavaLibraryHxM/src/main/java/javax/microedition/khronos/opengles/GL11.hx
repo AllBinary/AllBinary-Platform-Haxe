@@ -1,9 +1,9 @@
 // Generated Code Do Not Modify
 package javax.microedition.khronos.opengles;
 
-//import java.nio.Buffer;
-//import java.nio.FloatBuffer;
-//import java.nio.IntBuffer;
+import jre.nio.Buffer;
+import jre.nio.FloatBuffer;
+import jre.nio.IntBuffer;
 
 interface GL11 extends GL10 {
     function glBindBuffer(target : Int, buffer : Int) : Void;
@@ -20,7 +20,9 @@ interface GL11 extends GL10 {
 
     function glColor4ub(red : Int, green : Int, blue : Int, alpha : Int) : Void;
 
-    function glColorPointer(size : Int, type : Int, stride : Int, offset : Int) : Void;
+    function glColorPointer(...args : Dynamic) : Dynamic;
+
+    function glColorPointer_int_int_int_int(size : Int, type : Int, stride : Int, offset : Int) : Void;
 
     function glDeleteBuffers(...args : Dynamic) : Dynamic;
 
@@ -28,7 +30,9 @@ interface GL11 extends GL10 {
 
     function glDeleteBuffers_int_IntBuffer(n : Int, buffers : IntBuffer) : Void;
 
-    function glDrawElements(mode : Int, count : Int, type : Int, offset : Int) : Void;
+    function glDrawElements(...args : Dynamic) : Dynamic;
+
+    function glDrawElements_int_int_int_int(mode : Int, count : Int, type : Int, offset : Int) : Void;
 
     function glGenBuffers(...args : Dynamic) : Dynamic;
 
@@ -90,7 +94,9 @@ interface GL11 extends GL10 {
 
     function glIsTexture(texture : Int) : Bool;
 
-    function glNormalPointer(type : Int, stride : Int, offset : Int) : Void;
+    function glNormalPointer(...args : Dynamic) : Dynamic;
+
+    function glNormalPointer_int_int_int(type : Int, stride : Int, offset : Int) : Void;
 
     function glPointParameterf(pname : Int, param : Float) : Void;
 
@@ -100,7 +106,9 @@ interface GL11 extends GL10 {
 
     function glPointParameterfv_int_FloatBuffer(pname : Int, params : FloatBuffer) : Void;
 
-    function glTexCoordPointer(size : Int, type : Int, stride : Int, offset : Int) : Void;
+    function glTexCoordPointer(...args : Dynamic) : Dynamic;
+
+    function glTexCoordPointer_int_int_int_int(size : Int, type : Int, stride : Int, offset : Int) : Void;
 
     function glTexEnvi(target : Int, pname : Int, param : Int) : Void;
 
@@ -122,7 +130,9 @@ interface GL11 extends GL10 {
 
     function glTexParameteriv_int_int_IntBuffer(target : Int, pname : Int, params : IntBuffer) : Void;
 
-    function glVertexPointer(size : Int, type : Int, stride : Int, offset : Int) : Void;
+    function glVertexPointer(...args : Dynamic) : Dynamic;
+
+    function glVertexPointer_int_int_int_int(size : Int, type : Int, stride : Int, offset : Int) : Void;
 
 }
 

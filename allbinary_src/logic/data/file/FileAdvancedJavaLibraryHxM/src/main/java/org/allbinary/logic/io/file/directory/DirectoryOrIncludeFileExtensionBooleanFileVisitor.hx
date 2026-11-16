@@ -20,7 +20,7 @@ import org.allbinary.logic.io.file.visitor.IncludeFileExtensionsBooleanFileVisit
 import org.allbinary.util.BasicArrayList;
 
 class DirectoryOrIncludeFileExtensionBooleanFileVisitor extends IncludeFileExtensionsBooleanFileVisitor {
-    private final includesString : String;
+    private var includesString : String;
     public function new(...args : Dynamic) {
         if (args.length == 1) {
             final filterStringBasicArrayList : BasicArrayList = args[0];

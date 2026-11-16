@@ -23,7 +23,14 @@ class NoHardwareComponent implements HardwareComponentInterface {
         return NoHardwareComponent.instance;
     }
 
-    public function compareTo(componentInterface : HardwareComponentInterface) : Bool {
+    public function compareTo(...args : Dynamic) : Dynamic {
+        if (args.length == 1) {
+            return this.compareTo_HardwareComponentInterface(args[0]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: compareTo");
+    }
+
+    public function compareTo_HardwareComponentInterface(componentInterface : HardwareComponentInterface) : Bool {
         if (this == componentInterface) {
             return true;
         }

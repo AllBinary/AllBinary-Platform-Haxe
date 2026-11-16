@@ -32,7 +32,15 @@ class CompositeShaderUpdater extends ShaderUpdater {
         super();
     }
 
-    public override function onSurfaceCreated(gl : GL10, eglConfig : EGLConfig, programHandle : Int) : Void {
+    public override function onSurfaceCreated(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            this.onSurfaceCreated_GL10_EGLConfig_int(args[0], args[1], args[2]);
+            return null;
+        }
+        return super.onSurfaceCreated(...args);
+    }
+
+    public function onSurfaceCreated_GL10_EGLConfig_int(gl : GL10, eglConfig : EGLConfig, programHandle : Int) : Void {
     }
 
     public function onSurfaceDestroyed(gl : GL10) : Void {

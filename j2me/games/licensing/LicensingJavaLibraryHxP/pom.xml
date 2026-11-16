@@ -15,7 +15,7 @@
     <modules>
 
         <!--<module>../../platform/android/AndroidResourcesTempJavaLibraryHxM</module>-->
-        <module>../../../../allbinary_src/licensing/ClientInformationMobileLicensingRegistrationJavaLibraryHxM</module>
+        <!--<module>../../../../allbinary_src/licensing/ClientInformationMobileLicensingRegistrationJavaLibraryHxM</module>-->
 
         <!--
         <module>../../../../../working/allbinary_src/licensing/LicenseRegistrationJavaLibraryHxM</module>

@@ -126,7 +126,7 @@ class InputMappingHelpPaintable extends HelpPaintable {
         final keyInfo : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy([for (index in 0...size) null]);
         final keyMappingArray : haxe.ds.Vector<BasicArrayList> = haxe.ds.Vector.fromArrayCopy([for (index in 0...size) null]);
         final actionBasicColor : haxe.ds.Vector<BasicColor> = haxe.ds.Vector.fromArrayCopy([for (index in 0...size) null]);
-        final inputBasicColorArray : haxe.ds.Vector<haxe.ds.Vector<BasicColor>> = new haxe.ds.Vector<BasicColor>(size);
+        final inputBasicColorArray : haxe.ds.Vector<haxe.ds.Vector<BasicColor>> = new haxe.ds.Vector<haxe.ds.Vector<BasicColor>>(size);
         var gameInputMapping : GameInputMapping = null;
         var gameKey : GameKey = null;
         var list : BasicArrayList = null;
@@ -187,7 +187,7 @@ class InputMappingHelpPaintable extends HelpPaintable {
     public override function paint(graphics : Graphics) : Void {
         this.myFontProcessor.process(graphics);
         final halfWidth : Int = this.displayInfo.getLastHalfWidth();
-        graphics.setColor(this.basicColor.intValue());
+        graphics.setColor(jre.lang.JavaObject.intValue(this.basicColor));
         graphics.drawString(this.title, halfWidth - this.titleBeginWidth, this.updateMyFontProperties.charHeight, this.anchor);
         final inputInfo : haxe.ds.Vector<String> = this.inputInfo;
         final size : Int = inputInfo.length;
@@ -215,7 +215,7 @@ class InputMappingHelpPaintable extends HelpPaintable {
                 graphics.drawString(input.getName(), halfWidth - beginWidth + deltaX, y, this.anchor);
                 deltaX += this.updateMyFontProperties.inputDeltaXArray[index][index2];
                 sep = this.updateMyFontProperties.sepArray[index][index2];
-                graphics.setColor(this.basicColor.intValue());
+                graphics.setColor(jre.lang.JavaObject.intValue(this.basicColor));
                 graphics.drawString(sep, halfWidth - beginWidth + deltaX, y, this.anchor);
                 deltaX += this.updateMyFontProperties.sepWidthArray[index][index2];
             }

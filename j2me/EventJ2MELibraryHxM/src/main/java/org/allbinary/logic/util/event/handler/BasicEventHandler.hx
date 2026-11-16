@@ -79,8 +79,16 @@ class BasicEventHandler implements BasicEventHandlerInterface {
         this.eventListenerInterfaceList.remove(eventListenerInterface);
     }
 
+    public function fireEvent(...args : Dynamic) : Dynamic {
+        if (args.length == 1) {
+            this.fireEvent_AllBinaryEventObject(args[0]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: fireEvent");
+    }
+
     // throws Exception
-    public function fireEvent(eventObject : AllBinaryEventObject) : Void {
+    public function fireEvent_AllBinaryEventObject(eventObject : AllBinaryEventObject) : Void {
         var eventListenerInterface : EventListenerInterface = null;
         var index : Int = 0;
         while (index < this.eventListenerInterfaceList.size()) {

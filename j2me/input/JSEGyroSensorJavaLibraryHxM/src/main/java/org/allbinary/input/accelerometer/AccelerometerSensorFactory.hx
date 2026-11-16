@@ -26,13 +26,13 @@ class AccelerometerSensorFactory {
         var features : Features = Features.getInstance();
         var sensorFeatureFactory : SensorFeatureFactory = SensorFeatureFactory.getInstance();
         if (features.isFeature(sensorFeatureFactory.ORIENTATION_SENSORS)) {
-            throw new haxe.Exception("No Orientation Sensors");
+            throw new jre.lang.JavaException("No Orientation Sensors");
         } else if (features.isFeature(sensorFeatureFactory.SIMULATED_ORIENTATION_SENSORS)) {
-            throw new haxe.Exception("No Simulation Sensors");
+            throw new jre.lang.JavaException("No Simulation Sensors");
         } else if (features.isFeature(sensorFeatureFactory.NO_ORIENTATION)) {
             AccelerometerSensorFactory.allBinaryAccelerometerSensor = new NoAccelerometerSensor();
         } else {
-            throw new haxe.Exception("Not Such SensorFeature");
+            throw new jre.lang.JavaException("Not Such SensorFeature");
         }
     }
 

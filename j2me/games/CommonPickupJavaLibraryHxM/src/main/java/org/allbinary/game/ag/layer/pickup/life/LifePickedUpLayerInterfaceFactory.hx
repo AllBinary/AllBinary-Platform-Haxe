@@ -33,7 +33,7 @@ class LifePickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactory im
 
     private var pool : LifeLayerCircularStaticPool = new LifeLayerCircularStaticPool(new LifeLayerFactory(), 1);
     public function new() {
-        super(PickedUpLayerTypeFactory.getInstance().LIFE, IconLayerFactory.getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(LifeResources.getInstance().RESOURCE).getInstance(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(LifeResources.getInstance().RESOURCE).getInstance(0));
+        super(PickedUpLayerTypeFactory.getInstance().LIFE, IconLayerFactory.getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(LifeResources.getInstance().RESOURCE).getInstanceFor(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(LifeResources.getInstance().RESOURCE).getInstanceFor(0));
     }
 
     public function getTotal() : Int {
@@ -45,7 +45,7 @@ class LifePickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactory im
     }
 
     // throws Exception
-    public override function process(sourceLayerInterface : AllBinaryLayer) : Void {
+    public function process(sourceLayerInterface : AllBinaryLayer) : Void {
         this.pool.visit(sourceLayerInterface);
     }
 

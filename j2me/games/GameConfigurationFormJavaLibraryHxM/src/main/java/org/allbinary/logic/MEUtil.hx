@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic;
 
-//import javax.microedition.lcdui.Item;
+import javax.microedition.lcdui.Item;
 import org.allbinary.graphics.displayable.screen.CommandForm;
 
 //Handle the differences in the public platform vs the raw JS build
@@ -26,7 +26,8 @@ class MEUtil {
 
     private static final instance : MEUtil = new MEUtil();
     public function appendItem(form : CommandForm, item : Item) : Void {
-        form.append(item);
+        //The polyglot microemu Form has appendItem in place of the append(Item) overload
+        form.appendItem(item);
     }
 
     public function new() {

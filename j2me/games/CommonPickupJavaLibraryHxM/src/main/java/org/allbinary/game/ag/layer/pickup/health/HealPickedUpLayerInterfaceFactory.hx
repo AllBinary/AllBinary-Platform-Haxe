@@ -33,7 +33,7 @@ class HealPickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactory im
 
     private var pool : HealLayerCircularStaticPool = new HealLayerCircularStaticPool(new HealLayerFactory(), 1);
     public function new() {
-        super(PickedUpLayerTypeFactory.getInstance().HEAL, IconLayerFactory.getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(HealthResources.getInstance().RESOURCE).getInstance(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(HealthResources.getInstance().RESOURCE).getInstance(0));
+        super(PickedUpLayerTypeFactory.getInstance().HEAL, IconLayerFactory.getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(HealthResources.getInstance().RESOURCE).getInstanceFor(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(HealthResources.getInstance().RESOURCE).getInstanceFor(0));
     }
 
     public function getTotal() : Int {
@@ -45,7 +45,7 @@ class HealPickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactory im
     }
 
     // throws Exception
-    public override function process(sourceLayerInterface : AllBinaryLayer) : Void {
+    public function process(sourceLayerInterface : AllBinaryLayer) : Void {
         this.pool.visit(sourceLayerInterface);
     }
 

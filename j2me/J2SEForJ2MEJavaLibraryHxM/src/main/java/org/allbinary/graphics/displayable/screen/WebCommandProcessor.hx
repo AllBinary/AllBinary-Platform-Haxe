@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.displayable.screen;
 
-//import java.awt.Desktop;
+import jre.awt.Desktop;
 import jre.net.URI;
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Command;

@@ -25,7 +25,7 @@ class PointsLayerFactory implements AllBinaryLayerFactoryInterface {
     }
 
     // throws Exception
-    public function getInstance() : AllBinaryLayer {
+    public function getInstanceFor() : AllBinaryLayer {
         return new PointsLayer(this.points);
     }
 

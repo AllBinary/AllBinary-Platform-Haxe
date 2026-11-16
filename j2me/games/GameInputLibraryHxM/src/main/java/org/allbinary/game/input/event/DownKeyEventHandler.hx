@@ -20,7 +20,7 @@ import org.allbinary.logic.util.event.EventListenerInterface;
 
 class DownKeyEventHandler extends DownKeyEventHandlerBase {
     private static final instance : DownKeyEventHandler = new DownKeyEventHandler();
-    private static final instanceArray : haxe.ds.Vector<DownKeyEventHandlerBase> = haxe.ds.Vector.fromArrayCopy([new DownKeyEventHandlerBase(), new DownKeyEventHandlerBase(), new DownKeyEventHandlerBase(), new DownKeyEventHandlerBase(), new DownKeyEventHandlerBase(), new DownKeyEventHandlerBase()]);
+    private static final instanceArray : haxe.ds.Vector<DownKeyEventHandlerBase> = haxe.ds.Vector.fromArrayCopy(([new DownKeyEventHandlerBase(), new DownKeyEventHandlerBase(), new DownKeyEventHandlerBase(), new DownKeyEventHandlerBase(), new DownKeyEventHandlerBase(), new DownKeyEventHandlerBase()] : Array<DownKeyEventHandlerBase>));
     public static function getInstance() : DownKeyEventHandler {
         return DownKeyEventHandler.instance;
     }

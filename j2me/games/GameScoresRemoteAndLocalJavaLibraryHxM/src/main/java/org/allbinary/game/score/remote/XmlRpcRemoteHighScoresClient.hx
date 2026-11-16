@@ -38,8 +38,15 @@ class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient {
         this.setServer(0);
     }
 
+    public override function get(...args : Dynamic) : Dynamic {
+        if (args.length == 2) {
+            return this.get_Any_CryptInterface(args[0], args[1]);
+        }
+        return super.get(...args);
+    }
+
     // throws Exception
-    public override function get(anyType : Any, cryptInterface : CryptInterface) : Any {
+    public function get_Any_CryptInterface(anyType : Any, cryptInterface : CryptInterface) : Any {
         try {
             var param : BasicArrayList = new BasicArrayListD();
             var serverUrl : String = getClientInfo().getLicenseServer(this.getServer());
@@ -59,11 +66,11 @@ class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient {
             param.add(hashtable);
             var result : Any = xmlRpcClient.executeWithCrypt(this.getRemoteMethod(), param, cryptInterface);
             this.logUtil_XmlRpcRemoteHighScoresClient.putF(RESULT + Std.string(result), this, this.commonStrings.GET);
-            isOnline = true;
+            org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient.isOnline = true;
             return result;
         } catch (e : IOException) {
             this.logUtil_XmlRpcRemoteHighScoresClient.put(TRYING_OTHER_SERVERS + ExceptionUtil.getInstance().getStackTrace(e), this, this.commonStrings.GET, e);
-            if (!e.message.startsWith(HOST_NOT_RESOLVED)) {
+            if (!jre.lang.JavaString.startsWith(e.message, HOST_NOT_RESOLVED)) {
                 return this.tryAnother(anyType);
             } else {
                 throw new jre.lang.JavaException(HOST_NOT_RESOLVED_MSG);

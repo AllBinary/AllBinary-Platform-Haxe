@@ -29,7 +29,7 @@ class BasicRandomAI extends BasicAI {
     private var i_random : Int = 0;
     private final inputProbability : InputProbability;
     private final visitor : Visitor;
-    private final keyArray : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy([Canvas.UP, Canvas.DOWN, Canvas.LEFT, Canvas.RIGHT, Canvas.KEY_NUM1, Canvas.KEY_NUM7, Canvas.KEY_NUM9]);
+    private final keyArray : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy(([Canvas.UP, Canvas.DOWN, Canvas.LEFT, Canvas.RIGHT, Canvas.KEY_NUM1, Canvas.KEY_NUM7, Canvas.KEY_NUM9] : Array<Int>));
     public function new(ownerLayerInterface : AllBinaryLayer, gameInput : GameInput, inputProbability : InputProbability, visitor : Visitor) {
         super(ownerLayerInterface, gameInput);
         this.inputProbability = inputProbability;

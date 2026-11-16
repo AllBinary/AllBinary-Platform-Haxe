@@ -41,11 +41,11 @@
         <module>../data/DataJavaLibraryHxM</module>
         -->
 
-        <!--<module>../licensing/TestServiceClientInfoJavaLibraryHxM</module>-->        
+        <module>../licensing/TestServiceClientInfoJavaLibraryHxM</module>        
 
         <module>../data/DataTableInterfacesHxM</module>
         
-        <!--<module>../QueueJavaLibraryHxM</module>-->
+        <module>../QueueJavaLibraryHxM</module>
         
         <!--
         <module>../TokenizerJavaLibraryHxM</module>
@@ -56,17 +56,17 @@
         <module>../JavaUtilLibraryHxM</module>
         <module>../NullInitInfoJavaLibraryHxM</module>        
         <module>../InitInfoJavaLibraryHxM</module>
-        <!--<module>../PreLoaderHttpJavaLibraryHxM</module>-->
+        <module>../PreLoaderHttpJavaLibraryHxM</module>
         
-        <!--<module>../TagsBaseJavaLibraryHxM</module>-->
-        <!--<module>../CustomLoaderJavaLibraryHxM</module>-->
+        <module>../TagsBaseJavaLibraryHxM</module>
+        <module>../CustomLoaderJavaLibraryHxM</module>
         
         <!--
         <module>../logic/data/file/FileJ2SEJavaLibraryHxM</module>
         <module>../logic/data/file/FileJavaLibraryHxM</module>
         -->
 
-        <!--<module>../data/SQLAllBinaryJavaLibraryHxM</module>-->
+        <module>../data/SQLAllBinaryJavaLibraryHxM</module>
 
         <!--
         <module>../licensing/FileLicenseInitInfoJavaLibraryHxM</module>
@@ -74,59 +74,59 @@
 
         <module>../DocumentObjectModelJavaLibraryHxM</module>
 
-        <!--<module>../VisualStyleJavaLibraryHxM</module>-->
+        <module>../VisualStyleJavaLibraryHxM</module>
 
-        <!--<module>../ConfigurationJavaLibraryHxM</module>-->
+        <module>../ConfigurationJavaLibraryHxM</module>
 
-        <!--<module>../VisualTransformBaseJavaLibraryHxM</module>-->
+        <module>../VisualTransformBaseJavaLibraryHxM</module>
 
-        <!--<module>../CategoryBaseJavaLibraryHxM</module>-->
-        <!--<module>../CategoryJavaLibraryHxM</module>-->
+        <module>../CategoryBaseJavaLibraryHxM</module>
+        <module>../CategoryJavaLibraryHxM</module>
 
-        <!--<module>../UserJavaLibraryHxM</module>-->
+        <module>../UserJavaLibraryHxM</module>
 
-        <!--<module>../PaymentGatewayBaseJavaLibraryHxM</module>-->
+        <module>../PaymentGatewayBaseJavaLibraryHxM</module>
 
-        <!--<module>../data/vo/EntitiesBlisketVOJavaLibraryHxM</module>-->
-        <!--<module>../PaymentGatewayJavaLibraryHxM</module>-->
-        <!--<module>../data/vo/EntitiesOrderHistoryVOJavaLibraryHxM</module>-->
-        <!--<module>../data/vo/EntityPaymentGatewayVOJavaLibraryHxM</module>-->
-        <!--<module>../data/vo/EntityStoreFrontVOJavaLibraryHxM</module>-->
+        <module>../data/vo/EntitiesBlisketVOJavaLibraryHxM</module>
+        <module>../PaymentGatewayJavaLibraryHxM</module>
+        <module>../data/vo/EntitiesOrderHistoryVOJavaLibraryHxM</module>
+        <module>../data/vo/EntityPaymentGatewayVOJavaLibraryHxM</module>
+        <module>../data/vo/EntityStoreFrontVOJavaLibraryHxM</module>
 
-        <!--<module>../data/EntitiesBlisketBaseInterfacesJavaLibraryHxM</module>-->
-        <!--<module>../data/EntitiesBlisketBaseJavaLibraryHxM</module>-->
+        <module>../data/EntitiesBlisketBaseInterfacesJavaLibraryHxM</module>
+        <module>../data/EntitiesBlisketBaseJavaLibraryHxM</module>
         
-        <!--<module>../data/EntitiesAdvertisementBaseJavaLibraryHxM</module>-->
-        <!--<module>../data/EntityOrderHistoryJavaLibraryHxM</module>-->
-        <!--<module>../data/EntityPaymentGatewayJavaLibraryHxM</module>-->
-        <!--<module>../data/EntityVisualTransformJavaLibraryHxM</module>-->
-        <!--<module>../data/EntityUserJavaLibraryHxM</module>-->
-        <!--<module>../data/EntityWorkflowJavaLibraryHxM</module>-->
+        <module>../data/EntitiesAdvertisementBaseJavaLibraryHxM</module>
+        <module>../data/EntityOrderHistoryJavaLibraryHxM</module>
+        <module>../data/EntityPaymentGatewayJavaLibraryHxM</module>
+        <module>../data/EntityVisualTransformJavaLibraryHxM</module>
+        <module>../data/EntityUserJavaLibraryHxM</module>
+        <module>../data/EntityWorkflowJavaLibraryHxM</module>
 
-        <!--<module>../SMTPConfigurationJavaLibraryHxM</module>-->
-        <!--<module>../SMTPBaseJavaLibraryHxM</module>-->
+        <module>../SMTPConfigurationJavaLibraryHxM</module>
+        <module>../SMTPBaseJavaLibraryHxM</module>
 
-        <!--<module>../VisualTransformJavaLibraryHxM</module>-->
+        <module>../VisualTransformJavaLibraryHxM</module>
 
-        <!--<module>../../replace_these_stub_projects/allbinary_src/YourRuntimeEnvironmentJavaLibraryHxM</module>-->
-        <!--<module>../GatewayJavaLibraryHxM</module>-->
+        <module>../../replace_these_stub_projects/allbinary_src/YourRuntimeEnvironmentJavaLibraryHxM</module>
+        <module>../GatewayJavaLibraryHxM</module>
         
-        <!--<module>../WorkflowBaseJavaLibraryHxM</module>-->
-        <!--<module>../WorkflowJavaLibraryHxM</module>-->
+        <module>../WorkflowBaseJavaLibraryHxM</module>
+        <module>../WorkflowJavaLibraryHxM</module>
 
-        <!--<module>../IdGeneratorUsingFilesJavaLibraryHxM</module>-->
-        <!--<module>../BlisketPreVOJavaLibraryHxM</module>-->
+        <module>../IdGeneratorUsingFilesJavaLibraryHxM</module>
+        <module>../BlisketPreVOJavaLibraryHxM</module>
 
         <!-- 
         EntitiesOrderHistoryVOJavaLibrary
         UserJavaLibrary
         -->
         
-        <!--<module>../BlisketVOJavaLibraryHxM</module>-->
+        <module>../BlisketVOJavaLibraryHxM</module>
 
-        <!--<module>../UserCommerceJavaLibraryHxM</module>-->
+        <module>../UserCommerceJavaLibraryHxM</module>
 
-        <!--<module>../CustomizerValidatorsJavaLibraryHxM</module>-->
+        <module>../CustomizerValidatorsJavaLibraryHxM</module>
 
         <!-- 
         AllBinaryCacheForShiftOneJavaLibrary
@@ -135,11 +135,11 @@
         ImageJavaLibrary
         -->
         
-        <!--<module>../logic/data/file/FileMediaJ2SEJavaLibraryHxM</module>-->
-        <!--<module>../BlisketBaseJavaLibraryHxM</module>-->
+        <module>../logic/data/file/FileMediaJ2SEJavaLibraryHxM</module>
+        <module>../BlisketBaseJavaLibraryHxM</module>
 
-        <!--<module>../logging/LoggingGAEAllHxM</module>-->
-        <!--<module>../BlisketJavaLibraryHxM</module>-->
+        <module>../logging/LoggingGAEAllHxM</module>
+        <module>../BlisketJavaLibraryHxM</module>
         
     </modules>
 

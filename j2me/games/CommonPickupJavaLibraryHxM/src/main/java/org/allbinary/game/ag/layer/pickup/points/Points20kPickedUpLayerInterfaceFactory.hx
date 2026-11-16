@@ -34,7 +34,7 @@ class Points20kPickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFacto
 
     private var pool : PointsLayerCircularStaticPool = new PointsLayerCircularStaticPool(new PointsLayerFactory(GameConfigurationUtil.getInstance().getCompetitionValue() * 20000), 1);
     public function new() {
-        super(PickedUpLayerTypeFactory.getInstance().POINTS, IconLayerFactory.getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_2).getInstance(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_2).getInstance(0));
+        super(PickedUpLayerTypeFactory.getInstance().POINTS, IconLayerFactory.getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_2).getInstanceFor(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_2).getInstanceFor(0));
     }
 
     public function getTotal() : Int {
@@ -46,7 +46,7 @@ class Points20kPickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFacto
     }
 
     // throws Exception
-    public override function process(sourceLayerInterface : AllBinaryLayer) : Void {
+    public function process(sourceLayerInterface : AllBinaryLayer) : Void {
         this.pool.visit(sourceLayerInterface);
     }
 

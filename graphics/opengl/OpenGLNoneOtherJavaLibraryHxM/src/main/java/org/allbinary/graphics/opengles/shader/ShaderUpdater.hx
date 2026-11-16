@@ -28,7 +28,15 @@ class ShaderUpdater {
 
     public final commonStrings : CommonStrings = CommonStrings.getInstance();
     public final rendererStrings : RendererStrings = RendererStrings.getInstance();
-    public function onSurfaceCreated(gl : GL10, eglConfig : EGLConfig) : Void {
+    public function onSurfaceCreated(...args : Dynamic) : Dynamic {
+        if (args.length == 2) {
+            this.onSurfaceCreated_GL10_EGLConfig(args[0], args[1]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: onSurfaceCreated");
+    }
+
+    public function onSurfaceCreated_GL10_EGLConfig(gl : GL10, eglConfig : EGLConfig) : Void {
     }
 
     public function new() {

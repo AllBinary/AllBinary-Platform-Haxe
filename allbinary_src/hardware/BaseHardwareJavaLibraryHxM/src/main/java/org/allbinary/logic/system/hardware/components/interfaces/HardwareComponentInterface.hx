@@ -17,7 +17,9 @@ package org.allbinary.logic.system.hardware.components.interfaces;
 
 
 interface HardwareComponentInterface {
-    function compareTo(componentInterface : HardwareComponentInterface) : Bool;
+    function compareTo(...args : Dynamic) : Dynamic;
+
+    function compareTo_HardwareComponentInterface(componentInterface : HardwareComponentInterface) : Bool;
 
     function toString() : String;
 

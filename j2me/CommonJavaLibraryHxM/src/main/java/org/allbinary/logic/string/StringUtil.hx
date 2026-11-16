@@ -33,7 +33,7 @@ class StringUtil {
     public var ONE_EMPTY_STRING_ARRAY_OF_ARRAYS : haxe.ds.Vector<haxe.ds.Vector<String>> = haxe.ds.Vector.fromArrayCopy([for (index in 0...0) haxe.ds.Vector.fromArrayCopy([for (index2 in 0...0) null])]);
     private final stringArray : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy([for (index in 0...0) null]);
     public function new() {
-        this.ONE_EMPTY_STRING_ARRAY = haxe.ds.Vector.fromArrayCopy([this.EMPTY_STRING]);
+        this.ONE_EMPTY_STRING_ARRAY = haxe.ds.Vector.fromArrayCopy(([this.EMPTY_STRING] : Array<String>));
     }
 
     public function getNonNull(string : String) : String {

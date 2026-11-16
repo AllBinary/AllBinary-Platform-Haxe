@@ -22,7 +22,7 @@ class GDResources {
         return GDResources.instance;
     }
 
-    public final resourceStringArray : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy([]);
+    public final resourceStringArray : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy(([] : Array<String>));
     public var currentLayoutRequiredTotal : Int = 0;
     public function new() {
     }

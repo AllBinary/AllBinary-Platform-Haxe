@@ -30,7 +30,7 @@ class FilePathUtil {
         if (stringValidationUtil.isEmpty(path)) {
             return filePathData.PATH_START;
         }
-        path = StringTools.replace(path, abPathData.SEPARATORCHAR, filePathData.SEPARATORCHAR);
+        path = StringTools.replace(path, jre.lang.JavaString.text(abPathData.SEPARATORCHAR), jre.lang.JavaString.text(filePathData.SEPARATORCHAR));
         return path;
     }
 

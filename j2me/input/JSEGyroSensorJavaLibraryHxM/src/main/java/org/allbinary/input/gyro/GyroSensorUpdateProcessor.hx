@@ -19,7 +19,7 @@ import org.allbinary.canvas.Processor;
 
 class GyroSensorUpdateProcessor extends Processor {
     // throws Exception
-    public function process() : Void {
+    public override function process() : Void {
     }
 
     public function new() {

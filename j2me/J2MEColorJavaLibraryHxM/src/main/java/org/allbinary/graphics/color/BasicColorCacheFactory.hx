@@ -29,7 +29,7 @@ class BasicColorCacheFactory {
     }
 
     public function add(basicDefaultColor : BasicColor) : Void {
-        this.hashtable.put(basicDefaultColor.intValue(), basicDefaultColor);
+        this.hashtable.put(jre.lang.JavaObject.intValue(basicDefaultColor), basicDefaultColor);
     }
 
     // synchronized

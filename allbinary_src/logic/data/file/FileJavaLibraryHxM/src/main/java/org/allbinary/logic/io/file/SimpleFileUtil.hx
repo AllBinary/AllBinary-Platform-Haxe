@@ -92,7 +92,7 @@ class SimpleFileUtil {
                     returnLine = 0;
                 }
             }
-            final s : String = haxe.io.Bytes.ofData(byteArray, startIndex, (index + includeReturnLine - returnLine - startIndex)).toString();
+            final s : String = jre.lang.JavaString.fromBytes(byteArray, startIndex, (index + includeReturnLine - returnLine - startIndex));
             stringList.add(s);
             index++;
         }

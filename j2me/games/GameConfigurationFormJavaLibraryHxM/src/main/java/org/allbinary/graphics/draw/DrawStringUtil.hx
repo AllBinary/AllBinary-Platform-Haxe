@@ -62,7 +62,7 @@ class DrawStringUtil {
                         currentLength = size - offset;
                     }
                     if (offset + currentLength != size) {
-                        while (currentLength > 0 && stringArray[index].charAt(offset + currentLength) != " ".code) {
+                        while (currentLength > 0 && jre.lang.JavaString.charAt(stringArray[index], offset + currentLength) != " ".code) {
                             currentLength--;
                         }
                         if (currentLength <= 4) {

@@ -42,7 +42,7 @@ class BasicCryptUtil {
             buffer.write(ch);
         }
         var decrypted : haxe.ds.Vector<Int> = cryptInterface.decrypt(buffer.toByteArray());
-        var decryptedString : String = haxe.io.Bytes.ofData(decrypted).toString();
+        var decryptedString : String = jre.lang.JavaString.fromBytes(decrypted);
         var index : Int = decryptedString.indexOf(this.XML_START);
         if (index > 0) {
             decryptedString = decryptedString.substring(index);

@@ -30,7 +30,7 @@ class LimitCommandsVisitor extends Visitor {
         this.isNotSmallDisplay = (displayInfo.isPortrait() && displayInfo.getLastHeight() > ScreenInfo.getInstance().SMALL_WIDTH) || (!displayInfo.isPortrait() && displayInfo.getLastHeight() > ScreenInfo.getInstance().SMALL_HEIGHT);
     }
 
-    public override function visit(anyType : Any) : Any {
+    public override function visit_Any(anyType : Any) : Any {
         var command : Command = (cast anyType : Command);
         var booleanFactory : BooleanFactory = BooleanFactory.getInstance();
         if (this.isNotSmallDisplay || command.getPriority() == 1 || command == GameCommandsFactory.getInstance().EXIT_COMMAND || command == GameCommandsFactory.getInstance().EXIT_WITHOUT_PROGRESS_COMMAND) {

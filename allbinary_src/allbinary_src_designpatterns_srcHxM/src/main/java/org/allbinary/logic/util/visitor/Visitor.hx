@@ -20,7 +20,14 @@ import org.allbinary.logic.NullUtil;
 class Visitor implements VisitorInterface {
     private static final instance : Visitor = new Visitor();
     public final nullUtil : NullUtil = NullUtil.getInstance();
-    public function visit(anyType : Any) : Any {
+    public function visit(...args : Dynamic) : Dynamic {
+        if (args.length == 1) {
+            return this.visit_Any(args[0]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: visit");
+    }
+
+    public function visit_Any(anyType : Any) : Any {
         return this.nullUtil.NULL_OBJECT;
     }
 

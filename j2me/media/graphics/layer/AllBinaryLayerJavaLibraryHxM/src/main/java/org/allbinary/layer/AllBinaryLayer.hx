@@ -41,7 +41,7 @@ class AllBinaryLayer extends Layer implements LayerInterface {
     public function new(name : String, rectangle : Rectangle, viewPosition : ViewPositionBase) {
         super(rectangle.getWidth(), rectangle.getHeight());
         this.viewPositionEvent = new ViewPositionEvent(this);
-        final localName : String = null;
+        var localName : String = null;
         localName = Std.string(new StringMaker().append(name).append(CommonSeps.getInstance().COLON).append(StringTools.hex(TsUtil.getInstance().hashCode(this))));
         this.name = localName;
         final point : GPoint = rectangle.getPoint();

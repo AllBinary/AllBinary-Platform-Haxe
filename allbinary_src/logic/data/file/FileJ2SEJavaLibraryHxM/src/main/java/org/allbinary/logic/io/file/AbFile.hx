@@ -129,7 +129,7 @@ class AbFile implements AbFileInterface {
     }
 
     public function length() : haxe.Int64 {
-        return haxe.Int64.ofInt(this.file.length());
+        return jre.lang.JavaNumber.toInt64(this.file.length());
     }
 
     // throws IOException

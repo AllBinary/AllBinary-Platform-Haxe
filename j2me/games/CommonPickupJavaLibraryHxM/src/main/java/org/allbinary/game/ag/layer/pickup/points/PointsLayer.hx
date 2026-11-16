@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.layer.pickup.points;
 
-//import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.score.ScoreableInterface;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;

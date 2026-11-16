@@ -17,8 +17,10 @@ package org.allbinary.init;
 
 
 interface UpdateInterface {
+    function update(...args : Dynamic) : Dynamic;
+
     // throws Exception
-    function update() : Void;
+    function update_() : Void;
 
 }
 

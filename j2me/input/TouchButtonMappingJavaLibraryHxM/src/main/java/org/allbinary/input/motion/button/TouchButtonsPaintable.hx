@@ -29,7 +29,7 @@ class TouchButtonsPaintable extends Paintable {
     public function new(basicColor : BasicColor) {
         super();
         this.foregroundBasicColor = basicColor;
-        this.foregroundColor = basicColor.intValue();
+        this.foregroundColor = jre.lang.JavaObject.intValue(basicColor);
     }
 
     public override function paint(graphics : Graphics) : Void {

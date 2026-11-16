@@ -39,7 +39,7 @@ class ResourceLoadingLevelFactory {
     }
 
     public function new() {
-        this.RESOURCE_LOADING_LEVEL_ARRAY = haxe.ds.Vector.fromArrayCopy([this.LOAD_ALL, this.MAX_LEVEL, this.LEVEL, this.LOAD_GAME, this.LOAD_TOUCH, this.LOAD_EARLY]);
+        this.RESOURCE_LOADING_LEVEL_ARRAY = haxe.ds.Vector.fromArrayCopy(([this.LOAD_ALL, this.MAX_LEVEL, this.LEVEL, this.LOAD_GAME, this.LOAD_TOUCH, this.LOAD_EARLY] : Array<ResourceLoadingLevel>));
     }
 }
 

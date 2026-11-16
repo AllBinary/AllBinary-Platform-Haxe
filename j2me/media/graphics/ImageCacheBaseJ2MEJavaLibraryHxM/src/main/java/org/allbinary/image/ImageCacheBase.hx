@@ -101,8 +101,15 @@ class ImageCacheBase {
         return NullImage.NULL_IMAGE;
     }
 
+    public function get(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            return this.get_String_int_int(args[0], args[1], args[2]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: get");
+    }
+
     // throws Exception
-    public function get(caller : String, width : Int, height : Int) : Image {
+    public function get_String_int_int(caller : String, width : Int, height : Int) : Image {
         throw new jre.lang.JavaException();
     }
 
@@ -111,8 +118,15 @@ class ImageCacheBase {
         throw new jre.lang.JavaException();
     }
 
+    public function createImage(...args : Dynamic) : Dynamic {
+        if (args.length == 3) {
+            return this.createImage_String_int_int(args[0], args[1], args[2]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: createImage");
+    }
+
     // throws Exception
-    public function createImage(caller : String, width : Int, height : Int) : Image {
+    public function createImage_String_int_int(caller : String, width : Int, height : Int) : Image {
         return this.imageFactory.createImage(caller, width, height);
     }
 
@@ -149,7 +163,15 @@ class ImageCacheBase {
         return this.hashtable;
     }
 
-    public function init(image : Image) : Void {
+    public function init(...args : Dynamic) : Dynamic {
+        if (args.length == 1) {
+            this.init_Image(args[0]);
+            return null;
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: init");
+    }
+
+    public function init_Image(image : Image) : Void {
     }
 
     public function initProgress() : Void {

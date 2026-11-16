@@ -51,7 +51,7 @@ class LicenseInitInfoUtil {
     // synchronized
     public function write(initData : LicenseInitInfo) : Void {
         if (this.filePath == this.stringUtil.EMPTY_STRING) {
-            this.filePath = URLGLOBALS.getMainPath() + PATH_GLOBALS.getInstanceFor().INIT_PATH;
+            this.filePath = URLGLOBALS.getMainPath() + PATH_GLOBALS.getInstance().INIT_PATH;
         }
         try {
             final tsUtil : TsUtil = TsUtil.getInstance();
@@ -83,7 +83,7 @@ class LicenseInitInfoUtil {
     public function readAgain(initializeCounter : Int) : LicenseInitInfo {
         final METHOD_NAME : String = "readAgain";
         if (this.filePath == this.stringUtil.EMPTY_STRING) {
-            this.filePath = URLGLOBALS.getMainPath() + PATH_GLOBALS.getInstanceFor().INIT_PATH;
+            this.filePath = URLGLOBALS.getMainPath() + PATH_GLOBALS.getInstance().INIT_PATH;
         }
         try {
             this.logUtil.putF("LicenseInitInfo File: " + this.INITFILENAME, this, METHOD_NAME);
@@ -93,14 +93,14 @@ class LicenseInitInfoUtil {
                 final iData : AbDataInputStream = new AbDataInputStream(iFile);
                 final initInfo : LicenseInitInfo = new LicenseInitInfo();
                 var decodedByteArray : haxe.ds.Vector<Int> = DatabaseEncoder.decode(iData.readUTF());
-                final licenseIdDecoded : String = haxe.io.Bytes.ofData(decodedByteArray).toString();
+                final licenseIdDecoded : String = jre.lang.JavaString.fromBytes(decodedByteArray);
                 initInfo.setLicenseId(new WeakCrypt(1).decrypt(licenseIdDecoded));
                 var numberOfLicenseServers : Int = iData.readInt();
                 final NEXT_FILE : String = Std.string(new StringMaker().append(CommonLabels.getInstance().NEXT).append(" License Server From File: "));
                 var licenseServerDecoded : String = null;
                 for (index in 0...numberOfLicenseServers) {
                     decodedByteArray = DatabaseEncoder.decode(iData.readUTF());
-                    licenseServerDecoded = haxe.io.Bytes.ofData(decodedByteArray).toString();
+                    licenseServerDecoded = jre.lang.JavaString.fromBytes(decodedByteArray);
                     initInfo.setServer(new WeakCrypt(3).decrypt(licenseServerDecoded), index);
                     this.logUtil.putF(NEXT_FILE + initInfo.getServer(index), this, METHOD_NAME);
                 }

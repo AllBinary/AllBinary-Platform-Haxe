@@ -43,7 +43,7 @@ class HardwareFactory {
     public static function getInstance_GenericOperatingSystem(os : GenericOperatingSystem) : HardwareInterface {
         try {
             final operatingSystems : OperatingSystems = OperatingSystems.getInstance();
-            if (os.getName().compareTo(operatingSystems.LINUX) == 0) {
+            if (jre.lang.JavaObject.compareTo(os.getName(), operatingSystems.LINUX) == 0) {
                 return (cast new LinuxHardware() : HardwareInterface);
             } else if (os.getName().indexOf(operatingSystems.WINDOWS) >= 0) {
                 return (cast new WindowsHardware() : HardwareInterface);

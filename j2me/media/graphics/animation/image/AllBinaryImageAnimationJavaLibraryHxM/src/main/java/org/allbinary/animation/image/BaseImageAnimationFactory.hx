@@ -84,7 +84,7 @@ class BaseImageAnimationFactory implements AnimationInterfaceFactoryInterface {
         final commonSeps : CommonSeps = CommonSeps.getInstance();
         final commonLabels : CommonLabels = CommonLabels.getInstance();
         final stringBuffer : StringMaker = new StringMaker();
-        stringBuffer.append(super.toString());
+        stringBuffer.append(jre.lang.JavaObject.objectToString(this));
         stringBuffer.append(commonLabels.HEIGHT_LABEL);
         stringBuffer.appendint(jre.lang.JavaNumber.toInt(this.image.getHeight()));
         stringBuffer.append(commonSeps.SPACE);

@@ -23,7 +23,7 @@ class AllCommandsVisitor extends Visitor {
         super();
     }
 
-    public override function visit(anyType : Any) : Any {
+    public override function visit_Any(anyType : Any) : Any {
         return BooleanFactory.getInstance().TRUE;
     }
 

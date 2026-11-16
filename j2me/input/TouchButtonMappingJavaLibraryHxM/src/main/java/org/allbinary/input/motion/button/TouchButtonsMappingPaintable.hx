@@ -29,7 +29,7 @@ class TouchButtonsMappingPaintable extends Paintable {
     private var touchButtonLocationHelper : TouchButtonLocationHelper = new TouchButtonLocationHelper();
     public function new(basicColor : BasicColor) {
         super();
-        this.foregroundColor = basicColor.intValue();
+        this.foregroundColor = jre.lang.JavaObject.intValue(basicColor);
         this.init();
     }
 

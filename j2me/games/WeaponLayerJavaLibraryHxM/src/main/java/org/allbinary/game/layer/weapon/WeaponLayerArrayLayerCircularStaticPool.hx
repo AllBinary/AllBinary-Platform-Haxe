@@ -29,9 +29,9 @@ class WeaponLayerArrayLayerCircularStaticPool {
     private var TWO_WEAPONLAYER_ARRAY : haxe.ds.Vector<haxe.ds.Vector<WeaponLayer>> = null;
     private var THREE_WEAPONLAYER_ARRAY : haxe.ds.Vector<haxe.ds.Vector<WeaponLayer>> = null;
     public function init() : Void {
-        final WEAPONLAYER_ARRAY : haxe.ds.Vector<haxe.ds.Vector<WeaponLayer>> = new haxe.ds.Vector<WeaponLayer>(this.MAX * 2);
-        final TWO_WEAPONLAYER_ARRAY : haxe.ds.Vector<haxe.ds.Vector<WeaponLayer>> = new haxe.ds.Vector<WeaponLayer>(this.MAX);
-        final THREE_WEAPONLAYER_ARRAY : haxe.ds.Vector<haxe.ds.Vector<WeaponLayer>> = new haxe.ds.Vector<WeaponLayer>(this.MAX);
+        final WEAPONLAYER_ARRAY : haxe.ds.Vector<haxe.ds.Vector<WeaponLayer>> = new haxe.ds.Vector<haxe.ds.Vector<WeaponLayer>>(this.MAX * 2);
+        final TWO_WEAPONLAYER_ARRAY : haxe.ds.Vector<haxe.ds.Vector<WeaponLayer>> = new haxe.ds.Vector<haxe.ds.Vector<WeaponLayer>>(this.MAX);
+        final THREE_WEAPONLAYER_ARRAY : haxe.ds.Vector<haxe.ds.Vector<WeaponLayer>> = new haxe.ds.Vector<haxe.ds.Vector<WeaponLayer>>(this.MAX);
         for (index in 0...this.MAX) {
             WEAPONLAYER_ARRAY[index] = haxe.ds.Vector.fromArrayCopy([for (index in 0...1) null]);
             TWO_WEAPONLAYER_ARRAY[index] = haxe.ds.Vector.fromArrayCopy([for (index in 0...2) null]);

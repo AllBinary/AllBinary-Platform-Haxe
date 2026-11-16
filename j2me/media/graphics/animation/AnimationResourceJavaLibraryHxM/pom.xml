@@ -105,6 +105,12 @@
 
         <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
         <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>PCResourceLibraryHaxe</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
+        <dependency>
             <groupId>org.allbinary.game</groupId>
             <artifactId>GameResourceNoneJavaLibraryHaxe</artifactId>
             <version>1.0.0-SNAPSHOT</version>
@@ -144,6 +150,84 @@
                             <includes>META-INF/haxe/**</includes>
                             <outputDirectory>${project.build.directory}/haxe-dependencies</outputDirectory>
                             <overWriteSnapshots>true</overWriteSnapshots>
+                        </configuration>
+                    </execution>
+                    <!-- Classes more than one dependency has (stubs, platform variants): the copy with the most members is written again last -->
+                    <execution>
+                        <id>unpack-haxe-winners</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <markersDirectory>${project.build.directory}/haxe-winner-markers</markersDirectory>
+                            <overWriteReleases>true</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.allbinary</groupId>
+                                    <artifactId>BaseMathLibraryHaxe</artifactId>
+                                    <version>1.0.0-SNAPSHOT</version>
+                                    <type>jar</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${project.build.directory}/haxe-dependencies</outputDirectory>
+                                    <includes>META-INF/haxe/org/allbinary/math/PositionStrings.hx</includes>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.microemu</groupId>
+                                    <artifactId>microemu-midpHaxe</artifactId>
+                                    <version>2.0.4</version>
+                                    <type>jar</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${project.build.directory}/haxe-dependencies</outputDirectory>
+                                    <includes>META-INF/haxe/javax/microedition/lcdui/NullCanvas.hx</includes>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.allbinary</groupId>
+                                    <artifactId>NullJ2MELibraryHaxe</artifactId>
+                                    <version>1.0.0-SNAPSHOT</version>
+                                    <type>jar</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${project.build.directory}/haxe-dependencies</outputDirectory>
+                                    <includes>META-INF/haxe/javax/microedition/lcdui/NullCommandListener.hx,META-INF/haxe/javax/microedition/lcdui/NullImage.hx</includes>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.allbinary</groupId>
+                                    <artifactId>NoneOnlyJavaLibraryHaxe</artifactId>
+                                    <version>1.0.0-SNAPSHOT</version>
+                                    <type>jar</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${project.build.directory}/haxe-dependencies</outputDirectory>
+                                    <includes>META-INF/haxe/org/allbinary/AvianUtil.hx,META-INF/haxe/org/allbinary/logic/math/J2SEMath.hx</includes>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.allbinary</groupId>
+                                    <artifactId>J2SEForJ2MEJavaLibraryHaxe</artifactId>
+                                    <version>1.0.0-SNAPSHOT</version>
+                                    <type>jar</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${project.build.directory}/haxe-dependencies</outputDirectory>
+                                    <includes>META-INF/haxe/org/allbinary/TsUtil.hx,META-INF/haxe/org/allbinary/AndroidUtil.hx,META-INF/haxe/org/allbinary/J2MEUtil.hx</includes>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.allbinary</groupId>
+                                    <artifactId>PersonalComputerSystemJavaLibraryHaxe</artifactId>
+                                    <version>1.0.0-SNAPSHOT</version>
+                                    <type>jar</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${project.build.directory}/haxe-dependencies</outputDirectory>
+                                    <includes>META-INF/haxe/org/allbinary/logic/system/hardware/HardwareFactory.hx</includes>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.allbinary</groupId>
+                                    <artifactId>TempJavaLibraryHaxe</artifactId>
+                                    <version>1.0.0-SNAPSHOT</version>
+                                    <type>jar</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${project.build.directory}/haxe-dependencies</outputDirectory>
+                                    <includes>META-INF/haxe/org/allbinary/game/displayable/canvas/NullDisplayable.hx,META-INF/haxe/org/allbinary/persistance/PlatformRecordIdUtil.hx,META-INF/haxe/org/allbinary/PostGameCommandFactory.hx</includes>
+                                </artifactItem>
+                            </artifactItems>
                         </configuration>
                     </execution>
                 </executions>

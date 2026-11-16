@@ -20,7 +20,7 @@ import org.allbinary.logic.util.event.EventListenerInterface;
 
 class DownGameKeyEventHandler extends DownGameKeyEventHandlerBase {
     private static final instance : DownGameKeyEventHandler = new DownGameKeyEventHandler();
-    private static final instanceArray : haxe.ds.Vector<DownGameKeyEventHandlerBase> = haxe.ds.Vector.fromArrayCopy([new DownGameKeyEventHandlerBase(), new DownGameKeyEventHandlerBase(), new DownGameKeyEventHandlerBase(), new DownGameKeyEventHandlerBase(), new DownGameKeyEventHandlerBase(), new DownGameKeyEventHandlerBase()]);
+    private static final instanceArray : haxe.ds.Vector<DownGameKeyEventHandlerBase> = haxe.ds.Vector.fromArrayCopy(([new DownGameKeyEventHandlerBase(), new DownGameKeyEventHandlerBase(), new DownGameKeyEventHandlerBase(), new DownGameKeyEventHandlerBase(), new DownGameKeyEventHandlerBase(), new DownGameKeyEventHandlerBase()] : Array<DownGameKeyEventHandlerBase>));
     public static function getInstance() : DownGameKeyEventHandler {
         return DownGameKeyEventHandler.instance;
     }

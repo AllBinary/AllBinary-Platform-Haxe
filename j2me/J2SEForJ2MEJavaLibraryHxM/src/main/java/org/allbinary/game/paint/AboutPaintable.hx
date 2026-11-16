@@ -44,7 +44,7 @@ class AboutPaintable extends Paintable implements UpdateMyFontInterface {
     private var anchor : Int = Anchor.TOP_LEFT;
     public function new(info : haxe.ds.Vector<String>, developers : haxe.ds.Vector<String>) {
         super();
-        this.paintableArray = haxe.ds.Vector.fromArrayCopy([this]);
+        this.paintableArray = haxe.ds.Vector.fromArrayCopy(([this] : Array<Paintable>));
         this.myFontProcessor = new UpdateMyFontProcessor(this);
         this.info = info;
         this.infoBeginWidth = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.info.length) 0]);

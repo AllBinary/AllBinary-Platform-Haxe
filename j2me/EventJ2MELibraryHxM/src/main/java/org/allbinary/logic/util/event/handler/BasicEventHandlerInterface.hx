@@ -26,8 +26,10 @@ interface BasicEventHandlerInterface {
 
     function addListeners(basicArrayList : BasicArrayList) : Void;
 
+    function fireEvent(...args : Dynamic) : Dynamic;
+
     // throws Exception
-    function fireEvent(eventObject : AllBinaryEventObject) : Void;
+    function fireEvent_AllBinaryEventObject(eventObject : AllBinaryEventObject) : Void;
 
     function removeAllListeners() : Void;
 

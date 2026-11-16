@@ -29,7 +29,7 @@ class TimeHudWidget extends BasicHud {
     }
 
     private final TIME_STRING : String = "Time ";
-    private final TIME_CHAR_ARRAY : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy(["T".code, "i".code, "m".code, "e".code, " ".code]);
+    private final TIME_CHAR_ARRAY : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy((["T".code, "i".code, "m".code, "e".code, " ".code] : Array<Int>));
     private var offset : Int = 0;
     private var string : haxe.ds.Vector<Int> = PrimitiveLongSingleton.getInstance().ZERO;
     private var totalDigits : Int = 1;

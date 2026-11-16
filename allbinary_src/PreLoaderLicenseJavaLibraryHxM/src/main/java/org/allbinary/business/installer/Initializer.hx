@@ -30,7 +30,7 @@ import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.string.CommonStrings;
 
 class Initializer {
-    public final logUtil : LogUtil = LogUtil.getInstance();
+    public var logUtil : LogUtil = LogUtil.getInstance();
     private var userJdbcDriver : String = null;
     private var userName : String = null;
     private var userUserName : String = null;

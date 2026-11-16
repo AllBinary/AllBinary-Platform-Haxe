@@ -15,8 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.media.audio;
 
-//import javax.microedition.media.MediaException;
-//import javax.microedition.media.TimeBase;
+import javax.microedition.media.MediaException;
+import javax.microedition.media.TimeBase;
 
 interface TimeBaseInterface {
     function getTimeBase() : TimeBase;

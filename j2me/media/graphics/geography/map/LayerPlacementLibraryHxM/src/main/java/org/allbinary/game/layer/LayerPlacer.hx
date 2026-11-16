@@ -74,13 +74,13 @@ class LayerPlacer {
         if (layerPlacementType == LayerPlacementTypeFactory.getInstance().MAP) {
             final width : Int = layerPlacementInterface.getWidth();
             final height : Int = layerPlacementInterface.getHeight();
-            final x : Int = (jre.lang.JavaNumber.divide((this.dimension.getX() - width), 2));
-            final y : Int = (jre.lang.JavaNumber.divide((this.dimension.getY() - height), 2));
+            final x : Int = jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide((this.dimension.getX() - width), 2)));
+            final y : Int = jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide((this.dimension.getY() - height), 2)));
             return pointFactory.createXY(x, y);
         } else if (layerPlacementType == LayerPlacementTypeFactory.getInstance().UP) {
             final width : Int = layerPlacementInterface.getWidth();
             final height : Int = layerPlacementInterface.getHeight();
-            final x : Int = (jre.lang.JavaNumber.divide((this.dimension.getX() - width), 2));
+            final x : Int = jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide((this.dimension.getX() - width), 2)));
             final y : Int = -height;
             return pointFactory.createXY(x, y);
         } else {

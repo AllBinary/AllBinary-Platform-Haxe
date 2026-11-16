@@ -20,7 +20,7 @@ import org.allbinary.layer.AllBinaryLayerFactoryInterface;
 
 class HealLayerFactory implements AllBinaryLayerFactoryInterface {
     // throws Exception
-    public function getInstance() : AllBinaryLayer {
+    public function getInstanceFor() : AllBinaryLayer {
         return new HealLayer();
     }
 

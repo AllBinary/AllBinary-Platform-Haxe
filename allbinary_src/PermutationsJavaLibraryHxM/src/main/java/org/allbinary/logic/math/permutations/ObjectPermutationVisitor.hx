@@ -15,7 +15,7 @@ class ObjectPermutationVisitor extends Visitor {
     }
 
     private var stringBuilder : StringMaker = new StringMaker();
-    public override function visit(anyType : Any) : Any {
+    public override function visit_Any(anyType : Any) : Any {
         this.stringBuilder.delete(0, stringBuilder.length());
         this.print(this.data, stringBuilder);
         return NullUtil.getInstance().NULL_OBJECT;

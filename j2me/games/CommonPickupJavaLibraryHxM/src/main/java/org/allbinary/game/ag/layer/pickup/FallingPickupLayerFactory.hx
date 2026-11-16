@@ -21,7 +21,7 @@ import org.allbinary.layer.AllBinaryLayerFactoryInterface;
 
 class FallingPickupLayerFactory implements AllBinaryLayerFactoryInterface {
     // throws Exception
-    public function getInstance() : AllBinaryLayer {
+    public function getInstanceFor() : AllBinaryLayer {
         return new FallingPickupLayer(RemoteInfo.REMOTE_INFO);
     }
 

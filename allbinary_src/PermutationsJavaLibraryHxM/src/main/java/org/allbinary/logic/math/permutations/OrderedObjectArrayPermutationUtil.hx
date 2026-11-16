@@ -71,9 +71,13 @@ class OrderedObjectArrayPermutationUtil {
         var iterations : haxe.Int64 = this.factorial(data.length);
         trace(this.TOTAL_ITERATIONS_TABLE);
         trace(iterations);
-        for (count in 0...iterations - 1) {
+        {
+            var count : haxe.Int64 = 0;
+            while (count < iterations - 1) {
             this.getNext(data);
             visitor.visit(this);
+                count++;
+            }
         }
         trace(this.FINISHED);
     }

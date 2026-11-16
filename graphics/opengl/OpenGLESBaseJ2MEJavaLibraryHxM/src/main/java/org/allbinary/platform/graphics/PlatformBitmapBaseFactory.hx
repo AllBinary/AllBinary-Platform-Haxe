@@ -19,7 +19,14 @@ import javax.microedition.lcdui.Image;
 
 class PlatformBitmapBaseFactory {
     public static final NULL_PLATFORM_BITMAP_BASE_FACTORY : PlatformBitmapBaseFactory = new PlatformBitmapBaseFactory();
-    public function createBitmap(image : Image) : PlatformBitmapBase {
+    public function createBitmap(...args : Dynamic) : Dynamic {
+        if (args.length == 1) {
+            return this.createBitmap_Image(args[0]);
+        }
+        throw new jre.lang.IllegalArgumentException("No matching overload: createBitmap");
+    }
+
+    public function createBitmap_Image(image : Image) : PlatformBitmapBase {
         throw new jre.lang.JavaException();
     }
 

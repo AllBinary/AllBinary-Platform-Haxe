@@ -39,7 +39,7 @@ class DbInitInfo extends DbConnectionInfo {
     private final directory : Directory = Directory.getInstance();
     private final httpData : HttpData = HttpData.getInstance();
     private final GET_URL : String = "getUrl";
-    private final PACKAGE : String = FREEBLISKET_PATH_GLOBALS.getInstanceFor().DBINITPATH;
+    private final PACKAGE : String = FREEBLISKET_PATH_GLOBALS.getInstance().DBINITPATH;
     private var initFileName : String;
     private var hasRead : Bool = false;
     public function new(initFileName : String, read : Bool) {
