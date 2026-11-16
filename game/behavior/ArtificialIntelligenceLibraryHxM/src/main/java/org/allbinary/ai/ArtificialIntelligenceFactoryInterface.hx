@@ -18,7 +18,7 @@ package org.allbinary.ai;
 
 interface ArtificialIntelligenceFactoryInterface {
     // throws Exception
-    function getInstance(anyType : Any) : ArtificialIntelligence;
+    function getInstanceFor(anyType : Any) : ArtificialIntelligence;
 
 }
 

@@ -32,7 +32,7 @@ class AllBinaryVibration extends AllBinaryVibrationME {
     }
 
     public static function init() : Void {
-        if (Std.int(GameConfigurationCentral.getInstance().VIBRATION.getValue()) == 0) {
+        if (jre.lang.JavaObject.intValue(GameConfigurationCentral.getInstance().VIBRATION.getValue()) == 0) {
             AllBinaryVibration.VIBRATION = AllBinaryNoVibration.NO_VIBRATION;
         } else {
             AllBinaryVibration.VIBRATION = new AllBinaryVibration();

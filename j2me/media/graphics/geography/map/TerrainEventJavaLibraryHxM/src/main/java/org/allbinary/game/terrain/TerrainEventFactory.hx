@@ -23,7 +23,7 @@ class TerrainEventFactory implements AllBinaryEventObjectFactoryInterface {
     public function new() {
     }
 
-    public function getInstance() : AllBinaryEventObject {
+    public function getInstanceFor() : AllBinaryEventObject {
         return new TerrainEvent(NullUtil.getInstance().NULL_OBJECT);
     }
 

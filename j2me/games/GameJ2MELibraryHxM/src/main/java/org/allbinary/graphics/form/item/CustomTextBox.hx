@@ -45,7 +45,7 @@ class CustomTextBox extends GameCommandCanvas implements RawKeyEventListener {
     }
 
     private final inputFactory : InputFactory = InputFactory.getInstance();
-    public override function onEventRaw(keyCode : Int, deviceId : Int, repeated : Bool) : Void {
+    public function onEventRaw(keyCode : Int, deviceId : Int, repeated : Bool) : Void {
         this.logUtil.putF(Std.string(new StringMaker().append(this.commonStrings.START).appendint(keyCode)), this, "onEvent");
         this.keyPressedByDevice(keyCode, deviceId);
     }

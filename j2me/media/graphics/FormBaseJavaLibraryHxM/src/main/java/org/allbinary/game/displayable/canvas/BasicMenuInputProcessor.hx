@@ -32,11 +32,11 @@ class BasicMenuInputProcessor extends PlayerGameInput implements BaseMotionGestu
         this.canvas = gameCanvas;
     }
 
-    public override function onMotionGestureEvent(motionGestureEvent : MotionGestureEvent) : Void {
+    public function onMotionGestureEvent(motionGestureEvent : MotionGestureEvent) : Void {
         this.motionGestureEventList.add(motionGestureEvent);
     }
 
-    public override function onScrolledMotionGestureEvent(motionGestureEvent : MotionGestureEvent) : Void {
+    public function onScrolledMotionGestureEvent(motionGestureEvent : MotionGestureEvent) : Void {
     }
 
     private function setCanvas(canvas : MyCanvas) : Void {

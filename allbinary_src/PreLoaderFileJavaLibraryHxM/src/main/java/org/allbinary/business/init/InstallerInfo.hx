@@ -32,7 +32,7 @@ class InstallerInfo {
     public final logUtil : LogUtil = LogUtil.getInstance();
     private static final instance : InstallerInfo = new InstallerInfo();
     private static final INITFILENAME : String = "installerdata.dat";
-    private static final PACKAGE : String = PATH_GLOBALS.getInstance().INIT_PATH;
+    private static final PACKAGE : String = PATH_GLOBALS.getInstanceFor().INIT_PATH;
     private static var userName : String = StringUtil.getInstance().EMPTY_STRING;
     private static var password : String = StringUtil.getInstance().EMPTY_STRING;
     private static var hasRead : Bool = false;
@@ -53,7 +53,7 @@ class InstallerInfo {
             dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedPassword));
             InstallerInfo.hasRead = false;
         } catch (e : haxe.Exception) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().PRELOADERERROR)) {
                 this.logUtil.putF("Failed", this, "write");
             }
             throw e;
@@ -74,12 +74,12 @@ class InstallerInfo {
                 this.setUserName(new WeakCrypt(1).decrypt(decryptedUserName));
                 this.setPassword(new WeakCrypt(2).decrypt(decryptedPassword));
             } else {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADER)) {
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().PRELOADER)) {
                     this.logUtil.putF("Not a File - Failed Loading: " + Std.string(FILEABPATH), this, "read");
                 }
             }
         } catch (e : haxe.Exception) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().PRELOADERERROR)) {
                 this.logUtil.putF("Failed", this, "read");
             }
         }
@@ -105,7 +105,7 @@ class InstallerInfo {
             InstallerInfo.hasRead = true;
             this.read();
             if (InstallerInfo.userName == null || InstallerInfo.password == null) {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADER)) {
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().PRELOADER)) {
                     this.logUtil.putF("Failed", this, "updateIfNeeded");
                 }
             }

@@ -24,7 +24,7 @@ import org.allbinary.graphics.paint.Paintable;
 class SWTBlackPaintable extends Paintable {
     private final basicSetColorUtil : BasicColorSetUtil = BasicColorSetUtil.getInstance();
     private final BLACK : BasicColor = BasicColorFactory.getInstance().BLACK;
-    public function paint(graphics : Graphics) : Void {
+    public override function paint(graphics : Graphics) : Void {
         this.basicSetColorUtil.setBasicColorP(graphics, this.BLACK);
     }
 

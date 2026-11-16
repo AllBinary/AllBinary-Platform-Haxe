@@ -52,8 +52,8 @@ class ImageCopyUtil {
 
     // throws Exception
     public function createImageScale(originalImage : Image, canvasScale : Float, resize : Bool) : Image {
-        var newWidth : Int = Std.int((originalImage.getWidth() * canvasScale));
-        var newHeight : Int = Std.int((originalImage.getHeight() * canvasScale));
+        var newWidth : Int = jre.lang.JavaNumber.toInt((originalImage.getWidth() * canvasScale));
+        var newHeight : Int = jre.lang.JavaNumber.toInt((originalImage.getHeight() * canvasScale));
         if (resize) {
             if (newWidth < newHeight) {
                 newWidth = newHeight;

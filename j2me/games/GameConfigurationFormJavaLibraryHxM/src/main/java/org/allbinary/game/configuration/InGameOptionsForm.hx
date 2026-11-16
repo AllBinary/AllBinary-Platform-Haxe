@@ -33,8 +33,8 @@ class InGameOptionsForm extends CommandForm {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         final gameFeatureFormUtil : GameFeatureFormUtil = GameFeatureFormUtil.getInstance();
-        gameFeatureFormUtil.addChoiceGroup(this, InGameFeatureChoiceGroups.getExclusiveInstance().get(), Choice.EXCLUSIVE);
-        gameFeatureFormUtil.addChoiceGroup(this, InGameFeatureChoiceGroups.getMultipleInstance().get(), Choice.MULTIPLE);
+        gameFeatureFormUtil.addChoiceGroup(this, InGameFeatureChoiceGroups.getExclusiveInstance().get(), javax.microedition.lcdui.Choice.ChoiceFields.EXCLUSIVE);
+        gameFeatureFormUtil.addChoiceGroup(this, InGameFeatureChoiceGroups.getMultipleInstance().get(), javax.microedition.lcdui.Choice.ChoiceFields.MULTIPLE);
         this.initCommands(commandListener);
     }
 

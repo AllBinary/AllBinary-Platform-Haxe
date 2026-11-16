@@ -34,7 +34,7 @@ class ImageArrayBaseRotationAnimation extends RotationAnimation {
     private var currentImage : Image;
     private var totalFrames : Int = 0;
     public function new(originalImageArray : haxe.ds.Vector<Image>, angleInfo : AngleInfo, animationBehavior : AnimationBehavior) {
-        super(angleInfo, CircularIndexUtil.createInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
+        super(angleInfo, CircularIndexUtil.createInstance(jre.lang.JavaNumber.divide(360, angleInfo.getAngleIncrementInfo().getAngleIncrement())), animationBehavior);
         this.originalImageArray = originalImageArray;
         this.setImageArray(this.imageModifierUtil.getImageArray(originalImageArray));
         this.currentImage = this.imageArray[this.circularIndexUtil.getIndex()];
@@ -108,7 +108,7 @@ class ImageArrayBaseRotationAnimation extends RotationAnimation {
     }
 
     // throws Throwable
-    public override function finalize() : Void {
+    public function finalize() : Void {
         final disposalUtil : DisposalUtil = DisposalUtil.getInstance();
         final size2 : Int = this.imageArray.length;
         for (index in 0...size2) {

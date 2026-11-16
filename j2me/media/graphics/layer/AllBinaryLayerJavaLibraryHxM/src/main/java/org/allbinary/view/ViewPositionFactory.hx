@@ -17,7 +17,7 @@ package org.allbinary.view;
 
 
 class ViewPositionFactory implements ViewPositionFactoryInterface {
-    public function getInstance() : ViewPositionBase {
+    public function getInstanceFor() : ViewPositionBase {
         return ViewPosition.getInstanceD();
     }
 

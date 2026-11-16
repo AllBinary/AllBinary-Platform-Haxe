@@ -12,7 +12,7 @@ import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.view.ViewPositionBase;
 
 class TempExplosionWeaponLayer extends SimpleWeaponLayer {
-    public final weaponProperties : WeaponProperties = new WeaponProperties(-haxe.Int64.ofInt(1), -haxe.Int64.ofInt(1), 0, 1000, 0);
+    public final weaponProperties_TempExplosionWeaponLayer : WeaponProperties = new WeaponProperties(-haxe.Int64.ofInt(1), -haxe.Int64.ofInt(1), 0, 1000, 0);
     private final timeDelayHelper : TimeDelayHelper = new TimeDelayHelper(0);
     public function new(name : String, movement : Movement, animationInterface : Animation, rectangle : Rectangle, viewPosition : ViewPositionBase, timeDelay : Int) {
         super(name, RemoteInfo.REMOTE_INFO, -1, movement, animationInterface, SimpleWeaponLayer.createDestroyed(), rectangle, viewPosition);

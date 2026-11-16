@@ -25,7 +25,7 @@ class MultiPlayerGameLayer extends CollidableDestroyableDamageableLayer implemen
         super(groupInterface, name, layerInfo, viewPosition);
     }
 
-    public override function getMultiplayerBehavior() : MultiplayerBehavior {
+    public function getMultiplayerBehavior() : MultiplayerBehavior {
         return MultiplayerBehavior.NULL_MULTIPLAYER_BEHAVIOR;
     }
 

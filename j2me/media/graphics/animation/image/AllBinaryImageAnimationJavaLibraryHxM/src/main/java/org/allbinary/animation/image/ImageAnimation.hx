@@ -74,7 +74,7 @@ class ImageAnimation extends IndexedAnimation {
     }
 
     // throws Throwable
-    public override function finalize() : Void {
+    public function finalize() : Void {
         DisposalUtil.getInstance().disposeImage(this.image);
     }
 

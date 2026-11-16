@@ -23,7 +23,7 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.util.ABHashtable;
 
 class SpinnerAIFactory implements ArtificialIntelligenceInterfaceFactoryInterface {
-    public function getInstance(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
+    public function getInstanceFor(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
         final direction : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy([Canvas.LEFT]);
         return new SpinnerAI(direction, ownerLayerInterface, gameInput);
     }

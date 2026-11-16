@@ -18,7 +18,7 @@ package org.allbinary.logic.util.cache;
 
 interface CacheableInterfaceFactoryInterface {
     // throws Exception
-    function getInstance(key : Any) : CacheableInterface;
+    function getInstanceFor(key : Any) : CacheableInterface;
 
 }
 

@@ -35,11 +35,11 @@ class PlayerGameInputGameLayer extends AllBinaryGameLayer implements PlayerGameI
         this.logUtil.putF("Danger Danger Danger: Should Not Be Called Except For Testing Input", this, canvasStrings.PAINT);
     }
 
-    public override function getPlayerGameInput() : PlayerGameInput {
+    public function getPlayerGameInput() : PlayerGameInput {
         return this.playerGameInput;
     }
 
-    public override function initInputProcessors() : Void {
+    public function initInputProcessors() : Void {
     }
 
     // throws Exception

@@ -55,12 +55,12 @@ class LeftToRightImageAnimation extends ImageSegmentAnimation {
     }
 
     private function update() : Void {
-        this.currentWidth = this.getDrawWidth() * this.getFrame() / this.getSize();
+        this.currentWidth = jre.lang.JavaNumber.divide(this.getDrawWidth() * this.getFrame(), this.getSize());
     }
 
-    private var anchor : Int = Anchor.TOP_LEFT;
+    private var anchor_LeftToRightImageAnimation : Int = Anchor.TOP_LEFT;
     public override function paintXY(graphics : Graphics, x : Int, y : Int) : Void {
-        graphics.drawRegion(this.getImage(), this.getStartX(), this.getStartY(), this.currentWidth, this.getDrawHeight(), Sprite.TRANS_NONE, x, y, this.anchor);
+        graphics.drawRegion(this.getImage(), this.getStartX(), this.getStartY(), this.currentWidth, this.getDrawHeight(), Sprite.TRANS_NONE, x, y, this.anchor_LeftToRightImageAnimation);
     }
 
 }

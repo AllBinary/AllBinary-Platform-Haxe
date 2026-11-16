@@ -32,15 +32,15 @@ class IndexedAnimation extends Animation implements IndexedAnimationInterface {
         return this.animationBehaviorP;
     }
 
-    public override function reset() : Void {
+    public function reset() : Void {
         this.animationBehaviorP.reset();
         this.setFrame(0);
     }
 
-    public override function setFrame(index : Int) : Void {
+    public function setFrame(index : Int) : Void {
     }
 
-    public override function getFrame() : Int {
+    public function getFrame() : Int {
         return 0;
     }
 
@@ -49,11 +49,11 @@ class IndexedAnimation extends Animation implements IndexedAnimationInterface {
         throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
-    public override function getSize() : Int {
+    public function getSize() : Int {
         return 0;
     }
 
-    public override function previousFrame() : Void {
+    public function previousFrame() : Void {
     }
 
     public function isLastFrame() : Bool {
@@ -64,10 +64,10 @@ class IndexedAnimation extends Animation implements IndexedAnimationInterface {
         }
     }
 
-    public override function setSequence(sequence : haxe.ds.Vector<Int>) : Void {
+    public function setSequence(sequence : haxe.ds.Vector<Int>) : Void {
     }
 
-    public override function getSequence() : haxe.ds.Vector<Int> {
+    public function getSequence() : haxe.ds.Vector<Int> {
         return PrimitiveIntUtil.getArrayInstance();
     }
 

@@ -119,8 +119,8 @@ class DisplayInfoSingleton {
         this.logUtil.putF(Std.string(stringMaker.append(this.FULL_WIDTH).appendint(aFullWidth).append(this.FULL_HEIGHT).appendint(aFullHeight).append(Std.string(this))), this, this.SET_LAST_SIZE_METHOD_NAME);
         final operatingSystemInterface : GenericOperatingSystem = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
         if (operatingSystemInterface.isOverScan()) {
-            aLastWidth = aLastWidth * operatingSystemInterface.getOverScanXPercent() / 100;
-            aLastHeight = aLastHeight * operatingSystemInterface.getOverScanYPercent() / 100;
+            aLastWidth = jre.lang.JavaNumber.divide(aLastWidth * operatingSystemInterface.getOverScanXPercent(), 100);
+            aLastHeight = jre.lang.JavaNumber.divide(aLastHeight * operatingSystemInterface.getOverScanYPercent(), 100);
         }
         if (operatingSystemInterface.isScalable()) {
             if (this.isPortraitWH(aLastWidth, aLastHeight)) {
@@ -230,8 +230,8 @@ class DisplayInfoSingleton {
                 this.logUtil.putF(Std.string(stringMaker.append(this.UPDATE_FROM_ORIENTATION_CHANGE)), this, this.commonStrings.UPDATE);
                 final operatingSystemInterface : GenericOperatingSystem = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
                 if (operatingSystemInterface.isOverScan()) {
-                    aLastWidth = aLastWidth * operatingSystemInterface.getOverScanXPercent() / 100;
-                    aLastHeight = aLastHeight * operatingSystemInterface.getOverScanYPercent() / 100;
+                    aLastWidth = jre.lang.JavaNumber.divide(aLastWidth * operatingSystemInterface.getOverScanXPercent(), 100);
+                    aLastHeight = jre.lang.JavaNumber.divide(aLastHeight * operatingSystemInterface.getOverScanYPercent(), 100);
                 }
                 if (operatingSystemInterface.isScalable()) {
                     if (this.isPortraitWH(aLastWidth, aLastHeight)) {

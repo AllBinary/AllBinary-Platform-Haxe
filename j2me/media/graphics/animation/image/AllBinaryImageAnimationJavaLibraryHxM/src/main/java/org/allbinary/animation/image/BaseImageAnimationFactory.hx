@@ -51,8 +51,8 @@ class BaseImageAnimationFactory implements AnimationInterfaceFactoryInterface {
     }
 
     // throws Exception
-    public function getInstance(instanceId : Int) : Animation {
-        return NullAnimationFactory.getFactoryInstance().getInstance(instanceId);
+    public function getInstanceFor(instanceId : Int) : Animation {
+        return NullAnimationFactory.getFactoryInstance().getInstanceFor(instanceId);
     }
 
     public function getImage() : Image {
@@ -66,8 +66,8 @@ class BaseImageAnimationFactory implements AnimationInterfaceFactoryInterface {
     public function setInitialScale(scaleProperties : ScaleProperties) : Void {
         this.scaleProperties = scaleProperties;
         if (this.scaleProperties.shouldScale) {
-            this.scaleProperties.scaleWidth = Std.int((this.animationFactoryInitializationVisitor.width * this.scaleProperties.scaleX));
-            this.scaleProperties.scaleHeight = Std.int((this.animationFactoryInitializationVisitor.height * this.scaleProperties.scaleY));
+            this.scaleProperties.scaleWidth = jre.lang.JavaNumber.toInt((this.animationFactoryInitializationVisitor.width * this.scaleProperties.scaleX));
+            this.scaleProperties.scaleHeight = jre.lang.JavaNumber.toInt((this.animationFactoryInitializationVisitor.height * this.scaleProperties.scaleY));
         } else {
         }
     }
@@ -86,7 +86,7 @@ class BaseImageAnimationFactory implements AnimationInterfaceFactoryInterface {
         final stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append(super.toString());
         stringBuffer.append(commonLabels.HEIGHT_LABEL);
-        stringBuffer.appendint(Std.int(this.image.getHeight()));
+        stringBuffer.appendint(jre.lang.JavaNumber.toInt(this.image.getHeight()));
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(Std.string(this.animationFactoryInitializationVisitor));
         return Std.string(stringBuffer);

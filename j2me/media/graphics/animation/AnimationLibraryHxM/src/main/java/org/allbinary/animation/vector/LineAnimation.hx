@@ -41,7 +41,7 @@ class LineAnimation extends Animation implements ColorCompositeInterface impleme
         this.newLine = this.tempLine;
     }
 
-    public override function setPosition(x : Int, y : Int, z : Int) : Void {
+    public function setPosition(x : Int, y : Int, z : Int) : Void {
         this.newLine[0][0] = this.line[1][0];
         this.newLine[0][1] = this.line[1][1];
         this.newLine[1][0] = x;

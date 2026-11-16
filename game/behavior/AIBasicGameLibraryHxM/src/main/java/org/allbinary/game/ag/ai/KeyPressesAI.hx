@@ -39,7 +39,7 @@ class KeyPressesAI extends BasicAI {
     public override function processAI(allBinaryLayerManager : AllBinaryLayerManager) : Void {
         if (this.on) {
             for (index in 0...this.keys.length) {
-                super.processKeyAI(Std.int(this.keys[index]));
+                super.processKeyAI(jre.lang.JavaObject.intValue(this.keys[index]));
             }
         }
     }

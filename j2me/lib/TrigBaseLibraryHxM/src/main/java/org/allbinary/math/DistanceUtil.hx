@@ -27,7 +27,7 @@ class DistanceUtil {
     public function getDistance(x1 : Int, y1 : Int, x2 : Int, y2 : Int) : Int {
         final dx : Int = x1 - x2;
         final dy : Int = y1 - y2;
-        return Std.int(this.mathUtil.sqrt((dx * dx) + (dy * dy)));
+        return jre.lang.JavaNumber.toInt(this.mathUtil.sqrt((dx * dx) + (dy * dy)));
     }
 
     public function new() {

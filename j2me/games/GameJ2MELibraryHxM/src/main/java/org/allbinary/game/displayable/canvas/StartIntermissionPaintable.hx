@@ -55,12 +55,12 @@ class StartIntermissionPaintable extends InitUpdatePaintable implements UpdateMy
         this.stringArray = stringArray;
         this.lastWidth = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.stringArray.length) 0]);
         this.setBasicColorP(basicColor);
-        this.color = Std.int(basicColor);
+        this.color = basicColor.intValue();
         this.fontSize = font.getSize();
         this.font = font;
     }
 
-    public override function updateMeasurement(graphics : Graphics) : Void {
+    public function updateMeasurement(graphics : Graphics) : Void {
         final font : Font = graphics.getFont();
         this.fontHeightP = font.getHeight();
         this.myFontProcessor = MyFontProcessor.getInstance();

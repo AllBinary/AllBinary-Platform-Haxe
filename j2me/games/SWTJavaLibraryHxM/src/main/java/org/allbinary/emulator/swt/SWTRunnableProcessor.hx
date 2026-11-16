@@ -27,7 +27,7 @@ class SWTRunnableProcessor extends SWTProcessor {
         super();
     }
 
-    public function process(display : Display) : Void {
+    public override function process(display : Display) : Void {
         this.runnable.run();
     }
 

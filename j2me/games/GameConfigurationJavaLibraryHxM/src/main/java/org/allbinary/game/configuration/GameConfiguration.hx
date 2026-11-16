@@ -46,7 +46,7 @@ class GameConfiguration {
         if (this.value != value) {
             final oldValue : Null<Int> = this.value;
             this.value = value;
-            GameFeatureEventHandler.getInstance().fireEvent(new GameFeatureEvent(this, Std.string(new StringMaker().append(this.name).append(" value: from: ").appendint(Std.int(Std.int(oldValue))).append(" to ").appendint(Std.int(Std.int(this.value))))));
+            GameFeatureEventHandler.getInstance().fireEvent(new GameFeatureEvent(this, Std.string(new StringMaker().append(this.name).append(" value: from: ").appendint(jre.lang.JavaNumber.toInt(jre.lang.JavaNumber.toInt(oldValue))).append(" to ").appendint(jre.lang.JavaNumber.toInt(jre.lang.JavaNumber.toInt(this.value))))));
         }
     }
 
@@ -96,15 +96,15 @@ class GameConfiguration {
         stringBuffer.append("Name: ");
         stringBuffer.append(this.name);
         stringBuffer.append(" Min: ");
-        stringBuffer.appendint(Std.int(Std.int(this.getMinValue())));
+        stringBuffer.appendint(jre.lang.JavaNumber.toInt(jre.lang.JavaObject.intValue(this.getMinValue())));
         stringBuffer.append(" Max: ");
-        stringBuffer.appendint(Std.int(Std.int(this.getMaxValue())));
+        stringBuffer.appendint(jre.lang.JavaNumber.toInt(jre.lang.JavaObject.intValue(this.getMaxValue())));
         stringBuffer.append(" Value: ");
-        stringBuffer.appendint(Std.int(Std.int(this.getValue())));
+        stringBuffer.appendint(jre.lang.JavaNumber.toInt(jre.lang.JavaObject.intValue(this.getValue())));
         stringBuffer.append(" Default: ");
-        stringBuffer.appendint(Std.int(Std.int(this.getDefaultValue())));
+        stringBuffer.appendint(jre.lang.JavaNumber.toInt(jre.lang.JavaObject.intValue(this.getDefaultValue())));
         stringBuffer.append(" Modifiable: ");
-        stringBuffer.appendboolean(this.isModifiable());
+        stringBuffer.appendboolean(jre.lang.JavaObject.booleanValue(this.isModifiable()));
         return Std.string(stringBuffer);
     }
 

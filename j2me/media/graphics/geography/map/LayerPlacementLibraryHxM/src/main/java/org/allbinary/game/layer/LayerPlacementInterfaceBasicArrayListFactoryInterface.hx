@@ -18,7 +18,7 @@ package org.allbinary.game.layer;
 import org.allbinary.util.BasicArrayList;
 
 interface LayerPlacementInterfaceBasicArrayListFactoryInterface {
-    function getInstance() : BasicArrayList;
+    function getInstanceFor() : BasicArrayList;
 
     function getOnDemandResources() : haxe.ds.Vector<Int>;
 

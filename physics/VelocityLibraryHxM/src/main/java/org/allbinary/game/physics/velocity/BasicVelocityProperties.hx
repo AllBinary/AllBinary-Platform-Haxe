@@ -92,26 +92,26 @@ class BasicVelocityProperties implements BasicVelocityInterface {
     }
 
     public function setVelocity(magnitude : haxe.Int64, angle : Angle, otherAngle : Angle) : Void {
-        this.setVelocityi(magnitude, Std.int(angle.getValue()), Std.int(otherAngle.getValue()));
+        this.setVelocityi(magnitude, jre.lang.JavaNumber.toInt(angle.getValue()), jre.lang.JavaNumber.toInt(otherAngle.getValue()));
     }
 
     public function addVelocity(magnitude : haxe.Int64, angle : Angle, otherAngle : Angle) : Void {
-        this.addVelocityi(magnitude, Std.int(angle.getValue()), Std.int(otherAngle.getValue()));
+        this.addVelocityi(magnitude, jre.lang.JavaNumber.toInt(angle.getValue()), jre.lang.JavaNumber.toInt(otherAngle.getValue()));
     }
 
     public function setVelocityi(magnitude : haxe.Int64, angle : Int, otherAngle : Int) : Void {
-        final xVector : haxe.Int64 = (this.axisMathVectorUtil.calculateX(magnitude, angle) / this.velocityXBasicDecimal.getScaledFactorValue());
-        final yVector : haxe.Int64 = (this.axisMathVectorUtil.calculateY(magnitude, angle) / this.velocityYBasicDecimal.getScaledFactorValue());
-        final zVector : haxe.Int64 = (this.axisMathVectorUtil.calculateZ(magnitude, otherAngle) / this.velocityZBasicDecimal.getScaledFactorValue());
+        final xVector : haxe.Int64 = (jre.lang.JavaNumber.divide(this.axisMathVectorUtil.calculateX(magnitude, angle), this.velocityXBasicDecimal.getScaledFactorValue()));
+        final yVector : haxe.Int64 = (jre.lang.JavaNumber.divide(this.axisMathVectorUtil.calculateY(magnitude, angle), this.velocityYBasicDecimal.getScaledFactorValue()));
+        final zVector : haxe.Int64 = (jre.lang.JavaNumber.divide(this.axisMathVectorUtil.calculateZ(magnitude, otherAngle), this.velocityZBasicDecimal.getScaledFactorValue()));
         this.velocityXBasicDecimal.setlong(xVector);
         this.velocityYBasicDecimal.setlong(yVector);
         this.velocityZBasicDecimal.setlong(zVector);
     }
 
     public function addVelocityi(magnitude : haxe.Int64, angle : Int, otherAngle : Int) : Void {
-        final xVector : haxe.Int64 = (this.axisMathVectorUtil.calculateX(magnitude, angle) / this.velocityXBasicDecimal.getScaledFactorValue());
-        final yVector : haxe.Int64 = (this.axisMathVectorUtil.calculateY(magnitude, angle) / this.velocityYBasicDecimal.getScaledFactorValue());
-        final zVector : haxe.Int64 = (this.axisMathVectorUtil.calculateZ(magnitude, otherAngle) / this.velocityZBasicDecimal.getScaledFactorValue());
+        final xVector : haxe.Int64 = (jre.lang.JavaNumber.divide(this.axisMathVectorUtil.calculateX(magnitude, angle), this.velocityXBasicDecimal.getScaledFactorValue()));
+        final yVector : haxe.Int64 = (jre.lang.JavaNumber.divide(this.axisMathVectorUtil.calculateY(magnitude, angle), this.velocityYBasicDecimal.getScaledFactorValue()));
+        final zVector : haxe.Int64 = (jre.lang.JavaNumber.divide(this.axisMathVectorUtil.calculateZ(magnitude, otherAngle), this.velocityZBasicDecimal.getScaledFactorValue()));
         this.velocityXBasicDecimal.addlong(xVector);
         this.velocityYBasicDecimal.addlong(yVector);
         this.velocityZBasicDecimal.addlong(zVector);

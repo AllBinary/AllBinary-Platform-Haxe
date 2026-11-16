@@ -29,7 +29,7 @@ class PrimaryThreadPool extends ThreadPool {
     }
 
     public override function runTask(task : Runnable) : Void {
-        this.logUtil.putF(Std.string(new StringMaker().append(StringUtil.getInstance().toString(task)).appendlong(haxe.Int64.ofInt(haxe.Int64.fromFloat(Date.now().getTime())))), this, this.threadPoolStrings.ADD_TASK);
+        this.logUtil.putF(Std.string(new StringMaker().append(StringUtil.getInstance().toString(task)).appendlong(haxe.Int64.fromFloat(Date.now().getTime()))), this, this.threadPoolStrings.ADD_TASK);
         super.runTask(task);
     }
 

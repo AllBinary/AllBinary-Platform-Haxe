@@ -28,7 +28,7 @@ class NullRotationAnimationFactory implements AnimationInterfaceFactoryInterface
         return NullRotationAnimationFactory.NULL_ROTATION_ANIMATION_FACTORY;
     }
 
-    public function getInstance(instanceId : Int) : Animation {
+    public function getInstanceFor(instanceId : Int) : Animation {
         return this.NULL_ANIMATION;
     }
 

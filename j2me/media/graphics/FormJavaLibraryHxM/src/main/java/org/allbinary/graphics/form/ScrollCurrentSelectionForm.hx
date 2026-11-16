@@ -60,7 +60,7 @@ class ScrollCurrentSelectionForm extends ScrollSelectionForm implements UpdateMy
         this.myFontProcessor = this.updateMyFontProcessor;
     }
 
-    public override function updateMeasurement(graphics : Graphics) : Void {
+    public function updateMeasurement(graphics : Graphics) : Void {
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
 
@@ -98,9 +98,9 @@ class ScrollCurrentSelectionForm extends ScrollSelectionForm implements UpdateMy
             }
             totalHeight += item2.getMinimumHeight() + this.border;
         }
-        this.dx = ((this.rectangle.getWidth() - this.maxWidth) / 2);
+        this.dx = (jre.lang.JavaNumber.divide((this.rectangle.getWidth() - this.maxWidth), 2));
         if (this.size() > 0) {
-            this.dy = this.y + ((this.rectangle.getHeight() - totalHeight) / 2);
+            this.dy = this.y + (jre.lang.JavaNumber.divide((this.rectangle.getHeight() - totalHeight), 2));
             if (this.moveForSmallScreen) {
                 var maxTitleHeight : Int = 175;
                 if (this.dy < maxTitleHeight) {

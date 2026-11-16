@@ -24,7 +24,7 @@ class GameKey extends Input {
         super(key, name);
     }
 
-    public function toString() : String {
+    public override function toString() : String {
         return Std.string(new StringMaker().append("GameKey ").append(super.toString()));
     }
 

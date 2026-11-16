@@ -32,7 +32,7 @@ class CompositeShaderUpdater extends ShaderUpdater {
         super();
     }
 
-    public function onSurfaceCreated(gl : GL10, eglConfig : EGLConfig, programHandle : Int) : Void {
+    public override function onSurfaceCreated(gl : GL10, eglConfig : EGLConfig, programHandle : Int) : Void {
     }
 
     public function onSurfaceDestroyed(gl : GL10) : Void {

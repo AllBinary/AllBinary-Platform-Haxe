@@ -20,7 +20,7 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 
 class ClientInformationFactory {
-    public function getInstance() : ClientInformation {
+    public function getInstanceFor() : ClientInformation {
         final logUtil : LogUtil = LogUtil.getInstance();
         final commonStrings : CommonStrings = CommonStrings.getInstance();
         logUtil.putF(commonStrings.NOT_IMPLEMENTED, this, commonStrings.GET_INSTANCE);

@@ -34,7 +34,7 @@ class SmallBasicColorCacheFactory {
 
     public function add(basicDefaultColor : BasicColor) : Void {
         this.BASIC_COLOR_ARRAY[this.colorIndex] = basicDefaultColor;
-        this.INDEX_TO_COLOR[this.colorIndex] = Std.int(basicDefaultColor);
+        this.INDEX_TO_COLOR[this.colorIndex] = basicDefaultColor.intValue();
         this.colorIndex++;
     }
 

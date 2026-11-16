@@ -46,13 +46,13 @@ class RightToLeftImageAnimation extends ImageSegmentAnimation {
     }
 
     private function update() : Void {
-        this.startWidth = this.getDrawWidth() * this.getFrame() / this.getSize();
+        this.startWidth = jre.lang.JavaNumber.divide(this.getDrawWidth() * this.getFrame(), this.getSize());
         this.currentWidth = this.getDrawWidth() - this.startWidth;
     }
 
-    private var anchor : Int = Anchor.TOP_LEFT;
+    private var anchor_RightToLeftImageAnimation : Int = Anchor.TOP_LEFT;
     public override function paintXY(graphics : Graphics, x : Int, y : Int) : Void {
-        graphics.drawRegion(this.getImage(), this.startWidth, this.getStartY(), this.currentWidth, this.getDrawHeight(), Sprite.TRANS_NONE, x + this.startWidth, y, this.anchor);
+        graphics.drawRegion(this.getImage(), this.startWidth, this.getStartY(), this.currentWidth, this.getDrawHeight(), Sprite.TRANS_NONE, x + this.startWidth, y, this.anchor_RightToLeftImageAnimation);
     }
 
 }

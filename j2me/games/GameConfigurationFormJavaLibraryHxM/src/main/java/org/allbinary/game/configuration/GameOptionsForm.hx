@@ -47,8 +47,8 @@ class GameOptionsForm extends CommandForm {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         this.addConfiguration();
         final gameFeatureFormUtil : GameFeatureFormUtil = GameFeatureFormUtil.getInstance();
-        gameFeatureFormUtil.addChoiceGroup(this, GameFeatureChoiceGroups.getExclusiveInstance().get(), Choice.EXCLUSIVE);
-        gameFeatureFormUtil.addChoiceGroup(this, GameFeatureChoiceGroups.getMultipleInstance().get(), Choice.MULTIPLE);
+        gameFeatureFormUtil.addChoiceGroup(this, GameFeatureChoiceGroups.getExclusiveInstance().get(), javax.microedition.lcdui.Choice.ChoiceFields.EXCLUSIVE);
+        gameFeatureFormUtil.addChoiceGroup(this, GameFeatureChoiceGroups.getMultipleInstance().get(), javax.microedition.lcdui.Choice.ChoiceFields.MULTIPLE);
         this.initCommands(commandListener);
         this.setItemStateListener(new GameFeatureItemStateListener(this));
         this.addTextFieldsIfSimulated();
@@ -130,7 +130,7 @@ class GameOptionsForm extends CommandForm {
         GameConfigurationUtil.getInstance().updateCompetitionValue();
         final hashtable : ABHashtable<Any, Any> = StdUtil.getInstance().createHashtable();
         final SCALE : GameConfiguration = GameConfigurationCentral.getInstance().SCALE;
-        hashtable.put(SCALE.getName(), Std.string(Std.int(SCALE.getValue())));
+        hashtable.put(SCALE.getName(), Std.string(jre.lang.JavaObject.intValue(SCALE.getValue())));
         final keyValuePersistance : KeyValuePersistance = GameConfigurationPersistanceSingleton.getInstance();
         keyValuePersistance.clear();
         keyValuePersistance.loadAll(abeClientInformation);
@@ -140,7 +140,7 @@ class GameOptionsForm extends CommandForm {
         var integer : Null<Int> = null;
         for (index in 0...size2) {
             integer = (cast list.objectArray[index] : Null<Int>);
-            keyValuePersistance.delete(abeClientInformation, Std.int(integer));
+            keyValuePersistance.delete(abeClientInformation, jre.lang.JavaNumber.toInt(integer));
         }
     }
 

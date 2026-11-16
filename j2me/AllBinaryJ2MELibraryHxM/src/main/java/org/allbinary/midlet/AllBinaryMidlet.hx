@@ -84,18 +84,18 @@ class AllBinaryMidlet extends MIDlet implements CommandListener {
     }
 
     // throws MIDletStateChangeException
-    public override function startApp() : Void {
+    public function startApp() : Void {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
-    public override function pauseApp() : Void {
+    public function pauseApp() : Void {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
     public function destroyAppInRunnable(unconditional : Bool, isProgress : Bool) : Void {
     }
 
-    public override function destroyApp(unconditional : Bool) : Void {
+    public function destroyApp(unconditional : Bool) : Void {
         final METHOD_NAME : String = "AllBinaryMidlet::destroyApp";
         try {
             this.logUtil.putF(this.commonStrings.START, this, METHOD_NAME);
@@ -124,7 +124,7 @@ class AllBinaryMidlet extends MIDlet implements CommandListener {
         return StdUtil.getInstance().NULL_TABLE;
     }
 
-    public override function commandAction(command : Command, displayable : Displayable) : Void {
+    public function commandAction(command : Command, displayable : Displayable) : Void {
     }
 
 }

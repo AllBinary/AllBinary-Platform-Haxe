@@ -36,7 +36,7 @@ class MineCountedPickedUpLayerInterfaceFactory extends CountedPickedUpLayerInter
     }
 
     public function new() {
-        super(PickedUpLayerTypeFactory.getInstance().MINE, IconLayerFactory.getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(MineWeaponResources.getInstance().DROP_ICON_RESOURCE).getInstance(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(MineWeaponResources.getInstance().DROP_RESOURCE).getInstance(0));
+        super(PickedUpLayerTypeFactory.getInstance().MINE, IconLayerFactory.getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(MineWeaponResources.getInstance().DROP_ICON_RESOURCE).getInstanceFor(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(MineWeaponResources.getInstance().DROP_RESOURCE).getInstanceFor(0));
     }
 
     public static function getInstance() : PickedUpLayerInterfaceFactoryInterface {
@@ -54,7 +54,7 @@ class MineCountedPickedUpLayerInterfaceFactory extends CountedPickedUpLayerInter
         final sourceLayerInterface : AllBinaryLayer = (cast hashtable.get((cast this.smallIntegerSingletonFactory.getAt(0) : Any)) : AllBinaryLayer);
         final angle : Null<Int> = (cast hashtable.get((cast this.smallIntegerSingletonFactory.getAt(1) : Any)) : Null<Int>);
         final scoreableInterface : ScoreableInterface = (cast sourceLayerInterface : ScoreableInterface);
-        return this.weaponLayerCircularStaticPool.getInstanceWeaponLayer(sourceLayerInterface, x, y, z, Std.int(Std.int(angle)), 0, this.weaponProperties, scoreableInterface);
+        return this.weaponLayerCircularStaticPool.getInstanceWeaponLayer(sourceLayerInterface, x, y, z, jre.lang.JavaNumber.toInt(jre.lang.JavaNumber.toInt(angle)), 0, this.weaponProperties, scoreableInterface);
     }
 
 }

@@ -96,8 +96,8 @@ class GameCommandCanvas extends MyCanvas implements MenuListener implements Disp
         this.repaintBehavior = RepaintBehavior.getInstance();
         this.foregroundBasicColor = foregroundBasicColor;
         this.backgroundBasicColor = backgroundBasicColor;
-        this.foregroundColor = Std.int(this.foregroundBasicColor);
-        this.backgroundColor = Std.int(this.backgroundBasicColor);
+        this.foregroundColor = this.foregroundBasicColor.intValue();
+        this.backgroundColor = this.backgroundBasicColor.intValue();
         this.initCommands(cmdListener);
         if (cmdListener != NullCommandListener.NULL_COMMAND_LISTENER) {
             try {
@@ -109,10 +109,10 @@ class GameCommandCanvas extends MyCanvas implements MenuListener implements Disp
         }
     }
 
-    public override function updateMeasurement(graphics : Graphics) : Void {
+    public function updateMeasurement(graphics : Graphics) : Void {
         try {
             final font : Font = graphics.getFont();
-            this.logUtil.putF(Std.string(new StringMaker().append(this.commonStrings.START).append(this.canvasStrings.FD_WIDTH).appendint(Std.int(MyFontProcessor.defaultCharWidth(font))).append(this.canvasStrings.FD_HEIGHT).appendint(Std.int(font.getHeight()))), this, this.canvasStrings.UPDATE_MEASUREMENT);
+            this.logUtil.putF(Std.string(new StringMaker().append(this.commonStrings.START).append(this.canvasStrings.FD_WIDTH).appendint(jre.lang.JavaNumber.toInt(MyFontProcessor.defaultCharWidth(font))).append(this.canvasStrings.FD_HEIGHT).appendint(jre.lang.JavaNumber.toInt(font.getHeight()))), this, this.canvasStrings.UPDATE_MEASUREMENT);
             this.fontHeight = font.getHeight();
             final rectangle : Rectangle = this.createRectangle(this.menuForm.size());
             this.menuForm.init(rectangle, FormTypeFactory.getInstance().VERTICAL_CENTER_FORM);
@@ -123,11 +123,11 @@ class GameCommandCanvas extends MyCanvas implements MenuListener implements Disp
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
 
-    public override function onEvent(eventObject : AllBinaryEventObject) : Void {
+    public function onEvent(eventObject : AllBinaryEventObject) : Void {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
-    public override function onDisplayChangeEvent(displayChangeEvent : DisplayChangeEvent) : Void {
+    public function onDisplayChangeEvent(displayChangeEvent : DisplayChangeEvent) : Void {
         this.logUtil.putF(Std.string(new StringMaker().append(this.commonStrings.START).append(Std.string(DisplayInfoSingleton.getInstance()))), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
         this.myFontProcessor = this.updateMyFontProcessor;
     }
@@ -151,20 +151,20 @@ class GameCommandCanvas extends MyCanvas implements MenuListener implements Disp
 
     // throws Exception
     public function createForm() : ScrollSelectionForm {
-        final items : haxe.ds.Vector<ABCustomItem> = new CommandTextItemArrayFactory(new AllCommandsVisitor()).getInstance(this.getCommandStack(), this.backgroundBasicColor, this.foregroundBasicColor);
+        final items : haxe.ds.Vector<ABCustomItem> = new CommandTextItemArrayFactory(new AllCommandsVisitor()).getInstanceFor(this.getCommandStack(), this.backgroundBasicColor, this.foregroundBasicColor);
         final rectangle : Rectangle = this.createRectangle(items.length);
         return CommandCurrentSelectionFormFactory.getInstance(StringUtil.getInstance().EMPTY_STRING, items, rectangle, FormTypeFactory.getInstance().VERTICAL_CENTER_FORM, 15, false, this.backgroundBasicColor, this.foregroundBasicColor);
     }
 
     public function createRectangle(size : Int) : Rectangle {
         final height : Int = size * this.fontHeight;
-        final startY : Int = (this.displayInfo.getLastHeight() * 2 / 3) - height;
+        final startY : Int = (jre.lang.JavaNumber.divide(this.displayInfo.getLastHeight() * 2, 3)) - height;
         final pointFactory : PointFactory = PointFactory.getInstance();
         final rectangle : Rectangle = new Rectangle(pointFactory.createXY(30, startY), this.displayInfo.getLastWidth() - 30, startY);
         return rectangle;
     }
 
-    public override function open() : Void {
+    public function open() : Void {
         this.logUtil.putF(this.commonStrings.START, this, "open");
         BasicMotionGesturesHandler.getInstance().addListenerInterface(this.getMenuInputProcessor());
         GameKeyEventHandler.getInstance().addListener(this.getMenuInputProcessor());
@@ -172,7 +172,7 @@ class GameCommandCanvas extends MyCanvas implements MenuListener implements Disp
     }
 
     // throws Exception
-    public override function close() : Void {
+    public function close() : Void {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CLOSE);
         BasicMotionGesturesHandler.getInstance().removeListener(this.getMenuInputProcessor());
         GameKeyEventHandler.getInstance().removeListener(this.getMenuInputProcessor());
@@ -184,7 +184,7 @@ class GameCommandCanvas extends MyCanvas implements MenuListener implements Disp
         this.repaintProcessor.process();
     }
 
-    public override function getSourceId() : Int {
+    public function getSourceId() : Int {
         return GameCommandCanvas.id;
     }
 

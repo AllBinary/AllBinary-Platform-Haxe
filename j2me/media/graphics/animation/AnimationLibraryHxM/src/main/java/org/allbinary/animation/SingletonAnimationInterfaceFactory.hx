@@ -24,7 +24,7 @@ class SingletonAnimationInterfaceFactory implements AnimationInterfaceFactoryInt
     }
 
     // throws Exception
-    public function getInstance(instanceId : Int) : Animation {
+    public function getInstanceFor(instanceId : Int) : Animation {
         return this.animationInterface;
     }
 

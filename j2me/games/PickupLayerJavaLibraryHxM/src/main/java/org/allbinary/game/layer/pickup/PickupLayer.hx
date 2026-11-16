@@ -31,7 +31,7 @@ import org.allbinary.view.ViewPositionBase;
 class PickupLayer extends MultiPlayerGameLayer implements PickedUpLayerInterface implements PickupableInterface {
     private var pickedUpLayerInterfaceFactoryInterface : PickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
     private var destroyed : Bool = false;
-    private var animationInterface : Animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
+    private var animationInterface : Animation = NullAnimationFactory.getFactoryInstance().getInstanceFor(0);
     public function new(name : String, remoteInfo : RemoteInfo, total : Int, pickedUpLayerInterfaceFactoryInterface : PickedUpLayerInterfaceFactoryInterface, animationInterface : Animation, rectangle : Rectangle, viewPosition : ViewPositionBase) {
         super(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, name, rectangle, viewPosition);
         this.setCollidableInferface(CollidableAlwaysPickupNeverCollideBehaviorFactory.getInstance().createBehavior());
@@ -64,11 +64,11 @@ class PickupLayer extends MultiPlayerGameLayer implements PickedUpLayerInterface
         this.animationInterface.paintThreedXYZ(graphics, viewX, viewY, 3);
     }
 
-    public override function getPickedUpLayerInterfaceFactoryInterface() : PickedUpLayerInterfaceFactoryInterface {
+    public function getPickedUpLayerInterfaceFactoryInterface() : PickedUpLayerInterfaceFactoryInterface {
         return this.pickedUpLayerInterfaceFactoryInterface;
     }
 
-    public override function setPickedUp() : Void {
+    public function setPickedUp() : Void {
         this.setDestroyed(true);
     }
 

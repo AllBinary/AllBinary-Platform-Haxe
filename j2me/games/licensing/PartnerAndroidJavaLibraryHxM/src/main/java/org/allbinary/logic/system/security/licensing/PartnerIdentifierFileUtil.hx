@@ -33,7 +33,7 @@ class PartnerIdentifierFileUtil {
     public function get() : String {
         try {
             final resourceUtil : ResourceUtil = ResourceUtil.getInstance();
-            final inputStream : InputStream = resourceUtil.getResourceAsStream(this.FILE_NAME);
+            final inputStream : InputStream = jre.lang.ClassLoader.getSystemResourceAsStream(this.FILE_NAME);
             final inputStreamReader : InputStreamReader = new InputStreamReader(inputStream);
             final chars : haxe.ds.Vector<Int> = haxe.ds.Vector.fromArrayCopy([for (index in 0...30) 0]);
             final size : Int = inputStreamReader.read(chars);

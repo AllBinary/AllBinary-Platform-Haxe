@@ -29,8 +29,8 @@ class FREEBLISKET_PATH_GLOBALS {
     public final TEMPLATEPATH : String = "template" + AbPathData.getInstance().SEPARATOR;
     public final STYLEPATH : String;
     public final THEMEPATH : String;
-    public final DBINITPATH : String = PATH_GLOBALS.getInstance().INIT_PATH + "db" + AbPathData.getInstance().SEPARATOR;
-    public final LINEDATAPATH : String = PATH_GLOBALS.getInstance().INIT_PATH + "lineData" + AbPathData.getInstance().SEPARATOR;
+    public final DBINITPATH : String = PATH_GLOBALS.getInstanceFor().INIT_PATH + "db" + AbPathData.getInstance().SEPARATOR;
+    public final LINEDATAPATH : String = PATH_GLOBALS.getInstanceFor().INIT_PATH + "lineData" + AbPathData.getInstance().SEPARATOR;
     public final CONFIGURATIONPATH : String;
     public final USERCONFIGURATIONPATH : String;
     public final CONTEXTCONFIGURATIONPATH : String;
@@ -44,7 +44,7 @@ class FREEBLISKET_PATH_GLOBALS {
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
         this.INSTALLPATH = Std.string(stringBuffer);
         stringBuffer.delete(0, stringBuffer.length());
-        stringBuffer.append(PATH_GLOBALS.getInstance().INIT_PATH);
+        stringBuffer.append(PATH_GLOBALS.getInstanceFor().INIT_PATH);
         stringBuffer.append("views");
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
         this.XSLPATH = Std.string(stringBuffer);

@@ -52,7 +52,7 @@ class CollidableCompositeLayer extends AllBinaryGameLayer implements CollidableI
         return ArtificialIntelligence.getInstance();
     }
 
-    public override function getCollidableInferface() : CollidableBaseBehavior {
+    public function getCollidableInferface() : CollidableBaseBehavior {
         return this.collidableInferface;
     }
 
@@ -71,7 +71,7 @@ class CollidableCompositeLayer extends AllBinaryGameLayer implements CollidableI
         stringBuffer.append(Std.string(this.getCollidableInferface()));
     }
 
-    public function toString() : String {
+    public override function toString() : String {
         final stringBuffer : StringMaker = new StringMaker();
         this.toStringAppend(stringBuffer);
         return Std.string(stringBuffer);

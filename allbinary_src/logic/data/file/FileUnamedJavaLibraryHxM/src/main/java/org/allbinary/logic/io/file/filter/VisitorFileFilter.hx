@@ -39,12 +39,12 @@ class VisitorFileFilter implements FileFilter {
 
     public function accept_File(file : File) : Bool {
         var abFile : AbFile = FileWrapperUtil.wrapFile(file);
-        var isFileAcceptable : Bool = ((cast this.booleanVisitorInterface.visit(abFile) : Null<Bool>));
+        var isFileAcceptable : Bool = jre.lang.JavaObject.booleanValue(((cast this.booleanVisitorInterface.visit(abFile) : Null<Bool>)));
         return isFileAcceptable || file.isDirectory();
     }
 
     public function accept_AbFile(file : AbFile) : Bool {
-        var isFileAcceptable : Bool = ((cast this.booleanVisitorInterface.visit(file) : Null<Bool>));
+        var isFileAcceptable : Bool = jre.lang.JavaObject.booleanValue(((cast this.booleanVisitorInterface.visit(file) : Null<Bool>)));
         return isFileAcceptable || file.isDirectory();
     }
 

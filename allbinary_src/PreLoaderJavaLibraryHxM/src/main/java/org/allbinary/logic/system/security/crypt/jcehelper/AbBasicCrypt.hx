@@ -45,7 +45,7 @@ class AbBasicCrypt implements CryptInterface {
         try {
             var sunJce : Provider = new com.sun.crypto.provider.SunJCE();
             Security.addProvider(sunJce);
-            var keySpec : KeySpec = KeySpecFactory.getInstance().getInstance(this.algorithm, this.key);
+            var keySpec : KeySpec = KeySpecFactory.getInstance().getInstanceFor(this.algorithm, this.key);
             var keyFactory : SecretKeyFactory = SecretKeyFactory.getInstance(this.algorithm);
             this.secretKey = keyFactory.generateSecret(keySpec);
             this.cipher = Cipher.getInstance(this.algorithm);

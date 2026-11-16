@@ -31,7 +31,7 @@ class DataOutputStreamFactory {
     }
 
     // throws Exception
-    public function getInstance(filePath : String, fileName : String) : AbDataOutputStream {
+    public function getInstanceFor(filePath : String, fileName : String) : AbDataOutputStream {
         final fileStreamFactory : FileStreamFactory = FileStreamFactory.getInstance();
         final fileOutputStream : AbFileOutputStream = fileStreamFactory.getFileOutputStreamInstance(filePath, fileName);
         var idOutData : AbDataOutputStream = new AbDataOutputStream(fileOutputStream);

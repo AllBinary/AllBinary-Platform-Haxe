@@ -78,7 +78,7 @@ class ProgressCanvas extends RunnableCanvas implements PaintableInterface implem
         this.gauge = new ABCustomGaugeItem(StringUtil.getInstance().EMPTY_STRING, Std.int(this.maxValue), 0, backgroundBasicColor, foregroundBasicColor);
     }
 
-    public override function updateMeasurement(graphics : Graphics) : Void {
+    public function updateMeasurement(graphics : Graphics) : Void {
         final font : Font = graphics.getFont();
         this.gauge.setHeight(font.getHeight() + 2);
         this.myFontProcessor = MyFontProcessor.getInstance();
@@ -190,13 +190,13 @@ class ProgressCanvas extends RunnableCanvas implements PaintableInterface implem
 
     public function paint2(graphics : Graphics) : Void {
         this.myFontProcessor.process(graphics);
-        graphics.setColor(Std.int(this.backgroundBasicColor));
+        graphics.setColor(this.backgroundBasicColor.intValue());
         graphics.fillRect(0, 0, this.displayInfo.getLastWidth(), this.displayInfo.getLastHeight());
         this.gauge.paintXY(graphics, 0, 0);
         this.hasPainted = true;
     }
 
-    public override function paintThreed(graphics : Graphics) : Void {
+    public function paintThreed(graphics : Graphics) : Void {
     }
 
     public function getValue() : Float {

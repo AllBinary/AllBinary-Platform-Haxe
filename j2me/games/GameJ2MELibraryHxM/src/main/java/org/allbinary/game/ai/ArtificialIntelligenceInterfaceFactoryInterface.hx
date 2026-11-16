@@ -22,7 +22,7 @@ import org.allbinary.util.ABHashtable;
 
 interface ArtificialIntelligenceInterfaceFactoryInterface {
     // throws Exception
-    function getInstance(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface;
+    function getInstanceFor(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface;
 
 }
 

@@ -24,7 +24,7 @@ class HardwareFactory {
     private static final instance : HardwareFactory = new HardwareFactory();
     public static function getInstance(...args : Dynamic) : Dynamic {
         if (args.length == 0) {
-            return HardwareFactory.getInstance();
+            return HardwareFactory.getInstance_();
         }
         if (args.length == 1) {
             return HardwareFactory.getInstance_GenericOperatingSystem(args[0]);
@@ -32,7 +32,7 @@ class HardwareFactory {
         throw new jre.lang.IllegalArgumentException("No matching overload: getInstance");
     }
 
-    public static function getInstance() : HardwareFactory {
+    public static function getInstance_() : HardwareFactory {
         return HardwareFactory.instance;
     }
 

@@ -22,7 +22,7 @@ import org.allbinary.logic.system.security.licensing.LockedResources;
 import org.allbinary.logic.system.security.licensing.LockedUtil;
 
 class LockablePaintable extends ItemPaintable {
-    private final animation : Animation = FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(LockedResources.getInstance().LOCKED_DEMO_GAME_FEATURE_RESOURCE).getInstance(0);
+    private final animation : Animation = FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(LockedResources.getInstance().LOCKED_DEMO_GAME_FEATURE_RESOURCE).getInstanceFor(0);
     private final lockedIndex : Int;
     public function new(lockedIndex : Int) {
         super();

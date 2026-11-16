@@ -19,7 +19,7 @@ class OpenGLESGraphics extends Graphics implements OpenGLSurfaceChangedInterface
     public function updateGL(gl : GL) : Void {
     }
 
-    public override function set(gl : GL) : Void {
+    public function set(gl : GL) : Void {
     }
 
     // throws Exception
@@ -40,7 +40,7 @@ class OpenGLESGraphics extends Graphics implements OpenGLSurfaceChangedInterface
         return this.gl;
     }
 
-    public override function setFontDebug(font : Font, fontDebug : FontDebugBase) : Void {
+    public function setFontDebug(font : Font, fontDebug : FontDebugBase) : Void {
         throw new jre.lang.JavaException();
     }
 

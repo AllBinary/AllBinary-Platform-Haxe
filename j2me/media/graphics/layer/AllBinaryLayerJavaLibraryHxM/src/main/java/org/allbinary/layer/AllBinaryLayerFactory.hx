@@ -25,7 +25,7 @@ class AllBinaryLayerFactory implements AllBinaryLayerFactoryInterface {
         this.rectangle = rectangle;
     }
 
-    public function getInstance() : AllBinaryLayer {
+    public function getInstanceFor() : AllBinaryLayer {
         return new AllBinaryLayer(StringUtil.getInstance().EMPTY_STRING, this.rectangle, ViewPosition.getInstanceD());
     }
 

@@ -37,7 +37,7 @@ class TsUtil {
     // throws InterruptedException
     public function waitFor(any : Any, timeoutMillis : haxe.Int64) : Void {
         final anyType : Any = (cast any : Any);
-        anyType.wait(timeoutMillis);
+        jre.lang.JavaObject.wait(anyType, timeoutMillis);
     }
 
     // throws RecordStoreNotOpenException, InvalidRecordIDException, RecordStoreException
@@ -73,7 +73,7 @@ class TsUtil {
     }
 
     public function getByteArray(string : String) : haxe.ds.Vector<Int> {
-        return haxe.io.Bytes.ofString(string);
+        return jre.lang.JavaString.getBytes(string);
     }
 
     public function isItemListener(owner : Displayable) : Bool {

@@ -44,8 +44,8 @@ class HealthIncludingLifeBar extends Paintable implements HealthListenerInterfac
         this.onHealthChange();
     }
 
-    public override function onHealthChange() : Void {
-        this.animationInterface.onHealthChange(((this.healthInterface.getHealth() + (this.healthInterface.getMaxHealth() * this.life.get())) * this.allbinaryLayer.getWidth()) / (this.healthInterface.getMaxHealth() + (this.healthInterface.getMaxHealth() * this.life.getStartLives())));
+    public function onHealthChange() : Void {
+        this.animationInterface.onHealthChange(jre.lang.JavaNumber.divide(((this.healthInterface.getHealth() + (this.healthInterface.getMaxHealth() * this.life.get())) * this.allbinaryLayer.getWidth()), (this.healthInterface.getMaxHealth() + (this.healthInterface.getMaxHealth() * this.life.getStartLives()))));
     }
 
     public override function paint(graphics : Graphics) : Void {

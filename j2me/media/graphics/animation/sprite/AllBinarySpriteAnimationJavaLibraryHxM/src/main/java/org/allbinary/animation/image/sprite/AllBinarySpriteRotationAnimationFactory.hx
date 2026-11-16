@@ -77,12 +77,12 @@ class AllBinarySpriteRotationAnimationFactory extends BaseImageAnimationFactory 
 
     private function initWH(dx : Int, dy : Int) : Void {
         this.init(dx, dy);
-        this.animationFactoryInitializationVisitor.dx += -this.animationFactoryInitializationVisitor.width / 5;
-        this.animationFactoryInitializationVisitor.dy += -this.animationFactoryInitializationVisitor.height / 5;
+        this.animationFactoryInitializationVisitor.dx += jre.lang.JavaNumber.divide(-this.animationFactoryInitializationVisitor.width, 5);
+        this.animationFactoryInitializationVisitor.dy += jre.lang.JavaNumber.divide(-this.animationFactoryInitializationVisitor.height, 5);
     }
 
     // throws Exception
-    public override function getInstance(instanceId : Int) : Animation {
+    public override function getInstanceFor(instanceId : Int) : Animation {
         final sprite : Sprite = this.animationFactorySpriteScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
             return new AllBinaryAdjustedSpriteRotationAnimation(sprite, this.getImage(), this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
@@ -92,8 +92,8 @@ class AllBinarySpriteRotationAnimationFactory extends BaseImageAnimationFactory 
     }
 
     // throws Exception
-    public override function getInstanceAnimation(animationInterface : Animation) : Animation {
-        return this.getInstance(0);
+    public function getInstanceAnimation(animationInterface : Animation) : Animation {
+        return this.getInstanceFor(0);
     }
 
 }

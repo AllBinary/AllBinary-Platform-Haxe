@@ -24,10 +24,10 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 class BasicStoreFrontsEntity extends InitSql {
     public final logUtil : LogUtil = LogUtil.getInstance();
-    public final tableName : String = "storefronts";
+    public final tableName_BasicStoreFrontsEntity : String = "storefronts";
     public function new() {
         super(new UserDbInitInfo());
-        this.setTable(this.tableName);
+        this.setTable(this.tableName_BasicStoreFrontsEntity);
     }
 
     // throws Exception
@@ -38,7 +38,7 @@ class BasicStoreFrontsEntity extends InitSql {
         if (storeHashMap == null) {
             throw new jre.lang.JavaException("No Such Store: " + name);
         }
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR)) {
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().FACTORYERROR)) {
             this.logUtil.putF("StoreFront: " + Std.string(storeHashMap), this, "getStore()");
         }
         return (cast new BasicStoreFront(storeHashMap) : BasicStoreFrontInterface);

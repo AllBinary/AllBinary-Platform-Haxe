@@ -20,7 +20,7 @@ import org.allbinary.graphics.form.item.ABCustomItem;
 
 interface GroupItemArrayFactoryInterface {
     // throws Exception
-    function getInstance(groupInterface : Group) : haxe.ds.Vector<ABCustomItem>;
+    function getInstanceFor(groupInterface : Group) : haxe.ds.Vector<ABCustomItem>;
 
 }
 

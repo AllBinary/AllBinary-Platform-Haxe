@@ -32,7 +32,7 @@ class ImageAnimationFactory extends BaseImageAnimationFactory {
     }
 
     // throws Exception
-    public override function getInstance(instanceId : Int) : Animation {
+    public override function getInstanceFor(instanceId : Int) : Animation {
         var scaledImage : Image = this.animationFactoryImageScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         final openGLUtil : OpenGLUtil = OpenGLUtil.getInstance();
         scaledImage = openGLUtil.addImage(scaledImage);

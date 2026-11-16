@@ -20,7 +20,7 @@ import org.allbinary.game.input.GameInput;
 import org.allbinary.layer.AllBinaryLayer;
 
 class NumberLayersSequenceAIFactory {
-    public function getInstance(numberOfEnemiesLeft : Int, artificialIntelligenceInterface : haxe.ds.Vector<ArtificialIntelligenceInterface>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
+    public function getInstanceFor(numberOfEnemiesLeft : Int, artificialIntelligenceInterface : haxe.ds.Vector<ArtificialIntelligenceInterface>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
         return new NumberLayersSequenceAI(numberOfEnemiesLeft, artificialIntelligenceInterface, ownerLayerInterface, gameInput);
     }
 

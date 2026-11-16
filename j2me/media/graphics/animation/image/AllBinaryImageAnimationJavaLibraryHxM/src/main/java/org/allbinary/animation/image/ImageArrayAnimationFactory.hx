@@ -36,7 +36,7 @@ class ImageArrayAnimationFactory implements AnimationInterfaceFactoryInterface {
     }
 
     // throws Exception
-    public function getInstance(instanceId : Int) : Animation {
+    public function getInstanceFor(instanceId : Int) : Animation {
         if (this.dx != 0 || this.dy != 0) {
             return new AdjustedImageArrayAnimation(this.imageArray, this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {

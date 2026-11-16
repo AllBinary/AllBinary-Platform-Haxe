@@ -48,7 +48,7 @@ class ViewPosition extends ViewPositionBase {
     }
 
     public override function getZ2() : Int {
-        return Std.int((this.getZ() + this.allbinaryLayer.getDepth()));
+        return jre.lang.JavaNumber.toInt((this.getZ() + this.allbinaryLayer.getDepth()));
     }
 
     public override function setAllbinaryLayer(allbinaryLayer : Any) : Void {

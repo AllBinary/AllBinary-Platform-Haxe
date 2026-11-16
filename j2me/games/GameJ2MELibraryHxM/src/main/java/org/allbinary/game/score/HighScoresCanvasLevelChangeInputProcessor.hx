@@ -39,7 +39,7 @@ class HighScoresCanvasLevelChangeInputProcessor extends HighScoresCanvasInputPro
         this.myFontProcessor = new UpdateMyFontProcessor(this);
     }
 
-    public override function updateMeasurement(graphics : Graphics) : Void {
+    public function updateMeasurement(graphics : Graphics) : Void {
         final font : Font = graphics.getFont();
         this.fontHeight = font.getHeight();
         this.myFontProcessor = MyFontProcessor.getInstance();

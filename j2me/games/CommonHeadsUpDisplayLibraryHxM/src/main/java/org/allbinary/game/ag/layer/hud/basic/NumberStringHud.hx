@@ -74,7 +74,7 @@ class NumberStringHud extends BasicHud implements PaintableInterface {
         this.set(this.value - value);
     }
 
-    public override function paint(graphics : Graphics) : Void {
+    public function paint(graphics : Graphics) : Void {
         super.paintDX(graphics, this.PREPEND_STRING, 0, this.PREPEND_STRING.length, this.valueString, 0, this.valueTotalDigits, this.offset);
     }
 
@@ -89,7 +89,7 @@ class NumberStringHud extends BasicHud implements PaintableInterface {
         graphics.drawChars(charArray2, 0, len2, x - this.offset, y, 0);
     }
 
-    public override function paintThreed(graphics : Graphics) : Void {
+    public function paintThreed(graphics : Graphics) : Void {
     }
 
 }

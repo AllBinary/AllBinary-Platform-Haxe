@@ -25,7 +25,7 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.view.ViewPosition;
 
 class IconLayer extends AllBinaryLayer {
-    public static final NULL_ICON_LAYER : IconLayer = new IconLayer(NullAnimationFactory.getFactoryInstance().getInstance(0), 0, 0);
+    public static final NULL_ICON_LAYER : IconLayer = new IconLayer(NullAnimationFactory.getFactoryInstance().getInstanceFor(0), 0, 0);
     private var animationInterface : Animation;
     public function new(animationInterface : Animation, width : Int, height : Int) {
         super(StringUtil.getInstance().EMPTY_STRING, new Rectangle(PointFactory.getInstance().ZERO_ZERO, width, height), ViewPosition.getInstanceD());

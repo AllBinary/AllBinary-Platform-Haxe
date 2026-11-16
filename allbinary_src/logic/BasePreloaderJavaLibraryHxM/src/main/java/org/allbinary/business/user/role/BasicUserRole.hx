@@ -36,7 +36,7 @@ class BasicUserRole implements Serializable {
                 final aSessionTimeout : haxe.Int64 = aSessionTimeout;
                 final aSessionInactivityTimeout : haxe.Int64 = aSessionInactivityTimeout;
             }
-            this._new0(aRole, a_int_RoleId, aSessionTimeout, aSessionInactivityTimeout);
+            this._newBasicUserRole0(aRole, a_int_RoleId, aSessionTimeout, aSessionInactivityTimeout);
         }
         else if (args.length == 5) {
             final aRole : String = args[0];
@@ -44,15 +44,15 @@ class BasicUserRole implements Serializable {
             final a_int_RoleId : Int = args[2];
             final aSessionTimeout : haxe.Int64 = args[3];
             final aSessionInactivityTimeout : haxe.Int64 = args[4];
-            this._new1(aRole, aDisplayValue, a_int_RoleId, aSessionTimeout, aSessionInactivityTimeout);
+            this._newBasicUserRole1(aRole, aDisplayValue, a_int_RoleId, aSessionTimeout, aSessionInactivityTimeout);
         }
     }
 
-    private function _new0(aRole : String, a_int_RoleId : Int, aSessionTimeout : haxe.Int64, aSessionInactivityTimeout : haxe.Int64) : Void {
-        this._new1(aRole, aRole, a_int_RoleId, aSessionTimeout, aSessionInactivityTimeout);
+    private function _newBasicUserRole0(aRole : String, a_int_RoleId : Int, aSessionTimeout : haxe.Int64, aSessionInactivityTimeout : haxe.Int64) : Void {
+        this._newBasicUserRole1(aRole, aRole, a_int_RoleId, aSessionTimeout, aSessionInactivityTimeout);
     }
 
-    private function _new1(aRole : String, aDisplayValue : String, a_int_RoleId : Int, aSessionTimeout : haxe.Int64, aSessionInactivityTimeout : haxe.Int64) : Void {
+    private function _newBasicUserRole1(aRole : String, aDisplayValue : String, a_int_RoleId : Int, aSessionTimeout : haxe.Int64, aSessionInactivityTimeout : haxe.Int64) : Void {
         this.m_int_RoleId = a_int_RoleId;
         this.role = aRole;
         this.displayValue = aDisplayValue;

@@ -267,6 +267,90 @@
         </dependency>
         -->
 
+        <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>AdvertisementClientNoneJavaLibraryHaxe</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>DebugJavaLibraryHaxe</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>GameScoresBaseJ2MELibraryHaxe</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>ScreenCaptureNoneJavaLibraryHaxe</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>OpenGLESBaseJavaLibraryHaxe</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>NoSensorJavaLibraryHaxe</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>TouchButtonBaseJavaLibraryHaxe</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>NoTouchButtonJavaLibraryHaxe</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>GameLicensingOnlyDemoJavaLibraryHaxe</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>J2MEWindowingJavaLibraryHaxe</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>FormJMEJavaLibraryHaxe</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>NullCustomUIJavaLibraryHaxe</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>GameInputPCMotionJavaLibraryHaxe</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>ImageCacheJ2MEJavaLibraryHaxe</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -334,12 +418,13 @@
                             <executable>${haxe.executable}</executable>
                             <workingDirectory>${project.basedir}/src/main/java</workingDirectory>
                             <arguments>
+                                <!-- Haxe uses the last class path that has a module: the sources of this project win over a dependency like javac -->
                                 <argument>-cp</argument>
-                                <argument>.</argument>
+                                <argument>${haxe.runtime.directory}</argument>
                                 <argument>-cp</argument>
                                 <argument>${haxe.dependency.directory}</argument>
                                 <argument>-cp</argument>
-                                <argument>${haxe.runtime.directory}</argument>
+                                <argument>.</argument>
                                 <argument>--macro</argument>
                                 <argument>include('', true, null, ['.'])</argument>
                                 <argument>${haxe.target}</argument>

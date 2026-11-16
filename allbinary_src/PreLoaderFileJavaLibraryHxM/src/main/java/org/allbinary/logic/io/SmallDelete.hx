@@ -46,7 +46,7 @@ class SmallDelete {
             }
             return false;
         } catch (e : haxe.Exception) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().IDLOGGING)) {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "deleteAtStart", e);
             }
             return false;
@@ -69,7 +69,7 @@ class SmallDelete {
             }
             return false;
         } catch (e : haxe.Exception) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().IDLOGGING)) {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "deleteAtStart", e);
             }
             return false;

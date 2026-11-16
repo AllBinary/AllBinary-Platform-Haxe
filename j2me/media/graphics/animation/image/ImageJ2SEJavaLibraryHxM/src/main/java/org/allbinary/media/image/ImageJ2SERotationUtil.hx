@@ -40,7 +40,7 @@ class ImageJ2SERotationUtil {
     }
 
     private function drawRotatedImageRadians(bufferedImage : Image, newBufferedImage : BufferedImage, g : Graphics2D, radians : Float) : BufferedImage {
-        g.rotate(radians, newBufferedImage.getWidth(null) / 2, newBufferedImage.getHeight(null) / 2);
+        g.rotate(radians, jre.lang.JavaNumber.divide(newBufferedImage.getWidth(null), 2), jre.lang.JavaNumber.divide(newBufferedImage.getHeight(null), 2));
         g.drawImage(bufferedImage, 0, 0, bufferedImage.getWidth(null), bufferedImage.getHeight(null), null);
         g.dispose();
         return newBufferedImage;

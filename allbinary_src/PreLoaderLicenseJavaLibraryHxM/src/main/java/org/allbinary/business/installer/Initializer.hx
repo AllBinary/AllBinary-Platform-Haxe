@@ -73,15 +73,15 @@ class Initializer {
     public function new(...args : Dynamic) {
         if (args.length == 1 && Std.isOfType(args[0], Map)) {
             final map : Map<Dynamic, Dynamic> = args[0];
-            this._new0(map);
+            this._newInitializer0(map);
         }
         else if (args.length == 1) {
             final initHashMap : HashMap<Dynamic, Dynamic> = args[0];
-            this._new1(initHashMap);
+            this._newInitializer1(initHashMap);
         }
     }
 
-    private function _new0(map : Map<Dynamic, Dynamic>) : Void {
+    private function _newInitializer0(map : Map<Dynamic, Dynamic>) : Void {
         final stringBuffer : StringMaker = new StringMaker();
         var hashMap : HashMap<Dynamic, Dynamic> = StdUtil.getInstance().createHashMap();
         var keys : Set<Dynamic> = map.keySet();
@@ -101,7 +101,7 @@ class Initializer {
         this.getFormData(hashMap);
     }
 
-    private function _new1(initHashMap : HashMap<Dynamic, Dynamic>) : Void {
+    private function _newInitializer1(initHashMap : HashMap<Dynamic, Dynamic>) : Void {
         this.getFormData(initHashMap);
     }
 
@@ -153,7 +153,7 @@ class Initializer {
             Class.forName(jdbcDriverClassPathString).newInstance();
             return true;
         } catch (e : haxe.Exception) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().PRELOADERERROR)) {
                 final commonStrings : CommonStrings = CommonStrings.getInstance();
                 this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.IS_VALID, e);
             }

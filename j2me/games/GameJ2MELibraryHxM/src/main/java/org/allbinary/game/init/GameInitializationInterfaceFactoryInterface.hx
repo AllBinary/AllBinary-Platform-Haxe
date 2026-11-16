@@ -17,7 +17,7 @@ package org.allbinary.game.init;
 
 
 interface GameInitializationInterfaceFactoryInterface {
-    function getInstance() : GameInitializationInterface;
+    function getInstanceFor() : GameInitializationInterface;
 
 }
 

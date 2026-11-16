@@ -17,7 +17,7 @@ package org.allbinary.logic.util.event;
 
 
 interface AllBinaryEventObjectFactoryInterface {
-    function getInstance() : AllBinaryEventObject;
+    function getInstanceFor() : AllBinaryEventObject;
 
 }
 

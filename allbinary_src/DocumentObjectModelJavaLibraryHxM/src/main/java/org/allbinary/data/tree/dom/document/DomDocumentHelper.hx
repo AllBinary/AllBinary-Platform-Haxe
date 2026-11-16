@@ -38,7 +38,7 @@ class DomDocumentHelper {
 
     public static function create(...args : Dynamic) : Dynamic {
         if (args.length == 0) {
-            return DomDocumentHelper.create();
+            return DomDocumentHelper.create_();
         }
         if (args.length == 1 && Std.isOfType(args[0], InputStream)) {
             return DomDocumentHelper.create_InputStream(args[0]);
@@ -49,7 +49,7 @@ class DomDocumentHelper {
         throw new jre.lang.IllegalArgumentException("No matching overload: create");
     }
 
-    public static function create() : Document {
+    public static function create_() : Document {
         try {
             var factory : DocumentBuilderFactory = DocumentBuilderFactory.newInstance();
             var builder : DocumentBuilder = factory.newDocumentBuilder();

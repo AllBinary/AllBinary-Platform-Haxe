@@ -17,7 +17,7 @@ package org.allbinary.game.midlet;
 
 
 class LicensedDemoSetupFactory {
-    public function getInstance() : DemoSetup {
+    public function getInstanceFor() : DemoSetup {
         return new DemoSetup();
     }
 

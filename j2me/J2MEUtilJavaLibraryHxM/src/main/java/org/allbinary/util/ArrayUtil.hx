@@ -108,7 +108,7 @@ class ArrayUtil {
         for (index in 0...endIndex) {
             stringBuffer.append(commonSeps.BRACE_OPEN);
             for (index2 in 0...endIndex2) {
-                stringBuffer.appendint(Std.int(twoDimensionalIntArray[index][index2]));
+                stringBuffer.appendint(jre.lang.JavaNumber.toInt(twoDimensionalIntArray[index][index2]));
                 stringBuffer.append(commonSeps.COMMA_SEP);
             }
             stringBuffer.append(commonSeps.BRACE_CLOSE);

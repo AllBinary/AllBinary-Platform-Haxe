@@ -61,7 +61,7 @@ class GameInputMappingCanvas extends GameCommandCanvas implements InputMappingIn
         this.helpPaintable = (cast helpPaintable : InputMappingHelpPaintable);
         this.inputMapping = PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance();
         this.paintable = new ProcessPaintable();
-        this.colorFillPaintable = ColorFillPaintableFactory.getInstance().getInstance(allBinaryGameLayerManager.getBackgroundBasicColor(), false);
+        this.colorFillPaintable = ColorFillPaintableFactory.getInstance().getInstanceFor(allBinaryGameLayerManager.getBackgroundBasicColor(), false);
     }
 
     // throws Exception
@@ -111,7 +111,7 @@ class GameInputMappingCanvas extends GameCommandCanvas implements InputMappingIn
     }
 
     // throws Exception
-    public override function processInputMapping(gameKey : GameKey, input : Input) : Void {
+    public function processInputMapping(gameKey : GameKey, input : Input) : Void {
         final stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append("Start Passed GameKey: ");
         stringBuffer.append(this.stringUtil.toString(gameKey));

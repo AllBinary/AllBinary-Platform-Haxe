@@ -29,21 +29,21 @@ class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengles.GL11 
                 final gl2 : com.jogamp.opengl.GL2 = (cast gl : com.jogamp.opengl.GL2);
                 super(gl, gl2);
             }
-            this._new0(gl);
+            this._newJOGL110(gl);
         }
         else if (args.length == 2) {
             final gl : GL = args[0];
             final gl2 : com.jogamp.opengl.GL2 = args[1];
             super(gl, gl2);
-            this._new1(gl, gl2);
+            this._newJOGL111(gl, gl2);
         }
     }
 
-    private function _new0(gl : GL) : Void {
-        this._new1(gl, (cast gl : com.jogamp.opengl.GL2));
+    private function _newJOGL110(gl : GL) : Void {
+        this._newJOGL111(gl, (cast gl : com.jogamp.opengl.GL2));
     }
 
-    private function _new1(gl : GL, gl2 : com.jogamp.opengl.GL2) : Void {
+    private function _newJOGL111(gl : GL, gl2 : com.jogamp.opengl.GL2) : Void {
         this.gl11 = getJOGLGL();
     }
 
@@ -83,7 +83,7 @@ class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengles.GL11 
         this.gl11.glColor4ub(red, green, blue, alpha);
     }
 
-    public function glColorPointer(size : Int, type : Int, stride : Int, offset : Int) : Void {
+    public override function glColorPointer(size : Int, type : Int, stride : Int, offset : Int) : Void {
         this.gl11.glColorPointer(size, type, stride, offset);
     }
 
@@ -107,7 +107,7 @@ class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengles.GL11 
         this.gl11.glDeleteBuffers(n, buffers);
     }
 
-    public function glDrawElements(mode : Int, count : Int, type : Int, offset : Int) : Void {
+    public override function glDrawElements(mode : Int, count : Int, type : Int, offset : Int) : Void {
         this.gl11.glDrawElements(mode, count, type, offset);
     }
 
@@ -303,7 +303,7 @@ class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengles.GL11 
         return this.gl11.glIsTexture(texture);
     }
 
-    public function glNormalPointer(type : Int, stride : Int, offset : Int) : Void {
+    public override function glNormalPointer(type : Int, stride : Int, offset : Int) : Void {
         this.gl11.glNormalPointer(type, stride, offset);
     }
 
@@ -331,7 +331,7 @@ class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengles.GL11 
         this.gl11.glPointParameterfv(pname, params);
     }
 
-    public function glTexCoordPointer(size : Int, type : Int, stride : Int, offset : Int) : Void {
+    public override function glTexCoordPointer(size : Int, type : Int, stride : Int, offset : Int) : Void {
         this.gl11.glTexCoordPointer(size, type, stride, offset);
     }
 
@@ -379,7 +379,7 @@ class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengles.GL11 
         this.gl11.glTexParameterfv(target, pname, params);
     }
 
-    public function glTexParameteri(target : Int, pname : Int, param : Int) : Void {
+    public override function glTexParameteri(target : Int, pname : Int, param : Int) : Void {
         this.gl11.glTexParameteri(target, pname, param);
     }
 
@@ -407,7 +407,7 @@ class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengles.GL11 
         this.gl11.glTexParameteriv(target, pname, params, offset);
     }
 
-    public function glVertexPointer(size : Int, type : Int, stride : Int, offset : Int) : Void {
+    public override function glVertexPointer(size : Int, type : Int, stride : Int, offset : Int) : Void {
         this.gl11.glVertexPointer(size, type, stride, offset);
     }
 

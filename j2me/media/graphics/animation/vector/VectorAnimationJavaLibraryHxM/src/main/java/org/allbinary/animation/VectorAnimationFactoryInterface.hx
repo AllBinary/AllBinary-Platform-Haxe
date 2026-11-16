@@ -18,7 +18,7 @@ package org.allbinary.animation;
 import org.allbinary.graphics.color.BasicColor;
 
 interface VectorAnimationFactoryInterface {
-    function getInstance(points : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>>, basicColor : BasicColor) : VectorAnimation;
+    function getInstanceFor(points : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>>, basicColor : BasicColor) : VectorAnimation;
 
 }
 

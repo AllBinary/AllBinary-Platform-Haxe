@@ -21,11 +21,11 @@ import org.allbinary.logic.string.StringValidationUtil;
 class WebAppUrlGlobals extends UrlGlobalsInterface {
     private var path : String = null;
     private var isWebappPathSet : Bool = false;
-    public function isTestingMode() : Bool {
+    public override function isTestingMode() : Bool {
         return InitInfo.getInstance().isTesting();
     }
 
-    public function getWebappPath() : String {
+    public override function getWebappPath() : String {
         return this.path;
     }
 
@@ -35,12 +35,12 @@ class WebAppUrlGlobals extends UrlGlobalsInterface {
         this.isWebappPathSet = true;
     }
 
-    public function getTestHtmlPath() : String {
+    public override function getTestHtmlPath() : String {
         return InitInfo.getInstance().getTestHtmlPath();
     }
 
     // throws Exception
-    public function getMainPath() : String {
+    public override function getMainPath() : String {
         var mainPath : String = InitInfo.getInstance().getMainPath();
         if (!StringValidationUtil.getInstance().isEmpty(mainPath)) {
             return mainPath;

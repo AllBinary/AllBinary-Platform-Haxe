@@ -7,7 +7,7 @@ import org.allbinary.util.CircularIndexUtil;
 
 class NullRotationAnimation extends RotationAnimation {
     public static function createTotalAngle(angleInfo : AngleInfo, totalAngle : Int, animationBehavior : AnimationBehavior) : NullRotationAnimation {
-        return new NullRotationAnimation(angleInfo, CircularIndexUtil.createInstance(totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
+        return new NullRotationAnimation(angleInfo, CircularIndexUtil.createInstance(jre.lang.JavaNumber.divide(totalAngle, angleInfo.getAngleIncrementInfo().getAngleIncrement())), animationBehavior);
     }
 
     public static function createQuarter(animationBehavior : AnimationBehavior) : NullRotationAnimation {

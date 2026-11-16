@@ -26,27 +26,27 @@ class VelocityProperties extends BasicVelocityProperties implements VelocityInte
         this.setMaxReverseVelocity(maxReverseVelocity);
     }
 
-    public override function getMaxForwardVelocity() : Int {
+    public function getMaxForwardVelocity() : Int {
         return this.maxForwardVelocity;
     }
 
-    public override function setMaxForwardVelocity(maxForwardVelocity : Int) : Void {
+    public function setMaxForwardVelocity(maxForwardVelocity : Int) : Void {
         this.maxForwardVelocity = maxForwardVelocity;
     }
 
-    public override function getMaxReverseVelocity() : Int {
+    public function getMaxReverseVelocity() : Int {
         return this.maxReverseVelocity;
     }
 
-    public override function setMaxReverseVelocity(maxReverseVelocity : Int) : Void {
+    public function setMaxReverseVelocity(maxReverseVelocity : Int) : Void {
         this.maxReverseVelocity = maxReverseVelocity;
     }
 
-    public override function limitMaxXYForwardVelocity() : Void {
+    public function limitMaxXYForwardVelocity() : Void {
         this.limitMaxXYVelocity(this.getMaxForwardVelocity());
     }
 
-    public override function limitMaxXYReverseVelocity() : Void {
+    public function limitMaxXYReverseVelocity() : Void {
         this.limitMaxXYVelocity(this.getMaxReverseVelocity());
     }
 
@@ -74,12 +74,12 @@ class VelocityProperties extends BasicVelocityProperties implements VelocityInte
         return this.isOverXYMaxVelocity(this.getMaxReverseVelocity());
     }
 
-    public override function limitXYToForwardAndReverseMaxVelocity() : Void {
+    public function limitXYToForwardAndReverseMaxVelocity() : Void {
         this.limitMaxXYForwardVelocity();
         this.limitMaxXYReverseVelocity();
     }
 
-    public override function limitMaxXYVelocity(maxVelocity : Int) : Void {
+    public function limitMaxXYVelocity(maxVelocity : Int) : Void {
         this.limitMaxXVelocity(maxVelocity);
         this.limitMaxYVelocity(maxVelocity);
     }

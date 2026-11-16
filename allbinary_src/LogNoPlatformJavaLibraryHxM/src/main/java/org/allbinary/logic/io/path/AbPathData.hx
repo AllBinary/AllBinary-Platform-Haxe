@@ -64,7 +64,7 @@ class AbPathData {
     public function getNameFromPath(path : String) : String {
         var endIndex : Int = path.lastIndexOf(String.fromCharCode(this.SEPARATORCHAR));
         if (endIndex < 0) {
-            endIndex = path.lastIndexOf(FilePathData.getInstance().SEPARATORCHAR);
+            endIndex = path.lastIndexOf(jre.lang.JavaString.text(FilePathData.getInstance().SEPARATORCHAR));
         }
         if (endIndex < 0) {
             return path;
@@ -81,7 +81,7 @@ class AbPathData {
     public function removeNameFromPath(path : String) : String {
         var endIndex : Int = path.lastIndexOf(String.fromCharCode(this.SEPARATORCHAR));
         if (endIndex < 0) {
-            endIndex = path.lastIndexOf(FilePathData.getInstance().SEPARATORCHAR);
+            endIndex = path.lastIndexOf(jre.lang.JavaString.text(FilePathData.getInstance().SEPARATORCHAR));
         }
         if (endIndex < 0) {
             return StringUtil.getInstance().EMPTY_STRING;

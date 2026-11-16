@@ -22,9 +22,9 @@ class Memory {
     public static function getInfo() : String {
         var stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append("Memory: Free: ");
-        stringBuffer.appendlong(haxe.Int64.ofInt(Runtime.getRuntime().freeMemory()));
+        stringBuffer.appendlong(jre.lang.JavaNumber.toInt64(Runtime.getRuntime().freeMemory()));
         stringBuffer.append(" Total: ");
-        stringBuffer.appendlong(haxe.Int64.ofInt(Runtime.getRuntime().totalMemory()));
+        stringBuffer.appendlong(jre.lang.JavaNumber.toInt64(Runtime.getRuntime().totalMemory()));
         return Std.string(stringBuffer);
     }
 

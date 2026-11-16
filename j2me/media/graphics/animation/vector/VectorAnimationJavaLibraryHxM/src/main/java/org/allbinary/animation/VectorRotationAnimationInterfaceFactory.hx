@@ -31,7 +31,7 @@ class VectorRotationAnimationInterfaceFactory implements AnimationInterfaceFacto
     }
 
     // throws Exception
-    public function getInstance(instanceId : Int) : Animation {
+    public function getInstanceFor(instanceId : Int) : Animation {
         return new VectorRotationAnimation(this.currentPoints, this.getBasicColorP(), this.animationBehaviorFactory.getOrCreateInstance());
     }
 

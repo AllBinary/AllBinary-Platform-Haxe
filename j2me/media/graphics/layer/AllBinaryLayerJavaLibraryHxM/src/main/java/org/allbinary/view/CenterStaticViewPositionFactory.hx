@@ -21,7 +21,7 @@ class CenterStaticViewPositionFactory {
     public function new() {
     }
 
-    public function getInstance(z : Int) : ViewPositionBase {
+    public function getInstanceFor(z : Int) : ViewPositionBase {
         var displayInfoSingleton : DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
         return new StaticViewPosition((displayInfoSingleton.getLastWidth() >> 1), (displayInfoSingleton.getLastHeight() >> 1), z);
     }

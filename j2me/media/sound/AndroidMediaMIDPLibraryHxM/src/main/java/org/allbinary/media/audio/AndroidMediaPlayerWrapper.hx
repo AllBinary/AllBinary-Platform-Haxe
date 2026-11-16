@@ -44,7 +44,7 @@ class AndroidMediaPlayerWrapper extends BasicPlayer {
             if (resource == StringUtil.getInstance().EMPTY_STRING) {
             } else {
                 final resourceUtil : ResourceUtil = ResourceUtil.getInstance();
-                final mediaPlayer : MediaPlayer = MediaPlayer.create(resourceUtil.getContext(), Std.int(resourceUtil.getResourceId(resource)));
+                final mediaPlayer : MediaPlayer = MediaPlayer.create(resourceUtil.getContext(), jre.lang.JavaObject.intValue(resourceUtil.getResourceId(resource)));
                 if (mediaPlayer == null) {
                     throw new jre.lang.JavaException(Std.string(new StringMaker().append("Failed to create media player for: ").append(resource).append(" with id: ").append(Std.string(resourceUtil.getResourceId(resource)))));
                 }
@@ -78,9 +78,9 @@ class AndroidMediaPlayerWrapper extends BasicPlayer {
 
     public override function getState() : Int {
         if (this.mediaPlayer.isPlaying()) {
-            return Player.STARTED;
+            return javax.microedition.media.Player.PlayerFields.STARTED;
         } else {
-            return Player.PREFETCHED;
+            return javax.microedition.media.Player.PlayerFields.PREFETCHED;
         }
     }
 

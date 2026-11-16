@@ -29,7 +29,7 @@ class CaptionAnimationHelper extends CaptionAnimationHelperBase {
     private final timeHelper : TimeDelayHelper = new TimeDelayHelper(620);
     private final textAnimation : TextAnimation = new TextAnimation(StringUtil.getInstance().EMPTY_STRING, AnimationBehavior.getInstance());
     private final captionAnimation : Animation;
-    private var animation : Animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
+    private var animation : Animation = NullAnimationFactory.getFactoryInstance().getInstanceFor(0);
     public function new(captionAnimation : Animation, captionDx : Int, captionDy : Int, dx : Int, dy : Int) {
         super();
         this.captionAnimation = new CaptionAnimation(captionAnimation, this.textAnimation, captionDx, captionDy, dx, dy);
@@ -45,7 +45,7 @@ class CaptionAnimationHelper extends CaptionAnimationHelperBase {
 
     public override function tick() : Void {
         if (this.timeHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime)) {
-            this.animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
+            this.animation = NullAnimationFactory.getFactoryInstance().getInstanceFor(0);
         }
     }
 

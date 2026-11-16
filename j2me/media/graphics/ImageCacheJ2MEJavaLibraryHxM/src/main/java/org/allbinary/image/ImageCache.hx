@@ -82,7 +82,7 @@ class ImageCache extends ImageCacheBase {
         var image : Image = this.getImage(key);
         if (image == NullImage.NULL_IMAGE) {
             final resourceUtil : ResourceUtil = ResourceUtil.getInstance();
-            final resourceInputStream : InputStream = resourceUtil.getResourceAsStream((cast key : String));
+            final resourceInputStream : InputStream = jre.lang.ClassLoader.getSystemResourceAsStream((cast key : String));
             if (resourceInputStream == null) {
                 throw new jre.lang.JavaException(Std.string(new StringMaker().append("Image resource is not available for key: ").append(StringUtil.getInstance().toString(key))));
             }

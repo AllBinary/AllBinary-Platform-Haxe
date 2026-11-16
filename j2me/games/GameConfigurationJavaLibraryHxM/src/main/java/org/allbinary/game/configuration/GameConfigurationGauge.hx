@@ -19,7 +19,7 @@ import javax.microedition.lcdui.Gauge;
 
 class GameConfigurationGauge extends Gauge {
     public function new(gameConfiguration : GameConfiguration) {
-        super(gameConfiguration.getName(), gameConfiguration.isModifiable(), Std.int(gameConfiguration.getMaxValue()) - Std.int(gameConfiguration.getMinValue()), Std.int(gameConfiguration.getValue()) - Std.int(gameConfiguration.getMinValue()));
+        super(gameConfiguration.getName(), jre.lang.JavaObject.booleanValue(gameConfiguration.isModifiable()), jre.lang.JavaObject.intValue(gameConfiguration.getMaxValue()) - jre.lang.JavaObject.intValue(gameConfiguration.getMinValue()), jre.lang.JavaObject.intValue(gameConfiguration.getValue()) - jre.lang.JavaObject.intValue(gameConfiguration.getMinValue()));
     }
 
 }

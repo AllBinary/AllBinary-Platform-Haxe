@@ -18,7 +18,7 @@ package org.allbinary.ai;
 
 class ArtificialIntelligenceFactory implements ArtificialIntelligenceFactoryInterface {
     // throws Exception
-    public function getInstance(anyType : Any) : ArtificialIntelligence {
+    public function getInstanceFor(anyType : Any) : ArtificialIntelligence {
         throw new jre.lang.JavaException();
     }
 

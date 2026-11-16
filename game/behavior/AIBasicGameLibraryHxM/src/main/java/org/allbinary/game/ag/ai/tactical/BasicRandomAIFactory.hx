@@ -26,7 +26,7 @@ import org.allbinary.util.ABHashtable;
 
 class BasicRandomAIFactory implements ArtificialIntelligenceInterfaceFactoryInterface {
     // throws Exception
-    public function getInstance(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
+    public function getInstanceFor(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
         var visitor : Visitor = (cast hashtable.get((cast BasicAI.AI_VISITOR : Any)) : Visitor);
         if (visitor == null) {
             throw new jre.lang.JavaException("No Visitor Provided");

@@ -31,10 +31,10 @@ class ColorFillBasePaintable extends Paintable implements ColorCompositeInterfac
 
     public override function setBasicColorP(basicColor : BasicColor) : Void {
         this.basicColor = basicColor;
-        this.setColor(Std.int(this.getBasicColorP()));
+        this.setColor(jre.lang.JavaObject.intValue(this.getBasicColorP()));
     }
 
-    public override function getBasicColorP() : BasicColor {
+    public function getBasicColorP() : BasicColor {
         return this.basicColor;
     }
 

@@ -43,7 +43,7 @@ class BasicRandomAI extends BasicAI {
             this.i_random = this.myRandomFactory.getAbsoluteNextInt(this.inputProbability.getMax());
             var repeat : Bool = false;
             var repeatLikelyhoodIntegerArray : haxe.ds.Vector<Null<Int>> = this.inputProbability.getRepeatLikelyhoodIntegerArray();
-            if (this.getLastKey() != -1 && Std.int(repeatLikelyhoodIntegerArray[this.getLastKey()]) >= this.i_random) {
+            if (this.getLastKey() != -1 && jre.lang.JavaObject.intValue(repeatLikelyhoodIntegerArray[this.getLastKey()]) >= this.i_random) {
                 repeat = true;
             }
             if (!repeat) {
@@ -55,7 +55,7 @@ class BasicRandomAI extends BasicAI {
                     var key : Int = this.keyArray[index];
                     likelyhoodIntegerKeyArray = likelyhoodIntegerArray[key];
                     if (likelyhoodIntegerArray.length >= key && likelyhoodIntegerKeyArray[0] != null) {
-                        if (this.i_random >= Std.int(likelyhoodIntegerKeyArray[0]) && this.i_random < Std.int(likelyhoodIntegerKeyArray[1])) {
+                        if (this.i_random >= jre.lang.JavaObject.intValue(likelyhoodIntegerKeyArray[0]) && this.i_random < jre.lang.JavaObject.intValue(likelyhoodIntegerKeyArray[1])) {
                             this.setLastKey(key);
                             break;
                         }

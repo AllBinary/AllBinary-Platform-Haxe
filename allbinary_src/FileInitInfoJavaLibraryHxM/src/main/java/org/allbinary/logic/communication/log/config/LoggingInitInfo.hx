@@ -31,7 +31,7 @@ import org.w3c.dom.NodeList;
 
 class LoggingInitInfo {
     private static final INITFILENAME : String = "logConfig.xml";
-    private static final PACKAGE : String = PATH_GLOBALS.getInstance().INIT_PATH;
+    private static final PACKAGE : String = PATH_GLOBALS.getInstanceFor().INIT_PATH;
     private static var logConfigInfoList : BasicArrayList = null;
     private static var hasRead : Bool = false;
     public function new() {

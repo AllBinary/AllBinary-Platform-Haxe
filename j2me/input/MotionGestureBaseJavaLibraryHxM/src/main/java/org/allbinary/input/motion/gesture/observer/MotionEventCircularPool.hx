@@ -34,8 +34,8 @@ class MotionEventCircularPool {
 
     // throws Exception
     // synchronized
-    public function getInstance(motionGestureInput : MotionGestureInput) : MotionGestureEvent {
-        return (cast this.eventPool.getInstance(motionGestureInput.getId() - this.MIN) : MotionGestureEvent);
+    public function getInstanceFor(motionGestureInput : MotionGestureInput) : MotionGestureEvent {
+        return (cast this.eventPool.getInstanceFor(motionGestureInput.getId() - this.MIN) : MotionGestureEvent);
     }
 
 }

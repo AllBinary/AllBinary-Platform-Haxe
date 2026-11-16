@@ -19,7 +19,7 @@ package org.allbinary.logic.util.cache;
 //import jsinterop.annotations.JsMethod;
 
 interface AllBinaryObjectFactoryInterface {
-    function getInstance() : Any;
+    function getInstanceFor() : Any;
 
 }
 

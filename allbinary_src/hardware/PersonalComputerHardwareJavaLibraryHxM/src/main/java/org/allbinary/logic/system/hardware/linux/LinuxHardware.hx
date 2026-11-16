@@ -66,18 +66,18 @@ class LinuxHardware implements HardwareInterface {
     public function new(...args : Dynamic) {
         if (args.length == 1) {
             final path : String = args[0];
-            this._new0(path);
+            this._newLinuxHardware0(path);
         }
         else if (args.length == 0) {
-            this._new1();
+            this._newLinuxHardware1();
         }
     }
 
-    private function _new0(path : String) : Void {
+    private function _newLinuxHardware0(path : String) : Void {
         this.init(path);
     }
 
-    private function _new1() : Void {
+    private function _newLinuxHardware1() : Void {
         this.init(PCIFILE);
         if (this.componentInterfaceVector.size() < this.MINHARDWARE) {
             throw new jre.lang.JavaException("Not Enough Data For A Valid License On Linux");
@@ -172,7 +172,7 @@ class LinuxHardware implements HardwareInterface {
                             break;
                         }
                     }
-                    var componentInterface : HardwareComponentInterface = PCComponentFactory.getInstance().getInstance(componentType, Std.string(componentData));
+                    var componentInterface : HardwareComponentInterface = PCComponentFactory.getInstance().getInstanceFor(componentType, Std.string(componentData));
                     if (componentInterface != null) {
                         this.componentInterfaceVector.add(componentInterface);
                     }

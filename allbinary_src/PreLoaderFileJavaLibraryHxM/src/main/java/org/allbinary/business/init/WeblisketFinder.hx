@@ -60,7 +60,7 @@ class WeblisketFinder {
             }
             return filePath.substring(0, end);
         } catch (e : haxe.Exception) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().PRELOADERERROR)) {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "getInstallationPath", e);
             }
             return null;

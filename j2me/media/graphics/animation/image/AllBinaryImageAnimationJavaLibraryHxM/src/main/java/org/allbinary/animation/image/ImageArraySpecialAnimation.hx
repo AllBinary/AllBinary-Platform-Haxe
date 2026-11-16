@@ -35,7 +35,7 @@ class ImageArraySpecialAnimation extends ImageArrayAnimation implements SpecialA
         return this.loopCount;
     }
 
-    public override function setLastFrame() : Void {
+    public function setLastFrame() : Void {
         this.circularIndexUtil.setIndex(this.circularIndexUtil.getSize() - 1);
     }
 
@@ -56,7 +56,7 @@ class ImageArraySpecialAnimation extends ImageArrayAnimation implements SpecialA
     }
 
     private final loopCountTotal : Int = 1;
-    public override function isComplete() : Bool {
+    public function isComplete() : Bool {
         if (this.loopCount < this.loopCountTotal || this.getFrame() != 0) {
             return false;
         } else {

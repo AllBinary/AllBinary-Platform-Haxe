@@ -66,7 +66,7 @@ class Directory {
 
     private function create_String(directory : String) : Bool {
         try {
-            final directoryFile : AbFile = FileFactory.getInstance().getInstance(directory);
+            final directoryFile : AbFile = FileFactory.getInstance().getInstanceFor(directory);
             if (!directoryFile.isDirectory()) {
                 PreLogUtil.put("Creating Directories: " + directory, this, "create");
                 if (!directoryFile.mkdirs()) {
@@ -82,7 +82,7 @@ class Directory {
 
     // throws Exception
     private function remove_String(existingDirectory : String) : Void {
-        final existingDirectoryFile : AbFile = FileFactory.getInstance().getInstance(existingDirectory);
+        final existingDirectoryFile : AbFile = FileFactory.getInstance().getInstanceFor(existingDirectory);
         if (existingDirectoryFile.isDirectory()) {
             if (existingDirectoryFile.list().length > 0) {
                 throw new jre.lang.JavaException("Did not remove category: " + existingDirectory + " because files exist");

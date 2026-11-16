@@ -38,7 +38,7 @@ import org.allbinary.view.ViewPosition;
 import org.allbinary.view.ViewPositionBase;
 
 class WeaponLayer extends MultiPlayerGameLayer implements TickableInterface {
-    private var animationInterface : Animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
+    private var animationInterface : Animation = NullAnimationFactory.getFactoryInstance().getInstanceFor(0);
     public var initAnimationInterface : Animation;
     private var destroyedAnimationInterface : Animation;
     private var sourceLayerInterface : AllBinaryLayer = AllBinaryLayer.NULL_ALLBINARY_LAYER;

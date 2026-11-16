@@ -30,7 +30,7 @@ import org.allbinary.view.event.ViewPositionEventHandler;
 class MineLayer extends SimpleWeaponLayer {
     private static final NAME : String = "MineLayer";
     public function new(viewPosition : ViewPositionBase) {
-        super(MineLayer.NAME, RemoteInfo.REMOTE_INFO, -1, NoMovementFactory.getInstance().getMovmentInstance(), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(MineWeaponResources.getInstance().RESOURCE).getInstance(0), SimpleWeaponLayer.createDestroyed(), new Rectangle(PointFactory.getInstance().ZERO_ZERO, 10, 10), viewPosition);
+        super(MineLayer.NAME, RemoteInfo.REMOTE_INFO, -1, NoMovementFactory.getInstance().getMovmentInstance(), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(MineWeaponResources.getInstance().RESOURCE).getInstanceFor(0), SimpleWeaponLayer.createDestroyed(), new Rectangle(PointFactory.getInstance().ZERO_ZERO, 10, 10), viewPosition);
     }
 
     private final viewPositionEventHandler : ViewPositionEventHandler = ViewPositionEventHandler.getInstance();

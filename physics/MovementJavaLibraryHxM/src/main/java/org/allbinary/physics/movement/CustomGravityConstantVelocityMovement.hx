@@ -23,7 +23,7 @@ import org.allbinary.logic.math.BasicDecimal;
 class CustomGravityConstantVelocityMovement extends BasicConstantVelocityMovement {
     private var customGravity : Int;
     public function new(speedBasicDecimal : BasicDecimal, customGravity : Int) {
-        super(speedBasicDecimal, new VelocityProperties(Std.int(speedBasicDecimal.getUnscaled()), Std.int(speedBasicDecimal.getUnscaled())));
+        super(speedBasicDecimal, new VelocityProperties(jre.lang.JavaNumber.toInt(speedBasicDecimal.getUnscaled()), jre.lang.JavaNumber.toInt(speedBasicDecimal.getUnscaled())));
         this.customGravity = customGravity;
     }
 

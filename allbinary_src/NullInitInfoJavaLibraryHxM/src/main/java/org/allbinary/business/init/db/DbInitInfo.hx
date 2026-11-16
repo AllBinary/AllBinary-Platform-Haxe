@@ -23,7 +23,7 @@ class DbInitInfo extends DbConnectionInfo {
         super();
     }
 
-    public function getUrl() : String {
+    public override function getUrl() : String {
         var url : String = super.getUrl();
         PreLogUtil.put("Url: " + url, this, "getUrl");
         return url;

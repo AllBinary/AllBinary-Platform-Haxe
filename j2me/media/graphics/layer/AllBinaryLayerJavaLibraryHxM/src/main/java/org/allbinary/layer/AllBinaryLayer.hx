@@ -96,22 +96,22 @@ class AllBinaryLayer extends Layer implements LayerInterface {
     public function onChangeEvent(layerManagerEvent : ViewPositionEvent) : Void {
     }
 
-    public override function paintThreed(graphics : Graphics) : Void {
+    public function paintThreed(graphics : Graphics) : Void {
     }
 
-    public override function getX2() : Int {
+    public function getX2() : Int {
         return this.getXP() + this.getWidth();
     }
 
-    public override function getY2() : Int {
+    public function getY2() : Int {
         return this.getYP() + this.getHeight();
     }
 
-    public override function getZ2() : Int {
-        return Std.int((this.getZP() + this.getDepth()));
+    public function getZ2() : Int {
+        return jre.lang.JavaNumber.toInt((this.getZP() + this.getDepth()));
     }
 
-    public override function getName() : String {
+    public function getName() : String {
         return this.name;
     }
 
@@ -119,7 +119,7 @@ class AllBinaryLayer extends Layer implements LayerInterface {
         this.halfWidth = halfWidth;
     }
 
-    public override function getHalfWidth() : Int {
+    public function getHalfWidth() : Int {
         return this.halfWidth;
     }
 
@@ -127,12 +127,12 @@ class AllBinaryLayer extends Layer implements LayerInterface {
         this.halfHeight = halfHeight;
     }
 
-    public override function getHalfHeight() : Int {
+    public function getHalfHeight() : Int {
         return this.halfHeight;
     }
 
     public function getHalfDepth() : Int {
-        return Std.int(Std.int(this.getDepth()) / 2);
+        return Std.int(jre.lang.JavaNumber.toInt(this.getDepth()) / 2);
     }
 
     public function getViewPosition() : ViewPositionBase {
@@ -143,23 +143,23 @@ class AllBinaryLayer extends Layer implements LayerInterface {
         this.viewPosition = viewPosition;
     }
 
-    public override function getGroupInterface() : haxe.ds.Vector<Group> {
+    public function getGroupInterface() : haxe.ds.Vector<Group> {
         return BasicGroupFactory.getInstance().NONE_ARRAY;
     }
 
-    public override function implmentsTickableInterface() : Bool {
+    public function implmentsTickableInterface() : Bool {
         return false;
     }
 
-    public override function implmentsGameInputInterface() : Bool {
+    public function implmentsGameInputInterface() : Bool {
         return false;
     }
 
-    public override function implmentsArtificialIntelligenceCompositeInterface() : Bool {
+    public function implmentsArtificialIntelligenceCompositeInterface() : Bool {
         return false;
     }
 
-    public override function implmentsCollidableInterface() : Bool {
+    public function implmentsCollidableInterface() : Bool {
         return false;
     }
 
@@ -167,7 +167,7 @@ class AllBinaryLayer extends Layer implements LayerInterface {
         return OpenGLFeatureUtil.getInstance().isAnyThreed();
     }
 
-    public override function getType() : Int {
+    public function getType() : Int {
         return -1;
     }
 

@@ -58,18 +58,18 @@ class ResourceUtil {
     // throws Exception
     private function getResourceAsStreamAtStart(resource : String, startIndex : Int) : InputStream {
         final commonSeps : CommonSeps = CommonSeps.getInstance();
-        final index : Int = resource.indexOf(commonSeps.COLON);
+        final index : Int = resource.indexOf(jre.lang.JavaString.text(commonSeps.COLON));
         final resourcePath : String = resource.substring(index + startIndex);
-        var inputStream : InputStream = Type.getClass(resource).getResourceAsStream(resourcePath);
+        var inputStream : InputStream = jre.lang.ClassLoader.getSystemResourceAsStream(resourcePath);
         if (inputStream != null) {
             return inputStream;
         }
         final classLoader : ClassLoader = (cast ResourceUtil.classLoader : ClassLoader);
-        inputStream = classLoader.getResourceAsStream(resourcePath);
+        inputStream = jre.lang.ClassLoader.getSystemResourceAsStream(resourcePath);
         if (inputStream != null) {
             return inputStream;
         }
-        inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(resourcePath);
+        inputStream = jre.lang.ClassLoader.getSystemResourceAsStream(resourcePath);
         if (inputStream != null) {
             return inputStream;
         }

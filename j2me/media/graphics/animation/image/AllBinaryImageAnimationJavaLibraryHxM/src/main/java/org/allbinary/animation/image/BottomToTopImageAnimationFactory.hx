@@ -26,7 +26,7 @@ class BottomToTopImageAnimationFactory extends BaseImageAnimationFactory {
     }
 
     // throws Exception
-    public override function getInstance(instanceId : Int) : Animation {
+    public override function getInstanceFor(instanceId : Int) : Animation {
         final scaledImage : Image = this.animationFactoryImageScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         return new BottomToTopImageAnimation(scaledImage, this.animationBehaviorFactory.getOrCreateInstance());
     }

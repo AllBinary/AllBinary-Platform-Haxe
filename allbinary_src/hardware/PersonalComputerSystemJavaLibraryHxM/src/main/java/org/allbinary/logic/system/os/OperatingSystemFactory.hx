@@ -51,17 +51,17 @@ class OperatingSystemFactory {
             if (!this.hasDetected) {
                 this.logUtil.putF("osName: " + osName, this, this.commonStrings.GET_INSTANCE);
                 this.hasDetected = true;
-                if (osName.indexOf(operatingSystems.LINUX) >= 0) {
+                if (osName.indexOf(jre.lang.JavaString.text(operatingSystems.LINUX)) >= 0) {
                     if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR)) {
                         this.logUtil.putF("Found a Linux OS", this, this.commonStrings.GET_INSTANCE);
                     }
                     this.genericOperatingSystem = LinuxOperatingSystemFactory.getInstance().getOperatingSystemInstance();
-                } else if (osName.indexOf(operatingSystems.WINDOWS) >= 0) {
+                } else if (osName.indexOf(jre.lang.JavaString.text(operatingSystems.WINDOWS)) >= 0) {
                     if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR)) {
                         this.logUtil.putF("Found a Windows OS", this, this.commonStrings.GET_INSTANCE);
                     }
                     this.genericOperatingSystem = WindowsOperatingSystemFactory.getInstance().getOperatingSystemInstance();
-                } else if (osName.indexOf(operatingSystems.SOLARIS) >= 0) {
+                } else if (osName.indexOf(jre.lang.JavaString.text(operatingSystems.SOLARIS)) >= 0) {
                     if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR)) {
                         this.logUtil.putF("Found a Solaris OS", this, this.commonStrings.GET_INSTANCE);
                     }

@@ -66,7 +66,7 @@ class MotionGestureRecognizer {
     public function processPressedMotionEvent(current : GPoint, deviceId : Int, button : Int) : Bool {
         this.intermediate = this.origin;
         this.previous = this.origin;
-        final event : MotionGestureEvent = this.motionEventCircularPool.getInstance(TouchMotionGestureFactory.getInstance().PRESSED);
+        final event : MotionGestureEvent = this.motionEventCircularPool.getInstanceFor(TouchMotionGestureFactory.getInstance().PRESSED);
         event.setPreviousPoint(this.previous);
         event.setCurrentPoint(current);
         this.motionGesturesHandler.fireEvent(event);
@@ -75,7 +75,7 @@ class MotionGestureRecognizer {
 
     // throws Exception
     public function processReleasedMotionEvent(current : GPoint, deviceId : Int, button : Int) : Bool {
-        final event : MotionGestureEvent = this.motionEventCircularPool.getInstance(TouchMotionGestureFactory.getInstance().RELEASED);
+        final event : MotionGestureEvent = this.motionEventCircularPool.getInstanceFor(TouchMotionGestureFactory.getInstance().RELEASED);
         event.setPreviousPoint(this.previous);
         event.setCurrentPoint(current);
         this.motionGesturesHandler.fireEvent(event);
@@ -138,7 +138,7 @@ class MotionGestureRecognizer {
         }
         this.previous = current;
         this.intermediate = current;
-        final event : MotionGestureEvent = this.motionEventCircularPool.getInstance(newMotionGesture);
+        final event : MotionGestureEvent = this.motionEventCircularPool.getInstanceFor(newMotionGesture);
         event.setPreviousPoint(this.previous);
         event.setCurrentPoint(current);
         this.motionGesturesHandler.fireEvent(event);
@@ -147,7 +147,7 @@ class MotionGestureRecognizer {
 
     // throws Exception
     public function processMovedMotionEvent(current : GPoint, deviceId : Int, button : Int) : Bool {
-        final event : MotionGestureEvent = this.motionEventCircularPool.getInstance(TouchMotionGestureFactory.getInstance().NO_MOTION);
+        final event : MotionGestureEvent = this.motionEventCircularPool.getInstanceFor(TouchMotionGestureFactory.getInstance().NO_MOTION);
         event.setPreviousPoint(this.previous);
         event.setCurrentPoint(current);
         this.movedMotionGesturesHandler.fireEvent(event);
@@ -163,7 +163,7 @@ class MotionGestureRecognizer {
         } else if (button < 0) {
             newMotionGesture = touchMotionGestureFactory.SCROLL_DOWN;
         }
-        final event : MotionGestureEvent = this.motionEventCircularPool.getInstance(newMotionGesture);
+        final event : MotionGestureEvent = this.motionEventCircularPool.getInstanceFor(newMotionGesture);
         event.setPreviousPoint(this.previous);
         event.setCurrentPoint(current);
         this.scrolledMotionGesturesHandler.fireEvent(event);

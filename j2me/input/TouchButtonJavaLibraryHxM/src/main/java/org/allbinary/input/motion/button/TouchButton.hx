@@ -32,7 +32,7 @@ import org.allbinary.string.CommonStrings;
 class TouchButton extends Paintable {
     // throws Exception
     public static function createButton(touchButtonInput : TouchButtonInput, touchButtonResource : TouchButtonResource, rawRectangle : Rectangle, cellPosition : CellPosition, xBorder : Int, yBorder : Int) : TouchButton {
-        return new TouchButton(touchButtonInput, FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(touchButtonResource.RESOURCE).getInstance(0), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(touchButtonResource.HINT).getInstance(0), rawRectangle, cellPosition, xBorder, yBorder);
+        return new TouchButton(touchButtonInput, FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(touchButtonResource.RESOURCE).getInstanceFor(0), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(touchButtonResource.HINT).getInstanceFor(0), rawRectangle, cellPosition, xBorder, yBorder);
     }
 
     public final logUtil : LogUtil = LogUtil.getInstance();

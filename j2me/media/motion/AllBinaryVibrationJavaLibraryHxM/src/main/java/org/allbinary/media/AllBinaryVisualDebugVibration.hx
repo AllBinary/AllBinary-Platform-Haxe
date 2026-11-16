@@ -31,7 +31,7 @@ class AllBinaryVisualDebugVibration extends AllBinaryVibrationME implements Upda
     private var myFontProcessor : MyFontProcessor;
     private var anchor : Int = Anchor.TOP_LEFT;
     private var width : Int = 0;
-    public override function updateMeasurement(graphics : Graphics) : Void {
+    public function updateMeasurement(graphics : Graphics) : Void {
         final font : Font = graphics.getFont();
         this.width = font.stringWidth(this.VIBRATING);
         this.myFontProcessor = MyFontProcessor.getInstance();

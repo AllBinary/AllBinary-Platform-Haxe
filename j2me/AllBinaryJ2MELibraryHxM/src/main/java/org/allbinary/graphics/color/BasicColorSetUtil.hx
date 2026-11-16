@@ -27,7 +27,7 @@ class BasicColorSetUtil {
     }
 
     public function setBasicColorP(graphics : Graphics, basicColor : BasicColor) : Void {
-        graphics.setColor(Std.int(basicColor));
+        graphics.setColor(basicColor.intValue());
     }
 
     public function setBasicColorP3(graphics : Graphics, basicColor : BasicColor, value : Int) : Void {

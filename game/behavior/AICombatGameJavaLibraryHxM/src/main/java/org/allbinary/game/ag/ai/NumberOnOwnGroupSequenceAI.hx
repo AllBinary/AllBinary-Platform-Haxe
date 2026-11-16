@@ -35,7 +35,7 @@ class NumberOnOwnGroupSequenceAI extends SequenceAI {
         var index : Int = this.getIndex();
         if (this.numberOnSameTeam.length > index) {
             final size : Int = GroupLayerManagerListener.getInstance().getGroupSizeFromInterface(layerInterface);
-            if (Std.int(this.numberOnSameTeam[index]) > size) {
+            if (jre.lang.JavaObject.intValue(this.numberOnSameTeam[index]) > size) {
                 this.next();
             }
         }

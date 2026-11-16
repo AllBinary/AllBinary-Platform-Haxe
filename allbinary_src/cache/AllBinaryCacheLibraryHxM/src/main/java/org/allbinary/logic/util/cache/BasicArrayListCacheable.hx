@@ -19,7 +19,7 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayListD;
 
 class BasicArrayListCacheable extends BasicArrayListD implements CacheableInterface {
-    public override function getKey() : Any {
+    public function getKey() : Any {
         return StringUtil.getInstance().EMPTY_STRING;
     }
 

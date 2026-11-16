@@ -34,7 +34,7 @@ class KeySpecFactory {
     public function new() {
     }
 
-    public function getInstance(algorithm : String, keyData : haxe.ds.Vector<Int>) : KeySpec {
+    public function getInstanceFor(algorithm : String, keyData : haxe.ds.Vector<Int>) : KeySpec {
         try {
             final tsUtil : TsUtil = TsUtil.getInstance();
             if (tsUtil.compareTo(algorithm, this.DES) == 0) {

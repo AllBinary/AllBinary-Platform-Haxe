@@ -94,7 +94,7 @@ class ClientInformation implements AbeClientInformationInterface {
         clientInfoHashtable.put(abeClientInformationData.OSARCH, genericOperatingSystem.getArch());
         clientInfoHashtable.put(abeClientInformationData.OSVERSION, genericOperatingSystem.getVersion());
         clientInfoHashtable.put(abeClientInformationData.OS, Std.string(genericOperatingSystem));
-        final hardwareInterface : HardwareInterface = SystemHardwareFactory.getInstance().getInstance(genericOperatingSystem);
+        final hardwareInterface : HardwareInterface = SystemHardwareFactory.getInstance().getInstanceFor(genericOperatingSystem);
         var hardwareString : String = Std.string(hardwareInterface);
         clientInfoHashtable.put(abeClientInformationData.HARDWARE, hardwareString);
         return clientInfoHashtable;

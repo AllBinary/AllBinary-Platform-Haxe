@@ -25,15 +25,15 @@ class AxisMathVectorUtil {
 
     private final noDecimalTrigTable : NoDecimalTrigTable = NoDecimalTrigTable.getInstance();
     public function calculateX(magnitude : haxe.Int64, angle : Int) : haxe.Int64 {
-        return magnitude * this.noDecimalTrigTable.cos(angle) / 10;
+        return jre.lang.JavaNumber.divide(magnitude * this.noDecimalTrigTable.cos(angle), 10);
     }
 
     public function calculateY(magnitude : haxe.Int64, angle : Int) : haxe.Int64 {
-        return magnitude * this.noDecimalTrigTable.sin(angle) / 10;
+        return jre.lang.JavaNumber.divide(magnitude * this.noDecimalTrigTable.sin(angle), 10);
     }
 
     public function calculateZ(magnitude : haxe.Int64, otherAngle : Int) : haxe.Int64 {
-        return magnitude * this.noDecimalTrigTable.sin(otherAngle) / 10;
+        return jre.lang.JavaNumber.divide(magnitude * this.noDecimalTrigTable.sin(otherAngle), 10);
     }
 
     public function new() {

@@ -46,8 +46,8 @@ class AllBinaryGameLayerManager extends AllBinaryLayerManager {
         this.backgroundBasicColor = backgroundBasicColor;
         this.foregroundBasicColor = foregroundBasicColor;
         var itemColorFactory : ItemColorFactory = ItemColorFactory.getInstance();
-        itemColorFactory.INVERT_PAINT = Std.int(this.backgroundBasicColor);
-        itemColorFactory.PAINT = Std.int(this.foregroundBasicColor);
+        itemColorFactory.INVERT_PAINT = this.backgroundBasicColor.intValue();
+        itemColorFactory.PAINT = this.foregroundBasicColor.intValue();
         this.gameInfo = gameInfo;
     }
 
@@ -64,7 +64,7 @@ class AllBinaryGameLayerManager extends AllBinaryLayerManager {
 
     public function setBackgroundBasicColor(backgroundBasicColor : BasicColor) : Void {
         this.backgroundBasicColor = backgroundBasicColor;
-        ItemColorFactory.getInstance().INVERT_PAINT = Std.int(this.backgroundBasicColor);
+        ItemColorFactory.getInstance().INVERT_PAINT = this.backgroundBasicColor.intValue();
     }
 
     public function getForegroundBasicColor() : BasicColor {
@@ -73,7 +73,7 @@ class AllBinaryGameLayerManager extends AllBinaryLayerManager {
 
     public function setForegroundBasicColor(foregroundBasicColor : BasicColor) : Void {
         this.foregroundBasicColor = foregroundBasicColor;
-        ItemColorFactory.getInstance().PAINT = Std.int(this.foregroundBasicColor);
+        ItemColorFactory.getInstance().PAINT = this.foregroundBasicColor.intValue();
     }
 
     public function getGameInfo() : GameInfo {

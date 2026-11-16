@@ -46,13 +46,13 @@ class BottomToTopImageAnimation extends ImageSegmentAnimation {
     }
 
     private function update() : Void {
-        this.startHeight = this.getDrawHeight() * this.getFrame() / this.getSize();
+        this.startHeight = jre.lang.JavaNumber.divide(this.getDrawHeight() * this.getFrame(), this.getSize());
         this.currentHeight = this.getDrawHeight() - this.startHeight;
     }
 
-    private var anchor : Int = Anchor.TOP_LEFT;
+    private var anchor_BottomToTopImageAnimation : Int = Anchor.TOP_LEFT;
     public override function paintXY(graphics : Graphics, x : Int, y : Int) : Void {
-        graphics.drawRegion(this.getImage(), this.getStartX(), this.startHeight, this.getDrawWidth(), this.currentHeight, Sprite.TRANS_NONE, x, y + this.startHeight, this.anchor);
+        graphics.drawRegion(this.getImage(), this.getStartX(), this.startHeight, this.getDrawWidth(), this.currentHeight, Sprite.TRANS_NONE, x, y + this.startHeight, this.anchor_BottomToTopImageAnimation);
     }
 
 }

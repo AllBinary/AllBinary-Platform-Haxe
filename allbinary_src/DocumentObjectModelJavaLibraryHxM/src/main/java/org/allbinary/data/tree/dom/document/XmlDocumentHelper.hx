@@ -57,7 +57,7 @@ class XmlDocumentHelper {
             return this.createTransformer_int_boolean(args[0], args[1]);
         }
         if (args.length == 0) {
-            return this.createTransformer();
+            return this.createTransformer_();
         }
         throw new jre.lang.IllegalArgumentException("No matching overload: createTransformer");
     }
@@ -75,7 +75,7 @@ class XmlDocumentHelper {
     }
 
     // throws TransformerConfigurationException
-    public function createTransformer() : Transformer {
+    public function createTransformer_() : Transformer {
         final currentIndent : Int = 0;
         final currentIgnoreDeclaration : Bool = false;
         // synchronized (this)

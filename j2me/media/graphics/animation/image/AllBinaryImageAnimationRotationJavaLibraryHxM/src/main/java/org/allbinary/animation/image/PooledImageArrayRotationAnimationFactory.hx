@@ -29,15 +29,15 @@ import org.allbinary.media.image.ImageToRotationImageArrayUtil;
 class PooledImageArrayRotationAnimationFactory implements AnimationInterfaceFactoryInterface {
     // throws Exception
     public static function createFactory(image : Image, animationBehaviorFactory : AnimationBehaviorFactory) : PooledImageArrayRotationAnimationFactory {
-        final totalAngle : Int = Std.int(AngleFactory.getInstance().TOTAL_ANGLE);
-        final angleIncrement : Int = (totalAngle / GameConfigurationCentral.getInstance().getGameControlFidelity());
+        final totalAngle : Int = jre.lang.JavaNumber.toInt(AngleFactory.getInstance().TOTAL_ANGLE);
+        final angleIncrement : Int = (jre.lang.JavaNumber.divide(totalAngle, GameConfigurationCentral.getInstance().getGameControlFidelity()));
         return new PooledImageArrayRotationAnimationFactory(image, image.getWidth(), image.getHeight(), -(image.getWidth() >> 2), -(image.getHeight() >> 2), angleIncrement, animationBehaviorFactory);
     }
 
     // throws Exception
     public static function createDXY(image : Image, dx : Int, dy : Int, animationBehaviorFactory : AnimationBehaviorFactory) : PooledImageArrayRotationAnimationFactory {
-        final totalAngle : Int = Std.int(AngleFactory.getInstance().TOTAL_ANGLE);
-        final angleIncrement : Int = (totalAngle / GameConfigurationCentral.getInstance().getGameControlFidelity());
+        final totalAngle : Int = jre.lang.JavaNumber.toInt(AngleFactory.getInstance().TOTAL_ANGLE);
+        final angleIncrement : Int = (jre.lang.JavaNumber.divide(totalAngle, GameConfigurationCentral.getInstance().getGameControlFidelity()));
         return new PooledImageArrayRotationAnimationFactory(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehaviorFactory);
     }
 
@@ -45,13 +45,13 @@ class PooledImageArrayRotationAnimationFactory implements AnimationInterfaceFact
     private final animationBehaviorFactory : AnimationBehaviorFactory;
     public function new(image : Image, width : Int, height : Int, dx : Int, dy : Int, angleIncrement : Int, animationBehaviorFactory : AnimationBehaviorFactory) {
         this.animationBehaviorFactory = animationBehaviorFactory;
-        final totalAngle : Int = Std.int(AngleFactory.getInstance().TOTAL_ANGLE);
+        final totalAngle : Int = jre.lang.JavaNumber.toInt(AngleFactory.getInstance().TOTAL_ANGLE);
         final imageArray : haxe.ds.Vector<Image> = ImageToRotationImageArrayUtil.getInstance().generate(image, angleIncrement, totalAngle);
         this.allBinaryImageRotationAnimationInfo = new ImageArrayRotationAnimationInfo(imageArray, angleIncrement, totalAngle, dx, dy);
     }
 
     // throws Exception
-    public function getInstance(instanceId : Int) : Animation {
+    public function getInstanceFor(instanceId : Int) : Animation {
         return AdjustedImageArrayRotationAnimation.createAdjustedImageArrayRotationAnimationInfo(this.allBinaryImageRotationAnimationInfo, this.animationBehaviorFactory.getOrCreateInstance());
     }
 

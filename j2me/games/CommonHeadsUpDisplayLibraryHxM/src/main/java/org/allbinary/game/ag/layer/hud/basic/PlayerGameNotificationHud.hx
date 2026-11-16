@@ -40,7 +40,7 @@ import org.allbinary.util.CircularIndexUtil;
 class PlayerGameNotificationHud extends GameNotificationHud implements UpdateMyFontInterface {
     private final gameTickTimeDelayHelper : GameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
     private final EMPTY_STRING : String = StringUtil.getInstance().EMPTY_STRING;
-    private final displayInfo : DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
+    private final displayInfo_PlayerGameNotificationHud : DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
     private final timeDelayHelper : TimeDelayHelper = new TimeDelayHelper(0);
     private final circularIndexUtil : CircularIndexUtil;
     private final gameNotification : GameNotification = new GameNotification();
@@ -125,11 +125,11 @@ class PlayerGameNotificationHud extends GameNotificationHud implements UpdateMyF
 
     // throws Exception
     public function setAndRemoveProcess() : Void {
-        this.setX((this.displayInfo.getLastWidth() - this.width) >> 1);
+        this.setX((this.displayInfo_PlayerGameNotificationHud.getLastWidth() - this.width) >> 1);
         this.point.setX(this.getX());
         this.point.setY(this.getY());
         final time : Null<Int> = (cast this.gameNotification.timeList.removeAt(0) : Null<Int>);
-        var iTime : Int = Std.int(time) * 1000;
+        var iTime : Int = jre.lang.JavaNumber.toInt(time) * 1000;
         if (iTime == 0) {
             iTime = 500;
         }
@@ -147,11 +147,11 @@ class PlayerGameNotificationHud extends GameNotificationHud implements UpdateMyF
     // throws Exception
     public function setNextUnremoveableProcess() : Void {
         final index : Int = this.circularIndexUtil.getIndex();
-        this.setX((this.displayInfo.getLastWidth() - this.width) >> 1);
+        this.setX((this.displayInfo_PlayerGameNotificationHud.getLastWidth() - this.width) >> 1);
         this.point.setX(this.getX());
         this.point.setY(this.getY());
         var time : Null<Int> = (cast this.permanentGameNotification.timeList.objectArray[index] : Null<Int>);
-        this.timeDelayHelper.delay = Std.int(time) * 1000;
+        this.timeDelayHelper.delay = jre.lang.JavaNumber.toInt(time) * 1000;
         this.setBasicColorP((cast this.permanentGameNotification.colorList.objectArray[index] : BasicColor));
         this.circularIndexUtil.next();
     }

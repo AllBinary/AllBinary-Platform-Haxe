@@ -34,7 +34,7 @@ class ImmutableBasicArrayList extends BasicArrayListS {
         ForcedLogUtil.log(this.name, this);
     }
 
-    public function toString() : String {
+    public override function toString() : String {
         return this.name;
     }
 

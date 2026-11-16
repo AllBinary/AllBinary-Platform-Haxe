@@ -40,13 +40,13 @@ class InitDbHelperFactory {
         var classes : haxe.ds.Vector<Class<Dynamic>> = haxe.ds.Vector.fromArrayCopy([for (index in 0...1) null]);
         classes[0] = DatabaseConnectionInfoInterface;
         params[0] = (cast databaseConnectionInfoInterface : Any);
-        var anyType : Any = AbeFactory.getInstance().getInstance(abeClientInformation, CLASSNAME, classes, params);
+        var anyType : Any = AbeFactory.getInstance().getInstanceFor(abeClientInformation, CLASSNAME, classes, params);
         return anyType;
     }
 
     // throws LicensingException
     public static function getInstance_AbeClientInformationInterface(abeClientInformation : AbeClientInformationInterface) : Any {
-        var anyType : Any = AbeFactory.getInstance().getInstance(abeClientInformation, CLASSNAME, null, null);
+        var anyType : Any = AbeFactory.getInstance().getInstanceFor(abeClientInformation, CLASSNAME, null, null);
         return anyType;
     }
 

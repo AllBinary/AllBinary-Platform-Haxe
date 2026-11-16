@@ -29,7 +29,7 @@ class NullOutputStream extends OutputStream {
             this.write_byteArray_int_int(args[0], args[1], args[2]);
             return null;
         }
-        throw new jre.lang.IllegalArgumentException("No matching overload: write");
+        return super.write(...args);
     }
 
     // throws IOException

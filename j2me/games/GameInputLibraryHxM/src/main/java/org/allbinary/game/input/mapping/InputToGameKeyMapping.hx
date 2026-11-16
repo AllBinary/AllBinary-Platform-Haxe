@@ -68,7 +68,7 @@ class InputToGameKeyMapping extends InputMapping {
         {
             var index : Int = inputToGameKeyMapping.getMaxMappable() - 1;
             while (index >= 0) {
-            final input : Input = inputToGameKeyMapping.getInstance(index);
+            final input : Input = inputToGameKeyMapping.getInstanceFor(index);
             if (input != this.gameKeyFactory.NONE) {
                 this.addAll(input, inputToGameKeyMapping.getMappedInput(input));
             }
@@ -193,7 +193,7 @@ class InputToGameKeyMapping extends InputMapping {
         }
     }
 
-    public function getInstance(id : Int) : GameKey {
+    public function getInstanceFor(id : Int) : GameKey {
         if (id >= 0 && id < this.platformToGameKeyMapping.length) {
             return this.platformToGameKeyMapping[id];
         } else if (id < 0 && -id < this.negativePlatformToGameKeyMapping.length) {

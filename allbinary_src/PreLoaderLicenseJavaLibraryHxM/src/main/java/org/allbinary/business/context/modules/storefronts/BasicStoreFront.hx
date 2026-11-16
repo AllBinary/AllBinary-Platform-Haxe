@@ -55,18 +55,18 @@ class BasicStoreFront implements BasicStoreFrontInterface {
     private var lastModified : String;
     public function new(...args : Dynamic) {
         if (args.length == 0) {
-            this._new0();
+            this._newBasicStoreFront0();
         }
         else if (args.length == 1) {
             final storeHashMap : HashMap<Dynamic, Dynamic> = args[0];
-            this._new1(storeHashMap);
+            this._newBasicStoreFront1(storeHashMap);
         }
     }
 
-    private function _new0() : Void {
+    private function _newBasicStoreFront0() : Void {
     }
 
-    private function _new1(storeHashMap : HashMap<Dynamic, Dynamic>) : Void {
+    private function _newBasicStoreFront1(storeHashMap : HashMap<Dynamic, Dynamic>) : Void {
         var storeFrontData : StoreFrontData = StoreFrontData.getInstance();
         this.name = (cast storeHashMap.get(storeFrontData.NAME) : String);
         this.userName = (cast storeHashMap.get(UserData.USERNAME) : String);

@@ -84,23 +84,23 @@ class CompoundRotationAnimation extends RotationAnimation implements CompoundAni
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paintThreedXYZ(graphics, x, y, z);
     }
 
-    public override function getCurrentAnimation() : IndexedAnimation {
+    public function getCurrentAnimation() : IndexedAnimation {
         return this.animationInterfaceArray[this.circularIndexUtil.getIndex()];
     }
 
-    public override function nextAnimation() : Void {
+    public function nextAnimation() : Void {
         var frame : Int = this.getFrame();
         this.circularIndexUtil.next();
         this.setFrame(frame);
     }
 
-    public override function previousAnimation() : Void {
+    public function previousAnimation() : Void {
         var frame : Int = this.getFrame();
         this.circularIndexUtil.previous();
         this.setFrame(frame);
     }
 
-    public override function setAnimation(index : Int) : Void {
+    public function setAnimation(index : Int) : Void {
         var frame : Int = this.getFrame();
         this.circularIndexUtil.setIndex(index);
         this.setFrame(frame);

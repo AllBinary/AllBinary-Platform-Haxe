@@ -26,7 +26,7 @@ class LicenseTypeFactory {
     public final UNKNOWN : LicenseType = new LicenseType(CommonStrings.getInstance().UNKNOWN);
     public final DEMO : LicenseType = new LicenseType("Demo");
     public final NORMAL : LicenseType = new LicenseType("Normal");
-    public function getInstance(name : String) : LicenseType {
+    public function getInstanceFor(name : String) : LicenseType {
         if (this.DEMO.getName().compareTo(name) == 0) {
             return this.DEMO;
         } else if (this.NORMAL.getName().compareTo(name) == 0) {

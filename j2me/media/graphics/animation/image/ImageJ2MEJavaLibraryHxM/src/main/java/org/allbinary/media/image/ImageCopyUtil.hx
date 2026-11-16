@@ -65,8 +65,8 @@ class ImageCopyUtil {
             this.logUtil.put(this.NO_COPY, this, this.commonStrings.CONSTRUCTOR, new jre.lang.JavaException());
             return originalImage;
         }
-        var newWidth : Int = Std.int((originalImage.getWidth() * canvasScale));
-        var newHeight : Int = Std.int((originalImage.getHeight() * canvasScale));
+        var newWidth : Int = jre.lang.JavaNumber.toInt((originalImage.getWidth() * canvasScale));
+        var newHeight : Int = jre.lang.JavaNumber.toInt((originalImage.getHeight() * canvasScale));
         if (resize) {
             if (newWidth < newHeight) {
                 newWidth = newHeight;
@@ -77,8 +77,8 @@ class ImageCopyUtil {
         }
         final image : Image = this.imageCreationUtil.createImageWH(newWidth, newHeight);
         if (image.isMutable()) {
-            final halfWidthDelta : Int = (newWidth - originalImage.getWidth()) / 2;
-            final halfHeightDelta : Int = (newHeight - originalImage.getHeight()) / 2;
+            final halfWidthDelta : Int = jre.lang.JavaNumber.divide((newWidth - originalImage.getWidth()), 2);
+            final halfHeightDelta : Int = jre.lang.JavaNumber.divide((newHeight - originalImage.getHeight()), 2);
             final graphics : Graphics = image.getGraphics();
             graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, this.anchor);
             return image;

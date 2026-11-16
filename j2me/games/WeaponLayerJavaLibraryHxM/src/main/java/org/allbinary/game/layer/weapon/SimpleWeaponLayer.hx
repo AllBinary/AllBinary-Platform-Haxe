@@ -27,7 +27,7 @@ import org.allbinary.view.ViewPositionBase;
 class SimpleWeaponLayer extends WeaponLayer {
     // throws Exception
     public static function createDestroyed() : Animation {
-        return FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().getProcedural(ExplosionResources.getInstance().THIRD_EXPLOSION_RESOURCE).getInstanceAnimation(NullIndexedAnimationFactory.getFactoryInstance().getInstance(0));
+        return FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().getProcedural(ExplosionResources.getInstance().THIRD_EXPLOSION_RESOURCE).getInstanceAnimation(NullIndexedAnimationFactory.getFactoryInstance().getInstanceFor(0));
     }
 
     public function new(name : String, remoteInfo : RemoteInfo, multiPlayerType : Int, movement : Movement, animationInterface : Animation, destroyedAnimationInterface : Animation, rectangle : Rectangle, viewPosition : ViewPositionBase) {

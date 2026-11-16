@@ -254,15 +254,15 @@ class DiveAndDirectionalTrackingAI extends BasicAI implements TrackingEventListe
         }
     }
 
-    public override function onEvent(eventObject : AllBinaryEventObject) : Void {
+    public function onEvent(eventObject : AllBinaryEventObject) : Void {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
-    public override function onMovement(trackingEvent : TrackingEvent) : Void {
+    public function onMovement(trackingEvent : TrackingEvent) : Void {
         this.list.add(trackingEvent);
     }
 
-    public override function onDestroyed(destroyedEvent : DestroyedEvent) : Void {
+    public function onDestroyed(destroyedEvent : DestroyedEvent) : Void {
         if (this.getOwnerLayerInterface() == destroyedEvent.getLayerInterface()) {
             TrackingEventHandler.getInstance().removeListener(this);
             DestroyedEventHandler.getInstance().removeListener(this);
@@ -294,7 +294,7 @@ class DiveAndDirectionalTrackingAI extends BasicAI implements TrackingEventListe
         return this.lastDirection;
     }
 
-    public function toString() : String {
+    public override function toString() : String {
         var stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append(super.toString());
         stringBuffer.append(" LastDirection: ");

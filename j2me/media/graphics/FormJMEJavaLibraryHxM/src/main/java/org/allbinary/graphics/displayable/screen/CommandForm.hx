@@ -58,12 +58,12 @@ class CommandForm extends Form implements MyCommandInterface implements MenuList
     public function initCommands(cmdListener : CommandListener) : Void {
     }
 
-    public override function open() : Void {
+    public function open() : Void {
         this.logUtil.putF(this.commonStrings.START, this, "open");
     }
 
     // throws Exception
-    public override function close() : Void {
+    public function close() : Void {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CLOSE);
     }
 
@@ -72,7 +72,7 @@ class CommandForm extends Form implements MyCommandInterface implements MenuList
         this.repaintProcessor.process();
     }
 
-    public override function getSourceId() : Int {
+    public function getSourceId() : Int {
         return 0;
     }
 
@@ -81,7 +81,7 @@ class CommandForm extends Form implements MyCommandInterface implements MenuList
         super.addCommand(command);
     }
 
-    public override function removeAllCommands() : Void {
+    public function removeAllCommands() : Void {
         final size : Int = this.commandStack.size();
         for (index in 0...size) {
             super.removeCommand((cast this.commandStack.pop() : Command));

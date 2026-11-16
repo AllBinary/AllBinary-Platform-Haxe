@@ -75,7 +75,7 @@ class WeaponProperties extends SimpleWeaponProperties {
     }
 
     public function getDamageI(range : Int) : Int {
-        return this.getDamage() - ((this.getDissipation() * range) / this.speed.getScaled());
+        return this.getDamage() - (jre.lang.JavaNumber.divide((this.getDissipation() * range), this.speed.getScaled()));
     }
 
     private static final DAMAGE : String = "Damage: ";
@@ -85,9 +85,9 @@ class WeaponProperties extends SimpleWeaponProperties {
         var index : Int = 0;
         final stringArray : haxe.ds.Vector<String> = haxe.ds.Vector.fromArrayCopy([for (index in 0...3) null]);
         final stringBuffer : StringMaker = new StringMaker();
-        stringArray[index++] = Std.string(stringBuffer.append(WeaponProperties.DAMAGE).appendint(Std.int(this.getDamage())));
+        stringArray[index++] = Std.string(stringBuffer.append(WeaponProperties.DAMAGE).appendint(jre.lang.JavaNumber.toInt(this.getDamage())));
         stringBuffer.delete(0, stringBuffer.length());
-        stringArray[index++] = Std.string(stringBuffer.append(WeaponProperties.RANGE).appendint(Std.int(this.getRange())));
+        stringArray[index++] = Std.string(stringBuffer.append(WeaponProperties.RANGE).appendint(jre.lang.JavaNumber.toInt(this.getRange())));
         stringBuffer.delete(0, stringBuffer.length());
         stringArray[index++] = Std.string(stringBuffer.append(WeaponProperties.RELOAD).appendlong(this.getReloadTime()));
         return stringArray;
@@ -95,9 +95,9 @@ class WeaponProperties extends SimpleWeaponProperties {
 
     public function toString() : String {
         final stringBuffer : StringMaker = new StringMaker();
-        stringBuffer.append(WeaponProperties.DAMAGE).appendint(Std.int(this.getDamage()));
+        stringBuffer.append(WeaponProperties.DAMAGE).appendint(jre.lang.JavaNumber.toInt(this.getDamage()));
         stringBuffer.append(CommonSeps.getInstance().SPACE);
-        stringBuffer.append(WeaponProperties.RANGE).appendint(Std.int(this.getRange()));
+        stringBuffer.append(WeaponProperties.RANGE).appendint(jre.lang.JavaNumber.toInt(this.getRange()));
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(WeaponProperties.RELOAD).appendlong(this.getReloadTime());
         return Std.string(stringBuffer);

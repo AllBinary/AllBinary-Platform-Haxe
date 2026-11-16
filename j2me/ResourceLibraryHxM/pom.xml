@@ -57,6 +57,30 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>NoneOnlyJavaLibraryHaxe</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>J2SEForJ2MEJavaLibraryHaxe</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>J2MEOnlyJavaLibraryHaxe</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    <!-- Haxe types its imports from source: a dependency imports this through an optional dependency -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>HTMLForJ2MEJavaLibraryHaxe</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -123,12 +147,13 @@
                             <executable>${haxe.executable}</executable>
                             <workingDirectory>${project.basedir}/src/main/java</workingDirectory>
                             <arguments>
+                                <!-- Haxe uses the last class path that has a module: the sources of this project win over a dependency like javac -->
                                 <argument>-cp</argument>
-                                <argument>.</argument>
+                                <argument>${haxe.runtime.directory}</argument>
                                 <argument>-cp</argument>
                                 <argument>${haxe.dependency.directory}</argument>
                                 <argument>-cp</argument>
-                                <argument>${haxe.runtime.directory}</argument>
+                                <argument>.</argument>
                                 <argument>--macro</argument>
                                 <argument>include('', true, null, ['.'])</argument>
                                 <argument>${haxe.target}</argument>

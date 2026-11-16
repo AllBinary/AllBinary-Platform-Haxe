@@ -29,12 +29,12 @@ class BasicStoreFrontFactory {
     }
 
     // throws Exception
-    public function getInstance(storeName : String) : BasicStoreFrontInterface {
+    public function getInstanceFor(storeName : String) : BasicStoreFrontInterface {
         try {
             var storeFronts : BasicStoreFrontsEntity = new BasicStoreFrontsEntity();
             return storeFronts.getStoreFrontInterface(storeName);
         } catch (e : haxe.Exception) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().FACTORYERROR)) {
                 final commonStrings : CommonStrings = CommonStrings.getInstance();
                 this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             }

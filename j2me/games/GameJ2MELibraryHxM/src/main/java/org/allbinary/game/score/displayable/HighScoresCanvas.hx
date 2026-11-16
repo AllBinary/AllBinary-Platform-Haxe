@@ -63,11 +63,11 @@ class HighScoresCanvas extends GameCommandCanvas implements HighScoresResultsLis
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         this.highScoresPaintable = paintable;
         this.highScoresFactoryInterface = highScoresFactoryInterface;
-        this.highScoresCanvasInputProcessor = highScoresCanvasInputProcessorFactoryInterface.getInstance(this);
+        this.highScoresCanvasInputProcessor = highScoresCanvasInputProcessorFactoryInterface.getInstanceFor(this);
         this.gameInfo = gameInfo;
         this.waitPaintable.setBasicColorP(allBinaryGameLayerManager.getForegroundBasicColor());
         this.getHighScoresPaintable().setBasicColorP(allBinaryGameLayerManager.getForegroundBasicColor());
-        this.colorFillPaintable = ColorFillPaintableFactory.getInstance().getInstance(allBinaryGameLayerManager.getBackgroundBasicColor(), false);
+        this.colorFillPaintable = ColorFillPaintableFactory.getInstance().getInstanceFor(allBinaryGameLayerManager.getBackgroundBasicColor(), false);
         if (this.highScoresHelper.getHighScoresArray().length == NoHighScoresFactory.getInstance().NO_HIGH_SCORES.length) {
             this.setPaintable(this.waitPaintable);
         } else {
@@ -117,7 +117,7 @@ class HighScoresCanvas extends GameCommandCanvas implements HighScoresResultsLis
         return this.highScoresPaintable;
     }
 
-    public override function setHighScoresArray(highScoresArray : haxe.ds.Vector<HighScores>) : Void {
+    public function setHighScoresArray(highScoresArray : haxe.ds.Vector<HighScores>) : Void {
         try {
             if (highScoresArray != null) {
                 this.logUtil.putF(Std.string(new StringMaker().append(this.commonStrings.START).appendint(highScoresArray.length)), this, "setHighScoresArray");

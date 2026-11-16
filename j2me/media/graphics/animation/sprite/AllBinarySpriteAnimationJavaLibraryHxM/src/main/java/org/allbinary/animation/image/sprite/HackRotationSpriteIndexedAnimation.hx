@@ -28,7 +28,7 @@ class HackRotationSpriteIndexedAnimation extends RotationAnimation {
     public final sprite : Sprite;
     private final image : Image;
     public function new(sprite : Sprite, image : Image, angleInfo : AngleInfo, animationBehavior : AnimationBehavior) {
-        super(angleInfo, CircularIndexUtil.createInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
+        super(angleInfo, CircularIndexUtil.createInstance(jre.lang.JavaNumber.divide(360, angleInfo.getAngleIncrementInfo().getAngleIncrement())), animationBehavior);
         this.sprite = sprite;
         this.image = image;
     }

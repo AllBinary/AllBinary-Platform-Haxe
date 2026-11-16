@@ -32,7 +32,7 @@ class VectorExplosionAnimationFactory implements ProceduralAnimationInterfaceFac
         final vectorRotationAnimationInterface : VectorAnimationInterface = (cast animationInterface : VectorAnimationInterface);
         final frame : Int = vectorRotationAnimationInterface.getFrame();
         final framePoints : haxe.ds.Vector<haxe.ds.Vector<Int>> = vectorRotationAnimationInterface.getPoints(frame);
-        final points : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>> = this.vectorExplosionGenerator.getInstance(framePoints, 6, this.vectorExplosionGenerator.ROTATION);
+        final points : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>> = this.vectorExplosionGenerator.getInstanceFor(framePoints, 6, this.vectorExplosionGenerator.ROTATION);
         return new VectorRotationAnimation(points, this.getBasicColorP(), this.animationBehaviorFactory.getOrCreateInstance());
     }
 

@@ -151,11 +151,11 @@ class StartCanvas extends RunnableCanvas implements GameCanvasRunnableInterface 
         DisplayChangeEventHandler.getInstance().addListenerInterface(this);
     }
 
-    public override function onEvent(eventObject : AllBinaryEventObject) : Void {
+    public function onEvent(eventObject : AllBinaryEventObject) : Void {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
-    public override function onDisplayChangeEvent(displayChangeEvent : DisplayChangeEvent) : Void {
+    public function onDisplayChangeEvent(displayChangeEvent : DisplayChangeEvent) : Void {
         try {
             var scrollSelectionForm : ScrollSelectionForm = this.getMenuForm();
             if (scrollSelectionForm != null) {
@@ -222,7 +222,7 @@ class StartCanvas extends RunnableCanvas implements GameCanvasRunnableInterface 
         AllBinaryMediaManager.init(EarlySoundsFactory.getInstance());
     }
 
-    public override function itemStateChanged(item : Item) : Void {
+    public function itemStateChanged(item : Item) : Void {
         ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
     }
 
@@ -232,18 +232,18 @@ class StartCanvas extends RunnableCanvas implements GameCanvasRunnableInterface 
         this.open();
     }
 
-    public override function open() : Void {
+    public function open() : Void {
         BasicMotionGesturesHandler.getInstance().addListenerInterface(this.getMenuInputProcessor());
         GameKeyEventHandler.getInstance().addListener(this.getMenuInputProcessor());
     }
 
-    public override function close() : Void {
+    public function close() : Void {
         BasicMotionGesturesHandler.getInstance().removeListener(this.getMenuInputProcessor());
         GameKeyEventHandler.getInstance().removeListener(this.getMenuInputProcessor());
     }
 
     private static final id : Int = 0;
-    public override function getSourceId() : Int {
+    public function getSourceId() : Int {
         return StartCanvas.id;
     }
 
@@ -324,29 +324,29 @@ class StartCanvas extends RunnableCanvas implements GameCanvasRunnableInterface 
         }
     }
 
-    public override function isGameOver() : Bool {
+    public function isGameOver() : Bool {
         this.logUtil.putF(Std.string(new StringMaker().append(this.commonStrings.NOT_IMPLEMENTED).append(" since not a game")), this, "isGameOver");
         return false;
     }
 
     // throws Exception
-    public override function setLoadStateHashtable(hashtable : ABHashtable<Any, Any>) : Void {
+    public function setLoadStateHashtable(hashtable : ABHashtable<Any, Any>) : Void {
         this.logUtil.putF("Trying to continue a demo lol - only continue a game canvas not the demo", this, "setLoadStateHashtable");
     }
 
     // throws Exception
-    public override function getLoadStateHashtable() : ABHashtable<Any, Any> {
+    public function getLoadStateHashtable() : ABHashtable<Any, Any> {
         this.logUtil.putF("Trying to continue a demo lol - only continue a game canvas not the demo", this, "getLoadStateHashtable");
         return this.stdUtil.NULL_TABLE;
     }
 
     // throws Exception
-    public override function getCurrentStateHashtable() : ABHashtable<Any, Any> {
+    public function getCurrentStateHashtable() : ABHashtable<Any, Any> {
         this.logUtil.putF("Trying to save the AI lol", this, "getCurrentStateHashtable");
         return this.stdUtil.NULL_TABLE;
     }
 
-    public override function setHighScoreSubmitted(isNotUsed : Bool) : Void {
+    public function setHighScoreSubmitted(isNotUsed : Bool) : Void {
     }
 
     public override function paint(graphics : Graphics) : Void {
@@ -358,13 +358,13 @@ class StartCanvas extends RunnableCanvas implements GameCanvasRunnableInterface 
         this.progressPaintable.paint(graphics);
     }
 
-    public override function paintThreed(graphics : Graphics) : Void {
+    public function paintThreed(graphics : Graphics) : Void {
         this.paintableInterface.paintThreed(graphics);
         this.paintedSpecialAnimationInterface.paintThreedXYZ(graphics, 0, 0, 0);
     }
 
     // synchronized
-    public override function processGameOver() : Void {
+    public function processGameOver() : Void {
         this.logUtil.putF("Not Implemented since not a game", this, "setGameOver");
     }
 
@@ -520,10 +520,10 @@ class StartCanvas extends RunnableCanvas implements GameCanvasRunnableInterface 
         DisplayChangeEventHandler.getInstance().removeListener(this);
     }
 
-    public override function setGameState(gameState : GameState) : Void {
+    public function setGameState(gameState : GameState) : Void {
     }
 
-    public override function getGameState() : GameState {
+    public function getGameState() : GameState {
         return this.gameStateFactory.PLAYING_GAME_STATE;
     }
 
@@ -535,7 +535,7 @@ class StartCanvas extends RunnableCanvas implements GameCanvasRunnableInterface 
         this.state = state;
     }
 
-    public override function isHighScoreSubmitted() : Bool {
+    public function isHighScoreSubmitted() : Bool {
         this.logUtil.putF("Wow the AI got a high score!", this, "isHighScoreSubmitted");
         return false;
     }
@@ -589,7 +589,7 @@ class StartCanvas extends RunnableCanvas implements GameCanvasRunnableInterface 
         this.menuForm = menuForm;
     }
 
-    public override function isInitialized() : Bool {
+    public function isInitialized() : Bool {
         return this.initialized;
     }
 

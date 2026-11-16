@@ -33,7 +33,7 @@ class BasicPlayer implements Player implements Controllable2 {
     public var loopCountP : Int = 0;
     public function new() {
         this.setLoopCount(0);
-        this.setState(Player.UNREALIZED);
+        this.setState(javax.microedition.media.Player.PlayerFields.UNREALIZED);
     }
 
     public function getContentType() : String {
@@ -108,13 +108,13 @@ class BasicPlayer implements Player implements Controllable2 {
     // throws MediaException
     // synchronized
     public function start() : Void {
-        this.setState(Player.STARTED);
+        this.setState(javax.microedition.media.Player.PlayerFields.STARTED);
     }
 
     // throws MediaException
     // synchronized
     public function stop() : Void {
-        this.setState(Player.PREFETCHED);
+        this.setState(javax.microedition.media.Player.PlayerFields.PREFETCHED);
     }
 
     public function setVolume(leftVolume : Int, rightVolume : Int) : Void {

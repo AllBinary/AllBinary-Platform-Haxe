@@ -67,7 +67,7 @@ class AbPathUtilOld {
         }
         var beginIndex : Int = filePath.length - AbPathUtilOld.MIN;
         var extension : String = filePath.substring(beginIndex + 1);
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().VIEW)) {
             this.logUtil.putF("FileExtension: " + extension, this, "getExtension()");
         }
         return extension;
@@ -103,7 +103,7 @@ class AbPathUtilOld {
         }
         var endIndex : Int = filePath.length - AbPathUtilOld.MIN;
         var pathWithoutExtension : String = filePath.substring(0, endIndex);
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().VIEW)) {
             this.logUtil.putF("FileWithoutExtension: " + pathWithoutExtension, this, "getWithoutExtension()");
         }
         return pathWithoutExtension;
@@ -163,9 +163,9 @@ class AbPathUtilOld {
 
     // synchronized
     public function getNameFromPath(categoryPath : String) : String {
-        var endIndex : Int = categoryPath.lastIndexOf(this.abPathData.SEPARATOR);
+        var endIndex : Int = categoryPath.lastIndexOf(jre.lang.JavaString.text(this.abPathData.SEPARATOR));
         if (endIndex < 0) {
-            endIndex = categoryPath.lastIndexOf(this.filePathData.SEPARATORCHAR);
+            endIndex = categoryPath.lastIndexOf(jre.lang.JavaString.text(this.filePathData.SEPARATORCHAR));
         }
         if (endIndex < 0) {
             return categoryPath;
@@ -182,9 +182,9 @@ class AbPathUtilOld {
     // throws Exception
     // synchronized
     public function removeNameFromPath(categoryPath : String) : AbPath {
-        var endIndex : Int = categoryPath.lastIndexOf(this.abPathData.SEPARATOR);
+        var endIndex : Int = categoryPath.lastIndexOf(jre.lang.JavaString.text(this.abPathData.SEPARATOR));
         if (endIndex < 0) {
-            endIndex = categoryPath.lastIndexOf(this.filePathData.SEPARATORCHAR);
+            endIndex = categoryPath.lastIndexOf(jre.lang.JavaString.text(this.filePathData.SEPARATORCHAR));
         }
         if (endIndex < 0) {
             return AbPath.createAbPath();

@@ -65,21 +65,21 @@ class ScoreComparator implements RecordComparator {
 
     public function getHighTooLow(scoreOne : haxe.Int64, scoreTwo : haxe.Int64) : Int {
         if (scoreOne > scoreTwo) {
-            return RecordComparator.PRECEDES;
+            return javax.microedition.rms.RecordComparator.RecordComparatorFields.PRECEDES;
         } else if (scoreOne < scoreTwo) {
-            return RecordComparator.FOLLOWS;
+            return javax.microedition.rms.RecordComparator.RecordComparatorFields.FOLLOWS;
         } else {
-            return RecordComparator.EQUIVALENT;
+            return javax.microedition.rms.RecordComparator.RecordComparatorFields.EQUIVALENT;
         }
     }
 
     public function getLowTooHigh(scoreOne : haxe.Int64, scoreTwo : haxe.Int64) : Int {
         if (scoreOne < scoreTwo) {
-            return RecordComparator.PRECEDES;
+            return javax.microedition.rms.RecordComparator.RecordComparatorFields.PRECEDES;
         } else if (scoreOne > scoreTwo) {
-            return RecordComparator.FOLLOWS;
+            return javax.microedition.rms.RecordComparator.RecordComparatorFields.FOLLOWS;
         } else {
-            return RecordComparator.EQUIVALENT;
+            return javax.microedition.rms.RecordComparator.RecordComparatorFields.EQUIVALENT;
         }
     }
 

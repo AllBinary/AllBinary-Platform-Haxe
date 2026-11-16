@@ -46,7 +46,7 @@ class TransformInfoPropertiesDocument {
             final transformInfosNode : Node = this.document.getElementsByTagName(TransformInfosData.getInstance().NAME).item(0);
             final transformInfosChildNodeList : NodeList = transformInfosNode.getChildNodes();
             final transformInfoNodeVector : BasicArrayList = DomSearchHelper.getAllNodes(TransformInfoData.getInstance().NAME, transformInfosChildNodeList);
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().VIEW)) {
                 this.logUtil.putF("Size: " + transformInfoNodeVector.size(), this, "toTransformInfoPropertiesHashMap()");
             }
             final size : Int = transformInfoNodeVector.size();
@@ -54,12 +54,12 @@ class TransformInfoPropertiesDocument {
             var transformInfoProperties : TransformInfoProperties = null;
             for (index in 0...size) {
                 node = (cast transformInfoNodeVector.get(index) : Node);
-                transformInfoProperties = TransformInfoPropertiesFactory.getInstance().getInstance(node);
+                transformInfoProperties = TransformInfoPropertiesFactory.getInstance().getInstanceFor(node);
                 transformInfoPropertiesHashMap.put(transformInfoProperties.getName(), transformInfoProperties);
             }
             return transformInfoPropertiesHashMap;
         } catch (e : haxe.Exception) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().VIEWERROR)) {
                 final commonStrings : CommonStrings = CommonStrings.getInstance();
                 this.logUtil.put(commonStrings.EXCEPTION, this, "toTransformInfoPropertiesHashMap()", e);
             }

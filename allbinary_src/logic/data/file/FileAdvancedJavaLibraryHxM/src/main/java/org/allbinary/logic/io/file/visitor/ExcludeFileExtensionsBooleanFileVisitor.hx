@@ -30,7 +30,7 @@ class ExcludeFileExtensionsBooleanFileVisitor extends BooleanFileVisitor {
         if (args.length == 2) {
             return this.visit_AbFile_String(args[0], args[1]);
         }
-        throw new jre.lang.IllegalArgumentException("No matching overload: visit");
+        return super.visit(...args);
     }
 
     public override function visit_AbFile(file : AbFile) : Null<Bool> {

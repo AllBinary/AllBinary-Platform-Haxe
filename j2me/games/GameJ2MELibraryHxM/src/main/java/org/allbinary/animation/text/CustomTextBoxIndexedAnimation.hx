@@ -43,18 +43,18 @@ class CustomTextBoxIndexedAnimation extends IndexedAnimation implements RawKeyEv
         this.customTextBox.getTextFieldItem().setBackgroundBasicColorP(basicColor);
     }
 
-    public override function setTextWithOnMeasure(text : String, textChangeListener : TextChangeListener) : Void {
+    public function setTextWithOnMeasure(text : String, textChangeListener : TextChangeListener) : Void {
         this.setText(text);
         this.textChangeListener = textChangeListener;
     }
 
-    public override function updateMeasurement(graphics : Graphics) : Void {
+    public function updateMeasurement(graphics : Graphics) : Void {
         final font : Font = graphics.getFont();
         this.textChangeListener.onMeasure();
         this.textChangeListener = TextChangeListener.getInstance();
     }
 
-    public override function setText(text : String) : Void {
+    public function setText(text : String) : Void {
         if (this.lastText != text) {
             this.hasChanged = true;
             this.lastText = text;
@@ -62,15 +62,15 @@ class CustomTextBoxIndexedAnimation extends IndexedAnimation implements RawKeyEv
         }
     }
 
-    public override function getText() : String {
+    public function getText() : String {
         return this.customTextBox.getTextFieldItem().getString();
     }
 
-    public override function onEventRaw(keyCode : Int, deviceId : Int, repeated : Bool) : Void {
+    public function onEventRaw(keyCode : Int, deviceId : Int, repeated : Bool) : Void {
         this.customTextBox.onEventRaw(keyCode, deviceId, repeated);
     }
 
-    public override function getFontHeight() : Int {
+    public function getFontHeight() : Int {
         return this.customTextBox.getTextFieldItem().getFontHeight();
     }
 

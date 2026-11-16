@@ -228,7 +228,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
         this.myFontProcessor = this.updateMyFontProcessor;
         this.gameState = this.gameStateFactory.NO_GAME_STATE;
         this.hashtable = this.stdUtil.NULL_TABLE;
-        this.colorFillPaintable = ColorFillPaintableFactory.getInstance().getInstance(this.basicColorFactory.BLACK, true);
+        this.colorFillPaintable = ColorFillPaintableFactory.getInstance().getInstanceFor(this.basicColorFactory.BLACK, true);
         this.rawGameInputProcessor = new GameCanvasInputProcessor(this);
         this.rawInputProcessor = new FormInputProcessor(this);
         this.inputProcessor = this.getRawGameInputProcessor();
@@ -249,10 +249,10 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
         DisplayChangeEventHandler.getInstance().addListenerInterface(this);
     }
 
-    public override function updateMeasurement(graphics : Graphics) : Void {
+    public function updateMeasurement(graphics : Graphics) : Void {
         try {
             final font : Font = graphics.getFont();
-            this.logUtil.putF(Std.string(new StringMaker().append(this.commonStrings.START).append(this.canvasStrings.FD_WIDTH).appendint(Std.int(MyFontProcessor.defaultCharWidth(font))).append(this.canvasStrings.FD_HEIGHT).appendint(Std.int(font.getHeight()))), this, this.canvasStrings.UPDATE_MEASUREMENT);
+            this.logUtil.putF(Std.string(new StringMaker().append(this.commonStrings.START).append(this.canvasStrings.FD_WIDTH).appendint(jre.lang.JavaNumber.toInt(MyFontProcessor.defaultCharWidth(font))).append(this.canvasStrings.FD_HEIGHT).appendint(jre.lang.JavaNumber.toInt(font.getHeight()))), this, this.canvasStrings.UPDATE_MEASUREMENT);
             this.fontHeightP = font.getHeight();
             this.myFormUtil.updateMeasurement(graphics);
             final popupMenuRectangle : Rectangle = this.myFormUtil.getPopupMenuRectangle();
@@ -280,11 +280,11 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
         }
     }
 
-    public override function onEvent(eventObject : AllBinaryEventObject) : Void {
+    public function onEvent(eventObject : AllBinaryEventObject) : Void {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
-    public override function onDisplayChangeEvent(displayChangeEvent : DisplayChangeEvent) : Void {
+    public function onDisplayChangeEvent(displayChangeEvent : DisplayChangeEvent) : Void {
         try {
             this.logUtil.putF(Std.string(new StringMaker().append(this.commonStrings.START).append(Std.string(DisplayInfoSingleton.getInstance()))), this, this.canvasStrings.UPDATE_MEASUREMENT);
             this.myFontProcessor = this.updateMyFontProcessor;
@@ -345,7 +345,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
         final formType : FormType = FormTypeFactory.getInstance().getFormType();
         final gameLimitedCommandTextItemArrayFactory : GameLimitedCommandTextItemArrayFactory = GameLimitedCommandTextItemArrayFactory.getInstance();
         final commandTextItemArrayFactory : CommandTextItemArrayFactory = gameLimitedCommandTextItemArrayFactory.getCommandTextItemArrayFactory();
-        final items : haxe.ds.Vector<ABCustomItem> = commandTextItemArrayFactory.getInstance(this.getCommandStack(), this.gameLayerManager.getBackgroundBasicColor(), this.gameLayerManager.getForegroundBasicColor());
+        final items : haxe.ds.Vector<ABCustomItem> = commandTextItemArrayFactory.getInstanceFor(this.getCommandStack(), this.gameLayerManager.getBackgroundBasicColor(), this.gameLayerManager.getForegroundBasicColor());
         final rectangle : Rectangle = this.formUtil.createFormRectangle();
         this.setMenuForm(CommandCurrentSelectionFormFactory.getInstance(StringUtil.getInstance().EMPTY_STRING, items, rectangle, formType, 25, false, this.gameLayerManager.getBackgroundBasicColor(), this.gameLayerManager.getForegroundBasicColor()));
         final scrollSelectionForm : ScrollSelectionForm = this.getMenuForm();
@@ -376,7 +376,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
         scrollSelectionForm.deleteAll();
         final gameLimitedCommandTextItemArrayFactory : GameLimitedCommandTextItemArrayFactory = GameLimitedCommandTextItemArrayFactory.getInstance();
         final commandTextItemArrayFactory : CommandTextItemArrayFactory = gameLimitedCommandTextItemArrayFactory.getCommandTextItemArrayFactory();
-        final items : haxe.ds.Vector<ABCustomItem> = commandTextItemArrayFactory.getInstance(this.getCommandStack(), this.gameLayerManager.getBackgroundBasicColor(), this.gameLayerManager.getForegroundBasicColor());
+        final items : haxe.ds.Vector<ABCustomItem> = commandTextItemArrayFactory.getInstanceFor(this.getCommandStack(), this.gameLayerManager.getBackgroundBasicColor(), this.gameLayerManager.getForegroundBasicColor());
         final size : Int = items.length;
         for (index in 0...size) {
             scrollSelectionForm.append(items[index]);
@@ -414,7 +414,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
     }
 
     // throws Exception
-    public override function popupMenu() : Void {
+    public function popupMenu() : Void {
         this.menuBehavior.popupMenu(this);
     }
 
@@ -428,7 +428,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
     }
 
     // throws Exception
-    public override function toggleMenu() : Void {
+    public function toggleMenu() : Void {
         this.logUtil.putF(this.commonStrings.START, this, this.gameStrings.TOGGLE_MENU);
         if (this.getMenuPaintable() == this.getOpenMenuPaintable()) {
             this.pause();
@@ -440,7 +440,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
         }
     }
 
-    public override function closeMenu() : Void {
+    public function closeMenu() : Void {
         this.menuBehavior.closeMenu(this);
     }
 
@@ -451,12 +451,12 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
         this.setMenuInputProcessor(this.getPopupMenuInputProcessor());
     }
 
-    public override function open() : Void {
+    public function open() : Void {
         this.basicMotionGesturesHandler.addListenerInterface(this.menuInputProcessor);
         this.gameKeyEventHandler.addListener(this.menuInputProcessor);
     }
 
-    public override function close() : Void {
+    public function close() : Void {
         this.basicMotionGesturesHandler.removeListener(this.menuInputProcessor);
         this.gameKeyEventHandler.removeListener(this.menuInputProcessor);
         this.primaryPlayerQueue.clear();
@@ -508,7 +508,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
         this.getStartIntermissionInterface().setListener(this);
     }
 
-    public override function notifyIntermission(enable : Bool) : Void {
+    public function notifyIntermission(enable : Bool) : Void {
         if (enable) {
             this.startIntermissionProcessor = this.realStartIntermissionProcessor;
         } else {
@@ -627,7 +627,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
         }
     }
 
-    public override function itemStateChanged(item : Item) : Void {
+    public function itemStateChanged(item : Item) : Void {
         try {
             final itemLabel : String = item.getLabel();
             this.logUtil.putF(Std.string(new StringMaker().append(this.commonLabels.ITEM_LABEL).append(itemLabel)), this, "itemStateChanged");
@@ -667,7 +667,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
         }
     }
 
-    public override function getLayerManager() : AllBinaryGameLayerManager {
+    public function getLayerManager() : AllBinaryGameLayerManager {
         return this.gameLayerManager;
     }
 
@@ -676,7 +676,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
     }
 
     // synchronized
-    public override function isGameOver() : Bool {
+    public function isGameOver() : Bool {
         return this.gameOver;
     }
 
@@ -686,7 +686,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
     }
 
     // throws Exception
-    public override function processGameOver() : Void {
+    public function processGameOver() : Void {
         PreLogUtil.put(this.commonStrings.START, this, this.gameStrings.SET_GAME_OVER);
         this.setGameOver(true);
         this.removePauseCommand();
@@ -694,12 +694,12 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
         this.setEndGamePaintable(this.getEndGameStatePaintable());
     }
 
-    public override function isHighScoreSubmitted() : Bool {
+    public function isHighScoreSubmitted() : Bool {
         return this.highScoreSubmitted;
     }
 
     // throws Exception
-    public override function setHighScoreSubmitted(highScoreSubmitted : Bool) : Void {
+    public function setHighScoreSubmitted(highScoreSubmitted : Bool) : Void {
         this.highScoreSubmitted = highScoreSubmitted;
         if (highScoreSubmitted) {
             this.highScoresHelper.setSelectedHighScores(NullHighScoresSingletonFactory.getInstance());
@@ -707,12 +707,12 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
         this.logUtil.putF(Std.string(new StringMaker().append("isHighScoreSubmitted: ").appendboolean(highScoreSubmitted)), this, "setHighScoreSubmitted");
     }
 
-    public override function getGameState() : GameState {
+    public function getGameState() : GameState {
         return this.gameState;
     }
 
     // throws Exception
-    public override function setGameState(gameState : GameState) : Void {
+    public function setGameState(gameState : GameState) : Void {
         this.logUtil.putF(Std.string(new StringMaker().append(this.gameStrings.GAME_STATE).append(this.stringUtil.toString(gameState))), this, this.gameStrings.SET_GAME_STATE);
         this.gameState = gameState;
         this.gameStateTimeHelper.setStartTimeTNT();
@@ -880,24 +880,24 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
         var hashtable : ABHashtable<Any, Any> = this.getLoadStateHashtable();
         if (hashtable != null && hashtable.size() > 0) {
             final levelAsString : String = (cast hashtable.get((cast GameInfo.LEVEL_NAME : Any)) : String);
-            final level : Int = Std.int(Std.string(levelAsString));
+            final level : Int = jre.lang.JavaObject.intValue(Std.string(levelAsString));
             final gameInfo : GameInfo = this.gameLayerManager.getGameInfo();
             gameInfo.setCurrentLevel(level);
         }
     }
 
     // throws Exception
-    public override function getLoadStateHashtable() : ABHashtable<Any, Any> {
+    public function getLoadStateHashtable() : ABHashtable<Any, Any> {
         this.logUtil.putF(Std.string(new StringMaker().append(this.commonLabels.START_LABEL).append(this.stringUtil.toString(this.hashtable))), this, "getLoadStateHashtable");
         return this.hashtable;
     }
 
-    public override function setLoadStateHashtable(hashtable : ABHashtable<Any, Any>) : Void {
+    public function setLoadStateHashtable(hashtable : ABHashtable<Any, Any>) : Void {
         this.logUtil.putF(Std.string(new StringMaker().append(this.commonLabels.START_LABEL).append(this.stringUtil.toString(hashtable))), this, "setLoadStateHashtable");
         this.hashtable = hashtable;
     }
 
-    public override function getCurrentStateHashtable() : ABHashtable<Any, Any> {
+    public function getCurrentStateHashtable() : ABHashtable<Any, Any> {
         final hashtable : ABHashtable<Any, Any> = this.stdUtil.createHashtable();
         final level : Int = this.gameLayerManager.getGameInfo().getCurrentLevel();
         hashtable.put(Std.string(GameInfo.LEVEL_NAME), Std.string(level));
@@ -927,7 +927,7 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
         this.progressPaintable.paint(graphics);
     }
 
-    public override function paintThreed(graphics : Graphics) : Void {
+    public function paintThreed(graphics : Graphics) : Void {
     }
 
     // throws Exception
@@ -1171,11 +1171,11 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
         this.initialized = initialized;
     }
 
-    public override function isInitialized() : Bool {
+    public function isInitialized() : Bool {
         return this.initialized;
     }
 
-    public override function getSourceId() : Int {
+    public function getSourceId() : Int {
         return AllBinaryGameCanvas.id;
     }
 
@@ -1183,11 +1183,11 @@ class AllBinaryGameCanvas extends RunnableCanvas implements AllBinaryGameCanvasI
         this.progressPaintable = paintable;
     }
 
-    public override function getStartIntermissionInterface() : IntermissionInterface {
+    public function getStartIntermissionInterface() : IntermissionInterface {
         return this.startIntermissionInterface;
     }
 
-    public override function getEndLevelIntermissionInterface() : IntermissionInterface {
+    public function getEndLevelIntermissionInterface() : IntermissionInterface {
         return this.endLevelIntermissionInterface;
     }
 

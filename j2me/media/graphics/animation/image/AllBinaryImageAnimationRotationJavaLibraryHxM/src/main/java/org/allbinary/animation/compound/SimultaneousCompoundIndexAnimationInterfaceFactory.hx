@@ -31,11 +31,11 @@ class SimultaneousCompoundIndexAnimationInterfaceFactory implements AnimationInt
     }
 
     // throws Exception
-    public function getInstance(instanceId : Int) : Animation {
+    public function getInstanceFor(instanceId : Int) : Animation {
         final size : Int = this.basicAnimationInterfaceFactoryInterfaceArray.length;
         final animationInterfaceArray : haxe.ds.Vector<IndexedAnimation> = haxe.ds.Vector.fromArrayCopy([for (index in 0...size) null]);
         for (index in 0...size) {
-            animationInterfaceArray[index] = (cast this.basicAnimationInterfaceFactoryInterfaceArray[index].getInstance(instanceId) : IndexedAnimation);
+            animationInterfaceArray[index] = (cast this.basicAnimationInterfaceFactoryInterfaceArray[index].getInstanceFor(instanceId) : IndexedAnimation);
         }
         return this.getOrCreate(animationInterfaceArray);
     }

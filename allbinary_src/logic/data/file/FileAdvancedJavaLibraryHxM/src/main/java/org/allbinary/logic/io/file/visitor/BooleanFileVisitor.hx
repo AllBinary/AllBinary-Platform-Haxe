@@ -52,7 +52,7 @@ class BooleanFileVisitor implements VisitorInterface {
         var nextFileFilterString : String = null;
         for (index in 0...size) {
             nextFileFilterString = (cast list.get(index) : String);
-            if (this.visit(file, nextFileFilterString)) {
+            if (jre.lang.JavaObject.booleanValue(this.visit(file, nextFileFilterString))) {
                 return true;
             }
         }

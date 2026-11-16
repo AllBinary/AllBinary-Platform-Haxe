@@ -31,7 +31,7 @@ class GameInitializationUtil {
     public function initDemo(abeClientInformation : AbeClientInformationInterface, canvas : MyCanvas, gameInitializationInterfaceFactoryInterface : BasicBuildGameInitializerFactory) : Void {
         final mainFeatureFactory : MainFeatureFactory = MainFeatureFactory.getInstance();
         if (ChangedGameFeatureListener.getInstance().isChangedFeature(mainFeatureFactory.STATIC)) {
-            var gameInitializationInterface : GameInitializationInterface = gameInitializationInterfaceFactoryInterface.getInstance();
+            var gameInitializationInterface : GameInitializationInterface = gameInitializationInterfaceFactoryInterface.getInstanceFor();
             var features : Features = Features.getInstance();
             if (features.isFeature(mainFeatureFactory.LOAD_ALL)) {
                 this.initGame(abeClientInformation, canvas, gameInitializationInterfaceFactoryInterface);
@@ -49,7 +49,7 @@ class GameInitializationUtil {
     // throws Exception
     public function initGame(abeClientInformation : AbeClientInformationInterface, canvas : MyCanvas, gameInitializationInterfaceFactoryInterface : BasicBuildGameInitializerFactory) : Void {
         if (ChangedGameFeatureListener.getInstance().isChangedFeature(MainFeatureFactory.getInstance().STATIC)) {
-            var gameInitializationInterface : GameInitializationInterface = gameInitializationInterfaceFactoryInterface.getInstance();
+            var gameInitializationInterface : GameInitializationInterface = gameInitializationInterfaceFactoryInterface.getInstanceFor();
             var resourceLoadingLevelFactory : ResourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance();
             gameInitializationInterface.init(abeClientInformation, canvas.getCustomCommandListener(), resourceLoadingLevelFactory.LOAD_ALL.getLevel());
             this.EVENT.setResourceLoadingLevel(resourceLoadingLevelFactory.LOAD_ALL);

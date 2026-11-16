@@ -47,15 +47,15 @@ class LogConfig {
             final aDescription : String = args[1];
             final aPath : String = args[2];
             final aFileName : String = args[3];
-            this._new0(aName, aDescription, aPath, aFileName);
+            this._newLogConfig0(aName, aDescription, aPath, aFileName);
         }
         else if (args.length == 1) {
             final node : Node = args[0];
-            this._new1(node);
+            this._newLogConfig1(node);
         }
     }
 
-    private function _new0(aName : String, aDescription : String, aPath : String, aFileName : String) : Void {
+    private function _newLogConfig0(aName : String, aDescription : String, aPath : String, aFileName : String) : Void {
         this.isEnabled = false;
         this.name = aName;
         this.description = aDescription;
@@ -63,7 +63,7 @@ class LogConfig {
         this.fileName = aFileName;
     }
 
-    private function _new1(node : Node) : Void {
+    private function _newLogConfig1(node : Node) : Void {
         var enabledValueNode : Node = DomSearchHelper.getNode(EntryData.getInstance().ENABLE, node.getChildNodes());
         var isEnabledString : String = DomNodeHelper.getTextNodeValue(enabledValueNode);
         this.isEnabled = BooleanUtil.getInstance().getFromString(isEnabledString);
@@ -120,7 +120,7 @@ class LogConfig {
     private function getDoc() : Document {
         var stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append(URLGLOBALS.getWebappPath());
-        stringBuffer.append(PATH_GLOBALS.getInstance().INIT_PATH);
+        stringBuffer.append(PATH_GLOBALS.getInstanceFor().INIT_PATH);
         stringBuffer.append(this.getFileName());
         var file : AbFile = AbFile.createAbFile(Std.string(stringBuffer));
         var document : Document = DomDocumentHelper.create(new AbFileLocalInputStream(file));

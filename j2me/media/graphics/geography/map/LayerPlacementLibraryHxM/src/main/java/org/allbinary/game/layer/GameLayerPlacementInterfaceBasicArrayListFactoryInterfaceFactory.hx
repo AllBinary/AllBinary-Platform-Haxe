@@ -17,7 +17,7 @@ package org.allbinary.game.layer;
 
 
 interface GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory {
-    function getInstance(level : Int) : LayerPlacementInterfaceBasicArrayListFactoryInterface;
+    function getInstanceFor(level : Int) : LayerPlacementInterfaceBasicArrayListFactoryInterface;
 
     function size() : Int;
 

@@ -42,13 +42,13 @@ class HighScoresPaintable extends Paintable implements ColorChangeListener imple
         this.myFontProcessor = new UpdateMyFontProcessor(this);
     }
 
-    public override function updateMeasurement(graphics : Graphics) : Void {
+    public function updateMeasurement(graphics : Graphics) : Void {
         final font : Font = graphics.getFont();
         this.charHeight = font.getHeight();
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
 
-    public override function onEvent(eventObject : AllBinaryEventObject) : Void {
+    public function onEvent(eventObject : AllBinaryEventObject) : Void {
         final colorChangeEvent : ColorChangeEvent = (cast eventObject : ColorChangeEvent);
         this.basicColor = colorChangeEvent.getBasicColorP();
     }
@@ -57,7 +57,7 @@ class HighScoresPaintable extends Paintable implements ColorChangeListener imple
         this.myFontProcessor.process(graphics);
         final width : Int = this.displayInfoSingleton.getLastWidth();
         final height : Int = this.displayInfoSingleton.getLastHeight();
-        graphics.setColor(Std.int(this.getBasicColorP()));
+        graphics.setColor(jre.lang.JavaObject.intValue(this.getBasicColorP()));
         var heading : String = this.highScores.getHeading();
         final topScoresWidth : Int = (graphics.getFont().stringWidth(heading) >> 1);
         final charHeight : Int = this.charHeight;

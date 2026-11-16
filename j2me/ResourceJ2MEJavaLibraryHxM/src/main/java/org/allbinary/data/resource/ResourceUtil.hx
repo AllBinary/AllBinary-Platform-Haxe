@@ -38,7 +38,7 @@ class ResourceUtil {
 
     // throws Exception
     public function getResourceAsStream(resource : String) : InputStream {
-        var inputStream : InputStream = Type.getClass(resource).getResourceAsStream(resource);
+        var inputStream : InputStream = jre.lang.ClassLoader.getSystemResourceAsStream(resource);
         if (inputStream == null) {
             inputStream = this.getResourceAsStreamAtStart(resource, 2);
             if (inputStream == null) {
@@ -47,36 +47,36 @@ class ResourceUtil {
                     final stringMaker : StringMaker = new StringMaker();
                     final index : Int = resource.lastIndexOf(String.fromCharCode("/".code));
                     var resourcePath : String = resource.substring(index + 1);
-                    inputStream = Type.getClass(resource).getResourceAsStream(resourcePath);
+                    inputStream = jre.lang.ClassLoader.getSystemResourceAsStream(resourcePath);
                     if (inputStream == null) {
                         resourcePath = resource.substring(index);
-                        inputStream = Type.getClass(resource).getResourceAsStream(resourcePath);
+                        inputStream = jre.lang.ClassLoader.getSystemResourceAsStream(resourcePath);
                         if (inputStream == null) {
                             final RES : String = "res";
                             resourcePath = Std.string(stringMaker.append(RES).append(resource.substring(index)));
-                            inputStream = Type.getClass(resource).getResourceAsStream(resourcePath);
+                            inputStream = jre.lang.ClassLoader.getSystemResourceAsStream(resourcePath);
                             if (inputStream == null) {
                                 stringMaker.delete(0, stringMaker.length());
                                 resourcePath = Std.string(stringMaker.append("/").append(RES).append(resource.substring(index)));
-                                inputStream = Type.getClass(resource).getResourceAsStream(resourcePath);
+                                inputStream = jre.lang.ClassLoader.getSystemResourceAsStream(resourcePath);
                                 final COLON : String = CommonSeps.getInstance().COLON;
                                 if (inputStream == null) {
                                     stringMaker.delete(0, stringMaker.length());
                                     resourcePath = Std.string(stringMaker.append(RES).append(COLON).append(resource.substring(index)));
-                                    inputStream = Type.getClass(resource).getResourceAsStream(resourcePath);
+                                    inputStream = jre.lang.ClassLoader.getSystemResourceAsStream(resourcePath);
                                     if (inputStream == null) {
                                         stringMaker.delete(0, stringMaker.length());
                                         resourcePath = Std.string(stringMaker.append(RES).append(COLON).append(resource.substring(index + 1)));
-                                        inputStream = Type.getClass(resource).getResourceAsStream(resourcePath);
+                                        inputStream = jre.lang.ClassLoader.getSystemResourceAsStream(resourcePath);
                                         if (inputStream == null) {
                                             final RESOURCE_STRING : String = "resource";
                                             stringMaker.delete(0, stringMaker.length());
                                             resourcePath = Std.string(stringMaker.append(RESOURCE_STRING).append(COLON).append(resource.substring(index)));
-                                            inputStream = Type.getClass(resource).getResourceAsStream(resourcePath);
+                                            inputStream = jre.lang.ClassLoader.getSystemResourceAsStream(resourcePath);
                                             if (inputStream == null) {
                                                 stringMaker.delete(0, stringMaker.length());
                                                 resourcePath = Std.string(stringMaker.append(RESOURCE_STRING).append(COLON).append(resource.substring(index + 1)));
-                                                inputStream = Type.getClass(resource).getResourceAsStream(resourcePath);
+                                                inputStream = jre.lang.ClassLoader.getSystemResourceAsStream(resourcePath);
                                                 if (inputStream == null) {
                                                     stringMaker.delete(0, stringMaker.length());
                                                     throw new jre.lang.JavaException(Std.string(stringMaker.append("Unable to obtain: ").append(resource)));
@@ -97,9 +97,9 @@ class ResourceUtil {
     // throws Exception
     private function getResourceAsStreamAtStart(resource : String, startIndex : Int) : InputStream {
         final stringMaker : StringMaker = new StringMaker();
-        var index : Int = resource.indexOf(CommonSeps.getInstance().COLON);
+        var index : Int = resource.indexOf(jre.lang.JavaString.text(CommonSeps.getInstance().COLON));
         final resourcePath : String = resource.substring(index + startIndex);
-        final inputStream : InputStream = Type.getClass(resource).getResourceAsStream(resourcePath);
+        final inputStream : InputStream = jre.lang.ClassLoader.getSystemResourceAsStream(resourcePath);
         if (inputStream != null) {
             return inputStream;
         }

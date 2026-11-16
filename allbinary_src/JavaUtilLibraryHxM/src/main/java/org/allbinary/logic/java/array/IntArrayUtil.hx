@@ -50,7 +50,7 @@ class IntArrayUtil {
         for (index in 0...array.length) {
             stringBuffer.append("{");
             for (index2 in 0...array[index].length) {
-                stringBuffer.appendint(Std.int(array[index][index2]));
+                stringBuffer.appendint(jre.lang.JavaNumber.toInt(array[index][index2]));
                 if (index2 < array[index].length - 1) {
                     stringBuffer.append(", ");
                 }
@@ -70,7 +70,7 @@ class IntArrayUtil {
             for (index2 in 0...array[index].length) {
                 stringBuffer.append("{");
                 for (index3 in 0...array[index][index2].length) {
-                    stringBuffer.appendint(Std.int(array[index][index2][index3]));
+                    stringBuffer.appendint(jre.lang.JavaNumber.toInt(array[index][index2][index3]));
                     if (index3 < array[index][index2].length - 1) {
                         stringBuffer.append(", ");
                     }

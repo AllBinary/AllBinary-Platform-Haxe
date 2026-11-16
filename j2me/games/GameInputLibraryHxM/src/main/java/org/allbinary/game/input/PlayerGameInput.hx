@@ -34,13 +34,13 @@ class PlayerGameInput extends GameInput implements GameKeyEventListenerInterface
     }
 
     // synchronized
-    public override function onPressGameKeyEvent(gameKeyEvent : GameKeyEvent) : Void {
+    public function onPressGameKeyEvent(gameKeyEvent : GameKeyEvent) : Void {
         this.add(gameKeyEvent);
         this.addForRemoval(gameKeyEvent);
     }
 
     // synchronized
-    public override function onDownGameKeyEvent(gameKeyEvent : GameKeyEvent) : Void {
+    public function onDownGameKeyEvent(gameKeyEvent : GameKeyEvent) : Void {
         this.add(gameKeyEvent);
     }
 
@@ -56,7 +56,7 @@ class PlayerGameInput extends GameInput implements GameKeyEventListenerInterface
     }
 
     // synchronized
-    public override function onUpGameKeyEvent(gameKeyEvent : GameKeyEvent) : Void {
+    public function onUpGameKeyEvent(gameKeyEvent : GameKeyEvent) : Void {
         this.addForRemoval(gameKeyEvent);
     }
 
@@ -64,7 +64,7 @@ class PlayerGameInput extends GameInput implements GameKeyEventListenerInterface
     public function onUpKeyEvent(gameKeyEvent : Null<Int>) : Void {
     }
 
-    public override function onEvent(eventObject : AllBinaryEventObject) : Void {
+    public function onEvent(eventObject : AllBinaryEventObject) : Void {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 

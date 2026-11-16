@@ -70,7 +70,7 @@ class AngleFactory {
 
     private final frameUtil : FrameUtil = FrameUtil.getInstance();
     public function getAt(index : Int) : Angle {
-        final adjustedIndex : Int = Std.int(this.frameUtil.adjustAngleToFrameAngle(index));
+        final adjustedIndex : Int = jre.lang.JavaNumber.toInt(this.frameUtil.adjustAngleToFrameAngle(index));
         return this.angleArray[adjustedIndex];
     }
 
@@ -95,7 +95,7 @@ class AngleFactory {
         final stringMaker : StringMaker = new StringMaker();
         final angleFactory : AngleFactory = AngleFactory.getInstance();
         for (index in 0...360) {
-            stringMaker.appendint(index).append(CommonSeps.getInstance().FORWARD_SLASH).appendshort(Std.int(angleFactory.getClosestDirection(index).getValue())).append(CommonSeps.getInstance().NEW_LINE);
+            stringMaker.appendint(index).append(CommonSeps.getInstance().FORWARD_SLASH).appendshort(jre.lang.JavaNumber.toInt(angleFactory.getClosestDirection(index).getValue())).append(CommonSeps.getInstance().NEW_LINE);
         }
         LogUtil.getInstance().putF(Std.string(stringMaker), "main", "main");
     }

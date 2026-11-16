@@ -61,7 +61,7 @@ class BasicHud_1 implements UpdateMyFontInterface {
         this.setBufferZone(bufferZone);
         this.onDisplayChangeEvent(DisplayInfoSingleton.getInstance().displayChangeEvent);
         this.setBasicColorP(basicColor);
-        this.color = Std.int(basicColor);
+        this.color = basicColor.intValue();
     }
 
     public function updateMeasurement(graphics : Graphics) : Void {

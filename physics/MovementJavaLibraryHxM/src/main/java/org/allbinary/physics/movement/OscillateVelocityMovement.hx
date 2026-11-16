@@ -25,7 +25,7 @@ class OscillateVelocityMovement extends BasicConstantVelocityMovement {
     private var oscillate : Int = 0;
     private var oscillatePositive : Bool = false;
     public function new(speedBasicDecimal : BasicDecimal, oscillateMin : Int, oscillateMax : Int) {
-        super(speedBasicDecimal, new VelocityProperties(Std.int(speedBasicDecimal.getUnscaled()), Std.int(speedBasicDecimal.getUnscaled())));
+        super(speedBasicDecimal, new VelocityProperties(jre.lang.JavaNumber.toInt(speedBasicDecimal.getUnscaled()), jre.lang.JavaNumber.toInt(speedBasicDecimal.getUnscaled())));
         this.oscillateMin = oscillateMin;
         this.oscillateMax = oscillateMax;
     }

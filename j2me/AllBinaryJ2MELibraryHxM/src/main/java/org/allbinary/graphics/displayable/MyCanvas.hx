@@ -92,7 +92,7 @@ class MyCanvas extends Canvas implements DisplayableInterface implements MyComma
     }
 
     // synchronized
-    public override function removeAllCommands() : Void {
+    public function removeAllCommands() : Void {
         var size : Int = this.commandStack.size();
         for (index in 0...size) {
             super.removeCommand((cast this.commandStack.pop() : Command));
@@ -138,7 +138,7 @@ class MyCanvas extends Canvas implements DisplayableInterface implements MyComma
         this.displayInfo.process();
     }
 
-    public override function paint(graphics : Graphics) : Void {
+    public function paint(graphics : Graphics) : Void {
     }
 
     public function draw(graphics : Graphics) : Void {

@@ -30,7 +30,7 @@ class LivesHudWidget extends BasicHud implements PaintableInterface {
     public function new(animationInterface : Animation, lifeInterface : Life, location : Int, direction : Int) {
         super(location, direction, 2, BasicColorFactory.getInstance().WHITE);
         this.lifeInterface = lifeInterface;
-        final size : Int = Std.int(this.getLifeInterface().getMaxlives());
+        final size : Int = jre.lang.JavaNumber.toInt(this.getLifeInterface().getMaxlives());
         this.xArray = haxe.ds.Vector.fromArrayCopy([for (index in 0...size) 0]);
         this.animationInterface = animationInterface;
         this.updateMaxWidth = this.lifeInterface.getMaxlives() * 16;
@@ -39,7 +39,7 @@ class LivesHudWidget extends BasicHud implements PaintableInterface {
 
     public override function updateMeasurement(graphics : Graphics) : Void {
         super.updateMeasurement(graphics);
-        var maxLives : Int = Std.int(this.getLifeInterface().getMaxlives());
+        var maxLives : Int = jre.lang.JavaNumber.toInt(this.getLifeInterface().getMaxlives());
         for (index in 0...maxLives) {
             this.xArray[index] = this.getX() + (index * 16);
         }
@@ -55,17 +55,17 @@ class LivesHudWidget extends BasicHud implements PaintableInterface {
         this.myFontProcessor = this.updateMyFontProcessor;
     }
 
-    public override function paint(graphics : Graphics) : Void {
+    public function paint(graphics : Graphics) : Void {
         this.myFontProcessor.process(graphics);
         {
-            var index : Int = Std.int(this.getLifeInterface().get());
+            var index : Int = jre.lang.JavaNumber.toInt(this.getLifeInterface().get());
             while (--index >= 0) {
             this.animationInterface.paintXY(graphics, this.xArray[index], this.getY());
             }
         }
     }
 
-    public override function paintThreed(graphics : Graphics) : Void {
+    public function paintThreed(graphics : Graphics) : Void {
     }
 
     public function getLifeInterface() : Life {

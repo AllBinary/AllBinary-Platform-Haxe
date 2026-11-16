@@ -85,11 +85,11 @@ class LevelHudWidget extends BasicHud implements PaintableInterface {
         }
     }
 
-    public override function paint(graphics : Graphics) : Void {
+    public function paint(graphics : Graphics) : Void {
         super.paintDX(graphics, this.levelString, 0, this.levelString.length, this.levelNumberCharArray, 0, this.levelNumberTotalDigits, this.offset);
     }
 
-    public override function paintThreed(graphics : Graphics) : Void {
+    public function paintThreed(graphics : Graphics) : Void {
     }
 
 }

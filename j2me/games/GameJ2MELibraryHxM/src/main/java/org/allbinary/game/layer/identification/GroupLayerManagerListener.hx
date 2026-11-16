@@ -63,12 +63,12 @@ class GroupLayerManagerListener extends LayerManagerEventListener {
     }
 
     public function getGroupSize(groupInterface : Group) : Int {
-        final id : Int = Std.int(groupInterface.getGroupId());
+        final id : Int = jre.lang.JavaNumber.toInt(groupInterface.getGroupId());
         return this.getGroupSizeById(id);
     }
 
     public function getList(groupInterface : Group) : BasicArrayList {
-        final id : Int = Std.int(groupInterface.getGroupId());
+        final id : Int = jre.lang.JavaNumber.toInt(groupInterface.getGroupId());
         return this.getListById(id);
     }
 
@@ -84,7 +84,7 @@ class GroupLayerManagerListener extends LayerManagerEventListener {
     }
 
     public function areAllOtherGroupsEmpty(groupInterface : Group) : Bool {
-        final id : Int = Std.int(groupInterface.getGroupId());
+        final id : Int = jre.lang.JavaNumber.toInt(groupInterface.getGroupId());
         final size : Int = this.list.size();
         {
             var index : Int = size - 1;
@@ -114,7 +114,7 @@ class GroupLayerManagerListener extends LayerManagerEventListener {
             final size2 : Int = groupInterfaceArray.length;
             for (index2 in 0...size2) {
                 groupInterface = groupInterfaceArray[index2];
-                groupId = Std.int(groupInterface.getGroupId());
+                groupId = jre.lang.JavaNumber.toInt(groupInterface.getGroupId());
                 if (groupId == id) {
                     return true;
                 }
@@ -160,7 +160,7 @@ class GroupLayerManagerListener extends LayerManagerEventListener {
         var id : Int = 0;
         var groupList : BasicArrayList = null;
         for (index in 0...size) {
-            id = Std.int(groupInterfaceArray[index].getGroupId());
+            id = jre.lang.JavaNumber.toInt(groupInterfaceArray[index].getGroupId());
             groupList = (cast this.list.objectArray[id] : BasicArrayList);
             if (groupList == null) {
                 this.logUtil.putF(Std.string(new StringMaker().append("id: ").appendint(id)), this, "onCreateLayerManagerEvent");
@@ -180,7 +180,7 @@ class GroupLayerManagerListener extends LayerManagerEventListener {
         var id : Int = 0;
         var groupList : BasicArrayList = null;
         for (index in 0...size) {
-            id = Std.int(groupInterfaceArray[index].getGroupId());
+            id = jre.lang.JavaNumber.toInt(groupInterfaceArray[index].getGroupId());
             groupList = (cast this.list.objectArray[id] : BasicArrayList);
             groupList.remove(layerInterface);
         }

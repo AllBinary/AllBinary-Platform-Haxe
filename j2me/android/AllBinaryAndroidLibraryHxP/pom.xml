@@ -43,17 +43,17 @@
         <!-- Several Move to PostPlatforms -->
         
         <!--<module>../../media/sound/MusicJ2MEJavaLibraryHxM</module>-->
-        <module>../../media/sound/NullMusicAndroidJavaLibraryHxM</module>
-        <module>../../media/sound/MusicAndroidJavaLibraryHxM</module>
+        <!--<module>../../media/sound/NullMusicAndroidJavaLibraryHxM</module>-->
+        <!--<module>../../media/sound/MusicAndroidJavaLibraryHxM</module>-->
 
         <!--
         <module>../../media/graphics/ImageCacheAndroidJavaLibraryHxM</module>
         -->
                 
         <!-- ../../../../working/allbinary_src/logic/data/file/FileAndroidJavaLibraryM -->
-        <module>../../../allbinary_src/logic/data/file/FileAndroidJavaLibraryHxM</module>
+        <!--<module>../../../allbinary_src/logic/data/file/FileAndroidJavaLibraryHxM</module>-->
         
-        <module>../../input/platform/android/MotionInputAndroidResourcesJavaLibraryHxM</module>
+        <!--<module>../../input/platform/android/MotionInputAndroidResourcesJavaLibraryHxM</module>-->
                 
     </modules>
 

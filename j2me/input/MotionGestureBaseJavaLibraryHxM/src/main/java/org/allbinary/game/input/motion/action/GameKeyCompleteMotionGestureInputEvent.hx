@@ -38,13 +38,13 @@ class GameKeyCompleteMotionGestureInputEvent extends CompleteMotionGestureInputE
         this.update();
     }
 
-    public override function getSourceId() : Int {
+    public function getSourceId() : Int {
         return this.SOURCE_ID;
     }
 
     public function update() : Void {
         try {
-            this.setGameKey(this.inputToGameKeyMapping.getInstance(this.getMotionGestureInput().getId()));
+            this.setGameKey(this.inputToGameKeyMapping.getInstanceFor(this.getMotionGestureInput().getId()));
             this.setGameKeyEvent(this.gameKeyEventFactory.getInstanceForInput(this, this.getGameKey()));
         } catch (e : haxe.Exception) {
             final commonStrings : CommonStrings = CommonStrings.getInstance();

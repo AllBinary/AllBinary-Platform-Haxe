@@ -33,7 +33,7 @@ class NativeLibraryHelperWrapper {
         params[0] = this.getLibraryName();
         var classes : haxe.ds.Vector<Class<Dynamic>> = haxe.ds.Vector.fromArrayCopy([for (index in 0...1) null]);
         classes[0] = Type.getClass(this.getLibraryName());
-        this.loader = new NativeLibraryClassLoader(Type.getClass(this).getClassLoader());
+        this.loader = new NativeLibraryClassLoader(jre.lang.ClassLoader.getSystemClassLoader());
         var myClass : Class<Dynamic> = this.loader.loadClass("dynamic.NativeLibraryHelper");
         var constructor : Constructor = myClass.getConstructor(classes);
         this.anyType = constructor.newInstance(params);

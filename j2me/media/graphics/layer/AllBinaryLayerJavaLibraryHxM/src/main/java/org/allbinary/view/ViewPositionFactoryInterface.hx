@@ -18,7 +18,7 @@ package org.allbinary.view;
 
 interface ViewPositionFactoryInterface {
     // throws Exception
-    function getInstance() : ViewPositionBase;
+    function getInstanceFor() : ViewPositionBase;
 
 }
 

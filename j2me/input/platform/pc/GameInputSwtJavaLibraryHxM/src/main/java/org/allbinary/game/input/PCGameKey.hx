@@ -26,7 +26,7 @@ class PCGameKey extends Input {
         }
     }
 
-    public function toString() : String {
+    public override function toString() : String {
         return "PCGameKey: " + super.toString();
     }
 

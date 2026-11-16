@@ -43,7 +43,7 @@ class OpenGLESImage extends Image implements OpenGLSurfaceChangedInterface {
     }
 
     // throws Exception
-    public override function set(gl : GL) : Void {
+    public function set(gl : GL) : Void {
         throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
@@ -58,7 +58,7 @@ class OpenGLESImage extends Image implements OpenGLSurfaceChangedInterface {
     }
 
     public static final TYPE : Int = 4;
-    public function getType() : Int {
+    public override function getType() : Int {
         return OpenGLESImage.TYPE;
     }
 

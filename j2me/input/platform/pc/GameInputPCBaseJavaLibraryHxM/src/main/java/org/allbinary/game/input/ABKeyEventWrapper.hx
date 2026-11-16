@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.input;
 
-//import java.awt.event.KeyEvent;
+import jre.awt.event.KeyEvent;
 //import jsinterop.annotations.JsType;
 
 class ABKeyEventWrapper {

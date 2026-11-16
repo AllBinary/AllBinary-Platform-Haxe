@@ -36,7 +36,7 @@ class AngleInfo {
     private final frameUtil : FrameUtil = FrameUtil.getInstance();
     public function adjustAngle(frame : Int) : Void {
         final newAngle : Int = this.angleIncrementInfo.getAngleIncrement() * frame - 90;
-        this.setAngle(Std.int(this.frameUtil.adjustAngleToFrameAngle(newAngle)));
+        this.setAngle(jre.lang.JavaNumber.toInt(this.frameUtil.adjustAngleToFrameAngle(newAngle)));
     }
 
     public function getAngle() : Int {

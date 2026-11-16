@@ -26,14 +26,14 @@ import org.allbinary.util.ABHashtable;
 
 class DiveAndDirectionalTrackingAIFactory implements ArtificialIntelligenceInterfaceFactoryInterface {
     // throws Exception
-    public function getInstance(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
+    public function getInstanceFor(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
         var visitorCanBeNull : Any = hashtable.get((cast BasicAI.AI_VISITOR : Any));
         if (visitorCanBeNull == null) {
             visitorCanBeNull = ThrustAIVisitorFactory.getInstance();
         }
-        final hashtable2 : ABHashtable<Any, Any> = new BasicProbabilityAIDataFactory().getInstance();
+        final hashtable2 : ABHashtable<Any, Any> = new BasicProbabilityAIDataFactory().getInstanceFor();
         hashtable2.put(BasicAI.AI_VISITOR, LastKeyAIVisitorFactory.getInstance());
-        final artificialIntelligenceInterface : ArtificialIntelligenceInterface = new BasicRandomAIFactory().getInstance(hashtable2, ownerLayerInterface, gameInput);
+        final artificialIntelligenceInterface : ArtificialIntelligenceInterface = new BasicRandomAIFactory().getInstanceFor(hashtable2, ownerLayerInterface, gameInput);
         return new DiveAndDirectionalTrackingAI(ownerLayerInterface, artificialIntelligenceInterface, gameInput, (cast visitorCanBeNull : Visitor));
     }
 

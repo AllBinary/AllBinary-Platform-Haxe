@@ -42,14 +42,14 @@ class MultiKeyPressesAI extends KeyPressesAI {
         final size : Int = keys.length;
         if (this.isOn()) {
             for (index in 0...size) {
-                var key : Int = Std.int(keys[index]);
+                var key : Int = jre.lang.JavaObject.intValue(keys[index]);
                 if (key != -1) {
                     gameInput.add(this.gameKeyEventFactory.getInstanceForKey(this, key));
                 }
             }
         } else {
             for (index in 0...size) {
-                var key : Int = Std.int(keys[index]);
+                var key : Int = jre.lang.JavaObject.intValue(keys[index]);
                 if (key != -1) {
                     gameInput.addForRemoval(this.gameKeyEventFactory.getInstanceForKey(this, key));
                 }

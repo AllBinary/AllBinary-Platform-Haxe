@@ -19,7 +19,7 @@ import org.allbinary.thread.ABRunnable;
 import org.allbinary.thread.NullABRunnable;
 
 class LicenseCheckRunnableFactory {
-    public function getInstance(specialDemoGameMidlet : SpecialDemoGameMidlet) : ABRunnable {
+    public function getInstanceFor(specialDemoGameMidlet : SpecialDemoGameMidlet) : ABRunnable {
         return NullABRunnable.getInstance();
     }
 

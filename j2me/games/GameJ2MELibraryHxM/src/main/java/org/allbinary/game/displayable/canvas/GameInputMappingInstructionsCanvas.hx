@@ -37,7 +37,7 @@ class GameInputMappingInstructionsCanvas extends GameCommandCanvas {
     public function new(commandListener : CommandListener, allBinaryGameLayerManager : AllBinaryGameLayerManager) {
         super(commandListener, GameInputMappingInstructionsCanvas.NAME, allBinaryGameLayerManager.getBackgroundBasicColor(), allBinaryGameLayerManager.getForegroundBasicColor());
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
-        this.colorFillPaintable = ColorFillPaintableFactory.getInstance().getInstance(allBinaryGameLayerManager.getBackgroundBasicColor(), false);
+        this.colorFillPaintable = ColorFillPaintableFactory.getInstance().getInstanceFor(allBinaryGameLayerManager.getBackgroundBasicColor(), false);
     }
 
     public override function initCommands(cmdListener : CommandListener) : Void {

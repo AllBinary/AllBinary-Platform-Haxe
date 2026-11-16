@@ -27,7 +27,7 @@ class PlatformAssetManager {
     // throws Exception
     public function getResourceAsStream(resource : String) : InputStream {
         final resourceUtil : ResourceUtil = ResourceUtil.getInstance();
-        final inputStream : InputStream = resourceUtil.getResourceAsStream(resource);
+        final inputStream : InputStream = jre.lang.ClassLoader.getSystemResourceAsStream(resource);
         return inputStream;
     }
 

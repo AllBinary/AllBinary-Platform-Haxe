@@ -41,8 +41,8 @@ class MyRandomFactory {
     }
 
     public function getNextInt(range : Int) : Int {
-        var div : Int = (Integer.MAX_VALUE / range) + 1;
-        return Std.int((this.rand.nextInt() / div));
+        var div : Int = (jre.lang.JavaNumber.divide(Integer.MAX_VALUE, range)) + 1;
+        return jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide(this.rand.nextInt(), div)));
     }
 
     public function getAbsoluteNextInt(range : Int) : Int {
@@ -103,7 +103,7 @@ class MyRandomFactory {
         final commonSeps : CommonSeps = CommonSeps.getInstance();
         final size2 : Int = 100;
         for (index in 0...size2) {
-            stringBuilder.appendint(Std.int(randomFactory.getAbsoluteNextInt(3))).append(commonSeps.COMMA);
+            stringBuilder.appendint(jre.lang.JavaNumber.toInt(randomFactory.getAbsoluteNextInt(3))).append(commonSeps.COMMA);
         }
         trace(Std.string(stringBuilder));
         stringBuilder.delete(0, stringBuilder.length());

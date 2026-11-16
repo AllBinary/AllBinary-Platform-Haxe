@@ -54,7 +54,7 @@ class BasicGraphicsPipeline {
 
     // throws Exception
     public function rotateToAngle(angle : Angle) : Void {
-        this.rotate(Std.int(angle.getValue()));
+        this.rotate(jre.lang.JavaNumber.toInt(angle.getValue()));
     }
 
     private final noDecimalTrigTable : NoDecimalTrigTable = NoDecimalTrigTable.getInstance();

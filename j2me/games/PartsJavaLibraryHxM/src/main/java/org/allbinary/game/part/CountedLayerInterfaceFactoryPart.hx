@@ -32,7 +32,7 @@ class CountedLayerInterfaceFactoryPart implements PartInterface implements Updat
     public static final NULL_COUNTED_LAYER_INTERFACE_FACTORY : CountedLayerInterfaceFactoryPart = new CountedLayerInterfaceFactoryPart(0, CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY);
     private final updateMyFontProcessor : MyFontProcessor;
     private var myFontProcessor : MyFontProcessor;
-    private var animationInterface : Animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
+    private var animationInterface : Animation = NullAnimationFactory.getFactoryInstance().getInstanceFor(0);
     private var total : Int = 0;
     private var totalString : haxe.ds.Vector<Int> = NullUtil.getInstance().NULL_CHAR_ARRAY;
     private var xOffset : Int = 0;
@@ -57,7 +57,7 @@ class CountedLayerInterfaceFactoryPart implements PartInterface implements Updat
     }
 
     // throws Exception
-    public function getInstance(hashtable : ABHashtable<Any, Any>, x : Int, y : Int, z : Int) : AllBinaryLayer {
+    public function getInstanceFor(hashtable : ABHashtable<Any, Any>, x : Int, y : Int, z : Int) : AllBinaryLayer {
         if (this.total > 0) {
             this.setTotal(this.total - 1);
             return this.getCountedPickedUpLayerInterfaceFactory().getNextInstance(hashtable, x, y, z);

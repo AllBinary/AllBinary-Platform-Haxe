@@ -28,7 +28,7 @@ class AllBinaryLayerCircularPool extends BaseCircularPool {
         this.circularIndexUtil = CircularIndexUtil.createInstance(total);
         this.OBJECT_ARRAY = haxe.ds.Vector.fromArrayCopy([for (index in 0...total) null]);
         for (localIndex in 0...total) {
-            this.OBJECT_ARRAY[localIndex] = allbinaryLayerFactoryInterface.getInstance();
+            this.OBJECT_ARRAY[localIndex] = allbinaryLayerFactoryInterface.getInstanceFor();
         }
     }
 

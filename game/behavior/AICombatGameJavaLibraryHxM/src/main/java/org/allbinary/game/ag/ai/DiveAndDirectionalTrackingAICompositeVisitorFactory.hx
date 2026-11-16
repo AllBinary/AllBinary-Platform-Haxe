@@ -18,7 +18,7 @@ package org.allbinary.game.ag.ai;
 import org.allbinary.logic.util.visitor.Visitor;
 
 class DiveAndDirectionalTrackingAICompositeVisitorFactory {
-    public function getInstance(diveBombAI : DiveAndDirectionalTrackingAI) : Visitor {
+    public function getInstanceFor(diveBombAI : DiveAndDirectionalTrackingAI) : Visitor {
         return Visitor.getInstance();
     }
 

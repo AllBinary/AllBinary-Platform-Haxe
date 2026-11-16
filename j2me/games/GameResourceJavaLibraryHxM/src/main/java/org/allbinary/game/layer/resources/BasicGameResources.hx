@@ -31,7 +31,7 @@ class BasicGameResources {
 
     public function init(ROOT : String, SIZE : haxe.ds.Vector<String>) : Void {
         try {
-            var scale : Int = Std.int(GameConfigurationCentral.getInstance().SCALE.getValue());
+            var scale : Int = jre.lang.JavaObject.intValue(GameConfigurationCentral.getInstance().SCALE.getValue());
             if (scale > 1 && scale - 1 < SIZE.length) {
                 this.append(ROOT, SIZE[scale - 1]);
             } else {

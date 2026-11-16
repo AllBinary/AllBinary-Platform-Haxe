@@ -25,7 +25,7 @@ import org.allbinary.math.AngleInfo;
 
 class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedAnimation {
     public function new(sprite : Sprite, image : Image, animationBehavior : AnimationBehavior) {
-        super(sprite, image, AngleInfo.getInstance(Std.int((AngleFactory.getInstance().TOTAL_ANGLE / sprite.getRawFrameCount()))), animationBehavior);
+        super(sprite, image, AngleInfo.getInstance(jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide(AngleFactory.getInstance().TOTAL_ANGLE, sprite.getRawFrameCount())))), animationBehavior);
         this.angleInfo.adjustAngle(this.sprite.getFrame());
     }
 
@@ -58,7 +58,7 @@ class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedAnimatio
     }
 
     public override function adjustFrame(angle : Int) : Void {
-        this.setFrame(this.frameUtil.getFrameForAngle(angle, Std.int(this.angleInfo.getAngleIncrementInfo().getAngleIncrement())));
+        this.setFrame(this.frameUtil.getFrameForAngle(angle, jre.lang.JavaNumber.toInt(this.angleInfo.getAngleIncrementInfo().getAngleIncrement())));
     }
 
 }

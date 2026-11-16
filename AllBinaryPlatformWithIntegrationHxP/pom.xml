@@ -61,7 +61,7 @@
         <module>../j2me/media/graphics/geography/map/GraphHxP</module>
         <module>../j2me/games/strategy/rts/RTSGameJavaLibraryHxP</module>
         
-        <module>../j2me/android/AllBinaryPlatformAndroidLibraryPOHxM</module>
+        <!--<module>../j2me/android/AllBinaryPlatformAndroidLibraryPOHxM</module>-->
 
     </modules>
 

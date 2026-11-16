@@ -49,11 +49,11 @@
         <module>../../allbinary_src/LogNoPlatformJavaLibraryHxM</module>
         <module>../../allbinary_src/LogJ2MEJavaLibraryHxM</module>
         <module>../../allbinary_src/LogJ2SEJavaLibraryHxM</module>
-        <module>../../allbinary_src/LogAndroidJavaLibraryHxM</module>
+        <!--<module>../../allbinary_src/LogAndroidJavaLibraryHxM</module>-->
         <module>../logging/LoggingNoneHxM</module>
         <module>../logging/LoggingJ2MEAllHxM</module>
         <module>../logging/LoggingJ2MEExceptionHxM</module>
-        <module>../logging/LoggingAndroidAllHxM</module>
+        <!--<module>../logging/LoggingAndroidAllHxM</module>-->
         <!--
         //While it is a possible dependency option it really does not fit here
         //as such it is actually build in the final POM builds instead

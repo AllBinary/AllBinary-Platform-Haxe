@@ -29,7 +29,7 @@ class TouchButtonsPaintable extends Paintable {
     public function new(basicColor : BasicColor) {
         super();
         this.foregroundBasicColor = basicColor;
-        this.foregroundColor = Std.int(basicColor);
+        this.foregroundColor = basicColor.intValue();
     }
 
     public override function paint(graphics : Graphics) : Void {

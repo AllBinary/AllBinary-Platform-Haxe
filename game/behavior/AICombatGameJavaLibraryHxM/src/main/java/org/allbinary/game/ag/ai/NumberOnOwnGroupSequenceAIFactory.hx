@@ -28,7 +28,7 @@ import org.allbinary.util.BasicArrayListD;
 class NumberOnOwnGroupSequenceAIFactory {
     public final logUtil : LogUtil = LogUtil.getInstance();
     // throws Exception
-    public function getInstance(hashtable : ABHashtable<Any, Any>, artificialIntelligenceInterface : haxe.ds.Vector<ArtificialIntelligenceInterface>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
+    public function getInstanceFor(hashtable : ABHashtable<Any, Any>, artificialIntelligenceInterface : haxe.ds.Vector<ArtificialIntelligenceInterface>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
         final integerArray : haxe.ds.Vector<Null<Int>> = NumberInSameGroupSequence.getInstance().NUMBER_ON_SAME_TEAM_SEQUENCE;
         final list : BasicArrayList = new BasicArrayListD();
         for (index in 0...integerArray.length) {

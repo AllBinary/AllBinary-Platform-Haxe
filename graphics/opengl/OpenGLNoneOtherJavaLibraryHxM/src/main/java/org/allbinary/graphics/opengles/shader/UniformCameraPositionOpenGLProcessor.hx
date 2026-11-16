@@ -22,7 +22,7 @@ class UniformCameraPositionOpenGLProcessor extends OpenGLObject3dProcessor {
         super();
     }
 
-    public override function process(gl : GL10, anyType : Any) : Void {
+    public override function process_GL10_Any(gl : GL10, anyType : Any) : Void {
     }
 
 }

@@ -43,7 +43,7 @@ class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm implements 
     }
 
     private function initAnimations() : Void {
-        final nullAnimation : Animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
+        final nullAnimation : Animation = NullAnimationFactory.getFactoryInstance().getInstanceFor(0);
         {
             var index : Int = this.selectedAnimationArray.length;
             while (--index >= 0) {

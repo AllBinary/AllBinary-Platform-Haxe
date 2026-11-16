@@ -122,7 +122,7 @@ class SpriteIndexedAnimation extends IndexedAnimation implements ColorCompositeI
     }
 
     // throws Throwable
-    public override function finalize() : Void {
+    public function finalize() : Void {
     }
 
 }

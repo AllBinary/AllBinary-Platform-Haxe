@@ -30,21 +30,21 @@ class DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor extends Includ
         if (args.length == 1) {
             final filterStringBasicArrayList : BasicArrayList = args[0];
             super(filterStringBasicArrayList);
-            this._new0(filterStringBasicArrayList);
+            this._newDirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor0(filterStringBasicArrayList);
         }
         else if (args.length == 2) {
             final filterStringBasicArrayList : BasicArrayList = args[0];
             final includesString : String = args[1];
             super(filterStringBasicArrayList);
-            this._new1(filterStringBasicArrayList, includesString);
+            this._newDirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor1(filterStringBasicArrayList, includesString);
         }
     }
 
-    private function _new0(filterStringBasicArrayList : BasicArrayList) : Void {
+    private function _newDirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor0(filterStringBasicArrayList : BasicArrayList) : Void {
         this.includesString = null;
     }
 
-    private function _new1(filterStringBasicArrayList : BasicArrayList, includesString : String) : Void {
+    private function _newDirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor1(filterStringBasicArrayList : BasicArrayList, includesString : String) : Void {
         this.includesString = includesString;
     }
 
@@ -55,7 +55,7 @@ class DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor extends Includ
         if (args.length == 2) {
             return this.visit_AbFile_String(args[0], args[1]);
         }
-        throw new jre.lang.IllegalArgumentException("No matching overload: visit");
+        return super.visit(...args);
     }
 
     public override function visit_AbFile(file : AbFile) : Null<Bool> {

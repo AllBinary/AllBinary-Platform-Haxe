@@ -261,7 +261,7 @@ class ScrollSelectionForm extends PaintableForm {
         item.paintXY(graphics, x, y);
         final width : Int = item.getMinimumWidth();
         final height : Int = item.getMinimumHeight();
-        graphics.setColor(Std.int(this.getButtonBasicColor()));
+        graphics.setColor(jre.lang.JavaObject.intValue(this.getButtonBasicColor()));
         final adjustedBorder : Int = 3;
         graphics.drawRect(x - this.halfBorder - adjustedBorder, y - this.halfBorder - adjustedBorder, width + this.border + this.adjustedExtraBorder, height + this.border + this.adjustedExtraBorder);
         return this.scrollSelectionFormFormTypeItemIndexPaintable.paint(graphics, index, item, x, y);
@@ -269,7 +269,7 @@ class ScrollSelectionForm extends PaintableForm {
 
     // throws Exception
     public function paintUnselectedItem(graphics : Graphics, index : Int, item : ABCustomItem, x : Int, y : Int) : Int {
-        graphics.setColor(Std.int(this.getButtonBasicColor()));
+        graphics.setColor(jre.lang.JavaObject.intValue(this.getButtonBasicColor()));
         item.paintUnselected(graphics, x, y);
         return this.scrollSelectionFormFormTypeItemIndexPaintable.paint(graphics, index, item, x, y);
     }

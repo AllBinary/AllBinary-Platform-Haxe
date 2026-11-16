@@ -24,7 +24,7 @@ import android.os.Parcelable;
 
 class NotificationBuilderAPI23 extends NotificationBuilder {
     public override function build(context : Context, command : Command, message : String, integer : Null<Int>, pendingIntent : PendingIntent) : Parcelable {
-        final notification : Notification = new Builder(context).setSmallIcon(Std.int(integer)).setTicker(message).setWhen(haxe.Int64.fromFloat(Date.now().getTime())).setContentTitle(command.getLabel()).setContentText(message).setContentIntent(pendingIntent).build();
+        final notification : Notification = new Builder(context).setSmallIcon(jre.lang.JavaNumber.toInt(integer)).setTicker(message).setWhen(haxe.Int64.fromFloat(Date.now().getTime())).setContentTitle(command.getLabel()).setContentText(message).setContentIntent(pendingIntent).build();
         return notification;
     }
 

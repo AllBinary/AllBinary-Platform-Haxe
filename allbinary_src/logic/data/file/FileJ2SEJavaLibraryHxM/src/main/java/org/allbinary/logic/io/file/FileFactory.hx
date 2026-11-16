@@ -22,23 +22,23 @@ class FileFactory {
         return FileFactory.instance;
     }
 
-    public function getInstance(...args : Dynamic) : Dynamic {
+    public function getInstanceFor(...args : Dynamic) : Dynamic {
         if (args.length == 1) {
-            return this.getInstance_String(args[0]);
+            return this.getInstanceFor_String(args[0]);
         }
         if (args.length == 2) {
-            return this.getInstance_AbFile_String(args[0], args[1]);
+            return this.getInstanceFor_AbFile_String(args[0], args[1]);
         }
         throw new jre.lang.IllegalArgumentException("No matching overload: getInstance");
     }
 
     // throws Exception
-    public function getInstance_String(filePath : String) : AbFile {
+    public function getInstanceFor_String(filePath : String) : AbFile {
         return AbFile.createAbFileFromRawPath(filePath);
     }
 
     // throws Exception
-    public function getInstance_AbFile_String(file : AbFile, childFilePath : String) : AbFile {
+    public function getInstanceFor_AbFile_String(file : AbFile, childFilePath : String) : AbFile {
         return AbFile.createAbFileWithChild(file, childFilePath);
     }
 

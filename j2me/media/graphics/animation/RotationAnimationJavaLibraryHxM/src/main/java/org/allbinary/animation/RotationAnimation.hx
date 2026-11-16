@@ -40,11 +40,11 @@ class RotationAnimation extends IndexedAnimation implements RotationAnimationInt
     public function previousRotationX() : Void {
     }
 
-    public override function nextRotation() : Void {
+    public function nextRotation() : Void {
         this.angleInfo.adjustAngle(this.circularIndexUtil.next());
     }
 
-    public override function previousRotation() : Void {
+    public function previousRotation() : Void {
         this.angleInfo.adjustAngle(this.circularIndexUtil.previous());
     }
 
@@ -60,21 +60,21 @@ class RotationAnimation extends IndexedAnimation implements RotationAnimationInt
         this.angleInfo.adjustAngle(newFrame);
     }
 
-    public override function setFrameByDirection(direction : Direction) : Void {
+    public function setFrameByDirection(direction : Direction) : Void {
         final angle : Angle = this.directionUtil.getFrameAngle(direction);
         this.adjustFrameToAngle(angle);
     }
 
-    public override function setFrameToAngle(angle : Angle) : Void {
+    public function setFrameToAngle(angle : Angle) : Void {
         this.adjustFrameToAngle(angle);
     }
 
-    public override function adjustFrameToAngle(angle : Angle) : Void {
+    public function adjustFrameToAngle(angle : Angle) : Void {
         this.adjustFrame(angle.getValue());
     }
 
-    public override function adjustFrame(angle : Int) : Void {
-        this.setFrame(this.frameUtil.getFrameForAngle(angle, Std.int(this.angleInfo.getAngleIncrementInfo().getAngleIncrement())));
+    public function adjustFrame(angle : Int) : Void {
+        this.setFrame(this.frameUtil.getFrameForAngle(angle, jre.lang.JavaNumber.toInt(this.angleInfo.getAngleIncrementInfo().getAngleIncrement())));
     }
 
     public override function getFrame() : Int {
@@ -85,7 +85,7 @@ class RotationAnimation extends IndexedAnimation implements RotationAnimationInt
         return this.circularIndexUtil.getSize();
     }
 
-    public override function getAngleInfoP() : AngleInfo {
+    public function getAngleInfoP() : AngleInfo {
         return this.angleInfo;
     }
 

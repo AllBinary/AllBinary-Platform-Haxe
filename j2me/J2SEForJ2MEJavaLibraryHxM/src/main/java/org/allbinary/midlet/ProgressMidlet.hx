@@ -27,7 +27,7 @@ class ProgressMidlet extends AllBinaryMidlet {
     public function new(clientInformationFactory : ClientInformationFactory) {
         super();
         this.preInit();
-        this.abeClientInformation = clientInformationFactory.getInstance();
+        this.abeClientInformation = clientInformationFactory.getInstanceFor();
     }
 
     public function preInit() : Void {

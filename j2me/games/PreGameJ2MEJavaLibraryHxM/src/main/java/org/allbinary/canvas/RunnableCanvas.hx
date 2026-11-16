@@ -54,7 +54,7 @@ class RunnableCanvas extends MyCanvas implements RunnableInterface {
     private final PROCESS_LOOP_SLEEP : String = "processLoopSleep";
     public function new(commandListener : CommandListener, childNameList : BasicArrayList, hasParam : Bool) {
         super(CommonStrings.getInstance().UNKNOWN, childNameList);
-        this.logUtil.putF(Std.string(new StringMaker().append("RunnableCanvas delay: ").appendint(Std.int(this.loopTimeHelper.delay))), this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(Std.string(new StringMaker().append("RunnableCanvas delay: ").appendint(jre.lang.JavaNumber.toInt(this.loopTimeHelper.delay))), this, this.commonStrings.CONSTRUCTOR);
         this.runnableCanvasRefreshHelper = new RunnableCanvasRefreshHelper(this);
         if (commandListener != null) {
             this.initCommands(commandListener);
@@ -75,11 +75,11 @@ class RunnableCanvas extends MyCanvas implements RunnableInterface {
         }
     }
 
-    public override function setThread(thread : Thread) : Void {
+    public function setThread(thread : Thread) : Void {
         this.thread = thread;
     }
 
-    public override function setRunning(running : Bool) : Void {
+    public function setRunning(running : Bool) : Void {
         this.running = running;
         if (!this.running) {
             this.thread = NullThread.NULL_THREAD;
@@ -92,7 +92,7 @@ class RunnableCanvas extends MyCanvas implements RunnableInterface {
     }
 
     // synchronized
-    public override function isRunning() : Bool {
+    public function isRunning() : Bool {
         if (this.thread == this.currentThread) {
             return this.running;
         } else {
@@ -118,7 +118,7 @@ class RunnableCanvas extends MyCanvas implements RunnableInterface {
     public function setWait(wait : Int) : Void {
         this.loopTimeHelper.delay = wait;
         this.pauseWait = haxe.Int64.ofInt(wait) * 3;
-        this.logUtil.putF(Std.string(new StringMaker().append("setWait - delay: ").appendint(Std.int(this.loopTimeHelper.delay))), this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(Std.string(new StringMaker().append("setWait - delay: ").appendint(jre.lang.JavaNumber.toInt(this.loopTimeHelper.delay))), this, this.commonStrings.CONSTRUCTOR);
     }
 
     public function getWait() : Int {
@@ -198,7 +198,7 @@ class RunnableCanvas extends MyCanvas implements RunnableInterface {
             }
         }
         var elapsedTime : haxe.Int64 = this.loopTimeHelper.getElapsedTNT();
-        final wait : haxe.Int64 = haxe.Int64.ofInt(this.loopTimeHelper.delay);
+        final wait : haxe.Int64 = jre.lang.JavaNumber.toInt64(this.loopTimeHelper.delay);
         if (elapsedTime > wait) {
             elapsedTime = wait;
         } else {
@@ -210,7 +210,7 @@ class RunnableCanvas extends MyCanvas implements RunnableInterface {
         return false;
     }
 
-    public override function run() : Void {
+    public function run() : Void {
         this.setCurrentThread();
     }
 

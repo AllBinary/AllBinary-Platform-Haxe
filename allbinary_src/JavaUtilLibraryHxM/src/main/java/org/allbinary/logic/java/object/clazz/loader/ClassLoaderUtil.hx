@@ -22,7 +22,7 @@ class ClassLoaderUtil {
 
     // throws Exception
     public static function getName(anyType : Any) : String {
-        var classLoader : ClassLoader = Type.getClass(anyType).getClassLoader();
+        var classLoader : ClassLoader = jre.lang.ClassLoader.getSystemClassLoader();
         if (classLoader != null) {
             return "ClassLoader: " + Type.getClassName(Type.getClass(classLoader));
         }

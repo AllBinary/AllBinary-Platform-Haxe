@@ -88,7 +88,7 @@ class ResourceUtil {
             var integer : Null<Int> = (cast this.hashMap.get((cast objectArray[index] : Any)) : Null<Int>);
             if (resource != objectArray[index]) {
                 if (value != integer) {
-                    if (Std.int(value) == Std.int(integer)) {
+                    if (jre.lang.JavaNumber.toInt(value) == jre.lang.JavaNumber.toInt(integer)) {
                         return true;
                     }
                 }
@@ -106,7 +106,7 @@ class ResourceUtil {
     // throws Exception
     public function getResourceAsStream(resource : String) : InputStream {
         final integer : Null<Int> = (cast this.hashMap.get(resource) : Null<Int>);
-        final id : Int = Std.int(integer);
+        final id : Int = jre.lang.JavaNumber.toInt(integer);
         final resources : Resources = ((cast this.resources : Resources));
         final inputStream : InputStream = resources.openRawResource(id);
         if (inputStream != null) {

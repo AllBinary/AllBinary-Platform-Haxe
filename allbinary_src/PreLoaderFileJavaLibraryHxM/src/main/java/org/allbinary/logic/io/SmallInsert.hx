@@ -38,7 +38,7 @@ class SmallInsert {
             idOutData.writeBytes(text + this.string);
             return true;
         } catch (e : haxe.Exception) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().IDLOGGING)) {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "insertAtBeginning", e);
             }
             return false;
@@ -62,7 +62,7 @@ class SmallInsert {
             idFile.close();
             return true;
         } catch (e : haxe.Exception) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().IDLOGGING)) {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "after", e);
             }
             return false;
@@ -76,7 +76,7 @@ class SmallInsert {
             idOutData.writeBytes(this.string + text);
             return true;
         } catch (e : haxe.Exception) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().IDLOGGING)) {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "insertAtEnd", e);
             }
             return false;

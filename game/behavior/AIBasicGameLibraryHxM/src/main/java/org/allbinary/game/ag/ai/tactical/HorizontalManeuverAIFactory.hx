@@ -22,7 +22,7 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.util.ABHashtable;
 
 class HorizontalManeuverAIFactory implements ArtificialIntelligenceInterfaceFactoryInterface {
-    public function getInstance(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
+    public function getInstanceFor(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
         return new HorizontalManeuverAI(ownerLayerInterface, gameInput);
     }
 

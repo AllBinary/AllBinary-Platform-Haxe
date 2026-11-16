@@ -27,7 +27,7 @@ class LineAnimationFactory implements AnimationInterfaceFactoryInterface {
     }
 
     // throws Exception
-    public function getInstance(instanceId : Int) : Animation {
+    public function getInstanceFor(instanceId : Int) : Animation {
         return new LineAnimation(this.basicColor);
     }
 

@@ -43,7 +43,7 @@ class VectorAnimation extends IndexedAnimation implements VectorAnimationInterfa
 
     public override function setBasicColorP(basicColor : BasicColor) : Void {
         var changed : Bool = false;
-        if (this.getBasicColorP() == null || Std.int(this.getBasicColorP()) != Std.int(basicColor)) {
+        if (this.getBasicColorP() == null || jre.lang.JavaObject.intValue(this.getBasicColorP()) != basicColor.intValue()) {
             changed = true;
         }
         super.setBasicColorP(basicColor);
@@ -54,7 +54,7 @@ class VectorAnimation extends IndexedAnimation implements VectorAnimationInterfa
 
     public override function changeBasicColor(basicColor : BasicColor) : Void {
         var changed : Bool = false;
-        if (this.getChangeBasicColor() == null || Std.int(this.getChangeBasicColor()) != Std.int(basicColor)) {
+        if (this.getChangeBasicColor() == null || jre.lang.JavaObject.intValue(this.getChangeBasicColor()) != basicColor.intValue()) {
             changed = true;
         }
         super.changeBasicColor(basicColor);
@@ -145,7 +145,7 @@ class VectorAnimation extends IndexedAnimation implements VectorAnimationInterfa
         this.circularIndexUtil.setIndex(index);
     }
 
-    public override function getPoints(frame : Int) : haxe.ds.Vector<haxe.ds.Vector<Int>> {
+    public function getPoints(frame : Int) : haxe.ds.Vector<haxe.ds.Vector<Int>> {
         return this.currentPoints[frame];
     }
 

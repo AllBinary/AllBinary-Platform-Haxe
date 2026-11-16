@@ -84,8 +84,8 @@ class PacePatrolAI extends BasePatrolAI implements TrackingEventListenerInterfac
             var y : Int = lastTrackingLayerInterface.getYP();
             var yDistance : Int = ownerLayerInterface.getYP() - y - ownerLayerInterface.getHeight();
             var xDistance : Int = ownerLayerInterface.getXP() - x - ownerLayerInterface.getWidth();
-            var absXDistance : Int = Math.abs(xDistance);
-            var absYDistance : Int = Math.abs(yDistance);
+            var absXDistance : Int = jre.lang.JavaMath.abs(xDistance);
+            var absYDistance : Int = jre.lang.JavaMath.abs(yDistance);
             if (absYDistance <= 100) {
                 if (absXDistance < Std.int(getFiringDistance() / 2)) {
                     directionCompositeInterface = (cast this.getOwnerLayerInterface() : DirectionCompositeInterface);
@@ -103,11 +103,11 @@ class PacePatrolAI extends BasePatrolAI implements TrackingEventListenerInterfac
     public override function disable() : Void {
     }
 
-    public override function onEvent(eventObject : AllBinaryEventObject) : Void {
+    public function onEvent(eventObject : AllBinaryEventObject) : Void {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
-    public override function onMovement(trackingEvent : TrackingEvent) : Void {
+    public function onMovement(trackingEvent : TrackingEvent) : Void {
         this.trackingList.clear();
         this.trackingList.add(trackingEvent);
     }

@@ -84,7 +84,7 @@ class ThreadPool {
                     final index : Int = this.taskQueue.indexOf(lowerPriorityRunnable);
                     this.taskQueue.addAt(index, task);
                 }
-                this.notify();
+                jre.lang.JavaObject.notify(this);
             }
         }
     }
@@ -97,7 +97,7 @@ class ThreadPool {
             }
             if (task != null) {
                 this.taskQueue.add(task);
-                this.notify();
+                jre.lang.JavaObject.notify(this);
             }
         }
     }
@@ -110,7 +110,7 @@ class ThreadPool {
                 if (!this.isAlive) {
                     return this.NULL_RUNNABLE;
                 }
-                this.wait();
+                jre.lang.JavaObject.wait(this);
             }
             final runnable : Runnable = (cast this.taskQueue.removeAt(0) : Runnable);
             return runnable;
@@ -141,7 +141,7 @@ class ThreadPool {
         {
             this.isAlive = false;
             this.taskQueue.clear();
-            this.notifyAll();
+            jre.lang.JavaObject.notifyAll(this);
         }
     }
 

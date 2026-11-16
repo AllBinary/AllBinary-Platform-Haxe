@@ -31,11 +31,11 @@ class CompoundAnimationInterfaceFactory implements AnimationInterfaceFactoryInte
     }
 
     // throws Exception
-    public function getInstance(instanceId : Int) : Animation {
+    public function getInstanceFor(instanceId : Int) : Animation {
         final size : Int = this.basicAnimationInterfaceFactoryInterfaceArrayP.length;
         final animationInterfaceArray : haxe.ds.Vector<Animation> = this.createArray(size);
         for (index in 0...size) {
-            animationInterfaceArray[index] = this.basicAnimationInterfaceFactoryInterfaceArrayP[index].getInstance(instanceId);
+            animationInterfaceArray[index] = this.basicAnimationInterfaceFactoryInterfaceArrayP[index].getInstanceFor(instanceId);
         }
         return this.createAnimation(animationInterfaceArray);
     }
@@ -45,7 +45,7 @@ class CompoundAnimationInterfaceFactory implements AnimationInterfaceFactoryInte
     }
 
     public function createAnimation(animationInterfaceArray : haxe.ds.Vector<Animation>) : Animation {
-        return NullAnimationFactory.getFactoryInstance().getInstance(0);
+        return NullAnimationFactory.getFactoryInstance().getInstanceFor(0);
     }
 
     public function getBasicAnimationInterfaceFactoryInterfaceArray() : haxe.ds.Vector<AnimationInterfaceFactoryInterface> {

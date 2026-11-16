@@ -49,7 +49,7 @@ class VectorExplosionGenerator {
     }
 
     // throws Exception
-    public function getInstance(points : haxe.ds.Vector<haxe.ds.Vector<Int>>, howMuch : Int, type : VectorExplosionType) : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>> {
+    public function getInstanceFor(points : haxe.ds.Vector<haxe.ds.Vector<Int>>, howMuch : Int, type : VectorExplosionType) : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>> {
         final pointsBasicArrayList : BasicArrayList = this.getInstanceStartFrame(points, howMuch, type, true);
         final tempBasicArrayList : BasicArrayList = (cast pointsBasicArrayList.objectArray[0] : BasicArrayList);
         final newPoints : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>> = this.vectorAnimationUtil.toAnimationArrayFromListOfPointListWithPointsPerFrame(pointsBasicArrayList, tempBasicArrayList.size());

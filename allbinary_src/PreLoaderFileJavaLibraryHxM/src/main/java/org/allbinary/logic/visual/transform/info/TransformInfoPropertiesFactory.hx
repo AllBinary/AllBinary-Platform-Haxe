@@ -35,13 +35,13 @@ class TransformInfoPropertiesFactory {
     }
 
     // throws Exception
-    public function getInstance(node : Node) : TransformInfoProperties {
+    public function getInstanceFor(node : Node) : TransformInfoProperties {
         final transformInfoChildNodeList : NodeList = node.getChildNodes();
         final transformInfoData : TransformInfoData = TransformInfoData.getInstance();
         final attributes : NamedNodeMap = node.getAttributes();
         final attrNode : Attr = (cast attributes.getNamedItem(transformInfoData.NAME) : Attr);
         final name : String = attrNode.getValue();
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().VIEW)) {
             this.logUtil.putF(CommonLabels.getInstance().NEXT + " View Name: " + name, this, "toTransformInfoPropertiesHashMap()");
         }
         final labelNode : Node = DomSearchHelper.getNodeNoThrow(transformInfoData.LABEL, transformInfoChildNodeList);

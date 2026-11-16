@@ -31,7 +31,7 @@ class SelectableTextItem extends ABTextItem {
         this.myFontProcessor.process(graphics);
         var stringComponent : ABStringComponent = this.getLabelStringComponent();
         if (stringComponent != null) {
-            graphics.setColor(Std.int(stringComponent.getForegroundBasicColor()));
+            graphics.setColor(jre.lang.JavaObject.intValue(stringComponent.getForegroundBasicColor()));
         }
         graphics.drawString(this.getLabel(), x + 2, y, 0);
     }

@@ -36,12 +36,12 @@ class BaseCircularPool {
         this.circularIndexUtil.setIndex(0);
         var size : Int = this.circularIndexUtil.getSize();
         for (index in 0...size) {
-            this.OBJECT_ARRAY[index] = allBinaryObjectFactoryInterface.getInstance();
+            this.OBJECT_ARRAY[index] = allBinaryObjectFactoryInterface.getInstanceFor();
         }
     }
 
     // throws Exception
-    public function getInstance(index : Int) : Any {
+    public function getInstanceFor(index : Int) : Any {
         return this.OBJECT_ARRAY[index];
     }
 

@@ -29,14 +29,14 @@ class AlwaysRepaintBehavior extends RepaintBehavior {
         return AlwaysRepaintBehavior.instanceC;
     }
 
-    private final NAME : String = "AlwaysRepaintBehavior";
+    private final NAME_AlwaysRepaintBehavior : String = "AlwaysRepaintBehavior";
     public override function repaint(canvas : Canvas) : Void {
         final features : Features = Features.getInstance();
         final openGLFeatureFactory : OpenGLFeatureFactory = OpenGLFeatureFactory.getInstance();
         if (features.isFeature(openGLFeatureFactory.OPENGL)) {
             DisplayInfoSingleton.getInstance().process();
         } else {
-            final thread : Thread = new Thread(new RepaintRunnable(canvas), this.NAME);
+            final thread : Thread = new Thread(new RepaintRunnable(canvas), this.NAME_AlwaysRepaintBehavior);
             thread.start();
         }
     }

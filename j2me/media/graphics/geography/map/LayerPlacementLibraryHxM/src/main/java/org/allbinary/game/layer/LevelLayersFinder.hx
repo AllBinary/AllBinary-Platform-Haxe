@@ -40,7 +40,7 @@ class LevelLayersFinder {
         while (this.enumerationUtil.hasMoreElements(enumeration)) {
             layerHashtableCanBeNull = (cast hashtable.get((cast this.enumerationUtil.nextElement(enumeration) : Any)) : ABHashtable<Any, Any>);
             integerCanBeNull = (cast layerHashtableCanBeNull.get((cast Layer.ID : Any)) : Null<Int>);
-            cachedIntegerCanBeNull = smallIntegerSingletonFactory.getAt(Std.int(integerCanBeNull));
+            cachedIntegerCanBeNull = smallIntegerSingletonFactory.getAt(jre.lang.JavaNumber.toInt(integerCanBeNull));
             if (!list.contains(cachedIntegerCanBeNull)) {
                 list.add(cachedIntegerCanBeNull);
             }

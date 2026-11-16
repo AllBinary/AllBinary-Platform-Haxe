@@ -15,7 +15,7 @@ class StringMaker {
     public function append(string : String) : StringMaker {
         final stringLength : Int = string.length;
         this.ensureCapacity(this.currentLength + stringLength);
-        for (index in (0)...(stringLength)) this.charArray[(this.currentLength) + index - (0)] = StringTools.fastCodeAt(string, index);
+        jre.lang.JavaString.getChars(string, 0, stringLength, this.charArray, this.currentLength);
         this.currentLength += stringLength;
         return this;
     }

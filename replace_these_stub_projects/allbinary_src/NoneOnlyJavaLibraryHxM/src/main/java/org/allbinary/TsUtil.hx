@@ -30,7 +30,7 @@ class TsUtil {
     // throws InterruptedException
     public function waitFor(any : Any, timeoutMillis : haxe.Int64) : Void {
         final anyType : Any = (cast any : Any);
-        anyType.wait(timeoutMillis);
+        jre.lang.JavaObject.wait(anyType, timeoutMillis);
     }
 
     public function getRecord(anyType : Any, recordId : Int) : haxe.ds.Vector<Int> {
@@ -58,7 +58,7 @@ class TsUtil {
     }
 
     public function getByteArray(string : String) : haxe.ds.Vector<Int> {
-        return haxe.io.Bytes.ofString(string);
+        return jre.lang.JavaString.getBytes(string);
     }
 
     public function isItemListener(owner : Any) : Bool {

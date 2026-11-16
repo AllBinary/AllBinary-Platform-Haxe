@@ -33,8 +33,8 @@ class BasicWeaponPart implements PartInterface implements SalvoInterface {
         return new BasicWeaponPart(animationInterface, AllBinaryLayer.NULL_ALLBINARY_LAYER, WeaponProperties.NULL_WEAPON_PROPERTIES, NoScoreable.getInstance(), RelativeRelationship.NULL_RELATIVE_RELATIONSHIP);
     }
 
-    public static final NULL_BASIC_WEAPON_PART : BasicWeaponPart = BasicWeaponPart.createBasicWeaponPart(NullAnimationFactory.getFactoryInstance().getInstance(0));
-    private var animationInterface : Animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
+    public static final NULL_BASIC_WEAPON_PART : BasicWeaponPart = BasicWeaponPart.createBasicWeaponPart(NullAnimationFactory.getFactoryInstance().getInstanceFor(0));
+    private var animationInterface : Animation = NullAnimationFactory.getFactoryInstance().getInstanceFor(0);
     private var ownerLayerInterface : AllBinaryLayer = AllBinaryLayer.NULL_ALLBINARY_LAYER;
     private var weaponProperties : WeaponProperties = WeaponProperties.NULL_WEAPON_PROPERTIES;
     private var scoreableInterface : ScoreableInterface = NoScoreable.getInstance();

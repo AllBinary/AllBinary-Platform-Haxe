@@ -20,12 +20,12 @@ class GameSpeed {
     private static final instance : GameSpeed = new GameSpeed();
     public function getSpeed() : Int {
         var speedGameConfiguration : GameConfiguration = GameConfigurationCentral.getInstance().SPEED;
-        return (Std.int(speedGameConfiguration.getMaxValue()) - Std.int(speedGameConfiguration.getValue()) + 1);
+        return (jre.lang.JavaObject.intValue(speedGameConfiguration.getMaxValue()) - jre.lang.JavaObject.intValue(speedGameConfiguration.getValue()) + 1);
     }
 
     public function getDelay() : Int {
         var speedGameConfiguration : GameConfiguration = GameConfigurationCentral.getInstance().SPEED;
-        return 19 * (Std.int(speedGameConfiguration.getMaxValue()) - Std.int(speedGameConfiguration.getValue()));
+        return 19 * (jre.lang.JavaObject.intValue(speedGameConfiguration.getMaxValue()) - jre.lang.JavaObject.intValue(speedGameConfiguration.getValue()));
     }
 
     public static function getInstance() : GameSpeed {

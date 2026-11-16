@@ -22,10 +22,10 @@ class InitUpdatePaintable extends Paintable implements InitUpdatePaintableInterf
     }
 
     // throws Exception
-    public override function init() : Void {
+    public function init() : Void {
     }
 
-    public override function update() : Void {
+    public function update() : Void {
     }
 
 }

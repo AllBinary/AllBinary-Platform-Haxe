@@ -41,7 +41,7 @@ class SimpleTextPaintable extends Paintable implements UpdateMyFontInterface {
         this.basicColor = basicColor;
     }
 
-    public override function updateMeasurement(graphics : Graphics) : Void {
+    public function updateMeasurement(graphics : Graphics) : Void {
         final font : Font = graphics.getFont();
         this.topScoresWidth = (font.stringWidth(this.text) >> 1);
         this.fontHeight = font.getHeight();
@@ -51,7 +51,7 @@ class SimpleTextPaintable extends Paintable implements UpdateMyFontInterface {
     public override function paint(graphics : Graphics) : Void {
         this.myFontProcessor.process(graphics);
         final width : Int = this.displayInfoSingleton.getLast()[this.displayInfoSingleton.WIDTH];
-        graphics.setColor(Std.int(this.getBasicColorP()));
+        graphics.setColor(jre.lang.JavaObject.intValue(this.getBasicColorP()));
         graphics.drawString(this.text, (width >> 1) - this.topScoresWidth, this.fontHeight, this.anchor);
     }
 

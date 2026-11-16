@@ -33,7 +33,7 @@ class IndependentVectorExplosionRotationAnimationFactory implements ProceduralAn
 
     // throws Exception
     public function init() : Void {
-        this.framePoints = VectorRotationGenerator.getInstance().getInstance(this.vectorInfo);
+        this.framePoints = VectorRotationGenerator.getInstance().getInstanceFor(this.vectorInfo);
     }
 
     private final vectorExplosionGenerator : VectorExplosionGenerator = VectorExplosionGenerator.getInstance();
@@ -44,8 +44,8 @@ class IndependentVectorExplosionRotationAnimationFactory implements ProceduralAn
             var rotationAnimationInterface : IndexedAnimation = (cast animationInterface : IndexedAnimation);
             frame = rotationAnimationInterface.getFrame();
         }
-        var points : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>> = this.vectorExplosionGenerator.getInstance(this.framePoints[frame], 6, this.vectorExplosionGenerator.ROTATION);
-        return this.vectorAnimationFactoryInterface.getInstance(points, this.basicColor);
+        var points : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>> = this.vectorExplosionGenerator.getInstanceFor(this.framePoints[frame], 6, this.vectorExplosionGenerator.ROTATION);
+        return this.vectorAnimationFactoryInterface.getInstanceFor(points, this.basicColor);
     }
 
 }

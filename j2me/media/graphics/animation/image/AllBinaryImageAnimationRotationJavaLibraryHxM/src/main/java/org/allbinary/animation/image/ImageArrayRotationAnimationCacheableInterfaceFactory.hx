@@ -21,7 +21,7 @@ import org.allbinary.logic.util.cache.CacheableInterfaceFactoryInterface;
 
 class ImageArrayRotationAnimationCacheableInterfaceFactory implements CacheableInterfaceFactoryInterface {
     // throws Exception
-    public function getInstance(key : Any) : CacheableInterface {
+    public function getInstanceFor(key : Any) : CacheableInterface {
         return new ImageArrayRotationAnimationCacheable(key, AnimationBehavior.getInstance());
     }
 

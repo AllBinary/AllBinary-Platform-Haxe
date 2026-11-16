@@ -20,7 +20,7 @@ import org.allbinary.layer.AllBinaryLayer;
 
 interface PartFactoryInterface {
     // throws Exception
-    function getInstance(sourceLayerInterface : AllBinaryLayer, relativeRelationship : RelativeRelationship) : PartInterface;
+    function getInstanceFor(sourceLayerInterface : AllBinaryLayer, relativeRelationship : RelativeRelationship) : PartInterface;
 
 }
 

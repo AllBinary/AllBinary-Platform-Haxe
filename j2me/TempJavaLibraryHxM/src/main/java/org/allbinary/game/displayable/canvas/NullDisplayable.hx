@@ -15,7 +15,7 @@ class NullDisplayable extends Canvas {
         super();
     }
 
-    public override function paint(graphics : Graphics) : Void {
+    public function paint(graphics : Graphics) : Void {
     }
 
 }

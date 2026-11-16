@@ -23,7 +23,7 @@ import org.allbinary.math.AngleInfo;
 
 class VectorRotationAnimation extends VectorBaseRotationAnimation {
     public function new(currentPoints : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>>, basicColor : BasicColor, animationBehavior : AnimationBehavior) {
-        super(AngleInfo.getInstance(Std.int((AngleFactory.getInstance().TOTAL_ANGLE / currentPoints.length))), currentPoints, basicColor, animationBehavior);
+        super(AngleInfo.getInstance(jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide(AngleFactory.getInstance().TOTAL_ANGLE, currentPoints.length)))), currentPoints, basicColor, animationBehavior);
         this.angleInfo.adjustAngle(this.getFrame());
     }
 
@@ -42,7 +42,7 @@ class VectorRotationAnimation extends VectorBaseRotationAnimation {
     }
 
     public override function adjustFrame(newAngle : Int) : Void {
-        this.setFrame(this.frameUtil.getFrameForAngle(newAngle, Std.int(this.angleInfo.getAngleIncrementInfo().getAngleIncrement())));
+        this.setFrame(this.frameUtil.getFrameForAngle(newAngle, jre.lang.JavaNumber.toInt(this.angleInfo.getAngleIncrementInfo().getAngleIncrement())));
     }
 
     public override function adjustFrameToAngle(newAngle : Angle) : Void {

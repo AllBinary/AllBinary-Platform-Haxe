@@ -38,7 +38,7 @@ class CustomTextBoxIndexedAnimationFactory implements AnimationInterfaceFactoryI
     }
 
     // throws Exception
-    public function getInstance(instanceId : Int) : Animation {
+    public function getInstanceFor(instanceId : Int) : Animation {
         final abToGBUtil : ABToGBUtil = ABToGBUtil.getInstance();
         final abCanvas : AllBinaryGameCanvas = (cast abToGBUtil.abCanvas : AllBinaryGameCanvas);
         final font : Font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.scaleProperties.scaleHeight);

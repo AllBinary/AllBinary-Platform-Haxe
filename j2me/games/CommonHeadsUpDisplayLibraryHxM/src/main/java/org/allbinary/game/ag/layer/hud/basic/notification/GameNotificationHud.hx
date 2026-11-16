@@ -39,7 +39,7 @@ class GameNotificationHud extends BasicHud implements GameNotificationListenerIn
     private final METHOD_NAME : String = "onGameNotificationEvent";
     private var lastGameNotificationEvent : GameNotificationEvent = GameNotification.NULL_GAME_NOTIFICATION_EVENT;
     // throws Exception
-    public override function onGameNotificationEvent(gameNotificationEvent : GameNotificationEvent) : Void {
+    public function onGameNotificationEvent(gameNotificationEvent : GameNotificationEvent) : Void {
         if (this.lastGameNotificationEvent != gameNotificationEvent) {
             this.lastGameNotificationEvent = gameNotificationEvent;
             this.logUtil.putF(gameNotificationEvent.getString(), this, this.METHOD_NAME);

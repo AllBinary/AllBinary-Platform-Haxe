@@ -32,7 +32,7 @@ class MotionEventFactory implements AllBinaryEventObjectFactoryInterface {
         MotionEventFactory.index = TouchMotionGestureFactory.getInstance().LAST_MOTION.getId();
     }
 
-    public function getInstance() : AllBinaryEventObject {
+    public function getInstanceFor() : AllBinaryEventObject {
         final inputFactory : InputFactory = InputFactory.getInstance();
         final input : Input = inputFactory.getInstanceById(MotionEventFactory.index++);
         if (input == inputFactory.NO_INPUT) {

@@ -31,7 +31,7 @@ class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable implements 
     private var myFontProcessor : MyFontProcessor;
     private var baseRefreshHelperCharArray : haxe.ds.Vector<haxe.ds.Vector<Int>> = haxe.ds.Vector.fromArrayCopy([for (index in 0...0) haxe.ds.Vector.fromArrayCopy([for (index2 in 0...0) 0])]);
     private var defaultStringWidth : Int = 0;
-    public override function updateMeasurement(graphics : Graphics) : Void {
+    public function updateMeasurement(graphics : Graphics) : Void {
         final font : Font = graphics.getFont();
         this.defaultStringWidth = MyFontProcessor.defaultStringWidth(font, 2);
         this.myFontProcessor = MyFontProcessor.getInstance();
@@ -44,7 +44,7 @@ class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable implements 
         this.baseRefreshHelperCharArray = GameStatisticsFactory.getInstance().to2DCharArray();
     }
 
-    private final RED : Int = Std.int(BasicColorFactory.getInstance().RED);
+    private final RED : Int = jre.lang.JavaObject.intValue(BasicColorFactory.getInstance().RED);
     public override function paint(graphics : Graphics) : Void {
         this.myFontProcessor.process(graphics);
         graphics.setColor(this.RED);

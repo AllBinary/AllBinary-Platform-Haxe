@@ -42,7 +42,7 @@ class LayerInterfaceFactory {
         final commonStrings : CommonStrings = CommonStrings.getInstance();
         this.logUtil.putF(Std.string(new StringMaker().append(this.HASHTABLE_LABEL).append(StringUtil.getInstance().toString(hashtable))), this, commonStrings.GET_INSTANCE);
         final typeInteger : Null<Int> = (cast hashtable.get((cast Layer.ID : Any)) : Null<Int>);
-        final layerInterfaceFactoryInterface : LayerInterfaceFactoryInterface = (cast this.list.objectArray[Std.int(typeInteger) - 1] : LayerInterfaceFactoryInterface);
+        final layerInterfaceFactoryInterface : LayerInterfaceFactoryInterface = (cast this.list.objectArray[jre.lang.JavaNumber.toInt(typeInteger) - 1] : LayerInterfaceFactoryInterface);
         return layerInterfaceFactoryInterface.getNextInstance(hashtable, x, y, z);
     }
 

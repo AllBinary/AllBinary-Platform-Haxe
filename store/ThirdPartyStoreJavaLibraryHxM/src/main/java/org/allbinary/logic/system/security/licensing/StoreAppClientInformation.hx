@@ -24,7 +24,7 @@ class StoreAppClientInformation extends AbeClientInformation implements LongArra
         this.longArrayIdentifier = longArrayIdentifier;
     }
 
-    public override function getLongArrayIdentifier() : haxe.ds.Vector<haxe.Int64> {
+    public function getLongArrayIdentifier() : haxe.ds.Vector<haxe.Int64> {
         return this.longArrayIdentifier;
     }
 

@@ -34,17 +34,17 @@ class VectorMirrorGenerator {
     public function new() {
     }
 
-    public function getInstance(...args : Dynamic) : Dynamic {
+    public function getInstanceFor(...args : Dynamic) : Dynamic {
         if (args.length == 2 && Std.isOfType(args[0], Int)) {
-            return this.getInstance_intArrayArrayArray_int(args[0], args[1]);
+            return this.getInstanceFor_intArrayArrayArray_int(args[0], args[1]);
         }
         if (args.length == 2) {
-            return this.getInstance_BasicArrayList_int(args[0], args[1]);
+            return this.getInstanceFor_BasicArrayList_int(args[0], args[1]);
         }
         throw new jre.lang.IllegalArgumentException("No matching overload: getInstance");
     }
 
-    public function getInstance_intArrayArrayArray_int(points : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>>, width : Int) : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>> {
+    public function getInstanceFor_intArrayArrayArray_int(points : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>>, width : Int) : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>> {
         try {
             final pointFactory : PointFactory = PointFactory.getInstance();
             var pointBasicArrayList : BasicArrayList = null;
@@ -62,7 +62,7 @@ class VectorMirrorGenerator {
                 pointsBasicArrayList.add(pointBasicArrayList);
             }
             for (index in 0...points.length) {
-                pointsBasicArrayList.add(this.getInstance((cast pointsBasicArrayList.objectArray[index] : BasicArrayList), width));
+                pointsBasicArrayList.add(this.getInstanceFor((cast pointsBasicArrayList.objectArray[index] : BasicArrayList), width));
             }
             var newPoints : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>> = this.vectorAnimationUtil.toAnimationArrayFromListOfPointList(pointsBasicArrayList);
             return newPoints;
@@ -74,7 +74,7 @@ class VectorMirrorGenerator {
     }
 
     // throws Exception
-    public function getInstance_BasicArrayList_int(pointBasicArrayList : BasicArrayList, width : Int) : BasicArrayList {
+    public function getInstanceFor_BasicArrayList_int(pointBasicArrayList : BasicArrayList, width : Int) : BasicArrayList {
         var graphicsPipe : BasicGraphicsPipeline = new BasicGraphicsPipeline(pointBasicArrayList);
         graphicsPipe.createMatrix();
         graphicsPipe.mirror(width);

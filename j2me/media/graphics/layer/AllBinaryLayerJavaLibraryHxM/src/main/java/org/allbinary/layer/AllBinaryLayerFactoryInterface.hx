@@ -18,7 +18,7 @@ package org.allbinary.layer;
 
 interface AllBinaryLayerFactoryInterface {
     // throws Exception
-    function getInstance() : AllBinaryLayer;
+    function getInstanceFor() : AllBinaryLayer;
 
 }
 

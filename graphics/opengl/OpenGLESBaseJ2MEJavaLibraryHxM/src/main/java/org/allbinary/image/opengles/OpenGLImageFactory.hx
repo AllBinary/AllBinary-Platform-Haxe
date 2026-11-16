@@ -21,7 +21,7 @@ import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 
 class OpenGLImageFactory {
     public static final NULL_OPENGL_IMAGE_FACTORY : OpenGLImageFactory = new OpenGLImageFactory();
-    public function getInstance(image : Image, bitmapFactory : PlatformBitmapBaseFactory, textureFactory : PlatformTextureBaseFactory) : Image {
+    public function getInstanceFor(image : Image, bitmapFactory : PlatformBitmapBaseFactory, textureFactory : PlatformTextureBaseFactory) : Image {
         throw new jre.lang.JavaException();
     }
 

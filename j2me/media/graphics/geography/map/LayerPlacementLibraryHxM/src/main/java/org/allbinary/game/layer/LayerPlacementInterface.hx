@@ -25,7 +25,7 @@ interface LayerPlacementInterface {
     function getLayerType() : LayerPlacementType;
 
     // throws Exception
-    function getInstance() : ABHashtable<Any, Any>;
+    function getInstanceFor() : ABHashtable<Any, Any>;
 
 }
 

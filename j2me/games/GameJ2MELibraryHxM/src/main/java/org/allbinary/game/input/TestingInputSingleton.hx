@@ -40,7 +40,7 @@ class TestingInputSingleton extends AllBinaryGameLayer implements GameInputInter
     }
 
     private var testInputPaintable : PaintableInterface = NullPaintable.getInstance();
-    public override function initInputProcessors() : Void {
+    public function initInputProcessors() : Void {
     }
 
     public function initInputProcessorsForTestInput(aTestInputInterface : TestInputInterface) : Void {

@@ -22,7 +22,7 @@ class TrackingEventFactory implements AllBinaryEventObjectFactoryInterface {
     public function new() {
     }
 
-    public function getInstance() : AllBinaryEventObject {
+    public function getInstanceFor() : AllBinaryEventObject {
         return new TrackingEvent(TrackingEventHandler.getInstance());
     }
 

@@ -18,7 +18,7 @@ package org.allbinary.midlet;
 import javax.microedition.midlet.MIDlet;
 
 class MidletFactoryInterface {
-    public function getInstance() : MIDlet {
+    public function getInstanceFor() : MIDlet {
         return AllBinaryMidlet.getNullInstance();
     }
 

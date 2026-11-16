@@ -29,7 +29,7 @@ class NullIndexedAnimationFactory implements AnimationInterfaceFactoryInterface 
     }
 
     // throws Exception
-    public function getInstance(instanceId : Int) : Animation {
+    public function getInstanceFor(instanceId : Int) : Animation {
         return this.NULL_ANIMATION;
     }
 

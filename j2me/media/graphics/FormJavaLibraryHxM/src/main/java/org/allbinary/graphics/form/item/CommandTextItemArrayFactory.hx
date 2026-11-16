@@ -33,7 +33,7 @@ class CommandTextItemArrayFactory {
         this.visitorInterface = visitorInterface;
     }
 
-    public function getInstance(vector : Any, backgroundBasicColor : BasicColor, foregroundBasicColor : BasicColor) : haxe.ds.Vector<ABCustomItem> {
+    public function getInstanceFor(vector : Any, backgroundBasicColor : BasicColor, foregroundBasicColor : BasicColor) : haxe.ds.Vector<ABCustomItem> {
         final vectorUtil : VectorUtil = VectorUtil.getInstance();
         final size : Int = vectorUtil.getSize(vector);
         this.list.clear();

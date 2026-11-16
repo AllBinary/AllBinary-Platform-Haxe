@@ -38,7 +38,7 @@ class BasePatrolAI extends BasicAI {
     public function new(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) {
         super(ownerLayerInterface, gameInput);
         this.maxDistance = (cast hashtable.get(BasePatrolAI.MAX_DISTANCE) : Null<Int>);
-        this.currentDistance = Std.int(this.maxDistance);
+        this.currentDistance = jre.lang.JavaNumber.toInt(this.maxDistance);
     }
 
     public function update() : Void {

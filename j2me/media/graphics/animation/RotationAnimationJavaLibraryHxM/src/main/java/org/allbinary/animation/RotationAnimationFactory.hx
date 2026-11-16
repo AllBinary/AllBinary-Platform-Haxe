@@ -23,7 +23,7 @@ import org.allbinary.media.ScaleProperties;
 class RotationAnimationFactory implements AnimationInterfaceFactoryInterface implements ProceduralAnimationInterfaceFactoryInterface {
     public static function createFactory() : RotationAnimationFactory {
         final totalAngle : Int = AngleFactory.getInstance().TOTAL_ANGLE;
-        return new RotationAnimationFactory(totalAngle, Std.int((totalAngle / GameConfigurationCentral.getInstance().getGameControlFidelity())));
+        return new RotationAnimationFactory(totalAngle, jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide(totalAngle, GameConfigurationCentral.getInstance().getGameControlFidelity()))));
     }
 
     private var totalAngle : Int;
@@ -34,7 +34,7 @@ class RotationAnimationFactory implements AnimationInterfaceFactoryInterface imp
     }
 
     // throws Exception
-    public function getInstance(instanceId : Int) : Animation {
+    public function getInstanceFor(instanceId : Int) : Animation {
         return NullRotationAnimation.createTotalAngle(AngleInfo.getInstance(this.angleIncrement), this.totalAngle, AnimationBehavior.getInstance());
     }
 

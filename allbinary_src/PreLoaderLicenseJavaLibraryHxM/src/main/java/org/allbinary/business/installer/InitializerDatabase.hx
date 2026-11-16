@@ -45,16 +45,16 @@ class InitializerDatabase {
         if (args.length == 2 && Std.isOfType(args[0], AbeClientInformationInterface) && Std.isOfType(args[0], Map)) {
             final abeClientInformation : AbeClientInformationInterface = args[0];
             final map : Map<Dynamic, Dynamic> = args[1];
-            this._new0(abeClientInformation, map);
+            this._newInitializerDatabase0(abeClientInformation, map);
         }
         else if (args.length == 2) {
             final abeClientInformation : AbeClientInformationInterface = args[0];
             final initHashMap : HashMap<Dynamic, Dynamic> = args[1];
-            this._new1(abeClientInformation, initHashMap);
+            this._newInitializerDatabase1(abeClientInformation, initHashMap);
         }
     }
 
-    private function _new0(abeClientInformation : AbeClientInformationInterface, map : Map<Dynamic, Dynamic>) : Void {
+    private function _newInitializerDatabase0(abeClientInformation : AbeClientInformationInterface, map : Map<Dynamic, Dynamic>) : Void {
         final stringBuffer : StringMaker = new StringMaker();
         final hashMap : HashMap<Dynamic, Dynamic> = StdUtil.getInstance().createHashMap();
         final keys : Set<Dynamic> = map.keySet();
@@ -74,7 +74,7 @@ class InitializerDatabase {
         this.getFormData(abeClientInformation, hashMap);
     }
 
-    private function _new1(abeClientInformation : AbeClientInformationInterface, initHashMap : HashMap<Dynamic, Dynamic>) : Void {
+    private function _newInitializerDatabase1(abeClientInformation : AbeClientInformationInterface, initHashMap : HashMap<Dynamic, Dynamic>) : Void {
         this.getFormData(abeClientInformation, initHashMap);
     }
 
@@ -107,7 +107,7 @@ class InitializerDatabase {
             Class.forName(jdbcDriverClassPathString).newInstance();
             return true;
         } catch (e : haxe.Exception) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().PRELOADERERROR)) {
                 final commonStrings : CommonStrings = CommonStrings.getInstance();
                 this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.IS_VALID, e);
             }

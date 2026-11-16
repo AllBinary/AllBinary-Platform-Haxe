@@ -23,9 +23,9 @@ class PreciseConstantVelocityMovement extends BasicConstantVelocityMovement {
     public override function process(layer : AllBinaryGameLayer) : Void {
         final mathUtil : MathUtil = MathUtil.getInstance();
         final velocityProperties : BasicVelocityProperties = this.getVelocityProperties();
-        this.accumulatedX = Std.int((this.accumulatedX + velocityProperties.getVelocityXBasicDecimalP().getUnscaled()));
-        this.accumulatedY = Std.int((this.accumulatedY + velocityProperties.getVelocityYBasicDecimalP().getUnscaled()));
-        this.accumulatedZ = Std.int((this.accumulatedZ + velocityProperties.getVelocityZBasicDecimalP().getUnscaled()));
+        this.accumulatedX = jre.lang.JavaNumber.toInt((this.accumulatedX + velocityProperties.getVelocityXBasicDecimalP().getUnscaled()));
+        this.accumulatedY = jre.lang.JavaNumber.toInt((this.accumulatedY + velocityProperties.getVelocityYBasicDecimalP().getUnscaled()));
+        this.accumulatedZ = jre.lang.JavaNumber.toInt((this.accumulatedZ + velocityProperties.getVelocityZBasicDecimalP().getUnscaled()));
         layer.moveDXYZ(Std.int(this.accumulatedX / this.factorValue), Std.int(this.accumulatedY / this.factorValue), Std.int(this.accumulatedZ / this.factorValue));
         if (mathUtil.abs(this.accumulatedX) > this.factorValue) {
             this.accumulatedX = 0;

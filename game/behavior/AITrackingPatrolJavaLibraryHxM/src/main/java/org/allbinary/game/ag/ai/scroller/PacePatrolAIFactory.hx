@@ -24,7 +24,7 @@ import org.allbinary.util.ABHashtable;
 
 class PacePatrolAIFactory implements ArtificialIntelligenceInterfaceFactoryInterface {
     // throws Exception
-    public function getInstance(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
+    public function getInstanceFor(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
         hashtable.put(BasePatrolAI.MAX_DISTANCE, SmallIntegerSingletonFactory.getInstance().getAt(220));
         return new PacePatrolAI(hashtable, ownerLayerInterface, gameInput);
     }

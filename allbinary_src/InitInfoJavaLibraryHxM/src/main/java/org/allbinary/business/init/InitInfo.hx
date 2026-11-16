@@ -42,7 +42,7 @@ class InitInfo {
 
     public function set(...args : Dynamic) : Dynamic {
         if (args.length == 0) {
-            this.set();
+            this.set_();
             return null;
         }
         if (args.length == 1) {
@@ -54,7 +54,7 @@ class InitInfo {
 
     // throws InitException
     // synchronized
-    public function set() : Void {
+    public function set_() : Void {
         try {
             var initInfoEntity : InitInfoEntity = new InitInfoEntity();
             if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER)) {

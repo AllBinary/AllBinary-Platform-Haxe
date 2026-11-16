@@ -30,7 +30,7 @@ class BasicArrayListResetablePool extends AbstractArrayListPool {
         if (size > 0) {
             return (cast this.buffers.removeAt(size - 1) : CacheableInterface);
         } else {
-            return this.cacheableInterfaceFactoryInterface.getInstance(key);
+            return this.cacheableInterfaceFactoryInterface.getInstanceFor(key);
         }
     }
 

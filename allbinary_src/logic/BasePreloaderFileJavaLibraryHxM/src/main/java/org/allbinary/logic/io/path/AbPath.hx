@@ -65,7 +65,7 @@ class AbPath {
     }
 
     public function getSchema(aPath : String) : String {
-        var beginIndex : Int = aPath.indexOf(this.commonSeps.COLON);
+        var beginIndex : Int = aPath.indexOf(jre.lang.JavaString.text(this.commonSeps.COLON));
         if (beginIndex >= 0) {
             this.hasSchemaP = true;
             return aPath.substring(0, beginIndex);
@@ -85,7 +85,7 @@ class AbPath {
         if (!this.hasSchema()) {
             tempPath = this.abPathUtil.adjustStart(tempPath);
         } else {
-            var beginIndex : Int = tempPath.indexOf(this.commonSeps.COLON);
+            var beginIndex : Int = tempPath.indexOf(jre.lang.JavaString.text(this.commonSeps.COLON));
             if (beginIndex >= 0) {
                 beginIndex++;
                 while (tempPath.charCodeAt(beginIndex) == this.abPathData.SEPARATORCHAR || tempPath.charCodeAt(beginIndex) == filePathData.SEPARATORCHAR) {

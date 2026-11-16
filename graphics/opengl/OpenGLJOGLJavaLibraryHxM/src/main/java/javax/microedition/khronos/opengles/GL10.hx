@@ -3,6 +3,218 @@ package javax.microedition.khronos.opengles;
 
 
 interface GL10 extends javax.microedition.khronos.opengles.GL {
+    function glActiveTexture(texture : Int) : Void;
+
+    function glAlphaFunc(func : Int, ref : Float) : Void;
+
+    function glBindTexture(target : Int, texture : Int) : Void;
+
+    function glBlendFunc(sfactor : Int, dfactor : Int) : Void;
+
+    function glClear(mask : Int) : Void;
+
+    function glClearColor(red : Float, green : Float, blue : Float, alpha : Float) : Void;
+
+    function glClearDepthf(depth : Float) : Void;
+
+    function glClearStencil(s : Int) : Void;
+
+    function glClientActiveTexture(texture : Int) : Void;
+
+    function glColor4f(red : Float, green : Float, blue : Float, alpha : Float) : Void;
+
+    function glColorMask(red : Bool, green : Bool, blue : Bool, alpha : Bool) : Void;
+
+    function glColorPointer(size : Int, type : Int, stride : Int, pointer : jre.nio.Buffer) : Void;
+
+    function glCompressedTexImage2D(target : Int, level : Int, internalformat : Int, width : Int, height : Int, border : Int, imageSize : Int, data : jre.nio.Buffer) : Void;
+
+    function glCompressedTexSubImage2D(target : Int, level : Int, xoffset : Int, yoffset : Int, width : Int, height : Int, format : Int, imageSize : Int, data : jre.nio.Buffer) : Void;
+
+    function glCopyTexImage2D(target : Int, level : Int, internalformat : Int, x : Int, y : Int, width : Int, height : Int, border : Int) : Void;
+
+    function glCopyTexSubImage2D(target : Int, level : Int, xoffset : Int, yoffset : Int, x : Int, y : Int, width : Int, height : Int) : Void;
+
+    function glCullFace(mode : Int) : Void;
+
+    function glDeleteTextures(...args : Dynamic) : Dynamic;
+
+    function glDeleteTextures_int_intArray_int(n : Int, textures : haxe.ds.Vector<Int>, offset : Int) : Void;
+
+    function glDeleteTextures_int_IntBuffer(n : Int, textures : jre.nio.IntBuffer) : Void;
+
+    function glDepthFunc(func : Int) : Void;
+
+    function glDepthMask(flag : Bool) : Void;
+
+    function glDepthRangef(zNear : Float, zFar : Float) : Void;
+
+    function glDisable(cap : Int) : Void;
+
+    function glDisableClientState(array : Int) : Void;
+
+    function glDrawArrays(mode : Int, first : Int, count : Int) : Void;
+
+    function glDrawElements(mode : Int, count : Int, type : Int, indices : jre.nio.Buffer) : Void;
+
+    function glEnable(cap : Int) : Void;
+
+    function glEnableClientState(array : Int) : Void;
+
+    function glFinish() : Void;
+
+    function glFlush() : Void;
+
+    function glFogf(pname : Int, param : Float) : Void;
+
+    function glFogfv(...args : Dynamic) : Dynamic;
+
+    function glFogfv_int_floatArray_int(pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void;
+
+    function glFogfv_int_FloatBuffer(pname : Int, params : jre.nio.FloatBuffer) : Void;
+
+    function glFrontFace(mode : Int) : Void;
+
+    function glFrustumf(left : Float, right : Float, bottom : Float, top : Float, zNear : Float, zFar : Float) : Void;
+
+    function glGenTextures(...args : Dynamic) : Dynamic;
+
+    function glGenTextures_int_intArray_int(n : Int, textures : haxe.ds.Vector<Int>, offset : Int) : Void;
+
+    function glGenTextures_int_IntBuffer(n : Int, textures : jre.nio.IntBuffer) : Void;
+
+    function glGetError() : Int;
+
+    function glGetIntegerv(...args : Dynamic) : Dynamic;
+
+    function glGetIntegerv_int_intArray_int(pname : Int, params : haxe.ds.Vector<Int>, offset : Int) : Void;
+
+    function glGetIntegerv_int_IntBuffer(pname : Int, params : jre.nio.IntBuffer) : Void;
+
+    function glGetString(name : Int) : String;
+
+    function glHint(target : Int, mode : Int) : Void;
+
+    function glLightModelf(pname : Int, param : Float) : Void;
+
+    function glLightModelfv(...args : Dynamic) : Dynamic;
+
+    function glLightModelfv_int_floatArray_int(pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void;
+
+    function glLightModelfv_int_FloatBuffer(pname : Int, params : jre.nio.FloatBuffer) : Void;
+
+    function glLightf(light : Int, pname : Int, param : Float) : Void;
+
+    function glLightfv(...args : Dynamic) : Dynamic;
+
+    function glLightfv_int_int_floatArray_int(light : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void;
+
+    function glLightfv_int_int_FloatBuffer(light : Int, pname : Int, params : jre.nio.FloatBuffer) : Void;
+
+    function glLineWidth(width : Float) : Void;
+
+    function glLoadIdentity() : Void;
+
+    function glLoadMatrixf(...args : Dynamic) : Dynamic;
+
+    function glLoadMatrixf_floatArray_int(m : haxe.ds.Vector<Float>, offset : Int) : Void;
+
+    function glLoadMatrixf_FloatBuffer(m : jre.nio.FloatBuffer) : Void;
+
+    function glLogicOp(opcode : Int) : Void;
+
+    function glMaterialf(face : Int, pname : Int, param : Float) : Void;
+
+    function glMaterialfv(...args : Dynamic) : Dynamic;
+
+    function glMaterialfv_int_int_floatArray_int(face : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void;
+
+    function glMaterialfv_int_int_FloatBuffer(face : Int, pname : Int, params : jre.nio.FloatBuffer) : Void;
+
+    function glMatrixMode(mode : Int) : Void;
+
+    function glMultMatrixf(...args : Dynamic) : Dynamic;
+
+    function glMultMatrixf_floatArray_int(m : haxe.ds.Vector<Float>, offset : Int) : Void;
+
+    function glMultMatrixf_FloatBuffer(m : jre.nio.FloatBuffer) : Void;
+
+    function glMultiTexCoord4f(target : Int, s : Float, t : Float, r : Float, q : Float) : Void;
+
+    function glNormal3f(nx : Float, ny : Float, nz : Float) : Void;
+
+    function glNormalPointer(type : Int, stride : Int, pointer : jre.nio.Buffer) : Void;
+
+    function glOrthof(left : Float, right : Float, bottom : Float, top : Float, zNear : Float, zFar : Float) : Void;
+
+    function glPixelStorei(pname : Int, param : Int) : Void;
+
+    function glPointSize(size : Float) : Void;
+
+    function glPolygonOffset(factor : Float, units : Float) : Void;
+
+    function glPopMatrix() : Void;
+
+    function glPushMatrix() : Void;
+
+    function glReadPixels(x : Int, y : Int, width : Int, height : Int, format : Int, type : Int, pixels : jre.nio.Buffer) : Void;
+
+    function glRotatef(angle : Float, x : Float, y : Float, z : Float) : Void;
+
+    function glRotatex(angle : Int, x : Int, y : Int, z : Int) : Void;
+
+    function glSampleCoverage(value : Float, invert : Bool) : Void;
+
+    function glScalef(x : Float, y : Float, z : Float) : Void;
+
+    function glScalex(x : Int, y : Int, z : Int) : Void;
+
+    function glScissor(x : Int, y : Int, width : Int, height : Int) : Void;
+
+    function glShadeModel(mode : Int) : Void;
+
+    function glStencilFunc(func : Int, ref : Int, mask : Int) : Void;
+
+    function glStencilMask(mask : Int) : Void;
+
+    function glStencilOp(fail : Int, zfail : Int, zpass : Int) : Void;
+
+    function glTexCoordPointer(size : Int, type : Int, stride : Int, pointer : jre.nio.Buffer) : Void;
+
+    function glTexEnvf(target : Int, pname : Int, param : Float) : Void;
+
+    function glTexEnvfv(...args : Dynamic) : Dynamic;
+
+    function glTexEnvfv_int_int_floatArray_int(target : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void;
+
+    function glTexEnvfv_int_int_FloatBuffer(target : Int, pname : Int, params : jre.nio.FloatBuffer) : Void;
+
+    function glTexImage2D(target : Int, level : Int, internalformat : Int, width : Int, height : Int, border : Int, format : Int, type : Int, pixels : jre.nio.Buffer) : Void;
+
+    function glTexParameterf(target : Int, pname : Int, param : Float) : Void;
+
+    function glTexParameteri(target : Int, pname : Int, param : Int) : Void;
+
+    function glTexSubImage2D(target : Int, level : Int, xoffset : Int, yoffset : Int, width : Int, height : Int, format : Int, type : Int, pixels : jre.nio.Buffer) : Void;
+
+    function glTranslatef(x : Float, y : Float, z : Float) : Void;
+
+    function glVertexPointer(size : Int, type : Int, stride : Int, pointer : jre.nio.Buffer) : Void;
+
+    function glViewport(x : Int, y : Int, width : Int, height : Int) : Void;
+
+    function glBegin(i : Int) : Void;
+
+    function glEnd() : Void;
+
+    function glVertex3f(f : Float, f2 : Float, f3 : Float) : Void;
+
+    function glPolygonMode(i : Int, i1 : Int) : Void;
+
+}
+
+// Java interface constants of GL10
+class GL10Fields {
     public static final GL_ADD : Int = 260;
     public static final GL_ALIASED_LINE_WIDTH_RANGE : Int = 33902;
     public static final GL_ALIASED_POINT_SIZE_RANGE : Int = 33901;
@@ -240,213 +452,5 @@ interface GL10 extends javax.microedition.khronos.opengles.GL {
     public static final GL_VERTEX_ARRAY : Int = 32884;
     public static final GL_XOR : Int = 5382;
     public static final GL_ZERO : Int = 0;
-    function glActiveTexture(texture : Int) : Void;
-
-    function glAlphaFunc(func : Int, ref : Float) : Void;
-
-    function glBindTexture(target : Int, texture : Int) : Void;
-
-    function glBlendFunc(sfactor : Int, dfactor : Int) : Void;
-
-    function glClear(mask : Int) : Void;
-
-    function glClearColor(red : Float, green : Float, blue : Float, alpha : Float) : Void;
-
-    function glClearDepthf(depth : Float) : Void;
-
-    function glClearStencil(s : Int) : Void;
-
-    function glClientActiveTexture(texture : Int) : Void;
-
-    function glColor4f(red : Float, green : Float, blue : Float, alpha : Float) : Void;
-
-    function glColorMask(red : Bool, green : Bool, blue : Bool, alpha : Bool) : Void;
-
-    function glColorPointer(size : Int, type : Int, stride : Int, pointer : jre.nio.Buffer) : Void;
-
-    function glCompressedTexImage2D(target : Int, level : Int, internalformat : Int, width : Int, height : Int, border : Int, imageSize : Int, data : jre.nio.Buffer) : Void;
-
-    function glCompressedTexSubImage2D(target : Int, level : Int, xoffset : Int, yoffset : Int, width : Int, height : Int, format : Int, imageSize : Int, data : jre.nio.Buffer) : Void;
-
-    function glCopyTexImage2D(target : Int, level : Int, internalformat : Int, x : Int, y : Int, width : Int, height : Int, border : Int) : Void;
-
-    function glCopyTexSubImage2D(target : Int, level : Int, xoffset : Int, yoffset : Int, x : Int, y : Int, width : Int, height : Int) : Void;
-
-    function glCullFace(mode : Int) : Void;
-
-    function glDeleteTextures(...args : Dynamic) : Dynamic;
-
-    function glDeleteTextures_int_intArray_int(n : Int, textures : haxe.ds.Vector<Int>, offset : Int) : Void;
-
-    function glDeleteTextures_int_IntBuffer(n : Int, textures : jre.nio.IntBuffer) : Void;
-
-    function glDepthFunc(func : Int) : Void;
-
-    function glDepthMask(flag : Bool) : Void;
-
-    function glDepthRangef(zNear : Float, zFar : Float) : Void;
-
-    function glDisable(cap : Int) : Void;
-
-    function glDisableClientState(array : Int) : Void;
-
-    function glDrawArrays(mode : Int, first : Int, count : Int) : Void;
-
-    function glDrawElements(mode : Int, count : Int, type : Int, indices : jre.nio.Buffer) : Void;
-
-    function glEnable(cap : Int) : Void;
-
-    function glEnableClientState(array : Int) : Void;
-
-    function glFinish() : Void;
-
-    function glFlush() : Void;
-
-    function glFogf(pname : Int, param : Float) : Void;
-
-    function glFogfv(...args : Dynamic) : Dynamic;
-
-    function glFogfv_int_floatArray_int(pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void;
-
-    function glFogfv_int_FloatBuffer(pname : Int, params : jre.nio.FloatBuffer) : Void;
-
-    function glFrontFace(mode : Int) : Void;
-
-    function glFrustumf(left : Float, right : Float, bottom : Float, top : Float, zNear : Float, zFar : Float) : Void;
-
-    function glGenTextures(...args : Dynamic) : Dynamic;
-
-    function glGenTextures_int_intArray_int(n : Int, textures : haxe.ds.Vector<Int>, offset : Int) : Void;
-
-    function glGenTextures_int_IntBuffer(n : Int, textures : jre.nio.IntBuffer) : Void;
-
-    function glGetError() : Int;
-
-    function glGetIntegerv(...args : Dynamic) : Dynamic;
-
-    function glGetIntegerv_int_intArray_int(pname : Int, params : haxe.ds.Vector<Int>, offset : Int) : Void;
-
-    function glGetIntegerv_int_IntBuffer(pname : Int, params : jre.nio.IntBuffer) : Void;
-
-    function glGetString(name : Int) : String;
-
-    function glHint(target : Int, mode : Int) : Void;
-
-    function glLightModelf(pname : Int, param : Float) : Void;
-
-    function glLightModelfv(...args : Dynamic) : Dynamic;
-
-    function glLightModelfv_int_floatArray_int(pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void;
-
-    function glLightModelfv_int_FloatBuffer(pname : Int, params : jre.nio.FloatBuffer) : Void;
-
-    function glLightf(light : Int, pname : Int, param : Float) : Void;
-
-    function glLightfv(...args : Dynamic) : Dynamic;
-
-    function glLightfv_int_int_floatArray_int(light : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void;
-
-    function glLightfv_int_int_FloatBuffer(light : Int, pname : Int, params : jre.nio.FloatBuffer) : Void;
-
-    function glLineWidth(width : Float) : Void;
-
-    function glLoadIdentity() : Void;
-
-    function glLoadMatrixf(...args : Dynamic) : Dynamic;
-
-    function glLoadMatrixf_floatArray_int(m : haxe.ds.Vector<Float>, offset : Int) : Void;
-
-    function glLoadMatrixf_FloatBuffer(m : jre.nio.FloatBuffer) : Void;
-
-    function glLogicOp(opcode : Int) : Void;
-
-    function glMaterialf(face : Int, pname : Int, param : Float) : Void;
-
-    function glMaterialfv(...args : Dynamic) : Dynamic;
-
-    function glMaterialfv_int_int_floatArray_int(face : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void;
-
-    function glMaterialfv_int_int_FloatBuffer(face : Int, pname : Int, params : jre.nio.FloatBuffer) : Void;
-
-    function glMatrixMode(mode : Int) : Void;
-
-    function glMultMatrixf(...args : Dynamic) : Dynamic;
-
-    function glMultMatrixf_floatArray_int(m : haxe.ds.Vector<Float>, offset : Int) : Void;
-
-    function glMultMatrixf_FloatBuffer(m : jre.nio.FloatBuffer) : Void;
-
-    function glMultiTexCoord4f(target : Int, s : Float, t : Float, r : Float, q : Float) : Void;
-
-    function glNormal3f(nx : Float, ny : Float, nz : Float) : Void;
-
-    function glNormalPointer(type : Int, stride : Int, pointer : jre.nio.Buffer) : Void;
-
-    function glOrthof(left : Float, right : Float, bottom : Float, top : Float, zNear : Float, zFar : Float) : Void;
-
-    function glPixelStorei(pname : Int, param : Int) : Void;
-
-    function glPointSize(size : Float) : Void;
-
-    function glPolygonOffset(factor : Float, units : Float) : Void;
-
-    function glPopMatrix() : Void;
-
-    function glPushMatrix() : Void;
-
-    function glReadPixels(x : Int, y : Int, width : Int, height : Int, format : Int, type : Int, pixels : jre.nio.Buffer) : Void;
-
-    function glRotatef(angle : Float, x : Float, y : Float, z : Float) : Void;
-
-    function glRotatex(angle : Int, x : Int, y : Int, z : Int) : Void;
-
-    function glSampleCoverage(value : Float, invert : Bool) : Void;
-
-    function glScalef(x : Float, y : Float, z : Float) : Void;
-
-    function glScalex(x : Int, y : Int, z : Int) : Void;
-
-    function glScissor(x : Int, y : Int, width : Int, height : Int) : Void;
-
-    function glShadeModel(mode : Int) : Void;
-
-    function glStencilFunc(func : Int, ref : Int, mask : Int) : Void;
-
-    function glStencilMask(mask : Int) : Void;
-
-    function glStencilOp(fail : Int, zfail : Int, zpass : Int) : Void;
-
-    function glTexCoordPointer(size : Int, type : Int, stride : Int, pointer : jre.nio.Buffer) : Void;
-
-    function glTexEnvf(target : Int, pname : Int, param : Float) : Void;
-
-    function glTexEnvfv(...args : Dynamic) : Dynamic;
-
-    function glTexEnvfv_int_int_floatArray_int(target : Int, pname : Int, params : haxe.ds.Vector<Float>, offset : Int) : Void;
-
-    function glTexEnvfv_int_int_FloatBuffer(target : Int, pname : Int, params : jre.nio.FloatBuffer) : Void;
-
-    function glTexImage2D(target : Int, level : Int, internalformat : Int, width : Int, height : Int, border : Int, format : Int, type : Int, pixels : jre.nio.Buffer) : Void;
-
-    function glTexParameterf(target : Int, pname : Int, param : Float) : Void;
-
-    function glTexParameteri(target : Int, pname : Int, param : Int) : Void;
-
-    function glTexSubImage2D(target : Int, level : Int, xoffset : Int, yoffset : Int, width : Int, height : Int, format : Int, type : Int, pixels : jre.nio.Buffer) : Void;
-
-    function glTranslatef(x : Float, y : Float, z : Float) : Void;
-
-    function glVertexPointer(size : Int, type : Int, stride : Int, pointer : jre.nio.Buffer) : Void;
-
-    function glViewport(x : Int, y : Int, width : Int, height : Int) : Void;
-
-    function glBegin(i : Int) : Void;
-
-    function glEnd() : Void;
-
-    function glVertex3f(f : Float, f2 : Float, f3 : Float) : Void;
-
-    function glPolygonMode(i : Int, i1 : Int) : Void;
-
 }
 

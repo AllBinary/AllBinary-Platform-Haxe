@@ -29,7 +29,7 @@ class GameKeyCompleteMotionGestureInputEvent extends CompleteMotionGestureInputE
         super(name, motionGestureInput);
     }
 
-    public override function getSourceId() : Int {
+    public function getSourceId() : Int {
         return 0;
     }
 

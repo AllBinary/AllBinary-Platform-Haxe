@@ -22,7 +22,7 @@ class AngleIncrementInfoFactory {
         return AngleIncrementInfoFactory.instance;
     }
 
-    private final angleIncrementInfo : haxe.ds.Vector<AngleIncrementInfo> = haxe.ds.Vector.fromArrayCopy([for (index in 0...Std.int(AngleFactory.getInstance().TOTAL_ANGLE)) null]);
+    private final angleIncrementInfo : haxe.ds.Vector<AngleIncrementInfo> = haxe.ds.Vector.fromArrayCopy([for (index in 0...jre.lang.JavaNumber.toInt(AngleFactory.getInstance().TOTAL_ANGLE)) null]);
     public function getAt(angleIncrement : Int) : AngleIncrementInfo {
         final halfAngleIncrement : Int = (angleIncrement >> 1);
         var angleIncrementInfo : AngleIncrementInfo = null;

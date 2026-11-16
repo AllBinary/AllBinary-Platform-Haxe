@@ -28,7 +28,7 @@ class J2MEGameKey extends Input {
         }
     }
 
-    public function toString() : String {
+    public override function toString() : String {
         return Std.string(new StringMaker().append("J2MEGameKey: ").append(super.toString()));
     }
 

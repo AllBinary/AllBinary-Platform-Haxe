@@ -33,7 +33,7 @@ class ArtificialIntelligenceInterfaceFactoryInterfaceFactory {
 
     public function getInstanceFromCollection(hashtable : ABHashtable<Any, Any>) : ArtificialIntelligenceInterfaceFactoryInterface {
         final typeInteger : Null<Int> = (cast hashtable.get((cast BasicAI.ID : Any)) : Null<Int>);
-        var type : Int = Std.int(typeInteger);
+        var type : Int = jre.lang.JavaNumber.toInt(typeInteger);
         final artificialIntelligenceInterfaceFactoryInterface : ArtificialIntelligenceInterfaceFactoryInterface = (cast this.list.objectArray[type - 1] : ArtificialIntelligenceInterfaceFactoryInterface);
         return artificialIntelligenceInterfaceFactoryInterface;
     }

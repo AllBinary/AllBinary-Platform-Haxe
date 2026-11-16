@@ -59,7 +59,7 @@ class DrawVerticalStringUtil {
             while (index >= 0) {
             aChar = string.charCodeAt(index);
             if (openGLFeatureUtil.isAnyThreed()) {
-                offsetXArray[index] = font.charWidth(aChar) / 2;
+                offsetXArray[index] = jre.lang.JavaNumber.divide(font.charWidth(aChar), 2);
             }
                 index--;
             }

@@ -33,10 +33,10 @@ class SystemHardwareFactory {
     public function new() {
     }
 
-    public function getInstance(operatingSystemInterface : GenericOperatingSystem) : HardwareInterface {
+    public function getInstanceFor(operatingSystemInterface : GenericOperatingSystem) : HardwareInterface {
         try {
             if (this.hardwareInterface == NoHardware.getInstance()) {
-                this.hardwareInterface = HardwareFactory.getInstance().getInstance(operatingSystemInterface);
+                this.hardwareInterface = HardwareFactory.getInstance().getInstanceFor(operatingSystemInterface);
             }
             this.logUtil.putF("Found Hardware", this, this.commonStrings.CONSTRUCTOR);
         } catch (e : haxe.Exception) {

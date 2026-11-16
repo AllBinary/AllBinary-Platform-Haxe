@@ -75,7 +75,7 @@ class AndroidMediaPlayerWrapperListener {
         public override function onBufferingUpdate(mediaPlayer : MediaPlayer, i : Int) : Void {
             final logUtil : LogUtil = LogUtil.getInstance();
             logUtil.putF(Std.string(new StringMaker().append("Update buffer: ").appendint(i).append("%")), this, this.ON_BUFFERING_UPDATE);
-            this.androidMediaPlayerWrapperListener.androidMediaPlayerWrapper.update(PlayerListener.DEVICE_UNAVAILABLE);
+            this.androidMediaPlayerWrapperListener.androidMediaPlayerWrapper.update(javax.microedition.media.PlayerListener.PlayerListenerFields.DEVICE_UNAVAILABLE);
         }
 
     }
@@ -93,7 +93,7 @@ class AndroidMediaPlayerWrapperListener {
             final logUtil : LogUtil = LogUtil.getInstance();
             final commonStrings : CommonStrings = CommonStrings.getInstance();
             logUtil.putF(commonStrings.START, this, this.ON_PREPARE);
-            this.androidMediaPlayerWrapperListener.androidMediaPlayerWrapper.update(PlayerListener.DEVICE_AVAILABLE);
+            this.androidMediaPlayerWrapperListener.androidMediaPlayerWrapper.update(javax.microedition.media.PlayerListener.PlayerListenerFields.DEVICE_AVAILABLE);
         }
 
     }
@@ -110,7 +110,7 @@ class AndroidMediaPlayerWrapperListener {
         public override function onError(mp : MediaPlayer, what : Int, extra : Int) : Bool {
             final logUtil : LogUtil = LogUtil.getInstance();
             logUtil.putF(Std.string(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("What: ").appendint(what).append(" Extra: ").appendint(extra)), this, this.ON_ERROR);
-            this.androidMediaPlayerWrapperListener.androidMediaPlayerWrapper.update(PlayerListener.ERROR);
+            this.androidMediaPlayerWrapperListener.androidMediaPlayerWrapper.update(javax.microedition.media.PlayerListener.PlayerListenerFields.ERROR);
             return true;
         }
 
@@ -129,7 +129,7 @@ class AndroidMediaPlayerWrapperListener {
             final logUtil : LogUtil = LogUtil.getInstance();
             final commonStrings : CommonStrings = CommonStrings.getInstance();
             logUtil.putF(commonStrings.START, this, this.ON_COMPLETE);
-            this.androidMediaPlayerWrapperListener.androidMediaPlayerWrapper.update(PlayerListener.END_OF_MEDIA);
+            this.androidMediaPlayerWrapperListener.androidMediaPlayerWrapper.update(javax.microedition.media.PlayerListener.PlayerListenerFields.END_OF_MEDIA);
         }
 
     }

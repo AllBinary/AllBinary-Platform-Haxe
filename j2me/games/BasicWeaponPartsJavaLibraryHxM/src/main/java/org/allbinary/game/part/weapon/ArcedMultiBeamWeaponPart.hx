@@ -34,7 +34,7 @@ class ArcedMultiBeamWeaponPart extends BasicWeaponPart {
         this.weaponLayerCircularStaticPool = weaponLayerCircularStaticPool;
     }
 
-    private final TOTAL_ANGLE : Int = Std.int(AngleFactory.getInstance().TOTAL_ANGLE);
+    private final TOTAL_ANGLE : Int = jre.lang.JavaNumber.toInt(AngleFactory.getInstance().TOTAL_ANGLE);
     // throws Exception
     public override function processScore(allbinaryLayerManager : AllBinaryLayerManager, angle : Int, otherAngle : Int, weaponProperties : WeaponProperties, scoreableInterface : ScoreableInterface) : Void {
         final increment : Int = (Std.int((this.total - 1) / this.TOTAL_ANGLE));

@@ -21,19 +21,19 @@ class StaticPagesDbInitInfo extends DbInitInfo {
     public function new(...args : Dynamic) {
         if (args.length == 0) {
             super(INITFILE, true);
-            this._new0();
+            this._newStaticPagesDbInitInfo0();
         }
         else if (args.length == 1) {
             final read : Bool = args[0];
             super(INITFILE, read);
-            this._new1(read);
+            this._newStaticPagesDbInitInfo1(read);
         }
     }
 
-    private function _new0() : Void {
+    private function _newStaticPagesDbInitInfo0() : Void {
     }
 
-    private function _new1(read : Bool) : Void {
+    private function _newStaticPagesDbInitInfo1(read : Bool) : Void {
     }
 
 }

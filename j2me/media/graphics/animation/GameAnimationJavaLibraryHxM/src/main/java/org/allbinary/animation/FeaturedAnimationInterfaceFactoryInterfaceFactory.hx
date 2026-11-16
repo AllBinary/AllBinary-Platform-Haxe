@@ -46,7 +46,7 @@ class FeaturedAnimationInterfaceFactoryInterfaceFactory extends FeaturedResource
     public function getRectangleXY(resource : String, x : Int, y : Int) : Rectangle {
         final pointFactory : PointFactory = PointFactory.getInstance();
         final list : BasicArrayList = this.getList();
-        final scale : Int = Std.int(GameConfigurationCentral.getInstance().SCALE.getValue());
+        final scale : Int = jre.lang.JavaObject.intValue(GameConfigurationCentral.getInstance().SCALE.getValue());
         final size : Int = this.getList().size();
         for (index in 0...size) {
             final featureInterface : FeatureResourceAnimationInterfaceFactoryInterface = (cast list.objectArray[index] : FeatureResourceAnimationInterfaceFactoryInterface);

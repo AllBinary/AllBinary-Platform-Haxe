@@ -24,30 +24,30 @@ class TimeUtil {
     }
 
     public function setCalendar(calendar : Calendar, yearString : String, monthString : String, dayString : String, hourString : String) : Void {
-        var year : Int = Std.int(yearString);
-        var month : Int = Std.int(monthString);
-        var day : Int = Std.int(dayString);
-        var hour : Int = Std.int(hourString);
+        var year : Int = jre.lang.JavaObject.intValue(yearString);
+        var month : Int = jre.lang.JavaObject.intValue(monthString);
+        var day : Int = jre.lang.JavaObject.intValue(dayString);
+        var hour : Int = jre.lang.JavaObject.intValue(hourString);
         calendar.set(year, month, day, hour, 0);
     }
 
     public function setCalendarWithTime(calendar : Calendar, yearString : String, monthString : String, dayString : String, hourString : String, minuteString : String, secondString : String) : Void {
-        var year : Int = Std.int(yearString);
-        var month : Int = Std.int(monthString);
-        var day : Int = Std.int(dayString);
-        var hour : Int = Std.int(hourString);
-        var minute : Int = Std.int(minuteString);
-        var second : Int = Std.int(secondString);
+        var year : Int = jre.lang.JavaObject.intValue(yearString);
+        var month : Int = jre.lang.JavaObject.intValue(monthString);
+        var day : Int = jre.lang.JavaObject.intValue(dayString);
+        var hour : Int = jre.lang.JavaObject.intValue(hourString);
+        var minute : Int = jre.lang.JavaObject.intValue(minuteString);
+        var second : Int = jre.lang.JavaObject.intValue(secondString);
         calendar.set(year, month, day, hour, minute, second);
     }
 
     public function setExpirationCalendar(calendar : Calendar, yearsString : String, monthsString : String, daysString : String, hoursString : String, minutesString : String, secondsString : String) : Void {
-        var year : Int = calendar.get(Calendar.YEAR) + Std.int(yearsString);
-        var month : Int = calendar.get(Calendar.MONTH) + Std.int(monthsString);
-        var day : Int = calendar.get(Calendar.DAY_OF_MONTH) + Std.int(daysString);
-        var hour : Int = calendar.get(Calendar.HOUR) + Std.int(hoursString);
-        var minute : Int = calendar.get(Calendar.MINUTE) + Std.int(minutesString);
-        var second : Int = calendar.get(Calendar.SECOND) + Std.int(secondsString);
+        var year : Int = calendar.get(Calendar.YEAR) + jre.lang.JavaObject.intValue(yearsString);
+        var month : Int = calendar.get(Calendar.MONTH) + jre.lang.JavaObject.intValue(monthsString);
+        var day : Int = calendar.get(Calendar.DAY_OF_MONTH) + jre.lang.JavaObject.intValue(daysString);
+        var hour : Int = calendar.get(Calendar.HOUR) + jre.lang.JavaObject.intValue(hoursString);
+        var minute : Int = calendar.get(Calendar.MINUTE) + jre.lang.JavaObject.intValue(minutesString);
+        var second : Int = calendar.get(Calendar.SECOND) + jre.lang.JavaObject.intValue(secondsString);
         calendar.set(year, month, day, hour, minute, second);
     }
 

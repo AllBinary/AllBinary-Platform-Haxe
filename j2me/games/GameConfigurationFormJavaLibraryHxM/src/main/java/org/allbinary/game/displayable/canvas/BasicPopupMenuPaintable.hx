@@ -57,21 +57,21 @@ class BasicPopupMenuPaintable extends Paintable implements UpdateMyFontInterface
         this.label = BasicPopupMenuPaintable.NAME;
         this.rectangle = rectangle;
         if (J2MEUtil.isJ2ME() || J2MEUtil.isHTML()) {
-            this.animationInterface = NullAnimationFactory.getFactoryInstance().getInstance(0);
+            this.animationInterface = NullAnimationFactory.getFactoryInstance().getInstanceFor(0);
         } else {
             this.animationInterface = new RectangleFilledAnimation(this.rectangle.getWidth(), this.rectangle.getHeight(), BasicColorFactory.getInstance().TRANSPARENT_GREY);
         }
         this.init(rectangle);
     }
 
-    public override function updateMeasurement(graphics : Graphics) : Void {
+    public function updateMeasurement(graphics : Graphics) : Void {
         final font : Font = graphics.getFont();
         final features : Features = Features.getInstance();
         final isOpenGL : Bool = features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL);
         this.drawStringUtil.updateMeasurement(graphics, this.label);
         var BORDER : Int = 0;
         if (J2MEUtil.isHTML() || isOpenGL) {
-            BORDER = MyFontProcessor.defaultCharWidth(font) / 2;
+            BORDER = jre.lang.JavaNumber.divide(MyFontProcessor.defaultCharWidth(font), 2);
         } else if (AndroidUtil.isAndroid() || J2MEUtil.isJ2SE() || SWTUtil.isSWT) {
             BORDER = MyFontProcessor.defaultCharWidth(font);
         } else {

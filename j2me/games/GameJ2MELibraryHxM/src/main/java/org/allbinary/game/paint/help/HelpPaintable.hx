@@ -46,7 +46,7 @@ class HelpPaintable extends Paintable implements UpdateMyFontInterface {
         this.basicColor = basicColor;
     }
 
-    public override function updateMeasurement(graphics : Graphics) : Void {
+    public function updateMeasurement(graphics : Graphics) : Void {
         final font : Font = graphics.getFont();
         this.titleBeginWidth = (font.stringWidth(this.title) >> 1);
         this.charHeight = font.getHeight();
@@ -66,7 +66,7 @@ class HelpPaintable extends Paintable implements UpdateMyFontInterface {
     public override function paint(graphics : Graphics) : Void {
         this.myFontProcessor.process(graphics);
         final halfWidth : Int = this.displayInfo.getLastHalfWidth();
-        graphics.setColor(Std.int(this.basicColor));
+        graphics.setColor(this.basicColor.intValue());
         graphics.drawString(this.title, halfWidth - this.titleBeginWidth, this.charHeight, this.anchor);
         final size : Int = this.inputInfo.length;
         for (index in 0...size) {

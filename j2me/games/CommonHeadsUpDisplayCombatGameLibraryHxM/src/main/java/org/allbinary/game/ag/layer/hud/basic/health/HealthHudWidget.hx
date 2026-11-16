@@ -39,7 +39,7 @@ class HealthHudWidget extends BasicHud implements PaintableInterface implements 
         this.animationInterface = animationInterface;
         this.healthInterface = healthInterface;
         this.healthInterface.addListener(this);
-        this.healthScale = (this.healthInterface.getMaxHealth() / 6) + 1;
+        this.healthScale = (jre.lang.JavaNumber.divide(this.healthInterface.getMaxHealth(), 6)) + 1;
         this.onHealthChange();
         this.updateMaxWidth = healthInterface.getMaxHealth() * 16;
         this.updateMaxHeight = 16;
@@ -64,8 +64,8 @@ class HealthHudWidget extends BasicHud implements PaintableInterface implements 
     private final slowBeatTimeDelayHelper : TimeDelayHelper = new TimeDelayHelper(1280);
     private final mediumBeatTimeDelayHelper : TimeDelayHelper = new TimeDelayHelper(640);
     private final fastBeatTimeDelayHelper : TimeDelayHelper = new TimeDelayHelper(320);
-    public override function onHealthChange() : Void {
-        this.max = (this.healthInterface.getHealth() / this.healthScale);
+    public function onHealthChange() : Void {
+        this.max = (jre.lang.JavaNumber.divide(this.healthInterface.getHealth(), this.healthScale));
         this.timeDelayHelper = NoTimeDelayHelper.SINGLETON;
         if (this.max <= 1 && this.healthInterface.isAlive()) {
             this.max = 1;
@@ -79,7 +79,7 @@ class HealthHudWidget extends BasicHud implements PaintableInterface implements 
         }
     }
 
-    public override function paint(graphics : Graphics) : Void {
+    public function paint(graphics : Graphics) : Void {
         this.myFontProcessor.process(graphics);
         for (index in 0...this.max) {
             if (this.timeDelayHelper.isTime(this.gameTickTimeDelayHelper.startTime)) {
@@ -88,7 +88,7 @@ class HealthHudWidget extends BasicHud implements PaintableInterface implements 
         }
     }
 
-    public override function paintThreed(graphics : Graphics) : Void {
+    public function paintThreed(graphics : Graphics) : Void {
     }
 
 }

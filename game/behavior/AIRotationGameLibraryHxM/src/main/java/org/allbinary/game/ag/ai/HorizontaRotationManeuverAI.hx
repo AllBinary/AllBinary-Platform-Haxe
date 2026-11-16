@@ -47,14 +47,14 @@ class HorizontaRotationManeuverAI extends BasicAI implements ArtificialIntellige
         this.velocityInterface = (cast this.baseVelocityInterface : VelocityInterface);
         final rotationAnimationInterface : RotationAnimationInterface = (cast this.rotationAnimationInterface : RotationAnimationInterface);
         final angleIncrementInfo : AngleIncrementInfo = rotationAnimationInterface.getAngleInfoP().getAngleIncrementInfo();
-        rotationAnimationInterfaceCompositeInterface.setFrame(Std.int(angleIncrementInfo.RIGHT_FRAME));
+        rotationAnimationInterfaceCompositeInterface.setFrame(jre.lang.JavaObject.intValue(angleIncrementInfo.RIGHT_FRAME));
     }
 
-    public override function transition() : Void {
+    public function transition() : Void {
         final rotationAnimationInterface : RotationAnimationInterface = (cast this.rotationAnimationInterface : RotationAnimationInterface);
         final angleIncrementInfo : AngleIncrementInfo = rotationAnimationInterface.getAngleInfoP().getAngleIncrementInfo();
         final rotationAnimationInterfaceCompositeInterface : RotationAnimationInterfaceCompositeInterface = (cast this.getOwnerLayerInterface() : RotationAnimationInterfaceCompositeInterface);
-        rotationAnimationInterfaceCompositeInterface.setFrame(Std.int(angleIncrementInfo.RIGHT_FRAME));
+        rotationAnimationInterfaceCompositeInterface.setFrame(jre.lang.JavaObject.intValue(angleIncrementInfo.RIGHT_FRAME));
         var allbinaryLayer : AllBinaryLayer = this.getOwnerLayerInterface();
         allbinaryLayer.setPosition(allbinaryLayer.getXP(), 1, allbinaryLayer.getZP());
     }
@@ -65,12 +65,12 @@ class HorizontaRotationManeuverAI extends BasicAI implements ArtificialIntellige
         final angleIncrementInfo : AngleIncrementInfo = rotationAnimationInterface.getAngleInfoP().getAngleIncrementInfo();
         final frame : Int = this.rotationAnimationInterface.getFrame();
         final ownerLayerInterface : AllBinaryLayer = this.getOwnerLayerInterface();
-        if (ownerLayerInterface.getXP() - ownerLayerInterface.getWidth() <= 0 && frame == Std.int(angleIncrementInfo.LEFT_FRAME)) {
+        if (ownerLayerInterface.getXP() - ownerLayerInterface.getWidth() <= 0 && frame == jre.lang.JavaObject.intValue(angleIncrementInfo.LEFT_FRAME)) {
             this.reverse();
             this.drop();
         }
         final displayInfo : DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
-        if (ownerLayerInterface.getX2() + ownerLayerInterface.getWidth() > displayInfo.getLastWidth() && frame == Std.int(angleIncrementInfo.RIGHT_FRAME)) {
+        if (ownerLayerInterface.getX2() + ownerLayerInterface.getWidth() > displayInfo.getLastWidth() && frame == jre.lang.JavaObject.intValue(angleIncrementInfo.RIGHT_FRAME)) {
             this.reverse();
             this.accelerate();
             this.drop();
@@ -78,12 +78,12 @@ class HorizontaRotationManeuverAI extends BasicAI implements ArtificialIntellige
         final index : Int = this.circularIndexUtil.getIndex();
         if (index % this.currentSpeedDivisor == 0 && index % 2 == 0) {
             super.processKeyAI(Canvas.UP);
-            this.velocityInterface.limitMaxXYVelocity(this.velocityInterface.getMaxForwardVelocity() / this.currentSpeedDivisor);
+            this.velocityInterface.limitMaxXYVelocity(jre.lang.JavaNumber.divide(this.velocityInterface.getMaxForwardVelocity(), this.currentSpeedDivisor));
         }
         this.circularIndexUtil.next();
-        if (frame == Std.int(angleIncrementInfo.LEFT_FRAME)) {
+        if (frame == jre.lang.JavaObject.intValue(angleIncrementInfo.LEFT_FRAME)) {
             super.processKeyAI(Canvas.KEY_NUM0);
-        } else if (frame == Std.int(angleIncrementInfo.RIGHT_FRAME)) {
+        } else if (frame == jre.lang.JavaObject.intValue(angleIncrementInfo.RIGHT_FRAME)) {
             super.processKeyAI(Canvas.KEY_POUND);
         }
     }
@@ -92,13 +92,13 @@ class HorizontaRotationManeuverAI extends BasicAI implements ArtificialIntellige
         final rotationAnimationInterface : RotationAnimationInterface = (cast this.rotationAnimationInterface : RotationAnimationInterface);
         final angleIncrementInfo : AngleIncrementInfo = rotationAnimationInterface.getAngleInfoP().getAngleIncrementInfo();
         final frame : Int = this.rotationAnimationInterface.getFrame();
-        if (frame == Std.int(angleIncrementInfo.LEFT_FRAME)) {
+        if (frame == jre.lang.JavaObject.intValue(angleIncrementInfo.LEFT_FRAME)) {
             final rotationAnimationInterfaceCompositeInterface : RotationAnimationInterfaceCompositeInterface = (cast this.getOwnerLayerInterface() : RotationAnimationInterfaceCompositeInterface);
-            rotationAnimationInterfaceCompositeInterface.setFrame(Std.int(angleIncrementInfo.RIGHT_FRAME));
+            rotationAnimationInterfaceCompositeInterface.setFrame(jre.lang.JavaObject.intValue(angleIncrementInfo.RIGHT_FRAME));
             this.baseVelocityInterface.zero();
-        } else if (frame == Std.int(angleIncrementInfo.RIGHT_FRAME)) {
+        } else if (frame == jre.lang.JavaObject.intValue(angleIncrementInfo.RIGHT_FRAME)) {
             final rotationAnimationInterfaceCompositeInterface : RotationAnimationInterfaceCompositeInterface = (cast this.getOwnerLayerInterface() : RotationAnimationInterfaceCompositeInterface);
-            rotationAnimationInterfaceCompositeInterface.setFrame(Std.int(angleIncrementInfo.LEFT_FRAME));
+            rotationAnimationInterfaceCompositeInterface.setFrame(jre.lang.JavaObject.intValue(angleIncrementInfo.LEFT_FRAME));
             this.baseVelocityInterface.zero();
         }
     }

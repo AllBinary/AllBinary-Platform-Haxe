@@ -44,7 +44,7 @@ class TextAnimation extends IndexedAnimation implements UpdateMyFontInterface {
         this.setText(text);
     }
 
-    public override function updateMeasurement(graphics : Graphics) : Void {
+    public function updateMeasurement(graphics : Graphics) : Void {
         final font : Font = graphics.getFont();
         this.fontHeight = font.getHeight();
         final adjustedFontHeight : Int = Std.int(-(this.fontHeight * 2.00));

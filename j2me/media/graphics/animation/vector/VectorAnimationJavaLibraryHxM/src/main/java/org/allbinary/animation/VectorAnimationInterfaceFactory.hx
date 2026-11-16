@@ -30,7 +30,7 @@ class VectorAnimationInterfaceFactory implements AnimationInterfaceFactoryInterf
     }
 
     // throws Exception
-    public function getInstance(instanceId : Int) : Animation {
+    public function getInstanceFor(instanceId : Int) : Animation {
         return new VectorAnimation(this.currentPoints, this.getBasicColorP(), this.animationBehaviorFactory.getOrCreateInstance());
     }
 

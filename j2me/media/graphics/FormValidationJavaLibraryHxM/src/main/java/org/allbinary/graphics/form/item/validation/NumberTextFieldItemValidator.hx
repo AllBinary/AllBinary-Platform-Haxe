@@ -75,10 +75,10 @@ class NumberTextFieldItemValidator extends ValidatorBase {
         if (textLength > 0 && textLength < this.maxChars) {
             try {
                 var number : Null<Int> = smallIntegerSingletonFactory.createInstance(Std.parseInt(this.textFieldItem.getString()));
-                if (Std.int(number) > this.min) {
+                if (jre.lang.JavaNumber.toInt(number) > this.min) {
                     stringMaker.delete(0, stringMaker.length());
                     list.add(Std.string(stringMaker.append(name).append(" is to small")));
-                } else if (Std.int(number) > this.max) {
+                } else if (jre.lang.JavaNumber.toInt(number) > this.max) {
                     stringMaker.delete(0, stringMaker.length());
                     list.add(Std.string(stringMaker.append(name).append(" is to large")));
                 }

@@ -37,7 +37,7 @@ class VectorRotationGenerator {
     public function new() {
     }
 
-    public function getInstance(vectorRotationInfo : VectorInfo) : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>> {
+    public function getInstanceFor(vectorRotationInfo : VectorInfo) : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>> {
         return this.getInstanceFrames(vectorRotationInfo.getWidth(), vectorRotationInfo.getHeight(), vectorRotationInfo.getPoints(), vectorRotationInfo.getTotalFrames());
     }
 

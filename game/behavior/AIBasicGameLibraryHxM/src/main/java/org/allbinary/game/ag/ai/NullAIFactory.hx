@@ -23,7 +23,7 @@ import org.allbinary.util.ABHashtable;
 
 class NullAIFactory implements ArtificialIntelligenceInterfaceFactoryInterface {
     private static var NULL_AI : NullAI = new NullAI();
-    public function getInstance(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
+    public function getInstanceFor(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
         return NullAIFactory.NULL_AI;
     }
 

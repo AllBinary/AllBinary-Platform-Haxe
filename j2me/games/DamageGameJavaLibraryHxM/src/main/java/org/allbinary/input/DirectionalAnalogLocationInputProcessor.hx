@@ -83,7 +83,7 @@ class DirectionalAnalogLocationInputProcessor extends AnalogLocationInputProcess
         }
     }
 
-    public override function getSourceId() : Int {
+    public function getSourceId() : Int {
         return 0;
     }
 

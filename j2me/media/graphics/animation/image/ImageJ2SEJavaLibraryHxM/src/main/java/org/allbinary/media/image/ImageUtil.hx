@@ -61,8 +61,8 @@ class ImageUtil {
         var bufferedImage : BufferedImage = null;
         for (index in 0...size) {
             bufferedImage = bufferedImageArray[index];
-            final newWidth : Int = Std.int((bufferedImage.getWidth() * percent / 100));
-            final newHeight : Int = Std.int((bufferedImage.getHeight() * percent / 100));
+            final newWidth : Int = jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide(bufferedImage.getWidth() * percent, 100)));
+            final newHeight : Int = jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide(bufferedImage.getHeight() * percent, 100)));
             scaledBufferedImageArray[index] = this.createBufferedImage(bufferedImage, newWidth, newHeight, scale);
         }
         return scaledBufferedImageArray;
@@ -75,8 +75,8 @@ class ImageUtil {
         var bufferedImage : BufferedImage = null;
         for (index in 0...size) {
             bufferedImage = bufferedImageArray[index];
-            final newWidth : Int = Std.int((bufferedImage.getWidth() * percent));
-            final newHeight : Int = Std.int((bufferedImage.getHeight() * percent));
+            final newWidth : Int = jre.lang.JavaNumber.toInt((bufferedImage.getWidth() * percent));
+            final newHeight : Int = jre.lang.JavaNumber.toInt((bufferedImage.getHeight() * percent));
             scaledBufferedImageArray[index] = this.createBufferedImage(bufferedImage, newWidth, newHeight, scale);
         }
         return scaledBufferedImageArray;
@@ -176,11 +176,11 @@ class ImageUtil {
         final stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append(" BufferedImage -");
         stringBuffer.append(commonLabels.WIDTH_LABEL);
-        stringBuffer.appendint(Std.int(bufferedImage.getWidth()));
+        stringBuffer.appendint(jre.lang.JavaNumber.toInt(bufferedImage.getWidth()));
         stringBuffer.append(commonLabels.HEIGHT_LABEL);
-        stringBuffer.appendint(Std.int(bufferedImage.getHeight()));
+        stringBuffer.appendint(jre.lang.JavaNumber.toInt(bufferedImage.getHeight()));
         stringBuffer.append(" Type: ");
-        stringBuffer.appendint(Std.int(bufferedImage.getType()));
+        stringBuffer.appendint(jre.lang.JavaNumber.toInt(bufferedImage.getType()));
         return Std.string(stringBuffer);
     }
 

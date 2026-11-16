@@ -25,7 +25,7 @@ class DestroyEventFactory implements AllBinaryEventObjectFactoryInterface {
         this.combatGameCanvas = combatGameCanvas;
     }
 
-    public function getInstance() : AllBinaryEventObject {
+    public function getInstanceFor() : AllBinaryEventObject {
         return new DestroyedEvent(this.combatGameCanvas);
     }
 

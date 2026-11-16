@@ -59,11 +59,11 @@ class AndroidOS extends GenericOperatingSystem {
         this.stringBuffer.append(commonStrings.SPACE);
         this.stringBuffer.append("NetworkType");
         this.stringBuffer.append(commonStrings.EQUALS);
-        this.stringBuffer.appendint(Std.int(properties.getNetworkType()));
+        this.stringBuffer.appendint(jre.lang.JavaNumber.toInt(properties.getNetworkType()));
         this.stringBuffer.append(commonStrings.SPACE);
         this.stringBuffer.append("PhoneType");
         this.stringBuffer.append(commonStrings.EQUALS);
-        this.stringBuffer.appendint(Std.int(properties.getPhoneType()));
+        this.stringBuffer.appendint(jre.lang.JavaNumber.toInt(properties.getPhoneType()));
         this.stringBuffer.append(commonStrings.SPACE);
         this.stringBuffer.append("SimCountryIso");
         this.stringBuffer.append(commonStrings.EQUALS);
@@ -112,7 +112,7 @@ class AndroidOS extends GenericOperatingSystem {
         return 90;
     }
 
-    public function toString() : String {
+    public override function toString() : String {
         var osBuffer : StringMaker = new StringMaker();
         osBuffer.append(super.toString());
         osBuffer.append(CommonSeps.getInstance().SPACE);

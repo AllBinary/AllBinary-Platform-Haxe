@@ -22,7 +22,7 @@ import org.allbinary.logic.math.BasicDecimal;
 
 class SimpleGravityVelocityMovement extends BasicConstantVelocityMovement {
     public function new(speedBasicDecimal : BasicDecimal) {
-        super(speedBasicDecimal, new VelocityProperties(Std.int(speedBasicDecimal.getUnscaled()), Std.int(speedBasicDecimal.getUnscaled())));
+        super(speedBasicDecimal, new VelocityProperties(jre.lang.JavaNumber.toInt(speedBasicDecimal.getUnscaled()), jre.lang.JavaNumber.toInt(speedBasicDecimal.getUnscaled())));
     }
 
     private final gravityUtil : GravityUtil = GravityUtil.getInstance();

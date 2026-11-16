@@ -55,7 +55,7 @@ class AllBinaryGameLayer extends AllBinaryLayer implements ViewPositionEventList
     }
 
     // throws Exception
-    public override function set(gl : GL) : Void {
+    public function set(gl : GL) : Void {
         throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
@@ -76,7 +76,7 @@ class AllBinaryGameLayer extends AllBinaryLayer implements ViewPositionEventList
         throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
-    public override function onEvent(eventObject : AllBinaryEventObject) : Void {
+    public function onEvent(eventObject : AllBinaryEventObject) : Void {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 

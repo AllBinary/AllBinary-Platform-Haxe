@@ -39,7 +39,7 @@ class DbInitInfo extends DbConnectionInfo {
     private final directory : Directory = Directory.getInstance();
     private final httpData : HttpData = HttpData.getInstance();
     private final GET_URL : String = "getUrl";
-    private final PACKAGE : String = FREEBLISKET_PATH_GLOBALS.getInstance().DBINITPATH;
+    private final PACKAGE : String = FREEBLISKET_PATH_GLOBALS.getInstanceFor().DBINITPATH;
     private var initFileName : String;
     private var hasRead : Bool = false;
     public function new(initFileName : String, read : Bool) {
@@ -52,7 +52,7 @@ class DbInitInfo extends DbConnectionInfo {
         }
     }
 
-    public function getUrl() : String {
+    public override function getUrl() : String {
         var url : String = super.getUrl();
         if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER)) {
             PreLogUtil.put(this.httpData.URL_LABEL + url, this, GET_URL);
@@ -156,7 +156,7 @@ class DbInitInfo extends DbConnectionInfo {
         }
     }
 
-    public function getName() : String {
+    public override function getName() : String {
         this.updateIfNeeded();
         if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER)) {
             PreLogUtil.put("Name: " + super.getName(), this, "getName");
@@ -164,7 +164,7 @@ class DbInitInfo extends DbConnectionInfo {
         return super.getName();
     }
 
-    public function getUserName() : String {
+    public override function getUserName() : String {
         this.updateIfNeeded();
         if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER)) {
             PreLogUtil.put("Name: " + super.getUserName(), this, "getUserName");
@@ -172,22 +172,22 @@ class DbInitInfo extends DbConnectionInfo {
         return super.getUserName();
     }
 
-    public function getPassword() : String {
+    public override function getPassword() : String {
         this.updateIfNeeded();
         return super.getPassword();
     }
 
-    public function getSchema() : String {
+    public override function getSchema() : String {
         this.updateIfNeeded();
         return super.getSchema();
     }
 
-    public function getServer() : String {
+    public override function getServer() : String {
         this.updateIfNeeded();
         return super.getServer();
     }
 
-    public function getPort() : String {
+    public override function getPort() : String {
         this.updateIfNeeded();
         return super.getPort();
     }

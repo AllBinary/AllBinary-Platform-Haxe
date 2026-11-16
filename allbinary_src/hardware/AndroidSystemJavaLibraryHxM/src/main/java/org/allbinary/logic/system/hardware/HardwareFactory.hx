@@ -34,7 +34,7 @@ class HardwareFactory {
     }
 
     // throws Exception
-    public function getInstance(os : GenericOperatingSystem) : HardwareInterface {
+    public function getInstanceFor(os : GenericOperatingSystem) : HardwareInterface {
         try {
             final operatingSystems : OperatingSystems = OperatingSystems.getInstance();
             if (this.tsUtil.compareTo(os.getName(), operatingSystems.ANDROID) == 0) {

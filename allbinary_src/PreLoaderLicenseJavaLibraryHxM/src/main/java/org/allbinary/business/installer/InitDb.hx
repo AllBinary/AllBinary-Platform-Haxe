@@ -30,18 +30,18 @@ class InitDb {
     private final METHOD_CALL_MAIN_PATH : String = "useNormalMainPath";
     public function new(...args : Dynamic) {
         if (args.length == 0) {
-            this._new0();
+            this._newInitDb0();
         }
         else if (args.length == 1) {
             final dbConnectionInfo : DbConnectionInfo = args[0];
-            this._new1(dbConnectionInfo);
+            this._newInitDb1(dbConnectionInfo);
         }
     }
 
-    private function _new0() : Void {
+    private function _newInitDb0() : Void {
     }
 
-    private function _new1(dbConnectionInfo : DbConnectionInfo) : Void {
+    private function _newInitDb1(dbConnectionInfo : DbConnectionInfo) : Void {
     }
 
     public function setHelper(anyType : Any) : Void {
@@ -68,7 +68,7 @@ class InitDb {
             var dynamicClass : Class<Dynamic> = Type.getClass(this.anyType);
             var method : Method = dynamicClass.getMethod(this.METHOD_CALL_ADD_USERS, null);
             var result : Null<Bool> = (cast method.invoke(this.anyType, null) : Null<Bool>);
-            return result;
+            return result.booleanValue();
         } catch (e : haxe.Exception) {
             return false;
         }
@@ -79,7 +79,7 @@ class InitDb {
             var dynamicClass : Class<Dynamic> = Type.getClass(this.anyType);
             var method : Method = dynamicClass.getMethod(this.METHOD_CALL_ADD_DATABASES, null);
             var result : Null<Bool> = (cast method.invoke(this.anyType, null) : Null<Bool>);
-            return result;
+            return result.booleanValue();
         } catch (e : haxe.Exception) {
             return false;
         }
@@ -90,7 +90,7 @@ class InitDb {
             var dynamicClass : Class<Dynamic> = Type.getClass(this.anyType);
             var method : Method = dynamicClass.getMethod(this.METHOD_CALL_ADD_TABLES, null);
             var result : Null<Bool> = (cast method.invoke(this.anyType, null) : Null<Bool>);
-            return result;
+            return result.booleanValue();
         } catch (e : haxe.Exception) {
             return false;
         }
@@ -101,7 +101,7 @@ class InitDb {
             var dynamicClass : Class<Dynamic> = Type.getClass(this.anyType);
             var method : Method = dynamicClass.getMethod(this.METHOD_CALL_TEMP_MAIN_PATH, null);
             var result : Null<Bool> = (cast method.invoke(this.anyType, null) : Null<Bool>);
-            return result;
+            return result.booleanValue();
         } catch (e : haxe.Exception) {
             return false;
         }
@@ -112,7 +112,7 @@ class InitDb {
             var dynamicClass : Class<Dynamic> = Type.getClass(this.anyType);
             var method : Method = dynamicClass.getMethod(this.METHOD_CALL_MAIN_PATH, null);
             var result : Null<Bool> = (cast method.invoke(this.anyType, null) : Null<Bool>);
-            return result;
+            return result.booleanValue();
         } catch (e : haxe.Exception) {
             return false;
         }

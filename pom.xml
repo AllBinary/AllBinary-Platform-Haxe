@@ -33,6 +33,8 @@
         <module>../working_thirdpartyhaxe/embedded/j2me/microemulator/2_0_4/microemu-cldcHx</module>
         <module>../working_thirdpartyhaxe/embedded/j2me/microemulator/2_0_4/microemu-midpHx</module>
         <module>../working_thirdpartyhaxe/embedded/j2me/microemulator/2_0_4/microemu-extensions/microemu-jsr-135Hx</module>
+        <!-- SWT stub (org.eclipse.swt.widgets.Display) like the C# one -->
+        <module>../working_thirdpartyhaxe/graphics/swt/org.eclipse.swt.win32.win32.x86_64</module>
 
         <!--
         -->
@@ -53,7 +55,7 @@
         <module>./j2me/media/graphics/animation/image/AllBinaryHTMLImageAnimationRotationJavaLibraryHxM</module>
         <module>./j2me/media/graphics/animation/image/AllBinaryHTML2ImageAnimationRotationJavaLibraryHxM</module>
         -->
-        <module>./j2me/media/graphics/animation/image/AllBinaryJ2SEImageAnimationRotationJavaLibraryHxM</module>
+        <!--<module>./j2me/media/graphics/animation/image/AllBinaryJ2SEImageAnimationRotationJavaLibraryHxM</module>-->
         <module>./j2me/games/Resources/sounds/release/GameSoundsJ2SEOggResourcesJavaLibraryHxM</module>
         <module>./graphics/opengl/AllBinaryJOGLResourcesJavaLibraryHxM</module>
 

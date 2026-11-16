@@ -45,14 +45,14 @@ class GameConfigurationUtil {
         var gameConfigurationSingleton : GameConfigurationSingleton = GameConfigurationSingleton.getInstance();
         var gameConfiguration : GameConfiguration = gameConfigurationSingleton.getInstanceByName(gauge.getLabel());
         final smallIntegerSingletonFactory : SmallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
-        var value : Null<Int> = smallIntegerSingletonFactory.getAt(gauge.getValue() + Std.int(gameConfiguration.getMinValue()));
+        var value : Null<Int> = smallIntegerSingletonFactory.getAt(gauge.getValue() + jre.lang.JavaObject.intValue(gameConfiguration.getMinValue()));
         var stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append(this.GAUGE_UPDATE);
         stringBuffer.append(gameConfiguration.getName());
         stringBuffer.append(this.FROM);
-        stringBuffer.appendint(Std.int(Std.int(gameConfiguration.getValue())));
+        stringBuffer.appendint(jre.lang.JavaNumber.toInt(jre.lang.JavaObject.intValue(gameConfiguration.getValue())));
         stringBuffer.append(this.TO);
-        stringBuffer.appendint(Std.int(Std.int(value)));
+        stringBuffer.appendint(jre.lang.JavaNumber.toInt(jre.lang.JavaNumber.toInt(value)));
         this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.UPDATE);
         gameConfiguration.setValue(value);
     }
@@ -65,9 +65,9 @@ class GameConfigurationUtil {
         stringBuffer.append("Gauge Default: ");
         stringBuffer.append(gameConfiguration.getName());
         stringBuffer.append(this.TO);
-        stringBuffer.appendint(Std.int(Std.int(gameConfiguration.getDefaultValue())));
+        stringBuffer.appendint(jre.lang.JavaNumber.toInt(jre.lang.JavaObject.intValue(gameConfiguration.getDefaultValue())));
         this.logUtil.putF(Std.string(stringBuffer), this, "setDefault");
-        gauge.setValue(Std.int(gameConfiguration.getDefaultValue()) - Std.int(gameConfiguration.getMinValue()));
+        gauge.setValue(jre.lang.JavaObject.intValue(gameConfiguration.getDefaultValue()) - jre.lang.JavaObject.intValue(gameConfiguration.getMinValue()));
         gameConfiguration.setValue(gameConfiguration.getDefaultValue());
     }
 
@@ -89,13 +89,13 @@ class GameConfigurationUtil {
                     var name : String = item.getLabel();
                     var nextGameConfiguration : GameConfiguration = gameConfigurationSingleton.getInstanceByName(name);
                     if (nextGameConfiguration == gameConfigurationCentral.COLLIDE_DAMAGE) {
-                        gauge.setValue(Std.int(gameConfigurationCentral.COLLIDE_DAMAGE.getValue()) - Std.int(gameConfiguration.getMinValue()));
+                        gauge.setValue(jre.lang.JavaObject.intValue(gameConfigurationCentral.COLLIDE_DAMAGE.getValue()) - jre.lang.JavaObject.intValue(gameConfiguration.getMinValue()));
                     } else if (nextGameConfiguration == gameConfigurationCentral.DURABILITY_CHALLENGE_LEVEL) {
-                        gauge.setValue(Std.int(gameConfigurationCentral.DURABILITY_CHALLENGE_LEVEL.getValue()) - Std.int(gameConfiguration.getMinValue()));
+                        gauge.setValue(jre.lang.JavaObject.intValue(gameConfigurationCentral.DURABILITY_CHALLENGE_LEVEL.getValue()) - jre.lang.JavaObject.intValue(gameConfiguration.getMinValue()));
                     } else if (nextGameConfiguration == gameConfigurationCentral.ATTACK_CHALLENGE_LEVEL) {
-                        gauge.setValue(Std.int(gameConfigurationCentral.ATTACK_CHALLENGE_LEVEL.getValue()) - Std.int(gameConfiguration.getMinValue()));
+                        gauge.setValue(jre.lang.JavaObject.intValue(gameConfigurationCentral.ATTACK_CHALLENGE_LEVEL.getValue()) - jre.lang.JavaObject.intValue(gameConfiguration.getMinValue()));
                     } else if (nextGameConfiguration == gameConfigurationCentral.SPEED_CHALLENGE_LEVEL) {
-                        gauge.setValue(Std.int(gameConfigurationCentral.SPEED_CHALLENGE_LEVEL.getValue()) - Std.int(gameConfiguration.getMinValue()));
+                        gauge.setValue(jre.lang.JavaObject.intValue(gameConfigurationCentral.SPEED_CHALLENGE_LEVEL.getValue()) - jre.lang.JavaObject.intValue(gameConfiguration.getMinValue()));
                     }
                 }
             }
@@ -106,7 +106,7 @@ class GameConfigurationUtil {
     public function updateCompetitionValue() : Void {
         this.logUtil.putF(this.commonStrings.START, this, "updateCompetitionValue");
         var gameConfigurationCentral : GameConfigurationCentral = GameConfigurationCentral.getInstance();
-        this.COMPETITION_VALUE = Std.int(gameConfigurationCentral.COLLIDE_DAMAGE.getValue()) + Std.int(gameConfigurationCentral.ATTACK_CHALLENGE_LEVEL.getValue()) + Std.int(gameConfigurationCentral.DURABILITY_CHALLENGE_LEVEL.getValue()) + Std.int(gameConfigurationCentral.SPEED_CHALLENGE_LEVEL.getValue());
+        this.COMPETITION_VALUE = jre.lang.JavaObject.intValue(gameConfigurationCentral.COLLIDE_DAMAGE.getValue()) + jre.lang.JavaObject.intValue(gameConfigurationCentral.ATTACK_CHALLENGE_LEVEL.getValue()) + jre.lang.JavaObject.intValue(gameConfigurationCentral.DURABILITY_CHALLENGE_LEVEL.getValue()) + jre.lang.JavaObject.intValue(gameConfigurationCentral.SPEED_CHALLENGE_LEVEL.getValue());
         this.COMPETITION_VALUE = (this.COMPETITION_VALUE >> 2);
     }
 

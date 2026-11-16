@@ -26,8 +26,8 @@ class MineLayerFactory implements AllBinaryLayerFactoryInterface {
     }
 
     // throws Exception
-    public function getInstance() : AllBinaryLayer {
-        return new MineLayer(this.viewPositionFactoryInterface.getInstance());
+    public function getInstanceFor() : AllBinaryLayer {
+        return new MineLayer(this.viewPositionFactoryInterface.getInstanceFor());
     }
 
 }

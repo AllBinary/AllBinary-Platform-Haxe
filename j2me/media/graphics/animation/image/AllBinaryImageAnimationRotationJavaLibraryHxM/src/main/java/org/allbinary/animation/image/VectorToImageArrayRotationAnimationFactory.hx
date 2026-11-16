@@ -41,16 +41,16 @@ class VectorToImageArrayRotationAnimationFactory extends BaseImageAnimationFacto
     // throws Exception
     public function init() : Void {
         final angleFactory : AngleFactory = AngleFactory.getInstance();
-        this.angleIncrement = angleFactory.TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity();
-        this.imageArray = ImageToRotationImageArrayUtil.getInstance().generate(this.getImage(), this.getAngleIncrement(), Std.int(angleFactory.TOTAL_ANGLE));
+        this.angleIncrement = jre.lang.JavaNumber.divide(angleFactory.TOTAL_ANGLE, GameConfigurationCentral.getInstance().getGameControlFidelity());
+        this.imageArray = ImageToRotationImageArrayUtil.getInstance().generate(this.getImage(), this.getAngleIncrement(), jre.lang.JavaNumber.toInt(angleFactory.TOTAL_ANGLE));
     }
 
     // throws Exception
-    public override function getInstance(instanceId : Int) : Animation {
+    public override function getInstanceFor(instanceId : Int) : Animation {
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
-            return new AdjustedImageArrayRotationAnimation(this.imageArray, AngleInfo.getInstance(this.getAngleIncrement()), Std.int(AngleFactory.getInstance().TOTAL_ANGLE), this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
+            return new AdjustedImageArrayRotationAnimation(this.imageArray, AngleInfo.getInstance(this.getAngleIncrement()), jre.lang.JavaNumber.toInt(AngleFactory.getInstance().TOTAL_ANGLE), this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
-            return AdjustedImageArrayRotationAnimation.createAnimation(this.imageArray, AngleInfo.getInstance(this.angleIncrement), Std.int(AngleFactory.getInstance().TOTAL_ANGLE), this.animationBehaviorFactory.getOrCreateInstance());
+            return AdjustedImageArrayRotationAnimation.createAnimation(this.imageArray, AngleInfo.getInstance(this.angleIncrement), jre.lang.JavaNumber.toInt(AngleFactory.getInstance().TOTAL_ANGLE), this.animationBehaviorFactory.getOrCreateInstance());
         }
     }
 

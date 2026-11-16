@@ -18,7 +18,7 @@ class NullDisplayable extends Canvas {
     }
 
     private final baseGameStatistics : BaseGameStatistics = GameStatisticsFactory.getInstance();
-    public override function paint(graphics : Graphics) : Void {
+    public function paint(graphics : Graphics) : Void {
         this.baseGameStatistics.nextRefresh();
     }
 

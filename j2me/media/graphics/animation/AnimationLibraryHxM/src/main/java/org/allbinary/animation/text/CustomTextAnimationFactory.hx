@@ -51,7 +51,7 @@ class CustomTextAnimationFactory implements AnimationInterfaceFactoryInterface {
     }
 
     // throws Exception
-    public function getInstance(instanceId : Int) : Animation {
+    public function getInstanceFor(instanceId : Int) : Animation {
         var customTextAnimation : CustomTextAnimation = null;
         if (this.dx != 0 || this.dy != 0) {
             customTextAnimation = new AdjustCustomTextAnimation(this.text, this.scaleProperties.scaleHeight, this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());

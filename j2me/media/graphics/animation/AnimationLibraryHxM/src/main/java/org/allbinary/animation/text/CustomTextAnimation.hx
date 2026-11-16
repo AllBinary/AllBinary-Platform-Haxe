@@ -61,7 +61,7 @@ class CustomTextAnimation extends TextAnimation implements TextInterface {
         }
     }
 
-    public override function getText() : String {
+    public function getText() : String {
         return this.lastText;
     }
 

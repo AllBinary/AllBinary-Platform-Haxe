@@ -25,12 +25,12 @@ class BasicWeaponPartCircularPool {
     private var basicWeaponPart : BasicWeaponPart = BasicWeaponPart.NULL_BASIC_WEAPON_PART;
     // throws Exception
     public function init(basicWeaponPartFactoryInterface : BasicWeaponPartFactoryInterface) : Void {
-        this.basicWeaponPart = basicWeaponPartFactoryInterface.getInstance();
+        this.basicWeaponPart = basicWeaponPartFactoryInterface.getInstanceFor();
     }
 
     // throws Exception
     // synchronized
-    public function getInstance(sourceLayerInterface : AllBinaryLayer, weaponProperties : WeaponProperties, scoreableInterface : ScoreableInterface, relativeRelationship : RelativeRelationship) : BasicWeaponPart {
+    public function getInstanceFor(sourceLayerInterface : AllBinaryLayer, weaponProperties : WeaponProperties, scoreableInterface : ScoreableInterface, relativeRelationship : RelativeRelationship) : BasicWeaponPart {
         this.basicWeaponPart.init(sourceLayerInterface, weaponProperties, scoreableInterface, relativeRelationship);
         return this.basicWeaponPart;
     }

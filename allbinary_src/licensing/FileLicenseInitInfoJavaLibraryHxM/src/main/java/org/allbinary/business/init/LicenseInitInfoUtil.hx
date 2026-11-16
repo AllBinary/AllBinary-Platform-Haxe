@@ -51,11 +51,11 @@ class LicenseInitInfoUtil {
     // synchronized
     public function write(initData : LicenseInitInfo) : Void {
         if (this.filePath == this.stringUtil.EMPTY_STRING) {
-            this.filePath = URLGLOBALS.getMainPath() + PATH_GLOBALS.getInstance().INIT_PATH;
+            this.filePath = URLGLOBALS.getMainPath() + PATH_GLOBALS.getInstanceFor().INIT_PATH;
         }
         try {
             final tsUtil : TsUtil = TsUtil.getInstance();
-            final dataOutputStream : AbDataOutputStream = DataOutputStreamFactory.getInstance().getInstance(this.filePath, this.INITFILENAME);
+            final dataOutputStream : AbDataOutputStream = DataOutputStreamFactory.getInstance().getInstanceFor(this.filePath, this.INITFILENAME);
             final licenseIdCrypted : haxe.ds.Vector<Int> = tsUtil.getByteArray(new WeakCrypt(1).encrypt(initData.getLicenseId()));
             dataOutputStream.writeUTF(DatabaseEncoder.encode(licenseIdCrypted));
             final numberOfLicenseServers : Int = initData.getNumberOfServers();
@@ -83,7 +83,7 @@ class LicenseInitInfoUtil {
     public function readAgain(initializeCounter : Int) : LicenseInitInfo {
         final METHOD_NAME : String = "readAgain";
         if (this.filePath == this.stringUtil.EMPTY_STRING) {
-            this.filePath = URLGLOBALS.getMainPath() + PATH_GLOBALS.getInstance().INIT_PATH;
+            this.filePath = URLGLOBALS.getMainPath() + PATH_GLOBALS.getInstanceFor().INIT_PATH;
         }
         try {
             this.logUtil.putF("LicenseInitInfo File: " + this.INITFILENAME, this, METHOD_NAME);

@@ -61,7 +61,7 @@ class HighScoreNamePersistanceSingleton {
         var size : Int = this.nameBasicArrayList.size();
         for (index in 0...size) {
             final integer : Null<Int> = (cast this.nameBasicArrayList.objectArray[index] : Null<Int>);
-            this.delete(abeClientInformation, gameInfo, Std.int(integer));
+            this.delete(abeClientInformation, gameInfo, jre.lang.JavaNumber.toInt(integer));
         }
         this.clear();
     }

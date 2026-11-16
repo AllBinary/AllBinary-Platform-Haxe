@@ -44,7 +44,7 @@ class AbCrypt implements CryptInterface {
                 PreLogUtil.putOE(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
             }
             final key : haxe.ds.Vector<Int> = this.tsUtil.getByteArray(keyAsString);
-            final keySpec : KeySpec = KeySpecFactory.getInstance().getInstance(this.algorithm, key);
+            final keySpec : KeySpec = KeySpecFactory.getInstance().getInstanceFor(this.algorithm, key);
             final keyFactory : SecretKeyFactory = SecretKeyFactory.getInstance(this.algorithm);
             final secretKey : SecretKey = keyFactory.generateSecret(keySpec);
             final cipher : Cipher = Cipher.getInstance(this.algorithm);

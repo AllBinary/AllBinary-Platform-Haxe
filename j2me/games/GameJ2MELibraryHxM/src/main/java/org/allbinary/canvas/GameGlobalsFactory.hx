@@ -25,7 +25,7 @@ class GameGlobalsFactory {
     }
 
     public var newCanvas : Bool = true;
-    public var newDisplaybleTime : haxe.Int64 = haxe.Int64.ofInt(Integer.MIN_VALUE);
+    public var newDisplaybleTime : haxe.Int64 = jre.lang.JavaNumber.toInt64(Integer.MIN_VALUE);
     public var point : GPoint = PointFactory.getInstance().ZERO_ZERO;
     public function new() {
     }

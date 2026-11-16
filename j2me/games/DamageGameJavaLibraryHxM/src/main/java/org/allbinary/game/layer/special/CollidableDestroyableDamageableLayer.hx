@@ -87,17 +87,17 @@ class CollidableDestroyableDamageableLayer extends CollidableCompositeLayer impl
     }
 
     // throws Exception
-    public override function damage(damage : Int, damageType : Int) : Void {
+    public function damage(damage : Int, damageType : Int) : Void {
         throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception
-    public override function getDamage(damageType : Int) : Int {
+    public function getDamage(damageType : Int) : Int {
         throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     // throws Exception
-    public override function isDestroyed() : Bool {
+    public function isDestroyed() : Bool {
         throw new jre.lang.JavaException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
@@ -142,51 +142,51 @@ class CollidableDestroyableDamageableLayer extends CollidableCompositeLayer impl
     }
 
     // throws Exception
-    public override function up() : Void {
+    public function up() : Void {
     }
 
     // throws Exception
-    public override function down() : Void {
+    public function down() : Void {
     }
 
     // throws Exception
-    public override function right() : Void {
+    public function right() : Void {
     }
 
     // throws Exception
-    public override function left() : Void {
+    public function left() : Void {
     }
 
     // throws Exception
-    public override function strafeLeft() : Void {
+    public function strafeLeft() : Void {
     }
 
     // throws Exception
-    public override function strafeRight() : Void {
+    public function strafeRight() : Void {
     }
 
     // throws Exception
-    public override function fire(layerManager : AllBinaryLayerManager, gameKeyEvent : GameKeyEvent) : Void {
+    public function fire(layerManager : AllBinaryLayerManager, gameKeyEvent : GameKeyEvent) : Void {
     }
 
     // throws Exception
-    public override function special1(layerManager : AllBinaryLayerManager, gameKeyEvent : GameKeyEvent) : Void {
+    public function special1(layerManager : AllBinaryLayerManager, gameKeyEvent : GameKeyEvent) : Void {
     }
 
     // throws Exception
-    public override function special2(layerManager : AllBinaryLayerManager, gameKeyEvent : GameKeyEvent) : Void {
+    public function special2(layerManager : AllBinaryLayerManager, gameKeyEvent : GameKeyEvent) : Void {
     }
 
     // throws Exception
-    public override function special3(layerManager : AllBinaryLayerManager, gameKeyEvent : GameKeyEvent) : Void {
+    public function special3(layerManager : AllBinaryLayerManager, gameKeyEvent : GameKeyEvent) : Void {
     }
 
     // throws Exception
-    public override function special4(layerManager : AllBinaryLayerManager, gameKeyEvent : GameKeyEvent) : Void {
+    public function special4(layerManager : AllBinaryLayerManager, gameKeyEvent : GameKeyEvent) : Void {
     }
 
     // throws Exception
-    public override function special5(layerManager : AllBinaryLayerManager, gameKeyEvent : GameKeyEvent) : Void {
+    public function special5(layerManager : AllBinaryLayerManager, gameKeyEvent : GameKeyEvent) : Void {
     }
 
     // throws Exception
@@ -216,11 +216,11 @@ class CollidableDestroyableDamageableLayer extends CollidableCompositeLayer impl
     public function onDestroyed(destroyedEvent : DestroyedEvent) : Void {
     }
 
-    public override function getPickupBehavior() : PickupBehavior {
+    public function getPickupBehavior() : PickupBehavior {
         return this.pickupBehavior;
     }
 
-    public override function setPickupBehavior(pickupBehavior : PickupBehavior) : Void {
+    public function setPickupBehavior(pickupBehavior : PickupBehavior) : Void {
         this.pickupBehavior = pickupBehavior;
     }
 
@@ -267,7 +267,7 @@ class CollidableDestroyableDamageableLayer extends CollidableCompositeLayer impl
         stringBuffer.appendint(this.initZ);
     }
 
-    public function toString() : String {
+    public override function toString() : String {
         final stringBuffer : StringMaker = new StringMaker();
         this.toStringAppend(stringBuffer);
         return Std.string(stringBuffer);

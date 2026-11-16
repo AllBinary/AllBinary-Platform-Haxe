@@ -30,7 +30,7 @@ import org.apache.xmlrpc.XmlRpcClient;
 import org.apache.xmlrpc.XmlRpcException;
 
 class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient {
-    public final logUtil : LogUtil = LogUtil.getInstance();
+    public final logUtil_XmlRpcRemoteHighScoresClient : LogUtil = LogUtil.getInstance();
     private var page : String;
     public function new(clientInfo : AbeClientInformationInterface, page : String, remoteMethod : String) {
         super(clientInfo, remoteMethod);
@@ -39,7 +39,7 @@ class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient {
     }
 
     // throws Exception
-    public function get(anyType : Any, cryptInterface : CryptInterface) : Any {
+    public override function get(anyType : Any, cryptInterface : CryptInterface) : Any {
         try {
             var param : BasicArrayList = new BasicArrayListD();
             var serverUrl : String = getClientInfo().getLicenseServer(this.getServer());
@@ -47,32 +47,32 @@ class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient {
             serverUrl = serverUrl.substring(0, index + 1) + this.page;
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append(TRYING);
-            stringBuffer.appendint(Std.int(this.getServer()));
+            stringBuffer.appendint(jre.lang.JavaNumber.toInt(this.getServer()));
             stringBuffer.append(SEP);
             stringBuffer.append(serverUrl);
-            this.logUtil.putF(Std.string(stringBuffer), this, this.commonStrings.GET);
+            this.logUtil_XmlRpcRemoteHighScoresClient.putF(Std.string(stringBuffer), this, this.commonStrings.GET);
             final xmlRpcClient : XmlRpcClient = new XmlRpcClient(serverUrl);
             this.setClient(xmlRpcClient);
             xmlRpcClient.setBasicAuthentication(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING);
             var hashtable : ABHashtable<Any, Any> = (cast anyType : ABHashtable<Any, Any>);
-            this.logUtil.putF(CLIENT_INFO + Std.string(hashtable), this, this.commonStrings.GET);
+            this.logUtil_XmlRpcRemoteHighScoresClient.putF(CLIENT_INFO + Std.string(hashtable), this, this.commonStrings.GET);
             param.add(hashtable);
             var result : Any = xmlRpcClient.executeWithCrypt(this.getRemoteMethod(), param, cryptInterface);
-            this.logUtil.putF(RESULT + Std.string(result), this, this.commonStrings.GET);
+            this.logUtil_XmlRpcRemoteHighScoresClient.putF(RESULT + Std.string(result), this, this.commonStrings.GET);
             isOnline = true;
             return result;
         } catch (e : IOException) {
-            this.logUtil.put(TRYING_OTHER_SERVERS + ExceptionUtil.getInstance().getStackTrace(e), this, this.commonStrings.GET, e);
+            this.logUtil_XmlRpcRemoteHighScoresClient.put(TRYING_OTHER_SERVERS + ExceptionUtil.getInstance().getStackTrace(e), this, this.commonStrings.GET, e);
             if (!e.message.startsWith(HOST_NOT_RESOLVED)) {
                 return this.tryAnother(anyType);
             } else {
                 throw new jre.lang.JavaException(HOST_NOT_RESOLVED_MSG);
             }
         } catch (e : XmlRpcException) {
-            this.logUtil.put(SERVER_REPORTED_ERROR, this, this.commonStrings.GET, e);
+            this.logUtil_XmlRpcRemoteHighScoresClient.put(SERVER_REPORTED_ERROR, this, this.commonStrings.GET, e);
             return this.tryAnother(anyType);
         } catch (e : haxe.Exception) {
-            this.logUtil.put(UNKNOWN_ERROR, this, this.commonStrings.GET, e);
+            this.logUtil_XmlRpcRemoteHighScoresClient.put(UNKNOWN_ERROR, this, this.commonStrings.GET, e);
             return this.tryAnother(anyType);
         }
     }

@@ -29,14 +29,14 @@ class BasicColorCacheFactory {
     }
 
     public function add(basicDefaultColor : BasicColor) : Void {
-        this.hashtable.put(Std.int(basicDefaultColor), basicDefaultColor);
+        this.hashtable.put(basicDefaultColor.intValue(), basicDefaultColor);
     }
 
     // synchronized
     public function getAndOrCreate(integer : Null<Int>) : BasicColor {
         var basicColor : BasicColor = (cast this.hashtable.get(integer) : BasicColor);
         if (basicColor == null) {
-            basicColor = BasicColorFactory.getInstance().createInstance(Std.int(integer));
+            basicColor = BasicColorFactory.getInstance().createInstance(jre.lang.JavaNumber.toInt(integer));
             this.hashtable.put(integer, basicColor);
         }
         return basicColor;

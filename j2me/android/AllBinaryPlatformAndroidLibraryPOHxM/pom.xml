@@ -27,25 +27,25 @@
 
     <modules>
 
-        <module>../../../j2me/AndroidBaseJavaLibraryHxM</module>
-        <module>../../../j2me/input/platform/android/GameInputAndroidBaseJavaLibraryHxM</module>
-        <module>../../../j2me/android/AndroidThroughAPI4JavaLibraryHxM</module>
-        <module>../../../j2me/android/AndroidAPI5AndUpJavaLibraryHxM</module>
-        <module>../../../j2me/android/AndroidAPI16UpTo19JavaLibraryHxM</module>        
-        <module>../../../j2me/android/AndroidAPI19UpTo29JavaLibraryHxM</module>
+        <!--<module>../../../j2me/AndroidBaseJavaLibraryHxM</module>-->
+        <!--<module>../../../j2me/input/platform/android/GameInputAndroidBaseJavaLibraryHxM</module>-->
+        <!--<module>../../../j2me/android/AndroidThroughAPI4JavaLibraryHxM</module>-->
+        <!--<module>../../../j2me/android/AndroidAPI5AndUpJavaLibraryHxM</module>-->
+        <!--<module>../../../j2me/android/AndroidAPI16UpTo19JavaLibraryHxM</module>-->        
+        <!--<module>../../../j2me/android/AndroidAPI19UpTo29JavaLibraryHxM</module>-->
         
-        <module>../../../j2me/input/android/MotionInputAndroidJavaLibraryHxM</module>
-        <module>../../../j2me/input/android/MotionInputAPI5AndUpAndroidJavaLibraryHxM</module>
-        <module>../../../j2me/input/android/MotionInputThroughAPI4AndroidJavaLibraryHxM</module>
+        <!--<module>../../../j2me/input/android/MotionInputAndroidJavaLibraryHxM</module>-->
+        <!--<module>../../../j2me/input/android/MotionInputAPI5AndUpAndroidJavaLibraryHxM</module>-->
+        <!--<module>../../../j2me/input/android/MotionInputThroughAPI4AndroidJavaLibraryHxM</module>-->
         
 <!--        <module>../j2me/input/android/MotionInputAndroidxAPI21OnUpDynamicJavaLibraryHxM</module>-->
-        <module>../../../j2me/input/android/MotionInputAndroidDynamicJavaLibraryHxM</module>
+        <!--<module>../../../j2me/input/android/MotionInputAndroidDynamicJavaLibraryHxM</module>-->
 
-        <module>../../../j2me/android/AndroidAPI3AndUpJavaLibraryHxM</module>
-        <module>../../../j2me/FullScreenAndroidJavaLibraryHxM</module>
+        <!--<module>../../../j2me/android/AndroidAPI3AndUpJavaLibraryHxM</module>-->
+        <!--<module>../../../j2me/FullScreenAndroidJavaLibraryHxM</module>-->
         
                 
-        <module>../../../j2me/AndroidToJ2MELibraryHxM</module>
+        <!--<module>../../../j2me/AndroidToJ2MELibraryHxM</module>-->
                 
     </modules>
 

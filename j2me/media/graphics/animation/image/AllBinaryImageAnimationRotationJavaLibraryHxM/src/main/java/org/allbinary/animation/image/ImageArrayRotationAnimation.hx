@@ -34,7 +34,7 @@ class ImageArrayRotationAnimation extends ImageArrayBaseRotationAnimation {
 
     // throws Exception
     private function initImageArray(imageArray : haxe.ds.Vector<Image>, angleInfo : AngleInfo, totalAngle : Int) : Void {
-        this.expectedTotalFrames = totalAngle / this.angleInfo.getAngleIncrementInfo().getAngleIncrement();
+        this.expectedTotalFrames = jre.lang.JavaNumber.divide(totalAngle, this.angleInfo.getAngleIncrementInfo().getAngleIncrement());
         this.angleInfo.adjustAngle(0);
         if (this.expectedTotalFrames != this.getSize()) {
             throw new jre.lang.JavaException("Wrong Number of Frames");

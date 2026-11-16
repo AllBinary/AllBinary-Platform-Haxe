@@ -65,16 +65,16 @@ class IndexedBasicArrayListCache extends BaseBasicArrayListCache implements Cach
     }
 
     // throws Exception
-    public override function add(cacheableInterface : CacheableInterface) : Void {
+    public function add(cacheableInterface : CacheableInterface) : Void {
         this.list.add(cacheableInterface);
     }
 
     // throws Exception
-    public override function addArray(cacheableInterfaces : haxe.ds.Vector<CacheableInterface>) : Void {
+    public function addArray(cacheableInterfaces : haxe.ds.Vector<CacheableInterface>) : Void {
         throw new jre.lang.JavaException("No Imple");
     }
 
-    public override function clear() : Void {
+    public function clear() : Void {
         this.index = 0;
     }
 

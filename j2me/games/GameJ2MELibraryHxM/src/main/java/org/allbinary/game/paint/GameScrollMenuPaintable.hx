@@ -36,7 +36,7 @@ class GameScrollMenuPaintable extends BasicGameDemoPaintable implements ColorCha
         this.setCurrentStatePaintable(this.getMainDemoStatePaintable());
     }
 
-    public override function onEvent(eventObject : AllBinaryEventObject) : Void {
+    public function onEvent(eventObject : AllBinaryEventObject) : Void {
     }
 
     public function setColor(basicColor : BasicColor) : Void {

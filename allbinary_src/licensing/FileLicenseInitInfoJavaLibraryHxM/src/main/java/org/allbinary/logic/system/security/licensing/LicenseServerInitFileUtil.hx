@@ -50,7 +50,7 @@ class LicenseServerInitFileUtil {
         try {
             final resourceUtil : ResourceUtil = ResourceUtil.getInstance();
             final filePath : String = LicenseInitInfoUtil.getInstance().INITFILENAME;
-            final inputStream : InputStream = resourceUtil.getResourceAsStream(filePath);
+            final inputStream : InputStream = jre.lang.ClassLoader.getSystemResourceAsStream(filePath);
             this.logUtil.putF("Writing Default License File", this, this.commonStrings.INIT);
             final fileStreamFactory : FileStreamFactory = FileStreamFactory.getInstance();
             fileOutputStream = fileStreamFactory.getFileOutputStreamInstance(StringUtil.getInstance().EMPTY_STRING, filePath);

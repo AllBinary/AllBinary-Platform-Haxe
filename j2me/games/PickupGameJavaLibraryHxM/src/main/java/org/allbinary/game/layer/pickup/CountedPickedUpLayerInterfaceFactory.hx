@@ -23,7 +23,7 @@ import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 
 class CountedPickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactory implements CountedPickedUpLayerInterfaceFactoryInterface {
-    public static final NULL_COUNTED_PICKUP_LAYER_FACTORY : CountedPickedUpLayerInterfaceFactory = new CountedPickedUpLayerInterfaceFactory(PickedUpLayerTypeFactory.getInstance().NONE, IconLayer.NULL_ICON_LAYER, NullAnimationFactory.getFactoryInstance().getInstance(0));
+    public static final NULL_COUNTED_PICKUP_LAYER_FACTORY : CountedPickedUpLayerInterfaceFactory = new CountedPickedUpLayerInterfaceFactory(PickedUpLayerTypeFactory.getInstance().NONE, IconLayer.NULL_ICON_LAYER, NullAnimationFactory.getFactoryInstance().getInstanceFor(0));
     private final id : Int;
     public function new(pickeUpLayerType : PickedUpLayerType, iconLayer : IconLayer, animationInterface : Animation) {
         super(pickeUpLayerType, iconLayer, animationInterface);
@@ -33,15 +33,15 @@ class CountedPickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactory
     }
 
     // throws Exception
-    public override function getNextInstance(hashtable : ABHashtable<Any, Any>, x : Int, y : Int, z : Int) : AllBinaryLayer {
+    public function getNextInstance(hashtable : ABHashtable<Any, Any>, x : Int, y : Int, z : Int) : AllBinaryLayer {
         throw new jre.lang.JavaException(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
-    public override function getTotal() : Int {
+    public function getTotal() : Int {
         return -1;
     }
 
-    public override function getId() : Int {
+    public function getId() : Int {
         return this.id;
     }
 

@@ -42,7 +42,7 @@ class ObjectPermutationVisitor extends Visitor {
         final tsUtil : TsUtil = TsUtil.getInstance();
         final size : Int = data.length;
         for (i in 0...size) {
-            stringBuilder.appendint(Std.int(tsUtil.hashCode(data[i])));
+            stringBuilder.appendint(jre.lang.JavaNumber.toInt(tsUtil.hashCode(data[i])));
             stringBuilder.append(CommonSeps.getInstance().SPACE);
         }
         trace(Std.string(stringBuilder));

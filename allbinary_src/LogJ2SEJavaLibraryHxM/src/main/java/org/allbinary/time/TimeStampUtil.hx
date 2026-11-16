@@ -15,7 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.time;
 
-//import java.text.SimpleDateFormat;
+import jre.text.SimpleDateFormat;
 import jre.util.Calendar;
 import jre.util.Date;
 

@@ -25,25 +25,25 @@ class DirectoryOrIncludeFileExtensionBooleanFileVisitor extends IncludeFileExten
         if (args.length == 1) {
             final filterStringBasicArrayList : BasicArrayList = args[0];
             super(filterStringBasicArrayList);
-            this._new0(filterStringBasicArrayList);
+            this._newDirectoryOrIncludeFileExtensionBooleanFileVisitor0(filterStringBasicArrayList);
         }
         else if (args.length == 2) {
             final filterStringBasicArrayList : BasicArrayList = args[0];
             final includesString : String = args[1];
             super(filterStringBasicArrayList);
-            this._new1(filterStringBasicArrayList, includesString);
+            this._newDirectoryOrIncludeFileExtensionBooleanFileVisitor1(filterStringBasicArrayList, includesString);
         }
     }
 
-    private function _new0(filterStringBasicArrayList : BasicArrayList) : Void {
+    private function _newDirectoryOrIncludeFileExtensionBooleanFileVisitor0(filterStringBasicArrayList : BasicArrayList) : Void {
         this.includesString = null;
     }
 
-    private function _new1(filterStringBasicArrayList : BasicArrayList, includesString : String) : Void {
+    private function _newDirectoryOrIncludeFileExtensionBooleanFileVisitor1(filterStringBasicArrayList : BasicArrayList, includesString : String) : Void {
         this.includesString = includesString;
     }
 
-    public override function visit(file : AbFile) : Null<Bool> {
+    public override function visit_AbFile(file : AbFile) : Null<Bool> {
         if (file.isDirectory()) {
             return true;
         }

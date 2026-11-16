@@ -16,7 +16,7 @@ class CustomCustomItem extends ABCustomItem implements UpdateMyFontInterface {
         this.myFontProcessor = this.updateMyFontProcessor;
     }
 
-    public override function updateMeasurement(graphics : Graphics) : Void {
+    public function updateMeasurement(graphics : Graphics) : Void {
     }
 
 }

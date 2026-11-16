@@ -18,7 +18,7 @@ package org.allbinary.game.score;
 import org.allbinary.game.score.displayable.HighScoresCanvas;
 
 class HighScoresCanvasNoInputProcessorFactory implements HighScoresCanvasInputProcessorFactoryInterface {
-    public function getInstance(highScoresCanvas : HighScoresCanvas) : HighScoresCanvasInputProcessor {
+    public function getInstanceFor(highScoresCanvas : HighScoresCanvas) : HighScoresCanvasInputProcessor {
         return new HighScoresCanvasInputProcessor(highScoresCanvas);
     }
 

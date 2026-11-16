@@ -30,7 +30,7 @@ import org.allbinary.util.ABHashtable;
 
 class TopUBoundBounceAIFactory implements ArtificialIntelligenceInterfaceFactoryInterface {
     // throws Exception
-    public function getInstance(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
+    public function getInstanceFor(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
         final velocityInterfaceCompositeInterface : VelocityInterfaceCompositeInterface = (cast ownerLayerInterface : VelocityInterfaceCompositeInterface);
         final velocityInterface : VelocityInterface = (cast velocityInterfaceCompositeInterface.getVelocityProperties() : VelocityInterface);
         final maxDistancePerTick : Int = (velocityInterface.getMaxForwardVelocity() >> velocityInterface.getVelocityXBasicDecimalP().getScaledFactor());

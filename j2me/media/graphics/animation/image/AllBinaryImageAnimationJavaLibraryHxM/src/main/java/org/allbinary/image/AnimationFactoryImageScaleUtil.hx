@@ -60,8 +60,8 @@ class AnimationFactoryImageScaleUtil {
             final scaleY : Float = (scaleProperties.scaleHeight) / (animationFactoryInitializationVisitor.height);
             if ((scaleX == 1.0 && scaleY == 1.0) || (scaleX == 0.0 || scaleY == 0.0)) {
             } else {
-                animationFactoryInitializationVisitor.dx = Std.int((animationFactoryInitializationVisitor.originalDx * scaleX));
-                animationFactoryInitializationVisitor.dy = Std.int((animationFactoryInitializationVisitor.originalDy * scaleY));
+                animationFactoryInitializationVisitor.dx = jre.lang.JavaNumber.toInt((animationFactoryInitializationVisitor.originalDx * scaleX));
+                animationFactoryInitializationVisitor.dy = jre.lang.JavaNumber.toInt((animationFactoryInitializationVisitor.originalDy * scaleY));
             }
         } else {
         }

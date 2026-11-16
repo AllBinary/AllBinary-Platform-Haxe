@@ -26,21 +26,21 @@ class DynamicInitDb extends InitDb {
         if (args.length == 1) {
             final abeClientInformation : AbeClientInformationInterface = args[0];
             super();
-            this._new0(abeClientInformation);
+            this._newDynamicInitDb0(abeClientInformation);
         }
         else if (args.length == 2) {
             final abeClientInformation : AbeClientInformationInterface = args[0];
             final databaseConnectionInfoInterface : DatabaseConnectionInfoInterface = args[1];
             super();
-            this._new1(abeClientInformation, databaseConnectionInfoInterface);
+            this._newDynamicInitDb1(abeClientInformation, databaseConnectionInfoInterface);
         }
     }
 
-    private function _new0(abeClientInformation : AbeClientInformationInterface) : Void {
+    private function _newDynamicInitDb0(abeClientInformation : AbeClientInformationInterface) : Void {
         this.setHelper(InitDbHelperFactory.getInstance(abeClientInformation));
     }
 
-    private function _new1(abeClientInformation : AbeClientInformationInterface, databaseConnectionInfoInterface : DatabaseConnectionInfoInterface) : Void {
+    private function _newDynamicInitDb1(abeClientInformation : AbeClientInformationInterface, databaseConnectionInfoInterface : DatabaseConnectionInfoInterface) : Void {
         this.setHelper(InitDbHelperFactory.getInstance(abeClientInformation, databaseConnectionInfoInterface));
     }
 

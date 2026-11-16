@@ -22,7 +22,7 @@ import org.allbinary.graphics.color.ColorCompositeInterface;
 import org.allbinary.math.AngleFactory;
 
 class CircleAnimation extends Animation implements ColorCompositeInterface {
-    public final TOTAL_ANGLE : Int = Std.int(AngleFactory.getInstance().TOTAL_ANGLE);
+    public final TOTAL_ANGLE : Int = jre.lang.JavaNumber.toInt(AngleFactory.getInstance().TOTAL_ANGLE);
     public var width : Int;
     public var height : Int;
     public function new(width : Int, height : Int, basicColor : BasicColor) {

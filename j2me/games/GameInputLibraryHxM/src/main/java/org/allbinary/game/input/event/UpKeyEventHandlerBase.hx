@@ -85,7 +85,7 @@ class UpKeyEventHandlerBase extends BasicEventHandler {
 
     private static final TOTAL_LISTENERS : String = " Total PlayerGameInput Listeners: ";
     private static final LISTENER_LABEL : String = " PlayerGameInput Listener: ";
-    public function toString() : String {
+    public override function toString() : String {
         final stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append(super.toString());
         stringBuffer.append(UpKeyEventHandlerBase.TOTAL_LISTENERS);

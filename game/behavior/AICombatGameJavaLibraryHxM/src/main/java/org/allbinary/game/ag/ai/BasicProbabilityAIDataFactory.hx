@@ -21,7 +21,7 @@ import org.allbinary.time.NoTimeDelayHelper;
 import org.allbinary.util.ABHashtable;
 
 class BasicProbabilityAIDataFactory {
-    public function getInstance() : ABHashtable<Any, Any> {
+    public function getInstanceFor() : ABHashtable<Any, Any> {
         final likelyhoodIntegerArray : haxe.ds.Vector<haxe.ds.Vector<Null<Int>>> = haxe.ds.Vector.fromArrayCopy([for (index in 0...Canvas.KEY_NUM9 + 1) haxe.ds.Vector.fromArrayCopy([for (index2 in 0...2) null])]);
         final smallIntegerSingletonFactory : SmallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         likelyhoodIntegerArray[Canvas.UP][0] = smallIntegerSingletonFactory.getAt(0);

@@ -535,7 +535,7 @@ class GameMidlet extends ProgressMidlet implements CommandListener {
     public function startGameCanvasRunnableInterface() : Void {
         final threadFactoryUtil : ThreadFactoryUtil = ThreadFactoryUtil.getInstance();
         this.thread = threadFactoryUtil.getInstanceGameCanvasRunnable(this.allbinaryGameCanvasRunnableInterface);
-        this.logUtil.putF(Std.string(new StringMaker().append("Thread Priority: ").appendint(Std.int(this.thread.getPriority()))), this, "startGameCanvasRunnableInterface");
+        this.logUtil.putF(Std.string(new StringMaker().append("Thread Priority: ").appendint(jre.lang.JavaNumber.toInt(this.thread.getPriority()))), this, "startGameCanvasRunnableInterface");
         this.allbinaryGameCanvasRunnableInterface.setThread(this.thread);
         threadFactoryUtil.start(this.thread);
     }

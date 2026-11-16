@@ -23,7 +23,7 @@ import org.allbinary.util.ABHashtable;
 
 class HorizontalScreenPatrolFiringAIFactory implements ArtificialIntelligenceInterfaceFactoryInterface {
     // throws Exception
-    public function getInstance(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
+    public function getInstanceFor(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
         return new HorizontalScreenPatrolAI(hashtable, ownerLayerInterface, gameInput);
     }
 

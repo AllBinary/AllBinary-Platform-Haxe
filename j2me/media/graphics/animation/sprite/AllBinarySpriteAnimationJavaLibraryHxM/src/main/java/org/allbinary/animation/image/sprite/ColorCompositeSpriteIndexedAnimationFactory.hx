@@ -34,14 +34,14 @@ class ColorCompositeSpriteIndexedAnimationFactory extends BaseImageAnimationFact
     }
 
     // throws Exception
-    public override function getInstance(instanceId : Int) : Animation {
+    public override function getInstanceFor(instanceId : Int) : Animation {
         final sprite : Sprite = this.animationFactorySpriteScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         return new SpriteIndexedAnimation(sprite, this.getImage(), this.basicColorArray, this.animationBehaviorFactory.getOrCreateInstance());
     }
 
     // throws Exception
-    public override function getInstanceAnimation(animationInterface : Animation) : Animation {
-        return this.getInstance(0);
+    public function getInstanceAnimation(animationInterface : Animation) : Animation {
+        return this.getInstanceFor(0);
     }
 
 }

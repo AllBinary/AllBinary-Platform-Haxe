@@ -18,7 +18,7 @@ package org.allbinary.logic.util.cache;
 
 class BasicArrayListCacheableInterfaceFactory implements CacheableInterfaceFactoryInterface {
     // throws Exception
-    public function getInstance(key : Any) : CacheableInterface {
+    public function getInstanceFor(key : Any) : CacheableInterface {
         return new BasicArrayListCacheable();
     }
 

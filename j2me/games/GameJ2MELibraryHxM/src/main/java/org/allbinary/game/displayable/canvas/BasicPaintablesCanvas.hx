@@ -28,7 +28,7 @@ class BasicPaintablesCanvas extends GameCommandCanvas {
     public function new(cmdListener : CommandListener, name : String, allBinaryGameLayerManager : AllBinaryGameLayerManager, paintableArray : haxe.ds.Vector<Paintable>) {
         super(cmdListener, name, allBinaryGameLayerManager.getBackgroundBasicColor(), allBinaryGameLayerManager.getForegroundBasicColor());
         this.paintableArray = paintableArray;
-        this.colorFillPaintable = ColorFillPaintableFactory.getInstance().getInstance(allBinaryGameLayerManager.getBackgroundBasicColor(), false);
+        this.colorFillPaintable = ColorFillPaintableFactory.getInstance().getInstanceFor(allBinaryGameLayerManager.getBackgroundBasicColor(), false);
     }
 
     public override function paint(graphics : Graphics) : Void {

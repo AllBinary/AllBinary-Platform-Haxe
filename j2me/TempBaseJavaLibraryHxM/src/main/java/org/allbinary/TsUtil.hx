@@ -38,7 +38,7 @@ class TsUtil {
     // throws InterruptedException
     public function waitFor(any : Any, timeoutMillis : haxe.Int64) : Void {
         final anyType : Any = (cast any : Any);
-        anyType.wait(timeoutMillis);
+        jre.lang.JavaObject.wait(anyType, timeoutMillis);
     }
 
     public function compareTo(a : String, b : String) : Int {

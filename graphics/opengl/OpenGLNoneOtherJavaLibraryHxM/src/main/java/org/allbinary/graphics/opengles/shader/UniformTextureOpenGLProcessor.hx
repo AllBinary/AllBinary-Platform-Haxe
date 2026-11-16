@@ -22,7 +22,7 @@ class UniformTextureOpenGLProcessor extends OpenGLObject3dProcessor {
         super();
     }
 
-    public override function process(gl : GL10, unused : Any, index : Int) : Void {
+    public override function process_GL10_Any_int(gl : GL10, unused : Any, index : Int) : Void {
     }
 
 }

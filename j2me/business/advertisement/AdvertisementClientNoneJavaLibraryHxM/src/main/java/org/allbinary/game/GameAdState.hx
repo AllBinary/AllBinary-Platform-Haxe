@@ -29,7 +29,7 @@ class GameAdState extends GameAdStateBase implements VirtualKeyboardEventListene
     }
 
     // throws Exception
-    public override function onVirtualKeyboardEvent(virtualKeyboardEvent : VirtualKeyboardEvent) : Void {
+    public function onVirtualKeyboardEvent(virtualKeyboardEvent : VirtualKeyboardEvent) : Void {
     }
 
     public override function onEvent(eventObject : AllBinaryEventObject) : Void {

@@ -29,7 +29,7 @@ import org.allbinary.logic.string.StringMaker;
 class InitInfoEntity extends InitSql {
     private final NAME : String = "InitInfoEntity";
     private final NOTHING : String = "NOTHING";
-    private final tableName : String = "initdata";
+    private final tableName_InitInfoEntity : String = "initdata";
     private final tableData : String;
     private final NOT_IN_DB : String = "Not In DB";
     private final METHOD_GET : String = "get()";
@@ -41,7 +41,7 @@ class InitInfoEntity extends InitSql {
         super(new UserDbInitInfo());
         final stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append(this.sqlStrings.CREATE_TABLE);
-        stringBuffer.append(this.tableName);
+        stringBuffer.append(this.tableName_InitInfoEntity);
         stringBuffer.append(this.sqlStrings.START);
         stringBuffer.append(this.NOTHING);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
@@ -55,7 +55,7 @@ class InitInfoEntity extends InitSql {
         stringBuffer.append(this.NOTHING);
         stringBuffer.append(this.sqlStrings.END);
         this.tableData = Std.string(stringBuffer);
-        this.setTable(this.tableName);
+        this.setTable(this.tableName_InitInfoEntity);
     }
 
     public function get() : Bool {
@@ -120,9 +120,9 @@ class InitInfoEntity extends InitSql {
         }
     }
 
-    public function createTable() : String {
+    public override function createTable() : String {
         if (super.createTable(this.tableData)) {
-            return this.tableName + this.CREATED_SUCCESS;
+            return this.tableName_InitInfoEntity + this.CREATED_SUCCESS;
         } else {
             var stringBuffer : StringMaker = new StringMaker();
             stringBuffer.append(this.FAILED_TO_CREATE);

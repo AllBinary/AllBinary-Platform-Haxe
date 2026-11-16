@@ -18,7 +18,7 @@ package org.allbinary.game.init;
 
 class BasicBuildGameInitializerFactory implements GameInitializationInterfaceFactoryInterface {
     public static var NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY : BasicBuildGameInitializerFactory = new BasicBuildGameInitializerFactory();
-    public function getInstance() : GameInitializationInterface {
+    public function getInstanceFor() : GameInitializationInterface {
         return BaseGameInitialization.NULL_BASE_GAME_INITIALIZATION;
     }
 

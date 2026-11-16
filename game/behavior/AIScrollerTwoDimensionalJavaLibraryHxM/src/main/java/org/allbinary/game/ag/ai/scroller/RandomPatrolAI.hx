@@ -30,7 +30,7 @@ class RandomPatrolAI extends BasePatrolAI {
     }
 
     private function updateRandomDistance() : Void {
-        this.currentDistance = MyRandomFactory.getInstance().getAbsoluteNextInt(Std.int(this.maxDistance));
+        this.currentDistance = MyRandomFactory.getInstance().getAbsoluteNextInt(jre.lang.JavaObject.intValue(this.maxDistance));
     }
 
     // throws Exception

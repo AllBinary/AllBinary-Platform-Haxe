@@ -253,7 +253,7 @@ class FileUtil {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(this.logConfigTypeFactory.FILE)) {
                     stringBuffer.delete(0, stringBuffer.length());
                     stringBuffer.append("Newer by: ");
-                    stringBuffer.appendlong(haxe.Int64.ofInt(fromFile.lastModified() - toFile.lastModified()));
+                    stringBuffer.appendlong(jre.lang.JavaNumber.toInt64(fromFile.lastModified() - toFile.lastModified()));
                     stringBuffer.append("ms ");
                     stringBuffer.append("Copying File: ");
                     stringBuffer.append(toFile.getPath());
@@ -554,7 +554,7 @@ class FileUtil {
             final fileInputStreamFactory : FileStreamFactory = FileStreamFactory.getInstance();
             final fileOutputStream : OutputStream = fileInputStreamFactory.getFileOutputStreamInstance(StringUtil.getInstance().EMPTY_STRING, filePath);
             dataOutputStream = new AbDataOutputStream(fileOutputStream);
-            dataOutputStream.write(haxe.io.Bytes.ofString(string), 0, string.length);
+            dataOutputStream.write(jre.lang.JavaString.getBytes(string), 0, string.length);
             dataOutputStream.flush();
         }
         // Java finally: Haxe has no finally so this always runs after the try

@@ -17,7 +17,7 @@ package org.allbinary.graphics.paint;
 
 
 class PaintableFactory {
-    public function getInstance() : Paintable {
+    public function getInstanceFor() : Paintable {
         return NullPaintable.getInstance();
     }
 

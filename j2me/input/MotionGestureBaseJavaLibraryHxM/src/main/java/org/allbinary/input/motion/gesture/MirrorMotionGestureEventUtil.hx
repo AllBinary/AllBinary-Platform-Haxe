@@ -29,7 +29,7 @@ class MirrorMotionGestureEventUtil {
 
     // throws Exception
     public function mirrorVerticle(motionGestureEvent : MotionGestureEvent, halfWidth : Int) : MotionGestureEvent {
-        final event : MotionGestureEvent = this.motionEventCircularPool.getInstance(motionGestureEvent.getMotionGesture());
+        final event : MotionGestureEvent = this.motionEventCircularPool.getInstanceFor(motionGestureEvent.getMotionGesture());
         final previousNewX : Int = this.getNewX(motionGestureEvent.getPreviousPoint().getX(), halfWidth);
         final currentNewX : Int = this.getNewX(motionGestureEvent.getCurrentPoint().getX(), halfWidth);
         final pointFactory : PointFactory = PointFactory.getInstance();

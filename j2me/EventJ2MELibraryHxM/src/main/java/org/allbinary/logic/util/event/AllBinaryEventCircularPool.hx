@@ -29,7 +29,7 @@ class AllBinaryEventCircularPool extends BaseCircularPool {
         this.circularIndexUtil.setIndex(0);
         var size : Int = this.circularIndexUtil.getSize();
         for (index in 0...size) {
-            this.OBJECT_ARRAY[index] = allBinaryEventObjectFactoryInterface.getInstance();
+            this.OBJECT_ARRAY[index] = allBinaryEventObjectFactoryInterface.getInstanceFor();
         }
     }
 

@@ -39,7 +39,7 @@ class TouchButtonInput extends Input implements GameKeyEventSourceInterface {
 
     public function update(inputToGameKeyMapping : InputToGameKeyMapping) : Void {
         try {
-            var gameKey : GameKey = inputToGameKeyMapping.getInstance(this.getId());
+            var gameKey : GameKey = inputToGameKeyMapping.getInstanceFor(this.getId());
             this.gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(this, gameKey);
         } catch (e : haxe.Exception) {
             final commonStrings : CommonStrings = CommonStrings.getInstance();
@@ -47,7 +47,7 @@ class TouchButtonInput extends Input implements GameKeyEventSourceInterface {
         }
     }
 
-    public override function getSourceId() : Int {
+    public function getSourceId() : Int {
         return this.TOUCH_BUTTON_SOURCE_ID;
     }
 

@@ -257,12 +257,13 @@
                             <executable>${haxe.executable}</executable>
                             <workingDirectory>${project.basedir}/src/main/java</workingDirectory>
                             <arguments>
+                                <!-- Haxe uses the last class path that has a module: the sources of this project win over a dependency like javac -->
                                 <argument>-cp</argument>
-                                <argument>.</argument>
+                                <argument>${haxe.runtime.directory}</argument>
                                 <argument>-cp</argument>
                                 <argument>${haxe.dependency.directory}</argument>
                                 <argument>-cp</argument>
-                                <argument>${haxe.runtime.directory}</argument>
+                                <argument>.</argument>
                                 <argument>--macro</argument>
                                 <argument>include('', true, null, ['.'])</argument>
                                 <argument>${haxe.target}</argument>

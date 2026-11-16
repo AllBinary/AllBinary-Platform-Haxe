@@ -54,7 +54,7 @@ class LoadGameForm extends CommandForm {
         final list : BasicArrayList = GamePersistanceSingleton.getInstance().getIds();
         this.deleteAll();
         if (list.size() > 0) {
-            this.add(list, "Select A Saved Game", Choice.EXCLUSIVE);
+            this.add(list, "Select A Saved Game", javax.microedition.lcdui.Choice.ChoiceFields.EXCLUSIVE);
             this.areChoices = true;
         } else {
             this.meUtil.appendItem(this, new StringItem("No Saved Games", StringUtil.getInstance().EMPTY_STRING, Item.PLAIN));
@@ -96,7 +96,7 @@ class LoadGameForm extends CommandForm {
     public function getSelectedText() : Int {
         if (this.areChoices) {
             final choiceGroup : ChoiceGroup = (cast this.get(0) : ChoiceGroup);
-            final value : Int = Std.int(Std.string(choiceGroup.getString(choiceGroup.getSelectedIndex())));
+            final value : Int = jre.lang.JavaObject.intValue(Std.string(choiceGroup.getString(choiceGroup.getSelectedIndex())));
             return value;
         } else {
             return -1;

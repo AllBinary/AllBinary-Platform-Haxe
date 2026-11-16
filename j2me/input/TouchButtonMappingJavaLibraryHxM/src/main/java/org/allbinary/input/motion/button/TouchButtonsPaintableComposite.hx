@@ -48,7 +48,7 @@ class TouchButtonsPaintableComposite extends ProcessPaintable implements Complet
         this.touchButtonsPaintable = new TouchButtonsMappingPaintable(basicColor);
     }
 
-    public override function onEvent(eventObject : AllBinaryEventObject) : Void {
+    public function onEvent(eventObject : AllBinaryEventObject) : Void {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
@@ -56,7 +56,7 @@ class TouchButtonsPaintableComposite extends ProcessPaintable implements Complet
     private final RELEASE : String = "Ignoring: MotionGestureInput Release";
     private final FAST_REPEAT : String = "Ignoring: MotionGestureInput Repeated To Quickly";
     private final IGNORE : String = "Ignoring: Until Released";
-    public override function onCompleteMotionGestureInputEvent(completeMotionGestureInputEvent : CompleteMotionGestureInputEvent) : Void {
+    public function onCompleteMotionGestureInputEvent(completeMotionGestureInputEvent : CompleteMotionGestureInputEvent) : Void {
         try {
             this.logUtil.putF(this.commonStrings.START, this, "onCompleteMotionGestureInputEvent");
             final touchMotionGestureFactory : TouchMotionGestureFactory = TouchMotionGestureFactory.getInstance();

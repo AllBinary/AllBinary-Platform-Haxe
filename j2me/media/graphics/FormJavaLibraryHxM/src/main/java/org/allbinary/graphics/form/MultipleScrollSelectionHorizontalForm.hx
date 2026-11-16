@@ -26,7 +26,7 @@ class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm implemen
 
     private var rectPaintable : Paintable = NullPaintable.getInstance();
     private var multipleScrollSelectionHorizontalFormTypeItemIndexPaintable : ItemIndexPaintable = ItemIndexPaintable.getInstance();
-    private final backgroundColor : Int = Std.int(BasicColorFactory.getInstance().TRANSPARENT_GREY);
+    private final backgroundColor : Int = jre.lang.JavaObject.intValue(BasicColorFactory.getInstance().TRANSPARENT_GREY);
     private var myFontProcessor : MyFontProcessor;
     private var logged : Bool = false;
     private var fontHeight : Int = 0;
@@ -58,7 +58,7 @@ class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm implemen
         }
     }
 
-    public override function updateMeasurement(graphics : Graphics) : Void {
+    public function updateMeasurement(graphics : Graphics) : Void {
         final font : Font = graphics.getFont();
         this.fontHeight = font.getHeight();
         this.myFontProcessor = MyFontProcessor.getInstance();
@@ -99,7 +99,7 @@ class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm implemen
                     if (this.logged) {
                     } else {
                         this.logged = true;
-                        PreLogUtil.put(Std.string(new StringMaker().append("painting beyond maxx: ").appendint(Std.int(this.rectangle.getMaxX()))), this, this.canvasStrings.PAINT);
+                        PreLogUtil.put(Std.string(new StringMaker().append("painting beyond maxx: ").appendint(jre.lang.JavaNumber.toInt(this.rectangle.getMaxX()))), this, this.canvasStrings.PAINT);
                     }
                 }
                 dx = this.multipleScrollSelectionHorizontalFormTypeItemIndexPaintable.paint(graphics, index, item, dx, dy);

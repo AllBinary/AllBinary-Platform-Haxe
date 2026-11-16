@@ -18,7 +18,7 @@ package org.allbinary.game.part.weapon;
 
 interface BasicWeaponPartFactoryInterface {
     // throws Exception
-    function getInstance() : BasicWeaponPart;
+    function getInstanceFor() : BasicWeaponPart;
 
 }
 

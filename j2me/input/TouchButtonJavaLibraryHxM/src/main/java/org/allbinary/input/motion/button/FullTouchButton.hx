@@ -25,7 +25,7 @@ import org.allbinary.graphics.Rectangle;
 class FullTouchButton extends TouchButton {
     // throws Exception
     public static function createButton(touchButtonInput : TouchButtonInput, touchButtonResource : TouchButtonResource, rawRectangle : Rectangle, cellPosition : CellPosition, xBorder : Int, yBorder : Int) : FullTouchButton {
-        return new FullTouchButton(touchButtonInput, FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(touchButtonResource.RESOURCE).getInstance(0), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(touchButtonResource.HINT).getInstance(0), rawRectangle, cellPosition, xBorder, yBorder);
+        return new FullTouchButton(touchButtonInput, FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(touchButtonResource.RESOURCE).getInstanceFor(0), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(touchButtonResource.HINT).getInstanceFor(0), rawRectangle, cellPosition, xBorder, yBorder);
     }
 
     public function new(touchButtonInput : TouchButtonInput, animationInterface : Animation, hintAnimationInterface : Animation, rawRectangle : Rectangle, cellPosition : CellPosition, xBorder : Int, yBorder : Int) {

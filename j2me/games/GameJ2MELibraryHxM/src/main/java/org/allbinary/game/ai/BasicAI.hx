@@ -84,7 +84,7 @@ class BasicAI extends ArtificialIntelligence implements GameKeyEventSourceInterf
         return Std.string(stringBuffer);
     }
 
-    public override function getSourceId() : Int {
+    public function getSourceId() : Int {
         return 1;
     }
 

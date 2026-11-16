@@ -52,7 +52,7 @@ class AboutPaintable extends Paintable implements UpdateMyFontInterface {
         this.developersBeginWidth = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.developers.length) 0]);
     }
 
-    public override function updateMeasurement(graphics : Graphics) : Void {
+    public function updateMeasurement(graphics : Graphics) : Void {
         final font : Font = graphics.getFont();
         this.charHeight = font.getHeight();
         this.aboutBeginWidth = (font.stringWidth(this.ABOUT) >> 1);

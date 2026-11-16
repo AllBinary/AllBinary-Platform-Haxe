@@ -31,7 +31,7 @@ class BasicNeededTouchButtonsBuilder extends BaseTouchInput {
             final touchButtonLocationHelper : TouchButtonLocationHelper = new TouchButtonLocationHelper();
             final basicTouchButtonCellPositionFactory : BasicTouchButtonCellPositionFactory = new BasicTouchButtonCellPositionFactory();
             final commonButtons : CommonButtons = CommonButtons.getInstance();
-            final animationInterface : Animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
+            final animationInterface : Animation = NullAnimationFactory.getFactoryInstance().getInstanceFor(0);
             var UP : TouchButton = new TouchButton(BasicTouchInputFactory.getInstance().UP, animationInterface, animationInterface, commonButtons.NORMAL_BUTTON, basicTouchButtonCellPositionFactory.SECOND_FROM_BOTTOM_LEFT, touchButtonLocationHelper.getColumnsRemainderHalf(), touchButtonLocationHelper.getRowsRemainderHalf());
             var DOWN : TouchButton = new TouchButton(BasicTouchInputFactory.getInstance().DOWN, animationInterface, animationInterface, commonButtons.NORMAL_BUTTON, basicTouchButtonCellPositionFactory.BOTTOM_LEFT, touchButtonLocationHelper.getColumnsRemainderHalf(), touchButtonLocationHelper.getRowsRemainderHalf());
             var LEFT : TouchButton = new TouchButton(BasicTouchInputFactory.getInstance().LEFT, animationInterface, animationInterface, commonButtons.NORMAL_BUTTON, basicTouchButtonCellPositionFactory.BOTTOM_SECOND_FROM_RIGHT, touchButtonLocationHelper.getColumnsRemainderHalf(), touchButtonLocationHelper.getRowsRemainderHalf());

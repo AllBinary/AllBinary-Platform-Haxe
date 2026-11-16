@@ -28,7 +28,7 @@ import org.allbinary.util.CircularIndexUtil;
 class ImageBaseRotationAnimation extends RotationAnimation {
     private final image : Image;
     public function new(image : Image, angleInfo : AngleInfo, totalAngle : Int, animationBehavior : AnimationBehavior) {
-        super(angleInfo, CircularIndexUtil.createInstance(totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
+        super(angleInfo, CircularIndexUtil.createInstance(jre.lang.JavaNumber.divide(totalAngle, angleInfo.getAngleIncrementInfo().getAngleIncrement())), animationBehavior);
         this.image = image;
     }
 
@@ -67,7 +67,7 @@ class ImageBaseRotationAnimation extends RotationAnimation {
     }
 
     // throws Throwable
-    public override function finalize() : Void {
+    public function finalize() : Void {
         DisposalUtil.getInstance().disposeImage(this.image);
     }
 

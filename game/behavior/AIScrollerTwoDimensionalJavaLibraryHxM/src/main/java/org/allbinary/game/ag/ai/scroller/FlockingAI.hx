@@ -32,7 +32,7 @@ class FlockingAI extends BasicAI {
     public function new(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) {
         super(ownerLayerInterface, gameInput);
         final allowedDistance : Null<Int> = (cast hashtable.get(BasePatrolAI.MAX_DISTANCE) : Null<Int>);
-        this.allowedDistance = Std.int(allowedDistance);
+        this.allowedDistance = allowedDistance.intValue();
     }
 
     // throws Exception

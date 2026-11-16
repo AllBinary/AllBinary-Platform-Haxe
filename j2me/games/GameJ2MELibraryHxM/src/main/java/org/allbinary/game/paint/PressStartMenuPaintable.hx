@@ -52,7 +52,7 @@ class PressStartMenuPaintable extends Paintable implements UpdateMyFontInterface
     private var anchor : Int = Anchor.TOP_LEFT;
     private var beginWidth : Int = 0;
     private var line : Int = 0;
-    public override function updateMeasurement(graphics : Graphics) : Void {
+    public function updateMeasurement(graphics : Graphics) : Void {
         final font : Font = graphics.getFont();
         this.beginWidth = (graphics.getFont().stringWidth(this.startString) >> 1);
         this.line = (4 * MyFontProcessor.defaultCharWidth(font)) + (font.getHeight() >> 1);

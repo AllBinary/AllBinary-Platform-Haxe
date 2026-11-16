@@ -40,9 +40,9 @@ class ConstantVelocityNotifyViewChangeMovement extends Movement {
 
     public function moveOutsideRadius(layer : AllBinaryLayer, radius : haxe.Int64, angle : Int, otherAngle : Int) : Void {
         var scaleFactorValue : Int = this.speedBasicDecimal.getScaledFactorValue();
-        var xVector : Int = Std.int((this.axisMathVectorUtil.calculateX(radius, angle) / scaleFactorValue));
-        var yVector : Int = Std.int((this.axisMathVectorUtil.calculateY(radius, angle) / scaleFactorValue));
-        var zVector : Int = Std.int((this.axisMathVectorUtil.calculateZ(radius, otherAngle) / scaleFactorValue));
+        var xVector : Int = jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide(this.axisMathVectorUtil.calculateX(radius, angle), scaleFactorValue)));
+        var yVector : Int = jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide(this.axisMathVectorUtil.calculateY(radius, angle), scaleFactorValue)));
+        var zVector : Int = jre.lang.JavaNumber.toInt((jre.lang.JavaNumber.divide(this.axisMathVectorUtil.calculateZ(radius, otherAngle), scaleFactorValue)));
         layer.moveDXYZ(xVector, yVector, zVector);
     }
 

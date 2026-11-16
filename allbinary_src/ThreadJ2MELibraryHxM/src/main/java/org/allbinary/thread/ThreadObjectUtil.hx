@@ -11,12 +11,12 @@ class ThreadObjectUtil {
 
     public final NULL_PRIORITY_RUNNABLE : PriorityRunnable = new NullPriorityRunnable();
     public function notifyObject(anyType : Any) : Void {
-        anyType.notify();
+        jre.lang.JavaObject.notify(anyType);
     }
 
     // throws Exception
     public function waitObject(anyType : Any) : Void {
-        anyType.wait();
+        jre.lang.JavaObject.wait(anyType);
     }
 
     // throws Exception

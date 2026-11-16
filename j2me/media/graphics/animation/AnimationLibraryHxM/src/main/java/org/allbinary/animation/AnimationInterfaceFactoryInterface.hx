@@ -19,7 +19,7 @@ import org.allbinary.media.ScaleProperties;
 
 interface AnimationInterfaceFactoryInterface extends BasicAnimationInterfaceFactoryInterface {
     // throws Exception
-    function getInstance(instanceId : Int) : Animation;
+    function getInstanceFor(instanceId : Int) : Animation;
 
     function setInitialScale(scaleProperties : ScaleProperties) : Void;
 

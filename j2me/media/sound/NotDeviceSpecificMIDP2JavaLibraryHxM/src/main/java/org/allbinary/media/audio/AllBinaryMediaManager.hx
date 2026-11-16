@@ -68,7 +68,7 @@ class AllBinaryMediaManager {
             if (TsUtil.getInstance().compareTo(resource, Manager.TONE_DEVICE_LOCATOR) == 0) {
                 return Manager.createPlayer(resource);
             } else {
-                var inputStream : InputStream = ResourceUtil.getInstance().getResourceAsStream(resource);
+                var inputStream : InputStream = jre.lang.ClassLoader.getSystemResourceAsStream(resource);
                 return MIDPUtil.getInstance().createPlayerFromInputStream(inputStream, AudioContentTypeDataFactory.getInstance().MIME_AUDIO_WAV.getName());
             }
         } else {

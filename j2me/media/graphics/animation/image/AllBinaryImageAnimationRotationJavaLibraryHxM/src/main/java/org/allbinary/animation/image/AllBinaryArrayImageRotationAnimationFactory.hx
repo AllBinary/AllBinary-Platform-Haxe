@@ -30,7 +30,7 @@ class AllBinaryArrayImageRotationAnimationFactory extends BaseImageAnimationFact
     private var angleIncrement : Int;
     // throws Exception
     public static function createFactory(image : Image, dx : Int, dy : Int) : AllBinaryArrayImageRotationAnimationFactory {
-        final arrayImageRotationAnimationFactory : AllBinaryArrayImageRotationAnimationFactory = new AllBinaryArrayImageRotationAnimationFactory(image, image.getWidth(), image.getHeight(), AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity(), AnimationBehaviorFactory.getInstance());
+        final arrayImageRotationAnimationFactory : AllBinaryArrayImageRotationAnimationFactory = new AllBinaryArrayImageRotationAnimationFactory(image, image.getWidth(), image.getHeight(), jre.lang.JavaNumber.divide(AngleFactory.getInstance().TOTAL_ANGLE, GameConfigurationCentral.getInstance().getGameControlFidelity()), AnimationBehaviorFactory.getInstance());
         arrayImageRotationAnimationFactory.initDXY(dx, dy);
         return arrayImageRotationAnimationFactory;
     }
@@ -50,7 +50,7 @@ class AllBinaryArrayImageRotationAnimationFactory extends BaseImageAnimationFact
 
     // throws Exception
     private function init() : Void {
-        this.setImageArray(ImageToRotationImageArrayUtil.getInstance().generate(this.getImage(), this.getAngleIncrement(), Std.int(AngleFactory.getInstance().TOTAL_ANGLE)));
+        this.setImageArray(ImageToRotationImageArrayUtil.getInstance().generate(this.getImage(), this.getAngleIncrement(), jre.lang.JavaNumber.toInt(AngleFactory.getInstance().TOTAL_ANGLE)));
     }
 
     private function initDXY(dx : Int, dy : Int) : Void {
@@ -61,7 +61,7 @@ class AllBinaryArrayImageRotationAnimationFactory extends BaseImageAnimationFact
     }
 
     // throws Exception
-    public override function getInstance(instanceId : Int) : Animation {
+    public override function getInstanceFor(instanceId : Int) : Animation {
         final scaledImageArray : haxe.ds.Vector<Image> = haxe.ds.Vector.fromArrayCopy([for (index in 0...this.imageArray.length) null]);
         final size : Int = scaledImageArray.length;
         final image : Image = this.getImage();
@@ -70,9 +70,9 @@ class AllBinaryArrayImageRotationAnimationFactory extends BaseImageAnimationFact
         }
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
             this.animationFactoryImageScaleUtil.processAdjust(this);
-            return new AdjustedImageArrayRotationAnimation(scaledImageArray, AngleInfo.getInstance(this.getAngleIncrement()), Std.int(AngleFactory.getInstance().TOTAL_ANGLE), this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
+            return new AdjustedImageArrayRotationAnimation(scaledImageArray, AngleInfo.getInstance(this.getAngleIncrement()), jre.lang.JavaNumber.toInt(AngleFactory.getInstance().TOTAL_ANGLE), this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
-            return new ImageArrayRotationAnimation(scaledImageArray, AngleInfo.getInstance(this.getAngleIncrement()), Std.int(AngleFactory.getInstance().TOTAL_ANGLE), this.animationBehaviorFactory.getOrCreateInstance());
+            return new ImageArrayRotationAnimation(scaledImageArray, AngleInfo.getInstance(this.getAngleIncrement()), jre.lang.JavaNumber.toInt(AngleFactory.getInstance().TOTAL_ANGLE), this.animationBehaviorFactory.getOrCreateInstance());
         }
     }
 

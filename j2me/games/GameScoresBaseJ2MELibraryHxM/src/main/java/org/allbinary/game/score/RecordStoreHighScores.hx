@@ -79,7 +79,7 @@ class RecordStoreHighScores extends HighScores {
     public override function addHighScore(newHighScore : HighScore) : Void {
         var recordStore : RecordStore = NullRecordStore.NULL_RECORD_STORE;
         try {
-            this.logUtil.putF(Std.string(new StringMaker().append("Adding HighScore: ").appendlong(haxe.Int64.ofInt(newHighScore.getScore()))), this, this.commonStrings.ADD);
+            this.logUtil.putF(Std.string(new StringMaker().append("Adding HighScore: ").appendlong(jre.lang.JavaNumber.toInt64(newHighScore.getScore()))), this, this.commonStrings.ADD);
             if (this.isTooManyHighScores()) {
                 this.logUtil.putF("Removing Lowest Score", this, this.commonStrings.ADD);
                 this.removeLowestHighScore();
@@ -127,13 +127,13 @@ class RecordStoreHighScores extends HighScores {
                     final name : String = inputStream.readUTF();
                     final nextScore : haxe.Int64 = inputStream.readLong();
                     final nextCurrentHighScore : HighScore = new HighScore(id, name, GameInfo.NONE, nextScore);
-                    if (this.recordComparatorInterface.compare(nextCurrentHighScore.getAsBytes(), bestHighScore.getAsBytes()) == RecordComparator.FOLLOWS) {
+                    if (this.recordComparatorInterface.compare(nextCurrentHighScore.getAsBytes(), bestHighScore.getAsBytes()) == javax.microedition.rms.RecordComparator.RecordComparatorFields.FOLLOWS) {
                         bestHighScore = nextCurrentHighScore;
                     }
                 }
             }
             if (bestHighScore.getId() != -1) {
-                this.logUtil.putF(Std.string(new StringMaker().append("Removing Lowest HighScore: ").appendlong(haxe.Int64.ofInt(bestHighScore.getScore()))), this, this.commonStrings.LOAD);
+                this.logUtil.putF(Std.string(new StringMaker().append("Removing Lowest HighScore: ").appendlong(jre.lang.JavaNumber.toInt64(bestHighScore.getScore()))), this, this.commonStrings.LOAD);
                 recordStore.deleteRecord(bestHighScore.getId());
             }
         } catch (e : RecordStoreException) {
@@ -178,7 +178,7 @@ class RecordStoreHighScores extends HighScores {
                         var lastIndex : Int = size;
                         for (index in 0...size) {
                             final highScore : HighScore = (cast list.objectArray[index] : HighScore);
-                            if (this.recordComparatorInterface.compare(newHighScore.getAsBytes(), highScore.getAsBytes()) == RecordComparator.PRECEDES) {
+                            if (this.recordComparatorInterface.compare(newHighScore.getAsBytes(), highScore.getAsBytes()) == javax.microedition.rms.RecordComparator.RecordComparatorFields.PRECEDES) {
                                 lastIndex = index;
                                 break;
                             }
@@ -233,7 +233,7 @@ class RecordStoreHighScores extends HighScores {
                 final size : Int = list.size();
                 for (index in 0...size) {
                     final highScore : HighScore = (cast list.objectArray[index] : HighScore);
-                    if (this.recordComparatorInterface.compare(newHighScore.getAsBytes(), highScore.getAsBytes()) == RecordComparator.FOLLOWS) {
+                    if (this.recordComparatorInterface.compare(newHighScore.getAsBytes(), highScore.getAsBytes()) == javax.microedition.rms.RecordComparator.RecordComparatorFields.FOLLOWS) {
                         this.logUtil.putF("Obtained a High Score", this, "isBestScore");
                         return true;
                     }
@@ -247,7 +247,7 @@ class RecordStoreHighScores extends HighScores {
         }
     }
 
-    public function toString() : String {
+    public override function toString() : String {
         final stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append(super.toString());
         final list : BasicArrayList = this.getList();

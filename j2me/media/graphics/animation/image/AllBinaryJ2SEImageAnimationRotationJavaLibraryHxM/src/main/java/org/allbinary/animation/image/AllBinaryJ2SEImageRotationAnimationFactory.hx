@@ -56,7 +56,7 @@ class AllBinaryJ2SEImageRotationAnimationFactory extends BaseImageAnimationFacto
     }
 
     // throws Exception
-    public override function getInstance(instanceId : Int) : Animation {
+    public override function getInstanceFor(instanceId : Int) : Animation {
         final imageCopyUtil : ImageCopyUtil = ImageCopyUtil.getInstance();
         final canvasImage : Image = this.getCanvasImage();
         var scaledImage : Image = this.animationFactoryImageScaleUtil.createImage(canvasImage, this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);

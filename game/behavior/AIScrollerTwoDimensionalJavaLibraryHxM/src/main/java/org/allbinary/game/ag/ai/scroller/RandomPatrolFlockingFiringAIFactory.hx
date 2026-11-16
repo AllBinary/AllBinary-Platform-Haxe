@@ -24,7 +24,7 @@ import org.allbinary.util.ABHashtable;
 
 class RandomPatrolFlockingFiringAIFactory implements ArtificialIntelligenceInterfaceFactoryInterface {
     // throws Exception
-    public function getInstance(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
+    public function getInstanceFor(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
         final artificialIntelligenceInterface : haxe.ds.Vector<ArtificialIntelligenceInterface> = haxe.ds.Vector.fromArrayCopy([for (index in 0...2) null]);
         artificialIntelligenceInterface[0] = new RandomPatrolAI(hashtable, ownerLayerInterface, gameInput);
         artificialIntelligenceInterface[1] = new TimedFireAI(1800, ownerLayerInterface, gameInput);

@@ -32,10 +32,10 @@ class AngleIncrementInfo {
         this.angleIncrement = angleIncrement;
         final angleFactory : AngleFactory = AngleFactory.getInstance();
         final smallIntegerSingletonFactory : SmallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
-        this.DOWN_FRAME = smallIntegerSingletonFactory.getAt(angleFactory.DOWN.getValue() / this.angleIncrement);
-        this.UP_FRAME = smallIntegerSingletonFactory.getAt(Std.int(angleFactory.UP.getValue()));
-        this.LEFT_FRAME = smallIntegerSingletonFactory.getAt(angleFactory.LEFT.getValue() / this.angleIncrement);
-        this.RIGHT_FRAME = smallIntegerSingletonFactory.getAt(angleFactory.RIGHT.getValue() / this.angleIncrement);
+        this.DOWN_FRAME = smallIntegerSingletonFactory.getAt(jre.lang.JavaNumber.divide(angleFactory.DOWN.getValue(), this.angleIncrement));
+        this.UP_FRAME = smallIntegerSingletonFactory.getAt(jre.lang.JavaNumber.toInt(angleFactory.UP.getValue()));
+        this.LEFT_FRAME = smallIntegerSingletonFactory.getAt(jre.lang.JavaNumber.divide(angleFactory.LEFT.getValue(), this.angleIncrement));
+        this.RIGHT_FRAME = smallIntegerSingletonFactory.getAt(jre.lang.JavaNumber.divide(angleFactory.RIGHT.getValue(), this.angleIncrement));
     }
 
     private final frameUtil : FrameUtil = FrameUtil.getInstance();
@@ -54,19 +54,19 @@ class AngleIncrementInfo {
 
     public function getClosestGeneralDirection(angle : Int) : Int {
         var closestDirection : Null<Int> = SmallIntegerSingletonFactory.getInstance().getAt(360);
-        if (Std.int(this.UP_FRAME) - angle < Std.int(closestDirection) - angle) {
+        if (jre.lang.JavaNumber.toInt(this.UP_FRAME) - angle < jre.lang.JavaNumber.toInt(closestDirection) - angle) {
             closestDirection = this.UP_FRAME;
         }
-        if (Std.int(this.DOWN_FRAME) - angle < Std.int(closestDirection) - angle) {
+        if (jre.lang.JavaNumber.toInt(this.DOWN_FRAME) - angle < jre.lang.JavaNumber.toInt(closestDirection) - angle) {
             closestDirection = this.DOWN_FRAME;
         }
-        if (Std.int(this.LEFT_FRAME) - angle < Std.int(closestDirection) - angle) {
+        if (jre.lang.JavaNumber.toInt(this.LEFT_FRAME) - angle < jre.lang.JavaNumber.toInt(closestDirection) - angle) {
             closestDirection = this.LEFT_FRAME;
         }
-        if (Std.int(this.RIGHT_FRAME) - angle < Std.int(closestDirection) - angle) {
+        if (jre.lang.JavaNumber.toInt(this.RIGHT_FRAME) - angle < jre.lang.JavaNumber.toInt(closestDirection) - angle) {
             closestDirection = this.RIGHT_FRAME;
         }
-        return Std.int(closestDirection);
+        return jre.lang.JavaNumber.toInt(closestDirection);
     }
 
 }

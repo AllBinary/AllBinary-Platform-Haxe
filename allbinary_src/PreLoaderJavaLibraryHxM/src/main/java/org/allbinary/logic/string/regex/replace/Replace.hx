@@ -36,30 +36,30 @@ class Replace {
         if (args.length == 2 && Std.isOfType(args[0], String) && Std.isOfType(args[0], String)) {
             final key : String = args[0];
             final value : String = args[1];
-            this._new0(key, value);
+            this._newReplace0(key, value);
         }
         else if (args.length == 2) {
             final keys : haxe.ds.Vector<String> = args[0];
             final values : haxe.ds.Vector<String> = args[1];
-            this._new1(keys, values);
+            this._newReplace1(keys, values);
         }
         else if (args.length == 1) {
             final hashMap : HashMap<Dynamic, Dynamic> = args[0];
-            this._new2(hashMap);
+            this._newReplace2(hashMap);
         }
     }
 
-    private function _new0(key : String, value : String) : Void {
+    private function _newReplace0(key : String, value : String) : Void {
         this.hashMap = StdUtil.getInstance().createHashMap();
         this.hashMap.put(haxe.ds.Vector.fromArrayCopy([key]), haxe.ds.Vector.fromArrayCopy([value]));
     }
 
-    private function _new1(keys : haxe.ds.Vector<String>, values : haxe.ds.Vector<String>) : Void {
+    private function _newReplace1(keys : haxe.ds.Vector<String>, values : haxe.ds.Vector<String>) : Void {
         this.hashMap = StdUtil.getInstance().createHashMap();
         this.hashMap.put(keys, values);
     }
 
-    private function _new2(hashMap : HashMap<Dynamic, Dynamic>) : Void {
+    private function _newReplace2(hashMap : HashMap<Dynamic, Dynamic>) : Void {
         this.hashMap = hashMap;
     }
 
@@ -121,7 +121,7 @@ class Replace {
             }
         }
         if (totalNumberOfReplaces > 0) {
-            if (LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE)) {
+            if (LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().REPLACE)) {
                 this.logUtil.putF("Total Number Of Replaces: " + totalNumberOfReplaces, this, this.ALL);
             }
         }
@@ -157,7 +157,7 @@ class Replace {
                 }
             }
         }
-        if (LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE)) {
+        if (LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().REPLACE)) {
             this.logUtil.putF("Total Number Of Replaces: " + totalNumberOfReplaces, this, this.ALL);
         }
         return replace;

@@ -25,7 +25,7 @@ import org.allbinary.util.CircularIndexUtil;
 class VectorBaseRotationAnimation extends RotationAnimation implements VectorAnimationInterface {
     private var currentPoints : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>> = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
     public function new(angleInfo : AngleInfo, currentPoints : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>>, basicColor : BasicColor, animationBehavior : AnimationBehavior) {
-        super(angleInfo, CircularIndexUtil.createInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
+        super(angleInfo, CircularIndexUtil.createInstance(jre.lang.JavaNumber.divide(360, angleInfo.getAngleIncrementInfo().getAngleIncrement())), animationBehavior);
         this.setPoints(currentPoints);
         this.setBasicColorP(basicColor);
     }
@@ -88,7 +88,7 @@ class VectorBaseRotationAnimation extends RotationAnimation implements VectorAni
         }
     }
 
-    public override function getPoints(frame : Int) : haxe.ds.Vector<haxe.ds.Vector<Int>> {
+    public function getPoints(frame : Int) : haxe.ds.Vector<haxe.ds.Vector<Int>> {
         return this.currentPoints[frame];
     }
 

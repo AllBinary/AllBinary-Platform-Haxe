@@ -41,7 +41,7 @@ class CompleteMotionGestureInputEvent extends AllBinaryEventObject implements Co
         this.name = name;
     }
 
-    public override function getName() : String {
+    public function getName() : String {
         return this.name;
     }
 

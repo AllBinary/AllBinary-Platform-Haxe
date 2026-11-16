@@ -25,7 +25,7 @@ class ColorFillPaintableFactory {
         return ColorFillPaintableFactory.instance;
     }
 
-    public function getInstance(basicColor : BasicColor, forThreedCanvas : Bool) : ColorFillBasePaintable {
+    public function getInstanceFor(basicColor : BasicColor, forThreedCanvas : Bool) : ColorFillBasePaintable {
         final operatingSystem : GenericOperatingSystem = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
         if (operatingSystem.isOverScan()) {
             return new OverScanColorFillPaintable(basicColor);

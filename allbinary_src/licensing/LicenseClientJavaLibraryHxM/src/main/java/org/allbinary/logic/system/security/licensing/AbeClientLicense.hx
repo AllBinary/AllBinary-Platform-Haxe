@@ -48,7 +48,7 @@ class AbeClientLicense implements AbeLicenseInterface {
         final stringUtil : StringUtil = StringUtil.getInstance();
         this.setSpecial(stringUtil.getNonNull((cast hashtable.get(abeClientInformationData.SPECIAL) : String)));
         var licenseTypeString : String = stringUtil.getNonNull((cast hashtable.get(abeClientInformationData.LICENSE_TYPE) : String));
-        this.licenseType = LicenseTypeFactory.getInstance().getInstance(licenseTypeString);
+        this.licenseType = LicenseTypeFactory.getInstance().getInstanceFor(licenseTypeString);
     }
 
     public static function hasRequiredKeys(resultHashtable : ABHashtable<Any, Any>) : Bool {

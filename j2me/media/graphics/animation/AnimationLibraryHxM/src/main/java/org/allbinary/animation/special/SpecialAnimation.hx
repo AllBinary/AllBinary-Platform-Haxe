@@ -34,10 +34,10 @@ class SpecialAnimation extends IndexedAnimation implements SpecialAnimationInter
         indexedAnimationBehavior.loopIndex++;
     }
 
-    public override function setLastFrame() : Void {
+    public function setLastFrame() : Void {
     }
 
-    public override function isComplete() : Bool {
+    public function isComplete() : Bool {
         return false;
     }
 

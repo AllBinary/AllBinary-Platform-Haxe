@@ -36,8 +36,8 @@ class NoDecimalTrigTable {
     private final noDecimalCos : haxe.ds.Vector<haxe.Int64>;
     private final noDecimalTan : haxe.ds.Vector<haxe.Int64>;
     public function new() {
-        final TOTAL_ANGLE : Int = Std.int(AngleFactory.getInstance().TOTAL_ANGLE);
-        final MAX_VALUE : haxe.Int64 = (haxe.Int64.ofInt(Integer.MAX_VALUE));
+        final TOTAL_ANGLE : Int = jre.lang.JavaNumber.toInt(AngleFactory.getInstance().TOTAL_ANGLE);
+        final MAX_VALUE : haxe.Int64 = (jre.lang.JavaNumber.toInt64(Integer.MAX_VALUE));
         this.noDecimalSin = haxe.ds.Vector.fromArrayCopy([for (index in 0...TOTAL_ANGLE) haxe.Int64.ofInt(0)]);
         this.noDecimalCos = haxe.ds.Vector.fromArrayCopy([for (index in 0...TOTAL_ANGLE) haxe.Int64.ofInt(0)]);
         this.noDecimalTan = haxe.ds.Vector.fromArrayCopy([for (index in 0...TOTAL_ANGLE + 1) haxe.Int64.ofInt(0)]);
@@ -1139,8 +1139,8 @@ class NoDecimalTrigTable {
     public var SCALE : Int = 10000;
     // throws Exception
     public function antiTan(dx : Int, dy : Int) : Int {
-        final MAX_VALUE : haxe.Int64 = (haxe.Int64.ofInt(Integer.MAX_VALUE));
-        final MIN_VALUE : haxe.Int64 = (haxe.Int64.ofInt(Integer.MIN_VALUE));
+        final MAX_VALUE : haxe.Int64 = (jre.lang.JavaNumber.toInt64(Integer.MAX_VALUE));
+        final MIN_VALUE : haxe.Int64 = (jre.lang.JavaNumber.toInt64(Integer.MIN_VALUE));
         var ratio : haxe.Int64 = (MAX_VALUE - 1);
         if (dy != 0) {
             var dxl : haxe.Int64 = (haxe.Int64.ofInt(dx));
@@ -1238,7 +1238,7 @@ class NoDecimalTrigTable {
                 angleOfTarget = this.antiTan(dx[index], dy[index2]);
                 angle = angleFactory.getAt(angleOfTarget);
                 stringMaker.delete(0, stringMaker.length());
-                PreLogUtil.put(Std.string(stringMaker.append(CommonLabels.getInstance().INDEX_LABEL).appendint(index).append(" index2: ").appendint(index2).append(PositionStrings.getInstance().DX_LABEL).appendint(dx[index]).append(PositionStrings.getInstance().DY_LABEL).appendint(dy[index2]).append(TARGET_ANGLE).appendshort(angleOfTarget).append(CommonSeps.getInstance().EQUALS).appendshort(Std.int(angle.getValue()))), this, METHOD_NAME);
+                PreLogUtil.put(Std.string(stringMaker.append(CommonLabels.getInstance().INDEX_LABEL).appendint(index).append(" index2: ").appendint(index2).append(PositionStrings.getInstance().DX_LABEL).appendint(dx[index]).append(PositionStrings.getInstance().DY_LABEL).appendint(dy[index2]).append(TARGET_ANGLE).appendshort(angleOfTarget).append(CommonSeps.getInstance().EQUALS).appendshort(jre.lang.JavaNumber.toInt(angle.getValue()))), this, METHOD_NAME);
             }
         }
         angleOfTarget = this.antiTan(dx[0], dy[0]);

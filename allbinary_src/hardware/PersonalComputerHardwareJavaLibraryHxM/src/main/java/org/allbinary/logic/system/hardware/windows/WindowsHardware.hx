@@ -75,19 +75,19 @@ class WindowsHardware implements HardwareInterface {
     }
 
     private function getComponentType(component : String) : String {
-        if (component.indexOf(Std.string(this.componentFactory.ETHERNET)) >= 0) {
+        if (component.indexOf(jre.lang.JavaString.text(Std.string(this.componentFactory.ETHERNET))) >= 0) {
             return Std.string(this.componentFactory.ETHERNET);
-        } else if (component.indexOf(Std.string(this.componentFactory.BRIDGE)) >= 0) {
+        } else if (component.indexOf(jre.lang.JavaString.text(Std.string(this.componentFactory.BRIDGE))) >= 0) {
             return Std.string(this.componentFactory.BRIDGE);
-        } else if (component.indexOf(Std.string(this.componentFactory.IDE)) >= 0) {
+        } else if (component.indexOf(jre.lang.JavaString.text(Std.string(this.componentFactory.IDE))) >= 0) {
             return Std.string(this.componentFactory.IDE);
-        } else if (component.indexOf(Std.string(this.componentFactory.MULTIMEDIA)) >= 0) {
+        } else if (component.indexOf(jre.lang.JavaString.text(Std.string(this.componentFactory.MULTIMEDIA))) >= 0) {
             return Std.string(this.componentFactory.MULTIMEDIA);
-        } else if (component.indexOf(Std.string(this.componentFactory.SCSI)) >= 0) {
+        } else if (component.indexOf(jre.lang.JavaString.text(Std.string(this.componentFactory.SCSI))) >= 0) {
             return Std.string(this.componentFactory.SCSI);
-        } else if (component.indexOf(Std.string(this.componentFactory.USB)) >= 0) {
+        } else if (component.indexOf(jre.lang.JavaString.text(Std.string(this.componentFactory.USB))) >= 0) {
             return Std.string(this.componentFactory.USB);
-        } else if (component.indexOf(Std.string(this.componentFactory.VGA)) >= 0) {
+        } else if (component.indexOf(jre.lang.JavaString.text(Std.string(this.componentFactory.VGA))) >= 0) {
             return Std.string(this.componentFactory.VGA);
         } else {
             return null;

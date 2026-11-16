@@ -18,7 +18,7 @@ package org.allbinary.input.motion.button;
 
 class TouchButtonsBuilderFactory {
     public static final NO_TOUCH_BUTTON_BUILDER_FACTORY : TouchButtonsBuilderFactory = new TouchButtonsBuilderFactory();
-    public function getInstance() : BaseTouchInput {
+    public function getInstanceFor() : BaseTouchInput {
         return NoButtonsTouchInputFactory.getInstance();
     }
 

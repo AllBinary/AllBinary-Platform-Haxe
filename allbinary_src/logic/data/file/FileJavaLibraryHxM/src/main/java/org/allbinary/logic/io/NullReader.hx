@@ -22,16 +22,16 @@ class NullReader extends Reader {
     public static final NULL_READER : NullReader = new NullReader();
     public override function read(...args : Dynamic) : Dynamic {
         if (args.length == 0) {
-            return this.read();
+            return this.read_();
         }
         if (args.length == 3) {
             return this.read_charArray_int_int(args[0], args[1], args[2]);
         }
-        throw new jre.lang.IllegalArgumentException("No matching overload: read");
+        return super.read(...args);
     }
 
     // throws IOException
-    public override function read() : Int {
+    public override function read_() : Int {
         return -1;
     }
 

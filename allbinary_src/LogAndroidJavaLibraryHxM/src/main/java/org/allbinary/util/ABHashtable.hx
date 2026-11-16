@@ -22,18 +22,18 @@ class ABHashtable<K, V> extends Hashtable<K, V> {
         if (args.length == 1) {
             final initialCapacity : Int = args[0];
             super(initialCapacity);
-            this._new0(initialCapacity);
+            this._newABHashtable0(initialCapacity);
         }
         else if (args.length == 0) {
             super();
-            this._new1();
+            this._newABHashtable1();
         }
     }
 
-    private function _new0(initialCapacity : Int) : Void {
+    private function _newABHashtable0(initialCapacity : Int) : Void {
     }
 
-    private function _new1() : Void {
+    private function _newABHashtable1() : Void {
     }
 
 }

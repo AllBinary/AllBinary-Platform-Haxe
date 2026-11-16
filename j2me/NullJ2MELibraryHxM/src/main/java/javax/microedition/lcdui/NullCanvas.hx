@@ -56,7 +56,7 @@ class NullCanvas extends Canvas {
     public function process() : Void {
     }
 
-    public override function paint(graphics : Graphics) : Void {
+    public function paint(graphics : Graphics) : Void {
     }
 
     public function destroy() : Void {

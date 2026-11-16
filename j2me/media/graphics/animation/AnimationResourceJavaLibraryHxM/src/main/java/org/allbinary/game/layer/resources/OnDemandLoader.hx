@@ -45,7 +45,7 @@ class OnDemandLoader {
             }
             this.initAll(imageCache, loadingString);
         } else if (level != resourceLoadingLevelFactory.LOAD_ALL.getLevel()) {
-            final layerPlacementInterfaceBasicArrayListFactoryInterface : LayerPlacementInterfaceBasicArrayListFactoryInterface = this.gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory.getInstance(level);
+            final layerPlacementInterfaceBasicArrayListFactoryInterface : LayerPlacementInterfaceBasicArrayListFactoryInterface = this.gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory.getInstanceFor(level);
             this.initLevel(layerPlacementInterfaceBasicArrayListFactoryInterface, imageCache, level, loadingString);
         }
     }

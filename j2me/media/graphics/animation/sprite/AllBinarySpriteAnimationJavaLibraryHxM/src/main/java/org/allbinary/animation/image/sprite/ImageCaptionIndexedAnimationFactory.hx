@@ -64,7 +64,7 @@ class ImageCaptionIndexedAnimationFactory implements AnimationInterfaceFactoryIn
     }
 
     // throws Exception
-    public function getInstance(instanceId : Int) : Animation {
+    public function getInstanceFor(instanceId : Int) : Animation {
         final scaledImage : Image = this.animationFactoryImageScaleUtil.createImage(this.captionImage, this.captionImage.getWidth(), this.captionImage.getHeight(), this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         final animationInterface : Animation = new ImageAnimation(scaledImage, this.animationBehaviorFactory.getOrCreateInstance());
         final sprite : Sprite = this.animationFactorySpriteScaleUtil.createImage(this.spriteMovieImage, this.frameWidth, this.frameHeight, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);

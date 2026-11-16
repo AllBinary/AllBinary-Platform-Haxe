@@ -41,18 +41,18 @@ class Cpu implements CpuInterface implements HardwareComponentInterface {
     public function new(...args : Dynamic) {
         if (args.length == 1) {
             final filePath : String = args[0];
-            this._new0(filePath);
+            this._newCpu0(filePath);
         }
         else if (args.length == 0) {
-            this._new1();
+            this._newCpu1();
         }
     }
 
-    private function _new0(filePath : String) : Void {
+    private function _newCpu0(filePath : String) : Void {
         this.init(filePath);
     }
 
-    private function _new1() : Void {
+    private function _newCpu1() : Void {
         this.init(this.CPUFILE);
     }
 
@@ -105,28 +105,28 @@ class Cpu implements CpuInterface implements HardwareComponentInterface {
                         var key : String = nextLine.substring(0, index);
                         var valueIndex : Int = index + 1;
                         var value : String = nextLine.substring(valueIndex, nextLine.length);
-                        if (key.indexOf(Std.string(CpuInfo.PROCESSOR)) >= 0) {
+                        if (key.indexOf(jre.lang.JavaString.text(Std.string(CpuInfo.PROCESSOR))) >= 0) {
                             this.cpuHashMap.put(CpuInfo.PROCESSOR, value);
                         }
-                        if (key.indexOf(Std.string(CpuInfo.VENDORID)) >= 0) {
+                        if (key.indexOf(jre.lang.JavaString.text(Std.string(CpuInfo.VENDORID))) >= 0) {
                             this.cpuHashMap.put(CpuInfo.VENDORID, value);
                         }
-                        if (key.indexOf(Std.string(CpuInfo.CPUFAMILY)) >= 0) {
+                        if (key.indexOf(jre.lang.JavaString.text(Std.string(CpuInfo.CPUFAMILY))) >= 0) {
                             this.cpuHashMap.put(CpuInfo.CPUFAMILY, value);
                         }
-                        if (key.indexOf(Std.string(CpuInfo.MODEL)) >= 0) {
+                        if (key.indexOf(jre.lang.JavaString.text(Std.string(CpuInfo.MODEL))) >= 0) {
                             this.cpuHashMap.put(CpuInfo.MODEL, value);
                         }
-                        if (key.indexOf(Std.string(CpuInfo.MODELNAME)) >= 0) {
+                        if (key.indexOf(jre.lang.JavaString.text(Std.string(CpuInfo.MODELNAME))) >= 0) {
                             this.cpuHashMap.put(CpuInfo.MODELNAME, value);
                         }
-                        if (key.indexOf(Std.string(CpuInfo.STEPPING)) >= 0) {
+                        if (key.indexOf(jre.lang.JavaString.text(Std.string(CpuInfo.STEPPING))) >= 0) {
                             this.cpuHashMap.put(CpuInfo.STEPPING, value);
                         }
-                        if (key.indexOf(Std.string(CpuInfo.CPUMHZ)) >= 0) {
+                        if (key.indexOf(jre.lang.JavaString.text(Std.string(CpuInfo.CPUMHZ))) >= 0) {
                             this.cpuHashMap.put(CpuInfo.CPUMHZ, value);
                         }
-                        if (key.indexOf(Std.string(CpuInfo.CACHESIZE)) >= 0) {
+                        if (key.indexOf(jre.lang.JavaString.text(Std.string(CpuInfo.CACHESIZE))) >= 0) {
                             this.cpuHashMap.put(CpuInfo.CACHESIZE, value);
                         }
                     }

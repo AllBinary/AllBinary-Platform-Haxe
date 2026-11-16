@@ -24,7 +24,7 @@ import org.allbinary.util.ABHashtable;
 
 class KeyPressesAIFactory implements ArtificialIntelligenceInterfaceFactoryInterface {
     // throws Exception
-    public function getInstance(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
+    public function getInstanceFor(hashtable : ABHashtable<Any, Any>, ownerLayerInterface : AllBinaryLayer, gameInput : GameInput) : ArtificialIntelligenceInterface {
         final isSingleKeyProcessing : Bool = InputFeatureFactory.getInstance().isSingleKeyProcessing();
         if (isSingleKeyProcessing) {
             return new KeyPressesAI(hashtable, ownerLayerInterface, gameInput);

@@ -22,7 +22,7 @@ class UniformLightColorOpenGLProcessor extends OpenGLObject3dProcessor {
         super();
     }
 
-    public override function process(gl : GL10, unused : Any) : Void {
+    public override function process_GL10_Any(gl : GL10, unused : Any) : Void {
     }
 
 }

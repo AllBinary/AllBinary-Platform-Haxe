@@ -43,7 +43,7 @@ class StraightMultiProjectileWeaponPart extends BasicWeaponPart {
     // throws Exception
     public override function processScore(allbinaryLayerManager : AllBinaryLayerManager, angle : Int, otherAngle : Int, weaponProperties : WeaponProperties, scoreableInterface : ScoreableInterface) : Void {
         final sourceLayerInterface : AllBinaryLayer = this.getOwnerLayerInterface();
-        final reducedWidth : Int = (sourceLayerInterface.getWidth() * 8 / 10);
+        final reducedWidth : Int = (jre.lang.JavaNumber.divide(sourceLayerInterface.getWidth() * 8, 10));
         final halfWidth : Int = (reducedWidth >> 1);
         final x : Int = this.relativeRelationship.getX();
         final y : Int = this.relativeRelationship.getY();
@@ -55,10 +55,10 @@ class StraightMultiProjectileWeaponPart extends BasicWeaponPart {
         final increment : Int = Std.int(reducedWidth / (this.total - 1));
         var next : Int = -halfWidth;
         for (index in 0...this.total) {
-            sine = haxe.Int64.ofInt((next * this.noDecimalTrigTable.sin(angle)));
-            beamX = Std.int((sine / this.noDecimalTrigTable.SCALE));
-            cosine = haxe.Int64.ofInt((next * this.noDecimalTrigTable.cos(angle)));
-            beamY = -Std.int((cosine / this.noDecimalTrigTable.SCALE));
+            sine = jre.lang.JavaNumber.toInt64((next * this.noDecimalTrigTable.sin(angle)));
+            beamX = jre.lang.JavaNumber.toInt((sine / this.noDecimalTrigTable.SCALE));
+            cosine = jre.lang.JavaNumber.toInt64((next * this.noDecimalTrigTable.cos(angle)));
+            beamY = -jre.lang.JavaNumber.toInt((cosine / this.noDecimalTrigTable.SCALE));
             weaponLayer = this.weaponLayerCircularStaticPool.getInstanceWeaponLayer(sourceLayerInterface, x + beamX, y + beamY, 0, angle, otherAngle, weaponProperties, scoreableInterface);
             allbinaryLayerManager.append(weaponLayer);
             next += increment;

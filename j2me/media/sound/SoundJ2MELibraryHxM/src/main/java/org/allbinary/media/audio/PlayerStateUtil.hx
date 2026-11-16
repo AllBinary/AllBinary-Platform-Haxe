@@ -31,15 +31,15 @@ class PlayerStateUtil {
     public final STARTED : String = "STARTED";
     public final CLOSED : String = "CLOSED";
     public function convert(state : Int) : String {
-        if (state == Player.UNREALIZED) {
+        if (state == javax.microedition.media.Player.PlayerFields.UNREALIZED) {
             return this.UNREALIZED;
-        } else if (state == Player.REALIZED) {
+        } else if (state == javax.microedition.media.Player.PlayerFields.REALIZED) {
             return this.REALIZED;
-        } else if (state == Player.PREFETCHED) {
+        } else if (state == javax.microedition.media.Player.PlayerFields.PREFETCHED) {
             return this.PREFETCHED;
-        } else if (state == Player.STARTED) {
+        } else if (state == javax.microedition.media.Player.PlayerFields.STARTED) {
             return this.STARTED;
-        } else if (state == Player.CLOSED) {
+        } else if (state == javax.microedition.media.Player.PlayerFields.CLOSED) {
             return this.CLOSED;
         }
         return this.commonStrings.UNKNOWN;

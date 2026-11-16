@@ -47,7 +47,7 @@ class BasicPersitance {
         var size : Int = this.idList.size();
         for (index in 0...size) {
             var integer : Null<Int> = (cast this.idList.objectArray[index] : Null<Int>);
-            this.delete(abeClientInformation, Std.int(integer));
+            this.delete(abeClientInformation, jre.lang.JavaNumber.toInt(integer));
         }
         this.clear();
     }

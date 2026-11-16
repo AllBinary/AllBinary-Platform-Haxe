@@ -43,12 +43,12 @@ class BasicHighScoresFactory extends HighScoresBase {
     private final PERSONAL_HIGH_SCORES : String = "Personal Top Scores";
     private final WORLD_TOP_SCORES : String = "World Top Scores";
     private final FETCH : String = "fetchHighScores";
-    public function fetchHighScores(gameInfo : GameInfo, highScoresResultsListener : HighScoresResultsListener) : Void {
+    public override function fetchHighScores(gameInfo : GameInfo, highScoresResultsListener : HighScoresResultsListener) : Void {
         this.logUtil.putF("Getting Remote/Local HighScores", this, this.FETCH);
         this.fetchHighScoresPreload(gameInfo, highScoresResultsListener, true);
     }
 
-    public function fetchHighScoresPreload(gameInfo : GameInfo, highScoresResultsListener : HighScoresResultsListener, preload : Bool) : Void {
+    public override function fetchHighScoresPreload(gameInfo : GameInfo, highScoresResultsListener : HighScoresResultsListener, preload : Bool) : Void {
         SecondaryThreadPool.getInstance().runTask(/* anonymous class body:
             public function run() : Void {
                 final logUtil : LogUtil = LogUtil.getInstance();
@@ -75,7 +75,7 @@ class BasicHighScoresFactory extends HighScoresBase {
 */ new ARunnable());
     }
 
-    public function createHighScoresHelper() : HighScoresHelperBaseInterface {
+    public override function createHighScoresHelper() : HighScoresHelperBaseInterface {
         return new HighScoresHelper2();
     }
 

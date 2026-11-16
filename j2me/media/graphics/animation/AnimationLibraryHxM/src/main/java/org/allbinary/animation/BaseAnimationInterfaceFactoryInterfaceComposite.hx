@@ -24,8 +24,8 @@ class BaseAnimationInterfaceFactoryInterfaceComposite implements AnimationInterf
     }
 
     // throws Exception
-    public function getInstance(instanceId : Int) : Animation {
-        return NullAnimationFactory.getFactoryInstance().getInstance(0);
+    public function getInstanceFor(instanceId : Int) : Animation {
+        return NullAnimationFactory.getFactoryInstance().getInstanceFor(0);
     }
 
     public function getBasicAnimationInterfaceFactoryInterfaceArray() : haxe.ds.Vector<BasicAnimationInterfaceFactoryInterface> {

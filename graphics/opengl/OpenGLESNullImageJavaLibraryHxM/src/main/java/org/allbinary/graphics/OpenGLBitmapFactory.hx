@@ -34,7 +34,7 @@ class OpenGLBitmapFactory extends PlatformBitmapBaseFactory {
         return new OpenGLBitmap(NullUtil.getInstance().NULL_OBJECT);
     }
 
-    public override function createBitmap_Image(image : Image) : PlatformBitmapBase {
+    public function createBitmap_Image(image : Image) : PlatformBitmapBase {
         return new OpenGLBitmap(NullUtil.getInstance().NULL_OBJECT);
     }
 

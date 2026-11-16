@@ -25,11 +25,11 @@ class ImageArrayRotationAnimationCacheable extends AdjustedImageArrayRotationAni
         super(((cast anyType : ImageArrayRotationAnimationInfo)).getImageArray(), ((cast anyType : ImageArrayRotationAnimationInfo)).getAngleInfoP(), ((cast anyType : ImageArrayRotationAnimationInfo)).getTotalAngle(), ((cast anyType : ImageArrayRotationAnimationInfo)).getDx(), ((cast anyType : ImageArrayRotationAnimationInfo)).getDy(), animationBehavior);
     }
 
-    public override function getKey() : Any {
+    public function getKey() : Any {
         return NullUtil.getInstance().NULL_OBJECT;
     }
 
-    public function toString() : String {
+    public override function toString() : String {
         return StringUtil.getInstance().EMPTY_STRING;
     }
 

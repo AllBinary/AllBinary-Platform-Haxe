@@ -22,7 +22,7 @@ class StatePaintable extends Paintable implements StateControlledInterface {
         super();
     }
 
-    public override function setState(state : Int) : Void {
+    public function setState(state : Int) : Void {
     }
 
 }

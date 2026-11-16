@@ -71,7 +71,7 @@ class RemoteHighScores extends HighScores {
         }
     }
 
-    public function addHighScore(newHighScore : HighScore) : Void {
+    public override function addHighScore(newHighScore : HighScore) : Void {
         RemoteHighScoresSubmissionProcessorFactory.getInstance().process(this, this.abeClientInformation, newHighScore);
     }
 

@@ -34,7 +34,7 @@ class NullAnimationFactory implements AnimationInterfaceFactoryInterface impleme
         return NullAnimationFactory.NULL_ANIMATION_FACTORY;
     }
 
-    public function getInstance(instanceId : Int) : Animation {
+    public function getInstanceFor(instanceId : Int) : Animation {
         return this.NULL_ANIMATION;
     }
 

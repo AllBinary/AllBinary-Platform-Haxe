@@ -67,7 +67,7 @@ class GameDifficultyOptions extends CommandForm {
     // throws Exception
     public override function update() : Void {
         this.deleteAll();
-        this.add(this.list, "Difficulty", Choice.EXCLUSIVE);
+        this.add(this.list, "Difficulty", javax.microedition.lcdui.Choice.ChoiceFields.EXCLUSIVE);
         super.update();
     }
 
@@ -105,7 +105,7 @@ class GameDifficultyOptions extends CommandForm {
 
     public function getSelectedText() : Int {
         final choiceGroup : ChoiceGroup = (cast this.get(0) : ChoiceGroup);
-        final value : Int = Std.int(Std.string(choiceGroup.getString(choiceGroup.getSelectedIndex())));
+        final value : Int = jre.lang.JavaObject.intValue(Std.string(choiceGroup.getString(choiceGroup.getSelectedIndex())));
         return value;
     }
 

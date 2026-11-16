@@ -18,7 +18,7 @@ package org.allbinary.animation;
 import org.allbinary.graphics.color.BasicColor;
 
 class TimedVectorAnimationFactory implements VectorAnimationFactoryInterface {
-    public function getInstance(points : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>>, basicColor : BasicColor) : VectorAnimation {
+    public function getInstanceFor(points : haxe.ds.Vector<haxe.ds.Vector<haxe.ds.Vector<Int>>>, basicColor : BasicColor) : VectorAnimation {
         return new TimedVectorAnimation(points, basicColor, AnimationBehavior.getInstance());
     }
 

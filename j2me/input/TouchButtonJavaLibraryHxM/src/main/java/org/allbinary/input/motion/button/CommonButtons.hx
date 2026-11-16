@@ -32,8 +32,8 @@ class CommonButtons {
         var displayInfo : DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
         var commonButtonSize : Int = 128;
         while (commonButtonSize > 64) {
-            var totalColumns : Int = displayInfo.getLastWidth() / commonButtonSize;
-            var totalRows : Int = displayInfo.getLastHeight() / commonButtonSize;
+            var totalColumns : Int = jre.lang.JavaNumber.divide(displayInfo.getLastWidth(), commonButtonSize);
+            var totalRows : Int = jre.lang.JavaNumber.divide(displayInfo.getLastHeight(), commonButtonSize);
             var max : Int = totalColumns;
             if (totalRows > max) {
                 max = totalRows;

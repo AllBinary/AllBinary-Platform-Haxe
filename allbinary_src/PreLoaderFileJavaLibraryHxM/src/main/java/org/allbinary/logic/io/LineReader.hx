@@ -44,7 +44,7 @@ class LineReader {
 
     public function hasNext() : Bool {
         try {
-            final nextIndex : Int = this.string.indexOf(CommonSeps.getInstance().NEW_LINE, index);
+            final nextIndex : Int = this.string.indexOf(jre.lang.JavaString.text(CommonSeps.getInstance().NEW_LINE), index);
             if (nextIndex == -1) {
                 return false;
             }
@@ -60,7 +60,7 @@ class LineReader {
     // throws Exception
     public function next() : String {
         try {
-            final nextIndex : Int = this.string.indexOf(CommonSeps.getInstance().NEW_LINE, index);
+            final nextIndex : Int = this.string.indexOf(jre.lang.JavaString.text(CommonSeps.getInstance().NEW_LINE), index);
             if (nextIndex == -1) {
                 throw new jre.lang.JavaException("next() should have been called first");
             }

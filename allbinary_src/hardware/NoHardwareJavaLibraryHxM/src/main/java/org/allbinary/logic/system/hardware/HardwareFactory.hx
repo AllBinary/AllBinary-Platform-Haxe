@@ -28,7 +28,7 @@ class HardwareFactory {
     }
 
     // throws Exception
-    public function getInstance(os : OperatingSystemInterface) : HardwareInterface {
+    public function getInstanceFor(os : OperatingSystemInterface) : HardwareInterface {
         try {
             return this.SINGLETON;
         } catch (e : haxe.Exception) {

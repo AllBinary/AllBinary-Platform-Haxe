@@ -115,9 +115,9 @@ class PathUtil {
 
     // throws Exception
     public function removeNameFromPath(path : String) : AbPath {
-        var endIndex : Int = path.lastIndexOf(this.abPathData.SEPARATOR);
+        var endIndex : Int = path.lastIndexOf(jre.lang.JavaString.text(this.abPathData.SEPARATOR));
         if (endIndex < 0) {
-            endIndex = path.lastIndexOf(this.filePathData.SEPARATORCHAR);
+            endIndex = path.lastIndexOf(jre.lang.JavaString.text(this.filePathData.SEPARATORCHAR));
         }
         if (endIndex < 0) {
             return AbPath.createAbPath();

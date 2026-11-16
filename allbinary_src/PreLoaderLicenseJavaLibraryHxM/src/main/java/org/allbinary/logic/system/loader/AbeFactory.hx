@@ -35,28 +35,28 @@ class AbeFactory {
     public function new() {
     }
 
-    public function getInstance(...args : Dynamic) : Dynamic {
+    public function getInstanceFor(...args : Dynamic) : Dynamic {
         if (args.length == 2) {
-            return this.getInstance_AbeClientInformationInterface_String(args[0], args[1]);
+            return this.getInstanceFor_AbeClientInformationInterface_String(args[0], args[1]);
         }
         if (args.length == 4) {
-            return this.getInstance_AbeClientInformationInterface_String_ClassArray_AnyArray(args[0], args[1], args[2], args[3]);
+            return this.getInstanceFor_AbeClientInformationInterface_String_ClassArray_AnyArray(args[0], args[1], args[2], args[3]);
         }
         throw new jre.lang.IllegalArgumentException("No matching overload: getInstance");
     }
 
     // throws LicensingException
     // synchronized
-    public function getInstance_AbeClientInformationInterface_String(abeClientInformation : AbeClientInformationInterface, className : String) : Any {
+    public function getInstanceFor_AbeClientInformationInterface_String(abeClientInformation : AbeClientInformationInterface, className : String) : Any {
         try {
             return this.getClass(abeClientInformation, className).newInstance();
         } catch (e : LicensingException) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().LOADERERROR)) {
                 this.logUtil.put("Failure for: " + className, this, "getInstance(classname)", e);
             }
             throw e;
         } catch (e : haxe.Exception) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().LOADERERROR)) {
                 this.logUtil.put("Failure for: " + className, this, "getInstance(classname)", e);
             }
             return null;
@@ -65,7 +65,7 @@ class AbeFactory {
 
     // throws LicensingException
     // synchronized
-    public function getInstance_AbeClientInformationInterface_String_ClassArray_AnyArray(abeClientInformation : AbeClientInformationInterface, className : String, classes : haxe.ds.Vector<Class<Dynamic>>, params : haxe.ds.Vector<Any>) : Any {
+    public function getInstanceFor_AbeClientInformationInterface_String_ClassArray_AnyArray(abeClientInformation : AbeClientInformationInterface, className : String, classes : haxe.ds.Vector<Class<Dynamic>>, params : haxe.ds.Vector<Any>) : Any {
         var constructor : Constructor = null;
         try {
             var parent : ClassLoader = WebappClassLoaderInfo.getLoader();
@@ -80,7 +80,7 @@ class AbeFactory {
                 return constructor.newInstance(params);
             }
         } catch (e : LicensingException) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().LOADERERROR)) {
                 var stringBuffer : StringMaker = new StringMaker();
                 stringBuffer.append("Failure for: ");
                 stringBuffer.append(className);
@@ -90,7 +90,7 @@ class AbeFactory {
             }
             throw e;
         } catch (e : haxe.Exception) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().LOADERERROR)) {
                 var stringBuffer : StringMaker = new StringMaker();
                 stringBuffer.append("Failure for: ");
                 stringBuffer.append(className);
@@ -116,12 +116,12 @@ class AbeFactory {
                 return c;
             }
         } catch (e : LicensingException) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().LOADERERROR)) {
                 this.logUtil.put("Failure for: " + className, this, "getClass(className)", e);
             }
             throw e;
         } catch (e : haxe.Exception) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstanceFor().LOADERERROR)) {
                 this.logUtil.put("Failure for: " + className, this, "getClass(className)", e);
             }
             return null;

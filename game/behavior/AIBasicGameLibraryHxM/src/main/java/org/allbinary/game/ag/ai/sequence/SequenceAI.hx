@@ -62,7 +62,7 @@ class SequenceAI extends ArrayAI {
         return SequenceAI.SEQUENCE_AI;
     }
 
-    public function toString() : String {
+    public override function toString() : String {
         final stringBuffer : StringMaker = new StringMaker();
         stringBuffer.append(super.toString());
         stringBuffer.append(" Selected AI: ");
