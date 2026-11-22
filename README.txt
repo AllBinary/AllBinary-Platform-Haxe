@@ -7,7 +7,7 @@ This repo is used to allow developers to skip the Haxe code generation step.
 
 What are some examples game with this Haxe code?
 
-https://allbinary.itch.io (The downloads with "-ts" in the filename are Haxe only builds. Currently that only includes nothing. Also the Haxe builds are not available on Google Play or other stores.)
+https://allbinary.itch.io (The downloads with "-haxe" in the filename are Haxe only builds. Currently that only includes nothing. Also the Haxe builds are not available on Google Play or other stores.)
 
 What is the License?
 
